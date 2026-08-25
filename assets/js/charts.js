@@ -567,24 +567,29 @@
       var deps = geoValuesWithData(ech, data, ix, st.fixed, st.metric, geo);
       var gridSeriesBy = (ch.seriesBy === geo) ? null : ch.seriesBy; // evita colapso de series
 
-      // Líneas no apiladas: cada faceta a su propia escala (auto). Apiladas: eje Y común (base 0).
+      // Cada faceta se escala con SUS propios valores: con eje común, el departamento más grande
+      // aplasta a los chicos contra el piso. Líneas no apiladas -> autoescala de ECharts (min y
+      // max). Apiladas -> máximo propio, pero base 0: el areaStyle rellena hasta el piso del eje,
+      // así que recortarlo dejaría las bandas flotando y sin altura proporcional al valor.
       var lineAdaptive = (ch.type === "line" && !ch.stack && !st.percent);
-      var gmax = 0;
       var fixeds = deps.map(function (dp) { var f = Object.assign({}, st.fixed); f[geo] = dp; return f; });
-      if (!lineAdaptive) {
-        fixeds.forEach(function (f) { gmax = Math.max(gmax, aggMax(ech, data, ix, f, st.metric, gridSeriesBy)); });
-        gmax = niceMax(gmax);
-      }
+      var yMaxes = fixeds.map(function (f) {
+        if (lineAdaptive || st.percent) return null;   // en % el eje va fijo 0-100 (optionFor)
+        return niceMax(aggMax(ech, data, ix, f, st.metric, gridSeriesBy));
+      });
 
       // Leyenda común (si hay series que no sean la geografía).
       var legendNames = null;
       deps.forEach(function (dp, i) {
+        var built = optionFor(ech, data, ix, fixeds[i], st.metric, { forGrid: true, yMax: yMaxes[i], seriesBy: gridSeriesBy, percent: st.percent });
+        // Sin puntos tras recortar los ceros del final: faceta en blanco (p. ej. un departamento
+        // que figura en la fuente pero no produce). No se dibuja el recuadro vacío.
+        if (!built.option.xAxis.data.length) return;
         var cell = document.createElement("div"); cell.className = "facet";
         var h = document.createElement("div"); h.className = "facet-title"; h.textContent = dp;
         var pdiv = document.createElement("div"); pdiv.className = "facet-plot";
         cell.appendChild(h); cell.appendChild(pdiv); plotEl.appendChild(cell);
         var c = echarts.init(pdiv, null, { renderer: "canvas" });
-        var built = optionFor(ech, data, ix, fixeds[i], st.metric, { forGrid: true, yMax: lineAdaptive ? null : gmax, seriesBy: gridSeriesBy, percent: st.percent });
         c.setOption(built.option, true);
         local.instances.push(c);
         if (!legendNames && gridSeriesBy && built.seriesNames && built.seriesNames.length > 1) legendNames = built.seriesNames;
