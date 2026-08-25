@@ -1,0 +1,398 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Monitor de Indicadores (versión Beta)</title>
+  <meta name="description" content="Seguimiento del Plan de Desarrollo Estratégico de Salta (PDES 2030)">
+  <script>
+    /* fija el tema antes de pintar para evitar flash */
+    (function(){try{var t=localStorage.getItem('cess-theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
+  </script>
+  <link rel="stylesheet" href="./assets/css/styles.css?v=1787695602">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%232a78d6'/><text x='50' y='68' font-size='52' text-anchor='middle' fill='white' font-family='sans-serif' font-weight='700'>C</text></svg>">
+</head>
+<body>
+<a class="skip-link" href="#main">Saltar al contenido</a>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="./index.html">
+      <img class="brand-logo" src="./assets/img/logo-cess.png"
+           alt="CESS — Consejo Económico y Social, Provincia de Salta">
+      <span class="brand-text">Monitor de Indicadores <span class="brand-beta">Beta</span><small>Seguimiento del Plan de Desarrollo Estratégico de Salta (PDES 2030)</small></span>
+    </a>
+
+    <button class="nav-toggle" aria-expanded="false" aria-controls="mainnav" aria-label="Abrir menú">
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav class="mainnav" id="mainnav" aria-label="Navegación principal">
+      <a href="./index.html" class="nav-link">Inicio</a>
+      <div class="navgroup">
+        <button class="nav-link navgroup-btn" aria-expanded="false">Temas</button>
+        <div class="navgroup-menu" role="menu">
+          
+          <div class="navgroup-col">
+            <p class="navgroup-heading">Sociocultural</p>
+            
+            <a role="menuitem" href="./tema/educacion.html">Educación por departamento</a>
+            
+          </div>
+          
+          <div class="navgroup-col">
+            <p class="navgroup-heading">Económico-productivo</p>
+            
+            <a role="menuitem" href="./tema/empleo.html">Empleo registrado y remuneraciones</a>
+            
+            <a role="menuitem" href="./tema/vitivinicultura.html">Vitivinicultura (INV)</a>
+            
+            <a role="menuitem" href="./tema/produccion-energia.html">Producción de petróleo y gas</a>
+            
+            <a role="menuitem" href="./tema/agricultura.html">Agricultura por departamento</a>
+            
+            <a role="menuitem" href="./tema/ganaderia.html">Ganadería bovina</a>
+            
+            <a role="menuitem" href="./tema/mineria.html">Minería</a>
+            
+            <a role="menuitem" href="./tema/gobierno.html">Finanzas públicas provinciales</a>
+            
+            <a role="menuitem" href="./tema/recaudacion.html">Recaudación de Ingresos Brutos (Convenio Multilateral)</a>
+            
+            <a role="menuitem" href="./tema/recursos-municipios.html">Recursos de los municipios</a>
+            
+            <a role="menuitem" href="./tema/resultado-fiscal.html">Resultado fiscal provincial</a>
+            
+            <a role="menuitem" href="./tema/financiero.html">Crédito y depósitos (BCRA)</a>
+            
+            <a role="menuitem" href="./tema/construccion.html">Construcción (permisos de edificación)</a>
+            
+            <a role="menuitem" href="./tema/id-innovacion.html">Inversión en I+D</a>
+            
+          </div>
+          
+          <div class="navgroup-col">
+            <p class="navgroup-heading">Territorio, ambiente y turismo</p>
+            
+            <a role="menuitem" href="./tema/turismo.html">Turismo (ocupación hotelera)</a>
+            
+            <a role="menuitem" href="./tema/energia-renovable.html">Energía eléctrica y renovables</a>
+            
+          </div>
+          
+        </div>
+      </div>
+      <a href="./index.html#buscador" class="nav-link">Buscar</a>
+      <button class="theme-toggle" aria-label="Cambiar tema claro/oscuro" title="Cambiar tema">
+        <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36A5.5 5.5 0 0 1 12.4 3.1c-.13-.06-.27-.1-.4-.1Z"/></svg>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  
+
+<section class="hero">
+  <div class="wrap">
+    <p class="hero-eyebrow">Consejo Económico y Social de Salta (CESS)</p>
+    <h1 class="hero-title">Monitor de Indicadores (versión Beta)</h1>
+    <p class="hero-lead">Seguimiento del Plan de Desarrollo Estratégico de Salta (PDES 2030). Evolución de los principales indicadores de la provincia en tableros claros e interactivos.</p>
+
+    <div class="search" id="buscador">
+      <label for="search-input" class="search-label">Buscar un tema, un indicador o un departamento</label>
+      <div class="search-box">
+        <svg class="search-icon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 1 0-.7.7l.27.28v.79l5 5 1.5-1.5-5-5Zm-6 0A4.5 4.5 0 1 1 14 9.5 4.5 4.5 0 0 1 9.5 14Z"/></svg>
+        <input type="search" id="search-input" placeholder="Ej.: vino, escuelas, petróleo, Orán, Cafayate…" autocomplete="off" aria-describedby="search-hint">
+      </div>
+      <p class="search-hint" id="search-hint">Al escribir un tema, un indicador o un departamento se muestran los tableros y gráficos relacionados.</p>
+      <div class="search-suggestions" aria-label="Sugerencias">
+        <span>Ejemplos:</span>
+        <button class="chip" data-q="vino">vino</button>
+        <button class="chip" data-q="empleo">empleo</button>
+        <button class="chip" data-q="salario real">salario real</button>
+        <button class="chip" data-q="petróleo">petróleo</button>
+        <button class="chip" data-q="Orán">Orán</button>
+        <button class="chip" data-q="Cafayate">Cafayate</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="wrap section" id="resultados-wrap" hidden>
+  <h2 class="section-title">Resultados</h2>
+  <div class="cards" id="resultados"></div>
+</section>
+
+<section class="wrap section" id="explorar">
+  <h2 class="section-title">Explorar por eje del PDES</h2>
+  <p class="section-lead muted">El Plan de Desarrollo Estratégico organiza los indicadores en tres ejes. Dentro de cada eje se agrupan por eje transversal de desarrollo productivo.</p>
+
+  <div class="eje-pills" role="tablist" aria-label="Ejes del PDES">
+    <button class="eje-pill is-active" data-eje="all" role="tab" aria-selected="true">Todos</button>
+    
+    <button class="eje-pill" data-eje="sociocultural" role="tab" aria-selected="false">Sociocultural <span class="eje-count">1</span></button>
+    
+    <button class="eje-pill" data-eje="economico-productivo" role="tab" aria-selected="false">Económico-productivo <span class="eje-count">13</span></button>
+    
+    <button class="eje-pill" data-eje="territorio-ambiente-turismo" role="tab" aria-selected="false">Territorio, ambiente y turismo <span class="eje-count">2</span></button>
+    
+  </div>
+
+  
+  <div class="eje-block" data-eje="sociocultural" id="eje-sociocultural">
+    <h3 class="eje-title">Sociocultural</h3>
+    <p class="eje-descr muted">Educación, salud, trabajo y condiciones de vida de la población.</p>
+    
+    <div class="subeje-block">
+      <h4 class="subeje-title">Empleo y capacidades productivas</h4>
+      <div class="cards">
+        
+        <a class="card" href="./tema/educacion.html">
+          <span class="card-area">Social</span>
+          <h5 class="card-title">Educación por departamento</h5>
+          <p class="card-desc">Cuántos alumnos, docentes y egresados hay en el sistema educativo de Salta, abierto por departamento, nivel (inicial, primaria, secundaria), sector de gestión (estatal/privado) y ámbito (urbano/rural), entre 2011 y 2024.</p>
+          <span class="card-meta">2011–2024 · Relevamiento Anual (RA) — Ministerio de Educación de la Nación</span>
+        </a>
+        
+      </div>
+    </div>
+    
+  </div>
+  
+  <div class="eje-block" data-eje="economico-productivo" id="eje-economico-productivo">
+    <h3 class="eje-title">Económico-productivo</h3>
+    <p class="eje-descr muted">Producción, empleo, inversión y financiamiento de la economía salteña.</p>
+    
+    <div class="subeje-block">
+      <h4 class="subeje-title">Actividad, estructura productiva y productividad</h4>
+      <div class="cards">
+        
+        <a class="card" href="./tema/vitivinicultura.html">
+          <span class="card-area">Económico-Productivo</span>
+          <h5 class="card-title">Vitivinicultura (INV)</h5>
+          <p class="card-desc">La cadena del vino en Salta: producción de uva y elaboración de vino y mosto por departamento de los Valles Calchaquíes, despachos al mercado interno y exportaciones de la provincia, desde 2018.</p>
+          <span class="card-meta">2018–2025 · Instituto Nacional de Vitivinicultura (INV)</span>
+        </a>
+        
+        <a class="card" href="./tema/produccion-energia.html">
+          <span class="card-area">Energía</span>
+          <h5 class="card-title">Producción de petróleo y gas</h5>
+          <p class="card-desc">Producción de hidrocarburos en Salta a partir de los pozos declarados a la Secretaría de Energía: evolución mensual de gas y petróleo (convencional y no convencional) y distribución por departamento, desde 2018.</p>
+          <span class="card-meta">2018–2026 · Secretaría de Energía de la Nación — datos abiertos (producción por pozo)</span>
+        </a>
+        
+        <a class="card" href="./tema/agricultura.html">
+          <span class="card-area">Agropecuario</span>
+          <h5 class="card-title">Agricultura por departamento</h5>
+          <p class="card-desc">Superficie sembrada y cosechada, producción y rendimiento de los principales cultivos de Salta (soja, maíz, trigo, poroto, maní y otros), por departamento y campaña, según las estimaciones agrícolas del MAGyP, desde la campaña 2018/19.</p>
+          <span class="card-meta">campañas 2018/19–2024/25 · Estimaciones Agrícolas — Ministerio de Economía (MAGyP)</span>
+        </a>
+        
+        <a class="card" href="./tema/ganaderia.html">
+          <span class="card-area">Agropecuario</span>
+          <h5 class="card-title">Ganadería bovina</h5>
+          <p class="card-desc">Existencias de ganado bovino en Salta al 31 de diciembre de cada año, por departamento y categoría de hacienda (vacas, novillos, terneros, toros y otras), según el MAGyP, desde 2012.</p>
+          <span class="card-meta">2012–2025 · Existencias bovinas (SENASA) — Ministerio de Economía (MAGyP)</span>
+        </a>
+        
+        <a class="card" href="./tema/recaudacion.html">
+          <span class="card-area">Finanzas públicas</span>
+          <h5 class="card-title">Recaudación de Ingresos Brutos (Convenio Multilateral)</h5>
+          <p class="card-desc">Recaudación del Impuesto a las Actividades Económicas (Ingresos Brutos) de Salta bajo el régimen de Convenio Multilateral, abierta por sector de actividad, mensual desde 2021, en pesos corrientes y constantes. No incluye a los contribuyentes locales.</p>
+          <span class="card-meta">2021–2026 · Dirección General de Rentas — Ministerio de Economía de Salta</span>
+        </a>
+        
+        <a class="card" href="./tema/construccion.html">
+          <span class="card-area">Construcción</span>
+          <h5 class="card-title">Construcción (permisos de edificación)</h5>
+          <p class="card-desc">Permisos de edificación privada y superficie autorizada en los principales municipios de Salta (Ciudad de Salta, Orán, Tartagal, General Güemes y Metán), según el relevamiento del INDEC, y la participación de la provincia en el total nacional, desde 2021.</p>
+          <span class="card-meta">2021–2026 · Permisos de edificación — INDEC</span>
+        </a>
+        
+      </div>
+    </div>
+    
+    <div class="subeje-block">
+      <h4 class="subeje-title">Empleo y capacidades productivas</h4>
+      <div class="cards">
+        
+        <a class="card" href="./tema/empleo.html">
+          <span class="card-area">Económico-Productivo</span>
+          <h5 class="card-title">Empleo registrado y remuneraciones</h5>
+          <p class="card-desc">Cuántos puestos de trabajo registrados del sector privado hay en Salta, abiertos por rama de actividad (rubro) y por departamento, y cómo evolucionó el poder de compra del salario: la remuneración real, descontada la inflación del NOA (índice base dic-2023 = 100), desde 2019.</p>
+          <span class="card-meta">2019–2025 · OEDE — Observatorio de Empleo y Dinámica Empresarial (Min. de Trabajo / Capital Humano)</span>
+        </a>
+        
+        <a class="card" href="./tema/mineria.html">
+          <span class="card-area">Minería</span>
+          <h5 class="card-title">Minería</h5>
+          <p class="card-desc">Empleo minero registrado en Salta por rubro (litio, metalíferos, no metalíferos, rocas de aplicación, servicios) y género, desde 2007; y el aporte tributario del sector minero a nivel nacional, por empresa e impuesto, en pesos y en dólares, 2019–2023.</p>
+          <span class="card-meta">2007–2025 · Empleo: OEDE (Min. de Trabajo). Recaudación: Secretaría de Minería de la Nación</span>
+        </a>
+        
+      </div>
+    </div>
+    
+    <div class="subeje-block">
+      <h4 class="subeje-title">Inversión y financiamiento</h4>
+      <div class="cards">
+        
+        <a class="card" href="./tema/mineria.html">
+          <span class="card-area">Minería</span>
+          <h5 class="card-title">Minería</h5>
+          <p class="card-desc">Empleo minero registrado en Salta por rubro (litio, metalíferos, no metalíferos, rocas de aplicación, servicios) y género, desde 2007; y el aporte tributario del sector minero a nivel nacional, por empresa e impuesto, en pesos y en dólares, 2019–2023.</p>
+          <span class="card-meta">2007–2025 · Empleo: OEDE (Min. de Trabajo). Recaudación: Secretaría de Minería de la Nación</span>
+        </a>
+        
+        <a class="card" href="./tema/gobierno.html">
+          <span class="card-area">Finanzas públicas</span>
+          <h5 class="card-title">Finanzas públicas provinciales</h5>
+          <p class="card-desc">Ejecución del gasto público de la Provincia de Salta: composición por objeto del gasto (personal, bienes, servicios, transferencias, deuda), por finalidad y función, y las transferencias corrientes y de capital, en pesos corrientes y constantes, 2021–2025.</p>
+          <span class="card-meta">2021–2025 · Ejecución presupuestaria — Ministerio de Economía de Salta</span>
+        </a>
+        
+        <a class="card" href="./tema/recaudacion.html">
+          <span class="card-area">Finanzas públicas</span>
+          <h5 class="card-title">Recaudación de Ingresos Brutos (Convenio Multilateral)</h5>
+          <p class="card-desc">Recaudación del Impuesto a las Actividades Económicas (Ingresos Brutos) de Salta bajo el régimen de Convenio Multilateral, abierta por sector de actividad, mensual desde 2021, en pesos corrientes y constantes. No incluye a los contribuyentes locales.</p>
+          <span class="card-meta">2021–2026 · Dirección General de Rentas — Ministerio de Economía de Salta</span>
+        </a>
+        
+        <a class="card" href="./tema/recursos-municipios.html">
+          <span class="card-area">Finanzas públicas</span>
+          <h5 class="card-title">Recursos de los municipios</h5>
+          <p class="card-desc">Transferencias que reciben los municipios de Salta de la Provincia y la Nación (coparticipación, regalías, canon minero, fondo compensador y otros), por municipio y departamento, en pesos corrientes y constantes, mensual desde 2021.</p>
+          <span class="card-meta">2021–2026 · Contaduría General de la Provincia de Salta</span>
+        </a>
+        
+        <a class="card" href="./tema/resultado-fiscal.html">
+          <span class="card-area">Finanzas públicas</span>
+          <h5 class="card-title">Resultado fiscal provincial</h5>
+          <p class="card-desc">Resultado fiscal de la Provincia de Salta según el Esquema Ahorro-Inversión-Financiamiento: ingresos totales, gastos totales y el resultado financiero (superávit o déficit devengado), con el resultado primario (antes de intereses de la deuda), mensual desde 2021, en pesos corrientes y constantes.</p>
+          <span class="card-meta">2021–2026 · Esquema Ahorro-Inversión-Financiamiento — Presupuesto de la Provincia de Salta</span>
+        </a>
+        
+        <a class="card" href="./tema/financiero.html">
+          <span class="card-area">Financiero</span>
+          <h5 class="card-title">Crédito y depósitos (BCRA)</h5>
+          <p class="card-desc">Préstamos y depósitos del sector privado en Salta según el BCRA, por departamento, en pesos corrientes y constantes; y la inclusión financiera medida por los puntos de acceso cada 10.000 adultos, desde 2019.</p>
+          <span class="card-meta">2019–2026 · Banco Central de la República Argentina (BCRA)</span>
+        </a>
+        
+      </div>
+    </div>
+    
+    <div class="subeje-block">
+      <h4 class="subeje-title">Infraestructura, logística y condiciones para producir</h4>
+      <div class="cards">
+        
+        <a class="card" href="./tema/produccion-energia.html">
+          <span class="card-area">Energía</span>
+          <h5 class="card-title">Producción de petróleo y gas</h5>
+          <p class="card-desc">Producción de hidrocarburos en Salta a partir de los pozos declarados a la Secretaría de Energía: evolución mensual de gas y petróleo (convencional y no convencional) y distribución por departamento, desde 2018.</p>
+          <span class="card-meta">2018–2026 · Secretaría de Energía de la Nación — datos abiertos (producción por pozo)</span>
+        </a>
+        
+        <a class="card" href="./tema/construccion.html">
+          <span class="card-area">Construcción</span>
+          <h5 class="card-title">Construcción (permisos de edificación)</h5>
+          <p class="card-desc">Permisos de edificación privada y superficie autorizada en los principales municipios de Salta (Ciudad de Salta, Orán, Tartagal, General Güemes y Metán), según el relevamiento del INDEC, y la participación de la provincia en el total nacional, desde 2021.</p>
+          <span class="card-meta">2021–2026 · Permisos de edificación — INDEC</span>
+        </a>
+        
+      </div>
+    </div>
+    
+    <div class="subeje-block">
+      <h4 class="subeje-title">Innovación e inserción en mercados</h4>
+      <div class="cards">
+        
+        <a class="card" href="./tema/vitivinicultura.html">
+          <span class="card-area">Económico-Productivo</span>
+          <h5 class="card-title">Vitivinicultura (INV)</h5>
+          <p class="card-desc">La cadena del vino en Salta: producción de uva y elaboración de vino y mosto por departamento de los Valles Calchaquíes, despachos al mercado interno y exportaciones de la provincia, desde 2018.</p>
+          <span class="card-meta">2018–2025 · Instituto Nacional de Vitivinicultura (INV)</span>
+        </a>
+        
+        <a class="card" href="./tema/id-innovacion.html">
+          <span class="card-area">Ciencia y tecnología</span>
+          <h5 class="card-title">Inversión en I+D</h5>
+          <p class="card-desc">Inversión provincial en investigación y desarrollo (I+D) de Salta, en pesos corrientes y constantes, y el personal dedicado a I+D (investigadores/as, becarios/as y personal técnico), según RICyT/MINCyT, desde 2017 (personal desde 2003).</p>
+          <span class="card-meta">2003–2024 · RICyT / MINCyT — Indicadores de ciencia y tecnología</span>
+        </a>
+        
+      </div>
+    </div>
+    
+  </div>
+  
+  <div class="eje-block" data-eje="territorio-ambiente-turismo" id="eje-territorio-ambiente-turismo">
+    <h3 class="eje-title">Territorio, ambiente y turismo</h3>
+    <p class="eje-descr muted">Uso del territorio, energía y ambiente, y actividad turística.</p>
+    
+    <div class="subeje-block">
+      <h4 class="subeje-title">Actividad, estructura productiva y productividad</h4>
+      <div class="cards">
+        
+        <a class="card" href="./tema/turismo.html">
+          <span class="card-area">Turismo</span>
+          <h5 class="card-title">Turismo (ocupación hotelera)</h5>
+          <p class="card-desc">Actividad turística de Salta medida por la Encuesta de Ocupación Hotelera (EOH) del INDEC: viajeros, pernoctaciones, ocupación de habitaciones y estadía media, consolidando la Ciudad de Salta y Cafayate, desde 2021.</p>
+          <span class="card-meta">2021–2025 · Encuesta de Ocupación Hotelera (EOH) — INDEC</span>
+        </a>
+        
+      </div>
+    </div>
+    
+    <div class="subeje-block">
+      <h4 class="subeje-title">Infraestructura, logística y condiciones para producir</h4>
+      <div class="cards">
+        
+        <a class="card" href="./tema/energia-renovable.html">
+          <span class="card-area">Ambiente y energía</span>
+          <h5 class="card-title">Energía eléctrica y renovables</h5>
+          <p class="card-desc">Generación de energía eléctrica en Salta según CAMMESA, por fuente (hidráulica, térmica y renovable), la participación de las renovables en la matriz y la potencia instalada por central, desde 2019.</p>
+          <span class="card-meta">2019–2026 · CAMMESA — Informe de síntesis mensual</span>
+        </a>
+        
+      </div>
+    </div>
+    
+    <div class="subeje-block">
+      <h4 class="subeje-title">Innovación e inserción en mercados</h4>
+      <div class="cards">
+        
+        <a class="card" href="./tema/energia-renovable.html">
+          <span class="card-area">Ambiente y energía</span>
+          <h5 class="card-title">Energía eléctrica y renovables</h5>
+          <p class="card-desc">Generación de energía eléctrica en Salta según CAMMESA, por fuente (hidráulica, térmica y renovable), la participación de las renovables en la matriz y la potencia instalada por central, desde 2019.</p>
+          <span class="card-meta">2019–2026 · CAMMESA — Informe de síntesis mensual</span>
+        </a>
+        
+      </div>
+    </div>
+    
+  </div>
+  
+</section>
+
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p><strong>Monitor de Indicadores (versión Beta)</strong> — Consejo Económico y Social de Salta (CESS)</p>
+    <p class="muted">Herramienta de seguimiento del Seguimiento del Plan de Desarrollo Estratégico de Salta (PDES 2030). Los datos provienen de fuentes oficiales; ver la fuente y la fecha de cobertura en cada tablero.</p>
+  </div>
+</footer>
+
+<script src="./assets/vendor/echarts.min.js"></script>
+<script src="./assets/vendor/minisearch.min.js"></script>
+<script>window.CESS_BASE = ".";</script>
+<script src="./assets/js/app.js?v=1787695602"></script>
+
+<script src="./assets/js/search.js?v=1787695602"></script>
+
+</body>
+</html>

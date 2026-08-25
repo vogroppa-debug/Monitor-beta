@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+{% block title %}{{ tema.title }} — {{ site.nombre }}{% endblock %}
+{% block main %}
+<div class="tema-page" data-tema="{{ tema.id }}" data-base="{{ base }}">
+
+  <nav class="breadcrumb wrap" aria-label="Ruta">
+    <a href="{{ base }}/index.html">Inicio</a>
+    <span aria-hidden="true">/</span>
+    <span>{{ tema.area_label }}</span>
+    <span aria-hidden="true">/</span>
+    <span aria-current="page">{{ tema.title }}</span>
+  </nav>
+
+  <header class="tema-header wrap">
+    <span class="card-area">{{ tema.area_label }}</span>
+    <h1>{{ tema.title }}</h1>
+    {% if tema.tags_labels %}
+    <div class="tag-chips" aria-label="Ejes de desarrollo productivo">
+      {% for tl in tema.tags_labels %}<span class="tag-chip">{{ tl }}</span>{% endfor %}
+    </div>
+    {% endif %}
+    <p class="tema-resumen">{{ tema.resumen_corto }}</p>
+    <p class="tema-meta muted">
+      <strong>Fuente:</strong> {{ tema.fuente }} ·
+      <strong>Cobertura:</strong> {{ tema.cobertura }}
+    </p>
+  </header>
+
+  <section class="wrap">
+    <div class="kpis" id="kpis" aria-label="Indicadores destacados"></div>
+  </section>
+
+  <section class="wrap section charts-grid" id="charts">
+    {% for c in tema.charts %}
+    <article class="chart-card" id="grafico-{{ c.id }}" data-chart-id="{{ c.id }}">
+      <div class="chart-card-head">
+        <h2 class="chart-title">{{ c.title }}</h2>
+        <p class="chart-descr">{{ c.descr }}</p>
+      </div>
+      <div class="chart-controls" role="group" aria-label="Filtros del gráfico"></div>
+      <div class="chart-plot" role="img" aria-label="{{ c.title }}"></div>
+      <details class="chart-table">
+        <summary>Ver datos en tabla</summary>
+        <div class="chart-table-body"></div>
+      </details>
+      <p class="chart-source muted">Fuente: {{ c.fuente }}{% if c.fuente_url %} · <a href="{{ c.fuente_url }}" target="_blank" rel="noopener">ir a la fuente ↗</a>{% endif %}</p>
+    </article>
+    {% endfor %}
+  </section>
+
+  <section class="wrap section">
+    <p class="tema-source-note muted">
+      Datos oficiales de <strong>{{ tema.fuente }}</strong>.
+      {% if tema.fuente_url %}<a href="{{ tema.fuente_url }}" target="_blank" rel="noopener">Ir a la fuente ↗</a>{% endif %}
+    </p>
+  </section>
+
+  <section class="wrap section related">
+    <h2 class="section-title">Otros temas</h2>
+    <div class="cards">
+      {% set seen = namespace(ids=[]) %}
+      {% for eje in ejes %}{% for t in eje.temas %}{% if t.id != tema.id and t.id not in seen.ids %}
+      {% set seen.ids = seen.ids + [t.id] %}
+      <a class="card card-sm" href="{{ base }}/tema/{{ t.id }}.html">
+        <span class="card-area">{% if t.eje_pdes_label %}{{ t.eje_pdes_label }}{% if t.area_label and t.area_label|lower != t.eje_pdes_label|lower %} · {{ t.area_label }}{% endif %}{% else %}{{ t.area_label }}{% endif %}</span>
+        <h4 class="card-title">{{ t.title }}</h4>
+      </a>
+      {% endif %}{% endfor %}{% endfor %}
+    </div>
+  </section>
+
+</div>
+{% endblock %}
+{% block scripts %}
+<script src="{{ base }}/assets/js/charts.js{% if asset_ver %}?v={{ asset_ver }}{% endif %}"></script>
+{% endblock %}

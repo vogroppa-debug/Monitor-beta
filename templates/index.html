@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+{% block title %}{{ site.nombre }}{% endblock %}
+{% block main %}
+
+<section class="hero">
+  <div class="wrap">
+    <p class="hero-eyebrow">{{ site.institucion }}</p>
+    <h1 class="hero-title">{{ site.nombre }}</h1>
+    <p class="hero-lead">{{ site.subtitulo }}. Evolución de los principales indicadores de la provincia en tableros claros e interactivos.</p>
+
+    <div class="search" id="buscador">
+      <label for="search-input" class="search-label">Buscar un tema, un indicador o un departamento</label>
+      <div class="search-box">
+        <svg class="search-icon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 1 0-.7.7l.27.28v.79l5 5 1.5-1.5-5-5Zm-6 0A4.5 4.5 0 1 1 14 9.5 4.5 4.5 0 0 1 9.5 14Z"/></svg>
+        <input type="search" id="search-input" placeholder="Ej.: vino, escuelas, petróleo, Orán, Cafayate…" autocomplete="off" aria-describedby="search-hint">
+      </div>
+      <p class="search-hint" id="search-hint">Al escribir un tema, un indicador o un departamento se muestran los tableros y gráficos relacionados.</p>
+      <div class="search-suggestions" aria-label="Sugerencias">
+        <span>Ejemplos:</span>
+        <button class="chip" data-q="vino">vino</button>
+        <button class="chip" data-q="empleo">empleo</button>
+        <button class="chip" data-q="salario real">salario real</button>
+        <button class="chip" data-q="petróleo">petróleo</button>
+        <button class="chip" data-q="Orán">Orán</button>
+        <button class="chip" data-q="Cafayate">Cafayate</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="wrap section" id="resultados-wrap" hidden>
+  <h2 class="section-title">Resultados</h2>
+  <div class="cards" id="resultados"></div>
+</section>
+
+<section class="wrap section" id="explorar">
+  <h2 class="section-title">Explorar por eje del PDES</h2>
+  <p class="section-lead muted">El Plan de Desarrollo Estratégico organiza los indicadores en tres ejes. Dentro de cada eje se agrupan por eje transversal de desarrollo productivo.</p>
+
+  <div class="eje-pills" role="tablist" aria-label="Ejes del PDES">
+    <button class="eje-pill is-active" data-eje="all" role="tab" aria-selected="true">Todos</button>
+    {% for eje in ejes %}
+    <button class="eje-pill" data-eje="{{ eje.id }}" role="tab" aria-selected="false">{{ eje.label }} <span class="eje-count">{{ eje.temas|length }}</span></button>
+    {% endfor %}
+  </div>
+
+  {% for eje in ejes %}
+  <div class="eje-block" data-eje="{{ eje.id }}" id="eje-{{ eje.id }}">
+    <h3 class="eje-title">{{ eje.label }}</h3>
+    {% if eje.descr %}<p class="eje-descr muted">{{ eje.descr }}</p>{% endif %}
+    {% for sg in eje.subgrupos %}
+    <div class="subeje-block">
+      <h4 class="subeje-title">{{ sg.label }}</h4>
+      <div class="cards">
+        {% for t in sg.temas %}
+        <a class="card" href="{{ base }}/tema/{{ t.id }}.html">
+          <span class="card-area">{{ t.area_label }}</span>
+          <h5 class="card-title">{{ t.title }}</h5>
+          <p class="card-desc">{{ t.resumen }}</p>
+          <span class="card-meta">{{ t.cobertura }} · {{ t.fuente }}</span>
+        </a>
+        {% endfor %}
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  {% endfor %}
+</section>
+
+{% endblock %}
+{% block scripts %}
+<script src="{{ base }}/assets/js/search.js{% if asset_ver %}?v={{ asset_ver }}{% endif %}"></script>
+{% endblock %}

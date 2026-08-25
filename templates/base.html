@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}{{ site.nombre }}{% endblock %}</title>
+  <meta name="description" content="{{ site.subtitulo }}">
+  <script>
+    /* fija el tema antes de pintar para evitar flash */
+    (function(){try{var t=localStorage.getItem('cess-theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
+  </script>
+  <link rel="stylesheet" href="{{ base }}/assets/css/styles.css{% if asset_ver %}?v={{ asset_ver }}{% endif %}">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%232a78d6'/><text x='50' y='68' font-size='52' text-anchor='middle' fill='white' font-family='sans-serif' font-weight='700'>C</text></svg>">
+</head>
+<body>
+<a class="skip-link" href="#main">Saltar al contenido</a>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="{{ base }}/index.html">
+      <img class="brand-logo" src="{{ base }}/assets/img/logo-cess.png"
+           alt="CESS — Consejo Económico y Social, Provincia de Salta">
+      <span class="brand-text">Monitor de Indicadores <span class="brand-beta">Beta</span><small>{{ site.subtitulo }}</small></span>
+    </a>
+
+    <button class="nav-toggle" aria-expanded="false" aria-controls="mainnav" aria-label="Abrir menú">
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav class="mainnav" id="mainnav" aria-label="Navegación principal">
+      <a href="{{ base }}/index.html" class="nav-link">Inicio</a>
+      <div class="navgroup">
+        <button class="nav-link navgroup-btn" aria-expanded="false">Temas</button>
+        <div class="navgroup-menu" role="menu">
+          {% for eje in ejes %}
+          <div class="navgroup-col">
+            <p class="navgroup-heading">{{ eje.label }}</p>
+            {% for t in eje.temas %}
+            <a role="menuitem" href="{{ base }}/tema/{{ t.id }}.html">{{ t.title }}</a>
+            {% endfor %}
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+      <a href="{{ base }}/index.html#buscador" class="nav-link">Buscar</a>
+      <button class="theme-toggle" aria-label="Cambiar tema claro/oscuro" title="Cambiar tema">
+        <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36A5.5 5.5 0 0 1 12.4 3.1c-.13-.06-.27-.1-.4-.1Z"/></svg>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  {% block main %}{% endblock %}
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p><strong>{{ site.nombre }}</strong> — {{ site.institucion }}</p>
+    <p class="muted">Herramienta de seguimiento del {{ site.subtitulo }}. Los datos provienen de fuentes oficiales; ver la fuente y la fecha de cobertura en cada tablero.</p>
+  </div>
+</footer>
+
+<script src="{{ base }}/assets/vendor/echarts.min.js"></script>
+<script src="{{ base }}/assets/vendor/minisearch.min.js"></script>
+<script>window.CESS_BASE = "{{ base }}";</script>
+<script src="{{ base }}/assets/js/app.js{% if asset_ver %}?v={{ asset_ver }}{% endif %}"></script>
+{% block scripts %}{% endblock %}
+</body>
+</html>
