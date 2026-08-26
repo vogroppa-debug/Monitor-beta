@@ -23,6 +23,7 @@ from collections import defaultdict
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 
 import catalog
+import indicadores
 import adapters
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -229,6 +230,7 @@ def construir_tema(tmeta):
         "fuente": tmeta["fuente"], "fuente_url": tmeta["fuente_url"],
         "cobertura": tmeta["cobertura"], "keywords": tmeta["keywords"],
         "tags": tmeta.get("tags", []),
+        "subeje": tmeta.get("subeje", ""),
         "dims": dims, "metricas": metricas,
         "fields": fields, "rows": rows,
         "kpis": kpis, "charts": charts,
@@ -252,9 +254,11 @@ def main():
     catalogo = []
     todas_notas = {}
     resumen_build = []
+    payloads = {}          # se retienen para armar la tabla maestra de indicadores
 
     for tmeta in catalog.TEMAS:
         payload, notas = construir_tema(tmeta)
+        payloads[payload["id"]] = payload
         escribir_json(os.path.join(DATA_OUT, f"{payload['id']}.json"), payload)
         todas_notas[payload["id"]] = notas
         resumen_build.append((payload["id"], len(payload["rows"]), payload["cobertura"]))
@@ -270,6 +274,7 @@ def main():
             "fuente": payload["fuente"], "fuente_url": payload["fuente_url"],
             "cobertura": payload["cobertura"], "keywords": payload["keywords"],
             "tags": tags,
+            "subeje": payload.get("subeje", ""),
             "tags_labels": [catalog.TAGS[t]["label"] for t in tags if t in catalog.TAGS],
             "departamentos": geo_values(payload["dims"]),
             "metricas": [m["label"] for m in payload["metricas"].values()],
@@ -306,10 +311,16 @@ def main():
         ejes_pdes.append({"id": eje_id, "label": eje["label"], "descr": eje.get("descr", ""),
                           "temas": temas_eje, "subgrupos": subgrupos})
 
+    # Tabla maestra de indicadores (portada). Espeja renderKpis de charts.js: ver indicadores.py.
+    tabla_ind = indicadores.tabla(payloads, catalogo, catalog.EJES_PDES,
+                                  catalog.TAGS, catalog.SUBEJE_ORDEN)
+    n_ind = sum(len(g["filas"]) for g in tabla_ind)
+
     # index.html
     tpl_index = env.get_template("index.html")
     with open(os.path.join(HERE, "index.html"), "w", encoding="utf-8") as f:
-        f.write(tpl_index.render(site=catalog.SITE, ejes=ejes_pdes, base=".", asset_ver=asset_ver))
+        f.write(tpl_index.render(site=catalog.SITE, ejes=ejes_pdes, base=".",
+                                 asset_ver=asset_ver, tabla=tabla_ind, n_indicadores=n_ind))
 
     # tema/<id>.html
     tpl_tema = env.get_template("tema.html")
@@ -323,7 +334,8 @@ def main():
     print("BUILD OK")
     for tid, n, cob in resumen_build:
         print(f"  {tid:22s} {n:6d} filas  {cob}")
-    print(f"  {len(catalogo)} temas | index.html + {len(catalogo)} páginas de tema")
+    print(f"  {len(catalogo)} temas | {n_ind} indicadores en la tabla maestra"
+          f" | index.html + {len(catalogo)} páginas de tema")
 
 
 def escribir_build_notes(todas_notas, resumen_build):

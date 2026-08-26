@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Energía eléctrica y renovables — Monitor de Indicadores (versión Beta)</title>
+  <title>Exportaciones — Monitor de Indicadores (versión Beta)</title>
   <meta name="description" content="Seguimiento del Plan de Desarrollo Estratégico de Salta (PDES 2030)">
   <script>
     /* fija el tema antes de pintar para evitar flash */
@@ -94,28 +94,28 @@
 
 <main id="main">
   
-<div class="tema-page" data-tema="energia-renovable" data-base="..">
+<div class="tema-page" data-tema="exportaciones" data-base="..">
 
   <nav class="breadcrumb wrap" aria-label="Ruta">
     <a href="../index.html">Inicio</a>
     <span aria-hidden="true">/</span>
-    <span>Ambiente y energía</span>
+    <span>Económico-Productivo</span>
     <span aria-hidden="true">/</span>
-    <span aria-current="page">Energía eléctrica y renovables</span>
+    <span aria-current="page">Exportaciones</span>
   </nav>
 
   <header class="tema-header wrap">
-    <span class="card-area">Ambiente y energía</span>
-    <h1>Energía eléctrica y renovables</h1>
+    <span class="card-area">Económico-Productivo</span>
+    <h1>Exportaciones</h1>
     
     <div class="tag-chips" aria-label="Ejes de desarrollo productivo">
-      <span class="tag-chip">Infraestructura, logística y condiciones para producir</span><span class="tag-chip">Innovación e inserción en mercados</span>
+      <span class="tag-chip">Innovación e inserción en mercados</span><span class="tag-chip">Actividad, estructura productiva y productividad</span>
     </div>
     
-    <p class="tema-resumen">Generación eléctrica por fuente y peso de las renovables.</p>
+    <p class="tema-resumen">Qué exporta Salta, a qué países y por cuánto.</p>
     <p class="tema-meta muted">
-      <strong>Fuente:</strong> CAMMESA — Informe de síntesis mensual ·
-      <strong>Cobertura:</strong> 2019–2026
+      <strong>Fuente:</strong> INDEC — Comercio Exterior (COMEX), base anual por provincia de origen ·
+      <strong>Cobertura:</strong> 2021–2025
     </p>
   </header>
 
@@ -125,68 +125,82 @@
 
   <section class="wrap section charts-grid" id="charts">
     
-    <article class="chart-card" id="grafico-ren-fuente" data-chart-id="ren-fuente">
+    <article class="chart-card" id="grafico-expo-total" data-chart-id="expo-total">
       <div class="chart-card-head">
-        <h2 class="chart-title">Generación eléctrica por fuente</h2>
-        <p class="chart-descr">Energía generada en Salta, apilada por fuente (GWh).</p>
+        <h2 class="chart-title">Exportaciones totales, en dólares FOB</h2>
+        <p class="chart-descr">Valor total exportado por Salta cada año. El botón de medida permite ver el volumen en toneladas: si el valor sube y el volumen no, la mejora vino de los precios y no de una mayor cantidad vendida.</p>
       </div>
       <div class="chart-controls" role="group" aria-label="Filtros del gráfico"></div>
-      <div class="chart-plot" role="img" aria-label="Generación eléctrica por fuente"></div>
+      <div class="chart-plot" role="img" aria-label="Exportaciones totales, en dólares FOB"></div>
       <details class="chart-table">
         <summary>Ver datos en tabla</summary>
         <div class="chart-table-body"></div>
       </details>
-      <p class="chart-source muted">Fuente: CAMMESA — Informe de síntesis mensual · <a href="https://cammesaweb.cammesa.com/" target="_blank" rel="noopener">ir a la fuente ↗</a></p>
+      <p class="chart-source muted">Fuente: INDEC — Comercio Exterior (COMEX), base anual por provincia de origen · <a href="https://comex.indec.gob.ar/#/database" target="_blank" rel="noopener">ir a la fuente ↗</a></p>
     </article>
     
-    <article class="chart-card" id="grafico-ren-share" data-chart-id="ren-share">
+    <article class="chart-card" id="grafico-expo-gran-rubro" data-chart-id="expo-gran-rubro">
       <div class="chart-card-head">
-        <h2 class="chart-title">Participación de las renovables</h2>
-        <p class="chart-descr">Porcentaje de la generación de origen renovable e hidráulico.</p>
+        <h2 class="chart-title">Composición por tipo de producto, en dólares FOB</h2>
+        <p class="chart-descr">Cómo se reparte lo exportado entre productos primarios, manufacturas de origen agropecuario e industrial y combustibles. En &#39;% del total&#39; se lee la estructura: cuánto pesa cada tipo de producto, más allá de si el total creció.</p>
       </div>
       <div class="chart-controls" role="group" aria-label="Filtros del gráfico"></div>
-      <div class="chart-plot" role="img" aria-label="Participación de las renovables"></div>
+      <div class="chart-plot" role="img" aria-label="Composición por tipo de producto, en dólares FOB"></div>
       <details class="chart-table">
         <summary>Ver datos en tabla</summary>
         <div class="chart-table-body"></div>
       </details>
-      <p class="chart-source muted">Fuente: CAMMESA — Informe de síntesis mensual · <a href="https://cammesaweb.cammesa.com/" target="_blank" rel="noopener">ir a la fuente ↗</a></p>
+      <p class="chart-source muted">Fuente: INDEC — Comercio Exterior (COMEX), base anual por provincia de origen · <a href="https://comex.indec.gob.ar/#/database" target="_blank" rel="noopener">ir a la fuente ↗</a></p>
     </article>
     
-    <article class="chart-card" id="grafico-ren-central-gen" data-chart-id="ren-central-gen">
+    <article class="chart-card" id="grafico-expo-rubro-ranking" data-chart-id="expo-rubro-ranking">
       <div class="chart-card-head">
-        <h2 class="chart-title">Generación por central</h2>
-        <p class="chart-descr">Ranking de centrales por energía generada, para el año seleccionado.</p>
+        <h2 class="chart-title">Ranking de productos exportados</h2>
+        <p class="chart-descr">Rubros ordenados por valor exportado en el año elegido, en dólares FOB. Las categorías &#39;Confidencial&#39; son operaciones cuyo producto no se publica por secreto estadístico: se muestran porque su magnitud es parte de la lectura, no porque sean un producto.</p>
       </div>
       <div class="chart-controls" role="group" aria-label="Filtros del gráfico"></div>
-      <div class="chart-plot" role="img" aria-label="Generación por central"></div>
+      <div class="chart-plot" role="img" aria-label="Ranking de productos exportados"></div>
       <details class="chart-table">
         <summary>Ver datos en tabla</summary>
         <div class="chart-table-body"></div>
       </details>
-      <p class="chart-source muted">Fuente: CAMMESA — Informe de síntesis mensual · <a href="https://cammesaweb.cammesa.com/" target="_blank" rel="noopener">ir a la fuente ↗</a></p>
+      <p class="chart-source muted">Fuente: INDEC — Comercio Exterior (COMEX), base anual por provincia de origen · <a href="https://comex.indec.gob.ar/#/database" target="_blank" rel="noopener">ir a la fuente ↗</a></p>
     </article>
     
-    <article class="chart-card" id="grafico-ren-potencia" data-chart-id="ren-potencia">
+    <article class="chart-card" id="grafico-expo-continente" data-chart-id="expo-continente">
       <div class="chart-card-head">
-        <h2 class="chart-title">Potencia instalada por central</h2>
-        <p class="chart-descr">Potencia eléctrica instalada por central (última información disponible).</p>
+        <h2 class="chart-title">Composición por continente de destino, en dólares FOB</h2>
+        <p class="chart-descr">A qué región del mundo se vende. En &#39;% del total&#39; se ve si la provincia diversifica destinos o los concentra.</p>
       </div>
       <div class="chart-controls" role="group" aria-label="Filtros del gráfico"></div>
-      <div class="chart-plot" role="img" aria-label="Potencia instalada por central"></div>
+      <div class="chart-plot" role="img" aria-label="Composición por continente de destino, en dólares FOB"></div>
       <details class="chart-table">
         <summary>Ver datos en tabla</summary>
         <div class="chart-table-body"></div>
       </details>
-      <p class="chart-source muted">Fuente: CAMMESA — Informe de síntesis mensual · <a href="https://cammesaweb.cammesa.com/" target="_blank" rel="noopener">ir a la fuente ↗</a></p>
+      <p class="chart-source muted">Fuente: INDEC — Comercio Exterior (COMEX), base anual por provincia de origen · <a href="https://comex.indec.gob.ar/#/database" target="_blank" rel="noopener">ir a la fuente ↗</a></p>
+    </article>
+    
+    <article class="chart-card" id="grafico-expo-destino-ranking" data-chart-id="expo-destino-ranking">
+      <div class="chart-card-head">
+        <h2 class="chart-title">Principales países de destino</h2>
+        <p class="chart-descr">Los 15 destinos de mayor valor en el año elegido, en dólares FOB. Salta exportó a 146 países en el período; el resto queda fuera del gráfico.</p>
+      </div>
+      <div class="chart-controls" role="group" aria-label="Filtros del gráfico"></div>
+      <div class="chart-plot" role="img" aria-label="Principales países de destino"></div>
+      <details class="chart-table">
+        <summary>Ver datos en tabla</summary>
+        <div class="chart-table-body"></div>
+      </details>
+      <p class="chart-source muted">Fuente: INDEC — Comercio Exterior (COMEX), base anual por provincia de origen · <a href="https://comex.indec.gob.ar/#/database" target="_blank" rel="noopener">ir a la fuente ↗</a></p>
     </article>
     
   </section>
 
   <section class="wrap section">
     <p class="tema-source-note muted">
-      Datos oficiales de <strong>CAMMESA — Informe de síntesis mensual</strong>.
-      <a href="https://cammesaweb.cammesa.com/" target="_blank" rel="noopener">Ir a la fuente ↗</a>
+      Datos oficiales de <strong>INDEC — Comercio Exterior (COMEX), base anual por provincia de origen</strong>.
+      <a href="https://comex.indec.gob.ar/#/database" target="_blank" rel="noopener">Ir a la fuente ↗</a>
     </p>
   </section>
 
@@ -205,12 +219,6 @@
       <a class="card card-sm" href="../tema/empleo.html">
         <span class="card-area">Económico-productivo</span>
         <h4 class="card-title">Empleo registrado y remuneraciones</h4>
-      </a>
-      
-      
-      <a class="card card-sm" href="../tema/exportaciones.html">
-        <span class="card-area">Económico-productivo</span>
-        <h4 class="card-title">Exportaciones</h4>
       </a>
       
       
@@ -289,6 +297,12 @@
       <a class="card card-sm" href="../tema/turismo.html">
         <span class="card-area">Territorio, ambiente y turismo · Turismo</span>
         <h4 class="card-title">Turismo (ocupación hotelera)</h4>
+      </a>
+      
+      
+      <a class="card card-sm" href="../tema/energia-renovable.html">
+        <span class="card-area">Territorio, ambiente y turismo · Ambiente y energía</span>
+        <h4 class="card-title">Energía eléctrica y renovables</h4>
       </a>
       
     </div>

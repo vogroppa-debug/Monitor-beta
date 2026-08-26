@@ -293,4 +293,45 @@ p { margin: 0 0 1em; }
   .brand-text { display: none; }          /* en móvil, el logo institucional alcanza */
   .brand-logo { height: 48px; }
 }
+/* --------------------------------------------------- Tabla maestra de indicadores (portada)
+   Cuerpo mas chico que el resto del sitio: son 7 columnas y muchas filas, y la tabla se lee
+   por barrido vertical, no leyendo cada celda. */
+.tabla-ind-block { margin-bottom: 34px; }
+.tabla-ind-block .eje-title { margin-bottom: 12px; }
+.tabla-ind-scroll { overflow-x: auto; }                 /* en pantallas angostas scrollea SOLA */
+.tabla-ind {
+  border-collapse: collapse; width: 100%; font-size: .82rem; line-height: 1.4;
+  font-variant-numeric: tabular-nums;
+}
+.tabla-ind th, .tabla-ind td { border-bottom: 1px solid var(--grid); padding: 7px 12px; text-align: left; }
+.tabla-ind thead th {
+  font-size: .72rem; text-transform: uppercase; letter-spacing: .05em; color: var(--muted);
+  font-weight: 700; border-bottom: 2px solid var(--grid); vertical-align: bottom;
+}
+/* Los encabezados envuelven a proposito: con nowrap, "Periodo de la variacion" se comia el
+   ancho de la primera columna y los nombres de indicador pasaban a dos lineas. */
+.tabla-ind th:first-child { width: 30%; }
+.tabla-ind th:nth-child(2) { width: 16%; }
+.tabla-ind tbody th { font-weight: 600; }
+.tabla-ind tbody th a { color: var(--ink); }
+.tabla-ind tbody th a:hover { color: var(--accent-600); }
+.tabla-ind td.num { text-align: right; white-space: nowrap; }
+.tabla-ind td:nth-child(3) { white-space: nowrap; }     /* "Mensual acumulado" en una linea */
+/* El subeje se repite fila a fila: en gris y mas chico, para que no compita con el indicador. */
+.tabla-ind-subeje { color: var(--ink-2); font-size: .95em; }
+.tabla-ind tbody tr:hover { background: var(--accent-050); }
+/* Variacion: verde si sube, rojo si baja. Mismos tokens que los KPIs, asi que el contraste
+   ya esta resuelto en claro y en oscuro. */
+.tabla-ind-var { font-weight: 700; }
+.tabla-ind-var.up { color: var(--pos); }
+.tabla-ind-var.down { color: var(--neg); }
+.tabla-ind-var.flat, .tabla-ind-var.none { color: var(--muted); font-weight: 500; }
+.tabla-ind-ref { color: var(--ink-2); }
+.tabla-ind-vacio { color: var(--muted); }
+.tabla-ind-nota {
+  margin-left: 5px; color: var(--muted); cursor: help; text-decoration: none;
+  border: 0; font-size: .8em;
+}
+@media (max-width: 720px) { .tabla-ind { font-size: .78rem; } .tabla-ind th, .tabla-ind td { padding: 6px 9px; } }
+
 @media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; transition: none !important; } }

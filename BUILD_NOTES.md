@@ -39,7 +39,9 @@ Los CSV de origen (`Actualizar_*` / scripts) ya están en **formato inglés** (d
 ### resultado-fiscal
 - resultado-fiscal: Esquema Ahorro-Inversión-Financiamiento (ejecución consolidada Adm. Central + Organismos Descentralizados, devengado), fuente presupuesto.salta.gob.ar. Resultado financiero = ingresos totales − gastos totales (VIII = XI en Salta).
 - resultado-fiscal: el resultado primario es un cálculo propio (resultado financiero + intereses de la deuda), la fuente no publica una línea primaria. Reales deflactados por IPC NOA (base 2025).
+- resultado-fiscal: `pct_gprim` expresa el resultado financiero y el primario como % del GASTO PRIMARIO (gastos totales − intereses de la deuda). Es la medida de esfuerzo fiscal que no depende de la inflación ni del tamaño nominal del presupuesto. Al ser un cociente entre dos flujos del mismo período da idéntico en pesos corrientes y constantes, así que no se duplica por moneda. En el acumulado los meses NO son comparables entre sí (enero arranca alto y el ratio baja al avanzar el año): la comparación válida es contra el mismo mes del año anterior.
 - resultado-fiscal: el informe de diciembre es el cierre anual y reexpresa el resultado del año (el flujo mensual de diciembre incorpora ajustes de cierre); 2024-12 no fue publicado.
+- monto_real: 2 valor(es) a >1000× de la mediana (mediana=2.33116e+11); revisar posible artefacto de parseo.
 ### recaudacion
 - recaudacion: Impuesto a las Actividades Económicas (Ingresos Brutos), régimen CONVENIO MULTILATERAL únicamente (no incluye contribuyentes locales/directos); por sector de actividad (CIIU). Fuente: DGR / Ministerio de Economía de Salta.
 - recaudacion: mensual desde 2021, sumada por trimestre/año; reales deflactados por IPC NOA (base 2025). No se emite el último período incompleto.
@@ -65,6 +67,13 @@ Los CSV de origen (`Actualizar_*` / scripts) ya están en **formato inglés** (d
 - energia-renovable: generación eléctrica de Salta (CAMMESA), MWh convertidos a GWh; los flujos se suman por trimestre/año. 'Renovable' = régimen Ley 27.191; la potencia instalada es una foto al último mes disponible.
 ### id-innovacion
 - id-innovacion: inversión provincial en I+D (millones de $ corrientes y en pesos constantes de 2017) y personal en I+D por función; fuente RICyT/MINCyT. En términos reales la inversión se mantuvo casi estancada (678 en 2017 → 408 en 2024).
+### exportaciones
+- exportaciones: exportaciones de Salta por rubro y país de destino, base ANUAL del INDEC (COMEX, `Datos_origen_2002_2025.xlsb`, provincia de ORIGEN). Valor FOB en dólares CORRIENTES (sin deflactar) y peso neto. Metodología y controles en `datos-drive/Metodologia_Salta_exportaciones_INDEC_rubro_destino.md`.
+- exportaciones: el secreto estadístico oculta el rubro fino de una parte creciente del valor exportado (2021: 33.5 %; 2022: 20.3 %; 2023: 21.1 %; 2024: 46.0 %; 2025: 43.4 %). Esas operaciones se muestran como categoría propia ('Confidencial (…)'), conservan país de destino y gran rubro, y NO se reparten entre los rubros identificados.
+- exportaciones: `gran_rubro` y `continente` se derivan del primer dígito del código de rubro y de país del INDEC. El máximo detalle de producto con apertura provincial es el rubro; la posición arancelaria (NCM) sólo existe a nivel nacional.
+- exportaciones: el control automático de saltos de magnitud marca valores a >1000× de la mediana. NO es un artefacto de parseo: la fuente es binaria (.xlsb leído con pyxlsb, sin separadores que interpretar) y la distribución del comercio es de cola muy larga (la mediana de una celda rubro×país ronda los 135.000 USD y la mayor supera los 380 M). Verificado además contra el total nacional del INDEC, con diferencia de 0,98 USD sobre 87.111 M.
+- fob_usd: 113 valor(es) a >1000× de la mediana (mediana=134582); revisar posible artefacto de parseo.
+- peso_ton: 97 valor(es) a >1000× de la mediana (mediana=129.085); revisar posible artefacto de parseo.
 
 ## Control (filas por tema)
 - `educacion`: 11202 filas, cobertura 2011–2024.
@@ -74,7 +83,7 @@ Los CSV de origen (`Actualizar_*` / scripts) ya están en **formato inglés** (d
 - `turismo`: 738 filas, cobertura 2021–2025.
 - `agricultura`: 2464 filas, cobertura campañas 2018/19–2024/25.
 - `gobierno`: 170 filas, cobertura 2021–2025.
-- `resultado-fiscal`: 1240 filas, cobertura 2021–2026.
+- `resultado-fiscal`: 1736 filas, cobertura 2021–2026.
 - `recaudacion`: 3276 filas, cobertura 2021–2026.
 - `ganaderia`: 3323 filas, cobertura 2012–2025.
 - `mineria`: 3024 filas, cobertura 2007–2025.
@@ -83,3 +92,4 @@ Los CSV de origen (`Actualizar_*` / scripts) ya están en **formato inglés** (d
 - `recursos-municipios`: 9814 filas, cobertura 2021–2026.
 - `energia-renovable`: 233 filas, cobertura 2019–2026.
 - `id-innovacion`: 54 filas, cobertura 2003–2024.
+- `exportaciones`: 5306 filas, cobertura 2021–2025.

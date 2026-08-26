@@ -181,6 +181,9 @@
       var pairs = res.xs.map(function (x) { return [x, res.acc[x]._ || 0]; });
       pairs = pairs.filter(function (p) { return p[1] > 0; });
       pairs.sort(function (a, b) { return (ch.sort === "asc") ? a[1] - b[1] : b[1] - a[1]; });
+      // Rankings de universo grande (146 paises de destino) se recortan a los primeros N: el alto
+      // del grafico crece linealmente con las categorias y sin tope se vuelve impracticable.
+      if (ch.topN && pairs.length > ch.topN) pairs = pairs.slice(0, ch.topN);
       var cats = pairs.map(function (p) { return p[0]; });
       var vals = pairs.map(function (p) { return p[1]; });
       opt.grid.right = 60;
@@ -254,8 +257,16 @@
   }
 
   // -------------------------------------------------------- Tablas (vista datos)
+  var DIM_LABEL = {
+    departamento: "Departamento", municipio: "Municipio", localidad: "Localidad",
+    unidad_geografica: "Unidad geográfica", sector: "Sector", rubro: "Rubro",
+    pais_destino: "País de destino", continente: "Continente", gran_rubro: "Tipo de producto",
+    central: "Central", partida: "Partida", impuesto: "Impuesto", cultivo: "Cultivo",
+    concepto: "Concepto", categoria: "Categoría", nivel: "Nivel", funcion: "Función"
+  };
+  function dimLabel(d) { return DIM_LABEL[d] || cap(String(d).replace(/_/g, " ")); }
   function tableFromBarh(cats, vals, ch) {
-    var h = "<table><thead><tr><th>" + (ch.x === "departamento" ? "Departamento" : ch.x) + "</th><th>Valor</th></tr></thead><tbody>";
+    var h = "<table><thead><tr><th>" + esc(dimLabel(ch.x)) + "</th><th>Valor</th></tr></thead><tbody>";
     cats.forEach(function (c, i) { h += "<tr><td>" + esc(c) + "</td><td>" + nfFull.format(vals[i]) + "</td></tr>"; });
     return h + "</tbody></table>";
   }
@@ -270,7 +281,7 @@
     });
     return head + "</tbody></table>";
   }
-  function xLabel(x) { return x === "anio" ? "Año" : (x === "periodo" ? "Período" : x); }
+  function xLabel(x) { return x === "anio" ? "Año" : (x === "periodo" ? "Período" : (x === "trimestre" ? "Trimestre" : dimLabel(x))); }
   function esc(s) { return String(s).replace(/[&<>]/g, function (m) { return ({ "&": "&amp;", "<": "&lt;", ">": "&gt;" })[m]; }); }
 
   // -------------------------------------------------------- Controles

@@ -23,12 +23,22 @@ Spec de gráfico:
   geoDim:      dimensión geográfica (departamento|unidad_geografica); habilita el
                selector de departamento y la vista de GRILLA (pequeños múltiplos)
   sort:        'desc' | 'asc' | None   (para barh)
+  topN:        int (solo barh) - recorta el ranking a las primeras N categorias; sin esto se
+               dibujan TODAS y el alto del grafico crece sin tope (p. ej. 146 paises)
   stack:       bool
   unidad:      etiqueta de unidad (si metrica es conmutable, la resuelve el front)
   fuente/fuente_url: fuente propia del gráfico (si difiere de la del tema)
 
+Campos de tema para la tabla maestra:
+  subeje: subeje de la tabla de la portada. Si falta, se usa la etiqueta del PRIMER `tag`
+          (válido en el eje económico-productivo, donde los subejes SON los tags).
+
 Spec de KPI (el front muestra la VARIACIÓN INTERANUAL, no el valor absoluto):
   label, metrica, fixed, year('latest'|'latest_complete'|int), unidad, format
+  tabla_label: nombre para la tabla maestra de la portada (si el `label` es ambiguo fuera
+               de su tablero, p. ej. "Vacas" o "Pozos"); tabla_nota: aclaración al pie
+  subeje: pisa el subeje del tema para ESTE indicador (temas que mezclan subejes)
+  base_valor / base_periodo: línea de base del PDES (vacías hasta que se definan)
   cmp: 'quarter' -> último trimestre completo vs mismo trimestre del año anterior
        (por defecto, año vs año). (`agg` de la métrica sale de metricas[...]: 'sum'|'mean')
 """
@@ -52,15 +62,30 @@ AREAS = {
 # chip de color. Se definen los 5 aunque algún eje aún no tenga temas (fase 2).
 TAGS = {
     "actividad-productividad":   {"label": "Actividad, estructura productiva y productividad",       "orden": 1,
+                                  "corto": "Actividad y productividad",
                                   "descr": "Qué y cuánto se produce en Salta, y con qué productividad."},
     "empleo-capacidades":        {"label": "Empleo y capacidades productivas",                       "orden": 2,
+                                  "corto": "Empleo y capacidades",
                                   "descr": "Trabajo registrado, remuneraciones y formación del capital humano."},
     "inversion-financiamiento":  {"label": "Inversión y financiamiento",                             "orden": 3,
+                                  "corto": "Inversión y financiamiento",
                                   "descr": "Recursos que financian la actividad y la inversión productiva."},
     "infraestructura-logistica": {"label": "Infraestructura, logística y condiciones para producir", "orden": 4,
+                                  "corto": "Infraestructura y logística",
                                   "descr": "Energía, transporte y servicios que habilitan la producción."},
     "innovacion-mercados":       {"label": "Innovación e inserción en mercados",                     "orden": 5,
+                                  "corto": "Innovación y mercados",
                                   "descr": "Exportaciones, diversificación y llegada a nuevos mercados."},
+}
+
+# Subejes de la tabla maestra de indicadores. En el eje económico-productivo son los TAGS de
+# arriba (se toma el primero del tema); los otros dos ejes usan una taxonomía temática propia,
+# declarada tema por tema con el campo `subeje`. El número es solo el orden de aparición.
+SUBEJE_ORDEN = {
+    # sociocultural (pendientes: Salud, Condiciones de vida)
+    "Educación": 1,
+    # territorio, ambiente y turismo (Territorio todavía sin temas)
+    "Territorio": 1, "Ambiente": 2, "Turismo": 3,
 }
 
 SITE = {
@@ -84,6 +109,7 @@ TEMAS = [
     # ======================================================================
     {
         "id": "educacion",
+        "subeje": "Educación",
         "area": "social",
         "eje_pdes": "sociocultural",
         "title": "Educación por departamento",
@@ -165,7 +191,8 @@ TEMAS = [
              "fixed": {"categoria": "cosecha_elaboracion"}, "year": "latest", "unidad": "quintales", "format": "int"},
             {"label": "Elaboración de vino y mosto", "metrica": "elaboracion_total",
              "fixed": {"categoria": "cosecha_elaboracion"}, "year": "latest", "unidad": "hectolitros", "format": "int"},
-            {"label": "Exportaciones (valor FOB)", "metrica": "export_valor_fob",
+            {"label": "Exportaciones (valor FOB)", "tabla_label": "Exportaciones de vino (valor FOB)",
+             "metrica": "export_valor_fob",
              "fixed": {"categoria": "mercado_externo"}, "year": "latest", "unidad": "miles US$", "format": "int"},
         ],
         "charts": [
@@ -219,7 +246,7 @@ TEMAS = [
              "year": "latest_complete", "unidad": "miles de m³", "format": "int"},
             {"label": "Producción de petróleo", "metrica": "prod_pet", "fixed": {"grano": "anual"},
              "year": "latest_complete", "unidad": "m³", "format": "int"},
-            {"label": "Pozos", "metrica": "pozos", "fixed": {"grano": "anual"},
+            {"label": "Pozos", "tabla_label": "Pozos en producción", "metrica": "pozos", "fixed": {"grano": "anual"},
              "year": "latest_complete", "unidad": "pozos", "format": "int"},
         ],
         "charts": [
@@ -283,7 +310,7 @@ TEMAS = [
         ],
         "tags": ["empleo-capacidades"],
         "kpis": [
-            {"label": "Empleo registrado (provincia)", "metrica": "empleo",
+            {"label": "Empleo registrado (provincia)", "tabla_label": "Empleo registrado", "metrica": "empleo",
              "fixed": {"grano": "trimestral", "departamento": "Salta", "rubro": "Total"},
              "cmp": "quarter", "year": "latest", "unidad": "puestos", "format": "int"},
             {"label": "Remuneración real (índice dic-23 = 100)", "metrica": "remun_real_idx",
@@ -348,6 +375,7 @@ TEMAS = [
     # ======================================================================
     {
         "id": "turismo",
+        "subeje": "Turismo",
         "area": "turismo",
         "eje_pdes": "territorio-ambiente-turismo",
         "title": "Turismo (ocupación hotelera)",
@@ -447,7 +475,7 @@ TEMAS = [
         ],
         "tags": ["actividad-productividad"],
         "kpis": [
-            {"label": "Producción total", "metrica": "produccion_tm",
+            {"label": "Producción total", "tabla_label": "Producción agrícola total", "metrica": "produccion_tm",
              "fixed": {"departamento": "Salta"}, "year": "latest", "unidad": "toneladas", "format": "int"},
             {"label": "Superficie sembrada", "metrica": "superficie_sembrada_ha",
              "fixed": {"departamento": "Salta"}, "year": "latest", "unidad": "ha", "format": "int"},
@@ -583,9 +611,18 @@ TEMAS = [
             {"label": "Gastos totales (constante)", "metrica": "monto_real",
              "fixed": {"grano": "acumulado", "concepto": "Gastos totales"}, "year": "latest",
              "unidad": "pesos", "format": "int"},
-            {"label": "Resultado financiero acumulado (constante)", "metrica": "monto_real",
+            {"label": "Resultado financiero (% del gasto primario)",
+             "tabla_label": "Resultado financiero, en % del gasto primario",
+             "tabla_nota": "Gasto primario = gastos totales − intereses de la deuda. La variación va en puntos porcentuales, no en %: es un cociente. En el acumulado, la comparación válida es contra el mismo mes del año anterior.",
+             "metrica": "pct_gprim",
              "fixed": {"grano": "acumulado", "concepto": "Resultado financiero"}, "year": "latest",
-             "unidad": "pesos", "format": "int", "display": "nivel"},
+             "unidad": "%", "format": "int", "display": "nivel"},
+            {"label": "Resultado primario (% del gasto primario)",
+             "tabla_label": "Resultado primario, en % del gasto primario",
+             "tabla_nota": "Excluye los intereses de la deuda de ambos lados del cociente. La variación va en puntos porcentuales.",
+             "metrica": "pct_gprim",
+             "fixed": {"grano": "acumulado", "concepto": "Resultado primario"}, "year": "latest",
+             "unidad": "%", "format": "int", "display": "nivel"},
         ],
         "charts": [
             {"id": "fisc-resultado", "type": "line",
@@ -604,12 +641,28 @@ TEMAS = [
                      {"value": "real", "label": "Constantes", "metric": "monto_real"}]},
              ],
              "unidad": "pesos"},
+            {"id": "fisc-resultado-pct", "type": "line",
+             "title": "Resultado fiscal en % del gasto primario",
+             "descr": "Los resultados financiero y primario medidos contra el gasto primario "
+                      "(gastos totales menos intereses de la deuda). Al ser un cociente no lo afecta "
+                      "la inflación ni el tamaño nominal del presupuesto, así que los años se comparan "
+                      "directamente. Por encima de cero hay superávit. En la vista acumulada los meses "
+                      "no son comparables entre sí —enero arranca alto y el ratio baja al avanzar el "
+                      "año—: hay que comparar cada mes con el mismo mes de otro año.",
+             "x": "periodo", "seriesBy": "concepto", "metrica": "pct_gprim", "fixed": {},
+             "controls": [
+                 {"kind": "freq", "label": "Vista", "default": "acumulado", "options": [
+                     {"value": "acumulado", "label": "Acumulado (año en curso)", "x": "periodo", "grano": "acumulado"},
+                     {"value": "mensual", "label": "Mensual", "x": "periodo", "grano": "mensual"}]},
+             ],
+             "unidad": "% del gasto primario"},
             {"id": "fisc-ing-gasto", "type": "line",
              "title": "Ingresos y gastos totales",
              "descr": "Ingresos totales y gastos totales de la ejecución provincial consolidada. La "
                       "brecha entre ambos es el resultado financiero.",
              "x": "periodo", "seriesBy": "concepto", "metrica": "monto_real", "fixed": {},
-             "seriesExclude": ["Resultado financiero", "Resultado primario", "Intereses de la deuda"],
+             "seriesExclude": ["Resultado financiero", "Resultado primario", "Intereses de la deuda",
+                               "Gasto primario"],
              "controls": [
                  {"kind": "freq", "label": "Vista", "default": "acumulado", "options": [
                      {"value": "acumulado", "label": "Acumulado (año en curso)", "x": "periodo", "grano": "acumulado"},
@@ -625,7 +678,8 @@ TEMAS = [
                       "financiero (después). La diferencia entre ambos es el peso de los intereses. "
                       "El resultado primario es un cálculo propio.",
              "x": "periodo", "seriesBy": "concepto", "metrica": "monto_real", "fixed": {},
-             "seriesExclude": ["Ingresos totales", "Gastos totales", "Intereses de la deuda"],
+             "seriesExclude": ["Ingresos totales", "Gastos totales", "Intereses de la deuda",
+                               "Gasto primario"],
              "controls": [
                  {"kind": "freq", "label": "Vista", "default": "acumulado", "options": [
                      {"value": "acumulado", "label": "Acumulado (año en curso)", "x": "periodo", "grano": "acumulado"},
@@ -662,7 +716,8 @@ TEMAS = [
         "kpis": [
             {"label": "Recaudación de Ingresos Brutos (constante)", "metrica": "recaud_real",
              "fixed": {}, "year": "latest", "unidad": "pesos", "format": "int"},
-            {"label": "Industria manufacturera (constante)", "metrica": "recaud_real",
+            {"label": "Industria manufacturera (constante)",
+             "tabla_label": "Recaudación de la industria manufacturera", "metrica": "recaud_real",
              "fixed": {"sector": "Industria manufacturera"}, "year": "latest",
              "unidad": "pesos", "format": "int"},
         ],
@@ -733,7 +788,7 @@ TEMAS = [
             {"label": "Stock bovino total", "metrica": "stock_bovino",
              "fixed": {"categoria": "Total", "departamento": "Salta"}, "year": "latest",
              "unidad": "cabezas", "format": "int"},
-            {"label": "Vacas", "metrica": "stock_bovino",
+            {"label": "Vacas", "tabla_label": "Stock de vacas", "metrica": "stock_bovino",
              "fixed": {"categoria": "Vacas", "departamento": "Salta"}, "year": "latest",
              "unidad": "cabezas", "format": "int"},
         ],
@@ -790,10 +845,13 @@ TEMAS = [
         ],
         "tags": ["empleo-capacidades", "inversion-financiamiento"],
         "kpis": [
-            {"label": "Empleo minero (Salta)", "metrica": "empleo_min",
+            {"label": "Empleo minero (Salta)", "tabla_label": "Empleo minero", "metrica": "empleo_min",
              "fixed": {"grano": "trimestral", "genero": "Total", "rubro": "Total"},
              "cmp": "quarter", "year": "latest", "unidad": "puestos", "format": "int"},
-            {"label": "Recaudación del sector (USD, nacional)", "metrica": "recaud_usd",
+            {"label": "Recaudación del sector (USD, nacional)",
+             "tabla_label": "Recaudación del sector minero", "subeje": "Inversión y financiamiento",
+             "tabla_nota": "Dato nacional del sector, no atribuible a Salta.",
+             "metrica": "recaud_usd",
              "fixed": {}, "year": "latest", "unidad": "millones US$", "format": "int"},
         ],
         "charts": [
@@ -920,10 +978,12 @@ TEMAS = [
         ],
         "tags": ["actividad-productividad", "infraestructura-logistica"],
         "kpis": [
-            {"label": "Superficie autorizada", "metrica": "superficie_m2",
+            {"label": "Superficie autorizada", "tabla_label": "Superficie autorizada a construir",
+             "metrica": "superficie_m2",
              "fixed": {"grano": "anual", "municipio": "Total Salta"}, "year": "latest_complete",
              "unidad": "m²", "format": "int"},
-            {"label": "Permisos otorgados", "metrica": "permisos",
+            {"label": "Permisos otorgados", "tabla_label": "Permisos de edificación otorgados",
+             "metrica": "permisos",
              "fixed": {"grano": "anual", "municipio": "Total Salta"}, "year": "latest_complete",
              "unidad": "permisos", "format": "int"},
         ],
@@ -996,7 +1056,8 @@ TEMAS = [
         "kpis": [
             {"label": "Recursos a municipios (constante)", "metrica": "monto_real",
              "fixed": {"grano": "anual"}, "year": "latest_complete", "unidad": "pesos", "format": "int"},
-            {"label": "Coparticipación (constante)", "metrica": "monto_real",
+            {"label": "Coparticipación (constante)", "tabla_label": "Coparticipación a municipios",
+             "metrica": "monto_real",
              "fixed": {"grano": "anual", "grupo": "Coparticipación"}, "year": "latest_complete",
              "unidad": "pesos", "format": "int"},
         ],
@@ -1046,6 +1107,7 @@ TEMAS = [
     # ======================================================================
     {
         "id": "energia-renovable",
+        "subeje": "Ambiente",
         "area": "ambiente",
         "eje_pdes": "territorio-ambiente-turismo",
         "title": "Energía eléctrica y renovables",
@@ -1065,10 +1127,12 @@ TEMAS = [
         ],
         "tags": ["infraestructura-logistica", "innovacion-mercados"],
         "kpis": [
-            {"label": "Participación renovable", "metrica": "share_renovable_pct",
+            {"label": "Participación renovable", "tabla_label": "Participación renovable en la generación",
+             "metrica": "share_renovable_pct",
              "fixed": {"grano": "trimestral"}, "cmp": "quarter", "year": "latest",
              "unidad": "%", "format": "int"},
-            {"label": "Potencia instalada", "metrica": "potencia_mw",
+            {"label": "Potencia instalada", "tabla_nota": "Es un stock (fotografía), no un flujo: no corresponde variación interanual.",
+             "metrica": "potencia_mw",
              "fixed": {"grano": "anual"}, "year": "latest", "unidad": "MW", "format": "int"},
         ],
         "charts": [
@@ -1154,6 +1218,102 @@ TEMAS = [
              "x": "anio", "seriesBy": "funcion", "metrica": "personal_id", "fixed": {}, "stack": True,
              "controls": [],
              "unidad": "personas"},
+        ],
+    },
+
+    # ======================================================================
+    {
+        "id": "exportaciones",
+        "area": "economico",
+        "eje_pdes": "economico-productivo",
+        "title": "Exportaciones",
+        "resumen": (
+            "Exportaciones de la provincia de Salta desde 2021: cuánto se vendió al exterior, qué "
+            "productos y a qué países, en valor (dólares FOB) y en volumen (toneladas)."
+        ),
+        "resumen_corto": "Qué exporta Salta, a qué países y por cuánto.",
+        "fuente": "INDEC — Comercio Exterior (COMEX), base anual por provincia de origen",
+        "fuente_url": "https://comex.indec.gob.ar/#/database",
+        "cobertura": "2021–2025",
+        "keywords": [
+            "exportaciones", "comercio exterior", "exportar", "destinos", "mercados externos",
+            "países", "dólares", "FOB", "divisas", "toneladas", "volumen exportado",
+            "productos primarios", "manufacturas", "MOA", "MOI", "combustibles",
+            "legumbres", "poroto", "maíz", "tabaco", "soja", "litio", "borato", "vino",
+            "Estados Unidos", "China", "Brasil", "Bélgica", "Chile", "Vietnam",
+            "inserción internacional", "diversificación", "secreto estadístico", "INDEC", "COMEX",
+        ],
+        "tags": ["innovacion-mercados", "actividad-productividad"],
+        "kpis": [
+            {"label": "Exportaciones totales", "metrica": "fob_usd",
+             "fixed": {}, "year": "latest", "unidad": "USD", "format": "int"},
+            {"label": "Volumen exportado", "metrica": "peso_ton",
+             "fixed": {}, "year": "latest", "unidad": "toneladas", "format": "int"},
+        ],
+        "charts": [
+            {"id": "expo-total", "type": "line",
+             "title": "Exportaciones totales, en dólares FOB",
+             "descr": "Valor total exportado por Salta cada año. El botón de medida permite ver el "
+                      "volumen en toneladas: si el valor sube y el volumen no, la mejora vino de "
+                      "los precios y no de una mayor cantidad vendida.",
+             "x": "anio", "seriesBy": None, "metrica": "fob_usd", "fixed": {},
+             "controls": [
+                 {"kind": "mode", "label": "Medida", "default": "usd", "options": [
+                     {"value": "usd", "label": "Dólares FOB", "metric": "fob_usd"},
+                     {"value": "ton", "label": "Toneladas", "metric": "peso_ton", "unidad": "toneladas"}]},
+             ],
+             "unidad": "USD"},
+            {"id": "expo-gran-rubro", "type": "stacked-area",
+             "title": "Composición por tipo de producto, en dólares FOB",
+             "descr": "Cómo se reparte lo exportado entre productos primarios, manufacturas de "
+                      "origen agropecuario e industrial y combustibles. En '% del total' se lee la "
+                      "estructura: cuánto pesa cada tipo de producto, más allá de si el total creció.",
+             "x": "anio", "seriesBy": "gran_rubro", "metrica": "fob_usd", "fixed": {}, "stack": True,
+             "controls": [
+                 {"kind": "mode", "label": "Medida", "default": "usd", "options": [
+                     {"value": "usd", "label": "Dólares FOB", "metric": "fob_usd"},
+                     {"value": "ton", "label": "Toneladas", "metric": "peso_ton", "unidad": "toneladas"},
+                     {"value": "pct", "label": "% del total", "metric": "fob_usd", "percent": True, "unidad": "%"}]},
+             ],
+             "unidad": "USD"},
+            {"id": "expo-rubro-ranking", "type": "barh",
+             "title": "Ranking de productos exportados",
+             "descr": "Rubros ordenados por valor exportado en el año elegido, en dólares FOB. "
+                      "Las categorías 'Confidencial' son operaciones cuyo producto no "
+                      "se publica por secreto estadístico: se muestran porque su magnitud es parte "
+                      "de la lectura, no porque sean un producto.",
+             "x": "rubro", "seriesBy": None, "metrica": "fob_usd", "fixed": {},
+             "controls": [
+                 {"dim": "anio", "label": "Año", "kind": "year"},
+                 {"kind": "mode", "label": "Medida", "default": "usd", "options": [
+                     {"value": "usd", "label": "Dólares FOB", "metric": "fob_usd"},
+                     {"value": "ton", "label": "Toneladas", "metric": "peso_ton", "unidad": "toneladas"}]},
+             ],
+             "sort": "desc", "unidad": "USD"},
+            {"id": "expo-continente", "type": "stacked-area",
+             "title": "Composición por continente de destino, en dólares FOB",
+             "descr": "A qué región del mundo se vende. En '% del total' se ve si la provincia "
+                      "diversifica destinos o los concentra.",
+             "x": "anio", "seriesBy": "continente", "metrica": "fob_usd", "fixed": {}, "stack": True,
+             "controls": [
+                 {"kind": "mode", "label": "Medida", "default": "usd", "options": [
+                     {"value": "usd", "label": "Dólares FOB", "metric": "fob_usd"},
+                     {"value": "ton", "label": "Toneladas", "metric": "peso_ton", "unidad": "toneladas"},
+                     {"value": "pct", "label": "% del total", "metric": "fob_usd", "percent": True, "unidad": "%"}]},
+             ],
+             "unidad": "USD"},
+            {"id": "expo-destino-ranking", "type": "barh",
+             "title": "Principales países de destino",
+             "descr": "Los 15 destinos de mayor valor en el año elegido, en dólares FOB. "
+                      "Salta exportó a 146 países en el período; el resto queda fuera del gráfico.",
+             "x": "pais_destino", "seriesBy": None, "metrica": "fob_usd", "fixed": {},
+             "controls": [
+                 {"dim": "anio", "label": "Año", "kind": "year"},
+                 {"kind": "mode", "label": "Medida", "default": "usd", "options": [
+                     {"value": "usd", "label": "Dólares FOB", "metric": "fob_usd"},
+                     {"value": "ton", "label": "Toneladas", "metric": "peso_ton", "unidad": "toneladas"}]},
+             ],
+             "sort": "desc", "topN": 15, "unidad": "USD"},
         ],
     },
 ]

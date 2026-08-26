@@ -1300,6 +1300,12 @@ def id_innovacion():
 RESFISC_METRICAS = {
     "monto_corr": {"label": "Monto (pesos corrientes)", "unidad": "pesos", "agg": "sum"},
     "monto_real": {"label": "Monto (pesos constantes)", "unidad": "pesos", "agg": "sum"},
+    # Cociente contra el gasto primario. Es un RATIO: no depende de la deflación (verificado
+    # período por período, corrientes y constantes dan el mismo valor), así que no se duplica
+    # en corr/real. agg "mean" es defensivo: sumar los porcentajes de dos conceptos no
+    # significaría nada, y los gráficos siempre fijan o abren el concepto en series.
+    "pct_gprim": {"label": "En % del gasto primario", "unidad": "% del gasto primario",
+                  "agg": "mean"},
 }
 _RESFISC_BASE_Y = 2025
 # (etiqueta legible, prefijo de columna en el CSV). XI == VIII en Salta: se usa XI como
@@ -1311,6 +1317,11 @@ _RESFISC_CONCEPTOS = [
     ("Resultado primario",    "res_primario"),
     ("Intereses de la deuda", "intereses_deuda"),
 ]
+# Gasto primario = gastos totales − intereses de la deuda. La identidad se verificó contra la
+# propia fuente: ingresos − gasto primario == resultado primario, exacto en todos los períodos.
+_RESFISC_GPRIM = "Gasto primario"
+# Conceptos que se expresan como % del gasto primario.
+_RESFISC_PCT = ["Resultado financiero", "Resultado primario"]
 
 
 def resultado_fiscal():
@@ -1332,14 +1343,31 @@ def resultado_fiscal():
         periodo = f"{y}-{m:02d}"
         ipc = ipcm.get(y * 100 + m)
         for vista, suf in (("acumulado", "acum"), ("mensual", "mensual")):
+            vals = {}
             for concepto, pref in _RESFISC_CONCEPTOS:
                 v = r.get(f"{pref}_{suf}")
                 if v is None or pd.isna(v):
                     continue
                 v = float(v)
+                vals[concepto] = v
                 rows.append([vista, y, m, periodo, concepto, "monto_corr", round(v, 1)])
                 if ipc:
                     rows.append([vista, y, m, periodo, concepto, "monto_real", round(v * base / ipc, 1)])
+
+            # Gasto primario y los resultados expresados en % de ese gasto.
+            gt, it = vals.get("Gastos totales"), vals.get("Intereses de la deuda")
+            if gt is None or it is None:
+                continue
+            gprim = gt - it
+            rows.append([vista, y, m, periodo, _RESFISC_GPRIM, "monto_corr", round(gprim, 1)])
+            if ipc:
+                rows.append([vista, y, m, periodo, _RESFISC_GPRIM, "monto_real",
+                             round(gprim * base / ipc, 1)])
+            if gprim:
+                for concepto in _RESFISC_PCT:
+                    if concepto in vals:
+                        rows.append([vista, y, m, periodo, concepto, "pct_gprim",
+                                     round(vals[concepto] / gprim * 100, 2)])
 
     fields = ["grano", "anio", "mes", "periodo", "concepto", "metrica", "valor"]
     return {
@@ -1349,7 +1377,7 @@ def resultado_fiscal():
             "grano": ["acumulado", "mensual"],
             "anio": sorted({r[1] for r in rows}),
             "periodo": sorted({r[3] for r in rows}),
-            "concepto": [c for c, _ in _RESFISC_CONCEPTOS],
+            "concepto": [c for c, _ in _RESFISC_CONCEPTOS] + [_RESFISC_GPRIM],
         },
         "metricas": RESFISC_METRICAS,
         "notas": [
@@ -1359,6 +1387,13 @@ def resultado_fiscal():
             "resultado-fiscal: el resultado primario es un cálculo propio (resultado financiero + "
             "intereses de la deuda), la fuente no publica una línea primaria. Reales deflactados por "
             "IPC NOA (base 2025).",
+            "resultado-fiscal: `pct_gprim` expresa el resultado financiero y el primario como % del "
+            "GASTO PRIMARIO (gastos totales − intereses de la deuda). Es la medida de esfuerzo fiscal "
+            "que no depende de la inflación ni del tamaño nominal del presupuesto. Al ser un cociente "
+            "entre dos flujos del mismo período da idéntico en pesos corrientes y constantes, así que "
+            "no se duplica por moneda. En el acumulado los meses NO son comparables entre sí (enero "
+            "arranca alto y el ratio baja al avanzar el año): la comparación válida es contra el mismo "
+            "mes del año anterior.",
             "resultado-fiscal: el informe de diciembre es el cierre anual y reexpresa el resultado del "
             "año (el flujo mensual de diciembre incorpora ajustes de cierre); 2024-12 no fue publicado.",
         ],
@@ -1453,6 +1488,117 @@ def recaudacion():
     }
 
 
+# ==========================================================================
+# TEMA — Exportaciones de Salta por rubro y país de destino (INDEC COMEX)
+# ==========================================================================
+# Valor FOB en dólares CORRIENTES: no se deflacta (no hay deflactor de comercio exterior en
+# el repo y el estándar del INDEC es dólares corrientes). Se emite en USD enteros y en
+# toneladas, NO en millones: el formateador compacto de charts.js abrevia 1447,687 como
+# "1,4 K" (ambiguo, son 1.447 millones) mientras que 1.447.687.147 lo abrevia "1447,7 M".
+EXPO_METRICAS = {
+    "fob_usd": {"label": "Exportaciones (USD FOB)", "unidad": "USD", "agg": "sum"},
+    "peso_ton": {"label": "Volumen exportado (toneladas)", "unidad": "toneladas", "agg": "sum"},
+}
+
+# Primer dígito del código de país del INDEC -> continente. Verificado contra los 146 países
+# presentes (cada bloque trae además su propio "Indeterminado (América)", "(Europa)", etc.).
+_EXPO_CONTINENTE = {
+    "1": "África", "2": "América", "3": "Asia", "4": "Europa", "5": "Oceanía",
+    "9": "Indeterminado",
+}
+_EXPO_CONT_ORDEN = ["América", "Asia", "Europa", "África", "Oceanía", "Indeterminado"]
+
+# Etiquetas más cortas para las leyendas: las del CSV son las del INDEC, demasiado largas.
+_EXPO_GR_LABEL = {
+    "Manufacturas de origen agropecuario (MOA)": "Manufacturas agropecuarias (MOA)",
+    "Manufacturas de origen industrial (MOI)": "Manufacturas industriales (MOI)",
+}
+_EXPO_GR_ORDEN = ["Productos primarios", "Manufacturas agropecuarias (MOA)",
+                  "Manufacturas industriales (MOI)", "Combustibles y energía"]
+# Los rubros x9899 son el agregado por secreto estadístico: el INDEC no publica el rubro fino,
+# sólo el gran rubro. Se muestran como categoría propia (no se reparten ni se excluyen), así
+# que necesitan una etiqueta corta para el ranking.
+_EXPO_RUBRO_LABEL = {
+    "Productos primarios (confidencial)": "Confidencial (primarios)",
+    "Manufacturas de origen agropecuario (confidencial)": "Confidencial (MOA)",
+    "Manufacturas de origen industrial (confidencial)": "Confidencial (MOI)",
+    "Combustibles y energía (confidencial)": "Confidencial (combustibles)",
+    "Resto de los productos de molinería y de las preparaciones a base de cereales,harina,"
+    "almidón,fécula o leche,productos de pastelería": "Resto de molinería y panificados",
+    "Resto de residuos alimenticios y preparados para animales": "Resto de alimento animal",
+    "Resto de hortalizas y legumbres sin elaborar": "Resto de hortalizas sin elaborar",
+    "Resto de azúcar y artículos de confitería": "Resto de azúcar y confitería",
+    "Resto semillas y frutos oleaginosos": "Resto de semillas oleaginosas",
+}
+
+
+def exportaciones():
+    df = pd.read_csv(_drv("Salta_exportaciones_INDEC_rubro_destino_desde_2021.csv"),
+                     encoding="utf-8-sig")
+    df["anio"] = pd.to_numeric(df["anio"], errors="coerce").astype("Int64")
+    df["fob_usd"] = pd.to_numeric(df["fob_usd"], errors="coerce")
+    df["peso_neto_kg"] = pd.to_numeric(df["peso_neto_kg"], errors="coerce")
+    df = df.dropna(subset=["anio", "fob_usd"])
+    df["anio"] = df["anio"].astype(int)
+
+    df["gran_rubro"] = [_EXPO_GR_LABEL.get(g, g) for g in df["gran_rubro"].astype(str).str.strip()]
+    ru = df["rubro"].astype(str).str.replace(r"\s+", " ", regex=True).str.strip()
+    df["rubro"] = [_EXPO_RUBRO_LABEL.get(r, r) for r in ru]
+    df["continente"] = df["pais_cod"].astype(str).str.strip().str[0].map(_EXPO_CONTINENTE)
+    faltan_cont = int(df["continente"].isna().sum())
+    df["continente"] = df["continente"].fillna("Indeterminado")
+
+    # Sólo filas atómicas (anio x rubro x país): ningún total precalculado, así el navegador
+    # agrega por gran rubro / continente / país / rubro sin riesgo de doble conteo.
+    rows = []
+    for r in df.itertuples(index=False):
+        rows.append([r.anio, r.gran_rubro, r.rubro, r.continente, r.pais_destino,
+                     "fob_usd", round(float(r.fob_usd), 2)])
+        if pd.notna(r.peso_neto_kg):
+            rows.append([r.anio, r.gran_rubro, r.rubro, r.continente, r.pais_destino,
+                         "peso_ton", round(float(r.peso_neto_kg) / 1000.0, 3)])
+
+    fields = ["anio", "gran_rubro", "rubro", "continente", "pais_destino", "metrica", "valor"]
+    tot = df.groupby("anio")["fob_usd"].sum()
+    conf = df[df["confidencial"] == 1].groupby("anio")["fob_usd"].sum()
+    pct = (conf / tot * 100).round(1).dropna()
+    notas = [
+        "exportaciones: exportaciones de Salta por rubro y país de destino, base ANUAL del INDEC "
+        "(COMEX, `Datos_origen_2002_2025.xlsb`, provincia de ORIGEN). Valor FOB en dólares "
+        "CORRIENTES (sin deflactar) y peso neto. Metodología y controles en "
+        "`datos-drive/Metodologia_Salta_exportaciones_INDEC_rubro_destino.md`.",
+        "exportaciones: el secreto estadístico oculta el rubro fino de una parte creciente del "
+        "valor exportado (" + "; ".join("%d: %s %%" % (a, p) for a, p in pct.items()) + "). Esas "
+        "operaciones se muestran como categoría propia ('Confidencial (…)'), conservan país de "
+        "destino y gran rubro, y NO se reparten entre los rubros identificados.",
+        "exportaciones: `gran_rubro` y `continente` se derivan del primer dígito del código de "
+        "rubro y de país del INDEC. El máximo detalle de producto con apertura provincial es el "
+        "rubro; la posición arancelaria (NCM) sólo existe a nivel nacional.",
+        "exportaciones: el control automático de saltos de magnitud marca valores a >1000× de la "
+        "mediana. NO es un artefacto de parseo: la fuente es binaria (.xlsb leído con pyxlsb, sin "
+        "separadores que interpretar) y la distribución del comercio es de cola muy larga (la "
+        "mediana de una celda rubro×país ronda los 135.000 USD y la mayor supera los 380 M). "
+        "Verificado además contra el total nacional del INDEC, con diferencia de 0,98 USD sobre "
+        "87.111 M.",
+    ]
+    if faltan_cont:
+        notas.append("exportaciones: %d filas con código de país sin continente asignable; "
+                     "se agrupan en 'Indeterminado'." % faltan_cont)
+    return {
+        "fields": fields,
+        "rows": rows,
+        "dims": {
+            "anio": sorted({r[0] for r in rows}),
+            "gran_rubro": [g for g in _EXPO_GR_ORDEN if g in {r[1] for r in rows}],
+            "rubro": sorted({r[2] for r in rows}),
+            "continente": [c for c in _EXPO_CONT_ORDEN if c in {r[3] for r in rows}],
+            "pais_destino": sorted({r[4] for r in rows}),
+        },
+        "metricas": EXPO_METRICAS,
+        "notas": notas,
+    }
+
+
 # Registro id_tema -> función adapter
 ADAPTERS = {
     "educacion": educacion,
@@ -1471,4 +1617,5 @@ ADAPTERS = {
     "id-innovacion": id_innovacion,
     "resultado-fiscal": resultado_fiscal,
     "recaudacion": recaudacion,
+    "exportaciones": exportaciones,
 }

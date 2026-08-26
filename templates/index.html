@@ -33,6 +33,50 @@
   <div class="cards" id="resultados"></div>
 </section>
 
+<section class="wrap section" id="tabla-indicadores">
+  <h2 class="section-title">Tabla de indicadores</h2>
+  <p class="section-lead muted">Los {{ n_indicadores }} indicadores que hoy publica el Monitor, agrupados por eje del PDES. La variación es interanual: compara el último dato disponible con el mismo período del año anterior, igual que las tarjetas de cada tablero. Las líneas de base del PDES todavía no están definidas.</p>
+
+  {% for g in tabla %}
+  <div class="tabla-ind-block">
+    <h3 class="eje-title">{{ g.label }} <span class="eje-count">{{ g.filas|length }}</span></h3>
+    <div class="tabla-ind-scroll">
+      <table class="tabla-ind">
+        <thead>
+          <tr>
+            <th scope="col">Indicador</th>
+            <th scope="col">Subeje</th>
+            <th scope="col">Frecuencia</th>
+            <th scope="col">Último dato</th>
+            <th scope="col">Línea de base</th>
+            <th scope="col">Período de la base</th>
+            <th scope="col">Var. interanual</th>
+            <th scope="col">Períodos comparados</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for f in g.filas %}
+          <tr>
+            <th scope="row">
+              <a href="{{ base }}/tema/{{ f.tema_id }}.html" title="Ver el tablero: {{ f.tema_title }}">{{ f.indicador }}</a>
+              {% if f.nota %}<abbr class="tabla-ind-nota" title="{{ f.nota }}">ⓘ</abbr>{% endif %}
+            </th>
+            <td class="tabla-ind-subeje">{{ f.subeje }}</td>
+            <td>{{ f.frecuencia }}</td>
+            <td class="num">{{ f.ultimo }}</td>
+            <td class="num">{% if f.base_valor %}{{ f.base_valor }}{% else %}<span class="tabla-ind-vacio" title="A definir">—</span>{% endif %}</td>
+            <td class="num">{% if f.base_periodo %}{{ f.base_periodo }}{% else %}<span class="tabla-ind-vacio" title="A definir">—</span>{% endif %}</td>
+            <td class="num"><span class="tabla-ind-var {{ f.var_cls }}">{{ f.var_txt }}</span></td>
+            <td class="num tabla-ind-ref">{% if f.var_ref %}{{ f.var_ref }}{% else %}<span class="tabla-ind-vacio">—</span>{% endif %}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+  {% endfor %}
+</section>
+
 <section class="wrap section" id="explorar">
   <h2 class="section-title">Explorar por eje del PDES</h2>
   <p class="section-lead muted">El Plan de Desarrollo Estratégico organiza los indicadores en tres ejes. Dentro de cada eje se agrupan por eje transversal de desarrollo productivo.</p>
