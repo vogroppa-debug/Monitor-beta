@@ -8,8 +8,14 @@
   "use strict";
 
   // Paleta categórica validada (dataviz skill), por modo.
-  var PAL_LIGHT = ["#2a78d6", "#eb6834", "#1baf7a", "#eda100", "#e87ba4", "#008300", "#4a3aa7", "#e34948"];
-  var PAL_DARK  = ["#3987e5", "#d95926", "#199e70", "#c98500", "#d55181", "#008300", "#9085e9", "#e66767"];
+  // Paleta categórica de 12 colores con tonos bien separados en el espectro: ninguna serie
+  // adyacente comparte familia y hay colores suficientes para gráficos de muchas categorías
+  // (p. ej. 11 cultivos) sin que la paleta "dé la vuelta" y repita color (antes Trigo y Centeno
+  // caían en el mismo tono). El orden alterna cálidos/fríos para maximizar el contraste vecino.
+  var PAL_LIGHT = ["#2a78d6", "#e8681f", "#16a97a", "#9b4dd4", "#e0a000", "#0f9aad",
+                   "#db3f8f", "#7a9c1e", "#e0392f", "#5a53c8", "#8a5a2b", "#12b0b0"];
+  var PAL_DARK  = ["#3f8ae0", "#f0793a", "#1fbe8b", "#b26ae0", "#f0b52a", "#2bb6c8",
+                   "#ef5aa1", "#9bc23a", "#ef5b52", "#7a72e0", "#b07a45", "#2fd0d0"];
 
   var nfFull = new Intl.NumberFormat("es-AR", { maximumFractionDigits: 0 });
   var nfCompact = new Intl.NumberFormat("es-AR", { notation: "compact", maximumFractionDigits: 1 });
@@ -367,12 +373,20 @@
     });
   }
 
-  // Toggle Total | Grilla por departamento (solo line/stacked-area con geoDim).
+  // Etiqueta de la vista en grilla según la dimensión geográfica del gráfico.
+  var GEO_GRID_LABEL = {
+    departamento: "Grilla por departamento", municipio: "Grilla por municipio",
+    localidad: "Grilla por localidad", unidad_geografica: "Grilla por zona",
+    area_operativa: "Grilla por área operativa", central: "Grilla por central"
+  };
+
+  // Toggle Total | Grilla por <geografía> (solo line/stacked-area con geoDim).
   function appendViewToggle(container, ch, state, onChange) {
     var wrap = document.createElement("div"); wrap.className = "control";
     var lab = document.createElement("label"); lab.textContent = "Vista";
     var seg = document.createElement("div"); seg.className = "seg"; seg.setAttribute("role", "group");
-    [["total", "Total"], ["grid", "Grilla por departamento"]].forEach(function (o) {
+    var gridLabel = GEO_GRID_LABEL[ch.geoDim] || "Grilla por departamento";
+    [["total", "Total"], ["grid", gridLabel]].forEach(function (o) {
       var b = document.createElement("button"); b.type = "button"; b.textContent = o[1];
       b.setAttribute("aria-pressed", String(state.view === o[0]));
       b.addEventListener("click", function () {

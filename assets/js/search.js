@@ -50,6 +50,12 @@
         return;
       }
       var hits = mini.search(q);
+      // Se muestran en el MISMO orden que la portada (eje del PDES → subeje → título), no por
+      // relevancia: `orden` lo asigna build.py. MiniSearch ya filtró a los tableros que matchean.
+      hits.sort(function (a, b) {
+        var oa = byId[a.id] && byId[a.id].orden, ob = byId[b.id] && byId[b.id].orden;
+        return (oa == null ? 999 : oa) - (ob == null ? 999 : ob);
+      });
       renderResults(q, hits);
     }
 

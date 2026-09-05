@@ -104,6 +104,34 @@ SUBEJE_ORDEN = {
     "Territorio": 1, "Ambiente": 2, "Turismo": 3,
 }
 
+# Secciones de actividad económica (nomenclador CLANAE/CIIU rev.4). Se muestran como letra
+# con tooltip en la Tabla de indicadores del eje económico-productivo. Un indicador declara
+# su letra con `ciiu` a nivel de tema (por defecto para todos sus KPIs) o de KPI (override,
+# cuando un tema mezcla sectores, p. ej. uva=A vs. vino=C). Sólo se marcan los casos claros.
+CIIU_SECCIONES = {
+    "A": "Agricultura, ganadería, caza, silvicultura y pesca",
+    "B": "Explotación de minas y canteras",
+    "C": "Industria manufacturera",
+    "D": "Suministro de electricidad, gas, vapor y aire acondicionado",
+    "E": "Suministro de agua, cloacas, gestión de residuos, recuperación de materiales y saneamiento público",
+    "F": "Construcción",
+    "G": "Comercio al por mayor y al por menor; reparación de vehículos automotores y motocicletas",
+    "H": "Servicios de transporte y almacenamiento",
+    "I": "Servicios de alojamiento y servicios de comida",
+    "J": "Información y comunicaciones",
+    "K": "Intermediación financiera y servicios de seguros",
+    "L": "Servicios inmobiliarios",
+    "M": "Servicios profesionales, científicos y técnicos",
+    "N": "Actividades administrativas y servicios de apoyo",
+    "O": "Administración pública, defensa y seguridad social obligatoria",
+    "P": "Enseñanza",
+    "Q": "Salud humana y servicios sociales",
+    "R": "Servicios artísticos, culturales, deportivos y de esparcimiento",
+    "S": "Servicios de asociaciones y servicios personales",
+    "T": "Servicios de hogares privados que contratan servicio doméstico",
+    "U": "Servicios de organizaciones y órganos extraterritoriales",
+}
+
 SITE = {
     "nombre": "Monitor de Indicadores (versión Beta)",
     "subtitulo": "Seguimiento del Plan de Desarrollo Estratégico de Salta (PDES 2050)",
@@ -203,9 +231,9 @@ TEMAS = [
         ],
         "tags": ["actividad-productividad", "innovacion-mercados"],
         "kpis": [
-            {"label": "Producción de uva", "metrica": "produccion_uva",
+            {"label": "Producción de uva", "metrica": "produccion_uva", "ciiu": "A",
              "fixed": {"categoria": "cosecha_elaboracion"}, "year": "latest", "unidad": "quintales", "format": "int"},
-            {"label": "Elaboración de vino y mosto", "metrica": "elaboracion_total",
+            {"label": "Elaboración de vino y mosto", "metrica": "elaboracion_total", "ciiu": "C",
              "fixed": {"categoria": "cosecha_elaboracion"}, "year": "latest", "unidad": "hectolitros", "format": "int"},
             {"label": "Exportaciones (valor FOB)", "tabla_label": "Exportaciones de vino (valor FOB)",
              "metrica": "export_valor_fob",
@@ -239,6 +267,7 @@ TEMAS = [
     # ======================================================================
     {
         "id": "produccion-energia",
+        "ciiu": "B",
         "area": "energia",
         "eje_pdes": "economico-productivo",
         "title": "Producción de petróleo y gas",
@@ -472,6 +501,7 @@ TEMAS = [
     # ======================================================================
     {
         "id": "agricultura",
+        "ciiu": "A",
         "area": "agropecuario",
         "eje_pdes": "economico-productivo",
         "title": "Agricultura por departamento",
@@ -732,7 +762,7 @@ TEMAS = [
         "kpis": [
             {"label": "Recaudación de Ingresos Brutos (constante)", "metrica": "recaud_real",
              "fixed": {}, "year": "latest", "unidad": "pesos", "format": "int"},
-            {"label": "Industria manufacturera (constante)",
+            {"label": "Industria manufacturera (constante)", "ciiu": "C",
              "tabla_label": "Recaudación de la industria manufacturera", "metrica": "recaud_real",
              "fixed": {"sector": "Industria manufacturera"}, "year": "latest",
              "unidad": "pesos", "format": "int"},
@@ -783,6 +813,7 @@ TEMAS = [
     # ======================================================================
     {
         "id": "ganaderia",
+        "ciiu": "A",
         "area": "agropecuario",
         "eje_pdes": "economico-productivo",
         "title": "Ganadería bovina",
@@ -842,6 +873,7 @@ TEMAS = [
     # ======================================================================
     {
         "id": "mineria",
+        "ciiu": "B",
         "area": "mineria",
         "eje_pdes": "economico-productivo",
         "title": "Minería",
@@ -907,6 +939,7 @@ TEMAS = [
     # ======================================================================
     {
         "id": "financiero",
+        "ciiu": "K",
         "area": "financiero",
         "eje_pdes": "economico-productivo",
         "title": "Crédito y depósitos (BCRA)",
@@ -975,6 +1008,7 @@ TEMAS = [
     # ======================================================================
     {
         "id": "construccion",
+        "ciiu": "F",
         "area": "construccion",
         "eje_pdes": "economico-productivo",
         "title": "Construcción (permisos de edificación)",
@@ -1021,6 +1055,7 @@ TEMAS = [
              "descr": "Cantidad de permisos de edificación otorgados en la provincia.",
              "x": "trimestre", "seriesBy": None, "metrica": "permisos",
              "fixed": {"grano": "trimestral", "municipio": "Total Salta"},
+             "geoDim": "municipio",
              "controls": [
                  {"kind": "freq", "label": "Frecuencia", "default": "trimestral", "options": [
                      {"value": "trimestral", "label": "Trimestral", "x": "trimestre", "grano": "trimestral"},
@@ -1126,43 +1161,30 @@ TEMAS = [
         "subeje": "Ambiente",
         "area": "ambiente",
         "eje_pdes": "territorio-ambiente-turismo",
-        "title": "Energía eléctrica y renovables",
+        "title": "Energías renovables",
         "resumen": (
-            "Generación de energía eléctrica en Salta según CAMMESA, por fuente (hidráulica, térmica "
-            "y renovable), la participación de las renovables en la matriz y la potencia instalada por "
-            "central, desde 2019."
+            "El peso de las energías renovables e hidráulicas en la matriz eléctrica de Salta según "
+            "CAMMESA: qué porcentaje de la generación provincial es de origen limpio y cuánta energía "
+            "renovable e hidráulica se produce, desde 2019. La generación eléctrica total y por central "
+            "está en el tablero de Energía eléctrica."
         ),
-        "resumen_corto": "Generación eléctrica por fuente y peso de las renovables.",
+        "resumen_corto": "Peso y generación de las energías renovables e hidráulicas.",
         "fuente": "CAMMESA — Informe de síntesis mensual",
         "fuente_url": "https://cammesaweb.cammesa.com/",
         "cobertura": "2019–2026",
         "keywords": [
-            "energía", "electricidad", "generación", "renovable", "renovables", "solar", "hidráulica",
-            "térmica", "biomasa", "CAMMESA", "potencia instalada", "MW", "GWh", "matriz energética",
-            "Cafayate", "Altiplano", "Ley 27191", "parques solares",
+            "renovable", "renovables", "energía limpia", "solar", "hidráulica", "biomasa", "eólica",
+            "matriz energética", "transición energética", "CAMMESA", "GWh", "Ley 27191",
+            "parques solares", "Cafayate", "Altiplano", "ambiente", "descarbonización",
         ],
-        "tags": ["infraestructura-logistica", "innovacion-mercados"],
+        "tags": ["innovacion-mercados", "infraestructura-logistica"],
         "kpis": [
             {"label": "Participación renovable", "tabla_label": "Participación renovable en la generación",
              "metrica": "share_renovable_pct",
              "fixed": {"grano": "trimestral"}, "cmp": "quarter", "year": "latest",
              "unidad": "%", "format": "int"},
-            {"label": "Potencia instalada", "tabla_nota": "Es un stock (fotografía), no un flujo: no corresponde variación interanual.",
-             "metrica": "potencia_mw",
-             "fixed": {"grano": "anual"}, "year": "latest", "unidad": "MW", "format": "int"},
         ],
         "charts": [
-            {"id": "ren-fuente", "type": "stacked-area",
-             "title": "Generación eléctrica por fuente",
-             "descr": "Energía generada en Salta, apilada por fuente (GWh).",
-             "x": "trimestre", "seriesBy": "fuente", "metrica": "generacion_gwh",
-             "fixed": {"grano": "trimestral"}, "stack": True,
-             "controls": [
-                 {"kind": "freq", "label": "Frecuencia", "default": "trimestral", "options": [
-                     {"value": "trimestral", "label": "Trimestral", "x": "trimestre", "grano": "trimestral"},
-                     {"value": "anual", "label": "Anual", "x": "anio", "grano": "anual"}]},
-             ],
-             "unidad": "GWh"},
             {"id": "ren-share", "type": "line",
              "title": "Participación de las renovables",
              "descr": "Porcentaje de la generación de origen renovable e hidráulico.",
@@ -1174,14 +1196,73 @@ TEMAS = [
                      {"value": "anual", "label": "Anual", "x": "anio", "grano": "anual"}]},
              ],
              "unidad": "%"},
-            {"id": "ren-central-gen", "type": "barh",
+            {"id": "ren-gen", "type": "stacked-area",
+             "title": "Generación de origen renovable e hidráulico",
+             "descr": "Energía generada por fuentes limpias (renovable e hidráulica), apilada por "
+                      "fuente (GWh). La generación térmica se ve en el tablero de Energía eléctrica.",
+             "x": "trimestre", "seriesBy": "fuente", "metrica": "generacion_gwh",
+             "fixed": {"grano": "trimestral"}, "seriesExclude": ["Térmica"], "stack": True,
+             "controls": [
+                 {"kind": "freq", "label": "Frecuencia", "default": "trimestral", "options": [
+                     {"value": "trimestral", "label": "Trimestral", "x": "trimestre", "grano": "trimestral"},
+                     {"value": "anual", "label": "Anual", "x": "anio", "grano": "anual"}]},
+             ],
+             "unidad": "GWh"},
+        ],
+    },
+    # ======================================================================
+    {
+        "id": "energia-electrica",
+        "ciiu": "D",
+        "area": "energia",
+        "eje_pdes": "economico-productivo",
+        "title": "Energía eléctrica",
+        "resumen": (
+            "Generación de energía eléctrica en Salta según CAMMESA: la matriz por fuente (hidráulica, "
+            "térmica y renovable), la evolución de la generación por central y la potencia instalada, "
+            "desde 2019. El peso de las renovables se sigue en el tablero de Energías renovables."
+        ),
+        "resumen_corto": "Generación eléctrica total, por fuente y por central, y potencia instalada.",
+        "fuente": "CAMMESA — Informe de síntesis mensual",
+        "fuente_url": "https://cammesaweb.cammesa.com/",
+        "cobertura": "2019–2026",
+        "keywords": [
+            "energía", "electricidad", "generación eléctrica", "matriz energética", "hidráulica",
+            "térmica", "renovable", "CAMMESA", "GWh", "MW", "potencia instalada", "centrales",
+            "central", "usina", "infraestructura energética",
+        ],
+        "tags": ["infraestructura-logistica", "actividad-productividad"],
+        "kpis": [
+            {"label": "Generación eléctrica total", "metrica": "generacion_gwh",
+             "fixed": {"grano": "trimestral"}, "cmp": "quarter", "year": "latest",
+             "unidad": "GWh", "format": "int"},
+            {"label": "Potencia instalada", "tabla_nota": "Es un stock (fotografía), no un flujo: no corresponde variación interanual.",
+             "metrica": "potencia_mw",
+             "fixed": {"grano": "anual"}, "year": "latest", "unidad": "MW", "format": "int"},
+        ],
+        "charts": [
+            {"id": "elec-fuente", "type": "stacked-area",
+             "title": "Generación eléctrica por fuente",
+             "descr": "Energía generada en Salta, apilada por fuente (GWh).",
+             "x": "trimestre", "seriesBy": "fuente", "metrica": "generacion_gwh",
+             "fixed": {"grano": "trimestral"}, "stack": True,
+             "controls": [
+                 {"kind": "freq", "label": "Frecuencia", "default": "trimestral", "options": [
+                     {"value": "trimestral", "label": "Trimestral", "x": "trimestre", "grano": "trimestral"},
+                     {"value": "anual", "label": "Anual", "x": "anio", "grano": "anual"}]},
+             ],
+             "unidad": "GWh"},
+            {"id": "elec-central", "type": "stacked-area",
              "title": "Generación por central",
-             "descr": "Ranking de centrales por energía generada, para el año seleccionado.",
-             "x": "central", "seriesBy": None, "metrica": "gen_central_gwh",
-             "fixed": {"grano": "anual"},
-             "controls": [{"dim": "anio", "label": "Año", "kind": "year"}],
-             "sort": "desc", "unidad": "GWh"},
-            {"id": "ren-potencia", "type": "barh",
+             "descr": "Evolución de la energía generada por cada central eléctrica de la provincia "
+                      "(GWh por año), apilada. La vista de grilla compara las centrales una a una.",
+             "x": "anio", "seriesBy": "central", "metrica": "gen_central_gwh",
+             "fixed": {}, "stack": True, "geoDim": "central",
+             "controls": [
+                 {"dim": "central", "label": "Central", "kind": "select", "all": True},
+             ],
+             "unidad": "GWh"},
+            {"id": "elec-potencia", "type": "barh",
              "title": "Potencia instalada por central",
              "descr": "Potencia eléctrica instalada por central (última información disponible).",
              "x": "central", "seriesBy": None, "metrica": "potencia_mw",
@@ -1193,6 +1274,7 @@ TEMAS = [
     # ======================================================================
     {
         "id": "id-innovacion",
+        "ciiu": "M",
         "area": "ciencia",
         "eje_pdes": "economico-productivo",
         "title": "Inversión en I+D",
@@ -1348,7 +1430,8 @@ TEMAS = [
         ),
         "resumen_corto": "Nacimientos, defunciones, tasas vitales y actividad hospitalaria.",
         "fuente": "Programa de Estadísticas de Información en Salud — Ministerio de Salud Pública de Salta",
-        "fuente_url": "https://www.salta.gob.ar/organismos/ministerio-de-salud-publica",
+        # Datos provistos por el MSP a solicitud; NO están publicados en un portal → sin enlace a la fuente.
+        "fuente_url": "",
         "cobertura": "2020–2025",
         "keywords": [
             "salud", "sanitario", "hospital", "hospitales", "establecimientos asistenciales",

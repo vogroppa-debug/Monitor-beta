@@ -65,6 +65,8 @@ Los CSV de origen (`Actualizar_*` / scripts) ya están en **formato inglés** (d
 - monto_real: 243 valor(es) a >1000× de la mediana (mediana=7.55189e+07); revisar posible artefacto de parseo.
 ### energia-renovable
 - energia-renovable: generación eléctrica de Salta (CAMMESA), MWh convertidos a GWh; los flujos se suman por trimestre/año. 'Renovable' = régimen Ley 27.191; la potencia instalada es una foto al último mes disponible.
+### energia-electrica
+- energia-renovable: generación eléctrica de Salta (CAMMESA), MWh convertidos a GWh; los flujos se suman por trimestre/año. 'Renovable' = régimen Ley 27.191; la potencia instalada es una foto al último mes disponible.
 ### id-innovacion
 - id-innovacion: inversión provincial en I+D (millones de $ corrientes y en pesos constantes de 2017) y personal en I+D por función; fuente RICyT/MINCyT. En términos reales la inversión se mantuvo casi estancada (678 en 2017 → 408 en 2024).
 ### exportaciones
@@ -97,6 +99,7 @@ Los CSV de origen (`Actualizar_*` / scripts) ya están en **formato inglés** (d
 - `construccion`: 1682 filas, cobertura 2021–2026.
 - `recursos-municipios`: 9814 filas, cobertura 2021–2026.
 - `energia-renovable`: 233 filas, cobertura 2019–2026.
+- `energia-electrica`: 233 filas, cobertura 2019–2026.
 - `id-innovacion`: 54 filas, cobertura 2003–2024.
 - `exportaciones`: 5306 filas, cobertura 2021–2025.
 - `salud`: 652 filas, cobertura 2020–2025.

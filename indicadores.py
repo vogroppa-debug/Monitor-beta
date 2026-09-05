@@ -44,9 +44,8 @@ EXTRA = {
         {"label": "Participación en la superficie nacional",
          "metrica": "share_sup_pct", "fixed": {"municipio": "Total Salta"}},
     ],
-    "energia-renovable": [
-        {"label": "Generación eléctrica total", "metrica": "generacion_gwh", "fixed": {}},
-    ],
+    # "Generación eléctrica total" pasó a ser KPI del tablero de Energía eléctrica (antes era un
+    # extra del tablero de renovables, que ahora sólo cubre lo renovable/hidráulico).
     "salud": [
         {"label": "Tasa de natalidad", "metrica": "tasa_natalidad",
          "fixed": {"departamento": "Salta", "desagregacion": "Total"}, "sentido": "neutro"},
@@ -338,11 +337,15 @@ def _orden_subejes(tags_meta, subeje_orden):
     return orden
 
 
-def tabla(payloads, catalogo, ejes_pdes_meta, tags_meta, subeje_orden):
+def tabla(payloads, catalogo, ejes_pdes_meta, tags_meta, subeje_orden, ciiu_secciones=None):
     """payloads: {tema_id: payload}; catalogo: temas livianos YA ORDENADOS;
     ejes_pdes_meta: catalog.EJES_PDES; tags_meta: catalog.TAGS;
-    subeje_orden: catalog.SUBEJE_ORDEN. Devuelve [{id, label, filas: [...]}]."""
+    subeje_orden: catalog.SUBEJE_ORDEN; ciiu_secciones: catalog.CIIU_SECCIONES (letra→nombre).
+    Devuelve [{id, label, filas, has_ciiu, subgrupos: [{label, filas}]}]."""
+    ciiu_secciones = ciiu_secciones or {}
     orden_tag = _orden_subejes(tags_meta, subeje_orden)
+    # CIIU representativa por tablero (para ordenar dentro del subeje); los sin letra van al final.
+    ciiu_orden_tema = {t["id"]: (t.get("ciiu_orden") or "￿") for t in catalogo}
     filas = []
     for t in catalogo:
         payload = payloads[t["id"]]
@@ -367,9 +370,13 @@ def tabla(payloads, catalogo, ejes_pdes_meta, tags_meta, subeje_orden):
             m2050, actual = _num(s.get("meta_2050")), _num(res.get("valor"))
             brecha = (m2050 - actual) if (m2050 is not None and actual is not None) else None
 
+            # Letra CIIU: override por KPI, o la del tema; sólo se muestra en económico-productivo.
+            ciiu = s.get("ciiu") or t.get("ciiu") or ""
+
             filas.append({
                 "eje": t.get("eje_pdes"),
                 "subeje": _subeje(s, t, tags_meta),
+                "ciiu": ciiu, "ciiu_label": ciiu_secciones.get(ciiu, ""),
                 "indicador": s.get("tabla_label") or s["label"],
                 "nota": s.get("tabla_nota", ""),
                 "tema_id": t["id"], "tema_title": t["title"],
@@ -392,9 +399,20 @@ def tabla(payloads, catalogo, ejes_pdes_meta, tags_meta, subeje_orden):
         sub = [f for f in filas if f["eje"] == eje_id]
         if not sub:
             continue
-        # Agrupadas por subeje: si no, la columna repite valores salteados y no se lee.
-        sub.sort(key=lambda f: orden_tag.get(f["subeje"], 99))
-        grupos.append({"id": eje_id, "label": eje["label"], "filas": sub})
+        # Ordenadas por subeje y, dentro de cada subeje, por la letra CIIU del tablero (los KPIs
+        # de un mismo tablero quedan contiguos porque comparten CIIU y título; el orden estable
+        # conserva el orden de los KPIs dentro del tablero).
+        sub.sort(key=lambda f: (orden_tag.get(f["subeje"], 99),
+                                ciiu_orden_tema.get(f["tema_id"], "￿"), f["tema_title"]))
+        # El subeje pasa a ser SUBTÍTULO (fila de encabezado), no una columna: agrupamos las
+        # filas consecutivas del mismo subeje conservando el orden ya fijado.
+        subgrupos = []
+        for f in sub:
+            if not subgrupos or subgrupos[-1]["label"] != f["subeje"]:
+                subgrupos.append({"label": f["subeje"], "filas": []})
+            subgrupos[-1]["filas"].append(f)
+        grupos.append({"id": eje_id, "label": eje["label"], "filas": sub,
+                       "has_ciiu": eje_id == "economico-productivo", "subgrupos": subgrupos})
     return grupos
 
 

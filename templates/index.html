@@ -41,11 +41,12 @@
   <div class="tabla-ind-block">
     <h3 class="eje-title">{{ g.label }} <span class="eje-count">{{ g.filas|length }}</span></h3>
     <div class="tabla-ind-scroll">
+      {% set ncols = 12 if g.has_ciiu else 11 %}
       <table class="tabla-ind">
         <thead>
           <tr>
             <th scope="col">Indicador</th>
-            <th scope="col">Subeje</th>
+            {% if g.has_ciiu %}<th scope="col" class="tabla-ind-ciiu-col"><abbr title="Sección de actividad económica (nomenclador CLANAE / CIIU rev.4)">CIIU</abbr></th>{% endif %}
             <th scope="col">Frecuencia</th>
             <th scope="col">Último dato</th>
             <th scope="col">Var. interanual</th>
@@ -58,15 +59,17 @@
             <th scope="col"><abbr title="Meta 2050 menos el último dato observado: cuánto le falta al indicador para alcanzar la meta final. Positiva, tiene que subir; negativa, tiene que bajar.">Brecha a 2050</abbr></th>
           </tr>
         </thead>
+        {% for sg in g.subgrupos %}
         <tbody>
-          {% for f in g.filas %}
+          <tr class="subeje-row"><th class="subeje-row-head" colspan="{{ ncols }}" scope="colgroup">{{ sg.label }}</th></tr>
+          {% for f in sg.filas %}
           <tr>
             <th scope="row">
               <a href="{{ base }}/tema/{{ f.tema_id }}.html" title="Ver el tablero: {{ f.tema_title }}">{{ f.indicador }}</a>
               {% if f.nota %}<abbr class="tabla-ind-nota" title="{{ f.nota }}">ⓘ</abbr>{% endif %}
             </th>
-            <td class="tabla-ind-subeje">{{ f.subeje }}</td>
-            <td>{{ f.frecuencia }}</td>
+            {% if g.has_ciiu %}<td class="tabla-ind-ciiu">{% if f.ciiu %}<abbr title="{{ f.ciiu }} — {{ f.ciiu_label }}">{{ f.ciiu }}</abbr>{% else %}<span class="tabla-ind-vacio" title="Sin sección de actividad asignable">—</span>{% endif %}</td>{% endif %}
+            <td class="tabla-ind-frec">{{ f.frecuencia }}</td>
             <td class="num">{{ f.ultimo }}</td>
             <td class="num"><span class="tabla-ind-var {{ f.var_cls }}">{{ f.var_txt }}</span></td>
             <td class="num tabla-ind-ref">{% if f.var_ref %}{{ f.var_ref }}{% else %}<span class="tabla-ind-vacio">—</span>{% endif %}</td>
@@ -79,6 +82,7 @@
           </tr>
           {% endfor %}
         </tbody>
+        {% endfor %}
       </table>
     </div>
   </div>

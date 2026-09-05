@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Energías renovables — Monitor de Indicadores (versión Beta)</title>
+  <title>Energía eléctrica — Monitor de Indicadores (versión Beta)</title>
   <meta name="description" content="Seguimiento del Plan de Desarrollo Estratégico de Salta (PDES 2050)">
   <script>
     /* fija el tema antes de pintar para evitar flash */
@@ -98,25 +98,25 @@
 
 <main id="main">
   
-<div class="tema-page" data-tema="energia-renovable" data-base="..">
+<div class="tema-page" data-tema="energia-electrica" data-base="..">
 
   <nav class="breadcrumb wrap" aria-label="Ruta">
     <a href="../index.html">Inicio</a>
     <span aria-hidden="true">/</span>
-    <span>Ambiente y energía</span>
+    <span>Energía</span>
     <span aria-hidden="true">/</span>
-    <span aria-current="page">Energías renovables</span>
+    <span aria-current="page">Energía eléctrica</span>
   </nav>
 
   <header class="tema-header wrap">
-    <span class="card-area">Ambiente y energía</span>
-    <h1>Energías renovables</h1>
+    <span class="card-area">Energía</span>
+    <h1>Energía eléctrica</h1>
     
     <div class="tag-chips" aria-label="Ejes de desarrollo productivo">
-      <span class="tag-chip">Innovación e inserción en mercados</span><span class="tag-chip">Infraestructura, logística y condiciones para producir</span>
+      <span class="tag-chip">Infraestructura, logística y condiciones para producir</span><span class="tag-chip">Actividad, estructura productiva y productividad</span>
     </div>
     
-    <p class="tema-resumen">Peso y generación de las energías renovables e hidráulicas.</p>
+    <p class="tema-resumen">Generación eléctrica total, por fuente y por central, y potencia instalada.</p>
     <p class="tema-meta muted">
       <strong>Fuente:</strong> CAMMESA — Informe de síntesis mensual ·
       <strong>Cobertura:</strong> 2019–2026
@@ -129,13 +129,13 @@
 
   <section class="wrap section charts-grid" id="charts">
     
-    <article class="chart-card" id="grafico-ren-share" data-chart-id="ren-share">
+    <article class="chart-card" id="grafico-elec-fuente" data-chart-id="elec-fuente">
       <div class="chart-card-head">
-        <h2 class="chart-title">Participación de las renovables</h2>
-        <p class="chart-descr">Porcentaje de la generación de origen renovable e hidráulico.</p>
+        <h2 class="chart-title">Generación eléctrica por fuente</h2>
+        <p class="chart-descr">Energía generada en Salta, apilada por fuente (GWh).</p>
       </div>
       <div class="chart-controls" role="group" aria-label="Filtros del gráfico"></div>
-      <div class="chart-plot" role="img" aria-label="Participación de las renovables"></div>
+      <div class="chart-plot" role="img" aria-label="Generación eléctrica por fuente"></div>
       <details class="chart-table">
         <summary>Ver datos en tabla</summary>
         <div class="chart-table-body"></div>
@@ -143,13 +143,27 @@
       <p class="chart-source muted">Fuente: CAMMESA — Informe de síntesis mensual · <a href="https://cammesaweb.cammesa.com/" target="_blank" rel="noopener">ir a la fuente ↗</a></p>
     </article>
     
-    <article class="chart-card" id="grafico-ren-gen" data-chart-id="ren-gen">
+    <article class="chart-card" id="grafico-elec-central" data-chart-id="elec-central">
       <div class="chart-card-head">
-        <h2 class="chart-title">Generación de origen renovable e hidráulico</h2>
-        <p class="chart-descr">Energía generada por fuentes limpias (renovable e hidráulica), apilada por fuente (GWh). La generación térmica se ve en el tablero de Energía eléctrica.</p>
+        <h2 class="chart-title">Generación por central</h2>
+        <p class="chart-descr">Evolución de la energía generada por cada central eléctrica de la provincia (GWh por año), apilada. La vista de grilla compara las centrales una a una.</p>
       </div>
       <div class="chart-controls" role="group" aria-label="Filtros del gráfico"></div>
-      <div class="chart-plot" role="img" aria-label="Generación de origen renovable e hidráulico"></div>
+      <div class="chart-plot" role="img" aria-label="Generación por central"></div>
+      <details class="chart-table">
+        <summary>Ver datos en tabla</summary>
+        <div class="chart-table-body"></div>
+      </details>
+      <p class="chart-source muted">Fuente: CAMMESA — Informe de síntesis mensual · <a href="https://cammesaweb.cammesa.com/" target="_blank" rel="noopener">ir a la fuente ↗</a></p>
+    </article>
+    
+    <article class="chart-card" id="grafico-elec-potencia" data-chart-id="elec-potencia">
+      <div class="chart-card-head">
+        <h2 class="chart-title">Potencia instalada por central</h2>
+        <p class="chart-descr">Potencia eléctrica instalada por central (última información disponible).</p>
+      </div>
+      <div class="chart-controls" role="group" aria-label="Filtros del gráfico"></div>
+      <div class="chart-plot" role="img" aria-label="Potencia instalada por central"></div>
       <details class="chart-table">
         <summary>Ver datos en tabla</summary>
         <div class="chart-table-body"></div>
@@ -199,12 +213,6 @@
       <a class="card card-sm" href="../tema/vitivinicultura.html">
         <span class="card-area">Económico-productivo</span>
         <h4 class="card-title">Vitivinicultura (INV)</h4>
-      </a>
-      
-      
-      <a class="card card-sm" href="../tema/energia-electrica.html">
-        <span class="card-area">Económico-productivo · Energía</span>
-        <h4 class="card-title">Energía eléctrica</h4>
       </a>
       
       
@@ -277,6 +285,12 @@
       <a class="card card-sm" href="../tema/turismo.html">
         <span class="card-area">Territorio, ambiente y turismo · Turismo</span>
         <h4 class="card-title">Turismo (ocupación hotelera)</h4>
+      </a>
+      
+      
+      <a class="card card-sm" href="../tema/energia-renovable.html">
+        <span class="card-area">Territorio, ambiente y turismo · Ambiente y energía</span>
+        <h4 class="card-title">Energías renovables</h4>
       </a>
       
     </div>

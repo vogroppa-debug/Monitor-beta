@@ -325,15 +325,23 @@ p { margin: 0 0 1em; }
 }
 /* Los encabezados envuelven a proposito: con nowrap, "Periodo de la variacion" se comia el
    ancho de la primera columna y los nombres de indicador pasaban a dos lineas. */
-.tabla-ind th:first-child { width: 30%; }
-.tabla-ind th:nth-child(2) { width: 16%; }
+.tabla-ind th:first-child { width: 34%; }
 .tabla-ind tbody th { font-weight: 600; }
 .tabla-ind tbody th a { color: var(--ink); }
 .tabla-ind tbody th a:hover { color: var(--accent-600); }
 .tabla-ind td.num { text-align: right; white-space: nowrap; }
-.tabla-ind td:nth-child(3) { white-space: nowrap; }     /* "Mensual acumulado" en una linea */
-/* El subeje se repite fila a fila: en gris y mas chico, para que no compita con el indicador. */
-.tabla-ind-subeje { color: var(--ink-2); font-size: .95em; }
+.tabla-ind-frec { white-space: nowrap; }                 /* "Mensual acumulado" en una linea */
+/* El subeje ya no es columna: es un SUBTÍTULO que abre cada grupo de indicadores. */
+.tabla-ind .subeje-row-head {
+  background: var(--accent-050); color: var(--accent-600);
+  font-size: .72rem; text-transform: uppercase; letter-spacing: .05em; font-weight: 700;
+  padding-top: 9px; padding-bottom: 9px; border-bottom: 1px solid var(--grid);
+}
+.tabla-ind tbody tr.subeje-row:hover { background: var(--accent-050); }
+/* Letra de sección de actividad (CIIU): columna angosta y centrada, con tooltip. */
+.tabla-ind-ciiu-col { width: 3rem; }
+.tabla-ind-ciiu { text-align: center; }
+.tabla-ind-ciiu abbr { text-decoration: none; border-bottom: 1px dotted var(--muted); cursor: help; font-weight: 700; }
 .tabla-ind tbody tr:hover { background: var(--accent-050); }
 /* Variacion: verde si sube, rojo si baja. Mismos tokens que los KPIs, asi que el contraste
    ya esta resuelto en claro y en oscuro. */

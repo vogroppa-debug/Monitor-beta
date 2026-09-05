@@ -231,6 +231,7 @@ def construir_tema(tmeta):
         "cobertura": tmeta["cobertura"], "keywords": tmeta["keywords"],
         "tags": tmeta.get("tags", []),
         "subeje": tmeta.get("subeje", ""),
+        "ciiu": tmeta.get("ciiu", ""),
         "dims": dims, "metricas": metricas,
         "fields": fields, "rows": rows,
         "kpis": kpis, "charts": charts,
@@ -275,6 +276,11 @@ def main():
             "cobertura": payload["cobertura"], "keywords": payload["keywords"],
             "tags": tags,
             "subeje": payload.get("subeje", ""),
+            "ciiu": payload.get("ciiu", ""),
+            # CIIU representativa del tablero para ordenar dentro del subeje: la del tema o, si
+            # el tema mezcla sectores por KPI (uva=A / vino=C), la menor letra de sus KPIs.
+            "ciiu_orden": payload.get("ciiu") or min(
+                [k["ciiu"] for k in payload["kpis"] if k.get("ciiu")] or [""]),
             "tags_labels": [catalog.TAGS[t]["label"] for t in tags if t in catalog.TAGS],
             "departamentos": geo_values(payload["dims"]),
             "metricas": [m["label"] for m in payload["metricas"].values()],
@@ -284,6 +290,33 @@ def main():
 
     # Ordenar catálogo por área y título
     catalogo.sort(key=lambda t: (catalog.AREAS[t["area"]]["orden"], t["title"]))
+
+    # `orden`: rango de cada tablero en el orden del tablero (eje del PDES → subeje → título),
+    # para que el buscador muestre los resultados en el MISMO orden que la portada.
+    _orden_sub = {}
+    for v in catalog.TAGS.values():
+        _orden_sub[v["label"]] = v["orden"]
+        if v.get("corto"):
+            _orden_sub[v["corto"]] = v["orden"]
+    _orden_sub.update(catalog.SUBEJE_ORDEN)
+
+    def _subeje_primario(t):
+        if t.get("subeje"):
+            return t["subeje"]
+        for tg in t.get("tags", []):
+            if tg in catalog.TAGS:
+                return catalog.TAGS[tg].get("corto") or catalog.TAGS[tg]["label"]
+        return ""
+
+    def _clave_tablero(t):
+        # Dentro de cada subeje, los tableros se ordenan por su letra CIIU (los sin letra, al final).
+        return (catalog.EJES_PDES.get(t.get("eje_pdes"), {}).get("orden", 99),
+                _orden_sub.get(_subeje_primario(t), 99),
+                t.get("ciiu_orden") or "￿", t["title"])
+
+    for i, t in enumerate(sorted(catalogo, key=_clave_tablero)):
+        t["orden"] = i
+
     escribir_json(os.path.join(DATA_OUT, "catalog.json"),
                   {"site": catalog.SITE, "areas": catalog.AREAS,
                    "tags": catalog.TAGS, "ejes_pdes": catalog.EJES_PDES,
@@ -291,7 +324,7 @@ def main():
 
     # Tabla maestra de indicadores (portada). Espeja renderKpis de charts.js: ver indicadores.py.
     tabla_ind = indicadores.tabla(payloads, catalogo, catalog.EJES_PDES,
-                                  catalog.TAGS, catalog.SUBEJE_ORDEN)
+                                  catalog.TAGS, catalog.SUBEJE_ORDEN, catalog.CIIU_SECCIONES)
     n_ind = sum(len(g["filas"]) for g in tabla_ind)
 
     # Agrupar en DOS NIVELES: eje del PDES (nivel 1) y subeje (nivel 2). La unidad es el

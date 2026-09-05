@@ -1739,6 +1739,7 @@ ADAPTERS = {
     "financiero": financiero,
     "construccion": construccion,
     "recursos-municipios": recursos_municipios,
+    "energia-electrica": energia_renovable,   # mismo dataset CAMMESA; el catálogo separa qué muestra
     "energia-renovable": energia_renovable,
     "id-innovacion": id_innovacion,
     "resultado-fiscal": resultado_fiscal,
