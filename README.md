@@ -1,7 +1,7 @@
 # Monitor de Indicadores CESS — sitio web
 
 Sitio **estático** con tableros interactivos para el seguimiento del Plan de Desarrollo
-Estratégico de Salta (PDES 2030), pensado para consulta de decisores no especialistas.
+Estratégico de Salta (PDES 2050), pensado para consulta de decisores no especialistas.
 
 - **Portada** con buscador (por tema, indicador o departamento) y navegación por eje del PDES.
 - **Una página por tema** con KPIs, gráficos interactivos (ECharts) y filtros.

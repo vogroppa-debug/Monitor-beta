@@ -11,8 +11,14 @@ Además de los KPIs, incluye los indicadores que se publican en algún gráfico 
 tarjeta (ver `EXTRA`): el `fixed` de cada uno sale del gráfico que los muestra, que es el
 filtro ya validado para obtener el agregado provincial.
 
-Línea de base: se lee de `base_valor` / `base_periodo` en el spec del KPI (`catalog.py`).
-Mientras no estén definidas, las celdas quedan vacías.
+Línea de base y metas: se leen de `base_valor` / `base_periodo` y `meta_2030` / `meta_2040` /
+`meta_2050` en el spec del KPI (`catalog.py`). Mientras no estén definidas, las celdas quedan
+vacías. Los valores deben cargarse como NÚMEROS, no como texto ya formateado: la tabla los
+formatea (`_valor`) y necesita operar con ellos para la brecha.
+
+Brecha a 2050 = `meta_2050` − último valor observado. Positiva, al indicador le falta subir
+para alcanzar la meta; negativa, le falta bajar. Sólo se calcula cuando hay meta 2050 cargada
+y un último dato numérico.
 """
 import re
 
@@ -40,6 +46,20 @@ EXTRA = {
     ],
     "energia-renovable": [
         {"label": "Generación eléctrica total", "metrica": "generacion_gwh", "fixed": {}},
+    ],
+    "salud": [
+        {"label": "Tasa de natalidad", "metrica": "tasa_natalidad",
+         "fixed": {"departamento": "Salta", "desagregacion": "Total"}, "sentido": "neutro"},
+        {"label": "Tasa de mortalidad general", "metrica": "tasa_mortalidad_general",
+         "fixed": {"departamento": "Salta", "desagregacion": "Total"},
+         "sentido": "menor_mejor"},
+        {"label": "Tasa de mortalidad materna", "metrica": "tasa_mortalidad_materna",
+         "fixed": {"departamento": "Salta", "desagregacion": "Total"},
+         "sentido": "menor_mejor"},
+        {"label": "Egresos hospitalarios", "metrica": "egresos",
+         "fixed": {"departamento": "Salta", "desagregacion": "Total"}},
+        {"label": "Camas disponibles", "metrica": "camas_disponibles",
+         "fixed": {"departamento": "Salta", "desagregacion": "Total"}},
     ],
 }
 
@@ -165,6 +185,93 @@ def _frecuencia(res, tema_id):
     return "Anual (campaña)" if tema_id == "agricultura" else "Anual"
 
 
+def _valor(v):
+    """Formatea un valor de línea de base, meta o brecha para la tabla maestra.
+
+    Los indicadores del Monitor van de tasas de 9,6 a matrículas de 380.000, así que la
+    cantidad de decimales se elige por magnitud. Un valor cargado como texto se deja pasar.
+    """
+    if v is None or v == "":
+        return ""
+    if isinstance(v, str):
+        return v
+    signo = "+" if v > 0 else ("−" if v < 0 else "")
+    a = abs(v)
+    if a >= 1000:
+        txt = "{:,.0f}".format(a).replace(",", ".")
+    elif a >= 10:
+        txt = "{:.1f}".format(a).replace(".", ",")
+    else:
+        txt = "{:.2f}".format(a).replace(".", ",")
+    return signo, txt
+
+
+def _medida(v, unidad):
+    """Valor observado con su unidad, para la tarjeta de síntesis de la portada.
+
+    Los indicadores van de tasas de 9,6 a matrículas de 380.000: los decimales se eligen
+    por magnitud, igual que `_valor`. El % va pegado al número; el resto, separado.
+    """
+    if v is None:
+        return ""
+    a = abs(v)
+    if a >= 1000:
+        txt = "{:,.0f}".format(v).replace(",", ".")
+    elif a >= 10:
+        txt = "{:.1f}".format(v).replace(".", ",")
+    else:
+        txt = "{:.2f}".format(v).replace(".", ",")
+    txt = txt.replace("-", "−")
+    u = str(unidad or "")
+    if u.startswith("%"):
+        return txt + "%"
+    return (txt + " " + u).strip()
+
+
+def _grafico(payload, metrica):
+    """Gráfico del tablero que publica esta métrica: destino del enlace de la tarjeta.
+
+    Primero por la métrica base del gráfico; si no, por las opciones de sus controles
+    (`kind: "metric"` las lista como strings; `kind: "mode"`, como `metric` de cada opción).
+    Si ninguno la publica, la tarjeta enlaza a la cabecera del tablero.
+    """
+    for ch in payload["charts"]:
+        if ch.get("metrica") == metrica:
+            return ch["id"]
+    for ch in payload["charts"]:
+        for c in ch.get("controls", []):
+            for o in c.get("options") or []:
+                if (o.get("metric") if isinstance(o, dict) else o) == metrica:
+                    return ch["id"]
+    return None
+
+
+def _celda(v):
+    """Base y metas: conservan el signo negativo (un déficit puede ser la línea de base),
+    pero no llevan '+' explícito."""
+    r = _valor(v)
+    if isinstance(r, str):
+        return r
+    signo, txt = r
+    return (signo if signo == "−" else "") + txt
+
+
+def _brecha(v):
+    """Brecha: SÍ lleva signo, porque el sentido es la mitad de la información."""
+    r = _valor(v)
+    return r if isinstance(r, str) else (r[0] + r[1])
+
+
+def _num(v):
+    """Coerción a float de un valor cargado en catalog.py; None si no es numérico."""
+    if v is None or v == "":
+        return None
+    try:
+        return float(str(v).replace(".", "").replace(",", ".")) if isinstance(v, str) else float(v)
+    except (TypeError, ValueError):
+        return None
+
+
 def _pct(v):
     return "{:.1f}".format(v).replace(".", ",")
 
@@ -204,16 +311,38 @@ def _subeje(spec, tema, tags_meta):
     return "—"
 
 
+def _clase_color(spec, direccion):
+    """Color de la variación según si SUBIR es una buena noticia (espejo de `kpiClaseColor`
+    en assets/js/charts.js: si cambia una, hay que cambiar la otra).
+
+    `sentido` en el spec del KPI (catalog.py): "mayor_mejor" (por defecto) | "menor_mejor" |
+    "neutro". La flecha siempre marca la dirección real del cambio; esto sólo elige el color.
+    """
+    sentido = spec.get("sentido", "mayor_mejor")
+    if sentido == "neutro":
+        return direccion + " neutro"
+    if sentido == "menor_mejor":
+        return direccion + " invertido"
+    return direccion
+
+
+def _orden_subejes(tags_meta, subeje_orden):
+    """Orden de aparición de los subejes: los tags por su `orden`, y encima `SUBEJE_ORDEN`
+    para los ejes que declaran su propia taxonomía."""
+    orden = {}
+    for v in tags_meta.values():
+        orden[v["label"]] = v["orden"]
+        if v.get("corto"):
+            orden[v["corto"]] = v["orden"]
+    orden.update(subeje_orden)
+    return orden
+
+
 def tabla(payloads, catalogo, ejes_pdes_meta, tags_meta, subeje_orden):
     """payloads: {tema_id: payload}; catalogo: temas livianos YA ORDENADOS;
     ejes_pdes_meta: catalog.EJES_PDES; tags_meta: catalog.TAGS;
     subeje_orden: catalog.SUBEJE_ORDEN. Devuelve [{id, label, filas: [...]}]."""
-    orden_tag = {}
-    for v in tags_meta.values():
-        orden_tag[v["label"]] = v["orden"]
-        if v.get("corto"):
-            orden_tag[v["corto"]] = v["orden"]
-    orden_tag.update(subeje_orden)
+    orden_tag = _orden_subejes(tags_meta, subeje_orden)
     filas = []
     for t in catalogo:
         payload = payloads[t["id"]]
@@ -228,20 +357,33 @@ def tabla(payloads, catalogo, ejes_pdes_meta, tags_meta, subeje_orden):
                 var_txt, var_cls = "sin base", "none"
                 ref = ""
             else:
-                var_cls = "flat" if abs(v) < 0.05 else ("up" if v > 0 else "down")
-                flecha = "≈" if var_cls == "flat" else ("▲" if var_cls == "up" else "▼")
+                direccion = "flat" if abs(v) < 0.05 else ("up" if v > 0 else "down")
+                flecha = "≈" if direccion == "flat" else ("▲" if direccion == "up" else "▼")
+                var_cls = _clase_color(s, direccion)
                 var_txt = "%s %s %s" % (flecha, _pct(abs(v)), "p.p." if pp else "%")
                 ref = "%s/%s" % (_periodo_corto(res["ultimo"]), _periodo_corto(res["prev"]))
+            # Brecha a 2050: cuánto le falta al indicador para llegar a la meta final.
+            # Queda vacía hasta que se carguen las metas en catalog.py.
+            m2050, actual = _num(s.get("meta_2050")), _num(res.get("valor"))
+            brecha = (m2050 - actual) if (m2050 is not None and actual is not None) else None
+
             filas.append({
                 "eje": t.get("eje_pdes"),
                 "subeje": _subeje(s, t, tags_meta),
                 "indicador": s.get("tabla_label") or s["label"],
                 "nota": s.get("tabla_nota", ""),
                 "tema_id": t["id"], "tema_title": t["title"],
+                "chart_id": _grafico(payload, s["metrica"]),
+                "valor_txt": _medida(res["valor"],
+                                     payload["metricas"].get(s["metrica"], {}).get("unidad", "")),
                 "frecuencia": _frecuencia(res, t["id"]),
                 "ultimo": _periodo_corto(res["ultimo"]),
-                "base_valor": s.get("base_valor", ""),
+                "base_valor": _celda(s.get("base_valor")),
                 "base_periodo": s.get("base_periodo", ""),
+                "meta_2030": _celda(s.get("meta_2030")),
+                "meta_2040": _celda(s.get("meta_2040")),
+                "meta_2050": _celda(s.get("meta_2050")),
+                "brecha_2050": _brecha(brecha),
                 "var_txt": var_txt, "var_cls": var_cls, "var_ref": ref,
             })
 
@@ -254,3 +396,30 @@ def tabla(payloads, catalogo, ejes_pdes_meta, tags_meta, subeje_orden):
         sub.sort(key=lambda f: orden_tag.get(f["subeje"], 99))
         grupos.append({"id": eje_id, "label": eje["label"], "filas": sub})
     return grupos
+
+
+def explorar(grupos, tags_meta, subeje_orden):
+    """Sección "Explorar por eje del PDES" de la portada: una tarjeta por INDICADOR.
+
+    Toma la salida de `tabla()` y la reagrupa en eje → subeje, de modo que la síntesis del
+    menú cuenta exactamente los mismos indicadores que la tabla maestra. No hay grupo
+    residual: cada indicador tiene que caer en un subeje declarado (`subeje` en el tema o en
+    el KPI, o el primer tag del tema), y si alguno queda sin subeje el build aborta.
+    """
+    orden = _orden_subejes(tags_meta, subeje_orden)
+    huerfanos = ["%s (%s)" % (f["indicador"], f["tema_id"])
+                 for g in grupos for f in g["filas"] if not f["subeje"] or f["subeje"] == "—"]
+    if huerfanos:
+        raise RuntimeError(
+            "Indicadores sin subeje: %s. Hay que declarar `subeje` en el tema o en el KPI "
+            "(catalog.py); la portada no arma grupos residuales." % ", ".join(huerfanos))
+    out = []
+    for g in grupos:
+        porsub = {}
+        for f in g["filas"]:
+            porsub.setdefault(f["subeje"], []).append(f)
+        subgrupos = [{"label": k, "indicadores": v} for k, v in
+                     sorted(porsub.items(), key=lambda kv: (orden.get(kv[0], 99), kv[0]))]
+        out.append({"id": g["id"], "label": g["label"],
+                    "n": len(g["filas"]), "subgrupos": subgrupos})
+    return out

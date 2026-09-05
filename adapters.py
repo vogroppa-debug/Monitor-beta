@@ -1599,6 +1599,132 @@ def exportaciones():
     }
 
 
+# ==========================================================================
+# TEMA — Salud (estadísticas vitales y de servicios, MSP Salta)
+# ==========================================================================
+# Cuatro CSV con unidades de análisis distintas se funden en un solo esquema canónico:
+#   provincial            -> departamento="Salta", area_operativa="Total"
+#   por Área Operativa    -> departamento=<depto>, area_operativa=<AO>
+#   por departamento      -> departamento=<depto>, area_operativa="Total"
+# `nacidos_vivos` (provincial, con apertura por peso) y `nacidos_vivos_res` (por residencia)
+# son métricas DISTINTAS a propósito: comparten el concepto pero no la unidad de análisis, y
+# mezclarlas haría que un gráfico sin filtro sumara la serie provincial con sus propias aperturas.
+SALUD_METRICAS = {
+    "nacidos_vivos":         {"label": "Nacidos vivos",                 "unidad": "nacimientos", "agg": "sum"},
+    "nacidos_vivos_res":     {"label": "Nacidos vivos (por residencia)", "unidad": "nacimientos", "agg": "sum"},
+    "defunciones":           {"label": "Defunciones",                   "unidad": "defunciones", "agg": "sum"},
+    "defunciones_infantiles": {"label": "Defunciones de menores de 1 año", "unidad": "defunciones", "agg": "sum"},
+    "defunciones_maternas":  {"label": "Defunciones maternas",          "unidad": "defunciones", "agg": "sum"},
+    "defunciones_fetales":   {"label": "Defunciones fetales",           "unidad": "defunciones", "agg": "sum"},
+    "otras_defunciones":     {"label": "Otras defunciones",             "unidad": "defunciones", "agg": "sum"},
+    "matrimonios":           {"label": "Matrimonios",                   "unidad": "matrimonios", "agg": "sum"},
+    "tasa_natalidad":        {"label": "Tasa de natalidad",             "unidad": "por mil habitantes",    "agg": "mean"},
+    "tasa_mortalidad_general": {"label": "Tasa de mortalidad general",  "unidad": "por mil habitantes",    "agg": "mean"},
+    "tasa_mortalidad_infantil": {"label": "Tasa de mortalidad infantil", "unidad": "por mil nacidos vivos", "agg": "mean"},
+    "tasa_mortalidad_materna": {"label": "Tasa de mortalidad materna",  "unidad": "por diez mil nacidos vivos", "agg": "mean"},
+    "poblacion":             {"label": "Población estimada",            "unidad": "habitantes", "agg": "mean"},
+    "consultas_medicas":     {"label": "Consultas médicas",             "unidad": "consultas",  "agg": "sum"},
+    "consultas_por_habitante": {"label": "Consultas médicas por habitante", "unidad": "consultas/hab.", "agg": "mean"},
+    "camas_disponibles":     {"label": "Camas disponibles",             "unidad": "camas (promedio)", "agg": "sum"},
+    "pacientes_dia":         {"label": "Pacientes-día",                 "unidad": "pacientes (promedio)", "agg": "sum"},
+    "ocupacion_camas":       {"label": "Ocupación de camas",            "unidad": "%",          "agg": "mean"},
+    "permanencia_promedio":  {"label": "Permanencia promedio",          "unidad": "días",       "agg": "mean"},
+    "giro_camas":            {"label": "Giro de camas",                 "unidad": "egresos/cama", "agg": "mean"},
+    "egresos":               {"label": "Egresos hospitalarios",         "unidad": "egresos",    "agg": "sum"},
+    "altas":                 {"label": "Altas",                         "unidad": "altas",      "agg": "sum"},
+    "defunciones_hosp":      {"label": "Defunciones hospitalarias",     "unidad": "defunciones", "agg": "sum"},
+    "pases":                 {"label": "Pases internos",                "unidad": "pases",      "agg": "sum"},
+    "establecimientos":      {"label": "Establecimientos con internación", "unidad": "establecimientos", "agg": "sum"},
+    "tasa_mortalidad_hospitalaria": {"label": "Tasa de mortalidad hospitalaria", "unidad": "%", "agg": "mean"},
+}
+_SALUD_DESAG_ORDEN = [
+    "Total", "1 año y más", "De 1 a 4 años", "Menores de 1 año",
+    "Neonatal (< 28 días)", "Posneonatal (28 días y más)",
+    "Menos de 2.500 g", "2.500 g y más", "Peso sin especificar",
+]
+
+
+def salud():
+    fields = ["anio", "departamento", "area_operativa", "desagregacion", "metrica", "valor"]
+    rows, notas = [], []
+
+    def _num(df):
+        df["anio"] = pd.to_numeric(df["anio"], errors="coerce").astype("Int64")
+        df["valor"] = pd.to_numeric(df["valor"], errors="coerce")
+        n = int(df["valor"].isna().sum())
+        if n:
+            notas.append("salud: %d valores no numéricos descartados." % n)
+        return df.dropna(subset=["anio", "valor"])
+
+    # -- hechos vitales provinciales (2020-2025) ----------------------------
+    hv = _num(pd.read_csv(_drv("Salud_Hechos_Vitales_Salta_provincia_2020-2025.csv"),
+                          encoding="utf-8-sig"))
+    for r in hv.itertuples(index=False):
+        rows.append([int(r.anio), "Salta", "Total", r.desagregacion, r.metrica, float(r.valor)])
+
+    # -- servicios provinciales: consultas e internación (2021-2025) --------
+    sv = _num(pd.read_csv(_drv("Salud_Servicios_Salta_provincia_2021-2025.csv"),
+                          encoding="utf-8-sig"))
+    for r in sv.itertuples(index=False):
+        rows.append([int(r.anio), "Salta", "Total", "Total", r.metrica, float(r.valor)])
+
+    # -- nacidos vivos por Área Operativa de residencia (2021-2025) --------
+    ao = _num(pd.read_csv(_drv("Salud_Nacidos_Vivos_Salta_area_operativa_2021-2025.csv"),
+                          encoding="utf-8-sig"))
+    ao["departamento"] = ao["departamento"].map(norm_dept)
+    for r in ao.itertuples(index=False):
+        rows.append([int(r.anio), r.departamento, r.area_operativa, "Total",
+                     r.metrica, float(r.valor)])
+
+    # -- internación por departamento (sólo 2025) --------------------------
+    # No trae fila provincial: esa serie ya viene del CSV de servicios y duplicarla haría que
+    # los gráficos por departamento contaran dos veces el total.
+    it = _num(pd.read_csv(_drv("Salud_Internacion_Salta_departamento_2025.csv"),
+                          encoding="utf-8-sig"))
+    it["departamento"] = it["departamento"].map(norm_dept)
+    anios_it = sorted({int(a) for a in it["anio"]})
+    for r in it.itertuples(index=False):
+        rows.append([int(r.anio), r.departamento, "Total", "Total", r.metrica, float(r.valor)])
+
+    deptos = [d for d in sorted({r[1] for r in rows})
+              if d not in NON_GEO and d not in PROVINCIAL_TOKENS]
+    aos = [a for a in sorted({r[2] for r in rows}) if a != "Total"]
+    desag = ([d for d in _SALUD_DESAG_ORDEN if d in {r[3] for r in rows}]
+             + sorted({r[3] for r in rows} - set(_SALUD_DESAG_ORDEN)))
+
+    notas += [
+        "salud: la apertura territorial de nacimientos es por ÁREA OPERATIVA de residencia "
+        "(circunscripción sanitaria), no por departamento; el pasaje a departamento lo hace el "
+        "script de datos-drive/Actualizar_Salud_Estadisticas_Vitales_Salta.md y es una "
+        "aproximación. La suma de las 47 AO coincide exactamente con el total provincial en los "
+        "cinco años.",
+        "salud: el detalle departamental de internación existe sólo para %s; la serie 2021–2025 "
+        "de internación es provincial. Los cocientes por departamento (ocupación, permanencia, "
+        "giro, mortalidad) se recalculan sobre los totales sumados de sus establecimientos, no se "
+        "promedian." % ", ".join(str(a) for a in anios_it),
+        "salud: las tres tablas provinciales del documento fuente se contradicen entre sí "
+        "(defunciones 2021/2024/2025, nacidos vivos 2025). Se publica la Tabla 1 (Resumen "
+        "Quinquenal), la única internamente consistente y la única que cierra contra la apertura "
+        "territorial. El detalle está en datos-drive/Metodologia_Salud_Estadisticas_Vitales_Salta.md.",
+        "salud: las tasas de mortalidad general de 2021 y 2022 no se reproducen con la población "
+        "que publica el propio documento (la fuente usó proyecciones anteriores a las INDEC "
+        "2022–2040); se publican tal como las emitió el MSP.",
+        "salud: 2025 es provisorio en toda la fuente.",
+    ]
+    return {
+        "fields": fields,
+        "rows": rows,
+        "dims": {
+            "anio": sorted({r[0] for r in rows}),
+            "departamento": deptos,
+            "area_operativa": aos,
+            "desagregacion": desag,
+        },
+        "metricas": SALUD_METRICAS,
+        "notas": notas,
+    }
+
+
 # Registro id_tema -> función adapter
 ADAPTERS = {
     "educacion": educacion,
@@ -1618,4 +1744,5 @@ ADAPTERS = {
     "resultado-fiscal": resultado_fiscal,
     "recaudacion": recaudacion,
     "exportaciones": exportaciones,
+    "salud": salud,
 }

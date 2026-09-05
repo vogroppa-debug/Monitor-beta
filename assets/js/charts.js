@@ -416,6 +416,24 @@
   }
 
   // freq: {value, map:{value->{x,grano}}} del gráfico conductor, o null (=> anual).
+  // Color de una variación: depende de si SUBIR es una buena noticia para ese indicador.
+  // `sentido` en el spec del KPI (catalog.py): "mayor_mejor" (por defecto) | "menor_mejor" |
+  // "neutro". La FLECHA siempre marca la dirección real del cambio; esto sólo elige el color.
+  // Sin `sentido` declarado, se conserva la convención histórica: subir = verde, bajar = rojo.
+  function kpiClaseColor(k, direccion) {
+    var sentido = k.sentido || "mayor_mejor";
+    if (sentido === "neutro") return direccion + " neutro";
+    if (sentido === "menor_mejor") return direccion + " invertido";
+    return direccion;
+  }
+
+  // Dirección de un cambio, con el mismo umbral en las dos ramas de renderKpis.
+  function kpiDireccion(now, prev) {
+    if (prev == null || prev === 0) return null;
+    var pct = (now / prev - 1) * 100;
+    return Math.abs(pct) < 0.05 ? "flat" : (pct > 0 ? "up" : "down");
+  }
+
   function renderKpis(mount, data, ix, freq) {
     mount.innerHTML = "";
     var freqOpt = (freq && freq.map) ? freq.map[freq.value] : null;
@@ -465,7 +483,16 @@
       // color por superávit/déficit, y el dato del mismo período del año previo.
       if (k.display === "nivel" && now != null) {
         var pos = now >= 0;
-        var clsN = Math.abs(now) < 1 ? "flat" : (pos ? "up" : "down");
+        var clsN;
+        if (k.sentido) {
+          // Nivel de una magnitud que no cambia de signo (una tasa, un porcentaje): el signo
+          // no informa nada, siempre daría el mismo color. Se colorea por la dirección del
+          // cambio contra el período previo, ya interpretada según `sentido`.
+          clsN = kpiClaseColor(k, kpiDireccion(now, prev) || "flat");
+        } else {
+          // Nivel CON signo (resultado fiscal): superávit verde, déficit rojo.
+          clsN = Math.abs(now) < 1 ? "flat" : (pos ? "up" : "down");
+        }
         var ctxN = (last != null ? esc(String(last)) : "");
         if (prev != null) ctxN += " · " + esc(String(prevKey)) + ": " +
           (prev < 0 ? "−" : "") + nfCompact.format(Math.abs(prev)) + " " + esc(k.unidad);
@@ -491,9 +518,10 @@
       }
 
       var pct = (now / prev - 1) * 100;
-      var cls = Math.abs(pct) < 0.05 ? "flat" : (pct > 0 ? "up" : "down");
-      var arrow = cls === "flat" ? "≈" : (cls === "up" ? "▲" : "▼");
-      var pctTxt = cls === "flat" ? "0" : nfPct.format(Math.abs(pct));
+      var dir = kpiDireccion(now, prev);
+      var cls = kpiClaseColor(k, dir);
+      var arrow = dir === "flat" ? "≈" : (dir === "up" ? "▲" : "▼");
+      var pctTxt = dir === "flat" ? "0" : nfPct.format(Math.abs(pct));
       el.innerHTML =
         '<div class="kpi-value kpi-delta ' + cls + '">' + arrow + " " + pctTxt + " %</div>" +
         '<div class="kpi-label">' + esc(k.label) + '</div>' +

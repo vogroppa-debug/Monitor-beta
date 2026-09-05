@@ -152,6 +152,14 @@ p { margin: 0 0 1em; }
 .card-sm { padding: 16px; }
 .card-sm .card-title { font-size: 1rem; margin: 0; }
 
+/* Tarjeta de síntesis de un indicador (portada, "Explorar por eje") */
+.card-ind { padding: 18px 20px; }
+.card-ind .card-area { background: color-mix(in srgb, var(--ink) 6%, transparent); color: var(--ink-2); text-transform: none; letter-spacing: 0; font-size: .72rem; margin-bottom: 10px; }
+.card-ind .card-title { font-size: 1rem; line-height: 1.35; margin-bottom: 10px; }
+.card-ind-valor { font-size: 1.5rem; font-weight: 700; line-height: 1.1; margin: 0 0 4px; font-variant-numeric: tabular-nums; }
+.card-ind-var { margin: 0 0 12px; font-size: .88rem; display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px; flex: 1; }
+.card-ind-ref { color: var(--muted); font-size: .8rem; font-variant-numeric: tabular-nums; }
+
 /* --------------------------------------------------------- Tema / tablero */
 .breadcrumb { padding-top: 22px; font-size: .86rem; color: var(--muted); display: flex; gap: 8px; align-items: center; }
 .breadcrumb a { color: var(--ink-2); }
@@ -172,6 +180,13 @@ p { margin: 0 0 1em; }
 .kpi-delta.up { color: var(--pos); }
 .kpi-delta.down { color: var(--neg); }
 .kpi-delta.flat { color: var(--muted); }
+/* `sentido: "menor_mejor"` (catalog.py): bajar es la buena noticia — defunciones, tasas de
+   mortalidad. Se invierte el color; la flecha sigue marcando la dirección real del cambio. */
+.kpi-delta.up.invertido { color: var(--neg); }
+.kpi-delta.down.invertido { color: var(--pos); }
+/* `sentido: "neutro"`: subir no es ni bueno ni malo (consultas por habitante, ocupación de
+   camas, natalidad). No se emite juicio de valor: se muestra la variación sin color. */
+.kpi-delta.neutro { color: var(--muted); }
 
 /* Chart cards */
 .charts-grid { display: grid; gap: 22px; }
@@ -326,6 +341,14 @@ p { margin: 0 0 1em; }
 .tabla-ind-var.up { color: var(--pos); }
 .tabla-ind-var.down { color: var(--neg); }
 .tabla-ind-var.flat, .tabla-ind-var.none { color: var(--muted); font-weight: 500; }
+/* La tabla maestra se lee en dos bloques: lo OBSERVADO (último dato y variación) y lo
+   PLANIFICADO (línea de base, metas y brecha). Un filete marca dónde empieza el segundo. */
+.tabla-ind .tabla-ind-meta-ini { border-left: 1px solid var(--border); }
+
+/* Espejo de .kpi-delta: ver `sentido` en catalog.py. */
+.tabla-ind-var.up.invertido { color: var(--neg); }
+.tabla-ind-var.down.invertido { color: var(--pos); }
+.tabla-ind-var.neutro { color: var(--muted); font-weight: 500; }
 .tabla-ind-ref { color: var(--ink-2); }
 .tabla-ind-vacio { color: var(--muted); }
 .tabla-ind-nota {

@@ -35,7 +35,7 @@
 
 <section class="wrap section" id="tabla-indicadores">
   <h2 class="section-title">Tabla de indicadores</h2>
-  <p class="section-lead muted">Los {{ n_indicadores }} indicadores que hoy publica el Monitor, agrupados por eje del PDES. La variación es interanual: compara el último dato disponible con el mismo período del año anterior, igual que las tarjetas de cada tablero. Las líneas de base del PDES todavía no están definidas.</p>
+  <p class="section-lead muted">Los {{ n_indicadores }} indicadores que hoy publica el Monitor, agrupados por eje del PDES. La variación es interanual: compara el último dato disponible con el mismo período del año anterior, igual que las tarjetas de cada tablero. Las líneas de base y las metas 2030, 2040 y 2050 del PDES todavía no están definidas: la brecha a 2050 se calcula sola en cuanto se carguen.</p>
 
   {% for g in tabla %}
   <div class="tabla-ind-block">
@@ -48,10 +48,14 @@
             <th scope="col">Subeje</th>
             <th scope="col">Frecuencia</th>
             <th scope="col">Último dato</th>
-            <th scope="col">Línea de base</th>
-            <th scope="col">Período de la base</th>
             <th scope="col">Var. interanual</th>
             <th scope="col">Períodos comparados</th>
+            <th scope="col" class="tabla-ind-meta-ini">Línea de base</th>
+            <th scope="col">Período de la base</th>
+            <th scope="col">Meta 2030</th>
+            <th scope="col">Meta 2040</th>
+            <th scope="col">Meta 2050</th>
+            <th scope="col"><abbr title="Meta 2050 menos el último dato observado: cuánto le falta al indicador para alcanzar la meta final. Positiva, tiene que subir; negativa, tiene que bajar.">Brecha a 2050</abbr></th>
           </tr>
         </thead>
         <tbody>
@@ -64,10 +68,14 @@
             <td class="tabla-ind-subeje">{{ f.subeje }}</td>
             <td>{{ f.frecuencia }}</td>
             <td class="num">{{ f.ultimo }}</td>
-            <td class="num">{% if f.base_valor %}{{ f.base_valor }}{% else %}<span class="tabla-ind-vacio" title="A definir">—</span>{% endif %}</td>
-            <td class="num">{% if f.base_periodo %}{{ f.base_periodo }}{% else %}<span class="tabla-ind-vacio" title="A definir">—</span>{% endif %}</td>
             <td class="num"><span class="tabla-ind-var {{ f.var_cls }}">{{ f.var_txt }}</span></td>
             <td class="num tabla-ind-ref">{% if f.var_ref %}{{ f.var_ref }}{% else %}<span class="tabla-ind-vacio">—</span>{% endif %}</td>
+            <td class="num tabla-ind-meta-ini">{% if f.base_valor %}{{ f.base_valor }}{% else %}<span class="tabla-ind-vacio" title="A definir">—</span>{% endif %}</td>
+            <td class="num">{% if f.base_periodo %}{{ f.base_periodo }}{% else %}<span class="tabla-ind-vacio" title="A definir">—</span>{% endif %}</td>
+            <td class="num">{% if f.meta_2030 %}{{ f.meta_2030 }}{% else %}<span class="tabla-ind-vacio" title="A definir">—</span>{% endif %}</td>
+            <td class="num">{% if f.meta_2040 %}{{ f.meta_2040 }}{% else %}<span class="tabla-ind-vacio" title="A definir">—</span>{% endif %}</td>
+            <td class="num">{% if f.meta_2050 %}{{ f.meta_2050 }}{% else %}<span class="tabla-ind-vacio" title="A definir">—</span>{% endif %}</td>
+            <td class="num">{% if f.brecha_2050 %}{{ f.brecha_2050 }}{% else %}<span class="tabla-ind-vacio" title="Se calcula cuando esté cargada la meta 2050">—</span>{% endif %}</td>
           </tr>
           {% endfor %}
         </tbody>
@@ -79,29 +87,33 @@
 
 <section class="wrap section" id="explorar">
   <h2 class="section-title">Explorar por eje del PDES</h2>
-  <p class="section-lead muted">El Plan de Desarrollo Estratégico organiza los indicadores en tres ejes. Dentro de cada eje se agrupan por eje transversal de desarrollo productivo.</p>
+  <p class="section-lead muted">El Plan de Desarrollo Estratégico organiza los indicadores en tres ejes y, dentro de cada uno, en subejes. Cada tarjeta resume un indicador —último valor y variación interanual— y lleva al gráfico que lo publica.</p>
 
   <div class="eje-pills" role="tablist" aria-label="Ejes del PDES">
-    <button class="eje-pill is-active" data-eje="all" role="tab" aria-selected="true">Todos</button>
+    <button class="eje-pill is-active" data-eje="all" role="tab" aria-selected="true">Todos <span class="eje-count">{{ n_indicadores }}</span></button>
     {% for eje in ejes %}
-    <button class="eje-pill" data-eje="{{ eje.id }}" role="tab" aria-selected="false">{{ eje.label }} <span class="eje-count">{{ eje.temas|length }}</span></button>
+    <button class="eje-pill" data-eje="{{ eje.id }}" role="tab" aria-selected="false">{{ eje.label }} <span class="eje-count">{{ eje.n_indicadores }}</span></button>
     {% endfor %}
   </div>
 
   {% for eje in ejes %}
   <div class="eje-block" data-eje="{{ eje.id }}" id="eje-{{ eje.id }}">
-    <h3 class="eje-title">{{ eje.label }}</h3>
+    <h3 class="eje-title">{{ eje.label }} <span class="eje-count">{{ eje.n_indicadores }}</span></h3>
     {% if eje.descr %}<p class="eje-descr muted">{{ eje.descr }}</p>{% endif %}
     {% for sg in eje.subgrupos %}
     <div class="subeje-block">
-      <h4 class="subeje-title">{{ sg.label }}</h4>
+      <h4 class="subeje-title">{{ sg.label }} <span class="eje-count">{{ sg.indicadores|length }}</span></h4>
       <div class="cards">
-        {% for t in sg.temas %}
-        <a class="card" href="{{ base }}/tema/{{ t.id }}.html">
-          <span class="card-area">{{ t.area_label }}</span>
-          <h5 class="card-title">{{ t.title }}</h5>
-          <p class="card-desc">{{ t.resumen }}</p>
-          <span class="card-meta">{{ t.cobertura }} · {{ t.fuente }}</span>
+        {% for i in sg.indicadores %}
+        <a class="card card-ind" href="{{ base }}/tema/{{ i.tema_id }}.html{% if i.chart_id %}#grafico-{{ i.chart_id }}{% endif %}">
+          <span class="card-area">{{ i.tema_title }}</span>
+          <h5 class="card-title">{{ i.indicador }}</h5>
+          <p class="card-ind-valor">{% if i.valor_txt %}{{ i.valor_txt }}{% else %}<span class="tabla-ind-vacio">sin dato</span>{% endif %}</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var {{ i.var_cls }}">{{ i.var_txt }}</span>
+            {% if i.var_ref %}<span class="card-ind-ref">{{ i.var_ref }}</span>{% endif %}
+          </p>
+          <span class="card-meta">{{ i.frecuencia }}{% if i.ultimo %} · último dato {{ i.ultimo }}{% endif %}</span>
         </a>
         {% endfor %}
       </div>

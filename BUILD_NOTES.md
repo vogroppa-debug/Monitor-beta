@@ -74,6 +74,12 @@ Los CSV de origen (`Actualizar_*` / scripts) ya están en **formato inglés** (d
 - exportaciones: el control automático de saltos de magnitud marca valores a >1000× de la mediana. NO es un artefacto de parseo: la fuente es binaria (.xlsb leído con pyxlsb, sin separadores que interpretar) y la distribución del comercio es de cola muy larga (la mediana de una celda rubro×país ronda los 135.000 USD y la mayor supera los 380 M). Verificado además contra el total nacional del INDEC, con diferencia de 0,98 USD sobre 87.111 M.
 - fob_usd: 113 valor(es) a >1000× de la mediana (mediana=134582); revisar posible artefacto de parseo.
 - peso_ton: 97 valor(es) a >1000× de la mediana (mediana=129.085); revisar posible artefacto de parseo.
+### salud
+- salud: la apertura territorial de nacimientos es por ÁREA OPERATIVA de residencia (circunscripción sanitaria), no por departamento; el pasaje a departamento lo hace el script de datos-drive/Actualizar_Salud_Estadisticas_Vitales_Salta.md y es una aproximación. La suma de las 47 AO coincide exactamente con el total provincial en los cinco años.
+- salud: el detalle departamental de internación existe sólo para 2025; la serie 2021–2025 de internación es provincial. Los cocientes por departamento (ocupación, permanencia, giro, mortalidad) se recalculan sobre los totales sumados de sus establecimientos, no se promedian.
+- salud: las tres tablas provinciales del documento fuente se contradicen entre sí (defunciones 2021/2024/2025, nacidos vivos 2025). Se publica la Tabla 1 (Resumen Quinquenal), la única internamente consistente y la única que cierra contra la apertura territorial. El detalle está en datos-drive/Metodologia_Salud_Estadisticas_Vitales_Salta.md.
+- salud: las tasas de mortalidad general de 2021 y 2022 no se reproducen con la población que publica el propio documento (la fuente usó proyecciones anteriores a las INDEC 2022–2040); se publican tal como las emitió el MSP.
+- salud: 2025 es provisorio en toda la fuente.
 
 ## Control (filas por tema)
 - `educacion`: 11202 filas, cobertura 2011–2024.
@@ -93,3 +99,4 @@ Los CSV de origen (`Actualizar_*` / scripts) ya están en **formato inglés** (d
 - `energia-renovable`: 233 filas, cobertura 2019–2026.
 - `id-innovacion`: 54 filas, cobertura 2003–2024.
 - `exportaciones`: 5306 filas, cobertura 2021–2025.
+- `salud`: 652 filas, cobertura 2020–2025.

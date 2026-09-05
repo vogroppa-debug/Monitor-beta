@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Recursos de los municipios — Monitor de Indicadores (versión Beta)</title>
+  <title>Salud — Monitor de Indicadores (versión Beta)</title>
   <meta name="description" content="Seguimiento del Plan de Desarrollo Estratégico de Salta (PDES 2050)">
   <script>
     /* fija el tema antes de pintar para evitar flash */
@@ -96,28 +96,24 @@
 
 <main id="main">
   
-<div class="tema-page" data-tema="recursos-municipios" data-base="..">
+<div class="tema-page" data-tema="salud" data-base="..">
 
   <nav class="breadcrumb wrap" aria-label="Ruta">
     <a href="../index.html">Inicio</a>
     <span aria-hidden="true">/</span>
-    <span>Finanzas públicas</span>
+    <span>Social</span>
     <span aria-hidden="true">/</span>
-    <span aria-current="page">Recursos de los municipios</span>
+    <span aria-current="page">Salud</span>
   </nav>
 
   <header class="tema-header wrap">
-    <span class="card-area">Finanzas públicas</span>
-    <h1>Recursos de los municipios</h1>
+    <span class="card-area">Social</span>
+    <h1>Salud</h1>
     
-    <div class="tag-chips" aria-label="Ejes de desarrollo productivo">
-      <span class="tag-chip">Inversión y financiamiento</span>
-    </div>
-    
-    <p class="tema-resumen">Coparticipación, regalías y otros recursos de los municipios.</p>
+    <p class="tema-resumen">Nacimientos, defunciones, tasas vitales y actividad hospitalaria.</p>
     <p class="tema-meta muted">
-      <strong>Fuente:</strong> Contaduría General de la Provincia de Salta ·
-      <strong>Cobertura:</strong> 2021–2026
+      <strong>Fuente:</strong> Programa de Estadísticas de Información en Salud — Ministerio de Salud Pública de Salta ·
+      <strong>Cobertura:</strong> 2020–2025
     </p>
   </header>
 
@@ -127,54 +123,152 @@
 
   <section class="wrap section charts-grid" id="charts">
     
-    <article class="chart-card" id="grafico-rec-grupo" data-chart-id="rec-grupo">
+    <article class="chart-card" id="grafico-sal-hechos-vitales" data-chart-id="sal-hechos-vitales">
       <div class="chart-card-head">
-        <h2 class="chart-title">Recursos por tipo</h2>
-        <p class="chart-descr">Transferencias a municipios apiladas por grupo de recurso.</p>
+        <h2 class="chart-title">Nacimientos, defunciones y matrimonios</h2>
+        <p class="chart-descr">Hechos vitales registrados en la provincia cada año.</p>
       </div>
       <div class="chart-controls" role="group" aria-label="Filtros del gráfico"></div>
-      <div class="chart-plot" role="img" aria-label="Recursos por tipo"></div>
+      <div class="chart-plot" role="img" aria-label="Nacimientos, defunciones y matrimonios"></div>
       <details class="chart-table">
         <summary>Ver datos en tabla</summary>
         <div class="chart-table-body"></div>
       </details>
-      <p class="chart-source muted">Fuente: Contaduría General de la Provincia de Salta · <a href="https://economiasalta.gob.ar/contaduria" target="_blank" rel="noopener">ir a la fuente ↗</a></p>
+      <p class="chart-source muted">Fuente: Programa de Estadísticas de Información en Salud — Ministerio de Salud Pública de Salta · <a href="https://www.salta.gob.ar/organismos/ministerio-de-salud-publica" target="_blank" rel="noopener">ir a la fuente ↗</a></p>
     </article>
     
-    <article class="chart-card" id="grafico-rec-municipio" data-chart-id="rec-municipio">
+    <article class="chart-card" id="grafico-sal-tasas" data-chart-id="sal-tasas">
       <div class="chart-card-head">
-        <h2 class="chart-title">Recursos por municipio</h2>
-        <p class="chart-descr">Ranking de municipios por recursos recibidos, para el año seleccionado.</p>
+        <h2 class="chart-title">Tasas vitales</h2>
+        <p class="chart-descr">Natalidad y mortalidad general por mil habitantes; mortalidad infantil por mil nacidos vivos y materna por diez mil.</p>
       </div>
       <div class="chart-controls" role="group" aria-label="Filtros del gráfico"></div>
-      <div class="chart-plot" role="img" aria-label="Recursos por municipio"></div>
+      <div class="chart-plot" role="img" aria-label="Tasas vitales"></div>
       <details class="chart-table">
         <summary>Ver datos en tabla</summary>
         <div class="chart-table-body"></div>
       </details>
-      <p class="chart-source muted">Fuente: Contaduría General de la Provincia de Salta · <a href="https://economiasalta.gob.ar/contaduria" target="_blank" rel="noopener">ir a la fuente ↗</a></p>
+      <p class="chart-source muted">Fuente: Programa de Estadísticas de Información en Salud — Ministerio de Salud Pública de Salta · <a href="https://www.salta.gob.ar/organismos/ministerio-de-salud-publica" target="_blank" rel="noopener">ir a la fuente ↗</a></p>
     </article>
     
-    <article class="chart-card" id="grafico-rec-departamento" data-chart-id="rec-departamento">
+    <article class="chart-card" id="grafico-sal-mortalidad-infantil" data-chart-id="sal-mortalidad-infantil">
       <div class="chart-card-head">
-        <h2 class="chart-title">Recursos por departamento</h2>
-        <p class="chart-descr">Ranking de departamentos por recursos recibidos por sus municipios, para el año seleccionado.</p>
+        <h2 class="chart-title">Mortalidad infantil por momento de la defunción</h2>
+        <p class="chart-descr">Defunciones de menores de 1 año, separadas entre neonatales (antes de los 28 días de vida) y posneonatales.</p>
       </div>
       <div class="chart-controls" role="group" aria-label="Filtros del gráfico"></div>
-      <div class="chart-plot" role="img" aria-label="Recursos por departamento"></div>
+      <div class="chart-plot" role="img" aria-label="Mortalidad infantil por momento de la defunción"></div>
       <details class="chart-table">
         <summary>Ver datos en tabla</summary>
         <div class="chart-table-body"></div>
       </details>
-      <p class="chart-source muted">Fuente: Contaduría General de la Provincia de Salta · <a href="https://economiasalta.gob.ar/contaduria" target="_blank" rel="noopener">ir a la fuente ↗</a></p>
+      <p class="chart-source muted">Fuente: Programa de Estadísticas de Información en Salud — Ministerio de Salud Pública de Salta · <a href="https://www.salta.gob.ar/organismos/ministerio-de-salud-publica" target="_blank" rel="noopener">ir a la fuente ↗</a></p>
+    </article>
+    
+    <article class="chart-card" id="grafico-sal-peso-nacer" data-chart-id="sal-peso-nacer">
+      <div class="chart-card-head">
+        <h2 class="chart-title">Nacidos vivos por peso al nacer</h2>
+        <p class="chart-descr">Cuántos nacimientos son de bajo peso (menos de 2.500 gramos), un indicador temprano de riesgo para la salud del recién nacido.</p>
+      </div>
+      <div class="chart-controls" role="group" aria-label="Filtros del gráfico"></div>
+      <div class="chart-plot" role="img" aria-label="Nacidos vivos por peso al nacer"></div>
+      <details class="chart-table">
+        <summary>Ver datos en tabla</summary>
+        <div class="chart-table-body"></div>
+      </details>
+      <p class="chart-source muted">Fuente: Programa de Estadísticas de Información en Salud — Ministerio de Salud Pública de Salta · <a href="https://www.salta.gob.ar/organismos/ministerio-de-salud-publica" target="_blank" rel="noopener">ir a la fuente ↗</a></p>
+    </article>
+    
+    <article class="chart-card" id="grafico-sal-nv-depto" data-chart-id="sal-nv-depto">
+      <div class="chart-card-head">
+        <h2 class="chart-title">Nacidos vivos por departamento</h2>
+        <p class="chart-descr">Ranking de departamentos por nacimientos, según el departamento de residencia de la madre, para el año seleccionado.</p>
+      </div>
+      <div class="chart-controls" role="group" aria-label="Filtros del gráfico"></div>
+      <div class="chart-plot" role="img" aria-label="Nacidos vivos por departamento"></div>
+      <details class="chart-table">
+        <summary>Ver datos en tabla</summary>
+        <div class="chart-table-body"></div>
+      </details>
+      <p class="chart-source muted">Fuente: Programa de Estadísticas de Información en Salud — Ministerio de Salud Pública de Salta · <a href="https://www.salta.gob.ar/organismos/ministerio-de-salud-publica" target="_blank" rel="noopener">ir a la fuente ↗</a></p>
+    </article>
+    
+    <article class="chart-card" id="grafico-sal-nv-serie" data-chart-id="sal-nv-serie">
+      <div class="chart-card-head">
+        <h2 class="chart-title">Nacidos vivos en el tiempo, por departamento</h2>
+        <p class="chart-descr">Serie de nacimientos por departamento de residencia. La vista de grilla compara los 23 departamentos a la vez.</p>
+      </div>
+      <div class="chart-controls" role="group" aria-label="Filtros del gráfico"></div>
+      <div class="chart-plot" role="img" aria-label="Nacidos vivos en el tiempo, por departamento"></div>
+      <details class="chart-table">
+        <summary>Ver datos en tabla</summary>
+        <div class="chart-table-body"></div>
+      </details>
+      <p class="chart-source muted">Fuente: Programa de Estadísticas de Información en Salud — Ministerio de Salud Pública de Salta · <a href="https://www.salta.gob.ar/organismos/ministerio-de-salud-publica" target="_blank" rel="noopener">ir a la fuente ↗</a></p>
+    </article>
+    
+    <article class="chart-card" id="grafico-sal-nv-ao" data-chart-id="sal-nv-ao">
+      <div class="chart-card-head">
+        <h2 class="chart-title">Nacidos vivos por Área Operativa de residencia</h2>
+        <p class="chart-descr">Apertura original de la fuente: la circunscripción sanitaria de cada hospital cabecera, más fina que el departamento. Las 20 mayores.</p>
+      </div>
+      <div class="chart-controls" role="group" aria-label="Filtros del gráfico"></div>
+      <div class="chart-plot" role="img" aria-label="Nacidos vivos por Área Operativa de residencia"></div>
+      <details class="chart-table">
+        <summary>Ver datos en tabla</summary>
+        <div class="chart-table-body"></div>
+      </details>
+      <p class="chart-source muted">Fuente: Programa de Estadísticas de Información en Salud — Ministerio de Salud Pública de Salta · <a href="https://www.salta.gob.ar/organismos/ministerio-de-salud-publica" target="_blank" rel="noopener">ir a la fuente ↗</a></p>
+    </article>
+    
+    <article class="chart-card" id="grafico-sal-consultas" data-chart-id="sal-consultas">
+      <div class="chart-card-head">
+        <h2 class="chart-title">Consultas médicas</h2>
+        <p class="chart-descr">Consultas atendidas en el subsector público y su relación con la población estimada de la provincia.</p>
+      </div>
+      <div class="chart-controls" role="group" aria-label="Filtros del gráfico"></div>
+      <div class="chart-plot" role="img" aria-label="Consultas médicas"></div>
+      <details class="chart-table">
+        <summary>Ver datos en tabla</summary>
+        <div class="chart-table-body"></div>
+      </details>
+      <p class="chart-source muted">Fuente: Programa de Estadísticas de Información en Salud — Ministerio de Salud Pública de Salta · <a href="https://www.salta.gob.ar/organismos/ministerio-de-salud-publica" target="_blank" rel="noopener">ir a la fuente ↗</a></p>
+    </article>
+    
+    <article class="chart-card" id="grafico-sal-internacion" data-chart-id="sal-internacion">
+      <div class="chart-card-head">
+        <h2 class="chart-title">Internación en establecimientos públicos</h2>
+        <p class="chart-descr">Rendimiento de la red pública de internación: camas disponibles, cuánto se usan y cuántos pacientes egresan.</p>
+      </div>
+      <div class="chart-controls" role="group" aria-label="Filtros del gráfico"></div>
+      <div class="chart-plot" role="img" aria-label="Internación en establecimientos públicos"></div>
+      <details class="chart-table">
+        <summary>Ver datos en tabla</summary>
+        <div class="chart-table-body"></div>
+      </details>
+      <p class="chart-source muted">Fuente: Programa de Estadísticas de Información en Salud — Ministerio de Salud Pública de Salta · <a href="https://www.salta.gob.ar/organismos/ministerio-de-salud-publica" target="_blank" rel="noopener">ir a la fuente ↗</a></p>
+    </article>
+    
+    <article class="chart-card" id="grafico-sal-internacion-depto" data-chart-id="sal-internacion-depto">
+      <div class="chart-card-head">
+        <h2 class="chart-title">Internación por departamento (2025)</h2>
+        <p class="chart-descr">Los 53 establecimientos públicos con internación, agregados a su departamento. La fuente publica este detalle sólo para 2025, por eso el año está fijo. Los cocientes se recalculan sobre los totales del departamento, no se promedian entre hospitales.</p>
+      </div>
+      <div class="chart-controls" role="group" aria-label="Filtros del gráfico"></div>
+      <div class="chart-plot" role="img" aria-label="Internación por departamento (2025)"></div>
+      <details class="chart-table">
+        <summary>Ver datos en tabla</summary>
+        <div class="chart-table-body"></div>
+      </details>
+      <p class="chart-source muted">Fuente: Programa de Estadísticas de Información en Salud — Ministerio de Salud Pública de Salta · <a href="https://www.salta.gob.ar/organismos/ministerio-de-salud-publica" target="_blank" rel="noopener">ir a la fuente ↗</a></p>
     </article>
     
   </section>
 
   <section class="wrap section">
     <p class="tema-source-note muted">
-      Datos oficiales de <strong>Contaduría General de la Provincia de Salta</strong>.
-      <a href="https://economiasalta.gob.ar/contaduria" target="_blank" rel="noopener">Ir a la fuente ↗</a>
+      Datos oficiales de <strong>Programa de Estadísticas de Información en Salud — Ministerio de Salud Pública de Salta</strong>.
+      <a href="https://www.salta.gob.ar/organismos/ministerio-de-salud-publica" target="_blank" rel="noopener">Ir a la fuente ↗</a>
     </p>
   </section>
 
@@ -187,12 +281,6 @@
       <a class="card card-sm" href="../tema/educacion.html">
         <span class="card-area">Sociocultural · Social</span>
         <h4 class="card-title">Educación por departamento</h4>
-      </a>
-      
-      
-      <a class="card card-sm" href="../tema/salud.html">
-        <span class="card-area">Sociocultural · Social</span>
-        <h4 class="card-title">Salud</h4>
       </a>
       
       
@@ -247,6 +335,12 @@
       <a class="card card-sm" href="../tema/recaudacion.html">
         <span class="card-area">Económico-productivo · Finanzas públicas</span>
         <h4 class="card-title">Recaudación de Ingresos Brutos (Convenio Multilateral)</h4>
+      </a>
+      
+      
+      <a class="card card-sm" href="../tema/recursos-municipios.html">
+        <span class="card-area">Económico-productivo · Finanzas públicas</span>
+        <h4 class="card-title">Recursos de los municipios</h4>
       </a>
       
       

@@ -289,32 +289,25 @@ def main():
                    "tags": catalog.TAGS, "ejes_pdes": catalog.EJES_PDES,
                    "temas": catalogo})
 
-    # Agrupar en DOS NIVELES: eje del PDES (nivel 1) y, dentro, eje transversal / tag (nivel 2).
-    # Un tema puede aparecer en varios subgrupos dentro de su eje. Solo se muestran ejes/subgrupos
-    # con temas.
-    ejes_pdes = []
-    for eje_id, eje in sorted(catalog.EJES_PDES.items(), key=lambda kv: kv[1]["orden"]):
-        temas_eje = [t for t in catalogo if t.get("eje_pdes") == eje_id]
-        if not temas_eje:
-            continue
-        subgrupos = []
-        for tid, tg in sorted(catalog.TAGS.items(), key=lambda kv: kv[1]["orden"]):
-            temas_tag = [t for t in temas_eje if tid in t.get("tags", [])]
-            if temas_tag:
-                subgrupos.append({"id": tid, "label": tg["label"],
-                                  "descr": tg.get("descr", ""), "temas": temas_tag})
-        con_tag = {t["id"] for sg in subgrupos for t in sg["temas"]}
-        sueltos = [t for t in temas_eje if t["id"] not in con_tag]
-        if sueltos:
-            subgrupos.append({"id": "otros", "label": "Otros indicadores",
-                              "descr": "", "temas": sueltos})
-        ejes_pdes.append({"id": eje_id, "label": eje["label"], "descr": eje.get("descr", ""),
-                          "temas": temas_eje, "subgrupos": subgrupos})
-
     # Tabla maestra de indicadores (portada). Espeja renderKpis de charts.js: ver indicadores.py.
     tabla_ind = indicadores.tabla(payloads, catalogo, catalog.EJES_PDES,
                                   catalog.TAGS, catalog.SUBEJE_ORDEN)
     n_ind = sum(len(g["filas"]) for g in tabla_ind)
+
+    # Agrupar en DOS NIVELES: eje del PDES (nivel 1) y subeje (nivel 2). La unidad es el
+    # INDICADOR, no el tablero: así la cuenta de las pills coincide con la tabla maestra
+    # (un tablero publica varios indicadores). `temas` se conserva porque tema.html arma con
+    # eso la sección "Otros temas". Sólo se muestran ejes con indicadores.
+    explorar = {e["id"]: e for e in indicadores.explorar(tabla_ind, catalog.TAGS,
+                                                        catalog.SUBEJE_ORDEN)}
+    ejes_pdes = []
+    for eje_id, eje in sorted(catalog.EJES_PDES.items(), key=lambda kv: kv[1]["orden"]):
+        ex = explorar.get(eje_id)
+        if not ex:
+            continue
+        ejes_pdes.append({"id": eje_id, "label": eje["label"], "descr": eje.get("descr", ""),
+                          "temas": [t for t in catalogo if t.get("eje_pdes") == eje_id],
+                          "n_indicadores": ex["n"], "subgrupos": ex["subgrupos"]})
 
     # index.html
     tpl_index = env.get_template("index.html")

@@ -4,12 +4,12 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Monitor de Indicadores (versión Beta)</title>
-  <meta name="description" content="Seguimiento del Plan de Desarrollo Estratégico de Salta (PDES 2030)">
+  <meta name="description" content="Seguimiento del Plan de Desarrollo Estratégico de Salta (PDES 2050)">
   <script>
     /* fija el tema antes de pintar para evitar flash */
     (function(){try{var t=localStorage.getItem('cess-theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
   </script>
-  <link rel="stylesheet" href="./assets/css/styles.css?v=1787747377">
+  <link rel="stylesheet" href="./assets/css/styles.css?v=1788352481">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%232a78d6'/><text x='50' y='68' font-size='52' text-anchor='middle' fill='white' font-family='sans-serif' font-weight='700'>C</text></svg>">
 </head>
 <body>
@@ -20,7 +20,7 @@
     <a class="brand" href="./index.html">
       <img class="brand-logo" src="./assets/img/logo-cess.png"
            alt="CESS — Consejo Económico y Social, Provincia de Salta">
-      <span class="brand-text">Monitor de Indicadores <span class="brand-beta">Beta</span><small>Seguimiento del Plan de Desarrollo Estratégico de Salta (PDES 2030)</small></span>
+      <span class="brand-text">Monitor de Indicadores <span class="brand-beta">Beta</span><small>Seguimiento del Plan de Desarrollo Estratégico de Salta (PDES 2050)</small></span>
     </a>
 
     <button class="nav-toggle" aria-expanded="false" aria-controls="mainnav" aria-label="Abrir menú">
@@ -37,6 +37,8 @@
             <p class="navgroup-heading">Sociocultural</p>
             
             <a role="menuitem" href="./tema/educacion.html">Educación por departamento</a>
+            
+            <a role="menuitem" href="./tema/salud.html">Salud</a>
             
           </div>
           
@@ -99,7 +101,7 @@
   <div class="wrap">
     <p class="hero-eyebrow">Consejo Económico y Social de Salta (CESS)</p>
     <h1 class="hero-title">Monitor de Indicadores (versión Beta)</h1>
-    <p class="hero-lead">Seguimiento del Plan de Desarrollo Estratégico de Salta (PDES 2030). Evolución de los principales indicadores de la provincia en tableros claros e interactivos.</p>
+    <p class="hero-lead">Seguimiento del Plan de Desarrollo Estratégico de Salta (PDES 2050). Evolución de los principales indicadores de la provincia en tableros claros e interactivos.</p>
 
     <div class="search" id="buscador">
       <label for="search-input" class="search-label">Buscar un tema, un indicador o un departamento</label>
@@ -128,11 +130,11 @@
 
 <section class="wrap section" id="tabla-indicadores">
   <h2 class="section-title">Tabla de indicadores</h2>
-  <p class="section-lead muted">Los 46 indicadores que hoy publica el Monitor, agrupados por eje del PDES. La variación es interanual: compara el último dato disponible con el mismo período del año anterior, igual que las tarjetas de cada tablero. Las líneas de base del PDES todavía no están definidas.</p>
+  <p class="section-lead muted">Los 56 indicadores que hoy publica el Monitor, agrupados por eje del PDES. La variación es interanual: compara el último dato disponible con el mismo período del año anterior, igual que las tarjetas de cada tablero. Las líneas de base y las metas 2030, 2040 y 2050 del PDES todavía no están definidas: la brecha a 2050 se calcula sola en cuanto se carguen.</p>
 
   
   <div class="tabla-ind-block">
-    <h3 class="eje-title">Sociocultural <span class="eje-count">3</span></h3>
+    <h3 class="eje-title">Sociocultural <span class="eje-count">13</span></h3>
     <div class="tabla-ind-scroll">
       <table class="tabla-ind">
         <thead>
@@ -141,10 +143,14 @@
             <th scope="col">Subeje</th>
             <th scope="col">Frecuencia</th>
             <th scope="col">Último dato</th>
-            <th scope="col">Línea de base</th>
-            <th scope="col">Período de la base</th>
             <th scope="col">Var. interanual</th>
             <th scope="col">Períodos comparados</th>
+            <th scope="col" class="tabla-ind-meta-ini">Línea de base</th>
+            <th scope="col">Período de la base</th>
+            <th scope="col">Meta 2030</th>
+            <th scope="col">Meta 2040</th>
+            <th scope="col">Meta 2050</th>
+            <th scope="col"><abbr title="Meta 2050 menos el último dato observado: cuánto le falta al indicador para alcanzar la meta final. Positiva, tiene que subir; negativa, tiene que bajar.">Brecha a 2050</abbr></th>
           </tr>
         </thead>
         <tbody>
@@ -157,10 +163,14 @@
             <td class="tabla-ind-subeje">Educación</td>
             <td>Anual</td>
             <td class="num">2024</td>
-            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
-            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
             <td class="num"><span class="tabla-ind-var down">▼ 1,4 %</span></td>
             <td class="num tabla-ind-ref">2024/2023</td>
+            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="Se calcula cuando esté cargada la meta 2050">—</span></td>
           </tr>
           
           <tr>
@@ -171,10 +181,14 @@
             <td class="tabla-ind-subeje">Educación</td>
             <td>Anual</td>
             <td class="num">2024</td>
-            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
-            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
             <td class="num"><span class="tabla-ind-var down">▼ 9,7 %</span></td>
             <td class="num tabla-ind-ref">2024/2023</td>
+            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="Se calcula cuando esté cargada la meta 2050">—</span></td>
           </tr>
           
           <tr>
@@ -185,10 +199,194 @@
             <td class="tabla-ind-subeje">Educación</td>
             <td>Anual</td>
             <td class="num">2024</td>
-            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
-            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
             <td class="num"><span class="tabla-ind-var up">▲ 23,3 %</span></td>
             <td class="num tabla-ind-ref">2024/2023</td>
+            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="Se calcula cuando esté cargada la meta 2050">—</span></td>
+          </tr>
+          
+          <tr>
+            <th scope="row">
+              <a href="./tema/salud.html" title="Ver el tablero: Salud">Nacidos vivos</a>
+              
+            </th>
+            <td class="tabla-ind-subeje">Salud</td>
+            <td>Anual</td>
+            <td class="num">2025</td>
+            <td class="num"><span class="tabla-ind-var down neutro">▼ 2,6 %</span></td>
+            <td class="num tabla-ind-ref">2025/2024</td>
+            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="Se calcula cuando esté cargada la meta 2050">—</span></td>
+          </tr>
+          
+          <tr>
+            <th scope="row">
+              <a href="./tema/salud.html" title="Ver el tablero: Salud">Defunciones</a>
+              
+            </th>
+            <td class="tabla-ind-subeje">Salud</td>
+            <td>Anual</td>
+            <td class="num">2025</td>
+            <td class="num"><span class="tabla-ind-var down invertido">▼ 6,1 %</span></td>
+            <td class="num tabla-ind-ref">2025/2024</td>
+            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="Se calcula cuando esté cargada la meta 2050">—</span></td>
+          </tr>
+          
+          <tr>
+            <th scope="row">
+              <a href="./tema/salud.html" title="Ver el tablero: Salud">Tasa de mortalidad infantil (por mil nacidos vivos)</a>
+              <abbr class="tabla-ind-nota" title="Defunciones de menores de 1 año cada 1.000 nacidos vivos. La variación va en puntos, no en porcentaje: es un cociente.">ⓘ</abbr>
+            </th>
+            <td class="tabla-ind-subeje">Salud</td>
+            <td>Anual</td>
+            <td class="num">2025</td>
+            <td class="num"><span class="tabla-ind-var up invertido">▲ 4,2 %</span></td>
+            <td class="num tabla-ind-ref">2025/2024</td>
+            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="Se calcula cuando esté cargada la meta 2050">—</span></td>
+          </tr>
+          
+          <tr>
+            <th scope="row">
+              <a href="./tema/salud.html" title="Ver el tablero: Salud">Consultas médicas por habitante</a>
+              
+            </th>
+            <td class="tabla-ind-subeje">Salud</td>
+            <td>Anual</td>
+            <td class="num">2025</td>
+            <td class="num"><span class="tabla-ind-var down neutro">▼ 5,6 %</span></td>
+            <td class="num tabla-ind-ref">2025/2024</td>
+            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="Se calcula cuando esté cargada la meta 2050">—</span></td>
+          </tr>
+          
+          <tr>
+            <th scope="row">
+              <a href="./tema/salud.html" title="Ver el tablero: Salud">Ocupación de camas en establecimientos públicos</a>
+              
+            </th>
+            <td class="tabla-ind-subeje">Salud</td>
+            <td>Anual</td>
+            <td class="num">2025</td>
+            <td class="num"><span class="tabla-ind-var up neutro">▲ 0,8 p.p.</span></td>
+            <td class="num tabla-ind-ref">2025/2024</td>
+            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="Se calcula cuando esté cargada la meta 2050">—</span></td>
+          </tr>
+          
+          <tr>
+            <th scope="row">
+              <a href="./tema/salud.html" title="Ver el tablero: Salud">Tasa de natalidad</a>
+              
+            </th>
+            <td class="tabla-ind-subeje">Salud</td>
+            <td>Anual</td>
+            <td class="num">2025</td>
+            <td class="num"><span class="tabla-ind-var down neutro">▼ 3,0 %</span></td>
+            <td class="num tabla-ind-ref">2025/2024</td>
+            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="Se calcula cuando esté cargada la meta 2050">—</span></td>
+          </tr>
+          
+          <tr>
+            <th scope="row">
+              <a href="./tema/salud.html" title="Ver el tablero: Salud">Tasa de mortalidad general</a>
+              
+            </th>
+            <td class="tabla-ind-subeje">Salud</td>
+            <td>Anual</td>
+            <td class="num">2025</td>
+            <td class="num"><span class="tabla-ind-var down invertido">▼ 6,4 %</span></td>
+            <td class="num tabla-ind-ref">2025/2024</td>
+            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="Se calcula cuando esté cargada la meta 2050">—</span></td>
+          </tr>
+          
+          <tr>
+            <th scope="row">
+              <a href="./tema/salud.html" title="Ver el tablero: Salud">Tasa de mortalidad materna</a>
+              
+            </th>
+            <td class="tabla-ind-subeje">Salud</td>
+            <td>Anual</td>
+            <td class="num">2025</td>
+            <td class="num"><span class="tabla-ind-var up invertido">▲ 2,7 %</span></td>
+            <td class="num tabla-ind-ref">2025/2024</td>
+            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="Se calcula cuando esté cargada la meta 2050">—</span></td>
+          </tr>
+          
+          <tr>
+            <th scope="row">
+              <a href="./tema/salud.html" title="Ver el tablero: Salud">Egresos hospitalarios</a>
+              
+            </th>
+            <td class="tabla-ind-subeje">Salud</td>
+            <td>Anual</td>
+            <td class="num">2025</td>
+            <td class="num"><span class="tabla-ind-var up">▲ 5,1 %</span></td>
+            <td class="num tabla-ind-ref">2025/2024</td>
+            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="Se calcula cuando esté cargada la meta 2050">—</span></td>
+          </tr>
+          
+          <tr>
+            <th scope="row">
+              <a href="./tema/salud.html" title="Ver el tablero: Salud">Camas disponibles</a>
+              
+            </th>
+            <td class="tabla-ind-subeje">Salud</td>
+            <td>Anual</td>
+            <td class="num">2025</td>
+            <td class="num"><span class="tabla-ind-var up">▲ 4,1 %</span></td>
+            <td class="num tabla-ind-ref">2025/2024</td>
+            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="Se calcula cuando esté cargada la meta 2050">—</span></td>
           </tr>
           
         </tbody>
@@ -206,10 +404,14 @@
             <th scope="col">Subeje</th>
             <th scope="col">Frecuencia</th>
             <th scope="col">Último dato</th>
-            <th scope="col">Línea de base</th>
-            <th scope="col">Período de la base</th>
             <th scope="col">Var. interanual</th>
             <th scope="col">Períodos comparados</th>
+            <th scope="col" class="tabla-ind-meta-ini">Línea de base</th>
+            <th scope="col">Período de la base</th>
+            <th scope="col">Meta 2030</th>
+            <th scope="col">Meta 2040</th>
+            <th scope="col">Meta 2050</th>
+            <th scope="col"><abbr title="Meta 2050 menos el último dato observado: cuánto le falta al indicador para alcanzar la meta final. Positiva, tiene que subir; negativa, tiene que bajar.">Brecha a 2050</abbr></th>
           </tr>
         </thead>
         <tbody>
@@ -222,10 +424,14 @@
             <td class="tabla-ind-subeje">Actividad y productividad</td>
             <td>Anual</td>
             <td class="num">2025</td>
-            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
-            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
             <td class="num"><span class="tabla-ind-var up">▲ 20,1 %</span></td>
             <td class="num tabla-ind-ref">2025/2024</td>
+            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="Se calcula cuando esté cargada la meta 2050">—</span></td>
           </tr>
           
           <tr>
@@ -236,10 +442,14 @@
             <td class="tabla-ind-subeje">Actividad y productividad</td>
             <td>Anual</td>
             <td class="num">2025</td>
-            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
-            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
             <td class="num"><span class="tabla-ind-var up">▲ 23,5 %</span></td>
             <td class="num tabla-ind-ref">2025/2024</td>
+            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="Se calcula cuando esté cargada la meta 2050">—</span></td>
           </tr>
           
           <tr>
@@ -250,10 +460,14 @@
             <td class="tabla-ind-subeje">Actividad y productividad</td>
             <td>Anual</td>
             <td class="num">2024</td>
-            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
-            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
             <td class="num"><span class="tabla-ind-var down">▼ 13,3 %</span></td>
             <td class="num tabla-ind-ref">2024/2023</td>
+            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="Se calcula cuando esté cargada la meta 2050">—</span></td>
           </tr>
           
           <tr>
@@ -264,10 +478,14 @@
             <td class="tabla-ind-subeje">Actividad y productividad</td>
             <td>Anual</td>
             <td class="num">2024</td>
-            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
-            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
             <td class="num"><span class="tabla-ind-var down">▼ 9,7 %</span></td>
             <td class="num tabla-ind-ref">2024/2023</td>
+            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="Se calcula cuando esté cargada la meta 2050">—</span></td>
           </tr>
           
           <tr>
@@ -278,10 +496,14 @@
             <td class="tabla-ind-subeje">Actividad y productividad</td>
             <td>Trimestral</td>
             <td class="num">1T2026</td>
-            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
-            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
             <td class="num"><span class="tabla-ind-var down">▼ 17,4 %</span></td>
             <td class="num tabla-ind-ref">1T2026/1T2025</td>
+            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="Se calcula cuando esté cargada la meta 2050">—</span></td>
           </tr>
           
           <tr>
@@ -292,10 +514,14 @@
             <td class="tabla-ind-subeje">Actividad y productividad</td>
             <td>Trimestral</td>
             <td class="num">1T2026</td>
-            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
-            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
             <td class="num"><span class="tabla-ind-var down">▼ 23,3 %</span></td>
             <td class="num tabla-ind-ref">1T2026/1T2025</td>
+            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="Se calcula cuando esté cargada la meta 2050">—</span></td>
           </tr>
           
           <tr>
@@ -306,10 +532,14 @@
             <td class="tabla-ind-subeje">Actividad y productividad</td>
             <td>Trimestral</td>
             <td class="num">1T2026</td>
-            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
-            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
             <td class="num"><span class="tabla-ind-var down">▼ 13,7 %</span></td>
             <td class="num tabla-ind-ref">1T2026/1T2025</td>
+            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="Se calcula cuando esté cargada la meta 2050">—</span></td>
           </tr>
           
           <tr>
@@ -320,10 +550,14 @@
             <td class="tabla-ind-subeje">Actividad y productividad</td>
             <td>Anual (campaña)</td>
             <td class="num">2024</td>
-            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
-            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
             <td class="num"><span class="tabla-ind-var up">▲ 8,1 %</span></td>
             <td class="num tabla-ind-ref">2024/2023</td>
+            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="Se calcula cuando esté cargada la meta 2050">—</span></td>
           </tr>
           
           <tr>
@@ -334,10 +568,14 @@
             <td class="tabla-ind-subeje">Actividad y productividad</td>
             <td>Anual (campaña)</td>
             <td class="num">2024</td>
-            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
-            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
             <td class="num"><span class="tabla-ind-var down">▼ 3,7 %</span></td>
             <td class="num tabla-ind-ref">2024/2023</td>
+            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="Se calcula cuando esté cargada la meta 2050">—</span></td>
           </tr>
           
           <tr>
@@ -348,10 +586,14 @@
             <td class="tabla-ind-subeje">Actividad y productividad</td>
             <td>Anual (campaña)</td>
             <td class="num">2024</td>
-            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
-            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
             <td class="num"><span class="tabla-ind-var up">▲ 6,3 %</span></td>
             <td class="num tabla-ind-ref">2024/2023</td>
+            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="Se calcula cuando esté cargada la meta 2050">—</span></td>
           </tr>
           
           <tr>
@@ -362,10 +604,14 @@
             <td class="tabla-ind-subeje">Actividad y productividad</td>
             <td>Anual</td>
             <td class="num">2025</td>
-            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
-            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
             <td class="num"><span class="tabla-ind-var down">▼ 0,9 %</span></td>
             <td class="num tabla-ind-ref">2025/2024</td>
+            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="Se calcula cuando esté cargada la meta 2050">—</span></td>
           </tr>
           
           <tr>
@@ -376,10 +622,14 @@
             <td class="tabla-ind-subeje">Actividad y productividad</td>
             <td>Anual</td>
             <td class="num">2025</td>
-            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
-            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
             <td class="num"><span class="tabla-ind-var down">▼ 2,8 %</span></td>
             <td class="num tabla-ind-ref">2025/2024</td>
+            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="Se calcula cuando esté cargada la meta 2050">—</span></td>
           </tr>
           
           <tr>
@@ -390,10 +640,14 @@
             <td class="tabla-ind-subeje">Actividad y productividad</td>
             <td>Trimestral</td>
             <td class="num">1T2026</td>
-            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
-            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
             <td class="num"><span class="tabla-ind-var up">▲ 39,8 %</span></td>
             <td class="num tabla-ind-ref">1T2026/1T2025</td>
+            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="Se calcula cuando esté cargada la meta 2050">—</span></td>
           </tr>
           
           <tr>
@@ -404,10 +658,14 @@
             <td class="tabla-ind-subeje">Actividad y productividad</td>
             <td>Trimestral</td>
             <td class="num">1T2026</td>
-            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
-            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
             <td class="num"><span class="tabla-ind-var down">▼ 9,0 %</span></td>
             <td class="num tabla-ind-ref">1T2026/1T2025</td>
+            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="Se calcula cuando esté cargada la meta 2050">—</span></td>
           </tr>
           
           <tr>
@@ -418,10 +676,14 @@
             <td class="tabla-ind-subeje">Actividad y productividad</td>
             <td>Trimestral</td>
             <td class="num">1T2026</td>
-            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
-            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
             <td class="num"><span class="tabla-ind-var up">▲ 35,8 %</span></td>
             <td class="num tabla-ind-ref">1T2026/1T2025</td>
+            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="Se calcula cuando esté cargada la meta 2050">—</span></td>
           </tr>
           
           <tr>
@@ -432,10 +694,14 @@
             <td class="tabla-ind-subeje">Empleo y capacidades</td>
             <td>Trimestral</td>
             <td class="num">2T2025</td>
-            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
-            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
             <td class="num"><span class="tabla-ind-var down">▼ 3,8 %</span></td>
             <td class="num tabla-ind-ref">2T2025/2T2024</td>
+            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="Se calcula cuando esté cargada la meta 2050">—</span></td>
           </tr>
           
           <tr>
@@ -446,10 +712,14 @@
             <td class="tabla-ind-subeje">Empleo y capacidades</td>
             <td>Trimestral</td>
             <td class="num">2T2025</td>
-            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
-            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
             <td class="num"><span class="tabla-ind-var up">▲ 6,7 %</span></td>
             <td class="num tabla-ind-ref">2T2025/2T2024</td>
+            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="Se calcula cuando esté cargada la meta 2050">—</span></td>
           </tr>
           
           <tr>
@@ -460,10 +730,14 @@
             <td class="tabla-ind-subeje">Empleo y capacidades</td>
             <td>Trimestral</td>
             <td class="num">1T2026</td>
-            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
-            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
             <td class="num"><span class="tabla-ind-var down">▼ 7,0 %</span></td>
             <td class="num tabla-ind-ref">1T2026/1T2025</td>
+            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="Se calcula cuando esté cargada la meta 2050">—</span></td>
           </tr>
           
           <tr>
@@ -474,10 +748,14 @@
             <td class="tabla-ind-subeje">Inversión y financiamiento</td>
             <td>Anual</td>
             <td class="num">2023</td>
-            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
-            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
             <td class="num"><span class="tabla-ind-var up">▲ 9,8 %</span></td>
             <td class="num tabla-ind-ref">2023/2022</td>
+            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="Se calcula cuando esté cargada la meta 2050">—</span></td>
           </tr>
           
           <tr>
@@ -488,10 +766,14 @@
             <td class="tabla-ind-subeje">Inversión y financiamiento</td>
             <td>Anual</td>
             <td class="num">2025</td>
-            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
-            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
             <td class="num"><span class="tabla-ind-var down">▼ 2,7 %</span></td>
             <td class="num tabla-ind-ref">2025/2024</td>
+            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="Se calcula cuando esté cargada la meta 2050">—</span></td>
           </tr>
           
           <tr>
@@ -502,10 +784,14 @@
             <td class="tabla-ind-subeje">Inversión y financiamiento</td>
             <td>Anual</td>
             <td class="num">2025</td>
-            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
-            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
             <td class="num"><span class="tabla-ind-var up">▲ 0,5 %</span></td>
             <td class="num tabla-ind-ref">2025/2024</td>
+            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="Se calcula cuando esté cargada la meta 2050">—</span></td>
           </tr>
           
           <tr>
@@ -516,10 +802,14 @@
             <td class="tabla-ind-subeje">Inversión y financiamiento</td>
             <td>Trimestral</td>
             <td class="num">1T2026</td>
-            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
-            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
             <td class="num"><span class="tabla-ind-var down">▼ 9,9 %</span></td>
             <td class="num tabla-ind-ref">1T2026/1T2025</td>
+            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="Se calcula cuando esté cargada la meta 2050">—</span></td>
           </tr>
           
           <tr>
@@ -530,10 +820,14 @@
             <td class="tabla-ind-subeje">Inversión y financiamiento</td>
             <td>Trimestral</td>
             <td class="num">1T2026</td>
-            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
-            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
             <td class="num"><span class="tabla-ind-var down">▼ 14,7 %</span></td>
             <td class="num tabla-ind-ref">1T2026/1T2025</td>
+            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="Se calcula cuando esté cargada la meta 2050">—</span></td>
           </tr>
           
           <tr>
@@ -544,10 +838,14 @@
             <td class="tabla-ind-subeje">Inversión y financiamiento</td>
             <td>Trimestral</td>
             <td class="num">2T2026</td>
-            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
-            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
             <td class="num"><span class="tabla-ind-var up">▲ 3,4 %</span></td>
             <td class="num tabla-ind-ref">2T2026/2T2025</td>
+            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="Se calcula cuando esté cargada la meta 2050">—</span></td>
           </tr>
           
           <tr>
@@ -558,10 +856,14 @@
             <td class="tabla-ind-subeje">Inversión y financiamiento</td>
             <td>Trimestral</td>
             <td class="num">2T2026</td>
-            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
-            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
             <td class="num"><span class="tabla-ind-var up">▲ 1,1 %</span></td>
             <td class="num tabla-ind-ref">2T2026/2T2025</td>
+            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="Se calcula cuando esté cargada la meta 2050">—</span></td>
           </tr>
           
           <tr>
@@ -572,10 +874,14 @@
             <td class="tabla-ind-subeje">Inversión y financiamiento</td>
             <td>Mensual acumulado</td>
             <td class="num">mar-2026</td>
-            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
-            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
             <td class="num"><span class="tabla-ind-var down">▼ 3,0 %</span></td>
             <td class="num tabla-ind-ref">mar-2026/mar-2025</td>
+            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="Se calcula cuando esté cargada la meta 2050">—</span></td>
           </tr>
           
           <tr>
@@ -586,10 +892,14 @@
             <td class="tabla-ind-subeje">Inversión y financiamiento</td>
             <td>Mensual acumulado</td>
             <td class="num">mar-2026</td>
-            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
-            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
             <td class="num"><span class="tabla-ind-var down">▼ 4,6 %</span></td>
             <td class="num tabla-ind-ref">mar-2026/mar-2025</td>
+            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="Se calcula cuando esté cargada la meta 2050">—</span></td>
           </tr>
           
           <tr>
@@ -600,10 +910,14 @@
             <td class="tabla-ind-subeje">Inversión y financiamiento</td>
             <td>Mensual acumulado</td>
             <td class="num">mar-2026</td>
-            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
-            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
             <td class="num"><span class="tabla-ind-var up">▲ 1,8 p.p.</span></td>
             <td class="num tabla-ind-ref">mar-2026/mar-2025</td>
+            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="Se calcula cuando esté cargada la meta 2050">—</span></td>
           </tr>
           
           <tr>
@@ -614,10 +928,14 @@
             <td class="tabla-ind-subeje">Inversión y financiamiento</td>
             <td>Mensual acumulado</td>
             <td class="num">mar-2026</td>
-            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
-            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
             <td class="num"><span class="tabla-ind-var up">▲ 2,0 p.p.</span></td>
             <td class="num tabla-ind-ref">mar-2026/mar-2025</td>
+            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="Se calcula cuando esté cargada la meta 2050">—</span></td>
           </tr>
           
           <tr>
@@ -628,10 +946,14 @@
             <td class="tabla-ind-subeje">Inversión y financiamiento</td>
             <td>Trimestral</td>
             <td class="num">1T2026</td>
-            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
-            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
             <td class="num"><span class="tabla-ind-var up">▲ 14,7 %</span></td>
             <td class="num tabla-ind-ref">1T2026/1T2025</td>
+            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="Se calcula cuando esté cargada la meta 2050">—</span></td>
           </tr>
           
           <tr>
@@ -642,10 +964,14 @@
             <td class="tabla-ind-subeje">Inversión y financiamiento</td>
             <td>Trimestral</td>
             <td class="num">1T2026</td>
-            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
-            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
             <td class="num"><span class="tabla-ind-var up">▲ 13,1 %</span></td>
             <td class="num tabla-ind-ref">1T2026/1T2025</td>
+            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="Se calcula cuando esté cargada la meta 2050">—</span></td>
           </tr>
           
           <tr>
@@ -656,10 +982,14 @@
             <td class="tabla-ind-subeje">Inversión y financiamiento</td>
             <td>Anual</td>
             <td class="num">2025</td>
-            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
-            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
             <td class="num"><span class="tabla-ind-var up">▲ 3,6 %</span></td>
             <td class="num tabla-ind-ref">2025/2024</td>
+            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="Se calcula cuando esté cargada la meta 2050">—</span></td>
           </tr>
           
           <tr>
@@ -670,10 +1000,14 @@
             <td class="tabla-ind-subeje">Innovación y mercados</td>
             <td>Anual</td>
             <td class="num">2025</td>
-            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
-            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
             <td class="num"><span class="tabla-ind-var up">▲ 28,8 %</span></td>
             <td class="num tabla-ind-ref">2025/2024</td>
+            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="Se calcula cuando esté cargada la meta 2050">—</span></td>
           </tr>
           
           <tr>
@@ -684,10 +1018,14 @@
             <td class="tabla-ind-subeje">Innovación y mercados</td>
             <td>Anual</td>
             <td class="num">2025</td>
-            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
-            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
             <td class="num"><span class="tabla-ind-var up">▲ 13,7 %</span></td>
             <td class="num tabla-ind-ref">2025/2024</td>
+            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="Se calcula cuando esté cargada la meta 2050">—</span></td>
           </tr>
           
           <tr>
@@ -698,10 +1036,14 @@
             <td class="tabla-ind-subeje">Innovación y mercados</td>
             <td>Anual</td>
             <td class="num">2024</td>
-            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
-            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
             <td class="num"><span class="tabla-ind-var down">▼ 14,6 %</span></td>
             <td class="num tabla-ind-ref">2024/2023</td>
+            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="Se calcula cuando esté cargada la meta 2050">—</span></td>
           </tr>
           
           <tr>
@@ -712,10 +1054,14 @@
             <td class="tabla-ind-subeje">Innovación y mercados</td>
             <td>Anual</td>
             <td class="num">2024</td>
-            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
-            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
             <td class="num"><span class="tabla-ind-var down">▼ 1,0 %</span></td>
             <td class="num tabla-ind-ref">2024/2023</td>
+            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="Se calcula cuando esté cargada la meta 2050">—</span></td>
           </tr>
           
         </tbody>
@@ -733,10 +1079,14 @@
             <th scope="col">Subeje</th>
             <th scope="col">Frecuencia</th>
             <th scope="col">Último dato</th>
-            <th scope="col">Línea de base</th>
-            <th scope="col">Período de la base</th>
             <th scope="col">Var. interanual</th>
             <th scope="col">Períodos comparados</th>
+            <th scope="col" class="tabla-ind-meta-ini">Línea de base</th>
+            <th scope="col">Período de la base</th>
+            <th scope="col">Meta 2030</th>
+            <th scope="col">Meta 2040</th>
+            <th scope="col">Meta 2050</th>
+            <th scope="col"><abbr title="Meta 2050 menos el último dato observado: cuánto le falta al indicador para alcanzar la meta final. Positiva, tiene que subir; negativa, tiene que bajar.">Brecha a 2050</abbr></th>
           </tr>
         </thead>
         <tbody>
@@ -749,10 +1099,14 @@
             <td class="tabla-ind-subeje">Ambiente</td>
             <td>Trimestral</td>
             <td class="num">2T2026</td>
-            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
-            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
             <td class="num"><span class="tabla-ind-var up">▲ 33,9 %</span></td>
             <td class="num tabla-ind-ref">2T2026/2T2025</td>
+            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="Se calcula cuando esté cargada la meta 2050">—</span></td>
           </tr>
           
           <tr>
@@ -763,10 +1117,14 @@
             <td class="tabla-ind-subeje">Ambiente</td>
             <td>Anual</td>
             <td class="num">2026</td>
-            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
-            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
             <td class="num"><span class="tabla-ind-var none">sin base</span></td>
             <td class="num tabla-ind-ref"><span class="tabla-ind-vacio">—</span></td>
+            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="Se calcula cuando esté cargada la meta 2050">—</span></td>
           </tr>
           
           <tr>
@@ -777,10 +1135,14 @@
             <td class="tabla-ind-subeje">Ambiente</td>
             <td>Trimestral</td>
             <td class="num">2T2026</td>
-            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
-            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
             <td class="num"><span class="tabla-ind-var down">▼ 14,4 %</span></td>
             <td class="num tabla-ind-ref">2T2026/2T2025</td>
+            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="Se calcula cuando esté cargada la meta 2050">—</span></td>
           </tr>
           
           <tr>
@@ -791,10 +1153,14 @@
             <td class="tabla-ind-subeje">Turismo</td>
             <td>Trimestral</td>
             <td class="num">3T2025</td>
-            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
-            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
             <td class="num"><span class="tabla-ind-var down">▼ 3,0 %</span></td>
             <td class="num tabla-ind-ref">3T2025/3T2024</td>
+            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="Se calcula cuando esté cargada la meta 2050">—</span></td>
           </tr>
           
           <tr>
@@ -805,10 +1171,14 @@
             <td class="tabla-ind-subeje">Turismo</td>
             <td>Trimestral</td>
             <td class="num">3T2025</td>
-            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
-            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
             <td class="num"><span class="tabla-ind-var down">▼ 2,3 %</span></td>
             <td class="num tabla-ind-ref">3T2025/3T2024</td>
+            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="Se calcula cuando esté cargada la meta 2050">—</span></td>
           </tr>
           
           <tr>
@@ -819,10 +1189,14 @@
             <td class="tabla-ind-subeje">Turismo</td>
             <td>Trimestral</td>
             <td class="num">3T2025</td>
-            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
-            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
             <td class="num"><span class="tabla-ind-var down">▼ 3,0 %</span></td>
             <td class="num tabla-ind-ref">3T2025/3T2024</td>
+            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="Se calcula cuando esté cargada la meta 2050">—</span></td>
           </tr>
           
           <tr>
@@ -833,10 +1207,14 @@
             <td class="tabla-ind-subeje">Turismo</td>
             <td>Trimestral</td>
             <td class="num">3T2025</td>
-            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
-            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
             <td class="num"><span class="tabla-ind-var down">▼ 0,5 %</span></td>
             <td class="num tabla-ind-ref">3T2025/3T2024</td>
+            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="A definir">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="Se calcula cuando esté cargada la meta 2050">—</span></td>
           </tr>
           
         </tbody>
@@ -848,33 +1226,176 @@
 
 <section class="wrap section" id="explorar">
   <h2 class="section-title">Explorar por eje del PDES</h2>
-  <p class="section-lead muted">El Plan de Desarrollo Estratégico organiza los indicadores en tres ejes. Dentro de cada eje se agrupan por eje transversal de desarrollo productivo.</p>
+  <p class="section-lead muted">El Plan de Desarrollo Estratégico organiza los indicadores en tres ejes y, dentro de cada uno, en subejes. Cada tarjeta resume un indicador —último valor y variación interanual— y lleva al gráfico que lo publica.</p>
 
   <div class="eje-pills" role="tablist" aria-label="Ejes del PDES">
-    <button class="eje-pill is-active" data-eje="all" role="tab" aria-selected="true">Todos</button>
+    <button class="eje-pill is-active" data-eje="all" role="tab" aria-selected="true">Todos <span class="eje-count">56</span></button>
     
-    <button class="eje-pill" data-eje="sociocultural" role="tab" aria-selected="false">Sociocultural <span class="eje-count">1</span></button>
+    <button class="eje-pill" data-eje="sociocultural" role="tab" aria-selected="false">Sociocultural <span class="eje-count">13</span></button>
     
-    <button class="eje-pill" data-eje="economico-productivo" role="tab" aria-selected="false">Económico-productivo <span class="eje-count">14</span></button>
+    <button class="eje-pill" data-eje="economico-productivo" role="tab" aria-selected="false">Económico-productivo <span class="eje-count">36</span></button>
     
-    <button class="eje-pill" data-eje="territorio-ambiente-turismo" role="tab" aria-selected="false">Territorio, ambiente y turismo <span class="eje-count">2</span></button>
+    <button class="eje-pill" data-eje="territorio-ambiente-turismo" role="tab" aria-selected="false">Territorio, ambiente y turismo <span class="eje-count">7</span></button>
     
   </div>
 
   
   <div class="eje-block" data-eje="sociocultural" id="eje-sociocultural">
-    <h3 class="eje-title">Sociocultural</h3>
+    <h3 class="eje-title">Sociocultural <span class="eje-count">13</span></h3>
     <p class="eje-descr muted">Educación, salud, trabajo y condiciones de vida de la población.</p>
     
     <div class="subeje-block">
-      <h4 class="subeje-title">Empleo y capacidades productivas</h4>
+      <h4 class="subeje-title">Educación <span class="eje-count">3</span></h4>
       <div class="cards">
         
-        <a class="card" href="./tema/educacion.html">
-          <span class="card-area">Social</span>
-          <h5 class="card-title">Educación por departamento</h5>
-          <p class="card-desc">Cuántos alumnos, docentes y egresados hay en el sistema educativo de Salta, abierto por departamento, nivel (inicial, primaria, secundaria), sector de gestión (estatal/privado) y ámbito (urbano/rural), entre 2011 y 2024.</p>
-          <span class="card-meta">2011–2024 · Relevamiento Anual (RA) — Ministerio de Educación de la Nación</span>
+        <a class="card card-ind" href="./tema/educacion.html#grafico-edu-matricula-nivel">
+          <span class="card-area">Educación por departamento</span>
+          <h5 class="card-title">Matrícula total</h5>
+          <p class="card-ind-valor">360.078 alumnos</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var down">▼ 1,4 %</span>
+            <span class="card-ind-ref">2024/2023</span>
+          </p>
+          <span class="card-meta">Anual · último dato 2024</span>
+        </a>
+        
+        <a class="card card-ind" href="./tema/educacion.html">
+          <span class="card-area">Educación por departamento</span>
+          <h5 class="card-title">Egresados de secundaria</h5>
+          <p class="card-ind-valor">13.075 alumnos</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var down">▼ 9,7 %</span>
+            <span class="card-ind-ref">2024/2023</span>
+          </p>
+          <span class="card-meta">Anual · último dato 2024</span>
+        </a>
+        
+        <a class="card card-ind" href="./tema/educacion.html">
+          <span class="card-area">Educación por departamento</span>
+          <h5 class="card-title">Cargos docentes</h5>
+          <p class="card-ind-valor">39.547 cargos</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var up">▲ 23,3 %</span>
+            <span class="card-ind-ref">2024/2023</span>
+          </p>
+          <span class="card-meta">Anual · último dato 2024</span>
+        </a>
+        
+      </div>
+    </div>
+    
+    <div class="subeje-block">
+      <h4 class="subeje-title">Salud <span class="eje-count">10</span></h4>
+      <div class="cards">
+        
+        <a class="card card-ind" href="./tema/salud.html#grafico-sal-hechos-vitales">
+          <span class="card-area">Salud</span>
+          <h5 class="card-title">Nacidos vivos</h5>
+          <p class="card-ind-valor">13.941 nacimientos</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var down neutro">▼ 2,6 %</span>
+            <span class="card-ind-ref">2025/2024</span>
+          </p>
+          <span class="card-meta">Anual · último dato 2025</span>
+        </a>
+        
+        <a class="card card-ind" href="./tema/salud.html#grafico-sal-hechos-vitales">
+          <span class="card-area">Salud</span>
+          <h5 class="card-title">Defunciones</h5>
+          <p class="card-ind-valor">8.204 defunciones</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var down invertido">▼ 6,1 %</span>
+            <span class="card-ind-ref">2025/2024</span>
+          </p>
+          <span class="card-meta">Anual · último dato 2025</span>
+        </a>
+        
+        <a class="card card-ind" href="./tema/salud.html#grafico-sal-tasas">
+          <span class="card-area">Salud</span>
+          <h5 class="card-title">Tasa de mortalidad infantil (por mil nacidos vivos)</h5>
+          <p class="card-ind-valor">9,61 por mil nacidos vivos</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var up invertido">▲ 4,2 %</span>
+            <span class="card-ind-ref">2025/2024</span>
+          </p>
+          <span class="card-meta">Anual · último dato 2025</span>
+        </a>
+        
+        <a class="card card-ind" href="./tema/salud.html#grafico-sal-consultas">
+          <span class="card-area">Salud</span>
+          <h5 class="card-title">Consultas médicas por habitante</h5>
+          <p class="card-ind-valor">2,21 consultas/hab.</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var down neutro">▼ 5,6 %</span>
+            <span class="card-ind-ref">2025/2024</span>
+          </p>
+          <span class="card-meta">Anual · último dato 2025</span>
+        </a>
+        
+        <a class="card card-ind" href="./tema/salud.html#grafico-sal-internacion">
+          <span class="card-area">Salud</span>
+          <h5 class="card-title">Ocupación de camas en establecimientos públicos</h5>
+          <p class="card-ind-valor">63,8%</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var up neutro">▲ 0,8 p.p.</span>
+            <span class="card-ind-ref">2025/2024</span>
+          </p>
+          <span class="card-meta">Anual · último dato 2025</span>
+        </a>
+        
+        <a class="card card-ind" href="./tema/salud.html#grafico-sal-tasas">
+          <span class="card-area">Salud</span>
+          <h5 class="card-title">Tasa de natalidad</h5>
+          <p class="card-ind-valor">9,38 por mil habitantes</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var down neutro">▼ 3,0 %</span>
+            <span class="card-ind-ref">2025/2024</span>
+          </p>
+          <span class="card-meta">Anual · último dato 2025</span>
+        </a>
+        
+        <a class="card card-ind" href="./tema/salud.html#grafico-sal-tasas">
+          <span class="card-area">Salud</span>
+          <h5 class="card-title">Tasa de mortalidad general</h5>
+          <p class="card-ind-valor">5,52 por mil habitantes</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var down invertido">▼ 6,4 %</span>
+            <span class="card-ind-ref">2025/2024</span>
+          </p>
+          <span class="card-meta">Anual · último dato 2025</span>
+        </a>
+        
+        <a class="card card-ind" href="./tema/salud.html#grafico-sal-tasas">
+          <span class="card-area">Salud</span>
+          <h5 class="card-title">Tasa de mortalidad materna</h5>
+          <p class="card-ind-valor">5,02 por diez mil nacidos vivos</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var up invertido">▲ 2,7 %</span>
+            <span class="card-ind-ref">2025/2024</span>
+          </p>
+          <span class="card-meta">Anual · último dato 2025</span>
+        </a>
+        
+        <a class="card card-ind" href="./tema/salud.html#grafico-sal-internacion">
+          <span class="card-area">Salud</span>
+          <h5 class="card-title">Egresos hospitalarios</h5>
+          <p class="card-ind-valor">130.649 egresos</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var up">▲ 5,1 %</span>
+            <span class="card-ind-ref">2025/2024</span>
+          </p>
+          <span class="card-meta">Anual · último dato 2025</span>
+        </a>
+        
+        <a class="card card-ind" href="./tema/salud.html#grafico-sal-internacion">
+          <span class="card-area">Salud</span>
+          <h5 class="card-title">Camas disponibles</h5>
+          <p class="card-ind-valor">2.451 camas (promedio)</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var up">▲ 4,1 %</span>
+            <span class="card-ind-ref">2025/2024</span>
+          </p>
+          <span class="card-meta">Anual · último dato 2025</span>
         </a>
         
       </div>
@@ -883,179 +1404,428 @@
   </div>
   
   <div class="eje-block" data-eje="economico-productivo" id="eje-economico-productivo">
-    <h3 class="eje-title">Económico-productivo</h3>
+    <h3 class="eje-title">Económico-productivo <span class="eje-count">36</span></h3>
     <p class="eje-descr muted">Producción, empleo, inversión y financiamiento de la economía salteña.</p>
     
     <div class="subeje-block">
-      <h4 class="subeje-title">Actividad, estructura productiva y productividad</h4>
+      <h4 class="subeje-title">Actividad y productividad <span class="eje-count">15</span></h4>
       <div class="cards">
         
-        <a class="card" href="./tema/exportaciones.html">
-          <span class="card-area">Económico-Productivo</span>
-          <h5 class="card-title">Exportaciones</h5>
-          <p class="card-desc">Exportaciones de la provincia de Salta desde 2021: cuánto se vendió al exterior, qué productos y a qué países, en valor (dólares FOB) y en volumen (toneladas).</p>
-          <span class="card-meta">2021–2025 · INDEC — Comercio Exterior (COMEX), base anual por provincia de origen</span>
+        <a class="card card-ind" href="./tema/vitivinicultura.html#grafico-inv-uva-depto">
+          <span class="card-area">Vitivinicultura (INV)</span>
+          <h5 class="card-title">Producción de uva</h5>
+          <p class="card-ind-valor">277.153 quintales</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var up">▲ 20,1 %</span>
+            <span class="card-ind-ref">2025/2024</span>
+          </p>
+          <span class="card-meta">Anual · último dato 2025</span>
         </a>
         
-        <a class="card" href="./tema/vitivinicultura.html">
-          <span class="card-area">Económico-Productivo</span>
-          <h5 class="card-title">Vitivinicultura (INV)</h5>
-          <p class="card-desc">La cadena del vino en Salta: producción de uva y elaboración de vino y mosto por departamento de los Valles Calchaquíes, despachos al mercado interno y exportaciones de la provincia, desde 2018.</p>
-          <span class="card-meta">2018–2025 · Instituto Nacional de Vitivinicultura (INV)</span>
+        <a class="card card-ind" href="./tema/vitivinicultura.html#grafico-inv-elaboracion-depto">
+          <span class="card-area">Vitivinicultura (INV)</span>
+          <h5 class="card-title">Elaboración de vino y mosto</h5>
+          <p class="card-ind-valor">219.983 hectolitros</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var up">▲ 23,5 %</span>
+            <span class="card-ind-ref">2025/2024</span>
+          </p>
+          <span class="card-meta">Anual · último dato 2025</span>
         </a>
         
-        <a class="card" href="./tema/produccion-energia.html">
-          <span class="card-area">Energía</span>
-          <h5 class="card-title">Producción de petróleo y gas</h5>
-          <p class="card-desc">Producción de hidrocarburos en Salta a partir de los pozos declarados a la Secretaría de Energía: evolución mensual de gas y petróleo (convencional y no convencional) y distribución por departamento, desde 2018.</p>
-          <span class="card-meta">2018–2026 · Secretaría de Energía de la Nación — datos abiertos (producción por pozo)</span>
+        <a class="card card-ind" href="./tema/vitivinicultura.html#grafico-inv-exportaciones">
+          <span class="card-area">Vitivinicultura (INV)</span>
+          <h5 class="card-title">Exportaciones de vino (valor FOB)</h5>
+          <p class="card-ind-valor">13.811 miles US$</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var down">▼ 13,3 %</span>
+            <span class="card-ind-ref">2024/2023</span>
+          </p>
+          <span class="card-meta">Anual · último dato 2024</span>
         </a>
         
-        <a class="card" href="./tema/agricultura.html">
-          <span class="card-area">Agropecuario</span>
-          <h5 class="card-title">Agricultura por departamento</h5>
-          <p class="card-desc">Superficie sembrada y cosechada, producción y rendimiento de los principales cultivos de Salta (soja, maíz, trigo, poroto, maní y otros), por departamento y campaña, según las estimaciones agrícolas del MAGyP, desde la campaña 2018/19.</p>
-          <span class="card-meta">campañas 2018/19–2024/25 · Estimaciones Agrícolas — Ministerio de Economía (MAGyP)</span>
+        <a class="card card-ind" href="./tema/vitivinicultura.html#grafico-inv-exportaciones">
+          <span class="card-area">Vitivinicultura (INV)</span>
+          <h5 class="card-title">Exportaciones de vino (volumen)</h5>
+          <p class="card-ind-valor">31.174 hectolitros</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var down">▼ 9,7 %</span>
+            <span class="card-ind-ref">2024/2023</span>
+          </p>
+          <span class="card-meta">Anual · último dato 2024</span>
         </a>
         
-        <a class="card" href="./tema/ganaderia.html">
-          <span class="card-area">Agropecuario</span>
-          <h5 class="card-title">Ganadería bovina</h5>
-          <p class="card-desc">Existencias de ganado bovino en Salta al 31 de diciembre de cada año, por departamento y categoría de hacienda (vacas, novillos, terneros, toros y otras), según el MAGyP, desde 2012.</p>
-          <span class="card-meta">2012–2025 · Existencias bovinas (SENASA) — Ministerio de Economía (MAGyP)</span>
+        <a class="card card-ind" href="./tema/produccion-energia.html#grafico-prod-gas-mensual">
+          <span class="card-area">Producción de petróleo y gas</span>
+          <h5 class="card-title">Producción de gas</h5>
+          <p class="card-ind-valor">242.901 miles de m³</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var down">▼ 17,4 %</span>
+            <span class="card-ind-ref">1T2026/1T2025</span>
+          </p>
+          <span class="card-meta">Trimestral · último dato 1T2026</span>
         </a>
         
-        <a class="card" href="./tema/recaudacion.html">
-          <span class="card-area">Finanzas públicas</span>
-          <h5 class="card-title">Recaudación de Ingresos Brutos (Convenio Multilateral)</h5>
-          <p class="card-desc">Recaudación del Impuesto a las Actividades Económicas (Ingresos Brutos) de Salta bajo el régimen de Convenio Multilateral, abierta por sector de actividad, mensual desde 2021, en pesos corrientes y constantes. No incluye a los contribuyentes locales.</p>
-          <span class="card-meta">2021–2026 · Dirección General de Rentas — Ministerio de Economía de Salta</span>
+        <a class="card card-ind" href="./tema/produccion-energia.html#grafico-prod-pet-mensual">
+          <span class="card-area">Producción de petróleo y gas</span>
+          <h5 class="card-title">Producción de petróleo</h5>
+          <p class="card-ind-valor">27.821 m³</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var down">▼ 23,3 %</span>
+            <span class="card-ind-ref">1T2026/1T2025</span>
+          </p>
+          <span class="card-meta">Trimestral · último dato 1T2026</span>
         </a>
         
-        <a class="card" href="./tema/construccion.html">
-          <span class="card-area">Construcción</span>
-          <h5 class="card-title">Construcción (permisos de edificación)</h5>
-          <p class="card-desc">Permisos de edificación privada y superficie autorizada en los principales municipios de Salta (Ciudad de Salta, Orán, Tartagal, General Güemes y Metán), según el relevamiento del INDEC, y la participación de la provincia en el total nacional, desde 2021.</p>
-          <span class="card-meta">2021–2026 · Permisos de edificación — INDEC</span>
+        <a class="card card-ind" href="./tema/produccion-energia.html">
+          <span class="card-area">Producción de petróleo y gas</span>
+          <h5 class="card-title">Pozos en producción</h5>
+          <p class="card-ind-valor">2.319 pozos</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var down">▼ 13,7 %</span>
+            <span class="card-ind-ref">1T2026/1T2025</span>
+          </p>
+          <span class="card-meta">Trimestral · último dato 1T2026</span>
+        </a>
+        
+        <a class="card card-ind" href="./tema/agricultura.html#grafico-agri-produccion-depto">
+          <span class="card-area">Agricultura por departamento</span>
+          <h5 class="card-title">Producción agrícola total</h5>
+          <p class="card-ind-valor">3.021.748 toneladas</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var up">▲ 8,1 %</span>
+            <span class="card-ind-ref">2024/2023</span>
+          </p>
+          <span class="card-meta">Anual (campaña) · último dato 2024</span>
+        </a>
+        
+        <a class="card card-ind" href="./tema/agricultura.html#grafico-agri-superficie">
+          <span class="card-area">Agricultura por departamento</span>
+          <h5 class="card-title">Superficie sembrada</h5>
+          <p class="card-ind-valor">1.177.556 ha</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var down">▼ 3,7 %</span>
+            <span class="card-ind-ref">2024/2023</span>
+          </p>
+          <span class="card-meta">Anual (campaña) · último dato 2024</span>
+        </a>
+        
+        <a class="card card-ind" href="./tema/agricultura.html#grafico-agri-rendimiento">
+          <span class="card-area">Agricultura por departamento</span>
+          <h5 class="card-title">Rendimiento de soja</h5>
+          <p class="card-ind-valor">2.405 kg/ha</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var up">▲ 6,3 %</span>
+            <span class="card-ind-ref">2024/2023</span>
+          </p>
+          <span class="card-meta">Anual (campaña) · último dato 2024</span>
+        </a>
+        
+        <a class="card card-ind" href="./tema/ganaderia.html#grafico-gan-stock">
+          <span class="card-area">Ganadería bovina</span>
+          <h5 class="card-title">Stock bovino total</h5>
+          <p class="card-ind-valor">1.073.532 cabezas</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var down">▼ 0,9 %</span>
+            <span class="card-ind-ref">2025/2024</span>
+          </p>
+          <span class="card-meta">Anual · último dato 2025</span>
+        </a>
+        
+        <a class="card card-ind" href="./tema/ganaderia.html#grafico-gan-stock">
+          <span class="card-area">Ganadería bovina</span>
+          <h5 class="card-title">Stock de vacas</h5>
+          <p class="card-ind-valor">423.850 cabezas</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var down">▼ 2,8 %</span>
+            <span class="card-ind-ref">2025/2024</span>
+          </p>
+          <span class="card-meta">Anual · último dato 2025</span>
+        </a>
+        
+        <a class="card card-ind" href="./tema/construccion.html#grafico-constr-superficie">
+          <span class="card-area">Construcción (permisos de edificación)</span>
+          <h5 class="card-title">Superficie autorizada a construir</h5>
+          <p class="card-ind-valor">66.610 m²</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var up">▲ 39,8 %</span>
+            <span class="card-ind-ref">1T2026/1T2025</span>
+          </p>
+          <span class="card-meta">Trimestral · último dato 1T2026</span>
+        </a>
+        
+        <a class="card card-ind" href="./tema/construccion.html#grafico-constr-permisos">
+          <span class="card-area">Construcción (permisos de edificación)</span>
+          <h5 class="card-title">Permisos de edificación otorgados</h5>
+          <p class="card-ind-valor">171,0 permisos</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var down">▼ 9,0 %</span>
+            <span class="card-ind-ref">1T2026/1T2025</span>
+          </p>
+          <span class="card-meta">Trimestral · último dato 1T2026</span>
+        </a>
+        
+        <a class="card card-ind" href="./tema/construccion.html#grafico-constr-share">
+          <span class="card-area">Construcción (permisos de edificación)</span>
+          <h5 class="card-title">Participación en la superficie nacional</h5>
+          <p class="card-ind-valor">1,82%</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var up">▲ 35,8 %</span>
+            <span class="card-ind-ref">1T2026/1T2025</span>
+          </p>
+          <span class="card-meta">Trimestral · último dato 1T2026</span>
         </a>
         
       </div>
     </div>
     
     <div class="subeje-block">
-      <h4 class="subeje-title">Empleo y capacidades productivas</h4>
+      <h4 class="subeje-title">Empleo y capacidades <span class="eje-count">3</span></h4>
       <div class="cards">
         
-        <a class="card" href="./tema/empleo.html">
-          <span class="card-area">Económico-Productivo</span>
-          <h5 class="card-title">Empleo registrado y remuneraciones</h5>
-          <p class="card-desc">Cuántos puestos de trabajo registrados del sector privado hay en Salta, abiertos por rama de actividad (rubro) y por departamento, y cómo evolucionó el poder de compra del salario: la remuneración real, descontada la inflación del NOA (índice base dic-2023 = 100), desde 2019.</p>
-          <span class="card-meta">2019–2025 · OEDE — Observatorio de Empleo y Dinámica Empresarial (Min. de Trabajo / Capital Humano)</span>
+        <a class="card card-ind" href="./tema/empleo.html#grafico-emp-rubro">
+          <span class="card-area">Empleo registrado y remuneraciones</span>
+          <h5 class="card-title">Empleo registrado</h5>
+          <p class="card-ind-valor">119.731 puestos</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var down">▼ 3,8 %</span>
+            <span class="card-ind-ref">2T2025/2T2024</span>
+          </p>
+          <span class="card-meta">Trimestral · último dato 2T2025</span>
         </a>
         
-        <a class="card" href="./tema/mineria.html">
+        <a class="card card-ind" href="./tema/empleo.html#grafico-emp-remun-depto">
+          <span class="card-area">Empleo registrado y remuneraciones</span>
+          <h5 class="card-title">Remuneración real (índice dic-23 = 100)</h5>
+          <p class="card-ind-valor">98,2 índice</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var up">▲ 6,7 %</span>
+            <span class="card-ind-ref">2T2025/2T2024</span>
+          </p>
+          <span class="card-meta">Trimestral · último dato 2T2025</span>
+        </a>
+        
+        <a class="card card-ind" href="./tema/mineria.html#grafico-min-empleo-rubro">
           <span class="card-area">Minería</span>
-          <h5 class="card-title">Minería</h5>
-          <p class="card-desc">Empleo minero registrado en Salta por rubro (litio, metalíferos, no metalíferos, rocas de aplicación, servicios) y género, desde 2007; y el aporte tributario del sector minero a nivel nacional, por empresa e impuesto, en pesos y en dólares, 2019–2023.</p>
-          <span class="card-meta">2007–2025 · Empleo: OEDE (Min. de Trabajo). Recaudación: Secretaría de Minería de la Nación</span>
+          <h5 class="card-title">Empleo minero</h5>
+          <p class="card-ind-valor">5.548 puestos</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var down">▼ 7,0 %</span>
+            <span class="card-ind-ref">1T2026/1T2025</span>
+          </p>
+          <span class="card-meta">Trimestral · último dato 1T2026</span>
         </a>
         
       </div>
     </div>
     
     <div class="subeje-block">
-      <h4 class="subeje-title">Inversión y financiamiento</h4>
+      <h4 class="subeje-title">Inversión y financiamiento <span class="eje-count">14</span></h4>
       <div class="cards">
         
-        <a class="card" href="./tema/mineria.html">
+        <a class="card card-ind" href="./tema/mineria.html#grafico-min-recaud-impuesto">
           <span class="card-area">Minería</span>
-          <h5 class="card-title">Minería</h5>
-          <p class="card-desc">Empleo minero registrado en Salta por rubro (litio, metalíferos, no metalíferos, rocas de aplicación, servicios) y género, desde 2007; y el aporte tributario del sector minero a nivel nacional, por empresa e impuesto, en pesos y en dólares, 2019–2023.</p>
-          <span class="card-meta">2007–2025 · Empleo: OEDE (Min. de Trabajo). Recaudación: Secretaría de Minería de la Nación</span>
+          <h5 class="card-title">Recaudación del sector minero</h5>
+          <p class="card-ind-valor">637,7 millones US$</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var up">▲ 9,8 %</span>
+            <span class="card-ind-ref">2023/2022</span>
+          </p>
+          <span class="card-meta">Anual · último dato 2023</span>
         </a>
         
-        <a class="card" href="./tema/gobierno.html">
-          <span class="card-area">Finanzas públicas</span>
-          <h5 class="card-title">Finanzas públicas provinciales</h5>
-          <p class="card-desc">Ejecución del gasto público de la Provincia de Salta: composición por objeto del gasto (personal, bienes, servicios, transferencias, deuda), por finalidad y función, y las transferencias corrientes y de capital, en pesos corrientes y constantes, 2021–2025.</p>
-          <span class="card-meta">2021–2025 · Ejecución presupuestaria — Ministerio de Economía de Salta</span>
+        <a class="card card-ind" href="./tema/gobierno.html#grafico-gob-objeto">
+          <span class="card-area">Finanzas públicas provinciales</span>
+          <h5 class="card-title">Gasto ejecutado total (constante)</h5>
+          <p class="card-ind-valor">3.443.524.736.045 pesos</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var down">▼ 2,7 %</span>
+            <span class="card-ind-ref">2025/2024</span>
+          </p>
+          <span class="card-meta">Anual · último dato 2025</span>
         </a>
         
-        <a class="card" href="./tema/recaudacion.html">
-          <span class="card-area">Finanzas públicas</span>
-          <h5 class="card-title">Recaudación de Ingresos Brutos (Convenio Multilateral)</h5>
-          <p class="card-desc">Recaudación del Impuesto a las Actividades Económicas (Ingresos Brutos) de Salta bajo el régimen de Convenio Multilateral, abierta por sector de actividad, mensual desde 2021, en pesos corrientes y constantes. No incluye a los contribuyentes locales.</p>
-          <span class="card-meta">2021–2026 · Dirección General de Rentas — Ministerio de Economía de Salta</span>
+        <a class="card card-ind" href="./tema/gobierno.html#grafico-gob-objeto">
+          <span class="card-area">Finanzas públicas provinciales</span>
+          <h5 class="card-title">Gasto en personal (constante)</h5>
+          <p class="card-ind-valor">1.827.720.856.754 pesos</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var up">▲ 0,5 %</span>
+            <span class="card-ind-ref">2025/2024</span>
+          </p>
+          <span class="card-meta">Anual · último dato 2025</span>
         </a>
         
-        <a class="card" href="./tema/recursos-municipios.html">
-          <span class="card-area">Finanzas públicas</span>
-          <h5 class="card-title">Recursos de los municipios</h5>
-          <p class="card-desc">Transferencias que reciben los municipios de Salta de la Provincia y la Nación (coparticipación, regalías, canon minero, fondo compensador y otros), por municipio y departamento, en pesos corrientes y constantes, mensual desde 2021.</p>
-          <span class="card-meta">2021–2026 · Contaduría General de la Provincia de Salta</span>
+        <a class="card card-ind" href="./tema/recaudacion.html#grafico-rec-total">
+          <span class="card-area">Recaudación de Ingresos Brutos (Convenio Multilateral)</span>
+          <h5 class="card-title">Recaudación de Ingresos Brutos (constante)</h5>
+          <p class="card-ind-valor">88.762.306.309 pesos</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var down">▼ 9,9 %</span>
+            <span class="card-ind-ref">1T2026/1T2025</span>
+          </p>
+          <span class="card-meta">Trimestral · último dato 1T2026</span>
         </a>
         
-        <a class="card" href="./tema/resultado-fiscal.html">
-          <span class="card-area">Finanzas públicas</span>
-          <h5 class="card-title">Resultado fiscal provincial</h5>
-          <p class="card-desc">Resultado fiscal de la Provincia de Salta según el Esquema Ahorro-Inversión-Financiamiento: ingresos totales, gastos totales y el resultado financiero (superávit o déficit devengado), con el resultado primario (antes de intereses de la deuda), mensual desde 2021, en pesos corrientes y constantes.</p>
-          <span class="card-meta">2021–2026 · Esquema Ahorro-Inversión-Financiamiento — Presupuesto de la Provincia de Salta</span>
+        <a class="card card-ind" href="./tema/recaudacion.html#grafico-rec-total">
+          <span class="card-area">Recaudación de Ingresos Brutos (Convenio Multilateral)</span>
+          <h5 class="card-title">Recaudación de la industria manufacturera</h5>
+          <p class="card-ind-valor">26.909.780.976 pesos</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var down">▼ 14,7 %</span>
+            <span class="card-ind-ref">1T2026/1T2025</span>
+          </p>
+          <span class="card-meta">Trimestral · último dato 1T2026</span>
         </a>
         
-        <a class="card" href="./tema/financiero.html">
-          <span class="card-area">Financiero</span>
-          <h5 class="card-title">Crédito y depósitos (BCRA)</h5>
-          <p class="card-desc">Préstamos y depósitos del sector privado en Salta según el BCRA, por departamento, en pesos corrientes y constantes; y la inclusión financiera medida por los puntos de acceso cada 10.000 adultos, desde 2019.</p>
-          <span class="card-meta">2019–2026 · Banco Central de la República Argentina (BCRA)</span>
+        <a class="card card-ind" href="./tema/recursos-municipios.html#grafico-rec-grupo">
+          <span class="card-area">Recursos de los municipios</span>
+          <h5 class="card-title">Recursos a municipios (constante)</h5>
+          <p class="card-ind-valor">81.456.760.635 pesos</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var up">▲ 3,4 %</span>
+            <span class="card-ind-ref">2T2026/2T2025</span>
+          </p>
+          <span class="card-meta">Trimestral · último dato 2T2026</span>
+        </a>
+        
+        <a class="card card-ind" href="./tema/recursos-municipios.html#grafico-rec-grupo">
+          <span class="card-area">Recursos de los municipios</span>
+          <h5 class="card-title">Coparticipación a municipios</h5>
+          <p class="card-ind-valor">70.857.355.918 pesos</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var up">▲ 1,1 %</span>
+            <span class="card-ind-ref">2T2026/2T2025</span>
+          </p>
+          <span class="card-meta">Trimestral · último dato 2T2026</span>
+        </a>
+        
+        <a class="card card-ind" href="./tema/resultado-fiscal.html#grafico-fisc-resultado">
+          <span class="card-area">Resultado fiscal provincial</span>
+          <h5 class="card-title">Ingresos totales (constante)</h5>
+          <p class="card-ind-valor">709.386.975.295 pesos</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var down">▼ 3,0 %</span>
+            <span class="card-ind-ref">mar-2026/mar-2025</span>
+          </p>
+          <span class="card-meta">Mensual acumulado · último dato mar-2026</span>
+        </a>
+        
+        <a class="card card-ind" href="./tema/resultado-fiscal.html#grafico-fisc-resultado">
+          <span class="card-area">Resultado fiscal provincial</span>
+          <h5 class="card-title">Gastos totales (constante)</h5>
+          <p class="card-ind-valor">659.446.361.007 pesos</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var down">▼ 4,6 %</span>
+            <span class="card-ind-ref">mar-2026/mar-2025</span>
+          </p>
+          <span class="card-meta">Mensual acumulado · último dato mar-2026</span>
+        </a>
+        
+        <a class="card card-ind" href="./tema/resultado-fiscal.html#grafico-fisc-resultado-pct">
+          <span class="card-area">Resultado fiscal provincial</span>
+          <h5 class="card-title">Resultado financiero, en % del gasto primario</h5>
+          <p class="card-ind-valor">7,69%</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var up">▲ 1,8 p.p.</span>
+            <span class="card-ind-ref">mar-2026/mar-2025</span>
+          </p>
+          <span class="card-meta">Mensual acumulado · último dato mar-2026</span>
+        </a>
+        
+        <a class="card card-ind" href="./tema/resultado-fiscal.html#grafico-fisc-resultado-pct">
+          <span class="card-area">Resultado fiscal provincial</span>
+          <h5 class="card-title">Resultado primario, en % del gasto primario</h5>
+          <p class="card-ind-valor">9,28%</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var up">▲ 2,0 p.p.</span>
+            <span class="card-ind-ref">mar-2026/mar-2025</span>
+          </p>
+          <span class="card-meta">Mensual acumulado · último dato mar-2026</span>
+        </a>
+        
+        <a class="card card-ind" href="./tema/financiero.html#grafico-fin-prestamos-depositos">
+          <span class="card-area">Crédito y depósitos (BCRA)</span>
+          <h5 class="card-title">Préstamos al sector privado (constante)</h5>
+          <p class="card-ind-valor">1.532.180.954.884 pesos</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var up">▲ 14,7 %</span>
+            <span class="card-ind-ref">1T2026/1T2025</span>
+          </p>
+          <span class="card-meta">Trimestral · último dato 1T2026</span>
+        </a>
+        
+        <a class="card card-ind" href="./tema/financiero.html#grafico-fin-prestamos-depositos">
+          <span class="card-area">Crédito y depósitos (BCRA)</span>
+          <h5 class="card-title">Depósitos del sector privado (constante)</h5>
+          <p class="card-ind-valor">1.074.506.798.053 pesos</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var up">▲ 13,1 %</span>
+            <span class="card-ind-ref">1T2026/1T2025</span>
+          </p>
+          <span class="card-meta">Trimestral · último dato 1T2026</span>
+        </a>
+        
+        <a class="card card-ind" href="./tema/financiero.html#grafico-fin-inclusion">
+          <span class="card-area">Crédito y depósitos (BCRA)</span>
+          <h5 class="card-title">Puntos de acceso al sistema financiero</h5>
+          <p class="card-ind-valor">46,3 PDA/10k</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var up">▲ 3,6 %</span>
+            <span class="card-ind-ref">2025/2024</span>
+          </p>
+          <span class="card-meta">Anual · último dato 2025</span>
         </a>
         
       </div>
     </div>
     
     <div class="subeje-block">
-      <h4 class="subeje-title">Infraestructura, logística y condiciones para producir</h4>
+      <h4 class="subeje-title">Innovación y mercados <span class="eje-count">4</span></h4>
       <div class="cards">
         
-        <a class="card" href="./tema/produccion-energia.html">
-          <span class="card-area">Energía</span>
-          <h5 class="card-title">Producción de petróleo y gas</h5>
-          <p class="card-desc">Producción de hidrocarburos en Salta a partir de los pozos declarados a la Secretaría de Energía: evolución mensual de gas y petróleo (convencional y no convencional) y distribución por departamento, desde 2018.</p>
-          <span class="card-meta">2018–2026 · Secretaría de Energía de la Nación — datos abiertos (producción por pozo)</span>
+        <a class="card card-ind" href="./tema/exportaciones.html#grafico-expo-total">
+          <span class="card-area">Exportaciones</span>
+          <h5 class="card-title">Exportaciones totales</h5>
+          <p class="card-ind-valor">1.447.687.147 USD</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var up">▲ 28,8 %</span>
+            <span class="card-ind-ref">2025/2024</span>
+          </p>
+          <span class="card-meta">Anual · último dato 2025</span>
         </a>
         
-        <a class="card" href="./tema/construccion.html">
-          <span class="card-area">Construcción</span>
-          <h5 class="card-title">Construcción (permisos de edificación)</h5>
-          <p class="card-desc">Permisos de edificación privada y superficie autorizada en los principales municipios de Salta (Ciudad de Salta, Orán, Tartagal, General Güemes y Metán), según el relevamiento del INDEC, y la participación de la provincia en el total nacional, desde 2021.</p>
-          <span class="card-meta">2021–2026 · Permisos de edificación — INDEC</span>
+        <a class="card card-ind" href="./tema/exportaciones.html#grafico-expo-total">
+          <span class="card-area">Exportaciones</span>
+          <h5 class="card-title">Volumen exportado</h5>
+          <p class="card-ind-valor">1.990.906 toneladas</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var up">▲ 13,7 %</span>
+            <span class="card-ind-ref">2025/2024</span>
+          </p>
+          <span class="card-meta">Anual · último dato 2025</span>
         </a>
         
-      </div>
-    </div>
-    
-    <div class="subeje-block">
-      <h4 class="subeje-title">Innovación e inserción en mercados</h4>
-      <div class="cards">
-        
-        <a class="card" href="./tema/exportaciones.html">
-          <span class="card-area">Económico-Productivo</span>
-          <h5 class="card-title">Exportaciones</h5>
-          <p class="card-desc">Exportaciones de la provincia de Salta desde 2021: cuánto se vendió al exterior, qué productos y a qué países, en valor (dólares FOB) y en volumen (toneladas).</p>
-          <span class="card-meta">2021–2025 · INDEC — Comercio Exterior (COMEX), base anual por provincia de origen</span>
+        <a class="card card-ind" href="./tema/id-innovacion.html#grafico-id-inversion">
+          <span class="card-area">Inversión en I+D</span>
+          <h5 class="card-title">Inversión en I+D (constante)</h5>
+          <p class="card-ind-valor">408,0 millones de $</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var down">▼ 14,6 %</span>
+            <span class="card-ind-ref">2024/2023</span>
+          </p>
+          <span class="card-meta">Anual · último dato 2024</span>
         </a>
         
-        <a class="card" href="./tema/vitivinicultura.html">
-          <span class="card-area">Económico-Productivo</span>
-          <h5 class="card-title">Vitivinicultura (INV)</h5>
-          <p class="card-desc">La cadena del vino en Salta: producción de uva y elaboración de vino y mosto por departamento de los Valles Calchaquíes, despachos al mercado interno y exportaciones de la provincia, desde 2018.</p>
-          <span class="card-meta">2018–2025 · Instituto Nacional de Vitivinicultura (INV)</span>
-        </a>
-        
-        <a class="card" href="./tema/id-innovacion.html">
-          <span class="card-area">Ciencia y tecnología</span>
-          <h5 class="card-title">Inversión en I+D</h5>
-          <p class="card-desc">Inversión provincial en investigación y desarrollo (I+D) de Salta, en pesos corrientes y constantes, y el personal dedicado a I+D (investigadores/as, becarios/as y personal técnico), según RICyT/MINCyT, desde 2017 (personal desde 2003).</p>
-          <span class="card-meta">2003–2024 · RICyT / MINCyT — Indicadores de ciencia y tecnología</span>
+        <a class="card card-ind" href="./tema/id-innovacion.html#grafico-id-personal">
+          <span class="card-area">Inversión en I+D</span>
+          <h5 class="card-title">Investigadores/as y becarios/as</h5>
+          <p class="card-ind-valor">925,0 personas</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var down">▼ 1,0 %</span>
+            <span class="card-ind-ref">2024/2023</span>
+          </p>
+          <span class="card-meta">Anual · último dato 2024</span>
         </a>
         
       </div>
@@ -1064,46 +1834,95 @@
   </div>
   
   <div class="eje-block" data-eje="territorio-ambiente-turismo" id="eje-territorio-ambiente-turismo">
-    <h3 class="eje-title">Territorio, ambiente y turismo</h3>
+    <h3 class="eje-title">Territorio, ambiente y turismo <span class="eje-count">7</span></h3>
     <p class="eje-descr muted">Uso del territorio, energía y ambiente, y actividad turística.</p>
     
     <div class="subeje-block">
-      <h4 class="subeje-title">Actividad, estructura productiva y productividad</h4>
+      <h4 class="subeje-title">Ambiente <span class="eje-count">3</span></h4>
       <div class="cards">
         
-        <a class="card" href="./tema/turismo.html">
-          <span class="card-area">Turismo</span>
-          <h5 class="card-title">Turismo (ocupación hotelera)</h5>
-          <p class="card-desc">Actividad turística de Salta medida por la Encuesta de Ocupación Hotelera (EOH) del INDEC: viajeros, pernoctaciones, ocupación de habitaciones y estadía media, consolidando la Ciudad de Salta y Cafayate, desde 2021.</p>
-          <span class="card-meta">2021–2025 · Encuesta de Ocupación Hotelera (EOH) — INDEC</span>
+        <a class="card card-ind" href="./tema/energia-renovable.html#grafico-ren-share">
+          <span class="card-area">Energía eléctrica y renovables</span>
+          <h5 class="card-title">Participación renovable en la generación</h5>
+          <p class="card-ind-valor">36,3%</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var up">▲ 33,9 %</span>
+            <span class="card-ind-ref">2T2026/2T2025</span>
+          </p>
+          <span class="card-meta">Trimestral · último dato 2T2026</span>
+        </a>
+        
+        <a class="card card-ind" href="./tema/energia-renovable.html#grafico-ren-potencia">
+          <span class="card-area">Energía eléctrica y renovables</span>
+          <h5 class="card-title">Potencia instalada</h5>
+          <p class="card-ind-valor">1.455 MW</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var none">sin base</span>
+            
+          </p>
+          <span class="card-meta">Anual · último dato 2026</span>
+        </a>
+        
+        <a class="card card-ind" href="./tema/energia-renovable.html#grafico-ren-fuente">
+          <span class="card-area">Energía eléctrica y renovables</span>
+          <h5 class="card-title">Generación eléctrica total</h5>
+          <p class="card-ind-valor">768,0 GWh</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var down">▼ 14,4 %</span>
+            <span class="card-ind-ref">2T2026/2T2025</span>
+          </p>
+          <span class="card-meta">Trimestral · último dato 2T2026</span>
         </a>
         
       </div>
     </div>
     
     <div class="subeje-block">
-      <h4 class="subeje-title">Infraestructura, logística y condiciones para producir</h4>
+      <h4 class="subeje-title">Turismo <span class="eje-count">4</span></h4>
       <div class="cards">
         
-        <a class="card" href="./tema/energia-renovable.html">
-          <span class="card-area">Ambiente y energía</span>
-          <h5 class="card-title">Energía eléctrica y renovables</h5>
-          <p class="card-desc">Generación de energía eléctrica en Salta según CAMMESA, por fuente (hidráulica, térmica y renovable), la participación de las renovables en la matriz y la potencia instalada por central, desde 2019.</p>
-          <span class="card-meta">2019–2026 · CAMMESA — Informe de síntesis mensual</span>
+        <a class="card card-ind" href="./tema/turismo.html#grafico-tur-ocupacion">
+          <span class="card-area">Turismo (ocupación hotelera)</span>
+          <h5 class="card-title">Ocupación de habitaciones</h5>
+          <p class="card-ind-valor">39,3%</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var down">▼ 3,0 %</span>
+            <span class="card-ind-ref">3T2025/3T2024</span>
+          </p>
+          <span class="card-meta">Trimestral · último dato 3T2025</span>
         </a>
         
-      </div>
-    </div>
-    
-    <div class="subeje-block">
-      <h4 class="subeje-title">Innovación e inserción en mercados</h4>
-      <div class="cards">
+        <a class="card card-ind" href="./tema/turismo.html#grafico-tur-viajeros">
+          <span class="card-area">Turismo (ocupación hotelera)</span>
+          <h5 class="card-title">Viajeros</h5>
+          <p class="card-ind-valor">168.320 viajeros</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var down">▼ 2,3 %</span>
+            <span class="card-ind-ref">3T2025/3T2024</span>
+          </p>
+          <span class="card-meta">Trimestral · último dato 3T2025</span>
+        </a>
         
-        <a class="card" href="./tema/energia-renovable.html">
-          <span class="card-area">Ambiente y energía</span>
-          <h5 class="card-title">Energía eléctrica y renovables</h5>
-          <p class="card-desc">Generación de energía eléctrica en Salta según CAMMESA, por fuente (hidráulica, térmica y renovable), la participación de las renovables en la matriz y la potencia instalada por central, desde 2019.</p>
-          <span class="card-meta">2019–2026 · CAMMESA — Informe de síntesis mensual</span>
+        <a class="card card-ind" href="./tema/turismo.html#grafico-tur-pernoctaciones">
+          <span class="card-area">Turismo (ocupación hotelera)</span>
+          <h5 class="card-title">Pernoctaciones</h5>
+          <p class="card-ind-valor">333.274 noches</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var down">▼ 3,0 %</span>
+            <span class="card-ind-ref">3T2025/3T2024</span>
+          </p>
+          <span class="card-meta">Trimestral · último dato 3T2025</span>
+        </a>
+        
+        <a class="card card-ind" href="./tema/turismo.html#grafico-tur-estadia">
+          <span class="card-area">Turismo (ocupación hotelera)</span>
+          <h5 class="card-title">Estadía media</h5>
+          <p class="card-ind-valor">1,98 noches</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var down">▼ 0,5 %</span>
+            <span class="card-ind-ref">3T2025/3T2024</span>
+          </p>
+          <span class="card-meta">Trimestral · último dato 3T2025</span>
         </a>
         
       </div>
@@ -1119,16 +1938,16 @@
 <footer class="site-footer">
   <div class="wrap">
     <p><strong>Monitor de Indicadores (versión Beta)</strong> — Consejo Económico y Social de Salta (CESS)</p>
-    <p class="muted">Herramienta de seguimiento del Seguimiento del Plan de Desarrollo Estratégico de Salta (PDES 2030). Los datos provienen de fuentes oficiales; ver la fuente y la fecha de cobertura en cada tablero.</p>
+    <p class="muted">Herramienta de seguimiento del Seguimiento del Plan de Desarrollo Estratégico de Salta (PDES 2050). Los datos provienen de fuentes oficiales; ver la fuente y la fecha de cobertura en cada tablero.</p>
   </div>
 </footer>
 
 <script src="./assets/vendor/echarts.min.js"></script>
 <script src="./assets/vendor/minisearch.min.js"></script>
 <script>window.CESS_BASE = ".";</script>
-<script src="./assets/js/app.js?v=1787747377"></script>
+<script src="./assets/js/app.js?v=1788352481"></script>
 
-<script src="./assets/js/search.js?v=1787747377"></script>
+<script src="./assets/js/search.js?v=1788352481"></script>
 
 </body>
 </html>

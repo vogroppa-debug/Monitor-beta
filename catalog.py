@@ -38,7 +38,23 @@ Spec de KPI (el front muestra la VARIACIÓN INTERANUAL, no el valor absoluto):
   tabla_label: nombre para la tabla maestra de la portada (si el `label` es ambiguo fuera
                de su tablero, p. ej. "Vacas" o "Pozos"); tabla_nota: aclaración al pie
   subeje: pisa el subeje del tema para ESTE indicador (temas que mezclan subejes)
-  base_valor / base_periodo: línea de base del PDES (vacías hasta que se definan)
+  display: 'nivel' -> muestra el NIVEL en vez de la variación. Pensado para magnitudes con
+       signo (resultado fiscal: superávit verde / déficit rojo).
+  sentido: 'mayor_mejor' (por defecto) | 'menor_mejor' | 'neutro'
+       De qué color se pinta la variación. Por defecto subir es verde y bajar rojo, que es lo
+       correcto para producción, empleo o recaudación pero se lee al revés en defunciones o
+       tasas de mortalidad ('menor_mejor'), y no significa nada en indicadores de dos filos
+       como consultas por habitante u ocupación de camas ('neutro', se muestra sin color).
+       La FLECHA siempre marca la dirección real del cambio: esto sólo elige el color. En un
+       KPI con display 'nivel', declarar `sentido` además cambia el criterio de color del
+       signo del valor a la dirección del cambio (una tasa nunca es negativa, así que su
+       signo no informa nada). Lo consumen `kpiClaseColor` (charts.js) e `indicadores.py`.
+  base_valor / base_periodo: línea de base del PDES y el período al que corresponde
+  meta_2030 / meta_2040 / meta_2050: metas del PDES 2050 en los tres cortes
+       Cargar `base_valor` y las metas como NÚMEROS, no como texto ya formateado: la tabla
+       maestra los formatea sola y necesita operar con ellos para calcular la brecha a 2050
+       (= meta_2050 − último dato observado). Van en la MISMA unidad que la métrica.
+       Vacías hasta que el PDES las defina; entonces la brecha aparece sola.
   cmp: 'quarter' -> último trimestre completo vs mismo trimestre del año anterior
        (por defecto, año vs año). (`agg` de la métrica sale de metricas[...]: 'sum'|'mean')
 """
@@ -82,19 +98,19 @@ TAGS = {
 # arriba (se toma el primero del tema); los otros dos ejes usan una taxonomía temática propia,
 # declarada tema por tema con el campo `subeje`. El número es solo el orden de aparición.
 SUBEJE_ORDEN = {
-    # sociocultural (pendientes: Salud, Condiciones de vida)
-    "Educación": 1,
+    # sociocultural (pendiente: Condiciones de vida)
+    "Educación": 1, "Salud": 2,
     # territorio, ambiente y turismo (Territorio todavía sin temas)
     "Territorio": 1, "Ambiente": 2, "Turismo": 3,
 }
 
 SITE = {
     "nombre": "Monitor de Indicadores (versión Beta)",
-    "subtitulo": "Seguimiento del Plan de Desarrollo Estratégico de Salta (PDES 2030)",
+    "subtitulo": "Seguimiento del Plan de Desarrollo Estratégico de Salta (PDES 2050)",
     "institucion": "Consejo Económico y Social de Salta (CESS)",
 }
 
-# Ejes estratégicos del PDES 2030 (nivel superior de agrupación en la portada y el menú).
+# Ejes estratégicos del PDES 2050 (nivel superior de agrupación en la portada y el menú).
 # Dentro de cada eje del PDES, los temas se subagrupan por los TAGS transversales de arriba.
 EJES_PDES = {
     "sociocultural":               {"label": "Sociocultural",                  "orden": 1,
@@ -1314,6 +1330,159 @@ TEMAS = [
                      {"value": "ton", "label": "Toneladas", "metric": "peso_ton", "unidad": "toneladas"}]},
              ],
              "sort": "desc", "topN": 15, "unidad": "USD"},
+        ],
+    },
+    # ======================================================================
+    {
+        "id": "salud",
+        "subeje": "Salud",
+        "area": "social",
+        "eje_pdes": "sociocultural",
+        "title": "Salud",
+        "resumen": (
+            "Cuánta gente nace y muere en Salta cada año, de qué manera (mortalidad infantil, "
+            "materna y fetal, peso al nacer) y cuánta atención presta el sistema público: "
+            "consultas médicas por habitante, camas disponibles, ocupación y egresos "
+            "hospitalarios. Los nacimientos se abren por departamento y por Área Operativa de "
+            "residencia; la internación, por departamento para el último año disponible."
+        ),
+        "resumen_corto": "Nacimientos, defunciones, tasas vitales y actividad hospitalaria.",
+        "fuente": "Programa de Estadísticas de Información en Salud — Ministerio de Salud Pública de Salta",
+        "fuente_url": "https://www.salta.gob.ar/organismos/ministerio-de-salud-publica",
+        "cobertura": "2020–2025",
+        "keywords": [
+            "salud", "sanitario", "hospital", "hospitales", "establecimientos asistenciales",
+            "nacimientos", "nacidos vivos", "natalidad", "partos", "peso al nacer",
+            "bajo peso", "defunciones", "muertes", "mortalidad", "mortalidad infantil",
+            "mortalidad materna", "mortalidad neonatal", "defunciones fetales", "TMI",
+            "matrimonios", "estadísticas vitales", "hechos vitales", "consultas médicas",
+            "camas", "ocupación de camas", "giro de camas", "internación", "egresos",
+            "área operativa", "esperanza de vida", "Ministerio de Salud Pública",
+        ],
+        "kpis": [
+            {"label": "Nacidos vivos", "metrica": "nacidos_vivos",
+             "fixed": {"departamento": "Salta", "desagregacion": "Total"}, "year": "latest",
+             "unidad": "nacimientos", "format": "int", "sentido": "neutro"},
+            {"label": "Defunciones", "metrica": "defunciones",
+             "fixed": {"departamento": "Salta", "desagregacion": "Total"}, "year": "latest",
+             "unidad": "defunciones", "format": "int", "sentido": "menor_mejor"},
+            {"label": "Tasa de mortalidad infantil",
+             "tabla_label": "Tasa de mortalidad infantil (por mil nacidos vivos)",
+             "tabla_nota": "Defunciones de menores de 1 año cada 1.000 nacidos vivos. La variación "
+                           "va en puntos, no en porcentaje: es un cociente.",
+             "metrica": "tasa_mortalidad_infantil",
+             "fixed": {"departamento": "Salta", "desagregacion": "Total"}, "year": "latest",
+             "unidad": "por mil nacidos vivos", "format": "int", "display": "nivel",
+             "sentido": "menor_mejor"},
+            {"label": "Consultas médicas por habitante", "metrica": "consultas_por_habitante",
+             "fixed": {"departamento": "Salta"}, "year": "latest",
+             "unidad": "consultas/hab.", "format": "int", "display": "nivel",
+             "sentido": "neutro"},
+            {"label": "Ocupación de camas",
+             "tabla_label": "Ocupación de camas en establecimientos públicos",
+             "metrica": "ocupacion_camas",
+             "fixed": {"departamento": "Salta"}, "year": "latest",
+             "unidad": "%", "format": "int", "display": "nivel", "sentido": "neutro"},
+        ],
+        "charts": [
+            {"id": "sal-hechos-vitales", "type": "line",
+             "title": "Nacimientos, defunciones y matrimonios",
+             "descr": "Hechos vitales registrados en la provincia cada año.",
+             "x": "anio", "seriesBy": None, "metrica": "nacidos_vivos",
+             "fixed": {"departamento": "Salta", "desagregacion": "Total"},
+             "controls": [{"kind": "metric", "label": "Hecho vital",
+                           "options": ["nacidos_vivos", "defunciones", "matrimonios",
+                                       "defunciones_fetales", "defunciones_maternas"]}],
+             "unidad": "casos"},
+            {"id": "sal-tasas", "type": "line",
+             "title": "Tasas vitales",
+             "descr": "Natalidad y mortalidad general por mil habitantes; mortalidad infantil por "
+                      "mil nacidos vivos y materna por diez mil.",
+             "x": "anio", "seriesBy": None, "metrica": "tasa_mortalidad_infantil",
+             "fixed": {"departamento": "Salta", "desagregacion": "Total"},
+             "controls": [{"kind": "metric", "label": "Tasa",
+                           "options": ["tasa_mortalidad_infantil", "tasa_natalidad",
+                                       "tasa_mortalidad_general", "tasa_mortalidad_materna"]}],
+             "unidad": "por mil"},
+            {"id": "sal-mortalidad-infantil", "type": "stacked-bar",
+             "title": "Mortalidad infantil por momento de la defunción",
+             "descr": "Defunciones de menores de 1 año, separadas entre neonatales (antes de los "
+                      "28 días de vida) y posneonatales.",
+             "x": "anio", "seriesBy": "desagregacion", "metrica": "defunciones_infantiles",
+             "fixed": {"departamento": "Salta"}, "seriesExclude": ["Total"], "stack": True,
+             "controls": [],
+             "unidad": "defunciones"},
+            {"id": "sal-peso-nacer", "type": "stacked-bar",
+             "title": "Nacidos vivos por peso al nacer",
+             "descr": "Cuántos nacimientos son de bajo peso (menos de 2.500 gramos), un indicador "
+                      "temprano de riesgo para la salud del recién nacido.",
+             "x": "anio", "seriesBy": "desagregacion", "metrica": "nacidos_vivos",
+             "fixed": {"departamento": "Salta"}, "seriesExclude": ["Total"], "stack": True,
+             "controls": [
+                 {"kind": "mode", "label": "Valores", "default": "abs", "options": [
+                     {"value": "abs", "label": "Nacimientos", "metric": "nacidos_vivos"},
+                     {"value": "pct", "label": "% del total", "metric": "nacidos_vivos",
+                      "percent": True, "unidad": "%"}]},
+             ],
+             "unidad": "nacimientos"},
+            {"id": "sal-nv-depto", "type": "barh",
+             "title": "Nacidos vivos por departamento",
+             "descr": "Ranking de departamentos por nacimientos, según el departamento de "
+                      "residencia de la madre, para el año seleccionado.",
+             "x": "departamento", "seriesBy": None, "metrica": "nacidos_vivos_res", "fixed": {},
+             "controls": [{"dim": "anio", "label": "Año", "kind": "year"}],
+             "sort": "desc", "unidad": "nacimientos"},
+            {"id": "sal-nv-serie", "type": "line",
+             "title": "Nacidos vivos en el tiempo, por departamento",
+             "descr": "Serie de nacimientos por departamento de residencia. La vista de grilla "
+                      "compara los 23 departamentos a la vez.",
+             "x": "anio", "seriesBy": None, "metrica": "nacidos_vivos_res", "fixed": {},
+             "geoDim": "departamento",
+             "controls": [
+                 {"dim": "departamento", "label": "Departamento", "kind": "select",
+                  "all": True, "allValue": "Salta", "allLabel": "Salta (provincia)"},
+             ],
+             "unidad": "nacimientos"},
+            {"id": "sal-nv-ao", "type": "barh",
+             "title": "Nacidos vivos por Área Operativa de residencia",
+             "descr": "Apertura original de la fuente: la circunscripción sanitaria de cada "
+                      "hospital cabecera, más fina que el departamento. Las 20 mayores.",
+             "x": "area_operativa", "seriesBy": None, "metrica": "nacidos_vivos_res", "fixed": {},
+             "controls": [{"dim": "anio", "label": "Año", "kind": "year"}],
+             "sort": "desc", "topN": 20, "unidad": "nacimientos"},
+            {"id": "sal-consultas", "type": "line",
+             "title": "Consultas médicas",
+             "descr": "Consultas atendidas en el subsector público y su relación con la población "
+                      "estimada de la provincia.",
+             "x": "anio", "seriesBy": None, "metrica": "consultas_por_habitante",
+             "fixed": {"departamento": "Salta"},
+             "controls": [{"kind": "metric", "label": "Medida",
+                           "options": ["consultas_por_habitante", "consultas_medicas"]}],
+             "unidad": "consultas/hab."},
+            {"id": "sal-internacion", "type": "line",
+             "title": "Internación en establecimientos públicos",
+             "descr": "Rendimiento de la red pública de internación: camas disponibles, cuánto se "
+                      "usan y cuántos pacientes egresan.",
+             "x": "anio", "seriesBy": None, "metrica": "ocupacion_camas",
+             "fixed": {"departamento": "Salta", "desagregacion": "Total"},
+             "controls": [{"kind": "metric", "label": "Indicador",
+                           "options": ["ocupacion_camas", "camas_disponibles", "egresos",
+                                       "giro_camas", "permanencia_promedio",
+                                       "tasa_mortalidad_hospitalaria"]}],
+             "unidad": "%"},
+            {"id": "sal-internacion-depto", "type": "barh",
+             "title": "Internación por departamento (2025)",
+             "descr": "Los 53 establecimientos públicos con internación, agregados a su "
+                      "departamento. La fuente publica este detalle sólo para 2025, por eso el "
+                      "año está fijo. Los cocientes se recalculan sobre los totales del "
+                      "departamento, no se promedian entre hospitales.",
+             "x": "departamento", "seriesBy": None, "metrica": "ocupacion_camas",
+             "fixed": {"anio": 2025},
+             "controls": [{"kind": "metric", "label": "Indicador",
+                           "options": ["ocupacion_camas", "camas_disponibles", "egresos",
+                                       "giro_camas", "permanencia_promedio",
+                                       "tasa_mortalidad_hospitalaria"]}],
+             "sort": "desc", "unidad": "%"},
         ],
     },
 ]
