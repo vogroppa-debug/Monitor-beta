@@ -41,13 +41,14 @@
   <div class="tabla-ind-block">
     <h3 class="eje-title">{{ g.label }} <span class="eje-count">{{ g.filas|length }}</span></h3>
     <div class="tabla-ind-scroll">
-      {% set ncols = 12 if g.has_ciiu else 11 %}
+      {% set ncols = 13 if g.has_ciiu else 12 %}
       <table class="tabla-ind">
         <thead>
           <tr>
             <th scope="col">Indicador</th>
             {% if g.has_ciiu %}<th scope="col" class="tabla-ind-ciiu-col"><abbr title="Sección de actividad económica (nomenclador CLANAE / CIIU rev.4)">CIIU</abbr></th>{% endif %}
             <th scope="col">Frecuencia</th>
+            <th scope="col"><abbr title="Máxima apertura territorial con la que la fuente publica este indicador. Provincia: sólo el total provincial.">Desagregación</abbr></th>
             <th scope="col">Último dato</th>
             <th scope="col">Var. interanual</th>
             <th scope="col">Períodos comparados</th>
@@ -70,6 +71,7 @@
             </th>
             {% if g.has_ciiu %}<td class="tabla-ind-ciiu">{% if f.ciiu %}<abbr title="{{ f.ciiu }} — {{ f.ciiu_label }}">{{ f.ciiu }}</abbr>{% else %}<span class="tabla-ind-vacio" title="Sin sección de actividad asignable">—</span>{% endif %}</td>{% endif %}
             <td class="tabla-ind-frec">{{ f.frecuencia }}</td>
+            <td class="tabla-ind-geo">{% if f.geo_nota %}<abbr title="{{ f.geo_nota }}">{{ f.geo }}</abbr>{% else %}{{ f.geo }}{% endif %}</td>
             <td class="num">{{ f.ultimo }}</td>
             <td class="num"><span class="tabla-ind-var {{ f.var_cls }}">{{ f.var_txt }}</span></td>
             <td class="num tabla-ind-ref">{% if f.var_ref %}{{ f.var_ref }}{% else %}<span class="tabla-ind-vacio">—</span>{% endif %}</td>

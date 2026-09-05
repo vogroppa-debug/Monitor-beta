@@ -331,6 +331,7 @@ p { margin: 0 0 1em; }
 .tabla-ind tbody th a:hover { color: var(--accent-600); }
 .tabla-ind td.num { text-align: right; white-space: nowrap; }
 .tabla-ind-frec { white-space: nowrap; }                 /* "Mensual acumulado" en una linea */
+.tabla-ind-geo { white-space: nowrap; }                  /* "Área operativa" en una linea */
 /* El subeje ya no es columna: es un SUBTÍTULO que abre cada grupo de indicadores. */
 .tabla-ind .subeje-row-head {
   background: var(--accent-050); color: var(--accent-600);

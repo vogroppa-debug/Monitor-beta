@@ -75,6 +75,10 @@ NON_GEO = {"Enmascarado", "Sin datos", "Sin asignar", "Sin Asignar", "SIN DATOS"
 # Tokens de agregado provincial (no son un departamento/municipio; se excluyen de rankings).
 # "Total Salta" se usa donde "Salta" ya es un municipio real (Ciudad de Salta), p. ej. construcción.
 PROVINCIAL_TOKENS = {"Salta", "Total Salta"}
+# Agregados de nivel nacional o regional: no son una unidad territorial DENTRO de Salta, así que
+# ni se indexan como departamento en el buscador ni cuentan como desagregación territorial.
+NON_DEPT = {"Argentina", "Nacional", "Nación", "Nacion", "País", "Pais", "Total", "Total país",
+            "Total pais", "Región Norte", "Region Norte", "NOROESTE", "Noroeste", "Provincia"}
 
 
 def _unacc_upper(s):

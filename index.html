@@ -9,7 +9,7 @@
     /* fija el tema antes de pintar para evitar flash */
     (function(){try{var t=localStorage.getItem('cess-theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
   </script>
-  <link rel="stylesheet" href="./assets/css/styles.css?v=1788618804">
+  <link rel="stylesheet" href="./assets/css/styles.css?v=1788631395">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%232a78d6'/><text x='50' y='68' font-size='52' text-anchor='middle' fill='white' font-family='sans-serif' font-weight='700'>C</text></svg>">
 </head>
 <body>
@@ -145,6 +145,7 @@
             <th scope="col">Indicador</th>
             
             <th scope="col">Frecuencia</th>
+            <th scope="col"><abbr title="Máxima apertura territorial con la que la fuente publica este indicador. Provincia: sólo el total provincial.">Desagregación</abbr></th>
             <th scope="col">Último dato</th>
             <th scope="col">Var. interanual</th>
             <th scope="col">Períodos comparados</th>
@@ -158,7 +159,7 @@
         </thead>
         
         <tbody>
-          <tr class="subeje-row"><th class="subeje-row-head" colspan="11" scope="colgroup">Educación</th></tr>
+          <tr class="subeje-row"><th class="subeje-row-head" colspan="12" scope="colgroup">Educación</th></tr>
           
           <tr>
             <th scope="row">
@@ -167,6 +168,7 @@
             </th>
             
             <td class="tabla-ind-frec">Anual</td>
+            <td class="tabla-ind-geo"><abbr title="23 departamentos con datos">Departamento</abbr></td>
             <td class="num">2024</td>
             <td class="num"><span class="tabla-ind-var down">▼ 1,4 %</span></td>
             <td class="num tabla-ind-ref">2024/2023</td>
@@ -185,6 +187,7 @@
             </th>
             
             <td class="tabla-ind-frec">Anual</td>
+            <td class="tabla-ind-geo"><abbr title="23 departamentos con datos">Departamento</abbr></td>
             <td class="num">2024</td>
             <td class="num"><span class="tabla-ind-var down">▼ 9,7 %</span></td>
             <td class="num tabla-ind-ref">2024/2023</td>
@@ -203,6 +206,7 @@
             </th>
             
             <td class="tabla-ind-frec">Anual</td>
+            <td class="tabla-ind-geo"><abbr title="23 departamentos con datos">Departamento</abbr></td>
             <td class="num">2024</td>
             <td class="num"><span class="tabla-ind-var up">▲ 23,3 %</span></td>
             <td class="num tabla-ind-ref">2024/2023</td>
@@ -217,7 +221,7 @@
         </tbody>
         
         <tbody>
-          <tr class="subeje-row"><th class="subeje-row-head" colspan="11" scope="colgroup">Salud</th></tr>
+          <tr class="subeje-row"><th class="subeje-row-head" colspan="12" scope="colgroup">Salud</th></tr>
           
           <tr>
             <th scope="row">
@@ -226,6 +230,7 @@
             </th>
             
             <td class="tabla-ind-frec">Anual</td>
+            <td class="tabla-ind-geo"><abbr title="23 departamentos con datos, por departamento de residencia de la madre">Departamento</abbr></td>
             <td class="num">2025</td>
             <td class="num"><span class="tabla-ind-var down neutro">▼ 2,6 %</span></td>
             <td class="num tabla-ind-ref">2025/2024</td>
@@ -244,6 +249,7 @@
             </th>
             
             <td class="tabla-ind-frec">Anual</td>
+            <td class="tabla-ind-geo"><abbr title="Se publica sólo como total provincial">Provincia</abbr></td>
             <td class="num">2025</td>
             <td class="num"><span class="tabla-ind-var down invertido">▼ 6,1 %</span></td>
             <td class="num tabla-ind-ref">2025/2024</td>
@@ -262,6 +268,7 @@
             </th>
             
             <td class="tabla-ind-frec">Anual</td>
+            <td class="tabla-ind-geo"><abbr title="Se publica sólo como total provincial">Provincia</abbr></td>
             <td class="num">2025</td>
             <td class="num"><span class="tabla-ind-var up invertido">▲ 4,2 %</span></td>
             <td class="num tabla-ind-ref">2025/2024</td>
@@ -280,6 +287,7 @@
             </th>
             
             <td class="tabla-ind-frec">Anual</td>
+            <td class="tabla-ind-geo"><abbr title="Se publica sólo como total provincial">Provincia</abbr></td>
             <td class="num">2025</td>
             <td class="num"><span class="tabla-ind-var down neutro">▼ 5,6 %</span></td>
             <td class="num tabla-ind-ref">2025/2024</td>
@@ -298,6 +306,7 @@
             </th>
             
             <td class="tabla-ind-frec">Anual</td>
+            <td class="tabla-ind-geo"><abbr title="23 departamentos con datos">Departamento</abbr></td>
             <td class="num">2025</td>
             <td class="num"><span class="tabla-ind-var up neutro">▲ 0,8 p.p.</span></td>
             <td class="num tabla-ind-ref">2025/2024</td>
@@ -316,6 +325,7 @@
             </th>
             
             <td class="tabla-ind-frec">Anual</td>
+            <td class="tabla-ind-geo"><abbr title="Se publica sólo como total provincial">Provincia</abbr></td>
             <td class="num">2025</td>
             <td class="num"><span class="tabla-ind-var down neutro">▼ 3,0 %</span></td>
             <td class="num tabla-ind-ref">2025/2024</td>
@@ -334,6 +344,7 @@
             </th>
             
             <td class="tabla-ind-frec">Anual</td>
+            <td class="tabla-ind-geo"><abbr title="Se publica sólo como total provincial">Provincia</abbr></td>
             <td class="num">2025</td>
             <td class="num"><span class="tabla-ind-var down invertido">▼ 6,4 %</span></td>
             <td class="num tabla-ind-ref">2025/2024</td>
@@ -352,6 +363,7 @@
             </th>
             
             <td class="tabla-ind-frec">Anual</td>
+            <td class="tabla-ind-geo"><abbr title="Se publica sólo como total provincial">Provincia</abbr></td>
             <td class="num">2025</td>
             <td class="num"><span class="tabla-ind-var up invertido">▲ 2,7 %</span></td>
             <td class="num tabla-ind-ref">2025/2024</td>
@@ -370,6 +382,7 @@
             </th>
             
             <td class="tabla-ind-frec">Anual</td>
+            <td class="tabla-ind-geo"><abbr title="23 departamentos con datos">Departamento</abbr></td>
             <td class="num">2025</td>
             <td class="num"><span class="tabla-ind-var up">▲ 5,1 %</span></td>
             <td class="num tabla-ind-ref">2025/2024</td>
@@ -388,6 +401,7 @@
             </th>
             
             <td class="tabla-ind-frec">Anual</td>
+            <td class="tabla-ind-geo"><abbr title="23 departamentos con datos">Departamento</abbr></td>
             <td class="num">2025</td>
             <td class="num"><span class="tabla-ind-var up">▲ 4,1 %</span></td>
             <td class="num tabla-ind-ref">2025/2024</td>
@@ -415,6 +429,7 @@
             <th scope="col">Indicador</th>
             <th scope="col" class="tabla-ind-ciiu-col"><abbr title="Sección de actividad económica (nomenclador CLANAE / CIIU rev.4)">CIIU</abbr></th>
             <th scope="col">Frecuencia</th>
+            <th scope="col"><abbr title="Máxima apertura territorial con la que la fuente publica este indicador. Provincia: sólo el total provincial.">Desagregación</abbr></th>
             <th scope="col">Último dato</th>
             <th scope="col">Var. interanual</th>
             <th scope="col">Períodos comparados</th>
@@ -428,7 +443,7 @@
         </thead>
         
         <tbody>
-          <tr class="subeje-row"><th class="subeje-row-head" colspan="12" scope="colgroup">Actividad y productividad</th></tr>
+          <tr class="subeje-row"><th class="subeje-row-head" colspan="13" scope="colgroup">Actividad y productividad</th></tr>
           
           <tr>
             <th scope="row">
@@ -437,6 +452,7 @@
             </th>
             <td class="tabla-ind-ciiu"><abbr title="A — Agricultura, ganadería, caza, silvicultura y pesca">A</abbr></td>
             <td class="tabla-ind-frec">Anual (campaña)</td>
+            <td class="tabla-ind-geo"><abbr title="17 departamentos con datos">Departamento</abbr></td>
             <td class="num">2024</td>
             <td class="num"><span class="tabla-ind-var up">▲ 8,1 %</span></td>
             <td class="num tabla-ind-ref">2024/2023</td>
@@ -455,6 +471,7 @@
             </th>
             <td class="tabla-ind-ciiu"><abbr title="A — Agricultura, ganadería, caza, silvicultura y pesca">A</abbr></td>
             <td class="tabla-ind-frec">Anual (campaña)</td>
+            <td class="tabla-ind-geo"><abbr title="17 departamentos con datos">Departamento</abbr></td>
             <td class="num">2024</td>
             <td class="num"><span class="tabla-ind-var down">▼ 3,7 %</span></td>
             <td class="num tabla-ind-ref">2024/2023</td>
@@ -473,6 +490,7 @@
             </th>
             <td class="tabla-ind-ciiu"><abbr title="A — Agricultura, ganadería, caza, silvicultura y pesca">A</abbr></td>
             <td class="tabla-ind-frec">Anual (campaña)</td>
+            <td class="tabla-ind-geo"><abbr title="17 departamentos con datos">Departamento</abbr></td>
             <td class="num">2024</td>
             <td class="num"><span class="tabla-ind-var up">▲ 6,3 %</span></td>
             <td class="num tabla-ind-ref">2024/2023</td>
@@ -491,6 +509,7 @@
             </th>
             <td class="tabla-ind-ciiu"><abbr title="A — Agricultura, ganadería, caza, silvicultura y pesca">A</abbr></td>
             <td class="tabla-ind-frec">Anual</td>
+            <td class="tabla-ind-geo"><abbr title="23 departamentos con datos">Departamento</abbr></td>
             <td class="num">2025</td>
             <td class="num"><span class="tabla-ind-var down">▼ 0,9 %</span></td>
             <td class="num tabla-ind-ref">2025/2024</td>
@@ -509,6 +528,7 @@
             </th>
             <td class="tabla-ind-ciiu"><abbr title="A — Agricultura, ganadería, caza, silvicultura y pesca">A</abbr></td>
             <td class="tabla-ind-frec">Anual</td>
+            <td class="tabla-ind-geo"><abbr title="23 departamentos con datos">Departamento</abbr></td>
             <td class="num">2025</td>
             <td class="num"><span class="tabla-ind-var down">▼ 2,8 %</span></td>
             <td class="num tabla-ind-ref">2025/2024</td>
@@ -527,6 +547,7 @@
             </th>
             <td class="tabla-ind-ciiu"><abbr title="A — Agricultura, ganadería, caza, silvicultura y pesca">A</abbr></td>
             <td class="tabla-ind-frec">Anual</td>
+            <td class="tabla-ind-geo"><abbr title="5 departamentos con datos">Departamento</abbr></td>
             <td class="num">2025</td>
             <td class="num"><span class="tabla-ind-var up">▲ 20,1 %</span></td>
             <td class="num tabla-ind-ref">2025/2024</td>
@@ -545,6 +566,7 @@
             </th>
             <td class="tabla-ind-ciiu"><abbr title="C — Industria manufacturera">C</abbr></td>
             <td class="tabla-ind-frec">Anual</td>
+            <td class="tabla-ind-geo"><abbr title="5 departamentos con datos">Departamento</abbr></td>
             <td class="num">2025</td>
             <td class="num"><span class="tabla-ind-var up">▲ 23,5 %</span></td>
             <td class="num tabla-ind-ref">2025/2024</td>
@@ -563,6 +585,7 @@
             </th>
             <td class="tabla-ind-ciiu"><span class="tabla-ind-vacio" title="Sin sección de actividad asignable">—</span></td>
             <td class="tabla-ind-frec">Anual</td>
+            <td class="tabla-ind-geo"><abbr title="Se publica sólo como total provincial">Provincia</abbr></td>
             <td class="num">2024</td>
             <td class="num"><span class="tabla-ind-var down">▼ 13,3 %</span></td>
             <td class="num tabla-ind-ref">2024/2023</td>
@@ -581,6 +604,7 @@
             </th>
             <td class="tabla-ind-ciiu"><span class="tabla-ind-vacio" title="Sin sección de actividad asignable">—</span></td>
             <td class="tabla-ind-frec">Anual</td>
+            <td class="tabla-ind-geo"><abbr title="Se publica sólo como total provincial">Provincia</abbr></td>
             <td class="num">2024</td>
             <td class="num"><span class="tabla-ind-var down">▼ 9,7 %</span></td>
             <td class="num tabla-ind-ref">2024/2023</td>
@@ -599,6 +623,7 @@
             </th>
             <td class="tabla-ind-ciiu"><abbr title="B — Explotación de minas y canteras">B</abbr></td>
             <td class="tabla-ind-frec">Trimestral</td>
+            <td class="tabla-ind-geo"><abbr title="6 departamentos con datos">Departamento</abbr></td>
             <td class="num">1T2026</td>
             <td class="num"><span class="tabla-ind-var down">▼ 17,4 %</span></td>
             <td class="num tabla-ind-ref">1T2026/1T2025</td>
@@ -617,6 +642,7 @@
             </th>
             <td class="tabla-ind-ciiu"><abbr title="B — Explotación de minas y canteras">B</abbr></td>
             <td class="tabla-ind-frec">Trimestral</td>
+            <td class="tabla-ind-geo"><abbr title="6 departamentos con datos">Departamento</abbr></td>
             <td class="num">1T2026</td>
             <td class="num"><span class="tabla-ind-var down">▼ 23,3 %</span></td>
             <td class="num tabla-ind-ref">1T2026/1T2025</td>
@@ -635,6 +661,7 @@
             </th>
             <td class="tabla-ind-ciiu"><abbr title="B — Explotación de minas y canteras">B</abbr></td>
             <td class="tabla-ind-frec">Trimestral</td>
+            <td class="tabla-ind-geo"><abbr title="6 departamentos con datos">Departamento</abbr></td>
             <td class="num">1T2026</td>
             <td class="num"><span class="tabla-ind-var down">▼ 13,7 %</span></td>
             <td class="num tabla-ind-ref">1T2026/1T2025</td>
@@ -653,6 +680,7 @@
             </th>
             <td class="tabla-ind-ciiu"><abbr title="F — Construcción">F</abbr></td>
             <td class="tabla-ind-frec">Trimestral</td>
+            <td class="tabla-ind-geo"><abbr title="5 municipios con datos">Municipio</abbr></td>
             <td class="num">1T2026</td>
             <td class="num"><span class="tabla-ind-var up">▲ 39,8 %</span></td>
             <td class="num tabla-ind-ref">1T2026/1T2025</td>
@@ -671,6 +699,7 @@
             </th>
             <td class="tabla-ind-ciiu"><abbr title="F — Construcción">F</abbr></td>
             <td class="tabla-ind-frec">Trimestral</td>
+            <td class="tabla-ind-geo"><abbr title="5 municipios con datos">Municipio</abbr></td>
             <td class="num">1T2026</td>
             <td class="num"><span class="tabla-ind-var down">▼ 9,0 %</span></td>
             <td class="num tabla-ind-ref">1T2026/1T2025</td>
@@ -689,6 +718,7 @@
             </th>
             <td class="tabla-ind-ciiu"><abbr title="F — Construcción">F</abbr></td>
             <td class="tabla-ind-frec">Trimestral</td>
+            <td class="tabla-ind-geo"><abbr title="Se publica sólo como total provincial">Provincia</abbr></td>
             <td class="num">1T2026</td>
             <td class="num"><span class="tabla-ind-var up">▲ 35,8 %</span></td>
             <td class="num tabla-ind-ref">1T2026/1T2025</td>
@@ -703,7 +733,7 @@
         </tbody>
         
         <tbody>
-          <tr class="subeje-row"><th class="subeje-row-head" colspan="12" scope="colgroup">Empleo y capacidades</th></tr>
+          <tr class="subeje-row"><th class="subeje-row-head" colspan="13" scope="colgroup">Empleo y capacidades</th></tr>
           
           <tr>
             <th scope="row">
@@ -712,6 +742,7 @@
             </th>
             <td class="tabla-ind-ciiu"><abbr title="B — Explotación de minas y canteras">B</abbr></td>
             <td class="tabla-ind-frec">Trimestral</td>
+            <td class="tabla-ind-geo"><abbr title="Se publica sólo como total provincial">Provincia</abbr></td>
             <td class="num">1T2026</td>
             <td class="num"><span class="tabla-ind-var down">▼ 7,0 %</span></td>
             <td class="num tabla-ind-ref">1T2026/1T2025</td>
@@ -730,6 +761,7 @@
             </th>
             <td class="tabla-ind-ciiu"><span class="tabla-ind-vacio" title="Sin sección de actividad asignable">—</span></td>
             <td class="tabla-ind-frec">Trimestral</td>
+            <td class="tabla-ind-geo"><abbr title="18 departamentos con datos">Departamento</abbr></td>
             <td class="num">2T2025</td>
             <td class="num"><span class="tabla-ind-var down">▼ 3,8 %</span></td>
             <td class="num tabla-ind-ref">2T2025/2T2024</td>
@@ -748,6 +780,7 @@
             </th>
             <td class="tabla-ind-ciiu"><span class="tabla-ind-vacio" title="Sin sección de actividad asignable">—</span></td>
             <td class="tabla-ind-frec">Trimestral</td>
+            <td class="tabla-ind-geo"><abbr title="18 departamentos con datos">Departamento</abbr></td>
             <td class="num">2T2025</td>
             <td class="num"><span class="tabla-ind-var up">▲ 6,7 %</span></td>
             <td class="num tabla-ind-ref">2T2025/2T2024</td>
@@ -762,7 +795,7 @@
         </tbody>
         
         <tbody>
-          <tr class="subeje-row"><th class="subeje-row-head" colspan="12" scope="colgroup">Inversión y financiamiento</th></tr>
+          <tr class="subeje-row"><th class="subeje-row-head" colspan="13" scope="colgroup">Inversión y financiamiento</th></tr>
           
           <tr>
             <th scope="row">
@@ -771,6 +804,7 @@
             </th>
             <td class="tabla-ind-ciiu"><abbr title="B — Explotación de minas y canteras">B</abbr></td>
             <td class="tabla-ind-frec">Anual</td>
+            <td class="tabla-ind-geo"><abbr title="Se publica sólo como total provincial">Provincia</abbr></td>
             <td class="num">2023</td>
             <td class="num"><span class="tabla-ind-var up">▲ 9,8 %</span></td>
             <td class="num tabla-ind-ref">2023/2022</td>
@@ -789,6 +823,7 @@
             </th>
             <td class="tabla-ind-ciiu"><span class="tabla-ind-vacio" title="Sin sección de actividad asignable">—</span></td>
             <td class="tabla-ind-frec">Trimestral</td>
+            <td class="tabla-ind-geo"><abbr title="Se publica sólo como total provincial">Provincia</abbr></td>
             <td class="num">1T2026</td>
             <td class="num"><span class="tabla-ind-var down">▼ 9,9 %</span></td>
             <td class="num tabla-ind-ref">1T2026/1T2025</td>
@@ -807,6 +842,7 @@
             </th>
             <td class="tabla-ind-ciiu"><abbr title="C — Industria manufacturera">C</abbr></td>
             <td class="tabla-ind-frec">Trimestral</td>
+            <td class="tabla-ind-geo"><abbr title="Se publica sólo como total provincial">Provincia</abbr></td>
             <td class="num">1T2026</td>
             <td class="num"><span class="tabla-ind-var down">▼ 14,7 %</span></td>
             <td class="num tabla-ind-ref">1T2026/1T2025</td>
@@ -825,6 +861,7 @@
             </th>
             <td class="tabla-ind-ciiu"><abbr title="K — Intermediación financiera y servicios de seguros">K</abbr></td>
             <td class="tabla-ind-frec">Trimestral</td>
+            <td class="tabla-ind-geo"><abbr title="5 departamentos con datos">Departamento</abbr></td>
             <td class="num">1T2026</td>
             <td class="num"><span class="tabla-ind-var up">▲ 14,7 %</span></td>
             <td class="num tabla-ind-ref">1T2026/1T2025</td>
@@ -843,6 +880,7 @@
             </th>
             <td class="tabla-ind-ciiu"><abbr title="K — Intermediación financiera y servicios de seguros">K</abbr></td>
             <td class="tabla-ind-frec">Trimestral</td>
+            <td class="tabla-ind-geo"><abbr title="5 departamentos con datos">Departamento</abbr></td>
             <td class="num">1T2026</td>
             <td class="num"><span class="tabla-ind-var up">▲ 13,1 %</span></td>
             <td class="num tabla-ind-ref">1T2026/1T2025</td>
@@ -861,6 +899,7 @@
             </th>
             <td class="tabla-ind-ciiu"><abbr title="K — Intermediación financiera y servicios de seguros">K</abbr></td>
             <td class="tabla-ind-frec">Anual</td>
+            <td class="tabla-ind-geo"><abbr title="23 departamentos con datos">Departamento</abbr></td>
             <td class="num">2025</td>
             <td class="num"><span class="tabla-ind-var up">▲ 3,6 %</span></td>
             <td class="num tabla-ind-ref">2025/2024</td>
@@ -879,6 +918,7 @@
             </th>
             <td class="tabla-ind-ciiu"><span class="tabla-ind-vacio" title="Sin sección de actividad asignable">—</span></td>
             <td class="tabla-ind-frec">Anual</td>
+            <td class="tabla-ind-geo"><abbr title="Se publica sólo como total provincial">Provincia</abbr></td>
             <td class="num">2025</td>
             <td class="num"><span class="tabla-ind-var down">▼ 2,7 %</span></td>
             <td class="num tabla-ind-ref">2025/2024</td>
@@ -897,6 +937,7 @@
             </th>
             <td class="tabla-ind-ciiu"><span class="tabla-ind-vacio" title="Sin sección de actividad asignable">—</span></td>
             <td class="tabla-ind-frec">Anual</td>
+            <td class="tabla-ind-geo"><abbr title="Se publica sólo como total provincial">Provincia</abbr></td>
             <td class="num">2025</td>
             <td class="num"><span class="tabla-ind-var up">▲ 0,5 %</span></td>
             <td class="num tabla-ind-ref">2025/2024</td>
@@ -915,6 +956,7 @@
             </th>
             <td class="tabla-ind-ciiu"><span class="tabla-ind-vacio" title="Sin sección de actividad asignable">—</span></td>
             <td class="tabla-ind-frec">Trimestral</td>
+            <td class="tabla-ind-geo"><abbr title="60 municipios con datos">Municipio</abbr></td>
             <td class="num">2T2026</td>
             <td class="num"><span class="tabla-ind-var up">▲ 3,4 %</span></td>
             <td class="num tabla-ind-ref">2T2026/2T2025</td>
@@ -933,6 +975,7 @@
             </th>
             <td class="tabla-ind-ciiu"><span class="tabla-ind-vacio" title="Sin sección de actividad asignable">—</span></td>
             <td class="tabla-ind-frec">Trimestral</td>
+            <td class="tabla-ind-geo"><abbr title="60 municipios con datos">Municipio</abbr></td>
             <td class="num">2T2026</td>
             <td class="num"><span class="tabla-ind-var up">▲ 1,1 %</span></td>
             <td class="num tabla-ind-ref">2T2026/2T2025</td>
@@ -951,6 +994,7 @@
             </th>
             <td class="tabla-ind-ciiu"><span class="tabla-ind-vacio" title="Sin sección de actividad asignable">—</span></td>
             <td class="tabla-ind-frec">Mensual acumulado</td>
+            <td class="tabla-ind-geo"><abbr title="Se publica sólo como total provincial">Provincia</abbr></td>
             <td class="num">mar-2026</td>
             <td class="num"><span class="tabla-ind-var down">▼ 3,0 %</span></td>
             <td class="num tabla-ind-ref">mar-2026/mar-2025</td>
@@ -969,6 +1013,7 @@
             </th>
             <td class="tabla-ind-ciiu"><span class="tabla-ind-vacio" title="Sin sección de actividad asignable">—</span></td>
             <td class="tabla-ind-frec">Mensual acumulado</td>
+            <td class="tabla-ind-geo"><abbr title="Se publica sólo como total provincial">Provincia</abbr></td>
             <td class="num">mar-2026</td>
             <td class="num"><span class="tabla-ind-var down">▼ 4,6 %</span></td>
             <td class="num tabla-ind-ref">mar-2026/mar-2025</td>
@@ -987,6 +1032,7 @@
             </th>
             <td class="tabla-ind-ciiu"><span class="tabla-ind-vacio" title="Sin sección de actividad asignable">—</span></td>
             <td class="tabla-ind-frec">Mensual acumulado</td>
+            <td class="tabla-ind-geo"><abbr title="Se publica sólo como total provincial">Provincia</abbr></td>
             <td class="num">mar-2026</td>
             <td class="num"><span class="tabla-ind-var up">▲ 1,8 p.p.</span></td>
             <td class="num tabla-ind-ref">mar-2026/mar-2025</td>
@@ -1005,6 +1051,7 @@
             </th>
             <td class="tabla-ind-ciiu"><span class="tabla-ind-vacio" title="Sin sección de actividad asignable">—</span></td>
             <td class="tabla-ind-frec">Mensual acumulado</td>
+            <td class="tabla-ind-geo"><abbr title="Se publica sólo como total provincial">Provincia</abbr></td>
             <td class="num">mar-2026</td>
             <td class="num"><span class="tabla-ind-var up">▲ 2,0 p.p.</span></td>
             <td class="num tabla-ind-ref">mar-2026/mar-2025</td>
@@ -1019,7 +1066,7 @@
         </tbody>
         
         <tbody>
-          <tr class="subeje-row"><th class="subeje-row-head" colspan="12" scope="colgroup">Infraestructura y logística</th></tr>
+          <tr class="subeje-row"><th class="subeje-row-head" colspan="13" scope="colgroup">Infraestructura y logística</th></tr>
           
           <tr>
             <th scope="row">
@@ -1028,6 +1075,7 @@
             </th>
             <td class="tabla-ind-ciiu"><abbr title="D — Suministro de electricidad, gas, vapor y aire acondicionado">D</abbr></td>
             <td class="tabla-ind-frec">Trimestral</td>
+            <td class="tabla-ind-geo"><abbr title="Se publica sólo como total provincial">Provincia</abbr></td>
             <td class="num">2T2026</td>
             <td class="num"><span class="tabla-ind-var down">▼ 14,4 %</span></td>
             <td class="num tabla-ind-ref">2T2026/2T2025</td>
@@ -1046,6 +1094,7 @@
             </th>
             <td class="tabla-ind-ciiu"><abbr title="D — Suministro de electricidad, gas, vapor y aire acondicionado">D</abbr></td>
             <td class="tabla-ind-frec">Anual</td>
+            <td class="tabla-ind-geo"><abbr title="Se publica sólo como total provincial">Provincia</abbr></td>
             <td class="num">2026</td>
             <td class="num"><span class="tabla-ind-var none">sin base</span></td>
             <td class="num tabla-ind-ref"><span class="tabla-ind-vacio">—</span></td>
@@ -1060,7 +1109,7 @@
         </tbody>
         
         <tbody>
-          <tr class="subeje-row"><th class="subeje-row-head" colspan="12" scope="colgroup">Innovación y mercados</th></tr>
+          <tr class="subeje-row"><th class="subeje-row-head" colspan="13" scope="colgroup">Innovación y mercados</th></tr>
           
           <tr>
             <th scope="row">
@@ -1069,6 +1118,7 @@
             </th>
             <td class="tabla-ind-ciiu"><abbr title="M — Servicios profesionales, científicos y técnicos">M</abbr></td>
             <td class="tabla-ind-frec">Anual</td>
+            <td class="tabla-ind-geo"><abbr title="Se publica sólo como total provincial">Provincia</abbr></td>
             <td class="num">2024</td>
             <td class="num"><span class="tabla-ind-var down">▼ 14,6 %</span></td>
             <td class="num tabla-ind-ref">2024/2023</td>
@@ -1087,6 +1137,7 @@
             </th>
             <td class="tabla-ind-ciiu"><abbr title="M — Servicios profesionales, científicos y técnicos">M</abbr></td>
             <td class="tabla-ind-frec">Anual</td>
+            <td class="tabla-ind-geo"><abbr title="Se publica sólo como total provincial">Provincia</abbr></td>
             <td class="num">2024</td>
             <td class="num"><span class="tabla-ind-var down">▼ 1,0 %</span></td>
             <td class="num tabla-ind-ref">2024/2023</td>
@@ -1105,6 +1156,7 @@
             </th>
             <td class="tabla-ind-ciiu"><span class="tabla-ind-vacio" title="Sin sección de actividad asignable">—</span></td>
             <td class="tabla-ind-frec">Anual</td>
+            <td class="tabla-ind-geo"><abbr title="Se publica sólo como total provincial">Provincia</abbr></td>
             <td class="num">2025</td>
             <td class="num"><span class="tabla-ind-var up">▲ 28,8 %</span></td>
             <td class="num tabla-ind-ref">2025/2024</td>
@@ -1123,6 +1175,7 @@
             </th>
             <td class="tabla-ind-ciiu"><span class="tabla-ind-vacio" title="Sin sección de actividad asignable">—</span></td>
             <td class="tabla-ind-frec">Anual</td>
+            <td class="tabla-ind-geo"><abbr title="Se publica sólo como total provincial">Provincia</abbr></td>
             <td class="num">2025</td>
             <td class="num"><span class="tabla-ind-var up">▲ 13,7 %</span></td>
             <td class="num tabla-ind-ref">2025/2024</td>
@@ -1150,6 +1203,7 @@
             <th scope="col">Indicador</th>
             
             <th scope="col">Frecuencia</th>
+            <th scope="col"><abbr title="Máxima apertura territorial con la que la fuente publica este indicador. Provincia: sólo el total provincial.">Desagregación</abbr></th>
             <th scope="col">Último dato</th>
             <th scope="col">Var. interanual</th>
             <th scope="col">Períodos comparados</th>
@@ -1163,7 +1217,7 @@
         </thead>
         
         <tbody>
-          <tr class="subeje-row"><th class="subeje-row-head" colspan="11" scope="colgroup">Ambiente</th></tr>
+          <tr class="subeje-row"><th class="subeje-row-head" colspan="12" scope="colgroup">Ambiente</th></tr>
           
           <tr>
             <th scope="row">
@@ -1172,6 +1226,7 @@
             </th>
             
             <td class="tabla-ind-frec">Trimestral</td>
+            <td class="tabla-ind-geo"><abbr title="Se publica sólo como total provincial">Provincia</abbr></td>
             <td class="num">2T2026</td>
             <td class="num"><span class="tabla-ind-var up">▲ 33,9 %</span></td>
             <td class="num tabla-ind-ref">2T2026/2T2025</td>
@@ -1186,7 +1241,7 @@
         </tbody>
         
         <tbody>
-          <tr class="subeje-row"><th class="subeje-row-head" colspan="11" scope="colgroup">Turismo</th></tr>
+          <tr class="subeje-row"><th class="subeje-row-head" colspan="12" scope="colgroup">Turismo</th></tr>
           
           <tr>
             <th scope="row">
@@ -1195,6 +1250,7 @@
             </th>
             
             <td class="tabla-ind-frec">Trimestral</td>
+            <td class="tabla-ind-geo"><abbr title="Se publica sólo como total provincial">Provincia</abbr></td>
             <td class="num">3T2025</td>
             <td class="num"><span class="tabla-ind-var down">▼ 3,0 %</span></td>
             <td class="num tabla-ind-ref">3T2025/3T2024</td>
@@ -1213,6 +1269,7 @@
             </th>
             
             <td class="tabla-ind-frec">Trimestral</td>
+            <td class="tabla-ind-geo"><abbr title="Se publica sólo como total provincial">Provincia</abbr></td>
             <td class="num">3T2025</td>
             <td class="num"><span class="tabla-ind-var down">▼ 2,3 %</span></td>
             <td class="num tabla-ind-ref">3T2025/3T2024</td>
@@ -1231,6 +1288,7 @@
             </th>
             
             <td class="tabla-ind-frec">Trimestral</td>
+            <td class="tabla-ind-geo"><abbr title="Se publica sólo como total provincial">Provincia</abbr></td>
             <td class="num">3T2025</td>
             <td class="num"><span class="tabla-ind-var down">▼ 3,0 %</span></td>
             <td class="num tabla-ind-ref">3T2025/3T2024</td>
@@ -1249,6 +1307,7 @@
             </th>
             
             <td class="tabla-ind-frec">Trimestral</td>
+            <td class="tabla-ind-geo"><abbr title="Se publica sólo como total provincial">Provincia</abbr></td>
             <td class="num">3T2025</td>
             <td class="num"><span class="tabla-ind-var down">▼ 0,5 %</span></td>
             <td class="num tabla-ind-ref">3T2025/3T2024</td>
@@ -1996,9 +2055,9 @@
 <script src="./assets/vendor/echarts.min.js"></script>
 <script src="./assets/vendor/minisearch.min.js"></script>
 <script>window.CESS_BASE = ".";</script>
-<script src="./assets/js/app.js?v=1788618804"></script>
+<script src="./assets/js/app.js?v=1788631395"></script>
 
-<script src="./assets/js/search.js?v=1788618804"></script>
+<script src="./assets/js/search.js?v=1788631395"></script>
 
 </body>
 </html>

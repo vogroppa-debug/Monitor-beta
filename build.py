@@ -62,15 +62,11 @@ def anio_latest(dims):
 
 GEO_DIMS = ("departamento", "municipio", "unidad_geografica", "localidad")
 
-# Agregados no departamentales que no deben indexarse como "departamento" en el buscador.
-NON_DEPT = {"Argentina", "Nacional", "Nación", "Nacion", "País", "Pais", "Total", "Total país",
-            "Total pais", "Región Norte", "Region Norte", "NOROESTE", "Noroeste", "Provincia"}
-
 
 def geo_values(dims):
     """Valores geográficos (departamentos/municipios/localidades) con datos, para el buscador."""
     vals, seen = [], set()
-    excl = adapters.NON_GEO | adapters.PROVINCIAL_TOKENS | NON_DEPT
+    excl = adapters.NON_GEO | adapters.PROVINCIAL_TOKENS | adapters.NON_DEPT
     for dim in GEO_DIMS:
         for v in dims.get(dim, []):
             if v in excl or v in seen:

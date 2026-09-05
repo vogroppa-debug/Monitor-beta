@@ -22,6 +22,8 @@ y un último dato numérico.
 """
 import re
 
+import adapters
+
 # Indicadores visibles en un gráfico pero sin tarjeta KPI.
 EXTRA = {
     "vitivinicultura": [
@@ -61,6 +63,45 @@ EXTRA = {
          "fixed": {"departamento": "Salta", "desagregacion": "Total"}},
     ],
 }
+
+
+# ------------------------------------------------------------------ desagregación territorial
+# Dimensiones geográficas, de la apertura MÁS FINA a la más gruesa: gana la primera que el
+# indicador tenga abierta. `unidad_geografica` (vitivinicultura) son departamentos con otro
+# nombre de columna, por eso comparte etiqueta.
+GEO_NIVELES = [
+    ("localidad",         "Localidad",       "localidades"),
+    ("municipio",         "Municipio",       "municipios"),
+    ("area_operativa",    "Área operativa",  "áreas operativas"),
+    ("departamento",      "Departamento",    "departamentos"),
+    ("unidad_geografica", "Departamento",    "departamentos"),
+]
+
+
+def _desagregacion(payload, ix, spec):
+    """Nivel territorial en el que se publica ESTE indicador.
+
+    Se mide sobre las filas de su métrica, no sobre el tablero: dentro de un mismo tema
+    conviven series provinciales y series abiertas (en salud, las tasas vitales son sólo
+    provinciales y la internación llega a departamento). Se excluyen los tokens provinciales,
+    los agregados nacionales y los valores enmascarados: si lo único que queda es el total,
+    el indicador es provincial.
+
+    `geo` en el spec del KPI pisa el cálculo, para el caso en que la apertura territorial del
+    concepto viva en una métrica hermana (ver `nacidos_vivos` / `nacidos_vivos_res` en salud).
+    """
+    if spec.get("geo"):
+        return spec["geo"], spec.get("geo_nota", "")
+    excl = adapters.NON_GEO | adapters.PROVINCIAL_TOKENS | adapters.NON_DEPT | {"", "Total", None}
+    mi = ix["metrica"]
+    for dim, label, plural in GEO_NIVELES:
+        if dim not in ix:
+            continue
+        di = ix[dim]
+        vals = {r[di] for r in payload["rows"] if r[mi] == spec["metrica"]} - excl
+        if len(vals) > 1:
+            return label, "%d %s con datos" % (len(vals), plural)
+    return "Provincia", "Se publica sólo como total provincial"
 
 
 # ------------------------------------------------------------------ motor (espejo de charts.js)
@@ -354,6 +395,7 @@ def tabla(payloads, catalogo, ejes_pdes_meta, tags_meta, subeje_orden, ciiu_secc
         specs = list(payload["kpis"]) + EXTRA.get(t["id"], [])
         for s in specs:
             res = _calcular(payload, ix, s, freq)
+            desag, desag_nota = _desagregacion(payload, ix, s)
             pp = _en_pp(s, payload["metricas"])
             v = res["dif"] if pp else res["pct"]
             if v is None:
@@ -381,6 +423,7 @@ def tabla(payloads, catalogo, ejes_pdes_meta, tags_meta, subeje_orden, ciiu_secc
                 "nota": s.get("tabla_nota", ""),
                 "tema_id": t["id"], "tema_title": t["title"],
                 "chart_id": _grafico(payload, s["metrica"]),
+                "geo": desag, "geo_nota": desag_nota,
                 "valor_txt": _medida(res["valor"],
                                      payload["metricas"].get(s["metrica"], {}).get("unidad", "")),
                 "frecuencia": _frecuencia(res, t["id"]),

@@ -49,6 +49,10 @@ Spec de KPI (el front muestra la VARIACIÓN INTERANUAL, no el valor absoluto):
        KPI con display 'nivel', declarar `sentido` además cambia el criterio de color del
        signo del valor a la dirección del cambio (una tasa nunca es negativa, así que su
        signo no informa nada). Lo consumen `kpiClaseColor` (charts.js) e `indicadores.py`.
+  geo / geo_nota: pisan la desagregación territorial que la tabla maestra calcula sola.
+       Por defecto el nivel sale de las FILAS de la métrica (la apertura más fina con más de
+       un valor territorial); sólo hace falta declararlo cuando la apertura del concepto vive
+       en una métrica hermana, como `nacidos_vivos` / `nacidos_vivos_res` en salud.
   base_valor / base_periodo: línea de base del PDES y el período al que corresponde
   meta_2030 / meta_2040 / meta_2050: metas del PDES 2050 en los tres cortes
        Cargar `base_valor` y las metas como NÚMEROS, no como texto ya formateado: la tabla
@@ -1445,7 +1449,11 @@ TEMAS = [
         "kpis": [
             {"label": "Nacidos vivos", "metrica": "nacidos_vivos",
              "fixed": {"departamento": "Salta", "desagregacion": "Total"}, "year": "latest",
-             "unidad": "nacimientos", "format": "int", "sentido": "neutro"},
+             "unidad": "nacimientos", "format": "int", "sentido": "neutro",
+             # La serie provincial es por lugar de OCURRENCIA y no se abre; la apertura
+             # territorial existe en `nacidos_vivos_res`, por departamento de RESIDENCIA.
+             "geo": "Departamento",
+             "geo_nota": "23 departamentos con datos, por departamento de residencia de la madre"},
             {"label": "Defunciones", "metrica": "defunciones",
              "fixed": {"departamento": "Salta", "desagregacion": "Total"}, "year": "latest",
              "unidad": "defunciones", "format": "int", "sentido": "menor_mejor"},
