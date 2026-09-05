@@ -337,6 +337,9 @@ p { margin: 0 0 1em; }
   font-size: .72rem; text-transform: uppercase; letter-spacing: .05em; font-weight: 700;
   padding-top: 9px; padding-bottom: 9px; border-bottom: 1px solid var(--grid);
 }
+/* Un respiro (espacio del color de la página) antes de cada nuevo subeje; el primero de cada
+   tabla arranca pegado al encabezado, así que sólo lo llevan los tbody posteriores. */
+.tabla-ind tbody + tbody .subeje-row-head { border-top: 16px solid var(--page); }
 .tabla-ind tbody tr.subeje-row:hover { background: var(--accent-050); }
 /* Letra de sección de actividad (CIIU): columna angosta y centrada, con tooltip. */
 .tabla-ind-ciiu-col { width: 3rem; }
