@@ -20,6 +20,7 @@ Por defecto se lee el CSV ya generado (contrato tidy). El build no re-descarga n
 """
 import os
 import math
+import functools
 import unicodedata
 import pandas as pd
 import openpyxl
@@ -37,11 +38,69 @@ def _drv(name):
     return os.path.join(DATA_DIR, "datos-drive", name)
 
 
+@functools.lru_cache(maxsize=1)
 def _ipc_anual():
-    """IPC NOA promedio anual (base dic-2016=100). Clave: año (int)."""
+    """IPC NOA promedio anual (base dic-2016=100). Clave: año (int).
+
+    Sólo años COMPLETOS: el promedio de un año a medio publicar no es el nivel de precios de ese
+    año y además se mueve con cada mes nuevo del IPC, así que deflactar con él daría una serie que
+    cambia sola sin que cambie el dato. El año incompleto queda sin deflactor y el adaptador
+    simplemente no emite su valor real (todos los `real()` devuelven None si falta el índice).
+    """
     df = pd.read_csv(_src("ipc_noa_mensual.csv"), encoding="utf-8")
     df["anio"] = df["indice_tiempo"].astype(str).str[:4].astype(int)
-    return df.groupby("anio")["ipc_ng_noa"].mean().to_dict()
+    g = df.groupby("anio")["ipc_ng_noa"]
+    return {a: v for a, v in g.mean().items() if g.size()[a] == 12}
+
+
+# ------------------------------------------------------------------ base de los pesos constantes
+# La base NO es un año fijo: es el ÚLTIMO mes publicado del IPC, así que se recalcula sola en cada
+# build y avanza cuando se actualiza `ipc_noa_mensual.csv`. Es una sola para todo el sitio, de modo
+# que los montos reales de un tablero se pueden comparar con los de otro.
+_MESES = ["ene", "feb", "mar", "abr", "may", "jun",
+          "jul", "ago", "sep", "oct", "nov", "dic"]
+_MESES_LARGO = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio",
+                "agosto", "septiembre", "octubre", "noviembre", "diciembre"]
+
+
+@functools.lru_cache(maxsize=1)
+def _ipc_base():
+    """Período base de los pesos constantes: (AAAAMM, índice) del último mes con IPC publicado."""
+    m = {k: v for k, v in _ipc_noa_map().items() if pd.notna(v)}
+    p = max(m)
+    return p, float(m[p])
+
+
+def _base_txt(largo=False):
+    """Nombre del período base: 'jul-2026' o 'julio de 2026'.
+
+    La forma corta sigue la convención que el repo ya usa en prosa (dic-2016, dic-2023) y es la que
+    va en las etiquetas; la larga, en las notas."""
+    p, _ = _ipc_base()
+    y, m = divmod(p, 100)
+    return ("%s de %d" % (_MESES_LARGO[m - 1], y)) if largo else ("%s-%d" % (_MESES[m - 1], y))
+
+
+def base_txt():
+    """(corto, largo) del período base, para que `build.py` resuelva los marcadores {base} y
+    {base_largo} del catálogo. `catalog.py` es un spec estático y no puede leer el CSV del IPC:
+    vive fuera del repo."""
+    return _base_txt(), _base_txt(True)
+
+
+def _con_base(metricas, *claves):
+    """Copia de `metricas` con el período base escrito en la etiqueta de las métricas indicadas.
+
+    La base sale del dato, así que la etiqueta no puede ser un literal. Se resuelve acá y no a nivel
+    de módulo porque `ipc_noa_mensual.csv` vive fuera del repo: leerlo al importar rompería a quien
+    importa `adapters` sólo por las constantes geográficas (ver `indicadores.py`).
+    """
+    txt = _base_txt()
+    out = dict(metricas)
+    for k in claves:
+        out[k] = dict(out[k], label=out[k]["label"].replace(
+            "pesos constantes", "pesos constantes de " + txt))
+    return out
 
 
 def _xlsx_rows(path, sheet=None, header_row=0):
@@ -287,8 +346,12 @@ _RUBRO_LABEL = {
 }
 
 
+@functools.lru_cache(maxsize=1)
 def _ipc_noa_map():
-    """Serie IPC Nivel General región NOA (base dic-2016=100). Clave: periodo AAAAMM (int)."""
+    """Serie IPC Nivel General región NOA (base dic-2016=100). Clave: periodo AAAAMM (int).
+
+    Cacheada: además de ahorrar cinco lecturas del CSV, hace que la base de los pesos constantes
+    sea LA MISMA para todos los tableros aunque el archivo cambie durante la corrida."""
     df = pd.read_csv(_src("ipc_noa_mensual.csv"), encoding="utf-8")
     ym = df["indice_tiempo"].astype(str).str.slice(0, 7).str.replace("-", "", regex=False).astype(int)
     return dict(zip(ym, pd.to_numeric(df["ipc_ng_noa"], errors="coerce")))
@@ -636,7 +699,6 @@ GOB_METRICAS = {
     "gasto_corr": {"label": "Gasto (pesos corrientes)",  "unidad": "pesos", "agg": "sum"},
     "gasto_real": {"label": "Gasto (pesos constantes)",  "unidad": "pesos", "agg": "sum"},
 }
-_GOB_BASE_Y = 2025  # los reales se expresan en pesos del último año ejecutado
 _GOB_PERSONAL = "Gastos en personal"
 # Etiquetas legibles por código de objeto (el concepto del PDF viene en mayúsculas y a veces truncado).
 _OBJ_LABELS = {
@@ -648,7 +710,7 @@ _OBJ_LABELS = {
 
 def gobierno():
     ipc = _ipc_anual()
-    base = ipc[_GOB_BASE_Y]
+    _, base = _ipc_base()   # pesos del último mes publicado del IPC
 
     def real(v, y):
         return v * base / ipc[y] if ipc.get(y) else None
@@ -718,12 +780,13 @@ def gobierno():
             "nivel": ["principal", "total", "finalidad", "tipo"],
             "partida": sorted({r[3] for r in rows}),
         },
-        "metricas": GOB_METRICAS,
+        "metricas": _con_base(GOB_METRICAS, "gasto_real"),
         "notas": [
             "gobierno: ejecución del gasto provincial (consolidado Adm. Central + Organismos "
             "Descentralizados), acumulada a diciembre; fuente presupuesto.salta.gob.ar.",
-            "gobierno: 'objeto' usa los compromisos ejecutados; los pesos constantes se deflactan "
-            "por el IPC NOA (promedio anual), base 2025.",
+            "gobierno: 'objeto' usa los compromisos ejecutados; el gasto es un flujo ANUAL, así que "
+            "se deflacta por el IPC NOA promedio del año y se expresa en pesos de %s (la base es el "
+            "último mes publicado del IPC y se mueve con él)." % _base_txt(True),
         ],
     }
 
@@ -892,15 +955,19 @@ FIN_METRICAS = {
     "monto_real": {"label": "Monto (pesos constantes)", "unidad": "pesos", "agg": "sum"},
     "pda_10m":    {"label": "Puntos de acceso (cada 10.000 adultos)", "unidad": "PDA/10k", "agg": "mean"},
 }
-_FIN_BASE_Y = 2025
 
 
 def financiero():
-    ipc = _ipc_anual()
-    base = ipc[_FIN_BASE_Y]
+    ipcm = _ipc_noa_map()
+    _, base = _ipc_base()
 
-    def real(v, y):
-        return v * base / ipc[y] if ipc.get(y) else None
+    def real_trim(v, anio, trim):
+        """Préstamos y depósitos son un STOCK medido a fin de trimestre, así que les corresponde el
+        nivel de precios de ESE momento (T1 -> marzo, T2 -> junio...) y no el promedio del año: con
+        inflación de tres dígitos el promedio anual sobrestima el T1 y subestima el T4 (en 2024,
+        +18,7 % y -17,5 %)."""
+        ipc = ipcm.get(int(anio) * 100 + int(trim) * 3)
+        return v * base / ipc if ipc and pd.notna(ipc) else float("nan")
 
     dp = pd.read_csv(_drv("BCRA_dep_pres_localidad_Salta.csv"), encoding="utf-8-sig")
     dp = dp[dp["moneda"] == "total"].copy()
@@ -917,26 +984,29 @@ def financiero():
     OPS = [("Préstamos", "prestamos_sector_privado"), ("Depósitos", "depositos_sector_privado")]
     sub = dp[dp["nivel"].isin(["departamento", "provincia"])].copy()
     sub["geo"] = sub.apply(geo, axis=1)
+    def _media_completa(x):
+        # Si a algún trimestre le falta el IPC, el año no tiene promedio real: promediar los que
+        # están daría un "anual" que en realidad son tres trimestres.
+        return x.mean() if x.notna().all() else float("nan")
+
     for op, col in OPS:
-        # Trimestral (nivel de stock a fin de trimestre)
-        g = sub.groupby(["geo", "anio", "trim_lbl"], as_index=False)[col].sum()
+        g = sub.groupby(["geo", "anio", "trimestre", "trim_lbl"], as_index=False)[col].sum()
+        g["corr"] = g[col] * 1000.0                                  # miles de $ -> $
+        g["real"] = [real_trim(v, a, t) for v, a, t in zip(g["corr"], g["anio"], g["trimestre"])]
         for r in g.itertuples(index=False):
-            d = r._asdict()
-            v = float(d[col]) * 1000.0; y = int(d["anio"])   # miles de $ -> $
-            rows.append(["trimestral", y, d["trim_lbl"], d["geo"], op, "monto_corr", round(v, 1)])
-            rr = real(v, y)
-            if rr is not None:
-                rows.append(["trimestral", y, d["trim_lbl"], d["geo"], op, "monto_real", round(rr, 1)])
-        # Anual = promedio de los trimestres del año
-        ga = sub.groupby(["geo", "anio", "trim_lbl"], as_index=False)[col].sum() \
-                .groupby(["geo", "anio"], as_index=False)[col].mean()
+            rows.append(["trimestral", int(r.anio), r.trim_lbl, r.geo, op, "monto_corr",
+                         round(float(r.corr), 1)])
+            if pd.notna(r.real):
+                rows.append(["trimestral", int(r.anio), r.trim_lbl, r.geo, op, "monto_real",
+                             round(float(r.real), 1)])
+        # Anual = promedio de los trimestres del año. Los reales se promedian YA DEFLACTADOS: como
+        # cada trimestre lleva su propio deflactor, no hay un índice único que sirva para el año.
+        ga = g.groupby(["geo", "anio"], as_index=False).agg(corr=("corr", "mean"),
+                                                            real=("real", _media_completa))
         for r in ga.itertuples(index=False):
-            d = r._asdict()
-            v = float(d[col]) * 1000.0; y = int(d["anio"])   # miles de $ -> $
-            rows.append(["anual", y, "", d["geo"], op, "monto_corr", round(v, 1)])
-            rr = real(v, y)
-            if rr is not None:
-                rows.append(["anual", y, "", d["geo"], op, "monto_real", round(rr, 1)])
+            rows.append(["anual", int(r.anio), "", r.geo, op, "monto_corr", round(float(r.corr), 1)])
+            if pd.notna(r.real):
+                rows.append(["anual", int(r.anio), "", r.geo, op, "monto_real", round(float(r.real), 1)])
 
     # ---- Inclusión financiera: PDA por 10.000 adultos, por departamento -----
     inc = pd.read_csv(_drv("BCRA_IF_Salta_puntos_acceso_10000_adultos.csv"), encoding="utf-8-sig")
@@ -967,11 +1037,14 @@ def financiero():
             "departamento": deptos,
             "operacion": ["Préstamos", "Depósitos", "PDA"],
         },
-        "metricas": FIN_METRICAS,
+        "metricas": _con_base(FIN_METRICAS, "monto_real"),
         "trims_completos": trimestres,
         "notas": [
             "financiero: préstamos y depósitos al sector privado (BCRA, stock a fin de trimestre, "
-            "miles de $); 'Salta' es el total provincial. Reales deflactados por IPC NOA (base 2025).",
+            "miles de $); 'Salta' es el total provincial. Los reales se deflactan por el IPC NOA del "
+            "ÚLTIMO MES DEL TRIMESTRE, porque el dato es un stock a esa fecha, y quedan en pesos de "
+            "%s; la base es el último mes publicado del IPC y se mueve con él. El dato anual "
+            "promedia los trimestres ya deflactados." % _base_txt(True),
             "financiero: inclusión financiera = puntos de acceso cada 10.000 adultos (promedio anual, "
             "suma de tipos); cobertura desde 2019.",
         ],
@@ -1084,15 +1157,11 @@ RECURSOS_METRICAS = {
     "monto_corr": {"label": "Monto (pesos corrientes)", "unidad": "pesos", "agg": "sum"},
     "monto_real": {"label": "Monto (pesos constantes)", "unidad": "pesos", "agg": "sum"},
 }
-_REC_BASE_Y = 2025
 
 
 def recursos_municipios():
-    ipc = _ipc_anual()
-    base = ipc[_REC_BASE_Y]
-
-    def real(v, y):
-        return v * base / ipc[y] if ipc.get(y) else None
+    ipcm = _ipc_noa_map()
+    _, base = _ipc_base()
 
     df = pd.read_csv(_drv("Salta_recursos_municipios_mensual.csv"), encoding="utf-8-sig")
     df["departamento"] = df["departamento"].map(norm_dept)
@@ -1105,24 +1174,32 @@ def recursos_municipios():
     df["anio"] = df["anio"].astype(int)
     df["trimestre"] = [_trim_label(a, m) for a, m in zip(df["anio"], df["mes"])]
 
+    # Los recursos son un flujo MENSUAL: cada mes se deflacta con SU propio IPC y recién después se
+    # suma a trimestre y año. Deflactar la suma con el promedio anual metía un serrucho dentro de
+    # cada año (con la inflación de 2023, el T1 quedaba un 53 % por encima de su valor real).
+    df["P"] = [ipcm.get(a * 100 + int(m)) for a, m in zip(df["anio"], df["mes"])]
+    # Un mes sin IPC todavía se descarta ENTERO, no sólo de la serie real: si sólo se cayera de los
+    # reales, el trimestre publicaría tres meses en corrientes y dos en constantes bajo la misma
+    # etiqueta. Descartado el mes, `_completos` se encarga de bajar el trimestre incompleto.
+    sin_ipc = sorted({"%d-%02d" % (a, m) for a, m, P in zip(df["anio"], df["mes"], df["P"])
+                      if P is None or pd.isna(P)})
+    df = df[df["P"].notna()].copy()
+    df["real"] = df["monto"] * base / df["P"]
+
     rows = []
 
     def emit(keycols, group):
         # trimestral y anual (suma de meses); corrientes + reales
-        gq = group.groupby(keycols + ["anio", "trimestre"], as_index=False)["monto"].sum()
-        for r in gq.itertuples(index=False):
-            d = r._asdict(); y = int(d["anio"]); v = float(d["monto"])
-            rows.append(["trimestral", y, d["trimestre"], d["departamento"], d["municipio"], d["grupo"], "monto_corr", round(v, 1)])
-            rr = real(v, y)
-            if rr is not None:
-                rows.append(["trimestral", y, d["trimestre"], d["departamento"], d["municipio"], d["grupo"], "monto_real", round(rr, 1)])
-        ga = group.groupby(keycols + ["anio"], as_index=False)["monto"].sum()
-        for r in ga.itertuples(index=False):
-            d = r._asdict(); y = int(d["anio"]); v = float(d["monto"])
-            rows.append(["anual", y, "", d["departamento"], d["municipio"], d["grupo"], "monto_corr", round(v, 1)])
-            rr = real(v, y)
-            if rr is not None:
-                rows.append(["anual", y, "", d["departamento"], d["municipio"], d["grupo"], "monto_real", round(rr, 1)])
+        for grano, extra, trim in (("trimestral", ["anio", "trimestre"], True),
+                                   ("anual", ["anio"], False)):
+            g = group.groupby(keycols + extra, as_index=False).agg(
+                corr=("monto", "sum"), real=("real", "sum"))
+            for r in g.itertuples(index=False):
+                d = r._asdict(); y = int(d["anio"])
+                t = d["trimestre"] if trim else ""
+                for met, v in (("monto_corr", d["corr"]), ("monto_real", d["real"])):
+                    rows.append([grano, y, t, d["departamento"], d["municipio"], d["grupo"],
+                                 met, round(float(v), 1)])
 
     emit(["departamento", "municipio", "grupo"], df)
 
@@ -1145,11 +1222,13 @@ def recursos_municipios():
             "municipio": munis,
             "grupo": grupos,
         },
-        "metricas": RECURSOS_METRICAS,
+        "metricas": _con_base(RECURSOS_METRICAS, "monto_real"),
         "trims_completos": trims_ok_list,
         "notas": [
             "recursos-municipios: transferencias a municipios de Salta (Contaduría Gral.), mensual "
-            "desde 2021, sumadas por trimestre/año. Reales deflactados por IPC NOA (base 2025). "
+            "desde 2021, sumadas por trimestre/año. Cada MES se deflacta con el IPC NOA de ese mes "
+            "antes de sumar, y el resultado queda en pesos de %s; la base es el último mes "
+            "publicado del IPC y se mueve con él. " % _base_txt(True) +
             "Grupos: Coparticipación, Regalías, Canon, Fondo compensador, Otros."],
     }
 
@@ -1311,7 +1390,6 @@ RESFISC_METRICAS = {
     "pct_gprim": {"label": "En % del gasto primario", "unidad": "% del gasto primario",
                   "agg": "mean"},
 }
-_RESFISC_BASE_Y = 2025
 # (etiqueta legible, prefijo de columna en el CSV). XI == VIII en Salta: se usa XI como
 # "Resultado financiero". El primario es cálculo propio (XI + intereses de deuda).
 _RESFISC_CONCEPTOS = [
@@ -1330,7 +1408,7 @@ _RESFISC_PCT = ["Resultado financiero", "Resultado primario"]
 
 def resultado_fiscal():
     ipcm = _ipc_noa_map()
-    base = _ipc_anual()[_RESFISC_BASE_Y]
+    _, base = _ipc_base()
     # thousands="," tolera exportaciones con separador de miles entrecomillado
     # ("12,021,478,627"); en el CSV limpio (decimal con punto) es inocuo.
     df = pd.read_csv(_drv("Resultado_Fiscal_Salta_AIF_mensual_desde_2021.csv"),
@@ -1383,14 +1461,18 @@ def resultado_fiscal():
             "periodo": sorted({r[3] for r in rows}),
             "concepto": [c for c, _ in _RESFISC_CONCEPTOS] + [_RESFISC_GPRIM],
         },
-        "metricas": RESFISC_METRICAS,
+        "metricas": _con_base(RESFISC_METRICAS, "monto_real"),
         "notas": [
             "resultado-fiscal: Esquema Ahorro-Inversión-Financiamiento (ejecución consolidada Adm. "
             "Central + Organismos Descentralizados, devengado), fuente presupuesto.salta.gob.ar. "
             "Resultado financiero = ingresos totales − gastos totales (VIII = XI en Salta).",
             "resultado-fiscal: el resultado primario es un cálculo propio (resultado financiero + "
-            "intereses de la deuda), la fuente no publica una línea primaria. Reales deflactados por "
-            "IPC NOA (base 2025).",
+            "intereses de la deuda), la fuente no publica una línea primaria. Los reales se deflactan "
+            "por el IPC NOA del mes y quedan en pesos de %s; la base es el último mes publicado del "
+            "IPC y se mueve con él." % _base_txt(True),
+            "resultado-fiscal: en la vista ACUMULADA el total enero-mes se deflacta por el índice del "
+            "mes de cierre, no mes a mes. Sirve para comparar el mismo mes entre años, que es para lo "
+            "que está el acumulado, pero no para comparar meses dentro de un año.",
             "resultado-fiscal: `pct_gprim` expresa el resultado financiero y el primario como % del "
             "GASTO PRIMARIO (gastos totales − intereses de la deuda). Es la medida de esfuerzo fiscal "
             "que no depende de la inflación ni del tamaño nominal del presupuesto. Al ser un cociente "
@@ -1411,7 +1493,6 @@ RECAUD_METRICAS = {
     "recaud_corr": {"label": "Recaudación (pesos corrientes)", "unidad": "pesos", "agg": "sum"},
     "recaud_real": {"label": "Recaudación (pesos constantes)", "unidad": "pesos", "agg": "sum"},
 }
-_RECAUD_BASE_Y = 2025
 # Etiqueta legible por letra CIIU (sección de actividad).
 _SECTOR_LABEL = {
     "A": "Agro, ganadería y silvicultura", "B": "Pesca", "C": "Minas y canteras",
@@ -1433,7 +1514,7 @@ def _sector_label(letra):
 
 def recaudacion():
     ipcm = _ipc_noa_map()
-    base = _ipc_anual()[_RECAUD_BASE_Y]
+    _, base = _ipc_base()
     df = pd.read_csv(_drv("Recaudacion_AAEE_ConvenioMultilateral_Salta_por_letra_desde_2021.csv"),
                      encoding="utf-8-sig", thousands=",")
     df["anio"] = pd.to_numeric(df["anio"], errors="coerce").astype("Int64")
@@ -1445,6 +1526,10 @@ def recaudacion():
     df["sector"] = df["letra"].map(_sector_label)
     df["trimestre"] = [_trim_label(a, m) for a, m in zip(df["anio"], df["mes"])]
     df["ipc"] = (df["anio"] * 100 + df["mes"]).map(ipcm)
+    # Un mes sin IPC se descarta ENTERO, no sólo de la serie real: los agregados usan .sum(), que
+    # saltea los NaN, así que el trimestre habría publicado tres meses en corrientes y dos en
+    # constantes bajo la misma etiqueta. Descartado el mes, `_completos` baja el trimestre.
+    df = df[df["ipc"].notna()].copy()
     df["real"] = df["recaudacion_ars"] * base / df["ipc"]
 
     rows = []
@@ -1481,13 +1566,14 @@ def recaudacion():
             "periodo": sorted({r[4] for r in rows if r[4]}),
             "sector": [s for s in sectores if s in {r[5] for r in rows}],
         },
-        "metricas": RECAUD_METRICAS,
+        "metricas": _con_base(RECAUD_METRICAS, "recaud_real"),
         "notas": [
             "recaudacion: Impuesto a las Actividades Económicas (Ingresos Brutos), régimen CONVENIO "
             "MULTILATERAL únicamente (no incluye contribuyentes locales/directos); por sector de "
             "actividad (CIIU). Fuente: DGR / Ministerio de Economía de Salta.",
-            "recaudacion: mensual desde 2021, sumada por trimestre/año; reales deflactados por IPC "
-            "NOA (base 2025). No se emite el último período incompleto.",
+            "recaudacion: mensual desde 2021, sumada por trimestre/año; cada mes se deflacta con el "
+            "IPC NOA de ese mes y queda en pesos de %s (la base es el último mes publicado del IPC y "
+            "se mueve con él). No se emite el último período incompleto." % _base_txt(True),
         ],
     }
 

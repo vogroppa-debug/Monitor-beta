@@ -59,6 +59,10 @@ Spec de KPI (el front muestra la VARIACIÓN INTERANUAL, no el valor absoluto):
        maestra los formatea sola y necesita operar con ellos para calcular la brecha a 2050
        (= meta_2050 − último dato observado). Van en la MISMA unidad que la métrica.
        Vacías hasta que el PDES las defina; entonces la brecha aparece sola.
+       CUIDADO con las métricas en PESOS CONSTANTES (`gasto_real`, `monto_real`, `recaud_real`):
+       la base se mueve con el IPC, así que una meta cargada hoy en pesos de un mes quedaría
+       desfasada en el próximo build. Para esas métricas, la meta hay que expresarla en términos
+       reales relativos (variación, % del gasto) o rebasarla junto con la serie.
   cmp: 'quarter' -> último trimestre completo vs mismo trimestre del año anterior
        (por defecto, año vs año). (`agg` de la métrica sale de metricas[...]: 'sum'|'mean')
 """
@@ -572,7 +576,7 @@ TEMAS = [
         "resumen": (
             "Ejecución del gasto público de la Provincia de Salta: composición por objeto del gasto "
             "(personal, bienes, servicios, transferencias, deuda), por finalidad y función, y las "
-            "transferencias corrientes y de capital, en pesos corrientes y constantes, 2021–2025."
+            "transferencias corrientes y de capital, en pesos corrientes y constantes de {base_largo}, 2021–2025."
         ),
         "resumen_corto": "Ejecución del gasto provincial por objeto, finalidad y transferencias.",
         "fuente": "Ejecución presupuestaria — Ministerio de Economía de Salta",
@@ -585,10 +589,10 @@ TEMAS = [
         ],
         "tags": ["inversion-financiamiento"],
         "kpis": [
-            {"label": "Gasto ejecutado total (constante)", "metrica": "gasto_real",
+            {"label": "Gasto ejecutado total (constante, {base})", "metrica": "gasto_real",
              "fixed": {"clasificador": "objeto", "nivel": "total"}, "year": "latest",
              "unidad": "pesos", "format": "int"},
-            {"label": "Gasto en personal (constante)", "metrica": "gasto_real",
+            {"label": "Gasto en personal (constante, {base})", "metrica": "gasto_real",
              "fixed": {"clasificador": "objeto", "partida": "Gastos en personal"}, "year": "latest",
              "unidad": "pesos", "format": "int"},
         ],
@@ -601,7 +605,7 @@ TEMAS = [
              "controls": [
                  {"kind": "mode", "label": "Valores", "default": "real", "options": [
                      {"value": "corriente", "label": "Corrientes", "metric": "gasto_corr"},
-                     {"value": "real", "label": "Constantes", "metric": "gasto_real"},
+                     {"value": "real", "label": "Constantes ({base})", "metric": "gasto_real"},
                      {"value": "pct", "label": "% del total", "metric": "gasto_corr", "percent": True, "unidad": "%"}]},
              ],
              "unidad": "pesos"},
@@ -614,7 +618,7 @@ TEMAS = [
                  {"dim": "anio", "label": "Año", "kind": "year"},
                  {"kind": "mode", "label": "Valores", "default": "real", "options": [
                      {"value": "corriente", "label": "Corrientes", "metric": "gasto_corr"},
-                     {"value": "real", "label": "Constantes", "metric": "gasto_real"}]},
+                     {"value": "real", "label": "Constantes ({base})", "metric": "gasto_real"}]},
              ],
              "sort": "desc", "unidad": "pesos"},
             {"id": "gob-transferencias", "type": "stacked-bar",
@@ -625,7 +629,7 @@ TEMAS = [
              "controls": [
                  {"kind": "mode", "label": "Valores", "default": "real", "options": [
                      {"value": "corriente", "label": "Corrientes", "metric": "gasto_corr"},
-                     {"value": "real", "label": "Constantes", "metric": "gasto_real"},
+                     {"value": "real", "label": "Constantes ({base})", "metric": "gasto_real"},
                      {"value": "pct", "label": "% del total", "metric": "gasto_corr", "percent": True, "unidad": "%"}]},
              ],
              "unidad": "pesos"},
@@ -641,7 +645,7 @@ TEMAS = [
             "Resultado fiscal de la Provincia de Salta según el Esquema Ahorro-Inversión-"
             "Financiamiento: ingresos totales, gastos totales y el resultado financiero "
             "(superávit o déficit devengado), con el resultado primario (antes de intereses de la "
-            "deuda), mensual desde 2021, en pesos corrientes y constantes."
+            "deuda), mensual desde 2021, en pesos corrientes y constantes de {base_largo}."
         ),
         "resumen_corto": "Ingresos, gastos y resultado financiero de la provincia, mensual.",
         "fuente": "Esquema Ahorro-Inversión-Financiamiento — Presupuesto de la Provincia de Salta",
@@ -655,10 +659,10 @@ TEMAS = [
         ],
         "tags": ["inversion-financiamiento"],
         "kpis": [
-            {"label": "Ingresos totales (constante)", "metrica": "monto_real",
+            {"label": "Ingresos totales (constante, {base})", "metrica": "monto_real",
              "fixed": {"grano": "acumulado", "concepto": "Ingresos totales"}, "year": "latest",
              "unidad": "pesos", "format": "int"},
-            {"label": "Gastos totales (constante)", "metrica": "monto_real",
+            {"label": "Gastos totales (constante, {base})", "metrica": "monto_real",
              "fixed": {"grano": "acumulado", "concepto": "Gastos totales"}, "year": "latest",
              "unidad": "pesos", "format": "int"},
             {"label": "Resultado financiero (% del gasto primario)",
@@ -688,7 +692,7 @@ TEMAS = [
                      {"value": "mensual", "label": "Mensual", "x": "periodo", "grano": "mensual"}]},
                  {"kind": "mode", "label": "Valores", "default": "real", "options": [
                      {"value": "corriente", "label": "Corrientes", "metric": "monto_corr"},
-                     {"value": "real", "label": "Constantes", "metric": "monto_real"}]},
+                     {"value": "real", "label": "Constantes ({base})", "metric": "monto_real"}]},
              ],
              "unidad": "pesos"},
             {"id": "fisc-resultado-pct", "type": "line",
@@ -719,7 +723,7 @@ TEMAS = [
                      {"value": "mensual", "label": "Mensual", "x": "periodo", "grano": "mensual"}]},
                  {"kind": "mode", "label": "Valores", "default": "real", "options": [
                      {"value": "corriente", "label": "Corrientes", "metric": "monto_corr"},
-                     {"value": "real", "label": "Constantes", "metric": "monto_real"}]},
+                     {"value": "real", "label": "Constantes ({base})", "metric": "monto_real"}]},
              ],
              "unidad": "pesos"},
             {"id": "fisc-primario", "type": "line",
@@ -736,7 +740,7 @@ TEMAS = [
                      {"value": "mensual", "label": "Mensual", "x": "periodo", "grano": "mensual"}]},
                  {"kind": "mode", "label": "Valores", "default": "real", "options": [
                      {"value": "corriente", "label": "Corrientes", "metric": "monto_corr"},
-                     {"value": "real", "label": "Constantes", "metric": "monto_real"}]},
+                     {"value": "real", "label": "Constantes ({base})", "metric": "monto_real"}]},
              ],
              "unidad": "pesos"},
         ],
@@ -750,7 +754,7 @@ TEMAS = [
         "resumen": (
             "Recaudación del Impuesto a las Actividades Económicas (Ingresos Brutos) de Salta bajo "
             "el régimen de Convenio Multilateral, abierta por sector de actividad, mensual desde "
-            "2021, en pesos corrientes y constantes. No incluye a los contribuyentes locales."
+            "2021, en pesos corrientes y constantes de {base_largo}. No incluye a los contribuyentes locales."
         ),
         "resumen_corto": "Ingresos Brutos (Convenio Multilateral) por sector de actividad.",
         "fuente": "Dirección General de Rentas — Ministerio de Economía de Salta",
@@ -764,9 +768,9 @@ TEMAS = [
         ],
         "tags": ["inversion-financiamiento", "actividad-productividad"],
         "kpis": [
-            {"label": "Recaudación de Ingresos Brutos (constante)", "metrica": "recaud_real",
+            {"label": "Recaudación de Ingresos Brutos (constante, {base})", "metrica": "recaud_real",
              "fixed": {}, "year": "latest", "unidad": "pesos", "format": "int"},
-            {"label": "Industria manufacturera (constante)", "ciiu": "C",
+            {"label": "Industria manufacturera (constante, {base})", "ciiu": "C",
              "tabla_label": "Recaudación de la industria manufacturera", "metrica": "recaud_real",
              "fixed": {"sector": "Industria manufacturera"}, "year": "latest",
              "unidad": "pesos", "format": "int"},
@@ -784,7 +788,7 @@ TEMAS = [
                      {"value": "anual", "label": "Anual", "x": "anio", "grano": "anual"}]},
                  {"kind": "mode", "label": "Valores", "default": "real", "options": [
                      {"value": "corriente", "label": "Corrientes", "metric": "recaud_corr"},
-                     {"value": "real", "label": "Constantes", "metric": "recaud_real"}]},
+                     {"value": "real", "label": "Constantes ({base})", "metric": "recaud_real"}]},
              ],
              "unidad": "pesos"},
             {"id": "rec-sector", "type": "stacked-area",
@@ -797,7 +801,7 @@ TEMAS = [
                      {"value": "anual", "label": "Anual", "x": "anio", "grano": "anual"}]},
                  {"kind": "mode", "label": "Valores", "default": "real", "options": [
                      {"value": "corriente", "label": "Corrientes", "metric": "recaud_corr"},
-                     {"value": "real", "label": "Constantes", "metric": "recaud_real"},
+                     {"value": "real", "label": "Constantes ({base})", "metric": "recaud_real"},
                      {"value": "pct", "label": "% del total", "metric": "recaud_corr", "percent": True, "unidad": "%"}]},
              ],
              "unidad": "pesos"},
@@ -809,7 +813,7 @@ TEMAS = [
                  {"dim": "anio", "label": "Año", "kind": "year"},
                  {"kind": "mode", "label": "Valores", "default": "real", "options": [
                      {"value": "corriente", "label": "Corrientes", "metric": "recaud_corr"},
-                     {"value": "real", "label": "Constantes", "metric": "recaud_real"}]},
+                     {"value": "real", "label": "Constantes ({base})", "metric": "recaud_real"}]},
              ],
              "sort": "desc", "unidad": "pesos"},
         ],
@@ -949,7 +953,7 @@ TEMAS = [
         "title": "Crédito y depósitos (BCRA)",
         "resumen": (
             "Préstamos y depósitos del sector privado en Salta según el BCRA, por departamento, en "
-            "pesos corrientes y constantes; y la inclusión financiera medida por los puntos de acceso "
+            "pesos corrientes y constantes de {base_largo}; y la inclusión financiera medida por los puntos de acceso "
             "cada 10.000 adultos, desde 2019."
         ),
         "resumen_corto": "Préstamos, depósitos e inclusión financiera, por departamento.",
@@ -963,10 +967,10 @@ TEMAS = [
         ],
         "tags": ["inversion-financiamiento"],
         "kpis": [
-            {"label": "Préstamos al sector privado (constante)", "metrica": "monto_real",
+            {"label": "Préstamos al sector privado (constante, {base})", "metrica": "monto_real",
              "fixed": {"grano": "anual", "departamento": "Salta", "operacion": "Préstamos"},
              "year": "latest_complete", "unidad": "pesos", "format": "int"},
-            {"label": "Depósitos del sector privado (constante)", "metrica": "monto_real",
+            {"label": "Depósitos del sector privado (constante, {base})", "metrica": "monto_real",
              "fixed": {"grano": "anual", "departamento": "Salta", "operacion": "Depósitos"},
              "year": "latest_complete", "unidad": "pesos", "format": "int"},
         ],
@@ -982,7 +986,7 @@ TEMAS = [
                   "all": True, "allValue": "Salta", "allLabel": "Salta (provincia)"},
                  {"kind": "mode", "label": "Valores", "default": "real", "options": [
                      {"value": "corriente", "label": "Corrientes", "metric": "monto_corr"},
-                     {"value": "real", "label": "Constantes", "metric": "monto_real"}]},
+                     {"value": "real", "label": "Constantes ({base})", "metric": "monto_real"}]},
                  {"kind": "freq", "label": "Frecuencia", "default": "trimestral", "options": [
                      {"value": "trimestral", "label": "Trimestral", "x": "trimestre", "grano": "trimestral"},
                      {"value": "anual", "label": "Anual", "x": "anio", "grano": "anual"}]},
@@ -997,7 +1001,7 @@ TEMAS = [
                  {"dim": "anio", "label": "Año", "kind": "year"},
                  {"kind": "mode", "label": "Valores", "default": "real", "options": [
                      {"value": "corriente", "label": "Corrientes", "metric": "monto_corr"},
-                     {"value": "real", "label": "Constantes", "metric": "monto_real"}]},
+                     {"value": "real", "label": "Constantes ({base})", "metric": "monto_real"}]},
              ],
              "sort": "desc", "unidad": "pesos"},
             {"id": "fin-inclusion", "type": "barh",
@@ -1096,7 +1100,7 @@ TEMAS = [
         "resumen": (
             "Transferencias que reciben los municipios de Salta de la Provincia y la Nación "
             "(coparticipación, regalías, canon minero, fondo compensador y otros), por municipio y "
-            "departamento, en pesos corrientes y constantes, mensual desde 2021."
+            "departamento, en pesos corrientes y constantes de {base_largo}, mensual desde 2021."
         ),
         "resumen_corto": "Coparticipación, regalías y otros recursos de los municipios.",
         "fuente": "Contaduría General de la Provincia de Salta",
@@ -1109,9 +1113,9 @@ TEMAS = [
         ],
         "tags": ["inversion-financiamiento"],
         "kpis": [
-            {"label": "Recursos a municipios (constante)", "metrica": "monto_real",
+            {"label": "Recursos a municipios (constante, {base})", "metrica": "monto_real",
              "fixed": {"grano": "anual"}, "year": "latest_complete", "unidad": "pesos", "format": "int"},
-            {"label": "Coparticipación (constante)", "tabla_label": "Coparticipación a municipios",
+            {"label": "Coparticipación (constante, {base})", "tabla_label": "Coparticipación a municipios",
              "metrica": "monto_real",
              "fixed": {"grano": "anual", "grupo": "Coparticipación"}, "year": "latest_complete",
              "unidad": "pesos", "format": "int"},
@@ -1126,7 +1130,7 @@ TEMAS = [
                  {"dim": "departamento", "label": "Departamento", "kind": "select", "all": True},
                  {"kind": "mode", "label": "Valores", "default": "real", "options": [
                      {"value": "corriente", "label": "Corrientes", "metric": "monto_corr"},
-                     {"value": "real", "label": "Constantes", "metric": "monto_real"},
+                     {"value": "real", "label": "Constantes ({base})", "metric": "monto_real"},
                      {"value": "pct", "label": "% del total", "metric": "monto_corr", "percent": True, "unidad": "%"}]},
                  {"kind": "freq", "label": "Frecuencia", "default": "trimestral", "options": [
                      {"value": "trimestral", "label": "Trimestral", "x": "trimestre", "grano": "trimestral"},
@@ -1142,7 +1146,7 @@ TEMAS = [
                  {"dim": "anio", "label": "Año", "kind": "year"},
                  {"kind": "mode", "label": "Valores", "default": "real", "options": [
                      {"value": "corriente", "label": "Corrientes", "metric": "monto_corr"},
-                     {"value": "real", "label": "Constantes", "metric": "monto_real"}]},
+                     {"value": "real", "label": "Constantes ({base})", "metric": "monto_real"}]},
              ],
              "sort": "desc", "unidad": "pesos"},
             {"id": "rec-departamento", "type": "barh",
@@ -1154,7 +1158,7 @@ TEMAS = [
                  {"dim": "anio", "label": "Año", "kind": "year"},
                  {"kind": "mode", "label": "Valores", "default": "real", "options": [
                      {"value": "corriente", "label": "Corrientes", "metric": "monto_corr"},
-                     {"value": "real", "label": "Constantes", "metric": "monto_real"}]},
+                     {"value": "real", "label": "Constantes ({base})", "metric": "monto_real"}]},
              ],
              "sort": "desc", "unidad": "pesos"},
         ],
@@ -1297,7 +1301,7 @@ TEMAS = [
         ],
         "tags": ["innovacion-mercados"],
         "kpis": [
-            {"label": "Inversión en I+D (constante)", "metrica": "inv_id_real",
+            {"label": "Inversión en I+D (constante, 2017)", "metrica": "inv_id_real",
              "fixed": {}, "year": "latest", "unidad": "millones de $", "format": "int"},
             {"label": "Investigadores/as y becarios/as", "metrica": "personal_id",
              "fixed": {"funcion": "Investigadores y becarios"}, "year": "latest",

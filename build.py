@@ -56,6 +56,47 @@ def qc_saltos(fields, rows):
     return incidencias
 
 
+def qc_corr_real(fields, rows):
+    """Períodos que publican el valor corriente pero no el constante.
+
+    Pasa cuando un período tiene dato pero el IPC todavía no llegó a ese mes. La serie nominal se
+    publica igual, así que el gráfico en modo Constantes queda más corto que en Corrientes sin
+    decir por qué, y el selector de año de los gráficos que tienen la métrica real como base
+    (`_years_for_metric`) pierde ese año en AMBOS modos. Es raro —el IPC suele ir por delante del
+    dato— pero desde que la base sale del propio CSV del IPC, ese archivo tiene su propio ritmo de
+    actualización y el desfase deja de ser hipotético."""
+    mi, vi = fields.index("metrica"), fields.index("valor")
+    otros = [i for i in range(len(fields)) if i not in (mi, vi)]
+    pares = {}
+    for m in {r[mi] for r in rows}:
+        if m.endswith("_corr") and m[:-5] + "_real" in {r[mi] for r in rows}:
+            pares[m] = m[:-5] + "_real"
+    incidencias = []
+    for corr, real in sorted(pares.items()):
+        claves = {tuple(r[i] for i in otros) for r in rows if r[mi] == corr}
+        claves -= {tuple(r[i] for i in otros) for r in rows if r[mi] == real}
+        if claves:
+            incidencias.append(f"{corr} tiene {len(claves)} período(s) sin su par {real} "
+                               f"(el IPC no llega a ese período); en modo Constantes no se dibujan.")
+    return incidencias
+
+
+def stamp_base(obj, corto, largo):
+    """Resuelve los marcadores {base} / {base_largo} del catálogo con el período base real.
+
+    El catálogo es un spec estático que no puede leer el CSV del IPC (vive fuera del repo), así que
+    escribe el marcador y la base se resuelve acá, en un único lugar. Se usa `replace` y no
+    `format`: los textos del catálogo tienen llaves y porcentajes que `format` rompería. El
+    marcador largo va primero, o `{base}` se comería su prefijo."""
+    if isinstance(obj, str):
+        return obj.replace("{base_largo}", largo).replace("{base}", corto)
+    if isinstance(obj, list):
+        return [stamp_base(v, corto, largo) for v in obj]
+    if isinstance(obj, dict):
+        return {k: stamp_base(v, corto, largo) for k, v in obj.items()}
+    return obj
+
+
 def anio_latest(dims):
     return max(dims["anio"])
 
@@ -187,6 +228,7 @@ def construir_tema(tmeta):
     trims_completos = data.get("trims_completos", [])
     notas = list(data.get("notas", []))
     notas += qc_saltos(fields, rows)
+    notas += qc_corr_real(fields, rows)
 
     a_latest = anio_latest(dims)
     a_complete = anio_latest_complete(fields, rows) or a_latest
@@ -232,6 +274,11 @@ def construir_tema(tmeta):
         "fields": fields, "rows": rows,
         "kpis": kpis, "charts": charts,
     }
+    # Un solo punto de resolución: alcanza etiquetas de métrica, botones Corrientes/Constantes,
+    # etiquetas de KPI (que la portada reusa en la tabla maestra), descripciones y resúmenes.
+    corto, largo = adapters.base_txt()
+    payload = stamp_base(payload, corto, largo)
+    notas = [stamp_base(n, corto, largo) for n in notas]
     return payload, notas
 
 
@@ -392,6 +439,11 @@ def escribir_build_notes(todas_notas, resumen_build):
         "- `ipc_noa_mensual.csv` — IPC Nivel General región NOA (INDEC), vía "
         "`https://apis.datos.gob.ar/series/api/series?ids=145.3_INGNOANOA_DICI_M_10&format=csv`. "
         "Refrescar volviendo a descargar ese CSV.",
+        "- **Base de los pesos constantes: %s** (último mes publicado de ese CSV). No es un año "
+        "fijo: se recalcula en cada build, es la misma para todos los tableros y se mueve sola "
+        "cuando se actualiza el IPC. Las variaciones porcentuales no dependen de la base; los "
+        "niveles en pesos, sí. El índice de salario real (base dic-2023 = 100) y la inversión en "
+        "I+D (pesos de 2017, ya deflactada por la fuente) NO usan esta base." % adapters.base_txt()[1],
         "",
         "## Incidencias detectadas",
     ]

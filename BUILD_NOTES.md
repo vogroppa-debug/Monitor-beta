@@ -13,6 +13,7 @@ Los CSV de origen (`Actualizar_*` / scripts) ya están en **formato inglés** (d
 
 ## Fuentes externas materializadas
 - `ipc_noa_mensual.csv` — IPC Nivel General región NOA (INDEC), vía `https://apis.datos.gob.ar/series/api/series?ids=145.3_INGNOANOA_DICI_M_10&format=csv`. Refrescar volviendo a descargar ese CSV.
+- **Base de los pesos constantes: julio de 2026** (último mes publicado de ese CSV). No es un año fijo: se recalcula en cada build, es la misma para todos los tableros y se mueve sola cuando se actualiza el IPC. Las variaciones porcentuales no dependen de la base; los niveles en pesos, sí. El índice de salario real (base dic-2023 = 100) y la inversión en I+D (pesos de 2017, ya deflactada por la fuente) NO usan esta base.
 
 ## Incidencias detectadas
 ### produccion-energia
@@ -33,20 +34,21 @@ Los CSV de origen (`Actualizar_*` / scripts) ya están en **formato inglés** (d
 - agricultura: 'Salta' es el total provincial (suma de departamentos); el rendimiento provincial se calcula como producción/superficie cosechada, no como promedio simple.
 ### gobierno
 - gobierno: ejecución del gasto provincial (consolidado Adm. Central + Organismos Descentralizados), acumulada a diciembre; fuente presupuesto.salta.gob.ar.
-- gobierno: 'objeto' usa los compromisos ejecutados; los pesos constantes se deflactan por el IPC NOA (promedio anual), base 2025.
+- gobierno: 'objeto' usa los compromisos ejecutados; el gasto es un flujo ANUAL, así que se deflacta por el IPC NOA promedio del año y se expresa en pesos de julio de 2026 (la base es el último mes publicado del IPC y se mueve con él).
 - gasto_corr: 4 valor(es) a >1000× de la mediana (mediana=5.62828e+10); revisar posible artefacto de parseo.
-- gasto_real: 4 valor(es) a >1000× de la mediana (mediana=2.20233e+11); revisar posible artefacto de parseo.
+- gasto_real: 4 valor(es) a >1000× de la mediana (mediana=2.96965e+11); revisar posible artefacto de parseo.
 ### resultado-fiscal
 - resultado-fiscal: Esquema Ahorro-Inversión-Financiamiento (ejecución consolidada Adm. Central + Organismos Descentralizados, devengado), fuente presupuesto.salta.gob.ar. Resultado financiero = ingresos totales − gastos totales (VIII = XI en Salta).
-- resultado-fiscal: el resultado primario es un cálculo propio (resultado financiero + intereses de la deuda), la fuente no publica una línea primaria. Reales deflactados por IPC NOA (base 2025).
+- resultado-fiscal: el resultado primario es un cálculo propio (resultado financiero + intereses de la deuda), la fuente no publica una línea primaria. Los reales se deflactan por el IPC NOA del mes y quedan en pesos de julio de 2026; la base es el último mes publicado del IPC y se mueve con él.
+- resultado-fiscal: en la vista ACUMULADA el total enero-mes se deflacta por el índice del mes de cierre, no mes a mes. Sirve para comparar el mismo mes entre años, que es para lo que está el acumulado, pero no para comparar meses dentro de un año.
 - resultado-fiscal: `pct_gprim` expresa el resultado financiero y el primario como % del GASTO PRIMARIO (gastos totales − intereses de la deuda). Es la medida de esfuerzo fiscal que no depende de la inflación ni del tamaño nominal del presupuesto. Al ser un cociente entre dos flujos del mismo período da idéntico en pesos corrientes y constantes, así que no se duplica por moneda. En el acumulado los meses NO son comparables entre sí (enero arranca alto y el ratio baja al avanzar el año): la comparación válida es contra el mismo mes del año anterior.
 - resultado-fiscal: el informe de diciembre es el cierre anual y reexpresa el resultado del año (el flujo mensual de diciembre incorpora ajustes de cierre); 2024-12 no fue publicado.
-- monto_real: 2 valor(es) a >1000× de la mediana (mediana=2.33116e+11); revisar posible artefacto de parseo.
+- monto_real: 2 valor(es) a >1000× de la mediana (mediana=3.14336e+11); revisar posible artefacto de parseo.
 ### recaudacion
 - recaudacion: Impuesto a las Actividades Económicas (Ingresos Brutos), régimen CONVENIO MULTILATERAL únicamente (no incluye contribuyentes locales/directos); por sector de actividad (CIIU). Fuente: DGR / Ministerio de Economía de Salta.
-- recaudacion: mensual desde 2021, sumada por trimestre/año; reales deflactados por IPC NOA (base 2025). No se emite el último período incompleto.
+- recaudacion: mensual desde 2021, sumada por trimestre/año; cada mes se deflacta con el IPC NOA de ese mes y queda en pesos de julio de 2026 (la base es el último mes publicado del IPC y se mueve con él). No se emite el último período incompleto.
 - recaud_corr: 60 valor(es) a >1000× de la mediana (mediana=2.50491e+08); revisar posible artefacto de parseo.
-- recaud_real: 55 valor(es) a >1000× de la mediana (mediana=8.42204e+08); revisar posible artefacto de parseo.
+- recaud_real: 55 valor(es) a >1000× de la mediana (mediana=1.13564e+09); revisar posible artefacto de parseo.
 ### ganaderia
 - ganaderia: existencias bovinas al 31/12 de cada año (MAGyP), 2012–2025; 'Salta' es el total provincial (suma de departamentos).
 - stock_bovino: 30 valor(es) a >1000× de la mediana (mediana=1993); revisar posible artefacto de parseo.
@@ -55,14 +57,14 @@ Los CSV de origen (`Actualizar_*` / scripts) ya están en **formato inglés** (d
 - recaud_ars: 26 valor(es) a >1000× de la mediana (mediana=297); revisar posible artefacto de parseo.
 - recaud_usd: 17 valor(es) a >1000× de la mediana (mediana=2.909); revisar posible artefacto de parseo.
 ### financiero
-- financiero: préstamos y depósitos al sector privado (BCRA, stock a fin de trimestre, miles de $); 'Salta' es el total provincial. Reales deflactados por IPC NOA (base 2025).
+- financiero: préstamos y depósitos al sector privado (BCRA, stock a fin de trimestre, miles de $); 'Salta' es el total provincial. Los reales se deflactan por el IPC NOA del ÚLTIMO MES DEL TRIMESTRE, porque el dato es un stock a esa fecha, y quedan en pesos de julio de 2026; la base es el último mes publicado del IPC y se mueve con él. El dato anual promedia los trimestres ya deflactados.
 - financiero: inclusión financiera = puntos de acceso cada 10.000 adultos (promedio anual, suma de tipos); cobertura desde 2019.
 ### construccion
 - construccion: permisos de edificación privada informados a INDEC por 5 municipios de Salta (mensual); los flujos se SUMAN por trimestre/año. La superficie es intención de construir, no obra ejecutada; 'Salta' suma los municipios.
 ### recursos-municipios
-- recursos-municipios: transferencias a municipios de Salta (Contaduría Gral.), mensual desde 2021, sumadas por trimestre/año. Reales deflactados por IPC NOA (base 2025). Grupos: Coparticipación, Regalías, Canon, Fondo compensador, Otros.
+- recursos-municipios: transferencias a municipios de Salta (Contaduría Gral.), mensual desde 2021, sumadas por trimestre/año. Cada MES se deflacta con el IPC NOA de ese mes antes de sumar, y el resultado queda en pesos de julio de 2026; la base es el último mes publicado del IPC y se mueve con él. Grupos: Coparticipación, Regalías, Canon, Fondo compensador, Otros.
 - monto_corr: 276 valor(es) a >1000× de la mediana (mediana=1.86279e+07); revisar posible artefacto de parseo.
-- monto_real: 243 valor(es) a >1000× de la mediana (mediana=7.55189e+07); revisar posible artefacto de parseo.
+- monto_real: 245 valor(es) a >1000× de la mediana (mediana=1.03027e+08); revisar posible artefacto de parseo.
 ### energia-renovable
 - energia-renovable: generación eléctrica de Salta (CAMMESA), MWh convertidos a GWh; los flujos se suman por trimestre/año. 'Renovable' = régimen Ley 27.191; la potencia instalada es una foto al último mes disponible.
 ### energia-electrica
