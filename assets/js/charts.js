@@ -28,6 +28,17 @@
     return window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
   }
   function palette() { return isDark() ? PAL_DARK : PAL_LIGHT; }
+
+  // Color estable de una categoría: sale de su posición en el UNIVERSO de categorías del gráfico
+  // y no de su posición dentro de la tanda que se está dibujando. Lo usa la grilla de pequeños
+  // múltiplos, donde cada faceta trae sólo las categorías que tienen datos.
+  function colorsFor(keys, universo) {
+    var pal = palette();
+    return keys.map(function (k) {
+      var i = universo.indexOf(k);
+      return pal[(i < 0 ? 0 : i) % pal.length];
+    });
+  }
   function cssvar(name) { return getComputedStyle(document.documentElement).getPropertyValue(name).trim(); }
   function chrome() {
     return { ink: cssvar("--ink"), ink2: cssvar("--ink-2"), grid: cssvar("--grid"),
@@ -631,13 +642,33 @@
         return niceMax(aggMax(ech, data, ix, f, st.metric, gridSeriesBy));
       });
 
-      // Leyenda común (si hay series que no sean la geografía).
-      var legendNames = null;
+      // El color tiene que ser de la CATEGORÍA, no de su posición en la faceta. Cada faceta dibuja
+      // sólo las categorías con datos (Cachi siembra maíz y poroto; Anta, diez cultivos), así que
+      // el mismo cultivo cae en índices distintos según el departamento: aplicando la paleta por
+      // posición, el poroto salía naranja en una faceta y verde en otra, y ninguno de los dos
+      // coincidía con la leyenda. Se arma primero el universo de categorías de TODA la grilla, y
+      // ese orden —el mismo alfabético con el que optionFor ordena las series— fija el color en
+      // las facetas y en la leyenda.
+      var builts = fixeds.map(function (f, i) {
+        return optionFor(ech, data, ix, f, st.metric,
+                         { forGrid: true, yMax: yMaxes[i], seriesBy: gridSeriesBy, percent: st.percent });
+      });
+      // Sin puntos tras recortar los ceros del final: faceta en blanco (p. ej. un departamento que
+      // figura en la fuente pero no produce). No se dibuja el recuadro vacío ni aporta al universo.
+      function conDatos(b) { return b.option.xAxis.data.length > 0; }
+      var vistos = {}, universo = [], etiqueta = {};
+      builts.filter(conDatos).forEach(function (b) {
+        (b.seriesKeys || []).forEach(function (k, j) {
+          etiqueta[k] = b.seriesNames[j];
+          if (!vistos[k]) { vistos[k] = 1; universo.push(k); }
+        });
+      });
+      universo.sort();
+
       deps.forEach(function (dp, i) {
-        var built = optionFor(ech, data, ix, fixeds[i], st.metric, { forGrid: true, yMax: yMaxes[i], seriesBy: gridSeriesBy, percent: st.percent });
-        // Sin puntos tras recortar los ceros del final: faceta en blanco (p. ej. un departamento
-        // que figura en la fuente pero no produce). No se dibuja el recuadro vacío.
-        if (!built.option.xAxis.data.length) return;
+        var built = builts[i];
+        if (!conDatos(built)) return;
+        built.option.color = colorsFor(built.seriesKeys || [], universo);
         var cell = document.createElement("div"); cell.className = "facet";
         var h = document.createElement("div"); h.className = "facet-title"; h.textContent = dp;
         var pdiv = document.createElement("div"); pdiv.className = "facet-plot";
@@ -645,15 +676,16 @@
         var c = echarts.init(pdiv, null, { renderer: "canvas" });
         c.setOption(built.option, true);
         local.instances.push(c);
-        if (!legendNames && gridSeriesBy && built.seriesNames && built.seriesNames.length > 1) legendNames = built.seriesNames;
       });
 
-      if (legendNames) {
+      // Leyenda común: el universo entero. Antes copiaba las series de la primera faceta con más
+      // de una, que puede no tenerlas todas (Anta no siembra cebada y encabeza la grilla).
+      if (gridSeriesBy && universo.length > 1) {
         var leg = document.createElement("div"); leg.className = "facets-legend";
-        var pal = palette();
-        legendNames.forEach(function (nm, i) {
+        var cols = colorsFor(universo, universo);
+        universo.forEach(function (k, i) {
           var it = document.createElement("span"); it.className = "facets-legend-item";
-          it.innerHTML = '<i style="background:' + pal[i % pal.length] + '"></i>' + esc(nm);
+          it.innerHTML = '<i style="background:' + cols[i] + '"></i>' + esc(etiqueta[k] || k);
           leg.appendChild(it);
         });
         plotEl.insertBefore(leg, plotEl.firstChild);
