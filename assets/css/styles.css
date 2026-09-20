@@ -342,6 +342,12 @@ p { margin: 0 0 1em; }
    tabla arranca pegado al encabezado, así que sólo lo llevan los tbody posteriores. */
 .tabla-ind tbody + tbody .subeje-row-head { border-top: 36px solid var(--page); }
 .tabla-ind tbody tr.subeje-row:hover { background: var(--accent-050); }
+/* Código de ficha de las notas técnicas («III.5»), como prefijo del nombre del indicador.
+   No es una columna: va dentro de la celda para no sumarle ancho a una tabla que ya tiene 13.
+   Los números tabulares de .tabla-ind lo alinean igual, y el guion de los indicadores que
+   todavía no tienen ficha ocupa el mismo lugar. */
+.tabla-ind-ficha { color: var(--muted); font-weight: 400; white-space: nowrap; }
+.tabla-ind-ficha::after { content: " · "; }
 /* Letra de sección de actividad (CIIU): columna angosta y centrada, con tooltip. */
 .tabla-ind-ciiu-col { width: 3rem; }
 .tabla-ind-ciiu { text-align: center; }

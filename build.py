@@ -81,6 +81,64 @@ def qc_corr_real(fields, rows):
     return incidencias
 
 
+def qc_fichas(tabla_ind, tags_meta):
+    """Controla los códigos de ficha de la tabla maestra («III.5») contra las notas técnicas.
+
+    El código se carga a mano en `catalog.py` e `indicadores.py` porque la fuente del documento
+    —`../notas-tecnicas-fuente/fichas.js`— vive fuera del repo y el build no puede leerla. Sin un
+    control acá, un código repetido o con el romano equivocado pasaría inadvertido y rompería el
+    orden de la tabla, que desde ahora se apoya en ese número.
+
+    Aborta el build ante un código repetido o un romano que no es el del subeje en el que la fila
+    cae: son errores de carga, no estados transitorios. Los huecos en la secuencia y los
+    indicadores sin ficha sólo se avisan: un indicador nuevo puede existir legítimamente antes de
+    que se le escriba la ficha. Devuelve esos avisos para el BUILD_NOTES.md.
+    """
+    romano = {}
+    for v in tags_meta.values():
+        if v.get("num"):
+            romano[v["label"]] = v["num"]
+            if v.get("corto"):
+                romano[v["corto"]] = v["num"]
+
+    vistos, nums, sin_num, sin_ficha = {}, {}, set(), []
+    for g in tabla_ind:
+        for sg in g["subgrupos"]:
+            for f in sg["filas"]:
+                cod = f.get("ficha") or ""
+                if not cod:
+                    sin_ficha.append(f["indicador"])
+                    continue
+                if cod in vistos:
+                    raise SystemExit(f"FICHA DUPLICADA {cod}: la llevan '{vistos[cod]}' y "
+                                     f"'{f['indicador']}'. Cada código identifica UNA ficha.")
+                vistos[cod] = f["indicador"]
+                esperado = romano.get(sg["label"])
+                if esperado is None:
+                    sin_num.add(sg["label"])
+                elif cod.split(".")[0] != esperado:
+                    raise SystemExit(f"FICHA {cod} en el subeje '{sg['label']}', que es "
+                                     f"{esperado}: el romano del código y el del subeje no "
+                                     f"coinciden. Revisar el `ficha` del indicador "
+                                     f"'{f['indicador']}' o el subeje del tablero.")
+                nums.setdefault(sg["label"], []).append(int(cod.split(".")[1]))
+
+    notas = []
+    for label, vs in sorted(nums.items()):
+        faltan = sorted(set(range(1, max(vs) + 1)) - set(vs))
+        if faltan:
+            falta_txt = ", ".join(f"{romano.get(label, '?')}.{n}" for n in faltan)
+            notas.append(f"subeje «{label}»: la numeración de fichas tiene huecos ({falta_txt}). "
+                         f"La tabla los saltea; revisar si falta cargar un `ficha`.")
+    for label in sorted(sin_num):
+        notas.append(f"subeje «{label}»: tiene indicadores con ficha pero no declara `num`, así "
+                     f"que no se pudo verificar el romano del código.")
+    if sin_ficha:
+        notas.append(f"{len(sin_ficha)} indicadores todavía sin ficha en las notas técnicas "
+                     f"(muestran «—» y van al final de su subeje): {', '.join(sin_ficha)}.")
+    return notas
+
+
 def stamp_base(obj, corto, largo):
     """Resuelve los marcadores {base} / {base_largo} del catálogo con el período base real.
 
@@ -369,6 +427,7 @@ def main():
     tabla_ind = indicadores.tabla(payloads, catalogo, catalog.EJES_PDES,
                                   catalog.TAGS, catalog.SUBEJE_ORDEN, catalog.CIIU_SECCIONES)
     n_ind = sum(len(g["filas"]) for g in tabla_ind)
+    todas_notas["tabla de indicadores"] = qc_fichas(tabla_ind, catalog.TAGS)
 
     # Agrupar en DOS NIVELES: eje del PDES (nivel 1) y subeje (nivel 2). La unidad es el
     # INDICADOR, no el tablero: así la cuenta de las pills coincide con la tabla maestra
@@ -434,6 +493,16 @@ def escribir_build_notes(todas_notas, resumen_build):
         "por serie; la provincial es media ponderada por empleo (Σ empleo·salario / Σ empleo). Se "
         "incluyen períodos parciales (2025); el KPI compara el último trimestre completo contra el "
         "mismo trimestre del año anterior.",
+        "",
+        "## Números de ficha de la tabla de indicadores",
+        "Los códigos `I.1`…`V.4` de la Tabla de indicadores son los de las **notas técnicas "
+        "de indicadores económico-productivos**, generadas desde "
+        "`../notas-tecnicas-fuente/fichas.js`. Ese archivo vive **fuera del repo**, así que el "
+        "código se carga a mano en el spec del indicador (`catalog.py`, y `EXTRA` en "
+        "`indicadores.py`) y `qc_fichas()` lo verifica en cada build: aborta ante un código "
+        "repetido o con el romano cambiado, y avisa acá abajo de los huecos. El número "
+        "**ordena** la tabla dentro de cada subeje. Los indicadores sociales, de turismo y de "
+        "ambiente esperan el documento complementario y muestran «—».",
         "",
         "## Fuentes externas materializadas",
         "- `ipc_noa_mensual.csv` — IPC Nivel General región NOA (INDEC), vía "

@@ -38,6 +38,11 @@ Spec de KPI (el front muestra la VARIACIÓN INTERANUAL, no el valor absoluto):
   tabla_label: nombre para la tabla maestra de la portada (si el `label` es ambiguo fuera
                de su tablero, p. ej. "Vacas" o "Pozos"); tabla_nota: aclaración al pie
   subeje: pisa el subeje del tema para ESTE indicador (temas que mezclan subejes)
+  ficha: código de la ficha del indicador en las notas técnicas («III.5»): romano del
+       subeje + correlativo. Se carga a mano porque la fuente del documento vive fuera
+       del repo (`../notas-tecnicas-fuente/fichas.js`). ORDENA la tabla maestra dentro
+       de cada subeje, así que la numeración se lee corrida. Los indicadores todavía sin
+       ficha (sociales, turismo, ambiente) lo dejan vacío y van al final de su subeje.
   display: 'nivel' -> muestra el NIVEL en vez de la variación. Pensado para magnitudes con
        signo (resultado fiscal: superávit verde / déficit rojo).
   sentido: 'mayor_mejor' (por defecto) | 'menor_mejor' | 'neutro'
@@ -84,20 +89,23 @@ AREAS = {
 # Ejes transversales de desarrollo productivo. Un tema puede tener varios (campo
 # `tags`). Son la agrupación principal del menú y la portada; el `area` queda como
 # chip de color. Se definen los 5 aunque algún eje aún no tenga temas (fase 2).
+# `num` es el romano con que las notas técnicas numeran el subeje: la primera mitad del
+# código de ficha de sus indicadores (`III.5`). El build lo usa para verificar que el
+# romano de cada ficha coincida con el subeje en el que la fila efectivamente cae.
 TAGS = {
-    "actividad-productividad":   {"label": "Actividad, estructura productiva y productividad",       "orden": 1,
+    "actividad-productividad":   {"label": "Actividad, estructura productiva y productividad",       "orden": 1, "num": "I",
                                   "corto": "Actividad y productividad",
                                   "descr": "Qué y cuánto se produce en Salta, y con qué productividad."},
-    "empleo-capacidades":        {"label": "Empleo y capacidades productivas",                       "orden": 2,
+    "empleo-capacidades":        {"label": "Empleo y capacidades productivas",                       "orden": 2, "num": "II",
                                   "corto": "Empleo y capacidades",
                                   "descr": "Trabajo registrado, remuneraciones y formación del capital humano."},
-    "inversion-financiamiento":  {"label": "Inversión y financiamiento",                             "orden": 3,
+    "inversion-financiamiento":  {"label": "Inversión y financiamiento",                             "orden": 3, "num": "III",
                                   "corto": "Inversión y financiamiento",
                                   "descr": "Recursos que financian la actividad y la inversión productiva."},
-    "infraestructura-logistica": {"label": "Infraestructura, logística y condiciones para producir", "orden": 4,
+    "infraestructura-logistica": {"label": "Infraestructura, logística y condiciones para producir", "orden": 4, "num": "IV",
                                   "corto": "Infraestructura y logística",
                                   "descr": "Energía, transporte y servicios que habilitan la producción."},
-    "innovacion-mercados":       {"label": "Innovación e inserción en mercados",                     "orden": 5,
+    "innovacion-mercados":       {"label": "Innovación e inserción en mercados",                     "orden": 5, "num": "V",
                                   "corto": "Innovación y mercados",
                                   "descr": "Exportaciones, diversificación y llegada a nuevos mercados."},
 }
@@ -239,11 +247,11 @@ TEMAS = [
         ],
         "tags": ["actividad-productividad", "innovacion-mercados"],
         "kpis": [
-            {"label": "Producción de uva", "metrica": "produccion_uva", "ciiu": "A",
+            {"ficha": "I.6", "label": "Producción de uva", "metrica": "produccion_uva", "ciiu": "A",
              "fixed": {"categoria": "cosecha_elaboracion"}, "year": "latest", "unidad": "quintales", "format": "int"},
-            {"label": "Elaboración de vino y mosto", "metrica": "elaboracion_total", "ciiu": "C",
+            {"ficha": "I.7", "label": "Elaboración de vino y mosto", "metrica": "elaboracion_total", "ciiu": "C",
              "fixed": {"categoria": "cosecha_elaboracion"}, "year": "latest", "unidad": "hectolitros", "format": "int"},
-            {"label": "Exportaciones (valor FOB)", "tabla_label": "Exportaciones de vino (valor FOB)",
+            {"ficha": "I.8", "label": "Exportaciones (valor FOB)", "tabla_label": "Exportaciones de vino (valor FOB)",
              "metrica": "export_valor_fob",
              "fixed": {"categoria": "mercado_externo"}, "year": "latest", "unidad": "miles US$", "format": "int"},
         ],
@@ -295,11 +303,11 @@ TEMAS = [
         ],
         "tags": ["actividad-productividad", "infraestructura-logistica"],
         "kpis": [
-            {"label": "Producción de gas", "metrica": "prod_gas", "fixed": {"grano": "anual"},
+            {"ficha": "I.10", "label": "Producción de gas", "metrica": "prod_gas", "fixed": {"grano": "anual"},
              "year": "latest_complete", "unidad": "miles de m³", "format": "int"},
-            {"label": "Producción de petróleo", "metrica": "prod_pet", "fixed": {"grano": "anual"},
+            {"ficha": "I.11", "label": "Producción de petróleo", "metrica": "prod_pet", "fixed": {"grano": "anual"},
              "year": "latest_complete", "unidad": "m³", "format": "int"},
-            {"label": "Pozos", "tabla_label": "Pozos en producción", "metrica": "pozos", "fixed": {"grano": "anual"},
+            {"ficha": "I.12", "label": "Pozos", "tabla_label": "Pozos en producción", "metrica": "pozos", "fixed": {"grano": "anual"},
              "year": "latest_complete", "unidad": "pozos", "format": "int"},
         ],
         "charts": [
@@ -363,10 +371,10 @@ TEMAS = [
         ],
         "tags": ["empleo-capacidades"],
         "kpis": [
-            {"label": "Empleo registrado (provincia)", "tabla_label": "Empleo registrado", "metrica": "empleo",
+            {"ficha": "II.1", "label": "Empleo registrado (provincia)", "tabla_label": "Empleo registrado", "metrica": "empleo",
              "fixed": {"grano": "trimestral", "departamento": "Salta", "rubro": "Total"},
              "cmp": "quarter", "year": "latest", "unidad": "puestos", "format": "int"},
-            {"label": "Remuneración real (índice dic-23 = 100)", "metrica": "remun_real_idx",
+            {"ficha": "II.2", "label": "Remuneración real (índice dic-23 = 100)", "metrica": "remun_real_idx",
              "fixed": {"grano": "trimestral", "departamento": "Salta", "rubro": "Total"},
              "cmp": "quarter", "year": "latest", "unidad": "índice", "format": "int"},
         ],
@@ -529,9 +537,9 @@ TEMAS = [
         ],
         "tags": ["actividad-productividad"],
         "kpis": [
-            {"label": "Producción total", "tabla_label": "Producción agrícola total", "metrica": "produccion_tm",
+            {"ficha": "I.1", "label": "Producción total", "tabla_label": "Producción agrícola total", "metrica": "produccion_tm",
              "fixed": {"departamento": "Salta"}, "year": "latest", "unidad": "toneladas", "format": "int"},
-            {"label": "Superficie sembrada", "metrica": "superficie_sembrada_ha",
+            {"ficha": "I.2", "label": "Superficie sembrada", "metrica": "superficie_sembrada_ha",
              "fixed": {"departamento": "Salta"}, "year": "latest", "unidad": "ha", "format": "int"},
         ],
         "charts": [
@@ -589,10 +597,10 @@ TEMAS = [
         ],
         "tags": ["inversion-financiamiento"],
         "kpis": [
-            {"label": "Gasto ejecutado total (constante, {base})", "metrica": "gasto_real",
+            {"ficha": "III.5", "label": "Gasto ejecutado total (constante, {base})", "metrica": "gasto_real",
              "fixed": {"clasificador": "objeto", "nivel": "total"}, "year": "latest",
              "unidad": "pesos", "format": "int"},
-            {"label": "Gasto en personal (constante, {base})", "metrica": "gasto_real",
+            {"ficha": "III.6", "label": "Gasto en personal (constante, {base})", "metrica": "gasto_real",
              "fixed": {"clasificador": "objeto", "partida": "Gastos en personal"}, "year": "latest",
              "unidad": "pesos", "format": "int"},
         ],
@@ -659,19 +667,19 @@ TEMAS = [
         ],
         "tags": ["inversion-financiamiento"],
         "kpis": [
-            {"label": "Ingresos totales (constante, {base})", "metrica": "monto_real",
+            {"ficha": "III.1", "label": "Ingresos totales (constante, {base})", "metrica": "monto_real",
              "fixed": {"grano": "acumulado", "concepto": "Ingresos totales"}, "year": "latest",
              "unidad": "pesos", "format": "int"},
-            {"label": "Gastos totales (constante, {base})", "metrica": "monto_real",
+            {"ficha": "III.2", "label": "Gastos totales (constante, {base})", "metrica": "monto_real",
              "fixed": {"grano": "acumulado", "concepto": "Gastos totales"}, "year": "latest",
              "unidad": "pesos", "format": "int"},
-            {"label": "Resultado financiero (% del gasto primario)",
+            {"ficha": "III.3", "label": "Resultado financiero (% del gasto primario)",
              "tabla_label": "Resultado financiero, en % del gasto primario",
              "tabla_nota": "Gasto primario = gastos totales − intereses de la deuda. La variación va en puntos porcentuales, no en %: es un cociente. En el acumulado, la comparación válida es contra el mismo mes del año anterior.",
              "metrica": "pct_gprim",
              "fixed": {"grano": "acumulado", "concepto": "Resultado financiero"}, "year": "latest",
              "unidad": "%", "format": "int", "display": "nivel"},
-            {"label": "Resultado primario (% del gasto primario)",
+            {"ficha": "III.4", "label": "Resultado primario (% del gasto primario)",
              "tabla_label": "Resultado primario, en % del gasto primario",
              "tabla_nota": "Excluye los intereses de la deuda de ambos lados del cociente. La variación va en puntos porcentuales.",
              "metrica": "pct_gprim",
@@ -768,9 +776,9 @@ TEMAS = [
         ],
         "tags": ["inversion-financiamiento", "actividad-productividad"],
         "kpis": [
-            {"label": "Recaudación de Ingresos Brutos (constante, {base})", "metrica": "recaud_real",
+            {"ficha": "III.7", "label": "Recaudación de Ingresos Brutos (constante, {base})", "metrica": "recaud_real",
              "fixed": {}, "year": "latest", "unidad": "pesos", "format": "int"},
-            {"label": "Industria manufacturera (constante, {base})", "ciiu": "C",
+            {"ficha": "III.8", "label": "Industria manufacturera (constante, {base})", "ciiu": "C",
              "tabla_label": "Recaudación de la industria manufacturera", "metrica": "recaud_real",
              "fixed": {"sector": "Industria manufacturera"}, "year": "latest",
              "unidad": "pesos", "format": "int"},
@@ -840,10 +848,10 @@ TEMAS = [
         ],
         "tags": ["actividad-productividad"],
         "kpis": [
-            {"label": "Stock bovino total", "metrica": "stock_bovino",
+            {"ficha": "I.4", "label": "Stock bovino total", "metrica": "stock_bovino",
              "fixed": {"categoria": "Total", "departamento": "Salta"}, "year": "latest",
              "unidad": "cabezas", "format": "int"},
-            {"label": "Vacas", "tabla_label": "Stock de vacas", "metrica": "stock_bovino",
+            {"ficha": "I.5", "label": "Vacas", "tabla_label": "Stock de vacas", "metrica": "stock_bovino",
              "fixed": {"categoria": "Vacas", "departamento": "Salta"}, "year": "latest",
              "unidad": "cabezas", "format": "int"},
         ],
@@ -901,10 +909,10 @@ TEMAS = [
         ],
         "tags": ["empleo-capacidades", "inversion-financiamiento"],
         "kpis": [
-            {"label": "Empleo minero (Salta)", "tabla_label": "Empleo minero", "metrica": "empleo_min",
+            {"ficha": "II.3", "label": "Empleo minero (Salta)", "tabla_label": "Empleo minero", "metrica": "empleo_min",
              "fixed": {"grano": "trimestral", "genero": "Total", "rubro": "Total"},
              "cmp": "quarter", "year": "latest", "unidad": "puestos", "format": "int"},
-            {"label": "Recaudación del sector (USD, nacional)",
+            {"ficha": "III.9", "label": "Recaudación del sector (USD, nacional)",
              "tabla_label": "Recaudación del sector minero", "subeje": "Inversión y financiamiento",
              "tabla_nota": "Dato nacional del sector, no atribuible a Salta.",
              "metrica": "recaud_usd",
@@ -967,10 +975,10 @@ TEMAS = [
         ],
         "tags": ["inversion-financiamiento"],
         "kpis": [
-            {"label": "Préstamos al sector privado (constante, {base})", "metrica": "monto_real",
+            {"ficha": "III.12", "label": "Préstamos al sector privado (constante, {base})", "metrica": "monto_real",
              "fixed": {"grano": "anual", "departamento": "Salta", "operacion": "Préstamos"},
              "year": "latest_complete", "unidad": "pesos", "format": "int"},
-            {"label": "Depósitos del sector privado (constante, {base})", "metrica": "monto_real",
+            {"ficha": "III.13", "label": "Depósitos del sector privado (constante, {base})", "metrica": "monto_real",
              "fixed": {"grano": "anual", "departamento": "Salta", "operacion": "Depósitos"},
              "year": "latest_complete", "unidad": "pesos", "format": "int"},
         ],
@@ -1036,11 +1044,11 @@ TEMAS = [
         ],
         "tags": ["actividad-productividad", "infraestructura-logistica"],
         "kpis": [
-            {"label": "Superficie autorizada", "tabla_label": "Superficie autorizada a construir",
+            {"ficha": "I.13", "label": "Superficie autorizada", "tabla_label": "Superficie autorizada a construir",
              "metrica": "superficie_m2",
              "fixed": {"grano": "anual", "municipio": "Total Salta"}, "year": "latest_complete",
              "unidad": "m²", "format": "int"},
-            {"label": "Permisos otorgados", "tabla_label": "Permisos de edificación otorgados",
+            {"ficha": "I.14", "label": "Permisos otorgados", "tabla_label": "Permisos de edificación otorgados",
              "metrica": "permisos",
              "fixed": {"grano": "anual", "municipio": "Total Salta"}, "year": "latest_complete",
              "unidad": "permisos", "format": "int"},
@@ -1113,9 +1121,9 @@ TEMAS = [
         ],
         "tags": ["inversion-financiamiento"],
         "kpis": [
-            {"label": "Recursos a municipios (constante, {base})", "metrica": "monto_real",
+            {"ficha": "III.10", "label": "Recursos a municipios (constante, {base})", "metrica": "monto_real",
              "fixed": {"grano": "anual"}, "year": "latest_complete", "unidad": "pesos", "format": "int"},
-            {"label": "Coparticipación (constante, {base})", "tabla_label": "Coparticipación a municipios",
+            {"ficha": "III.11", "label": "Coparticipación (constante, {base})", "tabla_label": "Coparticipación a municipios",
              "metrica": "monto_real",
              "fixed": {"grano": "anual", "grupo": "Coparticipación"}, "year": "latest_complete",
              "unidad": "pesos", "format": "int"},
@@ -1241,10 +1249,10 @@ TEMAS = [
         ],
         "tags": ["infraestructura-logistica", "actividad-productividad"],
         "kpis": [
-            {"label": "Generación eléctrica total", "metrica": "generacion_gwh",
+            {"ficha": "IV.1", "label": "Generación eléctrica total", "metrica": "generacion_gwh",
              "fixed": {"grano": "trimestral"}, "cmp": "quarter", "year": "latest",
              "unidad": "GWh", "format": "int"},
-            {"label": "Potencia instalada", "tabla_nota": "Es un stock (fotografía), no un flujo: no corresponde variación interanual.",
+            {"ficha": "IV.2", "label": "Potencia instalada", "tabla_nota": "Es un stock (fotografía), no un flujo: no corresponde variación interanual.",
              "metrica": "potencia_mw",
              "fixed": {"grano": "anual"}, "year": "latest", "unidad": "MW", "format": "int"},
         ],
@@ -1301,9 +1309,9 @@ TEMAS = [
         ],
         "tags": ["innovacion-mercados"],
         "kpis": [
-            {"label": "Inversión en I+D (constante, 2017)", "metrica": "inv_id_real",
+            {"ficha": "V.3", "label": "Inversión en I+D (constante, 2017)", "metrica": "inv_id_real",
              "fixed": {}, "year": "latest", "unidad": "millones de $", "format": "int"},
-            {"label": "Investigadores/as y becarios/as", "metrica": "personal_id",
+            {"ficha": "V.4", "label": "Investigadores/as y becarios/as", "metrica": "personal_id",
              "fixed": {"funcion": "Investigadores y becarios"}, "year": "latest",
              "unidad": "personas", "format": "int"},
         ],
@@ -1351,9 +1359,9 @@ TEMAS = [
         ],
         "tags": ["innovacion-mercados", "actividad-productividad"],
         "kpis": [
-            {"label": "Exportaciones totales", "metrica": "fob_usd",
+            {"ficha": "V.1", "label": "Exportaciones totales", "metrica": "fob_usd",
              "fixed": {}, "year": "latest", "unidad": "USD", "format": "int"},
-            {"label": "Volumen exportado", "metrica": "peso_ton",
+            {"ficha": "V.2", "label": "Volumen exportado", "metrica": "peso_ton",
              "fixed": {}, "year": "latest", "unidad": "toneladas", "format": "int"},
         ],
         "charts": [

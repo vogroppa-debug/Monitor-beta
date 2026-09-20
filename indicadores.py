@@ -24,10 +24,11 @@ import re
 
 import adapters
 
-# Indicadores visibles en un gráfico pero sin tarjeta KPI.
+# Indicadores visibles en un gráfico pero sin tarjeta KPI. Igual entran en la tabla maestra,
+# así que los que están documentados llevan su `ficha` como cualquier KPI de `catalog.py`.
 EXTRA = {
     "vitivinicultura": [
-        {"label": "Exportaciones de vino (volumen)", "metrica": "export_volumen",
+        {"ficha": "I.9", "label": "Exportaciones de vino (volumen)", "metrica": "export_volumen",
          "fixed": {"categoria": "mercado_externo", "nivel": "provincia"}},
     ],
     "turismo": [
@@ -35,15 +36,15 @@ EXTRA = {
         {"label": "Estadía media", "metrica": "estadia", "fixed": {"segmento": "Total"}},
     ],
     "agricultura": [
-        {"label": "Rendimiento de soja", "metrica": "rendimiento_kgxha",
+        {"ficha": "I.3", "label": "Rendimiento de soja", "metrica": "rendimiento_kgxha",
          "fixed": {"departamento": "Salta", "cultivo": "Soja"}},
     ],
     "financiero": [
-        {"label": "Puntos de acceso al sistema financiero", "metrica": "pda_10m",
+        {"ficha": "III.14", "label": "Puntos de acceso al sistema financiero", "metrica": "pda_10m",
          "fixed": {"operacion": "PDA"}},
     ],
     "construccion": [
-        {"label": "Participación en la superficie nacional",
+        {"ficha": "I.15", "label": "Participación en la superficie nacional",
          "metrica": "share_sup_pct", "fixed": {"municipio": "Total Salta"}},
     ],
     # "Generación eléctrica total" pasó a ser KPI del tablero de Energía eléctrica (antes era un
@@ -366,6 +367,19 @@ def _clase_color(spec, direccion):
     return direccion
 
 
+def _orden_ficha(f):
+    """Clave de orden de una fila dentro de su subeje: el correlativo de su ficha.
+
+    El romano no entra: ES el subeje, y `qc_fichas` (build.py) verifica que coincida. Las filas
+    sin ficha van al final del subeje, conservando entre ellas el orden anterior. Hoy no pasa
+    —los 38 del eje económico tienen ficha y los otros 18 no tienen ninguno—, pero deja el orden
+    definido si se suma un indicador antes de que se le escriba la ficha."""
+    cod = f.get("ficha") or ""
+    if "." not in cod:
+        return (1, 0)
+    return (0, int(cod.split(".")[1]))
+
+
 def _orden_subejes(tags_meta, subeje_orden):
     """Orden de aparición de los subejes: los tags por su `orden`, y encima `SUBEJE_ORDEN`
     para los ejes que declaran su propia taxonomía."""
@@ -420,6 +434,7 @@ def tabla(payloads, catalogo, ejes_pdes_meta, tags_meta, subeje_orden, ciiu_secc
                 "subeje": _subeje(s, t, tags_meta),
                 "ciiu": ciiu, "ciiu_label": ciiu_secciones.get(ciiu, ""),
                 "indicador": s.get("tabla_label") or s["label"],
+                "ficha": s.get("ficha", ""),
                 "nota": s.get("tabla_nota", ""),
                 "tema_id": t["id"], "tema_title": t["title"],
                 "chart_id": _grafico(payload, s["metrica"]),
@@ -442,10 +457,12 @@ def tabla(payloads, catalogo, ejes_pdes_meta, tags_meta, subeje_orden, ciiu_secc
         sub = [f for f in filas if f["eje"] == eje_id]
         if not sub:
             continue
-        # Ordenadas por subeje y, dentro de cada subeje, por la letra CIIU del tablero (los KPIs
-        # de un mismo tablero quedan contiguos porque comparten CIIU y título; el orden estable
-        # conserva el orden de los KPIs dentro del tablero).
-        sub.sort(key=lambda f: (orden_tag.get(f["subeje"], 99),
+        # Ordenadas por subeje y, dentro de cada subeje, por el número de ficha, de modo que la
+        # numeración de las notas técnicas se lea corrida (I.1, I.2, I.3...). Las filas sin ficha
+        # caen al final del subeje ordenadas como antes: por la letra CIIU del tablero, que deja
+        # contiguos a los indicadores de un mismo tablero (el orden estable conserva el de los
+        # KPIs dentro del tablero).
+        sub.sort(key=lambda f: (orden_tag.get(f["subeje"], 99), _orden_ficha(f),
                                 ciiu_orden_tema.get(f["tema_id"], "￿"), f["tema_title"]))
         # El subeje pasa a ser SUBTÍTULO (fila de encabezado), no una columna: agrupamos las
         # filas consecutivas del mismo subeje conservando el orden ya fijado.

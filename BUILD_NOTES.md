@@ -11,6 +11,9 @@ Los CSV de origen (`Actualizar_*` / scripts) ya están en **formato inglés** (d
 - **produccion-energia**: `melt` de las 10 medidas físicas a `metrica`/`valor`; se descartan `iny_gas`, `iny_co2`, `vida_util` (todos 0 en Salta). La serie temporal se agrega por **trimestre** (suma de meses, por tipo de recurso); el ranking usa el total anual oficial.
 - **empleo**: empleo por rubro/departamento y remuneración real, agregados por **trimestre** y por **año** (media de los meses del período). La remuneración es un **índice de salario real** deflactado por el **IPC NOA** (serie `145.3_INGNOANOA_DICI_M_10` de datos.gob.ar, base dic-2016), rebasado a **dic-2023 = 100** por serie; la provincial es media ponderada por empleo (Σ empleo·salario / Σ empleo). Se incluyen períodos parciales (2025); el KPI compara el último trimestre completo contra el mismo trimestre del año anterior.
 
+## Números de ficha de la tabla de indicadores
+Los códigos `I.1`…`V.4` de la Tabla de indicadores son los de las **notas técnicas de indicadores económico-productivos**, generadas desde `../notas-tecnicas-fuente/fichas.js`. Ese archivo vive **fuera del repo**, así que el código se carga a mano en el spec del indicador (`catalog.py`, y `EXTRA` en `indicadores.py`) y `qc_fichas()` lo verifica en cada build: aborta ante un código repetido o con el romano cambiado, y avisa acá abajo de los huecos. El número **ordena** la tabla dentro de cada subeje. Los indicadores sociales, de turismo y de ambiente esperan el documento complementario y muestran «—».
+
 ## Fuentes externas materializadas
 - `ipc_noa_mensual.csv` — IPC Nivel General región NOA (INDEC), vía `https://apis.datos.gob.ar/series/api/series?ids=145.3_INGNOANOA_DICI_M_10&format=csv`. Refrescar volviendo a descargar ese CSV.
 - **Base de los pesos constantes: julio de 2026** (último mes publicado de ese CSV). No es un año fijo: se recalcula en cada build, es la misma para todos los tableros y se mueve sola cuando se actualiza el IPC. Las variaciones porcentuales no dependen de la base; los niveles en pesos, sí. El índice de salario real (base dic-2023 = 100) y la inversión en I+D (pesos de 2017, ya deflactada por la fuente) NO usan esta base.
@@ -84,6 +87,8 @@ Los CSV de origen (`Actualizar_*` / scripts) ya están en **formato inglés** (d
 - salud: las tres tablas provinciales del documento fuente se contradicen entre sí (defunciones 2021/2024/2025, nacidos vivos 2025). Se publica la Tabla 1 (Resumen Quinquenal), la única internamente consistente y la única que cierra contra la apertura territorial. El detalle está en datos-drive/Metodologia_Salud_Estadisticas_Vitales_Salta.md.
 - salud: las tasas de mortalidad general de 2021 y 2022 no se reproducen con la población que publica el propio documento (la fuente usó proyecciones anteriores a las INDEC 2022–2040); se publican tal como las emitió el MSP.
 - salud: 2025 es provisorio en toda la fuente.
+### tabla de indicadores
+- 18 indicadores todavía sin ficha en las notas técnicas (muestran «—» y van al final de su subeje): Matrícula total, Egresados de secundaria, Cargos docentes, Nacidos vivos, Defunciones, Tasa de mortalidad infantil (por mil nacidos vivos), Consultas médicas por habitante, Ocupación de camas en establecimientos públicos, Tasa de natalidad, Tasa de mortalidad general, Tasa de mortalidad materna, Egresos hospitalarios, Camas disponibles, Participación renovable en la generación, Ocupación de habitaciones, Viajeros, Pernoctaciones, Estadía media.
 
 ## Control (filas por tema)
 - `educacion`: 11202 filas, cobertura 2011–2024.
