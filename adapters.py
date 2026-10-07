@@ -1815,6 +1815,102 @@ def salud():
     }
 
 
+# ==========================================================================
+# TEMA — Conectividad: internet fijo (ENACOM) + tasa por departamento (Censo 2022)
+# ==========================================================================
+CON_METRICAS = {
+    "acc_100_hog": {"label": "Accesos cada 100 hogares", "unidad": "accesos/100 hogares", "agg": "mean"},
+    "acc_100_hab": {"label": "Accesos cada 100 habitantes", "unidad": "accesos/100 hab.", "agg": "mean"},
+    "accesos":     {"label": "Accesos a internet fijo", "unidad": "accesos", "agg": "sum"},
+    "vel_mbps":    {"label": "Velocidad media de bajada", "unidad": "Mbps", "agg": "mean"},
+    "acc_100_hog_censo": {"label": "Accesos cada 100 hogares (Censo 2022)", "unidad": "accesos/100 hogares",
+                          "agg": "mean"},
+    "pct_fibra":   {"label": "Accesos por fibra óptica (% del total)", "unidad": "%", "agg": "mean"},
+}
+_CON_TECNO = {"adsl": "ADSL", "cablemodem": "Cablemódem", "fibra_optica": "Fibra óptica",
+              "wireless": "Wireless", "otros": "Otros"}
+
+
+def conectividad():
+    rows = []
+
+    def ambito(p):
+        return "Argentina" if str(p).strip().lower() == "total país" else ("Salta" if str(p).lower() == "salta" else None)
+
+    def add(grano, y, t, depto, amb, tec, met, v):
+        if pd.notna(v):
+            rows.append([grano, int(y), t, depto, amb, tec, met, round(float(v), 2)])
+
+    pen = pd.read_csv(_src("ENACOM_internet_penetracion_provincias.csv"), encoding="utf-8-sig")
+    vel = pd.read_csv(_src("ENACOM_internet_velocidad_media_provincias.csv"), encoding="utf-8-sig")
+    acc = pd.read_csv(_src("ENACOM_internet_accesos_tecnologia_provincias.csv"), encoding="utf-8-sig")
+    vcol = next(c for c in vel.columns if "mbps" in c)
+    for df, cols in ((pen, {"accesos_cada_100_hogares": "acc_100_hog", "accesos_cada_100_habitantes": "acc_100_hab"}),
+                     (vel, {vcol: "vel_mbps"})):
+        for r in df.itertuples(index=False):
+            d = dict(zip(df.columns, r))
+            amb = ambito(d["provincia"])
+            if amb is None:
+                continue
+            t = f"{int(d['año'])}-T{int(d['trimestre'])}"
+            for c, m in cols.items():
+                add("trimestral", d["año"], t, "Salta", amb, "Total", m, pd.to_numeric(d[c], errors="coerce"))
+    for r in acc.itertuples(index=False):
+        d = dict(zip(acc.columns, r))
+        if ambito(d["provincia"]) != "Salta":
+            continue
+        t = f"{int(d['año'])}-T{int(d['trimestre'])}"
+        for c, tec in list(_CON_TECNO.items()) + [("total", "Total")]:
+            add("trimestral", d["año"], t, "Salta", "Salta", tec, "accesos", pd.to_numeric(d[c], errors="coerce"))
+    # Anual = promedio de los trimestres del año (como en `financiero`)
+    tri = pd.DataFrame(rows, columns=["grano", "anio", "trimestre", "departamento", "ambito", "tecnologia",
+                                      "metrica", "valor"])
+    for k, v in tri.groupby(["anio", "departamento", "ambito", "tecnologia", "metrica"])["valor"].mean().items():
+        add("anual", k[0], "", k[1], k[2], k[3], k[4], v)
+
+    # Por departamento (desde 2026-T2): 'anual' = último trimestre disponible de cada año
+    dep = pd.read_csv(_src("ENACOM_internet_departamentos_Salta.csv"), encoding="utf-8-sig", dtype={"depto_cod": str})
+    dep = dep[dep["hogares_censo2022"].notna()]
+    dep["departamento"] = dep["departamento"].map(norm_dept)
+    ult = dep.sort_values(["anio", "trimestre"]).groupby("anio")["trimestre"].transform("max") == dep["trimestre"]
+    for grano, sub in (("trimestral", dep), ("anual", dep[ult])):
+        for r in sub.itertuples(index=False):
+            t = f"{r.anio}-T{r.trimestre}" if grano == "trimestral" else ""
+            add(grano, r.anio, t, r.departamento, "Salta", "Total", "acc_100_hog_censo", r.accesos_cada_100_hogares)
+            add(grano, r.anio, t, r.departamento, "Salta", "Total", "pct_fibra", r.pct_fibra_optica)
+        g = sub.groupby(["anio", "trimestre"], as_index=False)[["total", "hogares_censo2022", "Fibra óptica"]].sum()
+        for r in g.itertuples(index=False):
+            t = f"{r.anio}-T{r.trimestre}" if grano == "trimestral" else ""
+            add(grano, r.anio, t, "Salta", "Salta", "Total", "acc_100_hog_censo", 100 * r.total / r.hogares_censo2022)
+            add(grano, r.anio, t, "Salta", "Salta", "Total", "pct_fibra", 100 * r[4] / r.total)  # r[4] = Fibra óptica
+
+    fields = ["grano", "anio", "trimestre", "departamento", "ambito", "tecnologia", "metrica", "valor"]
+    deptos = [d for d in sorted({r[3] for r in rows}) if d not in NON_GEO and d not in PROVINCIAL_TOKENS]
+    trimestres = sorted({r[2] for r in rows if r[2]}, key=_trim_key)
+    return {
+        "fields": fields,
+        "rows": rows,
+        "dims": {
+            "anio": sorted({int(r[1]) for r in rows}),
+            "trimestre": trimestres,
+            "departamento": deptos,
+            "ambito": ["Salta", "Argentina"],
+            "tecnologia": list(_CON_TECNO.values()) + ["Total"],
+        },
+        "metricas": CON_METRICAS,
+        "trims_completos": trimestres,
+        "notas": [
+            "conectividad: ENACOM, accesos a internet fijo por provincia (trimestral desde 2015). La "
+            "penetración por hogares se recalculó con proyecciones del Censo 2022, lo que baja los "
+            "valores desde 2022; el salto de accesos de Salta entre 2025-T4 y 2026-T1 responde a "
+            "cambios en la fuente.",
+            "conectividad: la apertura por departamento parte de la tabla de ENACOM por localidad, que "
+            "solo publica el último trimestre (serie desde 2026-T2, se acumula en cada actualización); "
+            "la tasa usa hogares del Censo 2022 (no comparable estrictamente con la provincial de ENACOM).",
+        ],
+    }
+
+
 # Registro id_tema -> función adapter
 ADAPTERS = {
     "educacion": educacion,
@@ -1836,4 +1932,5 @@ ADAPTERS = {
     "recaudacion": recaudacion,
     "exportaciones": exportaciones,
     "salud": salud,
+    "conectividad": conectividad,
 }

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Agricultura por departamento — Monitor de Indicadores (versión Beta)</title>
+  <title>Conectividad: internet fijo (ENACOM) — Monitor de Indicadores (versión Beta)</title>
   <meta name="description" content="Seguimiento del Plan de Desarrollo Estratégico de Salta (PDES 2050)">
   <script>
     /* fija el tema antes de pintar para evitar flash */
@@ -100,28 +100,28 @@
 
 <main id="main">
   
-<div class="tema-page" data-tema="agricultura" data-base="..">
+<div class="tema-page" data-tema="conectividad" data-base="..">
 
   <nav class="breadcrumb wrap" aria-label="Ruta">
     <a href="../index.html">Inicio</a>
     <span aria-hidden="true">/</span>
-    <span>Agropecuario</span>
+    <span>Ciencia y tecnología</span>
     <span aria-hidden="true">/</span>
-    <span aria-current="page">Agricultura por departamento</span>
+    <span aria-current="page">Conectividad: internet fijo (ENACOM)</span>
   </nav>
 
   <header class="tema-header wrap">
-    <span class="card-area">Agropecuario</span>
-    <h1>Agricultura por departamento</h1>
+    <span class="card-area">Ciencia y tecnología</span>
+    <h1>Conectividad: internet fijo (ENACOM)</h1>
     
     <div class="tag-chips" aria-label="Ejes de desarrollo productivo">
-      <span class="tag-chip">Actividad, estructura productiva y productividad</span>
+      <span class="tag-chip">Infraestructura, logística y condiciones para producir</span>
     </div>
     
-    <p class="tema-resumen">Superficie, producción y rendimiento de los cultivos, por departamento.</p>
+    <p class="tema-resumen">Internet fijo: penetración, tecnologías, velocidad y brecha por departamento.</p>
     <p class="tema-meta muted">
-      <strong>Fuente:</strong> Estimaciones Agrícolas — Ministerio de Economía (MAGyP) ·
-      <strong>Cobertura:</strong> campañas 2018/19–2024/25
+      <strong>Fuente:</strong> ENACOM (datos abiertos de internet) e INDEC (Censo 2022, hogares) ·
+      <strong>Cobertura:</strong> 2015–2026
     </p>
   </header>
 
@@ -131,54 +131,82 @@
 
   <section class="wrap section charts-grid" id="charts">
     
-    <article class="chart-card" id="grafico-agri-superficie" data-chart-id="agri-superficie">
+    <article class="chart-card" id="grafico-con-penetracion" data-chart-id="con-penetracion">
       <div class="chart-card-head">
-        <h2 class="chart-title">Superficie sembrada por cultivo</h2>
-        <p class="chart-descr">Hectáreas sembradas cada campaña, apiladas por cultivo.</p>
+        <h2 class="chart-title">Accesos a internet fijo: Salta y país</h2>
+        <p class="chart-descr">Accesos cada 100 hogares o cada 100 habitantes, por trimestre. Desde 2022 ENACOM usa proyecciones del Censo 2022, lo que baja la tasa por hogares.</p>
       </div>
       <div class="chart-controls" role="group" aria-label="Filtros del gráfico"></div>
-      <div class="chart-plot" role="img" aria-label="Superficie sembrada por cultivo"></div>
+      <div class="chart-plot" role="img" aria-label="Accesos a internet fijo: Salta y país"></div>
       <details class="chart-table">
         <summary>Ver datos en tabla</summary>
         <div class="chart-table-body"></div>
       </details>
-      <p class="chart-source muted">Fuente: Estimaciones Agrícolas — Ministerio de Economía (MAGyP) · <a href="https://datos.magyp.gob.ar/dataset/estimaciones-agricolas" target="_blank" rel="noopener">ir a la fuente ↗</a></p>
+      <p class="chart-source muted">Fuente: ENACOM (datos abiertos de internet) e INDEC (Censo 2022, hogares) · <a href="https://indicadores.enacom.gob.ar/DatosAbiertos/Internet/default.aspx" target="_blank" rel="noopener">ir a la fuente ↗</a></p>
     </article>
     
-    <article class="chart-card" id="grafico-agri-produccion-depto" data-chart-id="agri-produccion-depto">
+    <article class="chart-card" id="grafico-con-tecnologia" data-chart-id="con-tecnologia">
       <div class="chart-card-head">
-        <h2 class="chart-title">Producción por departamento</h2>
-        <p class="chart-descr">Ranking de departamentos por toneladas producidas, para la campaña y el cultivo seleccionados.</p>
+        <h2 class="chart-title">Accesos a internet fijo por tecnología en Salta</h2>
+        <p class="chart-descr">Cantidad de accesos por tecnología al final de cada trimestre.</p>
       </div>
       <div class="chart-controls" role="group" aria-label="Filtros del gráfico"></div>
-      <div class="chart-plot" role="img" aria-label="Producción por departamento"></div>
+      <div class="chart-plot" role="img" aria-label="Accesos a internet fijo por tecnología en Salta"></div>
       <details class="chart-table">
         <summary>Ver datos en tabla</summary>
         <div class="chart-table-body"></div>
       </details>
-      <p class="chart-source muted">Fuente: Estimaciones Agrícolas — Ministerio de Economía (MAGyP) · <a href="https://datos.magyp.gob.ar/dataset/estimaciones-agricolas" target="_blank" rel="noopener">ir a la fuente ↗</a></p>
+      <p class="chart-source muted">Fuente: ENACOM (datos abiertos de internet) e INDEC (Censo 2022, hogares) · <a href="https://indicadores.enacom.gob.ar/DatosAbiertos/Internet/default.aspx" target="_blank" rel="noopener">ir a la fuente ↗</a></p>
     </article>
     
-    <article class="chart-card" id="grafico-agri-rendimiento" data-chart-id="agri-rendimiento">
+    <article class="chart-card" id="grafico-con-velocidad" data-chart-id="con-velocidad">
       <div class="chart-card-head">
-        <h2 class="chart-title">Rendimiento por cultivo</h2>
-        <p class="chart-descr">Kilogramos por hectárea cosechada, según el cultivo.</p>
+        <h2 class="chart-title">Velocidad media de bajada: Salta y país</h2>
+        <p class="chart-descr">Velocidad media de bajada de los accesos fijos, en Mbps.</p>
       </div>
       <div class="chart-controls" role="group" aria-label="Filtros del gráfico"></div>
-      <div class="chart-plot" role="img" aria-label="Rendimiento por cultivo"></div>
+      <div class="chart-plot" role="img" aria-label="Velocidad media de bajada: Salta y país"></div>
       <details class="chart-table">
         <summary>Ver datos en tabla</summary>
         <div class="chart-table-body"></div>
       </details>
-      <p class="chart-source muted">Fuente: Estimaciones Agrícolas — Ministerio de Economía (MAGyP) · <a href="https://datos.magyp.gob.ar/dataset/estimaciones-agricolas" target="_blank" rel="noopener">ir a la fuente ↗</a></p>
+      <p class="chart-source muted">Fuente: ENACOM (datos abiertos de internet) e INDEC (Censo 2022, hogares) · <a href="https://indicadores.enacom.gob.ar/DatosAbiertos/Internet/default.aspx" target="_blank" rel="noopener">ir a la fuente ↗</a></p>
+    </article>
+    
+    <article class="chart-card" id="grafico-con-depto" data-chart-id="con-depto">
+      <div class="chart-card-head">
+        <h2 class="chart-title">Accesos a internet fijo cada 100 hogares por departamento</h2>
+        <p class="chart-descr">Último trimestre disponible del año seleccionado. Hogares del Censo 2022; en Capital supera 100 porque incluye accesos de empresas y organismos.</p>
+      </div>
+      <div class="chart-controls" role="group" aria-label="Filtros del gráfico"></div>
+      <div class="chart-plot" role="img" aria-label="Accesos a internet fijo cada 100 hogares por departamento"></div>
+      <details class="chart-table">
+        <summary>Ver datos en tabla</summary>
+        <div class="chart-table-body"></div>
+      </details>
+      <p class="chart-source muted">Fuente: ENACOM (datos abiertos de internet) e INDEC (Censo 2022, hogares) · <a href="https://indicadores.enacom.gob.ar/DatosAbiertos/Internet/default.aspx" target="_blank" rel="noopener">ir a la fuente ↗</a></p>
+    </article>
+    
+    <article class="chart-card" id="grafico-con-fibra-depto" data-chart-id="con-fibra-depto">
+      <div class="chart-card-head">
+        <h2 class="chart-title">Participación de la fibra óptica por departamento</h2>
+        <p class="chart-descr">Accesos por fibra óptica como % del total de accesos fijos, último trimestre disponible del año.</p>
+      </div>
+      <div class="chart-controls" role="group" aria-label="Filtros del gráfico"></div>
+      <div class="chart-plot" role="img" aria-label="Participación de la fibra óptica por departamento"></div>
+      <details class="chart-table">
+        <summary>Ver datos en tabla</summary>
+        <div class="chart-table-body"></div>
+      </details>
+      <p class="chart-source muted">Fuente: ENACOM (datos abiertos de internet) e INDEC (Censo 2022, hogares) · <a href="https://indicadores.enacom.gob.ar/DatosAbiertos/Internet/default.aspx" target="_blank" rel="noopener">ir a la fuente ↗</a></p>
     </article>
     
   </section>
 
   <section class="wrap section">
     <p class="tema-source-note muted">
-      Datos oficiales de <strong>Estimaciones Agrícolas — Ministerio de Economía (MAGyP)</strong>.
-      <a href="https://datos.magyp.gob.ar/dataset/estimaciones-agricolas" target="_blank" rel="noopener">Ir a la fuente ↗</a>
+      Datos oficiales de <strong>ENACOM (datos abiertos de internet) e INDEC (Censo 2022, hogares)</strong>.
+      <a href="https://indicadores.enacom.gob.ar/DatosAbiertos/Internet/default.aspx" target="_blank" rel="noopener">Ir a la fuente ↗</a>
     </p>
   </section>
 
@@ -230,6 +258,12 @@
       </a>
       
       
+      <a class="card card-sm" href="../tema/agricultura.html">
+        <span class="card-area">Económico-productivo · Agropecuario</span>
+        <h4 class="card-title">Agricultura por departamento</h4>
+      </a>
+      
+      
       <a class="card card-sm" href="../tema/ganaderia.html">
         <span class="card-area">Económico-productivo · Agropecuario</span>
         <h4 class="card-title">Ganadería bovina</h4>
@@ -275,12 +309,6 @@
       <a class="card card-sm" href="../tema/construccion.html">
         <span class="card-area">Económico-productivo · Construcción</span>
         <h4 class="card-title">Construcción (permisos de edificación)</h4>
-      </a>
-      
-      
-      <a class="card card-sm" href="../tema/conectividad.html">
-        <span class="card-area">Económico-productivo · Ciencia y tecnología</span>
-        <h4 class="card-title">Conectividad: internet fijo (ENACOM)</h4>
       </a>
       
       

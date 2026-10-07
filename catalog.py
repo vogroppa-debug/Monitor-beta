@@ -234,12 +234,12 @@ TEMAS = [
         "resumen": (
             "La cadena del vino en Salta: producción de uva y elaboración de vino y mosto por "
             "departamento de los Valles Calchaquíes, despachos al mercado interno y exportaciones "
-            "de la provincia, desde 2018."
+            "de la provincia, desde 2015 (mercado interno desde 2016)."
         ),
         "resumen_corto": "La cadena del vino en Salta: uva, elaboración y exportaciones.",
         "fuente": "Instituto Nacional de Vitivinicultura (INV)",
         "fuente_url": "https://www.argentina.gob.ar/inv/vinos/estadisticas",
-        "cobertura": "2018–2025",
+        "cobertura": "2015–2025",
         "keywords": [
             "vino", "vid", "uva", "bodegas", "vitivinicultura", "INV", "cosecha", "elaboración",
             "mosto", "exportaciones", "Cafayate", "Cachi", "Molinos", "San Carlos",
@@ -1019,6 +1019,88 @@ TEMAS = [
              "fixed": {"grano": "anual", "operacion": "PDA"},
              "controls": [{"dim": "anio", "label": "Año", "kind": "year"}],
              "sort": "desc", "unidad": "PDA/10k"},
+        ],
+    },
+    # ======================================================================
+    {
+        "id": "conectividad",
+        "area": "ciencia",
+        "eje_pdes": "economico-productivo",
+        "title": "Conectividad: internet fijo (ENACOM)",
+        "resumen": (
+            "Accesos a internet fijo en Salta según ENACOM: penetración cada 100 hogares y cada 100 "
+            "habitantes, accesos por tecnología y velocidad media de bajada, trimestral desde 2015, con "
+            "el total del país como referencia. Por departamento, accesos cada 100 hogares (base Censo "
+            "2022) y participación de la fibra óptica, a partir de los datos por localidad de ENACOM "
+            "(desde 2026-T2)."
+        ),
+        "resumen_corto": "Internet fijo: penetración, tecnologías, velocidad y brecha por departamento.",
+        "fuente": "ENACOM (datos abiertos de internet) e INDEC (Censo 2022, hogares)",
+        "fuente_url": "https://indicadores.enacom.gob.ar/DatosAbiertos/Internet/default.aspx",
+        "cobertura": "2015–2026",
+        "keywords": [
+            "internet", "conectividad", "banda ancha", "fibra óptica", "ENACOM", "accesos",
+            "hogares", "velocidad", "Mbps", "telecomunicaciones", "brecha digital", "economía del conocimiento",
+            "cablemódem", "ADSL", "wireless", "satelital", "localidad",
+        ],
+        "tags": ["infraestructura-logistica"],
+        "kpis": [
+            {"label": "Accesos a internet fijo cada 100 hogares", "metrica": "acc_100_hog",
+             "fixed": {"grano": "trimestral", "departamento": "Salta", "ambito": "Salta", "tecnologia": "Total"},
+             "cmp": "quarter", "year": "latest", "unidad": "accesos/100 hogares", "format": "dec1"},
+            {"label": "Accesos a internet fijo", "metrica": "accesos",
+             "fixed": {"grano": "trimestral", "departamento": "Salta", "ambito": "Salta", "tecnologia": "Total"},
+             "cmp": "quarter", "year": "latest", "unidad": "accesos", "format": "int"},
+            {"label": "Velocidad media de bajada", "metrica": "vel_mbps",
+             "fixed": {"grano": "trimestral", "departamento": "Salta", "ambito": "Salta", "tecnologia": "Total"},
+             "cmp": "quarter", "year": "latest", "unidad": "Mbps", "format": "dec1"},
+        ],
+        "charts": [
+            {"id": "con-penetracion", "type": "line",
+             "title": "Accesos a internet fijo: Salta y país",
+             "descr": "Accesos cada 100 hogares o cada 100 habitantes, por trimestre. Desde 2022 ENACOM usa "
+                      "proyecciones del Censo 2022, lo que baja la tasa por hogares.",
+             "x": "trimestre", "seriesBy": "ambito", "metrica": "acc_100_hog",
+             "fixed": {"grano": "trimestral", "departamento": "Salta", "tecnologia": "Total"},
+             "controls": [{"kind": "metric", "label": "Indicador", "options": ["acc_100_hog", "acc_100_hab"]},
+                          {"kind": "freq", "label": "Frecuencia", "default": "trimestral", "options": [
+                 {"value": "trimestral", "label": "Trimestral", "x": "trimestre", "grano": "trimestral"},
+                 {"value": "anual", "label": "Anual (promedio)", "x": "anio", "grano": "anual"}]}],
+             "unidad": "accesos/100 hogares"},
+            {"id": "con-tecnologia", "type": "stacked-area",
+             "title": "Accesos a internet fijo por tecnología en Salta",
+             "descr": "Cantidad de accesos por tecnología al final de cada trimestre.",
+             "x": "trimestre", "seriesBy": "tecnologia", "metrica": "accesos",
+             "fixed": {"grano": "trimestral", "departamento": "Salta", "ambito": "Salta"},
+             "seriesExclude": ["Total"], "stack": True,
+             "controls": [{"kind": "freq", "label": "Frecuencia", "default": "trimestral", "options": [
+                 {"value": "trimestral", "label": "Trimestral", "x": "trimestre", "grano": "trimestral"},
+                 {"value": "anual", "label": "Anual (promedio)", "x": "anio", "grano": "anual"}]}],
+             "unidad": "accesos"},
+            {"id": "con-velocidad", "type": "line",
+             "title": "Velocidad media de bajada: Salta y país",
+             "descr": "Velocidad media de bajada de los accesos fijos, en Mbps.",
+             "x": "trimestre", "seriesBy": "ambito", "metrica": "vel_mbps",
+             "fixed": {"grano": "trimestral", "departamento": "Salta", "tecnologia": "Total"},
+             "controls": [{"kind": "freq", "label": "Frecuencia", "default": "trimestral", "options": [
+                 {"value": "trimestral", "label": "Trimestral", "x": "trimestre", "grano": "trimestral"},
+                 {"value": "anual", "label": "Anual (promedio)", "x": "anio", "grano": "anual"}]}],
+             "unidad": "Mbps"},
+            {"id": "con-depto", "type": "barh",
+             "title": "Accesos a internet fijo cada 100 hogares por departamento",
+             "descr": "Último trimestre disponible del año seleccionado. Hogares del Censo 2022; en Capital supera "
+                      "100 porque incluye accesos de empresas y organismos.",
+             "x": "departamento", "seriesBy": None, "metrica": "acc_100_hog_censo",
+             "fixed": {"grano": "anual", "ambito": "Salta", "tecnologia": "Total"},
+             "controls": [{"dim": "anio", "label": "Año", "kind": "year"}],
+             "sort": "desc", "unidad": "accesos/100 hogares"},
+            {"id": "con-fibra-depto", "type": "barh",
+             "title": "Participación de la fibra óptica por departamento",
+             "descr": "Accesos por fibra óptica como % del total de accesos fijos, último trimestre disponible del año.",
+             "x": "departamento", "seriesBy": None, "metrica": "pct_fibra",
+             "fixed": {"grano": "anual", "ambito": "Salta", "tecnologia": "Total"},
+             "controls": [{"dim": "anio", "label": "Año", "kind": "year"}],
+             "sort": "desc", "unidad": "%"},
         ],
     },
     # ======================================================================

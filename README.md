@@ -37,6 +37,9 @@ python -m http.server 8000
 
 1. Correr el script del indicador correspondiente (`../Actualizar_*.md` → regenera su CSV tidy,
    descargando de la fuente oficial).
+   - Conectividad (ENACOM): `python scripts/salta_enacom_conectividad.py` (series provinciales) y luego
+     `python scripts/salta_enacom_localidades.py` (localidades y departamentos). ENACOM publica por
+     localidad solo el ultimo trimestre: correrlo cada trimestre para que se acumule la serie.
 2. Volver a correr `python build.py` (segundos, offline). El sitio queda actualizado.
 
 El build **no** re-descarga nada: lee los CSV ya generados. Ver `BUILD_NOTES.md` (se regenera en
