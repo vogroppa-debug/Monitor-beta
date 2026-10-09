@@ -437,7 +437,7 @@ def tabla(payloads, catalogo, ejes_pdes_meta, tags_meta, subeje_orden, ciiu_secc
                 "ficha": s.get("ficha", ""),
                 "nota": s.get("tabla_nota", ""),
                 "tema_id": t["id"], "tema_title": t["title"],
-                "chart_id": _grafico(payload, s["metrica"]),
+                "chart_id": s.get("grafico") or _grafico(payload, s["metrica"]),
                 "geo": desag, "geo_nota": desag_nota,
                 "valor_txt": _medida(res["valor"],
                                      payload["metricas"].get(s["metrica"], {}).get("unidad", "")),

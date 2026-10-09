@@ -43,6 +43,8 @@ Spec de KPI (el front muestra la VARIACIÓN INTERANUAL, no el valor absoluto):
        del repo (`../notas-tecnicas-fuente/fichas.js`). ORDENA la tabla maestra dentro
        de cada subeje, así que la numeración se lee corrida. Los indicadores todavía sin
        ficha (sociales, turismo, ambiente) lo dejan vacío y van al final de su subeje.
+  grafico: id del gráfico al que enlaza la tarjeta del indicador (por defecto, el primero
+       que publica su métrica; hace falta cuando varios gráficos comparten métrica).
   display: 'nivel' -> muestra el NIVEL en vez de la variación. Pensado para magnitudes con
        signo (resultado fiscal: superávit verde / déficit rojo).
   sentido: 'mayor_mejor' (por defecto) | 'menor_mejor' | 'neutro'
@@ -584,16 +586,21 @@ TEMAS = [
         "resumen": (
             "Ejecución del gasto público de la Provincia de Salta: composición por objeto del gasto "
             "(personal, bienes, servicios, transferencias, deuda), por finalidad y función, y las "
-            "transferencias corrientes y de capital, en pesos corrientes y constantes de {base_largo}, 2021–2025."
+            "transferencias corrientes y de capital, en pesos corrientes y constantes de {base_largo}, 2021–2025. "
+            "Además, el peso del gasto en personal y de la inversión real directa en el gasto primario, "
+            "y de los recursos tributarios propios en los ingresos totales, frente al NOA y al total de "
+            "provincias, 2015–2025."
         ),
-        "resumen_corto": "Ejecución del gasto provincial por objeto, finalidad y transferencias.",
+        "resumen_corto": "Ejecución del gasto provincial, gasto en personal, inversión real directa y recursos propios.",
         "fuente": "Ejecución presupuestaria — Ministerio de Economía de Salta",
         "fuente_url": "https://presupuesto.salta.gob.ar/",
-        "cobertura": "2021–2025",
+        "cobertura": "2015–2025",
         "keywords": [
             "gasto público", "presupuesto", "ejecución presupuestaria", "finanzas públicas",
             "objeto del gasto", "personal", "bienes de uso", "transferencias", "servicio de la deuda",
             "finalidad", "función", "gasto social", "obra pública", "coparticipación", "erogaciones",
+            "gasto en personal", "inversión real directa", "gasto primario", "recursos propios",
+            "autonomía fiscal", "recaudación provincial", "AIF",
         ],
         "tags": ["inversion-financiamiento"],
         "kpis": [
@@ -603,6 +610,21 @@ TEMAS = [
             {"ficha": "III.6", "label": "Gasto en personal (constante, {base})", "metrica": "gasto_real",
              "fixed": {"clasificador": "objeto", "partida": "Gastos en personal"}, "year": "latest",
              "unidad": "pesos", "format": "int"},
+            {"label": "Gasto en personal (% del gasto primario)", "metrica": "pct_aif",
+             "tabla_nota": "Esquema AIF (DNAP). Gasto primario = gastos totales − intereses de la deuda. La variación va en puntos porcentuales.",
+             "fixed": {"clasificador": "aif", "nivel": "Salta", "partida": "Gasto en personal / gasto primario"},
+             "grafico": "gob-personal-primario",
+             "year": "latest", "unidad": "%", "format": "int", "display": "nivel", "sentido": "menor_mejor"},
+            {"label": "Inversión real directa (% del gasto primario)", "metrica": "pct_aif",
+             "tabla_nota": "Esquema AIF (DNAP): obra pública y bienes de capital. La variación va en puntos porcentuales.",
+             "fixed": {"clasificador": "aif", "nivel": "Salta", "partida": "Inversión real directa / gasto primario"},
+             "grafico": "gob-ird-primario",
+             "year": "latest", "unidad": "%", "format": "int", "display": "nivel", "sentido": "mayor_mejor"},
+            {"label": "Recursos tributarios propios (% de ingresos totales)", "metrica": "pct_aif",
+             "tabla_nota": "Esquema AIF (DNAP). Grado de autonomía fiscal: recaudación provincial sobre ingresos totales. La variación va en puntos porcentuales.",
+             "fixed": {"clasificador": "aif", "nivel": "Salta", "partida": "Recursos tributarios propios / ingresos totales"},
+             "grafico": "gob-recursos-propios",
+             "year": "latest", "unidad": "%", "format": "int", "display": "nivel", "sentido": "mayor_mejor"},
         ],
         "charts": [
             {"id": "gob-objeto", "type": "stacked-bar",
@@ -641,6 +663,30 @@ TEMAS = [
                      {"value": "pct", "label": "% del total", "metric": "gasto_corr", "percent": True, "unidad": "%"}]},
              ],
              "unidad": "pesos"},
+            {"id": "gob-personal-primario", "type": "line",
+             "title": "Gasto en personal sobre gasto primario",
+             "descr": "Porcentaje del gasto primario (sin intereses de la deuda) destinado a salarios del sector público. Salta frente al NOA y al total de provincias.",
+             "x": "anio", "seriesBy": "nivel", "metrica": "pct_aif",
+             "fixed": {"clasificador": "aif", "partida": "Gasto en personal / gasto primario"},
+             "controls": [], "unidad": "%",
+             "fuente": "Esquema Ahorro-Inversión-Financiamiento provincial — DNAP, Ministerio de Economía de la Nación",
+             "fuente_url": "https://www.argentina.gob.ar/economia/sechacienda/coordinacion-fiscal-provincial/ejecucion-presupuestaria-provincial/ejecuciones"},
+            {"id": "gob-ird-primario", "type": "line",
+             "title": "Inversión real directa sobre gasto primario",
+             "descr": "Porcentaje del gasto primario destinado a obra pública y bienes de capital (inversión real directa). Salta frente al NOA y al total de provincias.",
+             "x": "anio", "seriesBy": "nivel", "metrica": "pct_aif",
+             "fixed": {"clasificador": "aif", "partida": "Inversión real directa / gasto primario"},
+             "controls": [], "unidad": "%",
+             "fuente": "Esquema Ahorro-Inversión-Financiamiento provincial — DNAP, Ministerio de Economía de la Nación",
+             "fuente_url": "https://www.argentina.gob.ar/economia/sechacienda/coordinacion-fiscal-provincial/ejecucion-presupuestaria-provincial/ejecuciones"},
+            {"id": "gob-recursos-propios", "type": "line",
+             "title": "Recursos tributarios propios sobre ingresos totales",
+             "descr": "Grado de autonomía fiscal: recaudación de impuestos provinciales sobre el total de ingresos de la provincia. Salta frente al NOA y al total de provincias.",
+             "x": "anio", "seriesBy": "nivel", "metrica": "pct_aif",
+             "fixed": {"clasificador": "aif", "partida": "Recursos tributarios propios / ingresos totales"},
+             "controls": [], "unidad": "%",
+             "fuente": "Esquema Ahorro-Inversión-Financiamiento provincial — DNAP, Ministerio de Economía de la Nación",
+             "fuente_url": "https://www.argentina.gob.ar/economia/sechacienda/coordinacion-fiscal-provincial/ejecucion-presupuestaria-provincial/ejecuciones"},
         ],
     },
     # ======================================================================

@@ -698,7 +698,15 @@ def agricultura():
 GOB_METRICAS = {
     "gasto_corr": {"label": "Gasto (pesos corrientes)",  "unidad": "pesos", "agg": "sum"},
     "gasto_real": {"label": "Gasto (pesos constantes)",  "unidad": "pesos", "agg": "sum"},
+    "pct_aif":    {"label": "Participación (%)",         "unidad": "%",     "agg": "mean"},
 }
+# Indicadores AIF (DNAP): nombre -> (numerador, denominador) del Esquema Ahorro-Inversión-Financiamiento.
+_AIF_IND = {
+    "Gasto en personal / gasto primario":              ("Personal", "X. GASTOS PRIMARIOS"),
+    "Inversión real directa / gasto primario":         ("Inversión Real Directa", "X. GASTOS PRIMARIOS"),
+    "Recursos tributarios propios / ingresos totales": ("De Orígen Provincial", "VI. INGRESOS TOTALES"),
+}
+_AIF_NOA = ["Salta", "Jujuy", "Tucumán", "Catamarca", "La Rioja", "Santiago del Estero"]
 _GOB_PERSONAL = "Gastos en personal"
 # Etiquetas legibles por código de objeto (el concepto del PDF viene en mayúsculas y a veces truncado).
 _OBJ_LABELS = {
@@ -770,14 +778,28 @@ def gobierno():
             rows.append([y, "transferencia", "tipo", etq, "gasto_corr", round(v, 1)])
             rows.append([y, "transferencia", "tipo", etq, "gasto_real", round(real(v, y), 1)])
 
+    # ---- Indicadores AIF (DNAP): en estas filas `nivel` = ámbito y `partida` = indicador ----
+    aif = pd.read_csv(os.path.join(os.path.dirname(DATA_DIR), "Salta_AIF_DNAP_anual.csv"), encoding="utf-8-sig")
+    aif = aif.drop_duplicates(["provincia", "concepto", "anio"])  # el AIF repite nombres (p. ej. transferencias)
+
+    def _serie(provs, prefijo):
+        s = aif[aif["provincia"].isin(provs) & aif["concepto"].str.startswith(prefijo)]
+        return s.groupby("anio")["millones_pesos"].sum()
+
+    for ambito, provs in [("Salta", ["Salta"]), ("NOA", _AIF_NOA), ("Total provincias", ["Consolidado"])]:
+        for ind, (num, den) in _AIF_IND.items():
+            r = (100 * _serie(provs, num) / _serie(provs, den)).dropna()
+            for y, v in r.items():
+                rows.append([int(y), "aif", ambito, ind, "pct_aif", round(float(v), 1)])
+
     fields = ["anio", "clasificador", "nivel", "partida", "metrica", "valor"]
     return {
         "fields": fields,
         "rows": rows,
         "dims": {
-            "anio": YEARS,
-            "clasificador": ["objeto", "finalidad", "transferencia"],
-            "nivel": ["principal", "total", "finalidad", "tipo"],
+            "anio": sorted({r[0] for r in rows}),
+            "clasificador": ["objeto", "finalidad", "transferencia", "aif"],
+            "nivel": ["principal", "total", "finalidad", "tipo", "Salta", "NOA", "Total provincias"],
             "partida": sorted({r[3] for r in rows}),
         },
         "metricas": _con_base(GOB_METRICAS, "gasto_real"),
@@ -787,6 +809,9 @@ def gobierno():
             "gobierno: 'objeto' usa los compromisos ejecutados; el gasto es un flujo ANUAL, así que "
             "se deflacta por el IPC NOA promedio del año y se expresa en pesos de %s (la base es el "
             "último mes publicado del IPC y se mueve con él)." % _base_txt(True),
+            "gobierno: gasto en personal e inversión real directa sobre gasto primario, y recursos "
+            "tributarios de origen provincial sobre ingresos totales, del Esquema AIF de la DNAP "
+            "(APNF, 2015–2025; 2024–2025 provisorios). NOA = suma de las seis provincias.",
         ],
     }
 

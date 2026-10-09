@@ -9,7 +9,7 @@
     /* fija el tema antes de pintar para evitar flash */
     (function(){try{var t=localStorage.getItem('cess-theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
   </script>
-  <link rel="stylesheet" href="../assets/css/styles.css?v=1791403689">
+  <link rel="stylesheet" href="../assets/css/styles.css?v=1791557560">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%232a78d6'/><text x='50' y='68' font-size='52' text-anchor='middle' fill='white' font-family='sans-serif' font-weight='700'>C</text></svg>">
 </head>
 <body>
@@ -118,10 +118,10 @@
       <span class="tag-chip">Inversión y financiamiento</span>
     </div>
     
-    <p class="tema-resumen">Ejecución del gasto provincial por objeto, finalidad y transferencias.</p>
+    <p class="tema-resumen">Ejecución del gasto provincial, gasto en personal, inversión real directa y recursos propios.</p>
     <p class="tema-meta muted">
       <strong>Fuente:</strong> Ejecución presupuestaria — Ministerio de Economía de Salta ·
-      <strong>Cobertura:</strong> 2021–2025
+      <strong>Cobertura:</strong> 2015–2025
     </p>
   </header>
 
@@ -171,6 +171,48 @@
         <div class="chart-table-body"></div>
       </details>
       <p class="chart-source muted">Fuente: Ejecución presupuestaria — Ministerio de Economía de Salta · <a href="https://presupuesto.salta.gob.ar/" target="_blank" rel="noopener">ir a la fuente ↗</a></p>
+    </article>
+    
+    <article class="chart-card" id="grafico-gob-personal-primario" data-chart-id="gob-personal-primario">
+      <div class="chart-card-head">
+        <h2 class="chart-title">Gasto en personal sobre gasto primario</h2>
+        <p class="chart-descr">Porcentaje del gasto primario (sin intereses de la deuda) destinado a salarios del sector público. Salta frente al NOA y al total de provincias.</p>
+      </div>
+      <div class="chart-controls" role="group" aria-label="Filtros del gráfico"></div>
+      <div class="chart-plot" role="img" aria-label="Gasto en personal sobre gasto primario"></div>
+      <details class="chart-table">
+        <summary>Ver datos en tabla</summary>
+        <div class="chart-table-body"></div>
+      </details>
+      <p class="chart-source muted">Fuente: Esquema Ahorro-Inversión-Financiamiento provincial — DNAP, Ministerio de Economía de la Nación · <a href="https://www.argentina.gob.ar/economia/sechacienda/coordinacion-fiscal-provincial/ejecucion-presupuestaria-provincial/ejecuciones" target="_blank" rel="noopener">ir a la fuente ↗</a></p>
+    </article>
+    
+    <article class="chart-card" id="grafico-gob-ird-primario" data-chart-id="gob-ird-primario">
+      <div class="chart-card-head">
+        <h2 class="chart-title">Inversión real directa sobre gasto primario</h2>
+        <p class="chart-descr">Porcentaje del gasto primario destinado a obra pública y bienes de capital (inversión real directa). Salta frente al NOA y al total de provincias.</p>
+      </div>
+      <div class="chart-controls" role="group" aria-label="Filtros del gráfico"></div>
+      <div class="chart-plot" role="img" aria-label="Inversión real directa sobre gasto primario"></div>
+      <details class="chart-table">
+        <summary>Ver datos en tabla</summary>
+        <div class="chart-table-body"></div>
+      </details>
+      <p class="chart-source muted">Fuente: Esquema Ahorro-Inversión-Financiamiento provincial — DNAP, Ministerio de Economía de la Nación · <a href="https://www.argentina.gob.ar/economia/sechacienda/coordinacion-fiscal-provincial/ejecucion-presupuestaria-provincial/ejecuciones" target="_blank" rel="noopener">ir a la fuente ↗</a></p>
+    </article>
+    
+    <article class="chart-card" id="grafico-gob-recursos-propios" data-chart-id="gob-recursos-propios">
+      <div class="chart-card-head">
+        <h2 class="chart-title">Recursos tributarios propios sobre ingresos totales</h2>
+        <p class="chart-descr">Grado de autonomía fiscal: recaudación de impuestos provinciales sobre el total de ingresos de la provincia. Salta frente al NOA y al total de provincias.</p>
+      </div>
+      <div class="chart-controls" role="group" aria-label="Filtros del gráfico"></div>
+      <div class="chart-plot" role="img" aria-label="Recursos tributarios propios sobre ingresos totales"></div>
+      <details class="chart-table">
+        <summary>Ver datos en tabla</summary>
+        <div class="chart-table-body"></div>
+      </details>
+      <p class="chart-source muted">Fuente: Esquema Ahorro-Inversión-Financiamiento provincial — DNAP, Ministerio de Economía de la Nación · <a href="https://www.argentina.gob.ar/economia/sechacienda/coordinacion-fiscal-provincial/ejecucion-presupuestaria-provincial/ejecuciones" target="_blank" rel="noopener">ir a la fuente ↗</a></p>
     </article>
     
   </section>
@@ -318,9 +360,9 @@
 <script src="../assets/vendor/echarts.min.js"></script>
 <script src="../assets/vendor/minisearch.min.js"></script>
 <script>window.CESS_BASE = "..";</script>
-<script src="../assets/js/app.js?v=1791403689"></script>
+<script src="../assets/js/app.js?v=1791557560"></script>
 
-<script src="../assets/js/charts.js?v=1791403689"></script>
+<script src="../assets/js/charts.js?v=1791557560"></script>
 
 </body>
 </html>
