@@ -81,7 +81,7 @@ def qc_corr_real(fields, rows):
     return incidencias
 
 
-def qc_fichas(tabla_ind, tags_meta):
+def qc_fichas(tabla_ind, tags_meta, subeje_num=None):
     """Controla los códigos de ficha de la tabla maestra («III.5») contra las notas técnicas.
 
     El código se carga a mano en `catalog.py` e `indicadores.py` porque la fuente del documento
@@ -93,8 +93,12 @@ def qc_fichas(tabla_ind, tags_meta):
     cae: son errores de carga, no estados transitorios. Los huecos en la secuencia y los
     indicadores sin ficha sólo se avisan: un indicador nuevo puede existir legítimamente antes de
     que se le escriba la ficha. Devuelve esos avisos para el BUILD_NOTES.md.
+
+    Cada eje del PDES tiene su propio documento de notas técnicas (económico-productivo y
+    sociales), con numeración propia: el código es único DENTRO del eje. `subeje_num` declara el
+    romano de los subejes que no son tags (los sociales).
     """
-    romano = {}
+    romano = dict(subeje_num or {})
     for v in tags_meta.values():
         if v.get("num"):
             romano[v["label"]] = v["num"]
@@ -109,10 +113,10 @@ def qc_fichas(tabla_ind, tags_meta):
                 if not cod:
                     sin_ficha.append(f["indicador"])
                     continue
-                if cod in vistos:
-                    raise SystemExit(f"FICHA DUPLICADA {cod}: la llevan '{vistos[cod]}' y "
+                if (g["id"], cod) in vistos:
+                    raise SystemExit(f"FICHA DUPLICADA {cod}: la llevan '{vistos[(g['id'], cod)]}' y "
                                      f"'{f['indicador']}'. Cada código identifica UNA ficha.")
-                vistos[cod] = f["indicador"]
+                vistos[(g["id"], cod)] = f["indicador"]
                 esperado = romano.get(sg["label"])
                 if esperado is None:
                     sin_num.add(sg["label"])
@@ -427,7 +431,7 @@ def main():
     tabla_ind = indicadores.tabla(payloads, catalogo, catalog.EJES_PDES,
                                   catalog.TAGS, catalog.SUBEJE_ORDEN, catalog.CIIU_SECCIONES)
     n_ind = sum(len(g["filas"]) for g in tabla_ind)
-    todas_notas["tabla de indicadores"] = qc_fichas(tabla_ind, catalog.TAGS)
+    todas_notas["tabla de indicadores"] = qc_fichas(tabla_ind, catalog.TAGS, catalog.SUBEJE_NUM)
 
     # Agrupar en DOS NIVELES: eje del PDES (nivel 1) y subeje (nivel 2). La unidad es el
     # INDICADOR, no el tablero: así la cuenta de las pills coincide con la tabla maestra
@@ -501,8 +505,11 @@ def escribir_build_notes(todas_notas, resumen_build):
         "código se carga a mano en el spec del indicador (`catalog.py`, y `EXTRA` en "
         "`indicadores.py`) y `qc_fichas()` lo verifica en cada build: aborta ante un código "
         "repetido o con el romano cambiado, y avisa acá abajo de los huecos. El número "
-        "**ordena** la tabla dentro de cada subeje. Los indicadores sociales, de turismo y de "
-        "ambiente esperan el documento complementario y muestran «—».",
+        "**ordena** la tabla dentro de cada subeje. En el eje sociocultural los códigos `I.1`…`IV.10` "
+        "son los de las **Notas técnicas integradas de indicadores sociales** (Dimensiones I a IV, "
+        "PDF en la carpeta de Drive de los xlsx); la numeración es propia de cada eje, así que el "
+        "control de duplicados es por eje. Turismo, ambiente y los tableros sociales previos "
+        "(educación por departamento, salud) no tienen ficha y muestran «—».",
         "",
         "## Fuentes externas materializadas",
         "- `ipc_noa_mensual.csv` — IPC Nivel General región NOA (INDEC), vía "

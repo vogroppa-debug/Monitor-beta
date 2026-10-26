@@ -2053,6 +2053,8 @@ SR_METRICAS = {
     "tasa_bruta_mort":    {"label": "Tasa bruta de mortalidad", "unidad": "por mil hab.", "agg": "mean"},
     "tasa_mort_ajustada": {"label": "Mortalidad ajustada por edad", "unidad": "por mil hab.", "agg": "mean"},
     "razon_brecha_mort":  {"label": "Mortalidad ajustada respecto de la provincial", "unidad": "razón (provincia = 1)", "agg": "mean"},
+    "cv_mort_territorial": {"label": "Dispersión territorial de la mortalidad ajustada (coef. de variación)", "unidad": "%", "agg": "mean"},
+    "razon_max_min_mort": {"label": "Razón entre el departamento de mayor y menor mortalidad ajustada", "unidad": "veces", "agg": "mean"},
     "mort_prematura":     {"label": "Mortalidad prematura (30 a 69 años)", "unidad": "por cien mil hab.", "agg": "mean"},
     "apvp":               {"label": "Años potenciales de vida perdidos", "unidad": "años por cien mil hab.", "agg": "mean"},
     "mort_cardiovascular": {"label": "Mortalidad cardiovascular", "unidad": "por cien mil hab.", "agg": "mean"},
@@ -2104,6 +2106,13 @@ def salud_reproduccion():
         ("Edad media maternidad", 1, "edad_media_mat", a, {}, 0),
     ] + [("Tasas especif. fecundidad", i + 1, "tef", a, {"edad": e}, 0) for i, e in enumerate(_SR_EDADES)]
     regs = _soc_leer(SR_ARCHIVO, specs)
+    # Medidas de dispersión de la ficha II.4: filas sueltas al pie de la hoja.
+    for f in _soc_libro(SR_ARCHIVO)["Brecha territorial mortalidad"]:
+        txt, v = str(f[0] or "") if f else "", _soc_num(f[1]) if f and len(f) > 1 else None
+        met = ("cv_mort_territorial" if txt.startswith("Coeficiente de variación") else
+               "razon_max_min_mort" if txt.startswith("Razón entre el departamento") else None)
+        if met and v is not None:
+            regs.append({"anio": a, "departamento": "Salta", "metrica": met, "valor": round(v, 4)})
     return _soc_payload(regs, ["anio", "departamento", "sexo", "edad", "metrica", "valor"], SR_METRICAS, [
         "salud-reproduccion: tasas medias anuales del trienio 2021-2023 (defunciones y nacimientos "
         "DEIS) sobre población del Censo 2022; se publican con anio=2023. Un solo corte por "
