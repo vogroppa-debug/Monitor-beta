@@ -1936,6 +1936,296 @@ def conectividad():
     }
 
 
+# ==========================================================================
+# TEMAS SOCIALES — Dimensiones I a IV de las notas técnicas de indicadores sociales
+# (xlsx estáticos elaborados por el CESS, en datos-drive/). Casi todo es UN corte por
+# departamento; la única serie temporal es la anual de suicidios 2017-2024.
+# ==========================================================================
+_SOC_DEPTOS = set(_DEPT_CANON.values())
+
+
+def _soc_celda(c):
+    """Valor de la celda; los porcentajes con formato % de Excel vienen como fracción."""
+    v = getattr(c, "value", None)
+    if isinstance(v, (int, float)) and "%" in (getattr(c, "number_format", "") or ""):
+        return v * 100
+    return v
+
+
+@functools.lru_cache(maxsize=None)
+def _soc_libro(archivo):
+    wb = openpyxl.load_workbook(_drv(archivo), read_only=True, data_only=True)
+    libro = {ws.title.strip(): [tuple(_soc_celda(c) for c in f) for f in ws.iter_rows()]
+             for ws in wb.worksheets}
+    wb.close()
+    return libro
+
+
+def _soc_tabla(archivo, hoja, clave="Departamento", bloque=0):
+    """Filas de la tabla que arranca en la fila cuyo primer valor es `clave` (la `bloque`-ésima
+    de la hoja) y termina en la primera fila vacía."""
+    filas = _soc_libro(archivo)[hoja]
+    i = [k for k, f in enumerate(filas) if f and str(f[0] or "").strip() == clave][bloque]
+    out = []
+    for f in filas[i + 1:]:
+        if not f or f[0] is None or not str(f[0]).strip():
+            break
+        out.append(f)
+    return out
+
+
+def _soc_num(v):
+    if v is None or isinstance(v, bool):
+        return None
+    if isinstance(v, (int, float)):
+        return float(v)
+    try:  # texto: "5,586" (miles con coma), "14.2%", "ND"
+        return float(str(v).replace(",", "").replace("%", "").strip())
+    except ValueError:
+        return None
+
+
+def _soc_depto(s):
+    """'Total Provincia' -> 'Salta'; quita la marca '(*)' de Aprender. None si no es depto."""
+    s = str(s).replace("(*)", "").strip()
+    if s == "Total Provincia":
+        return "Salta"
+    d = norm_dept(s)
+    return d if d in _SOC_DEPTOS else None
+
+
+def _soc_leer(archivo, specs):
+    """specs: [(hoja, col, metrica, anio, {dim: valor}, bloque)] -> registros (dict)."""
+    regs = []
+    for hoja, col, met, anio, dims, bloque in specs:
+        for f in _soc_tabla(archivo, hoja, bloque=bloque):
+            d, v = _soc_depto(f[0]), _soc_num(f[col] if col < len(f) else None)
+            if d is not None and v is not None:
+                regs.append(dict(dims, anio=anio, departamento=d, metrica=met, valor=round(v, 4)))
+    return regs
+
+
+def _soc_payload(regs, fields, metricas, notas):
+    rows = [[r.get(k, "Total") for k in fields[:-2]] + [r["metrica"], r["valor"]] for r in regs]
+    dims = {k: sorted({r[i] for r in rows}, key=str) for i, k in enumerate(fields[:-2])}
+    dims["departamento"] = [d for d in dims["departamento"] if d not in PROVINCIAL_TOKENS]
+    return {"fields": fields, "rows": rows, "dims": dims, "metricas": metricas, "notas": notas}
+
+
+# -- Dimensión I: condiciones de vida (privación material, Censo 2022) -------
+CV_ARCHIVO = "Dimension_I_CV_vf.xlsx"
+CV_METRICAS = {
+    "pct_hogares": {"label": "Hogares en situación de privación (%)", "unidad": "% de hogares", "agg": "mean"},
+    "hogares_priv": {"label": "Hogares en situación de privación", "unidad": "hogares", "agg": "sum"},
+}
+# hoja -> (indicador, columna de hogares privados, columna del %)
+_CV_HOJAS = {
+    "NBI": ("NBI", 3, 4),
+    "Hacinamiento": ("Hacinamiento crítico", 3, 4),
+    "Condiciones sanitarias": ("Condiciones sanitarias (NBI)", 3, 4),
+    "Capacidad de subsistencia": ("Capacidad de subsistencia (NBI)", 3, 4),
+    "Clima educativo": ("Clima educativo bajo o muy bajo", 4, 5),
+    "Agua": ("Sin agua por cañería en la vivienda", 4, 5),
+    "Inodoro": ("Sin inodoro con descarga de agua", 4, 5),
+    "Propiedad de la vivienda": ("No propietarios de la vivienda", 3, 4),
+    "Computadora-tablet": ("Sin computadora ni tablet", 3, 4),
+    "Internet en la vivienda": ("Sin internet en la vivienda", 3, 4),
+    "Celular con internet": ("Sin celular con internet", 3, 4),
+}
+
+
+def condiciones_vida():
+    specs = []
+    for hoja, (ind, c_n, c_pct) in _CV_HOJAS.items():
+        specs += [(hoja, c_n, "hogares_priv", 2022, {"indicador": ind}, 0),
+                  (hoja, c_pct, "pct_hogares", 2022, {"indicador": ind}, 0)]
+    regs = _soc_leer(CV_ARCHIVO, specs)
+    return _soc_payload(regs, ["anio", "departamento", "indicador", "metrica", "valor"], CV_METRICAS, [
+        "condiciones-vida: privación material de los hogares según el Censo 2022 (INDEC/REDATAM), "
+        "un solo corte por departamento; xlsx estático elaborado por el CESS (Dimensión I).",
+    ])
+
+
+# -- Dimensión II: salud y reproducción (trienio 2021-2023 + Censo 2022) -----
+SR_ARCHIVO = "Dimension_II_Salud_vf.xlsx"
+SR_METRICAS = {
+    "esperanza_vida":     {"label": "Esperanza de vida al nacer", "unidad": "años", "agg": "mean"},
+    "tasa_bruta_mort":    {"label": "Tasa bruta de mortalidad", "unidad": "por mil hab.", "agg": "mean"},
+    "tasa_mort_ajustada": {"label": "Mortalidad ajustada por edad", "unidad": "por mil hab.", "agg": "mean"},
+    "razon_brecha_mort":  {"label": "Mortalidad ajustada respecto de la provincial", "unidad": "razón (provincia = 1)", "agg": "mean"},
+    "mort_prematura":     {"label": "Mortalidad prematura (30 a 69 años)", "unidad": "por cien mil hab.", "agg": "mean"},
+    "apvp":               {"label": "Años potenciales de vida perdidos", "unidad": "años por cien mil hab.", "agg": "mean"},
+    "mort_cardiovascular": {"label": "Mortalidad cardiovascular", "unidad": "por cien mil hab.", "agg": "mean"},
+    "mort_cancer":        {"label": "Mortalidad por cáncer", "unidad": "por cien mil hab.", "agg": "mean"},
+    "mort_diabetes":      {"label": "Mortalidad por diabetes", "unidad": "por cien mil hab.", "agg": "mean"},
+    "tmi":                {"label": "Mortalidad infantil", "unidad": "por mil nacidos vivos", "agg": "mean"},
+    "mort_menores5":      {"label": "Mortalidad de menores de 5 años", "unidad": "por mil nacidos vivos", "agg": "mean"},
+    "rmm":                {"label": "Mortalidad materna", "unidad": "por cien mil nacidos vivos", "agg": "mean"},
+    "pct_bajo_peso":      {"label": "Nacidos con bajo peso (< 2.500 g)", "unidad": "% de nacidos vivos", "agg": "mean"},
+    "tgf":                {"label": "Tasa global de fecundidad", "unidad": "hijos por mujer", "agg": "mean"},
+    "tasa_gral_fec":      {"label": "Tasa general de fecundidad", "unidad": "por mil mujeres de 15 a 49", "agg": "mean"},
+    "tef":                {"label": "Tasa específica de fecundidad", "unidad": "por mil mujeres", "agg": "mean"},
+    "fec_15_19":          {"label": "Fecundidad adolescente (15 a 19)", "unidad": "por mil mujeres", "agg": "mean"},
+    "fec_10_14":          {"label": "Fecundidad adolescente temprana (10 a 14)", "unidad": "por mil niñas", "agg": "mean"},
+    "pct_madres_adolesc": {"label": "Nacimientos de madres adolescentes", "unidad": "% de nacidos vivos", "agg": "mean"},
+    "edad_media_mat":     {"label": "Edad media de la maternidad", "unidad": "años", "agg": "mean"},
+}
+_SR_EDADES = ["15 a 19", "20 a 24", "25 a 29", "30 a 34", "35 a 39", "40 a 44", "45 y más"]
+
+
+def salud_reproduccion():
+    a = 2023  # trienio 2021-2023
+    sx = lambda s: {"sexo": s}
+    specs = [
+        ("Esperanza de vida al nacer", 1, "esperanza_vida", a, sx("Total"), 0),
+        ("Esperanza de vida al nacer", 2, "esperanza_vida", a, sx("Varones"), 0),
+        ("Esperanza de vida al nacer", 3, "esperanza_vida", a, sx("Mujeres"), 0),
+        ("Tasa bruta de mortalidad", 3, "tasa_bruta_mort", a, sx("Total"), 0),
+        ("Tasa bruta de mortalidad", 6, "tasa_bruta_mort", a, sx("Varones"), 0),
+        ("Tasa bruta de mortalidad", 6, "tasa_bruta_mort", a, sx("Mujeres"), 1),
+        ("Mortalidad ajustada por edad", 1, "tasa_mort_ajustada", a, sx("Total"), 0),
+        ("Mortalidad ajustada por edad", 2, "tasa_mort_ajustada", a, sx("Varones"), 0),
+        ("Mortalidad ajustada por edad", 3, "tasa_mort_ajustada", a, sx("Mujeres"), 0),
+        ("Brecha territorial mortalidad", 2, "razon_brecha_mort", a, {}, 0),
+        ("Mortalidad prematura 30-69", 3, "mort_prematura", a, {}, 0),
+        ("APVP", 1, "apvp", a, {}, 0),
+        ("Mortalidad cardiovascular", 3, "mort_cardiovascular", a, {}, 0),
+        ("Mortalidad por cáncer", 3, "mort_cancer", a, {}, 0),
+        ("Mortalidad por diabetes", 3, "mort_diabetes", a, {}, 0),
+        ("TMI", 3, "tmi", a, {}, 0),
+        ("Mortalidad menores de 5", 4, "mort_menores5", a, {}, 0),
+        ("Mortalidad materna", 3, "rmm", a, {}, 0),
+        ("Bajo peso al nacer", 3, "pct_bajo_peso", a, {}, 0),
+        ("Tasa global de fecundidad", 1, "tgf", a, {}, 0),
+        ("Tasa general de fecundidad", 3, "tasa_gral_fec", a, {}, 0),
+        ("Fecundidad adolescente 15-19", 3, "fec_15_19", a, {}, 0),
+        ("Fecundidad adolescente 10-14", 3, "fec_10_14", a, {}, 0),
+        ("Nacim. madres adolescentes", 3, "pct_madres_adolesc", a, {}, 0),
+        ("Edad media maternidad", 1, "edad_media_mat", a, {}, 0),
+    ] + [("Tasas especif. fecundidad", i + 1, "tef", a, {"edad": e}, 0) for i, e in enumerate(_SR_EDADES)]
+    regs = _soc_leer(SR_ARCHIVO, specs)
+    return _soc_payload(regs, ["anio", "departamento", "sexo", "edad", "metrica", "valor"], SR_METRICAS, [
+        "salud-reproduccion: tasas medias anuales del trienio 2021-2023 (defunciones y nacimientos "
+        "DEIS) sobre población del Censo 2022; se publican con anio=2023. Un solo corte por "
+        "departamento; en departamentos chicos las tasas son inestables (pocos casos).",
+    ])
+
+
+# -- Dimensión III: educación (Relevamiento Anual 2025 + Aprender 2025) ------
+EA_ARCHIVO = "Dimension_III_Educacion_vf.xlsx"
+EA_METRICAS = {
+    "matricula":               {"label": "Matrícula", "unidad": "alumnos", "agg": "sum"},
+    "pct_repitencia":          {"label": "Repitencia", "unidad": "% de la matrícula", "agg": "mean"},
+    "egresados":               {"label": "Egresados", "unidad": "alumnos", "agg": "sum"},
+    "tasa_egreso_aparente":    {"label": "Tasa de egreso aparente", "unidad": "%", "agg": "mean"},
+    "alumnos_establecimiento": {"label": "Alumnos por establecimiento", "unidad": "alumnos", "agg": "mean"},
+    "alumnos_cargo":           {"label": "Alumnos por cargo docente", "unidad": "alumnos", "agg": "mean"},
+    "pct_extranjeros":         {"label": "Alumnos extranjeros", "unidad": "% de la matrícula", "agg": "mean"},
+    "pct_satisf_lengua":       {"label": "Aprender Lengua: satisfactorio o avanzado", "unidad": "% de alumnos", "agg": "mean"},
+    "pct_satisf_mat":          {"label": "Aprender Matemática: satisfactorio o avanzado", "unidad": "% de alumnos", "agg": "mean"},
+    "aprender_lengua":         {"label": "Aprender Lengua", "unidad": "% de alumnos", "agg": "mean"},
+    "aprender_matematica":     {"label": "Aprender Matemática", "unidad": "% de alumnos", "agg": "mean"},
+    "aprender_sobreedad":      {"label": "Sobreedad", "unidad": "% de alumnos", "agg": "mean"},
+    "aprender_nse":            {"label": "Nivel socioeconómico", "unidad": "% de alumnos", "agg": "mean"},
+}
+_EA_DESEMP = ["1 · Por debajo del básico", "2 · Básico", "3 · Satisfactorio", "4 · Avanzado"]
+_EA_SOBRE = ["Sin sobreedad", "1 año de sobreedad", "2 años o más de sobreedad"]
+_EA_NSE = ["Q1 (más bajo)", "Q2", "Q3", "Q4", "Q5 (más alto)"]
+
+
+def educacion_aprendizajes():
+    a, P, S = 2025, {"nivel": "Primaria"}, {"nivel": "Secundaria"}
+    specs = [
+        ("Matrícula por nivel", 1, "matricula", a, P, 0),
+        ("Matrícula por nivel", 2, "matricula", a, S, 0),
+        ("Repitencia", 1, "pct_repitencia", a, P, 0),
+        ("Repitencia", 2, "pct_repitencia", a, S, 0),
+        ("Egresados", 1, "egresados", a, P, 0),
+        ("Egresados", 2, "egresados", a, S, 0),
+        ("Egresados", 3, "tasa_egreso_aparente", a, P, 0),
+        ("Egresados", 4, "tasa_egreso_aparente", a, S, 0),
+        ("Estudiantes por establecimiento", 3, "alumnos_establecimiento", a, P, 0),
+        ("Estudiantes por establecimiento", 6, "alumnos_establecimiento", a, S, 0),
+        ("Estudiantes por cargo docente", 3, "alumnos_cargo", a, P, 0),
+        ("Estudiantes por cargo docente", 6, "alumnos_cargo", a, S, 0),
+        ("Extranjeros", 1, "pct_extranjeros", a, P, 0),
+        ("Extranjeros", 2, "pct_extranjeros", a, S, 0),
+        ("Aprender Lengua", 6, "pct_satisf_lengua", a, P, 0),
+        ("Aprender Matemática", 6, "pct_satisf_mat", a, P, 0),
+    ]
+    for hoja, met, cats, c0 in (("Aprender Lengua", "aprender_lengua", _EA_DESEMP, 2),
+                                ("Aprender Matemática", "aprender_matematica", _EA_DESEMP, 2),
+                                ("Aprender Sobreedad", "aprender_sobreedad", _EA_SOBRE, 2),
+                                ("Aprender NSE", "aprender_nse", _EA_NSE, 2)):
+        specs += [(hoja, c0 + i, met, a, dict(P, categoria=c), 0) for i, c in enumerate(cats)]
+    regs = _soc_leer(EA_ARCHIVO, specs)
+    return _soc_payload(regs, ["anio", "departamento", "nivel", "categoria", "metrica", "valor"], EA_METRICAS, [
+        "educacion-aprendizajes: Relevamiento Anual 2025 (primaria y secundaria) y Aprender 2025 "
+        "(6.º grado), por departamento; xlsx estático elaborado por el CESS (Dimensión III). Los "
+        "departamentos sin dato confiable en Aprender (ND) se omiten.",
+    ])
+
+
+# -- Dimensión IV: seguridad (suicidios SATSSBU 2017-2024, tránsito 2021-2023) -
+SEG_ARCHIVO = "Dimension_IV_Seguridad_vf.xlsx"
+SEG_METRICAS = {
+    "tasa_suicidio_anual":   {"label": "Tasa de suicidio", "unidad": "por cien mil hab.", "agg": "mean"},
+    "suicidios_anual":       {"label": "Suicidios", "unidad": "casos", "agg": "sum"},
+    "tasa_suicidio_1724":    {"label": "Tasa de suicidio (media 2017-2024)", "unidad": "por cien mil hab.", "agg": "mean"},
+    "suicidios_1724":        {"label": "Suicidios (2017-2024)", "unidad": "casos", "agg": "sum"},
+    "tasa_suicidio_trienio": {"label": "Tasa de suicidio (media 2021-2023)", "unidad": "por cien mil hab.", "agg": "mean"},
+    "tasa_suicidio_adolesc": {"label": "Tasa de suicidio adolescente (10 a 19)", "unidad": "por cien mil hab. de 10 a 19", "agg": "mean"},
+    "pct_suicidio_adolesc":  {"label": "Suicidios de adolescentes sobre el total", "unidad": "%", "agg": "mean"},
+    "razon_masc_suicidio":   {"label": "Razón de tasas varones / mujeres", "unidad": "veces", "agg": "mean"},
+    "pct_ahorcamiento":      {"label": "Suicidios por ahorcamiento", "unidad": "%", "agg": "mean"},
+    "pct_domicilio":         {"label": "Suicidios en domicilio particular", "unidad": "%", "agg": "mean"},
+    "suicidios_metodo":      {"label": "Suicidios por método (2017-2024)", "unidad": "casos", "agg": "sum"},
+    "suicidios_lugar":       {"label": "Suicidios por lugar (2017-2024)", "unidad": "casos", "agg": "sum"},
+    "tasa_mort_transito":    {"label": "Mortalidad por lesiones de tránsito", "unidad": "por cien mil hab.", "agg": "mean"},
+    "def_transito":          {"label": "Defunciones por lesiones de tránsito (2021-2023)", "unidad": "defunciones", "agg": "sum"},
+}
+
+
+def seguridad():
+    sx = lambda s: {"sexo": s}
+    specs = [
+        ("Tasa de suicidio", 3, "tasa_suicidio_trienio", 2023, {}, 0),
+        ("Suicidios, tasa 2017-2024", 1, "suicidios_1724", 2024, sx("Total"), 0),
+        ("Suicidios, tasa 2017-2024", 2, "tasa_suicidio_1724", 2024, sx("Total"), 0),
+        ("Suicidios por sexo", 1, "suicidios_1724", 2024, sx("Varones"), 0),
+        ("Suicidios por sexo", 2, "tasa_suicidio_1724", 2024, sx("Varones"), 0),
+        ("Suicidios por sexo", 3, "suicidios_1724", 2024, sx("Mujeres"), 0),
+        ("Suicidios por sexo", 4, "tasa_suicidio_1724", 2024, sx("Mujeres"), 0),
+        ("Razón masculinidad suicidio", 2, "razon_masc_suicidio", 2024, {}, 0),
+        ("Suicidio adolescente (10-19)", 2, "tasa_suicidio_adolesc", 2024, {}, 0),
+        ("Prop. suicidios adolesc.", 3, "pct_suicidio_adolesc", 2024, {}, 0),
+        ("Suicidios, modalidad", 3, "pct_ahorcamiento", 2024, {}, 0),
+        ("Suicidios, lugar del hecho", 3, "pct_domicilio", 2024, {}, 0),
+        ("Mortalidad lesiones de tránsito", 2, "def_transito", 2023, {}, 0),
+        ("Mortalidad lesiones de tránsito", 3, "tasa_mort_transito", 2023, {}, 0),
+    ]
+    regs = _soc_leer(SEG_ARCHIVO, specs)
+    # Tablas provinciales: serie anual y detalle por método / lugar.
+    for f in _soc_tabla(SEG_ARCHIVO, "Suicidios, serie anual", clave="Año"):
+        for col, met in ((1, "suicidios_anual"), (2, "tasa_suicidio_anual")):
+            if _soc_num(f[col]) is not None:
+                regs.append({"anio": int(_soc_num(f[0])), "departamento": "Salta",
+                             "metrica": met, "valor": round(_soc_num(f[col]), 4)})
+    for hoja, clave, met in (("Suicidios, modalidad", "Método", "suicidios_metodo"),
+                             ("Suicidios, lugar del hecho", "Lugar", "suicidios_lugar")):
+        for f in _soc_tabla(SEG_ARCHIVO, hoja, clave=clave):
+            if _soc_num(f[1]) is not None:
+                regs.append({"anio": 2024, "departamento": "Salta", "categoria": str(f[0]).strip(),
+                             "metrica": met, "valor": _soc_num(f[1])})
+    return _soc_payload(regs, ["anio", "departamento", "sexo", "categoria", "metrica", "valor"], SEG_METRICAS, [
+        "seguridad: suicidios del SATSSBU (2017-2024; tasas medias anuales, publicadas con "
+        "anio=2024) y del trienio 2021-2023 (DEIS, anio=2023), sobre población del Censo 2022. "
+        "La serie anual es sólo provincial: por departamento los casos por año son muy pocos.",
+        "seguridad: mortalidad por lesiones de tránsito, tasa media anual 2021-2023 (DEIS), no "
+        "ajustada por edad.",
+    ])
+
+
 # Registro id_tema -> función adapter
 ADAPTERS = {
     "educacion": educacion,
@@ -1958,4 +2248,8 @@ ADAPTERS = {
     "exportaciones": exportaciones,
     "salud": salud,
     "conectividad": conectividad,
+    "condiciones-vida": condiciones_vida,
+    "salud-reproduccion": salud_reproduccion,
+    "educacion-aprendizajes": educacion_aprendizajes,
+    "seguridad": seguridad,
 }

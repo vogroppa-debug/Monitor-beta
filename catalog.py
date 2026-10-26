@@ -116,8 +116,8 @@ TAGS = {
 # arriba (se toma el primero del tema); los otros dos ejes usan una taxonomía temática propia,
 # declarada tema por tema con el campo `subeje`. El número es solo el orden de aparición.
 SUBEJE_ORDEN = {
-    # sociocultural (pendiente: Condiciones de vida)
-    "Educación": 1, "Salud": 2,
+    # sociocultural
+    "Educación": 1, "Salud": 2, "Condiciones de vida": 3, "Seguridad": 4,
     # territorio, ambiente y turismo (Territorio todavía sin temas)
     "Territorio": 1, "Ambiente": 2, "Turismo": 3,
 }
@@ -1714,6 +1714,345 @@ TEMAS = [
                                        "giro_camas", "permanencia_promedio",
                                        "tasa_mortalidad_hospitalaria"]}],
              "sort": "desc", "unidad": "%"},
+        ],
+    },
+    # ======================================================================
+    # Temas sociales (Dimensiones I-IV de las notas técnicas de indicadores sociales):
+    # xlsx estáticos, un corte por departamento. Los KPIs muestran el NIVEL (no hay
+    # período previo con qué comparar), salvo la tasa anual de suicidio.
+    # ======================================================================
+    {
+        "id": "condiciones-vida",
+        "subeje": "Condiciones de vida",
+        "area": "social",
+        "eje_pdes": "sociocultural",
+        "title": "Condiciones de vida de los hogares",
+        "resumen": (
+            "Qué proporción de los hogares de cada departamento tiene necesidades básicas "
+            "insatisfechas (NBI), vive en hacinamiento, no tiene agua por cañería o inodoro con "
+            "descarga, no es dueña de su vivienda o no tiene computadora ni internet. Datos del "
+            "Censo 2022: es una foto, no una serie."
+        ),
+        "resumen_corto": "Privación material de los hogares (NBI, vivienda, servicios, TIC), por departamento.",
+        "fuente": "CESS sobre la base del Censo Nacional de Población, Hogares y Viviendas 2022 (INDEC/REDATAM)",
+        "fuente_url": "https://redatam.indec.gob.ar/",
+        "cobertura": "2022 (Censo)",
+        "keywords": [
+            "condiciones de vida", "pobreza estructural", "NBI", "necesidades básicas insatisfechas",
+            "hacinamiento", "vivienda", "agua", "agua potable", "cañería", "inodoro", "baño",
+            "saneamiento", "tenencia de la vivienda", "propietarios", "inquilinos", "clima educativo",
+            "computadora", "tablet", "internet", "celular", "brecha digital", "hogares", "censo 2022",
+            "privación",
+        ],
+        "kpis": [
+            {"label": "Hogares con NBI", "metrica": "pct_hogares",
+             "fixed": {"departamento": "Salta", "indicador": "NBI"}, "year": "latest",
+             "unidad": "% de hogares", "format": "int", "display": "nivel", "sentido": "menor_mejor"},
+            {"label": "Hogares con hacinamiento crítico", "metrica": "pct_hogares",
+             "fixed": {"departamento": "Salta", "indicador": "Hacinamiento crítico"}, "year": "latest",
+             "unidad": "% de hogares", "format": "int", "display": "nivel", "sentido": "menor_mejor"},
+            {"label": "Hogares sin agua por cañería en la vivienda", "metrica": "pct_hogares",
+             "fixed": {"departamento": "Salta", "indicador": "Sin agua por cañería en la vivienda"},
+             "year": "latest", "unidad": "% de hogares", "format": "int", "display": "nivel",
+             "sentido": "menor_mejor"},
+            {"label": "Hogares sin internet en la vivienda", "metrica": "pct_hogares",
+             "fixed": {"departamento": "Salta", "indicador": "Sin internet en la vivienda"},
+             "year": "latest", "unidad": "% de hogares", "format": "int", "display": "nivel",
+             "sentido": "menor_mejor"},
+            {"label": "Hogares con clima educativo bajo", "metrica": "pct_hogares",
+             "tabla_label": "Hogares con clima educativo bajo o muy bajo",
+             "fixed": {"departamento": "Salta", "indicador": "Clima educativo bajo o muy bajo"},
+             "year": "latest", "unidad": "% de hogares", "format": "int", "display": "nivel",
+             "sentido": "menor_mejor"},
+        ],
+        "charts": [
+            {"id": "cv-ranking", "type": "barh",
+             "title": "Privación de los hogares por departamento",
+             "descr": "Ranking de departamentos según la carencia elegida. Censo 2022.",
+             "x": "departamento", "seriesBy": None, "metrica": "pct_hogares", "fixed": {},
+             "controls": [
+                 {"dim": "indicador", "label": "Carencia", "kind": "select", "default": "NBI"},
+                 {"kind": "metric", "label": "Valores", "options": ["pct_hogares", "hogares_priv"]},
+             ],
+             "sort": "desc", "unidad": "% de hogares"},
+            {"id": "cv-perfil", "type": "barh",
+             "title": "Perfil de carencias",
+             "descr": "Todas las carencias juntas, para la provincia o el departamento elegido.",
+             "x": "indicador", "seriesBy": None, "metrica": "pct_hogares", "fixed": {},
+             "controls": [
+                 {"dim": "departamento", "label": "Departamento", "kind": "select",
+                  "all": True, "allValue": "Salta", "allLabel": "Salta (provincia)"},
+             ],
+             "sort": "desc", "unidad": "% de hogares"},
+        ],
+    },
+    # ======================================================================
+    {
+        "id": "salud-reproduccion",
+        "subeje": "Salud",
+        "area": "social",
+        "eje_pdes": "sociocultural",
+        "title": "Salud y reproducción por departamento",
+        "resumen": (
+            "Cuánto vive y de qué muere la población de cada departamento: esperanza de vida, "
+            "mortalidad general y ajustada por edad, mortalidad prematura, infantil y materna, "
+            "y por enfermedades cardiovasculares, cáncer y diabetes. Suma la fecundidad, incluida "
+            "la adolescente. Son tasas medias del trienio 2021-2023: una foto, no una serie."
+        ),
+        "resumen_corto": "Esperanza de vida, mortalidad y fecundidad por departamento (2021-2023).",
+        "fuente": "CESS sobre la base de defunciones y nacimientos 2021-2023 (DEIS, Ministerio de Salud) y Censo 2022 (INDEC)",
+        "fuente_url": "https://www.argentina.gob.ar/salud/deis",
+        "cobertura": "2021–2023 (trienio)",
+        "keywords": [
+            "salud", "esperanza de vida", "mortalidad", "tasa de mortalidad", "mortalidad ajustada",
+            "mortalidad prematura", "años potenciales de vida perdidos", "APVP", "mortalidad infantil",
+            "TMI", "mortalidad materna", "menores de 5", "bajo peso al nacer", "cardiovascular",
+            "cáncer", "diabetes", "fecundidad", "natalidad", "embarazo adolescente",
+            "madres adolescentes", "maternidad", "brecha territorial", "DEIS",
+        ],
+        "kpis": [
+            {"label": "Esperanza de vida al nacer", "metrica": "esperanza_vida",
+             "fixed": {"departamento": "Salta", "sexo": "Total"}, "year": "latest",
+             "unidad": "años", "format": "int", "display": "nivel", "sentido": "mayor_mejor"},
+            {"label": "Mortalidad infantil",
+             "tabla_label": "Tasa de mortalidad infantil, trienio 2021-2023 (por mil nacidos vivos)",
+             "metrica": "tmi", "fixed": {"departamento": "Salta"}, "year": "latest",
+             "unidad": "por mil nacidos vivos", "format": "int", "display": "nivel",
+             "sentido": "menor_mejor"},
+            {"label": "Mortalidad materna", "metrica": "rmm", "fixed": {"departamento": "Salta"},
+             "year": "latest", "unidad": "por cien mil nacidos vivos", "format": "int",
+             "display": "nivel", "sentido": "menor_mejor"},
+            {"label": "Mortalidad prematura (30 a 69 años)", "metrica": "mort_prematura",
+             "fixed": {"departamento": "Salta"}, "year": "latest", "unidad": "por cien mil hab.",
+             "format": "int", "display": "nivel", "sentido": "menor_mejor"},
+            {"label": "Fecundidad adolescente (15 a 19)", "metrica": "fec_15_19",
+             "fixed": {"departamento": "Salta"}, "year": "latest", "unidad": "por mil mujeres",
+             "format": "int", "display": "nivel", "sentido": "menor_mejor"},
+        ],
+        "charts": [
+            {"id": "sr-vida-mortalidad", "type": "barh",
+             "title": "Esperanza de vida y mortalidad general",
+             "descr": "Ranking de departamentos. La mortalidad ajustada por edad permite comparar "
+                      "departamentos con poblaciones de distinta edad; la razón compara cada uno "
+                      "contra la provincia (1 = igual).",
+             "x": "departamento", "seriesBy": None, "metrica": "esperanza_vida", "fixed": {},
+             "controls": [
+                 {"kind": "metric", "label": "Indicador",
+                  "options": ["esperanza_vida", "tasa_mort_ajustada", "tasa_bruta_mort",
+                              "razon_brecha_mort"]},
+                 {"dim": "sexo", "label": "Sexo", "kind": "select", "default": "Total"},
+             ],
+             "sort": "desc", "unidad": "años"},
+            {"id": "sr-sexo", "type": "bar",
+             "title": "Varones y mujeres por departamento",
+             "descr": "La brecha entre sexos en esperanza de vida y mortalidad.",
+             "x": "departamento", "seriesBy": "sexo", "metrica": "esperanza_vida", "fixed": {},
+             "seriesExclude": ["Total"],
+             "controls": [
+                 {"kind": "metric", "label": "Indicador",
+                  "options": ["esperanza_vida", "tasa_mort_ajustada", "tasa_bruta_mort"]},
+             ],
+             "unidad": "años"},
+            {"id": "sr-causas", "type": "barh",
+             "title": "Mortalidad prematura y por causas",
+             "descr": "Tasas medias anuales por cien mil habitantes, trienio 2021-2023.",
+             "x": "departamento", "seriesBy": None, "metrica": "mort_prematura", "fixed": {},
+             "controls": [
+                 {"kind": "metric", "label": "Indicador",
+                  "options": ["mort_prematura", "apvp", "mort_cardiovascular", "mort_cancer",
+                              "mort_diabetes"]},
+             ],
+             "sort": "desc", "unidad": "por cien mil hab."},
+            {"id": "sr-materno-infantil", "type": "barh",
+             "title": "Salud materno-infantil",
+             "descr": "Mortalidad infantil, de menores de 5 años y materna, y bajo peso al nacer. "
+                      "En departamentos con pocos nacimientos un solo caso mueve mucho la tasa.",
+             "x": "departamento", "seriesBy": None, "metrica": "tmi", "fixed": {},
+             "controls": [
+                 {"kind": "metric", "label": "Indicador",
+                  "options": ["tmi", "mort_menores5", "rmm", "pct_bajo_peso"]},
+             ],
+             "sort": "desc", "unidad": "por mil nacidos vivos"},
+            {"id": "sr-fecundidad", "type": "barh",
+             "title": "Fecundidad",
+             "descr": "Hijos por mujer, nacimientos por mujer en edad fértil y fecundidad adolescente.",
+             "x": "departamento", "seriesBy": None, "metrica": "tgf", "fixed": {},
+             "controls": [
+                 {"kind": "metric", "label": "Indicador",
+                  "options": ["tgf", "tasa_gral_fec", "fec_15_19", "fec_10_14",
+                              "pct_madres_adolesc", "edad_media_mat"]},
+             ],
+             "sort": "desc", "unidad": "hijos por mujer"},
+            {"id": "sr-tef", "type": "bar",
+             "title": "Fecundidad por edad de la madre",
+             "descr": "Nacimientos por cada mil mujeres de cada grupo de edad.",
+             "x": "edad", "seriesBy": None, "metrica": "tef", "fixed": {},
+             "seriesExclude": ["Total"], "exclude": ["Total"],
+             "controls": [
+                 {"dim": "departamento", "label": "Departamento", "kind": "select",
+                  "all": True, "allValue": "Salta", "allLabel": "Salta (provincia)"},
+             ],
+             "unidad": "por mil mujeres"},
+        ],
+    },
+    # ======================================================================
+    {
+        "id": "educacion-aprendizajes",
+        "subeje": "Educación",
+        "area": "social",
+        "eje_pdes": "sociocultural",
+        "title": "Trayectorias y aprendizajes por departamento",
+        "resumen": (
+            "Cómo avanzan los alumnos de primaria y secundaria en cada departamento (repitencia, "
+            "egreso, alumnos por escuela y por docente) y qué aprenden: resultados de las pruebas "
+            "Aprender de 6.º grado en Lengua y Matemática, sobreedad y nivel socioeconómico. "
+            "Datos de 2025: una foto, no una serie."
+        ),
+        "resumen_corto": "Repitencia, egreso y resultados Aprender 2025, por departamento.",
+        "fuente": "CESS sobre la base del Relevamiento Anual 2025 y Aprender 2025 (Ministerio de Educación de la Nación)",
+        "fuente_url": "https://www.argentina.gob.ar/educacion/evaluacion-informacion-educativa",
+        "cobertura": "2025",
+        "keywords": [
+            "educación", "aprendizajes", "Aprender", "pruebas Aprender", "lengua", "matemática",
+            "desempeño", "satisfactorio", "repitencia", "egreso", "tasa de egreso", "sobreedad",
+            "nivel socioeconómico", "alumnos por docente", "alumnos por escuela", "extranjeros",
+            "primaria", "secundaria", "6to grado", "calidad educativa",
+        ],
+        "kpis": [
+            {"label": "Repitencia en secundaria", "metrica": "pct_repitencia",
+             "fixed": {"departamento": "Salta", "nivel": "Secundaria"}, "year": "latest",
+             "unidad": "% de la matrícula", "format": "int", "display": "nivel",
+             "sentido": "menor_mejor"},
+            {"label": "Tasa de egreso aparente de secundaria", "metrica": "tasa_egreso_aparente",
+             "fixed": {"departamento": "Salta", "nivel": "Secundaria"}, "year": "latest",
+             "unidad": "%", "format": "int", "display": "nivel", "sentido": "mayor_mejor"},
+            {"label": "Lengua: satisfactorio o avanzado", "metrica": "pct_satisf_lengua",
+             "tabla_label": "Aprender 6.º grado, Lengua: alumnos en nivel satisfactorio o avanzado",
+             "fixed": {"departamento": "Salta"}, "year": "latest", "unidad": "% de alumnos",
+             "format": "int", "display": "nivel", "sentido": "mayor_mejor"},
+            {"label": "Matemática: satisfactorio o avanzado", "metrica": "pct_satisf_mat",
+             "tabla_label": "Aprender 6.º grado, Matemática: alumnos en nivel satisfactorio o avanzado",
+             "fixed": {"departamento": "Salta"}, "year": "latest", "unidad": "% de alumnos",
+             "format": "int", "display": "nivel", "sentido": "mayor_mejor"},
+        ],
+        "charts": [
+            {"id": "ea-trayectorias", "type": "barh",
+             "title": "Trayectorias escolares y recursos",
+             "descr": "Ranking de departamentos para el nivel elegido. Relevamiento Anual 2025.",
+             "x": "departamento", "seriesBy": None, "metrica": "pct_repitencia", "fixed": {},
+             "controls": [
+                 {"kind": "metric", "label": "Indicador",
+                  "options": ["pct_repitencia", "tasa_egreso_aparente", "alumnos_cargo",
+                              "alumnos_establecimiento", "pct_extranjeros", "matricula"]},
+                 {"dim": "nivel", "label": "Nivel", "kind": "select", "default": "Secundaria"},
+             ],
+             "sort": "desc", "unidad": "% de la matrícula"},
+            {"id": "ea-aprender-ranking", "type": "barh",
+             "title": "Aprender 2025: alumnos con desempeño satisfactorio o avanzado",
+             "descr": "Alumnos de 6.º grado que alcanzan al menos el nivel satisfactorio. Los "
+                      "departamentos sin dato confiable no aparecen.",
+             "x": "departamento", "seriesBy": None, "metrica": "pct_satisf_lengua", "fixed": {},
+             "controls": [
+                 {"kind": "metric", "label": "Área", "options": ["pct_satisf_lengua", "pct_satisf_mat"]},
+             ],
+             "sort": "desc", "unidad": "% de alumnos"},
+            {"id": "ea-aprender-dist", "type": "stacked-bar",
+             "title": "Aprender 2025: distribución de los alumnos de 6.º grado",
+             "descr": "Cómo se reparten los alumnos entre niveles de desempeño, años de sobreedad "
+                      "o quintiles de nivel socioeconómico, en cada departamento.",
+             "x": "departamento", "seriesBy": "categoria", "metrica": "aprender_lengua",
+             "fixed": {}, "seriesExclude": ["Total"], "stack": True,
+             "controls": [
+                 {"kind": "metric", "label": "Distribución",
+                  "options": ["aprender_lengua", "aprender_matematica", "aprender_sobreedad",
+                              "aprender_nse"]},
+             ],
+             "unidad": "% de alumnos"},
+        ],
+    },
+    # ======================================================================
+    {
+        "id": "seguridad",
+        "subeje": "Seguridad",
+        "area": "social",
+        "eje_pdes": "sociocultural",
+        "title": "Seguridad: suicidios y siniestros viales",
+        "resumen": (
+            "Cuántas personas mueren por suicidio y por lesiones de tránsito en Salta. Incluye "
+            "la serie anual provincial de suicidios desde 2017, las tasas por departamento, "
+            "sexo y edad (adolescentes), y cómo y dónde ocurren. La mortalidad por tránsito es la "
+            "media del trienio 2021-2023."
+        ),
+        "resumen_corto": "Suicidios (2017-2024) y mortalidad por lesiones de tránsito, por departamento.",
+        "fuente": "CESS sobre la base del SATSSBU (suicidios 2017-2024), DEIS (defunciones 2021-2023) y Censo 2022 (INDEC)",
+        "fuente_url": "",
+        "cobertura": "2017–2024",
+        "keywords": [
+            "seguridad", "suicidio", "suicidios", "salud mental", "suicidio adolescente",
+            "adolescentes", "razón de masculinidad", "ahorcamiento", "lesiones de tránsito",
+            "siniestros viales", "accidentes de tránsito", "seguridad vial", "muertes violentas",
+            "causas externas", "SATSSBU",
+        ],
+        "kpis": [
+            {"label": "Tasa de suicidio", "metrica": "tasa_suicidio_anual",
+             "tabla_label": "Tasa de suicidio (por cien mil habitantes)",
+             "fixed": {"departamento": "Salta"}, "year": "latest", "unidad": "por cien mil hab.",
+             "format": "int", "display": "nivel", "sentido": "menor_mejor",
+             "geo": "Provincia"},
+            {"label": "Tasa de suicidio adolescente (10 a 19)", "metrica": "tasa_suicidio_adolesc",
+             "fixed": {"departamento": "Salta"}, "year": "latest",
+             "unidad": "por cien mil hab. de 10 a 19", "format": "int", "display": "nivel",
+             "sentido": "menor_mejor"},
+            {"label": "Razón de suicidio varones / mujeres", "metrica": "razon_masc_suicidio",
+             "fixed": {"departamento": "Salta"}, "year": "latest", "unidad": "veces",
+             "format": "int", "display": "nivel", "sentido": "neutro"},
+            {"label": "Mortalidad por lesiones de tránsito", "metrica": "tasa_mort_transito",
+             "fixed": {"departamento": "Salta"}, "year": "latest", "unidad": "por cien mil hab.",
+             "format": "int", "display": "nivel", "sentido": "menor_mejor"},
+        ],
+        "charts": [
+            {"id": "seg-serie", "type": "line",
+             "title": "Suicidios en la provincia, 2017-2024",
+             "descr": "Serie provincial: por departamento los casos por año son demasiado pocos "
+                      "para una tasa anual confiable. La tasa usa la población del Censo 2022.",
+             "x": "anio", "seriesBy": None, "metrica": "tasa_suicidio_anual",
+             "fixed": {"departamento": "Salta"},
+             "controls": [{"kind": "metric", "label": "Valores",
+                           "options": ["tasa_suicidio_anual", "suicidios_anual"]}],
+             "unidad": "por cien mil hab."},
+            {"id": "seg-ranking", "type": "barh",
+             "title": "Suicidios por departamento",
+             "descr": "Tasas medias anuales y composición de los casos, 2017-2024 (la tasa del "
+                      "trienio, 2021-2023). En departamentos chicos pocos casos mueven mucho la tasa.",
+             "x": "departamento", "seriesBy": None, "metrica": "tasa_suicidio_1724", "fixed": {},
+             "controls": [
+                 {"kind": "metric", "label": "Indicador",
+                  "options": ["tasa_suicidio_1724", "tasa_suicidio_trienio", "tasa_suicidio_adolesc",
+                              "pct_suicidio_adolesc", "razon_masc_suicidio", "pct_ahorcamiento",
+                              "pct_domicilio", "suicidios_1724"]},
+             ],
+             "sort": "desc", "unidad": "por cien mil hab."},
+            {"id": "seg-sexo", "type": "bar",
+             "title": "Tasa de suicidio de varones y mujeres",
+             "descr": "Tasa media anual 2017-2024 por sexo y departamento.",
+             "x": "departamento", "seriesBy": "sexo", "metrica": "tasa_suicidio_1724", "fixed": {},
+             "seriesExclude": ["Total"], "controls": [],
+             "unidad": "por cien mil hab."},
+            {"id": "seg-metodo", "type": "barh",
+             "title": "Cómo y dónde ocurren los suicidios",
+             "descr": "Casos en la provincia, 2017-2024.",
+             "x": "categoria", "seriesBy": None, "metrica": "suicidios_metodo",
+             "fixed": {"departamento": "Salta"}, "exclude": ["Total"],
+             "controls": [{"kind": "metric", "label": "Según",
+                           "options": ["suicidios_metodo", "suicidios_lugar"]}],
+             "sort": "desc", "unidad": "casos"},
+            {"id": "seg-transito", "type": "barh",
+             "title": "Mortalidad por lesiones de tránsito",
+             "descr": "Tasa media anual del trienio 2021-2023, no ajustada por edad.",
+             "x": "departamento", "seriesBy": None, "metrica": "tasa_mort_transito", "fixed": {},
+             "controls": [{"kind": "metric", "label": "Valores",
+                           "options": ["tasa_mort_transito", "def_transito"]}],
+             "sort": "desc", "unidad": "por cien mil hab."},
         ],
     },
 ]
