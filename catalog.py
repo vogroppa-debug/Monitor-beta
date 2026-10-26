@@ -26,6 +26,7 @@ Spec de gráfico:
   topN:        int (solo barh) - recorta el ranking a las primeras N categorias; sin esto se
                dibujan TODAS y el alto del grafico crece sin tope (p. ej. 146 paises)
   stack:       bool
+  yMax:        tope fijo del eje Y (p. ej. 100 en distribuciones porcentuales apiladas)
   unidad:      etiqueta de unidad (si metrica es conmutable, la resuelve el front)
   fuente/fuente_url: fuente propia del gráfico (si difiere de la del tema)
 
@@ -1961,7 +1962,7 @@ TEMAS = [
              "descr": "Cómo se reparten los alumnos entre niveles de desempeño, años de sobreedad "
                       "o quintiles de nivel socioeconómico, en cada departamento.",
              "x": "departamento", "seriesBy": "categoria", "metrica": "aprender_lengua",
-             "fixed": {}, "seriesExclude": ["Total"], "stack": True,
+             "fixed": {}, "seriesExclude": ["Total"], "stack": True, "yMax": 100,
              "controls": [
                  {"kind": "metric", "label": "Distribución",
                   "options": ["aprender_lengua", "aprender_matematica", "aprender_sobreedad",
