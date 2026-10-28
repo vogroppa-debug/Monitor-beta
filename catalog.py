@@ -113,6 +113,13 @@ TAGS = {
 # Subejes de la tabla maestra de indicadores. En el eje económico-productivo son los TAGS de
 # arriba (se toma el primero del tema); los otros dos ejes usan una taxonomía temática propia,
 # declarada tema por tema con el campo `subeje`. El número es solo el orden de aparición.
+# Columnas de línea de base, metas 2030/2040/2050 y brecha a 2050 en la tabla de la portada.
+# En False se ocultan: las metas del PDES todavía no están definidas y en una presentación una
+# docena de columnas vacías distrae. El cálculo sigue intacto en `indicadores.py` y los campos
+# `base_valor` / `meta_2030` / ... siguen siendo válidos en el spec de KPI, así que volver a
+# mostrarlas es cambiar esto a True y reconstruir.
+MOSTRAR_METAS = False
+
 SUBEJE_ORDEN = {
     # sociocultural (pendiente: Condiciones de vida)
     "Educación": 1, "Salud": 2,

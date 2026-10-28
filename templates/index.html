@@ -35,13 +35,13 @@
 
 <section class="wrap section" id="tabla-indicadores">
   <h2 class="section-title">Tabla de indicadores</h2>
-  <p class="section-lead muted">Los {{ n_indicadores }} indicadores que hoy publica el Monitor, agrupados por eje del PDES. La variación es interanual: compara el último dato disponible con el mismo período del año anterior, igual que las tarjetas de cada tablero. Las líneas de base y las metas 2030, 2040 y 2050 del PDES todavía no están definidas: la brecha a 2050 se calcula sola en cuanto se carguen.</p>
+  <p class="section-lead muted">Los {{ n_indicadores }} indicadores que hoy publica el Monitor, agrupados por eje del PDES. La variación es interanual: compara el último dato disponible con el mismo período del año anterior, igual que las tarjetas de cada tablero.{% if mostrar_metas %} Las líneas de base y las metas 2030, 2040 y 2050 del PDES todavía no están definidas: la brecha a 2050 se calcula sola en cuanto se carguen.{% endif %}</p>
 
   {% for g in tabla %}
   <div class="tabla-ind-block">
     <h3 class="eje-title">{{ g.label }} <span class="eje-count">{{ g.filas|length }}</span></h3>
     <div class="tabla-ind-scroll">
-      {% set ncols = 13 if g.has_ciiu else 12 %}
+      {% set ncols = (7 if g.has_ciiu else 6) + (6 if mostrar_metas else 0) %}
       <table class="tabla-ind">
         <thead>
           <tr>
@@ -52,12 +52,14 @@
             <th scope="col">Último dato</th>
             <th scope="col">Var. interanual</th>
             <th scope="col">Períodos comparados</th>
+            {% if mostrar_metas %}
             <th scope="col" class="tabla-ind-meta-ini">Línea de base</th>
             <th scope="col">Período de la base</th>
             <th scope="col">Meta 2030</th>
             <th scope="col">Meta 2040</th>
             <th scope="col">Meta 2050</th>
             <th scope="col"><abbr title="Meta 2050 menos el último dato observado: cuánto le falta al indicador para alcanzar la meta final. Positiva, tiene que subir; negativa, tiene que bajar.">Brecha a 2050</abbr></th>
+            {% endif %}
           </tr>
         </thead>
         {% for sg in g.subgrupos %}
@@ -75,12 +77,14 @@
             <td class="num">{{ f.ultimo }}</td>
             <td class="num"><span class="tabla-ind-var {{ f.var_cls }}">{{ f.var_txt }}</span></td>
             <td class="num tabla-ind-ref">{% if f.var_ref %}{{ f.var_ref }}{% else %}<span class="tabla-ind-vacio">—</span>{% endif %}</td>
+            {% if mostrar_metas %}
             <td class="num tabla-ind-meta-ini">{% if f.base_valor %}{{ f.base_valor }}{% else %}<span class="tabla-ind-vacio" title="A definir">—</span>{% endif %}</td>
             <td class="num">{% if f.base_periodo %}{{ f.base_periodo }}{% else %}<span class="tabla-ind-vacio" title="A definir">—</span>{% endif %}</td>
             <td class="num">{% if f.meta_2030 %}{{ f.meta_2030 }}{% else %}<span class="tabla-ind-vacio" title="A definir">—</span>{% endif %}</td>
             <td class="num">{% if f.meta_2040 %}{{ f.meta_2040 }}{% else %}<span class="tabla-ind-vacio" title="A definir">—</span>{% endif %}</td>
             <td class="num">{% if f.meta_2050 %}{{ f.meta_2050 }}{% else %}<span class="tabla-ind-vacio" title="A definir">—</span>{% endif %}</td>
             <td class="num">{% if f.brecha_2050 %}{{ f.brecha_2050 }}{% else %}<span class="tabla-ind-vacio" title="Se calcula cuando esté cargada la meta 2050">—</span>{% endif %}</td>
+            {% endif %}
           </tr>
           {% endfor %}
         </tbody>
