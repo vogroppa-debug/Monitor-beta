@@ -9,7 +9,7 @@
     /* fija el tema antes de pintar para evitar flash */
     (function(){try{var t=localStorage.getItem('cess-theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
   </script>
-  <link rel="stylesheet" href="./assets/css/styles.css?v=1793194727">
+  <link rel="stylesheet" href="./assets/css/styles.css?v=1793031187">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%232a78d6'/><text x='50' y='68' font-size='52' text-anchor='middle' fill='white' font-family='sans-serif' font-weight='700'>C</text></svg>">
 </head>
 <body>
@@ -36,9 +36,17 @@
           <div class="navgroup-col">
             <p class="navgroup-heading">Sociocultural</p>
             
+            <a role="menuitem" href="./tema/condiciones-vida.html">Condiciones de vida de los hogares</a>
+            
             <a role="menuitem" href="./tema/educacion.html">Educación por departamento</a>
             
             <a role="menuitem" href="./tema/salud.html">Salud</a>
+            
+            <a role="menuitem" href="./tema/salud-reproduccion.html">Salud y reproducción por departamento</a>
+            
+            <a role="menuitem" href="./tema/seguridad.html">Seguridad: suicidios y siniestros viales</a>
+            
+            <a role="menuitem" href="./tema/educacion-aprendizajes.html">Trayectorias y aprendizajes por departamento</a>
             
           </div>
           
@@ -72,6 +80,8 @@
             <a role="menuitem" href="./tema/financiero.html">Crédito y depósitos (BCRA)</a>
             
             <a role="menuitem" href="./tema/construccion.html">Construcción (permisos de edificación)</a>
+            
+            <a role="menuitem" href="./tema/conectividad.html">Conectividad: internet fijo (ENACOM)</a>
             
             <a role="menuitem" href="./tema/id-innovacion.html">Inversión en I+D</a>
             
@@ -132,11 +142,11 @@
 
 <section class="wrap section" id="tabla-indicadores">
   <h2 class="section-title">Tabla de indicadores</h2>
-  <p class="section-lead muted">Los 56 indicadores que hoy publica el Monitor, agrupados por eje del PDES. La variación es interanual: compara el último dato disponible con el mismo período del año anterior, igual que las tarjetas de cada tablero.</p>
+  <p class="section-lead muted">Indicadores agrupados por eje del PDES. La variación es interanual y compara el último dato disponible con el mismo período del año anterior.</p>
 
   
   <div class="tabla-ind-block">
-    <h3 class="eje-title">Sociocultural <span class="eje-count">13</span></h3>
+    <h3 class="eje-title">Sociocultural <span class="eje-count">64</span></h3>
     <div class="tabla-ind-scroll">
       
       <table class="tabla-ind">
@@ -149,59 +159,419 @@
             <th scope="col">Último dato</th>
             <th scope="col">Var. interanual</th>
             <th scope="col">Períodos comparados</th>
-            
           </tr>
         </thead>
         
         <tbody>
-          <tr class="subeje-row"><th class="subeje-row-head" colspan="6" scope="colgroup">Educación</th></tr>
+          <tr class="subeje-row"><th class="subeje-row-head" colspan="6" scope="colgroup">Condiciones de vida</th></tr>
           
           <tr>
             <th scope="row">
-              <a href="./tema/educacion.html" title="Ver el tablero: Educación por departamento"><span class="tabla-ind-ficha tabla-ind-vacio" title="Todavía sin ficha en las notas técnicas">—</span>Matrícula total</a>
+              <a href="./tema/condiciones-vida.html" title="Ver el tablero: Condiciones de vida de los hogares"><span class="tabla-ind-ficha">I.1</span>Hogares con NBI</a>
               
             </th>
             
             <td class="tabla-ind-frec">Anual</td>
             <td class="tabla-ind-geo"><abbr title="23 departamentos con datos">Departamento</abbr></td>
-            <td class="num">2024</td>
-            <td class="num"><span class="tabla-ind-var down">▼ 1,4 %</span></td>
-            <td class="num tabla-ind-ref">2024/2023</td>
-            
+            <td class="num">2022</td>
+            <td class="num"><span class="tabla-ind-var none">sin base</span></td>
+            <td class="num tabla-ind-ref"><span class="tabla-ind-vacio">—</span></td>
           </tr>
           
           <tr>
             <th scope="row">
-              <a href="./tema/educacion.html" title="Ver el tablero: Educación por departamento"><span class="tabla-ind-ficha tabla-ind-vacio" title="Todavía sin ficha en las notas técnicas">—</span>Egresados de secundaria</a>
+              <a href="./tema/condiciones-vida.html" title="Ver el tablero: Condiciones de vida de los hogares"><span class="tabla-ind-ficha">I.2</span>Hogares con hacinamiento crítico</a>
               
             </th>
             
             <td class="tabla-ind-frec">Anual</td>
             <td class="tabla-ind-geo"><abbr title="23 departamentos con datos">Departamento</abbr></td>
-            <td class="num">2024</td>
-            <td class="num"><span class="tabla-ind-var down">▼ 9,7 %</span></td>
-            <td class="num tabla-ind-ref">2024/2023</td>
-            
+            <td class="num">2022</td>
+            <td class="num"><span class="tabla-ind-var none">sin base</span></td>
+            <td class="num tabla-ind-ref"><span class="tabla-ind-vacio">—</span></td>
           </tr>
           
           <tr>
             <th scope="row">
-              <a href="./tema/educacion.html" title="Ver el tablero: Educación por departamento"><span class="tabla-ind-ficha tabla-ind-vacio" title="Todavía sin ficha en las notas técnicas">—</span>Cargos docentes</a>
+              <a href="./tema/condiciones-vida.html" title="Ver el tablero: Condiciones de vida de los hogares"><span class="tabla-ind-ficha">I.3</span>Hogares: condiciones sanitarias (NBI)</a>
               
             </th>
             
             <td class="tabla-ind-frec">Anual</td>
             <td class="tabla-ind-geo"><abbr title="23 departamentos con datos">Departamento</abbr></td>
-            <td class="num">2024</td>
-            <td class="num"><span class="tabla-ind-var up">▲ 23,3 %</span></td>
-            <td class="num tabla-ind-ref">2024/2023</td>
+            <td class="num">2022</td>
+            <td class="num"><span class="tabla-ind-var none">sin base</span></td>
+            <td class="num tabla-ind-ref"><span class="tabla-ind-vacio">—</span></td>
+          </tr>
+          
+          <tr>
+            <th scope="row">
+              <a href="./tema/condiciones-vida.html" title="Ver el tablero: Condiciones de vida de los hogares"><span class="tabla-ind-ficha">I.4</span>Hogares: capacidad de subsistencia (NBI)</a>
+              
+            </th>
             
+            <td class="tabla-ind-frec">Anual</td>
+            <td class="tabla-ind-geo"><abbr title="23 departamentos con datos">Departamento</abbr></td>
+            <td class="num">2022</td>
+            <td class="num"><span class="tabla-ind-var none">sin base</span></td>
+            <td class="num tabla-ind-ref"><span class="tabla-ind-vacio">—</span></td>
+          </tr>
+          
+          <tr>
+            <th scope="row">
+              <a href="./tema/condiciones-vida.html" title="Ver el tablero: Condiciones de vida de los hogares"><span class="tabla-ind-ficha">I.5</span>Hogares con clima educativo bajo o muy bajo</a>
+              
+            </th>
+            
+            <td class="tabla-ind-frec">Anual</td>
+            <td class="tabla-ind-geo"><abbr title="23 departamentos con datos">Departamento</abbr></td>
+            <td class="num">2022</td>
+            <td class="num"><span class="tabla-ind-var none">sin base</span></td>
+            <td class="num tabla-ind-ref"><span class="tabla-ind-vacio">—</span></td>
+          </tr>
+          
+          <tr>
+            <th scope="row">
+              <a href="./tema/condiciones-vida.html" title="Ver el tablero: Condiciones de vida de los hogares"><span class="tabla-ind-ficha">I.6</span>Hogares sin agua por cañería en la vivienda</a>
+              
+            </th>
+            
+            <td class="tabla-ind-frec">Anual</td>
+            <td class="tabla-ind-geo"><abbr title="23 departamentos con datos">Departamento</abbr></td>
+            <td class="num">2022</td>
+            <td class="num"><span class="tabla-ind-var none">sin base</span></td>
+            <td class="num tabla-ind-ref"><span class="tabla-ind-vacio">—</span></td>
+          </tr>
+          
+          <tr>
+            <th scope="row">
+              <a href="./tema/condiciones-vida.html" title="Ver el tablero: Condiciones de vida de los hogares"><span class="tabla-ind-ficha">I.7</span>Hogares: sin inodoro con descarga de agua</a>
+              
+            </th>
+            
+            <td class="tabla-ind-frec">Anual</td>
+            <td class="tabla-ind-geo"><abbr title="23 departamentos con datos">Departamento</abbr></td>
+            <td class="num">2022</td>
+            <td class="num"><span class="tabla-ind-var none">sin base</span></td>
+            <td class="num tabla-ind-ref"><span class="tabla-ind-vacio">—</span></td>
+          </tr>
+          
+          <tr>
+            <th scope="row">
+              <a href="./tema/condiciones-vida.html" title="Ver el tablero: Condiciones de vida de los hogares"><span class="tabla-ind-ficha">I.8</span>Hogares: no propietarios de la vivienda</a>
+              
+            </th>
+            
+            <td class="tabla-ind-frec">Anual</td>
+            <td class="tabla-ind-geo"><abbr title="23 departamentos con datos">Departamento</abbr></td>
+            <td class="num">2022</td>
+            <td class="num"><span class="tabla-ind-var none">sin base</span></td>
+            <td class="num tabla-ind-ref"><span class="tabla-ind-vacio">—</span></td>
+          </tr>
+          
+          <tr>
+            <th scope="row">
+              <a href="./tema/condiciones-vida.html" title="Ver el tablero: Condiciones de vida de los hogares"><span class="tabla-ind-ficha">I.9</span>Hogares: sin computadora ni tablet</a>
+              
+            </th>
+            
+            <td class="tabla-ind-frec">Anual</td>
+            <td class="tabla-ind-geo"><abbr title="23 departamentos con datos">Departamento</abbr></td>
+            <td class="num">2022</td>
+            <td class="num"><span class="tabla-ind-var none">sin base</span></td>
+            <td class="num tabla-ind-ref"><span class="tabla-ind-vacio">—</span></td>
+          </tr>
+          
+          <tr>
+            <th scope="row">
+              <a href="./tema/condiciones-vida.html" title="Ver el tablero: Condiciones de vida de los hogares"><span class="tabla-ind-ficha">I.10</span>Hogares sin internet en la vivienda</a>
+              
+            </th>
+            
+            <td class="tabla-ind-frec">Anual</td>
+            <td class="tabla-ind-geo"><abbr title="23 departamentos con datos">Departamento</abbr></td>
+            <td class="num">2022</td>
+            <td class="num"><span class="tabla-ind-var none">sin base</span></td>
+            <td class="num tabla-ind-ref"><span class="tabla-ind-vacio">—</span></td>
+          </tr>
+          
+          <tr>
+            <th scope="row">
+              <a href="./tema/condiciones-vida.html" title="Ver el tablero: Condiciones de vida de los hogares"><span class="tabla-ind-ficha">I.11</span>Hogares: sin celular con internet</a>
+              
+            </th>
+            
+            <td class="tabla-ind-frec">Anual</td>
+            <td class="tabla-ind-geo"><abbr title="23 departamentos con datos">Departamento</abbr></td>
+            <td class="num">2022</td>
+            <td class="num"><span class="tabla-ind-var none">sin base</span></td>
+            <td class="num tabla-ind-ref"><span class="tabla-ind-vacio">—</span></td>
           </tr>
           
         </tbody>
         
         <tbody>
           <tr class="subeje-row"><th class="subeje-row-head" colspan="6" scope="colgroup">Salud</th></tr>
+          
+          <tr>
+            <th scope="row">
+              <a href="./tema/salud-reproduccion.html" title="Ver el tablero: Salud y reproducción por departamento"><span class="tabla-ind-ficha">II.1</span>Esperanza de vida al nacer</a>
+              
+            </th>
+            
+            <td class="tabla-ind-frec">Anual</td>
+            <td class="tabla-ind-geo"><abbr title="23 departamentos con datos">Departamento</abbr></td>
+            <td class="num">2023</td>
+            <td class="num"><span class="tabla-ind-var none">sin base</span></td>
+            <td class="num tabla-ind-ref"><span class="tabla-ind-vacio">—</span></td>
+          </tr>
+          
+          <tr>
+            <th scope="row">
+              <a href="./tema/salud-reproduccion.html" title="Ver el tablero: Salud y reproducción por departamento"><span class="tabla-ind-ficha">II.2</span>Tasa bruta de mortalidad</a>
+              
+            </th>
+            
+            <td class="tabla-ind-frec">Anual</td>
+            <td class="tabla-ind-geo"><abbr title="23 departamentos con datos">Departamento</abbr></td>
+            <td class="num">2023</td>
+            <td class="num"><span class="tabla-ind-var none">sin base</span></td>
+            <td class="num tabla-ind-ref"><span class="tabla-ind-vacio">—</span></td>
+          </tr>
+          
+          <tr>
+            <th scope="row">
+              <a href="./tema/salud-reproduccion.html" title="Ver el tablero: Salud y reproducción por departamento"><span class="tabla-ind-ficha">II.3</span>Tasa de mortalidad ajustada por edad</a>
+              
+            </th>
+            
+            <td class="tabla-ind-frec">Anual</td>
+            <td class="tabla-ind-geo"><abbr title="23 departamentos con datos">Departamento</abbr></td>
+            <td class="num">2023</td>
+            <td class="num"><span class="tabla-ind-var none">sin base</span></td>
+            <td class="num tabla-ind-ref"><span class="tabla-ind-vacio">—</span></td>
+          </tr>
+          
+          <tr>
+            <th scope="row">
+              <a href="./tema/salud-reproduccion.html" title="Ver el tablero: Salud y reproducción por departamento"><span class="tabla-ind-ficha">II.4</span>Dispersión territorial de la mortalidad ajustada (coeficiente de variación)</a>
+              <abbr class="tabla-ind-nota" title="Entre los 23 departamentos. El tablero muestra la razón de cada uno respecto de la tasa provincial.">ⓘ</abbr>
+            </th>
+            
+            <td class="tabla-ind-frec">Anual</td>
+            <td class="tabla-ind-geo"><abbr title="medida de dispersión entre los 23 departamentos">Departamento</abbr></td>
+            <td class="num">2023</td>
+            <td class="num"><span class="tabla-ind-var none">sin base</span></td>
+            <td class="num tabla-ind-ref"><span class="tabla-ind-vacio">—</span></td>
+          </tr>
+          
+          <tr>
+            <th scope="row">
+              <a href="./tema/salud-reproduccion.html" title="Ver el tablero: Salud y reproducción por departamento"><span class="tabla-ind-ficha">II.5</span>Mortalidad prematura (30 a 69 años)</a>
+              
+            </th>
+            
+            <td class="tabla-ind-frec">Anual</td>
+            <td class="tabla-ind-geo"><abbr title="23 departamentos con datos">Departamento</abbr></td>
+            <td class="num">2023</td>
+            <td class="num"><span class="tabla-ind-var none">sin base</span></td>
+            <td class="num tabla-ind-ref"><span class="tabla-ind-vacio">—</span></td>
+          </tr>
+          
+          <tr>
+            <th scope="row">
+              <a href="./tema/salud-reproduccion.html" title="Ver el tablero: Salud y reproducción por departamento"><span class="tabla-ind-ficha">II.6</span>Años potenciales de vida perdidos</a>
+              
+            </th>
+            
+            <td class="tabla-ind-frec">Anual</td>
+            <td class="tabla-ind-geo"><abbr title="23 departamentos con datos">Departamento</abbr></td>
+            <td class="num">2023</td>
+            <td class="num"><span class="tabla-ind-var none">sin base</span></td>
+            <td class="num tabla-ind-ref"><span class="tabla-ind-vacio">—</span></td>
+          </tr>
+          
+          <tr>
+            <th scope="row">
+              <a href="./tema/salud-reproduccion.html" title="Ver el tablero: Salud y reproducción por departamento"><span class="tabla-ind-ficha">II.7</span>Mortalidad materna</a>
+              
+            </th>
+            
+            <td class="tabla-ind-frec">Anual</td>
+            <td class="tabla-ind-geo"><abbr title="23 departamentos con datos">Departamento</abbr></td>
+            <td class="num">2023</td>
+            <td class="num"><span class="tabla-ind-var none">sin base</span></td>
+            <td class="num tabla-ind-ref"><span class="tabla-ind-vacio">—</span></td>
+          </tr>
+          
+          <tr>
+            <th scope="row">
+              <a href="./tema/salud-reproduccion.html" title="Ver el tablero: Salud y reproducción por departamento"><span class="tabla-ind-ficha">II.8</span>Tasa de mortalidad infantil, trienio 2021-2023 (por mil nacidos vivos)</a>
+              
+            </th>
+            
+            <td class="tabla-ind-frec">Anual</td>
+            <td class="tabla-ind-geo"><abbr title="23 departamentos con datos">Departamento</abbr></td>
+            <td class="num">2023</td>
+            <td class="num"><span class="tabla-ind-var none">sin base</span></td>
+            <td class="num tabla-ind-ref"><span class="tabla-ind-vacio">—</span></td>
+          </tr>
+          
+          <tr>
+            <th scope="row">
+              <a href="./tema/salud-reproduccion.html" title="Ver el tablero: Salud y reproducción por departamento"><span class="tabla-ind-ficha">II.9</span>Mortalidad de menores de 5 años</a>
+              
+            </th>
+            
+            <td class="tabla-ind-frec">Anual</td>
+            <td class="tabla-ind-geo"><abbr title="23 departamentos con datos">Departamento</abbr></td>
+            <td class="num">2023</td>
+            <td class="num"><span class="tabla-ind-var none">sin base</span></td>
+            <td class="num tabla-ind-ref"><span class="tabla-ind-vacio">—</span></td>
+          </tr>
+          
+          <tr>
+            <th scope="row">
+              <a href="./tema/salud-reproduccion.html" title="Ver el tablero: Salud y reproducción por departamento"><span class="tabla-ind-ficha">II.10</span>Nacidos vivos con bajo peso al nacer</a>
+              
+            </th>
+            
+            <td class="tabla-ind-frec">Anual</td>
+            <td class="tabla-ind-geo"><abbr title="23 departamentos con datos">Departamento</abbr></td>
+            <td class="num">2023</td>
+            <td class="num"><span class="tabla-ind-var none">sin base</span></td>
+            <td class="num tabla-ind-ref"><span class="tabla-ind-vacio">—</span></td>
+          </tr>
+          
+          <tr>
+            <th scope="row">
+              <a href="./tema/salud-reproduccion.html" title="Ver el tablero: Salud y reproducción por departamento"><span class="tabla-ind-ficha">II.11</span>Mortalidad cardiovascular</a>
+              
+            </th>
+            
+            <td class="tabla-ind-frec">Anual</td>
+            <td class="tabla-ind-geo"><abbr title="23 departamentos con datos">Departamento</abbr></td>
+            <td class="num">2023</td>
+            <td class="num"><span class="tabla-ind-var none">sin base</span></td>
+            <td class="num tabla-ind-ref"><span class="tabla-ind-vacio">—</span></td>
+          </tr>
+          
+          <tr>
+            <th scope="row">
+              <a href="./tema/salud-reproduccion.html" title="Ver el tablero: Salud y reproducción por departamento"><span class="tabla-ind-ficha">II.12</span>Mortalidad por cáncer</a>
+              
+            </th>
+            
+            <td class="tabla-ind-frec">Anual</td>
+            <td class="tabla-ind-geo"><abbr title="23 departamentos con datos">Departamento</abbr></td>
+            <td class="num">2023</td>
+            <td class="num"><span class="tabla-ind-var none">sin base</span></td>
+            <td class="num tabla-ind-ref"><span class="tabla-ind-vacio">—</span></td>
+          </tr>
+          
+          <tr>
+            <th scope="row">
+              <a href="./tema/salud-reproduccion.html" title="Ver el tablero: Salud y reproducción por departamento"><span class="tabla-ind-ficha">II.13</span>Mortalidad por diabetes</a>
+              
+            </th>
+            
+            <td class="tabla-ind-frec">Anual</td>
+            <td class="tabla-ind-geo"><abbr title="23 departamentos con datos">Departamento</abbr></td>
+            <td class="num">2023</td>
+            <td class="num"><span class="tabla-ind-var none">sin base</span></td>
+            <td class="num tabla-ind-ref"><span class="tabla-ind-vacio">—</span></td>
+          </tr>
+          
+          <tr>
+            <th scope="row">
+              <a href="./tema/salud-reproduccion.html" title="Ver el tablero: Salud y reproducción por departamento"><span class="tabla-ind-ficha">II.14</span>Tasa global de fecundidad</a>
+              
+            </th>
+            
+            <td class="tabla-ind-frec">Anual</td>
+            <td class="tabla-ind-geo"><abbr title="23 departamentos con datos">Departamento</abbr></td>
+            <td class="num">2023</td>
+            <td class="num"><span class="tabla-ind-var none">sin base</span></td>
+            <td class="num tabla-ind-ref"><span class="tabla-ind-vacio">—</span></td>
+          </tr>
+          
+          <tr>
+            <th scope="row">
+              <a href="./tema/salud-reproduccion.html" title="Ver el tablero: Salud y reproducción por departamento"><span class="tabla-ind-ficha">II.15</span>Tasa general de fecundidad</a>
+              
+            </th>
+            
+            <td class="tabla-ind-frec">Anual</td>
+            <td class="tabla-ind-geo"><abbr title="23 departamentos con datos">Departamento</abbr></td>
+            <td class="num">2023</td>
+            <td class="num"><span class="tabla-ind-var none">sin base</span></td>
+            <td class="num tabla-ind-ref"><span class="tabla-ind-vacio">—</span></td>
+          </tr>
+          
+          <tr>
+            <th scope="row">
+              <a href="./tema/salud-reproduccion.html" title="Ver el tablero: Salud y reproducción por departamento"><span class="tabla-ind-ficha">II.16</span>Tasa específica de fecundidad, 25 a 29 años</a>
+              <abbr class="tabla-ind-nota" title="La ficha abre siete grupos de edad; la tabla muestra el de mayor fecundidad. Todos los grupos, en el gráfico del tablero.">ⓘ</abbr>
+            </th>
+            
+            <td class="tabla-ind-frec">Anual</td>
+            <td class="tabla-ind-geo"><abbr title="23 departamentos con datos">Departamento</abbr></td>
+            <td class="num">2023</td>
+            <td class="num"><span class="tabla-ind-var none">sin base</span></td>
+            <td class="num tabla-ind-ref"><span class="tabla-ind-vacio">—</span></td>
+          </tr>
+          
+          <tr>
+            <th scope="row">
+              <a href="./tema/salud-reproduccion.html" title="Ver el tablero: Salud y reproducción por departamento"><span class="tabla-ind-ficha">II.17</span>Fecundidad de niñas de 10 a 14 años</a>
+              
+            </th>
+            
+            <td class="tabla-ind-frec">Anual</td>
+            <td class="tabla-ind-geo"><abbr title="23 departamentos con datos">Departamento</abbr></td>
+            <td class="num">2023</td>
+            <td class="num"><span class="tabla-ind-var none">sin base</span></td>
+            <td class="num tabla-ind-ref"><span class="tabla-ind-vacio">—</span></td>
+          </tr>
+          
+          <tr>
+            <th scope="row">
+              <a href="./tema/salud-reproduccion.html" title="Ver el tablero: Salud y reproducción por departamento"><span class="tabla-ind-ficha">II.18</span>Fecundidad adolescente (15 a 19)</a>
+              
+            </th>
+            
+            <td class="tabla-ind-frec">Anual</td>
+            <td class="tabla-ind-geo"><abbr title="23 departamentos con datos">Departamento</abbr></td>
+            <td class="num">2023</td>
+            <td class="num"><span class="tabla-ind-var none">sin base</span></td>
+            <td class="num tabla-ind-ref"><span class="tabla-ind-vacio">—</span></td>
+          </tr>
+          
+          <tr>
+            <th scope="row">
+              <a href="./tema/salud-reproduccion.html" title="Ver el tablero: Salud y reproducción por departamento"><span class="tabla-ind-ficha">II.19</span>Nacimientos de madres menores de 20 años</a>
+              
+            </th>
+            
+            <td class="tabla-ind-frec">Anual</td>
+            <td class="tabla-ind-geo"><abbr title="23 departamentos con datos">Departamento</abbr></td>
+            <td class="num">2023</td>
+            <td class="num"><span class="tabla-ind-var none">sin base</span></td>
+            <td class="num tabla-ind-ref"><span class="tabla-ind-vacio">—</span></td>
+          </tr>
+          
+          <tr>
+            <th scope="row">
+              <a href="./tema/salud-reproduccion.html" title="Ver el tablero: Salud y reproducción por departamento"><span class="tabla-ind-ficha">II.20</span>Edad media de la maternidad</a>
+              
+            </th>
+            
+            <td class="tabla-ind-frec">Anual</td>
+            <td class="tabla-ind-geo"><abbr title="23 departamentos con datos">Departamento</abbr></td>
+            <td class="num">2023</td>
+            <td class="num"><span class="tabla-ind-var none">sin base</span></td>
+            <td class="num tabla-ind-ref"><span class="tabla-ind-vacio">—</span></td>
+          </tr>
           
           <tr>
             <th scope="row">
@@ -214,7 +584,6 @@
             <td class="num">2025</td>
             <td class="num"><span class="tabla-ind-var down neutro">▼ 2,6 %</span></td>
             <td class="num tabla-ind-ref">2025/2024</td>
-            
           </tr>
           
           <tr>
@@ -228,7 +597,6 @@
             <td class="num">2025</td>
             <td class="num"><span class="tabla-ind-var down invertido">▼ 6,1 %</span></td>
             <td class="num tabla-ind-ref">2025/2024</td>
-            
           </tr>
           
           <tr>
@@ -242,7 +610,6 @@
             <td class="num">2025</td>
             <td class="num"><span class="tabla-ind-var up invertido">▲ 4,2 %</span></td>
             <td class="num tabla-ind-ref">2025/2024</td>
-            
           </tr>
           
           <tr>
@@ -256,7 +623,6 @@
             <td class="num">2025</td>
             <td class="num"><span class="tabla-ind-var down neutro">▼ 5,6 %</span></td>
             <td class="num tabla-ind-ref">2025/2024</td>
-            
           </tr>
           
           <tr>
@@ -270,7 +636,6 @@
             <td class="num">2025</td>
             <td class="num"><span class="tabla-ind-var up neutro">▲ 0,8 p.p.</span></td>
             <td class="num tabla-ind-ref">2025/2024</td>
-            
           </tr>
           
           <tr>
@@ -284,7 +649,6 @@
             <td class="num">2025</td>
             <td class="num"><span class="tabla-ind-var down neutro">▼ 3,0 %</span></td>
             <td class="num tabla-ind-ref">2025/2024</td>
-            
           </tr>
           
           <tr>
@@ -298,7 +662,6 @@
             <td class="num">2025</td>
             <td class="num"><span class="tabla-ind-var down invertido">▼ 6,4 %</span></td>
             <td class="num tabla-ind-ref">2025/2024</td>
-            
           </tr>
           
           <tr>
@@ -312,7 +675,6 @@
             <td class="num">2025</td>
             <td class="num"><span class="tabla-ind-var up invertido">▲ 2,7 %</span></td>
             <td class="num tabla-ind-ref">2025/2024</td>
-            
           </tr>
           
           <tr>
@@ -326,7 +688,6 @@
             <td class="num">2025</td>
             <td class="num"><span class="tabla-ind-var up">▲ 5,1 %</span></td>
             <td class="num tabla-ind-ref">2025/2024</td>
-            
           </tr>
           
           <tr>
@@ -340,7 +701,315 @@
             <td class="num">2025</td>
             <td class="num"><span class="tabla-ind-var up">▲ 4,1 %</span></td>
             <td class="num tabla-ind-ref">2025/2024</td>
+          </tr>
+          
+        </tbody>
+        
+        <tbody>
+          <tr class="subeje-row"><th class="subeje-row-head" colspan="6" scope="colgroup">Educación</th></tr>
+          
+          <tr>
+            <th scope="row">
+              <a href="./tema/educacion-aprendizajes.html" title="Ver el tablero: Trayectorias y aprendizajes por departamento"><span class="tabla-ind-ficha">III.1</span>Matrícula de primaria y secundaria</a>
+              
+            </th>
             
+            <td class="tabla-ind-frec">Anual</td>
+            <td class="tabla-ind-geo"><abbr title="23 departamentos con datos">Departamento</abbr></td>
+            <td class="num">2025</td>
+            <td class="num"><span class="tabla-ind-var none">sin base</span></td>
+            <td class="num tabla-ind-ref"><span class="tabla-ind-vacio">—</span></td>
+          </tr>
+          
+          <tr>
+            <th scope="row">
+              <a href="./tema/educacion-aprendizajes.html" title="Ver el tablero: Trayectorias y aprendizajes por departamento"><span class="tabla-ind-ficha">III.2</span>Repitencia en secundaria</a>
+              
+            </th>
+            
+            <td class="tabla-ind-frec">Anual</td>
+            <td class="tabla-ind-geo"><abbr title="23 departamentos con datos">Departamento</abbr></td>
+            <td class="num">2025</td>
+            <td class="num"><span class="tabla-ind-var none">sin base</span></td>
+            <td class="num tabla-ind-ref"><span class="tabla-ind-vacio">—</span></td>
+          </tr>
+          
+          <tr>
+            <th scope="row">
+              <a href="./tema/educacion-aprendizajes.html" title="Ver el tablero: Trayectorias y aprendizajes por departamento"><span class="tabla-ind-ficha">III.3</span>Tasa de egreso aparente de secundaria</a>
+              
+            </th>
+            
+            <td class="tabla-ind-frec">Anual</td>
+            <td class="tabla-ind-geo"><abbr title="23 departamentos con datos">Departamento</abbr></td>
+            <td class="num">2025</td>
+            <td class="num"><span class="tabla-ind-var none">sin base</span></td>
+            <td class="num tabla-ind-ref"><span class="tabla-ind-vacio">—</span></td>
+          </tr>
+          
+          <tr>
+            <th scope="row">
+              <a href="./tema/educacion-aprendizajes.html" title="Ver el tablero: Trayectorias y aprendizajes por departamento"><span class="tabla-ind-ficha">III.4</span>Alumnos por establecimiento (secundaria)</a>
+              
+            </th>
+            
+            <td class="tabla-ind-frec">Anual</td>
+            <td class="tabla-ind-geo"><abbr title="23 departamentos con datos">Departamento</abbr></td>
+            <td class="num">2025</td>
+            <td class="num"><span class="tabla-ind-var none">sin base</span></td>
+            <td class="num tabla-ind-ref"><span class="tabla-ind-vacio">—</span></td>
+          </tr>
+          
+          <tr>
+            <th scope="row">
+              <a href="./tema/educacion-aprendizajes.html" title="Ver el tablero: Trayectorias y aprendizajes por departamento"><span class="tabla-ind-ficha">III.5</span>Alumnos por cargo docente (secundaria)</a>
+              
+            </th>
+            
+            <td class="tabla-ind-frec">Anual</td>
+            <td class="tabla-ind-geo"><abbr title="23 departamentos con datos">Departamento</abbr></td>
+            <td class="num">2025</td>
+            <td class="num"><span class="tabla-ind-var none">sin base</span></td>
+            <td class="num tabla-ind-ref"><span class="tabla-ind-vacio">—</span></td>
+          </tr>
+          
+          <tr>
+            <th scope="row">
+              <a href="./tema/educacion-aprendizajes.html" title="Ver el tablero: Trayectorias y aprendizajes por departamento"><span class="tabla-ind-ficha">III.6</span>Alumnos extranjeros (secundaria)</a>
+              
+            </th>
+            
+            <td class="tabla-ind-frec">Anual</td>
+            <td class="tabla-ind-geo"><abbr title="23 departamentos con datos">Departamento</abbr></td>
+            <td class="num">2025</td>
+            <td class="num"><span class="tabla-ind-var none">sin base</span></td>
+            <td class="num tabla-ind-ref"><span class="tabla-ind-vacio">—</span></td>
+          </tr>
+          
+          <tr>
+            <th scope="row">
+              <a href="./tema/educacion-aprendizajes.html" title="Ver el tablero: Trayectorias y aprendizajes por departamento"><span class="tabla-ind-ficha">III.7</span>Aprender 6.º grado, Lengua: alumnos en nivel satisfactorio o avanzado</a>
+              
+            </th>
+            
+            <td class="tabla-ind-frec">Anual</td>
+            <td class="tabla-ind-geo"><abbr title="21 departamentos con datos">Departamento</abbr></td>
+            <td class="num">2025</td>
+            <td class="num"><span class="tabla-ind-var none">sin base</span></td>
+            <td class="num tabla-ind-ref"><span class="tabla-ind-vacio">—</span></td>
+          </tr>
+          
+          <tr>
+            <th scope="row">
+              <a href="./tema/educacion-aprendizajes.html" title="Ver el tablero: Trayectorias y aprendizajes por departamento"><span class="tabla-ind-ficha">III.8</span>Aprender 6.º grado, Matemática: alumnos en nivel satisfactorio o avanzado</a>
+              
+            </th>
+            
+            <td class="tabla-ind-frec">Anual</td>
+            <td class="tabla-ind-geo"><abbr title="23 departamentos con datos">Departamento</abbr></td>
+            <td class="num">2025</td>
+            <td class="num"><span class="tabla-ind-var none">sin base</span></td>
+            <td class="num tabla-ind-ref"><span class="tabla-ind-vacio">—</span></td>
+          </tr>
+          
+          <tr>
+            <th scope="row">
+              <a href="./tema/educacion-aprendizajes.html" title="Ver el tablero: Trayectorias y aprendizajes por departamento"><span class="tabla-ind-ficha">III.9</span>Alumnos de 6.º grado sin sobreedad</a>
+              
+            </th>
+            
+            <td class="tabla-ind-frec">Anual</td>
+            <td class="tabla-ind-geo"><abbr title="23 departamentos con datos">Departamento</abbr></td>
+            <td class="num">2025</td>
+            <td class="num"><span class="tabla-ind-var none">sin base</span></td>
+            <td class="num tabla-ind-ref"><span class="tabla-ind-vacio">—</span></td>
+          </tr>
+          
+          <tr>
+            <th scope="row">
+              <a href="./tema/educacion-aprendizajes.html" title="Ver el tablero: Trayectorias y aprendizajes por departamento"><span class="tabla-ind-ficha">III.10</span>Alumnos de 6.º grado en el quintil socioeconómico más bajo</a>
+              
+            </th>
+            
+            <td class="tabla-ind-frec">Anual</td>
+            <td class="tabla-ind-geo"><abbr title="21 departamentos con datos">Departamento</abbr></td>
+            <td class="num">2025</td>
+            <td class="num"><span class="tabla-ind-var none">sin base</span></td>
+            <td class="num tabla-ind-ref"><span class="tabla-ind-vacio">—</span></td>
+          </tr>
+          
+          <tr>
+            <th scope="row">
+              <a href="./tema/educacion.html" title="Ver el tablero: Educación por departamento"><span class="tabla-ind-ficha tabla-ind-vacio" title="Todavía sin ficha en las notas técnicas">—</span>Matrícula total</a>
+              
+            </th>
+            
+            <td class="tabla-ind-frec">Anual</td>
+            <td class="tabla-ind-geo"><abbr title="23 departamentos con datos">Departamento</abbr></td>
+            <td class="num">2024</td>
+            <td class="num"><span class="tabla-ind-var down">▼ 1,4 %</span></td>
+            <td class="num tabla-ind-ref">2024/2023</td>
+          </tr>
+          
+          <tr>
+            <th scope="row">
+              <a href="./tema/educacion.html" title="Ver el tablero: Educación por departamento"><span class="tabla-ind-ficha tabla-ind-vacio" title="Todavía sin ficha en las notas técnicas">—</span>Egresados de secundaria</a>
+              
+            </th>
+            
+            <td class="tabla-ind-frec">Anual</td>
+            <td class="tabla-ind-geo"><abbr title="23 departamentos con datos">Departamento</abbr></td>
+            <td class="num">2024</td>
+            <td class="num"><span class="tabla-ind-var down">▼ 9,7 %</span></td>
+            <td class="num tabla-ind-ref">2024/2023</td>
+          </tr>
+          
+          <tr>
+            <th scope="row">
+              <a href="./tema/educacion.html" title="Ver el tablero: Educación por departamento"><span class="tabla-ind-ficha tabla-ind-vacio" title="Todavía sin ficha en las notas técnicas">—</span>Cargos docentes</a>
+              
+            </th>
+            
+            <td class="tabla-ind-frec">Anual</td>
+            <td class="tabla-ind-geo"><abbr title="23 departamentos con datos">Departamento</abbr></td>
+            <td class="num">2024</td>
+            <td class="num"><span class="tabla-ind-var up">▲ 23,3 %</span></td>
+            <td class="num tabla-ind-ref">2024/2023</td>
+          </tr>
+          
+        </tbody>
+        
+        <tbody>
+          <tr class="subeje-row"><th class="subeje-row-head" colspan="6" scope="colgroup">Seguridad</th></tr>
+          
+          <tr>
+            <th scope="row">
+              <a href="./tema/seguridad.html" title="Ver el tablero: Seguridad: suicidios y siniestros viales"><span class="tabla-ind-ficha">IV.1</span>Tasa de suicidio, media 2021-2023</a>
+              
+            </th>
+            
+            <td class="tabla-ind-frec">Anual</td>
+            <td class="tabla-ind-geo"><abbr title="23 departamentos con datos">Departamento</abbr></td>
+            <td class="num">2023</td>
+            <td class="num"><span class="tabla-ind-var none">sin base</span></td>
+            <td class="num tabla-ind-ref"><span class="tabla-ind-vacio">—</span></td>
+          </tr>
+          
+          <tr>
+            <th scope="row">
+              <a href="./tema/seguridad.html" title="Ver el tablero: Seguridad: suicidios y siniestros viales"><span class="tabla-ind-ficha">IV.2</span>Tasa de suicidio, media 2017-2024</a>
+              
+            </th>
+            
+            <td class="tabla-ind-frec">Anual</td>
+            <td class="tabla-ind-geo"><abbr title="23 departamentos con datos">Departamento</abbr></td>
+            <td class="num">2024</td>
+            <td class="num"><span class="tabla-ind-var none">sin base</span></td>
+            <td class="num tabla-ind-ref"><span class="tabla-ind-vacio">—</span></td>
+          </tr>
+          
+          <tr>
+            <th scope="row">
+              <a href="./tema/seguridad.html" title="Ver el tablero: Seguridad: suicidios y siniestros viales"><span class="tabla-ind-ficha">IV.3</span>Tasa de suicidio de varones, media 2017-2024</a>
+              <abbr class="tabla-ind-nota" title="La ficha incluye casos y tasas de ambos sexos; mujeres, en el gráfico.">ⓘ</abbr>
+            </th>
+            
+            <td class="tabla-ind-frec">Anual</td>
+            <td class="tabla-ind-geo"><abbr title="23 departamentos con datos">Departamento</abbr></td>
+            <td class="num">2024</td>
+            <td class="num"><span class="tabla-ind-var none">sin base</span></td>
+            <td class="num tabla-ind-ref"><span class="tabla-ind-vacio">—</span></td>
+          </tr>
+          
+          <tr>
+            <th scope="row">
+              <a href="./tema/seguridad.html" title="Ver el tablero: Seguridad: suicidios y siniestros viales"><span class="tabla-ind-ficha">IV.4</span>Razón de suicidio varones / mujeres</a>
+              
+            </th>
+            
+            <td class="tabla-ind-frec">Anual</td>
+            <td class="tabla-ind-geo"><abbr title="19 departamentos con datos">Departamento</abbr></td>
+            <td class="num">2024</td>
+            <td class="num"><span class="tabla-ind-var none">sin base</span></td>
+            <td class="num tabla-ind-ref"><span class="tabla-ind-vacio">—</span></td>
+          </tr>
+          
+          <tr>
+            <th scope="row">
+              <a href="./tema/seguridad.html" title="Ver el tablero: Seguridad: suicidios y siniestros viales"><span class="tabla-ind-ficha">IV.5</span>Tasa de suicidio adolescente (10 a 19)</a>
+              
+            </th>
+            
+            <td class="tabla-ind-frec">Anual</td>
+            <td class="tabla-ind-geo"><abbr title="23 departamentos con datos">Departamento</abbr></td>
+            <td class="num">2024</td>
+            <td class="num"><span class="tabla-ind-var none">sin base</span></td>
+            <td class="num tabla-ind-ref"><span class="tabla-ind-vacio">—</span></td>
+          </tr>
+          
+          <tr>
+            <th scope="row">
+              <a href="./tema/seguridad.html" title="Ver el tablero: Seguridad: suicidios y siniestros viales"><span class="tabla-ind-ficha">IV.6</span>Suicidios de adolescentes sobre el total</a>
+              
+            </th>
+            
+            <td class="tabla-ind-frec">Anual</td>
+            <td class="tabla-ind-geo"><abbr title="22 departamentos con datos">Departamento</abbr></td>
+            <td class="num">2024</td>
+            <td class="num"><span class="tabla-ind-var none">sin base</span></td>
+            <td class="num tabla-ind-ref"><span class="tabla-ind-vacio">—</span></td>
+          </tr>
+          
+          <tr>
+            <th scope="row">
+              <a href="./tema/seguridad.html" title="Ver el tablero: Seguridad: suicidios y siniestros viales"><span class="tabla-ind-ficha">IV.7</span>Suicidios por ahorcamiento</a>
+              
+            </th>
+            
+            <td class="tabla-ind-frec">Anual</td>
+            <td class="tabla-ind-geo"><abbr title="22 departamentos con datos">Departamento</abbr></td>
+            <td class="num">2024</td>
+            <td class="num"><span class="tabla-ind-var none">sin base</span></td>
+            <td class="num tabla-ind-ref"><span class="tabla-ind-vacio">—</span></td>
+          </tr>
+          
+          <tr>
+            <th scope="row">
+              <a href="./tema/seguridad.html" title="Ver el tablero: Seguridad: suicidios y siniestros viales"><span class="tabla-ind-ficha">IV.8</span>Suicidios en domicilio particular</a>
+              
+            </th>
+            
+            <td class="tabla-ind-frec">Anual</td>
+            <td class="tabla-ind-geo"><abbr title="22 departamentos con datos">Departamento</abbr></td>
+            <td class="num">2024</td>
+            <td class="num"><span class="tabla-ind-var none">sin base</span></td>
+            <td class="num tabla-ind-ref"><span class="tabla-ind-vacio">—</span></td>
+          </tr>
+          
+          <tr>
+            <th scope="row">
+              <a href="./tema/seguridad.html" title="Ver el tablero: Seguridad: suicidios y siniestros viales"><span class="tabla-ind-ficha">IV.9</span>Tasa de suicidio (por cien mil habitantes)</a>
+              
+            </th>
+            
+            <td class="tabla-ind-frec">Anual</td>
+            <td class="tabla-ind-geo">Provincia</td>
+            <td class="num">2024</td>
+            <td class="num"><span class="tabla-ind-var down invertido">▼ 2,7 %</span></td>
+            <td class="num tabla-ind-ref">2024/2023</td>
+          </tr>
+          
+          <tr>
+            <th scope="row">
+              <a href="./tema/seguridad.html" title="Ver el tablero: Seguridad: suicidios y siniestros viales"><span class="tabla-ind-ficha">IV.10</span>Mortalidad por lesiones de tránsito</a>
+              
+            </th>
+            
+            <td class="tabla-ind-frec">Anual</td>
+            <td class="tabla-ind-geo"><abbr title="23 departamentos con datos">Departamento</abbr></td>
+            <td class="num">2023</td>
+            <td class="num"><span class="tabla-ind-var none">sin base</span></td>
+            <td class="num tabla-ind-ref"><span class="tabla-ind-vacio">—</span></td>
           </tr>
           
         </tbody>
@@ -350,7 +1019,7 @@
   </div>
   
   <div class="tabla-ind-block">
-    <h3 class="eje-title">Económico-productivo <span class="eje-count">38</span></h3>
+    <h3 class="eje-title">Económico-productivo <span class="eje-count">44</span></h3>
     <div class="tabla-ind-scroll">
       
       <table class="tabla-ind">
@@ -363,7 +1032,6 @@
             <th scope="col">Último dato</th>
             <th scope="col">Var. interanual</th>
             <th scope="col">Períodos comparados</th>
-            
           </tr>
         </thead>
         
@@ -377,11 +1045,10 @@
             </th>
             <td class="tabla-ind-ciiu"><abbr title="A — Agricultura, ganadería, caza, silvicultura y pesca">A</abbr></td>
             <td class="tabla-ind-frec">Anual (campaña)</td>
-            <td class="tabla-ind-geo"><abbr title="17 departamentos con datos">Departamento</abbr></td>
+            <td class="tabla-ind-geo"><abbr title="18 departamentos con datos">Departamento</abbr></td>
             <td class="num">2024</td>
-            <td class="num"><span class="tabla-ind-var up">▲ 8,1 %</span></td>
+            <td class="num"><span class="tabla-ind-var up">▲ 9,1 %</span></td>
             <td class="num tabla-ind-ref">2024/2023</td>
-            
           </tr>
           
           <tr>
@@ -391,11 +1058,10 @@
             </th>
             <td class="tabla-ind-ciiu"><abbr title="A — Agricultura, ganadería, caza, silvicultura y pesca">A</abbr></td>
             <td class="tabla-ind-frec">Anual (campaña)</td>
-            <td class="tabla-ind-geo"><abbr title="17 departamentos con datos">Departamento</abbr></td>
+            <td class="tabla-ind-geo"><abbr title="18 departamentos con datos">Departamento</abbr></td>
             <td class="num">2024</td>
-            <td class="num"><span class="tabla-ind-var down">▼ 3,7 %</span></td>
+            <td class="num"><span class="tabla-ind-var down">▼ 3,0 %</span></td>
             <td class="num tabla-ind-ref">2024/2023</td>
-            
           </tr>
           
           <tr>
@@ -405,11 +1071,10 @@
             </th>
             <td class="tabla-ind-ciiu"><abbr title="A — Agricultura, ganadería, caza, silvicultura y pesca">A</abbr></td>
             <td class="tabla-ind-frec">Anual (campaña)</td>
-            <td class="tabla-ind-geo"><abbr title="17 departamentos con datos">Departamento</abbr></td>
+            <td class="tabla-ind-geo"><abbr title="18 departamentos con datos">Departamento</abbr></td>
             <td class="num">2024</td>
             <td class="num"><span class="tabla-ind-var up">▲ 6,3 %</span></td>
             <td class="num tabla-ind-ref">2024/2023</td>
-            
           </tr>
           
           <tr>
@@ -423,7 +1088,6 @@
             <td class="num">2025</td>
             <td class="num"><span class="tabla-ind-var down">▼ 0,9 %</span></td>
             <td class="num tabla-ind-ref">2025/2024</td>
-            
           </tr>
           
           <tr>
@@ -437,7 +1101,6 @@
             <td class="num">2025</td>
             <td class="num"><span class="tabla-ind-var down">▼ 2,8 %</span></td>
             <td class="num tabla-ind-ref">2025/2024</td>
-            
           </tr>
           
           <tr>
@@ -451,7 +1114,6 @@
             <td class="num">2025</td>
             <td class="num"><span class="tabla-ind-var up">▲ 20,1 %</span></td>
             <td class="num tabla-ind-ref">2025/2024</td>
-            
           </tr>
           
           <tr>
@@ -465,7 +1127,6 @@
             <td class="num">2025</td>
             <td class="num"><span class="tabla-ind-var up">▲ 23,5 %</span></td>
             <td class="num tabla-ind-ref">2025/2024</td>
-            
           </tr>
           
           <tr>
@@ -479,7 +1140,6 @@
             <td class="num">2024</td>
             <td class="num"><span class="tabla-ind-var down">▼ 13,3 %</span></td>
             <td class="num tabla-ind-ref">2024/2023</td>
-            
           </tr>
           
           <tr>
@@ -493,7 +1153,6 @@
             <td class="num">2024</td>
             <td class="num"><span class="tabla-ind-var down">▼ 9,7 %</span></td>
             <td class="num tabla-ind-ref">2024/2023</td>
-            
           </tr>
           
           <tr>
@@ -504,10 +1163,9 @@
             <td class="tabla-ind-ciiu"><abbr title="B — Explotación de minas y canteras">B</abbr></td>
             <td class="tabla-ind-frec">Trimestral</td>
             <td class="tabla-ind-geo"><abbr title="6 departamentos con datos">Departamento</abbr></td>
-            <td class="num">1T2026</td>
-            <td class="num"><span class="tabla-ind-var down">▼ 17,4 %</span></td>
-            <td class="num tabla-ind-ref">1T2026/1T2025</td>
-            
+            <td class="num">2T2026</td>
+            <td class="num"><span class="tabla-ind-var down">▼ 16,9 %</span></td>
+            <td class="num tabla-ind-ref">2T2026/2T2025</td>
           </tr>
           
           <tr>
@@ -518,10 +1176,9 @@
             <td class="tabla-ind-ciiu"><abbr title="B — Explotación de minas y canteras">B</abbr></td>
             <td class="tabla-ind-frec">Trimestral</td>
             <td class="tabla-ind-geo"><abbr title="6 departamentos con datos">Departamento</abbr></td>
-            <td class="num">1T2026</td>
-            <td class="num"><span class="tabla-ind-var down">▼ 23,3 %</span></td>
-            <td class="num tabla-ind-ref">1T2026/1T2025</td>
-            
+            <td class="num">2T2026</td>
+            <td class="num"><span class="tabla-ind-var down">▼ 20,6 %</span></td>
+            <td class="num tabla-ind-ref">2T2026/2T2025</td>
           </tr>
           
           <tr>
@@ -532,10 +1189,9 @@
             <td class="tabla-ind-ciiu"><abbr title="B — Explotación de minas y canteras">B</abbr></td>
             <td class="tabla-ind-frec">Trimestral</td>
             <td class="tabla-ind-geo"><abbr title="6 departamentos con datos">Departamento</abbr></td>
-            <td class="num">1T2026</td>
-            <td class="num"><span class="tabla-ind-var down">▼ 13,7 %</span></td>
-            <td class="num tabla-ind-ref">1T2026/1T2025</td>
-            
+            <td class="num">2T2026</td>
+            <td class="num"><span class="tabla-ind-var down">▼ 16,7 %</span></td>
+            <td class="num tabla-ind-ref">2T2026/2T2025</td>
           </tr>
           
           <tr>
@@ -549,7 +1205,6 @@
             <td class="num">1T2026</td>
             <td class="num"><span class="tabla-ind-var up">▲ 39,8 %</span></td>
             <td class="num tabla-ind-ref">1T2026/1T2025</td>
-            
           </tr>
           
           <tr>
@@ -563,7 +1218,6 @@
             <td class="num">1T2026</td>
             <td class="num"><span class="tabla-ind-var down">▼ 9,0 %</span></td>
             <td class="num tabla-ind-ref">1T2026/1T2025</td>
-            
           </tr>
           
           <tr>
@@ -577,7 +1231,6 @@
             <td class="num">1T2026</td>
             <td class="num"><span class="tabla-ind-var up">▲ 35,8 %</span></td>
             <td class="num tabla-ind-ref">1T2026/1T2025</td>
-            
           </tr>
           
         </tbody>
@@ -596,7 +1249,6 @@
             <td class="num">2T2025</td>
             <td class="num"><span class="tabla-ind-var down">▼ 3,8 %</span></td>
             <td class="num tabla-ind-ref">2T2025/2T2024</td>
-            
           </tr>
           
           <tr>
@@ -610,7 +1262,6 @@
             <td class="num">2T2025</td>
             <td class="num"><span class="tabla-ind-var up">▲ 6,7 %</span></td>
             <td class="num tabla-ind-ref">2T2025/2T2024</td>
-            
           </tr>
           
           <tr>
@@ -624,7 +1275,6 @@
             <td class="num">1T2026</td>
             <td class="num"><span class="tabla-ind-var down">▼ 7,0 %</span></td>
             <td class="num tabla-ind-ref">1T2026/1T2025</td>
-            
           </tr>
           
         </tbody>
@@ -643,7 +1293,6 @@
             <td class="num">mar-2026</td>
             <td class="num"><span class="tabla-ind-var down">▼ 3,0 %</span></td>
             <td class="num tabla-ind-ref">mar-2026/mar-2025</td>
-            
           </tr>
           
           <tr>
@@ -657,7 +1306,6 @@
             <td class="num">mar-2026</td>
             <td class="num"><span class="tabla-ind-var down">▼ 4,6 %</span></td>
             <td class="num tabla-ind-ref">mar-2026/mar-2025</td>
-            
           </tr>
           
           <tr>
@@ -671,7 +1319,6 @@
             <td class="num">mar-2026</td>
             <td class="num"><span class="tabla-ind-var up">▲ 1,8 p.p.</span></td>
             <td class="num tabla-ind-ref">mar-2026/mar-2025</td>
-            
           </tr>
           
           <tr>
@@ -685,7 +1332,6 @@
             <td class="num">mar-2026</td>
             <td class="num"><span class="tabla-ind-var up">▲ 2,0 p.p.</span></td>
             <td class="num tabla-ind-ref">mar-2026/mar-2025</td>
-            
           </tr>
           
           <tr>
@@ -699,7 +1345,6 @@
             <td class="num">2025</td>
             <td class="num"><span class="tabla-ind-var down">▼ 2,7 %</span></td>
             <td class="num tabla-ind-ref">2025/2024</td>
-            
           </tr>
           
           <tr>
@@ -713,7 +1358,6 @@
             <td class="num">2025</td>
             <td class="num"><span class="tabla-ind-var up">▲ 0,5 %</span></td>
             <td class="num tabla-ind-ref">2025/2024</td>
-            
           </tr>
           
           <tr>
@@ -727,7 +1371,6 @@
             <td class="num">1T2026</td>
             <td class="num"><span class="tabla-ind-var down">▼ 9,9 %</span></td>
             <td class="num tabla-ind-ref">1T2026/1T2025</td>
-            
           </tr>
           
           <tr>
@@ -741,7 +1384,6 @@
             <td class="num">1T2026</td>
             <td class="num"><span class="tabla-ind-var down">▼ 14,7 %</span></td>
             <td class="num tabla-ind-ref">1T2026/1T2025</td>
-            
           </tr>
           
           <tr>
@@ -755,7 +1397,6 @@
             <td class="num">2023</td>
             <td class="num"><span class="tabla-ind-var up">▲ 9,8 %</span></td>
             <td class="num tabla-ind-ref">2023/2022</td>
-            
           </tr>
           
           <tr>
@@ -769,7 +1410,6 @@
             <td class="num">2T2026</td>
             <td class="num"><span class="tabla-ind-var down">▼ 1,9 %</span></td>
             <td class="num tabla-ind-ref">2T2026/2T2025</td>
-            
           </tr>
           
           <tr>
@@ -783,7 +1423,6 @@
             <td class="num">2T2026</td>
             <td class="num"><span class="tabla-ind-var down">▼ 4,1 %</span></td>
             <td class="num tabla-ind-ref">2T2026/2T2025</td>
-            
           </tr>
           
           <tr>
@@ -794,10 +1433,9 @@
             <td class="tabla-ind-ciiu"><abbr title="K — Intermediación financiera y servicios de seguros">K</abbr></td>
             <td class="tabla-ind-frec">Trimestral</td>
             <td class="tabla-ind-geo"><abbr title="5 departamentos con datos">Departamento</abbr></td>
-            <td class="num">1T2026</td>
-            <td class="num"><span class="tabla-ind-var up">▲ 9,2 %</span></td>
-            <td class="num tabla-ind-ref">1T2026/1T2025</td>
-            
+            <td class="num">2T2026</td>
+            <td class="num"><span class="tabla-ind-var up">▲ 0,1 %</span></td>
+            <td class="num tabla-ind-ref">2T2026/2T2025</td>
           </tr>
           
           <tr>
@@ -808,10 +1446,9 @@
             <td class="tabla-ind-ciiu"><abbr title="K — Intermediación financiera y servicios de seguros">K</abbr></td>
             <td class="tabla-ind-frec">Trimestral</td>
             <td class="tabla-ind-geo"><abbr title="5 departamentos con datos">Departamento</abbr></td>
-            <td class="num">1T2026</td>
-            <td class="num"><span class="tabla-ind-var up">▲ 7,7 %</span></td>
-            <td class="num tabla-ind-ref">1T2026/1T2025</td>
-            
+            <td class="num">2T2026</td>
+            <td class="num"><span class="tabla-ind-var up">▲ 0,6 %</span></td>
+            <td class="num tabla-ind-ref">2T2026/2T2025</td>
           </tr>
           
           <tr>
@@ -825,7 +1462,45 @@
             <td class="num">2025</td>
             <td class="num"><span class="tabla-ind-var up">▲ 3,6 %</span></td>
             <td class="num tabla-ind-ref">2025/2024</td>
-            
+          </tr>
+          
+          <tr>
+            <th scope="row">
+              <a href="./tema/gobierno.html" title="Ver el tablero: Finanzas públicas provinciales"><span class="tabla-ind-ficha tabla-ind-vacio" title="Todavía sin ficha en las notas técnicas">—</span>Gasto en personal (% del gasto primario)</a>
+              <abbr class="tabla-ind-nota" title="Esquema AIF (DNAP). Gasto primario = gastos totales − intereses de la deuda. La variación va en puntos porcentuales.">ⓘ</abbr>
+            </th>
+            <td class="tabla-ind-ciiu"><span class="tabla-ind-vacio" title="Sin sección de actividad asignable">—</span></td>
+            <td class="tabla-ind-frec">Anual</td>
+            <td class="tabla-ind-geo"><abbr title="Se publica sólo como total provincial">Provincia</abbr></td>
+            <td class="num">2025</td>
+            <td class="num"><span class="tabla-ind-var up invertido">▲ 0,6 p.p.</span></td>
+            <td class="num tabla-ind-ref">2025/2024</td>
+          </tr>
+          
+          <tr>
+            <th scope="row">
+              <a href="./tema/gobierno.html" title="Ver el tablero: Finanzas públicas provinciales"><span class="tabla-ind-ficha tabla-ind-vacio" title="Todavía sin ficha en las notas técnicas">—</span>Inversión real directa (% del gasto primario)</a>
+              <abbr class="tabla-ind-nota" title="Esquema AIF (DNAP): obra pública y bienes de capital. La variación va en puntos porcentuales.">ⓘ</abbr>
+            </th>
+            <td class="tabla-ind-ciiu"><span class="tabla-ind-vacio" title="Sin sección de actividad asignable">—</span></td>
+            <td class="tabla-ind-frec">Anual</td>
+            <td class="tabla-ind-geo"><abbr title="Se publica sólo como total provincial">Provincia</abbr></td>
+            <td class="num">2025</td>
+            <td class="num"><span class="tabla-ind-var down">▼ 0,4 p.p.</span></td>
+            <td class="num tabla-ind-ref">2025/2024</td>
+          </tr>
+          
+          <tr>
+            <th scope="row">
+              <a href="./tema/gobierno.html" title="Ver el tablero: Finanzas públicas provinciales"><span class="tabla-ind-ficha tabla-ind-vacio" title="Todavía sin ficha en las notas técnicas">—</span>Recursos tributarios propios (% de ingresos totales)</a>
+              <abbr class="tabla-ind-nota" title="Esquema AIF (DNAP). Grado de autonomía fiscal: recaudación provincial sobre ingresos totales. La variación va en puntos porcentuales.">ⓘ</abbr>
+            </th>
+            <td class="tabla-ind-ciiu"><span class="tabla-ind-vacio" title="Sin sección de actividad asignable">—</span></td>
+            <td class="tabla-ind-frec">Anual</td>
+            <td class="tabla-ind-geo"><abbr title="Se publica sólo como total provincial">Provincia</abbr></td>
+            <td class="num">2025</td>
+            <td class="num"><span class="tabla-ind-var down">▼ 1,8 p.p.</span></td>
+            <td class="num tabla-ind-ref">2025/2024</td>
           </tr>
           
         </tbody>
@@ -844,7 +1519,6 @@
             <td class="num">2T2026</td>
             <td class="num"><span class="tabla-ind-var down">▼ 14,4 %</span></td>
             <td class="num tabla-ind-ref">2T2026/2T2025</td>
-            
           </tr>
           
           <tr>
@@ -858,7 +1532,45 @@
             <td class="num">2026</td>
             <td class="num"><span class="tabla-ind-var none">sin base</span></td>
             <td class="num tabla-ind-ref"><span class="tabla-ind-vacio">—</span></td>
-            
+          </tr>
+          
+          <tr>
+            <th scope="row">
+              <a href="./tema/conectividad.html" title="Ver el tablero: Conectividad: internet fijo (ENACOM)"><span class="tabla-ind-ficha tabla-ind-vacio" title="Todavía sin ficha en las notas técnicas">—</span>Accesos a internet fijo cada 100 hogares</a>
+              
+            </th>
+            <td class="tabla-ind-ciiu"><span class="tabla-ind-vacio" title="Sin sección de actividad asignable">—</span></td>
+            <td class="tabla-ind-frec">Trimestral</td>
+            <td class="tabla-ind-geo"><abbr title="Se publica sólo como total provincial">Provincia</abbr></td>
+            <td class="num">2T2026</td>
+            <td class="num"><span class="tabla-ind-var up">▲ 59,9 %</span></td>
+            <td class="num tabla-ind-ref">2T2026/2T2025</td>
+          </tr>
+          
+          <tr>
+            <th scope="row">
+              <a href="./tema/conectividad.html" title="Ver el tablero: Conectividad: internet fijo (ENACOM)"><span class="tabla-ind-ficha tabla-ind-vacio" title="Todavía sin ficha en las notas técnicas">—</span>Accesos a internet fijo</a>
+              
+            </th>
+            <td class="tabla-ind-ciiu"><span class="tabla-ind-vacio" title="Sin sección de actividad asignable">—</span></td>
+            <td class="tabla-ind-frec">Trimestral</td>
+            <td class="tabla-ind-geo"><abbr title="Se publica sólo como total provincial">Provincia</abbr></td>
+            <td class="num">2T2026</td>
+            <td class="num"><span class="tabla-ind-var up">▲ 60,5 %</span></td>
+            <td class="num tabla-ind-ref">2T2026/2T2025</td>
+          </tr>
+          
+          <tr>
+            <th scope="row">
+              <a href="./tema/conectividad.html" title="Ver el tablero: Conectividad: internet fijo (ENACOM)"><span class="tabla-ind-ficha tabla-ind-vacio" title="Todavía sin ficha en las notas técnicas">—</span>Velocidad media de bajada</a>
+              
+            </th>
+            <td class="tabla-ind-ciiu"><span class="tabla-ind-vacio" title="Sin sección de actividad asignable">—</span></td>
+            <td class="tabla-ind-frec">Trimestral</td>
+            <td class="tabla-ind-geo"><abbr title="Se publica sólo como total provincial">Provincia</abbr></td>
+            <td class="num">2T2026</td>
+            <td class="num"><span class="tabla-ind-var up">▲ 23,2 %</span></td>
+            <td class="num tabla-ind-ref">2T2026/2T2025</td>
           </tr>
           
         </tbody>
@@ -877,7 +1589,6 @@
             <td class="num">2025</td>
             <td class="num"><span class="tabla-ind-var up">▲ 28,8 %</span></td>
             <td class="num tabla-ind-ref">2025/2024</td>
-            
           </tr>
           
           <tr>
@@ -891,7 +1602,6 @@
             <td class="num">2025</td>
             <td class="num"><span class="tabla-ind-var up">▲ 13,7 %</span></td>
             <td class="num tabla-ind-ref">2025/2024</td>
-            
           </tr>
           
           <tr>
@@ -905,7 +1615,6 @@
             <td class="num">2024</td>
             <td class="num"><span class="tabla-ind-var down">▼ 14,6 %</span></td>
             <td class="num tabla-ind-ref">2024/2023</td>
-            
           </tr>
           
           <tr>
@@ -919,7 +1628,6 @@
             <td class="num">2024</td>
             <td class="num"><span class="tabla-ind-var down">▼ 1,0 %</span></td>
             <td class="num tabla-ind-ref">2024/2023</td>
-            
           </tr>
           
         </tbody>
@@ -942,7 +1650,6 @@
             <th scope="col">Último dato</th>
             <th scope="col">Var. interanual</th>
             <th scope="col">Períodos comparados</th>
-            
           </tr>
         </thead>
         
@@ -960,7 +1667,6 @@
             <td class="num">2T2026</td>
             <td class="num"><span class="tabla-ind-var up">▲ 33,9 %</span></td>
             <td class="num tabla-ind-ref">2T2026/2T2025</td>
-            
           </tr>
           
         </tbody>
@@ -979,7 +1685,6 @@
             <td class="num">3T2025</td>
             <td class="num"><span class="tabla-ind-var down">▼ 3,0 %</span></td>
             <td class="num tabla-ind-ref">3T2025/3T2024</td>
-            
           </tr>
           
           <tr>
@@ -993,7 +1698,6 @@
             <td class="num">3T2025</td>
             <td class="num"><span class="tabla-ind-var down">▼ 2,3 %</span></td>
             <td class="num tabla-ind-ref">3T2025/3T2024</td>
-            
           </tr>
           
           <tr>
@@ -1007,7 +1711,6 @@
             <td class="num">3T2025</td>
             <td class="num"><span class="tabla-ind-var down">▼ 3,0 %</span></td>
             <td class="num tabla-ind-ref">3T2025/3T2024</td>
-            
           </tr>
           
           <tr>
@@ -1021,7 +1724,6 @@
             <td class="num">3T2025</td>
             <td class="num"><span class="tabla-ind-var down">▼ 0,5 %</span></td>
             <td class="num tabla-ind-ref">3T2025/3T2024</td>
-            
           </tr>
           
         </tbody>
@@ -1037,11 +1739,11 @@
   <p class="section-lead muted">El Plan de Desarrollo Estratégico organiza los indicadores en tres ejes y, dentro de cada uno, en subejes. Cada tarjeta resume un indicador —último valor y variación interanual— y lleva al gráfico que lo publica.</p>
 
   <div class="eje-pills" role="tablist" aria-label="Ejes del PDES">
-    <button class="eje-pill is-active" data-eje="all" role="tab" aria-selected="true">Todos <span class="eje-count">56</span></button>
+    <button class="eje-pill is-active" data-eje="all" role="tab" aria-selected="true">Todos <span class="eje-count">113</span></button>
     
-    <button class="eje-pill" data-eje="sociocultural" role="tab" aria-selected="false">Sociocultural <span class="eje-count">13</span></button>
+    <button class="eje-pill" data-eje="sociocultural" role="tab" aria-selected="false">Sociocultural <span class="eje-count">64</span></button>
     
-    <button class="eje-pill" data-eje="economico-productivo" role="tab" aria-selected="false">Económico-productivo <span class="eje-count">38</span></button>
+    <button class="eje-pill" data-eje="economico-productivo" role="tab" aria-selected="false">Económico-productivo <span class="eje-count">44</span></button>
     
     <button class="eje-pill" data-eje="territorio-ambiente-turismo" role="tab" aria-selected="false">Territorio, ambiente y turismo <span class="eje-count">5</span></button>
     
@@ -1049,52 +1751,360 @@
 
   
   <div class="eje-block" data-eje="sociocultural" id="eje-sociocultural">
-    <h3 class="eje-title">Sociocultural <span class="eje-count">13</span></h3>
+    <h3 class="eje-title">Sociocultural <span class="eje-count">64</span></h3>
     <p class="eje-descr muted">Educación, salud, trabajo y condiciones de vida de la población.</p>
     
     <div class="subeje-block">
-      <h4 class="subeje-title">Educación <span class="eje-count">3</span></h4>
+      <h4 class="subeje-title">Condiciones de vida <span class="eje-count">11</span></h4>
       <div class="cards">
         
-        <a class="card card-ind" href="./tema/educacion.html#grafico-edu-matricula-nivel">
-          <span class="card-area">Educación por departamento</span>
-          <h5 class="card-title">Matrícula total</h5>
-          <p class="card-ind-valor">360.078 alumnos</p>
+        <a class="card card-ind" href="./tema/condiciones-vida.html#grafico-cv-ranking">
+          <span class="card-area">Condiciones de vida de los hogares</span>
+          <h5 class="card-title">Hogares con NBI</h5>
+          <p class="card-ind-valor">14,2%</p>
           <p class="card-ind-var">
-            <span class="tabla-ind-var down">▼ 1,4 %</span>
-            <span class="card-ind-ref">2024/2023</span>
+            <span class="tabla-ind-var none">sin base</span>
+            
           </p>
-          <span class="card-meta">Anual · último dato 2024</span>
+          <span class="card-meta">Anual · último dato 2022</span>
         </a>
         
-        <a class="card card-ind" href="./tema/educacion.html">
-          <span class="card-area">Educación por departamento</span>
-          <h5 class="card-title">Egresados de secundaria</h5>
-          <p class="card-ind-valor">13.075 alumnos</p>
+        <a class="card card-ind" href="./tema/condiciones-vida.html#grafico-cv-ranking">
+          <span class="card-area">Condiciones de vida de los hogares</span>
+          <h5 class="card-title">Hogares con hacinamiento crítico</h5>
+          <p class="card-ind-valor">4,68%</p>
           <p class="card-ind-var">
-            <span class="tabla-ind-var down">▼ 9,7 %</span>
-            <span class="card-ind-ref">2024/2023</span>
+            <span class="tabla-ind-var none">sin base</span>
+            
           </p>
-          <span class="card-meta">Anual · último dato 2024</span>
+          <span class="card-meta">Anual · último dato 2022</span>
         </a>
         
-        <a class="card card-ind" href="./tema/educacion.html">
-          <span class="card-area">Educación por departamento</span>
-          <h5 class="card-title">Cargos docentes</h5>
-          <p class="card-ind-valor">39.547 cargos</p>
+        <a class="card card-ind" href="./tema/condiciones-vida.html#grafico-cv-ranking">
+          <span class="card-area">Condiciones de vida de los hogares</span>
+          <h5 class="card-title">Hogares: condiciones sanitarias (NBI)</h5>
+          <p class="card-ind-valor">2,42%</p>
           <p class="card-ind-var">
-            <span class="tabla-ind-var up">▲ 23,3 %</span>
-            <span class="card-ind-ref">2024/2023</span>
+            <span class="tabla-ind-var none">sin base</span>
+            
           </p>
-          <span class="card-meta">Anual · último dato 2024</span>
+          <span class="card-meta">Anual · último dato 2022</span>
+        </a>
+        
+        <a class="card card-ind" href="./tema/condiciones-vida.html#grafico-cv-ranking">
+          <span class="card-area">Condiciones de vida de los hogares</span>
+          <h5 class="card-title">Hogares: capacidad de subsistencia (NBI)</h5>
+          <p class="card-ind-valor">0,96%</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var none">sin base</span>
+            
+          </p>
+          <span class="card-meta">Anual · último dato 2022</span>
+        </a>
+        
+        <a class="card card-ind" href="./tema/condiciones-vida.html#grafico-cv-ranking">
+          <span class="card-area">Condiciones de vida de los hogares</span>
+          <h5 class="card-title">Hogares con clima educativo bajo o muy bajo</h5>
+          <p class="card-ind-valor">46,4%</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var none">sin base</span>
+            
+          </p>
+          <span class="card-meta">Anual · último dato 2022</span>
+        </a>
+        
+        <a class="card card-ind" href="./tema/condiciones-vida.html#grafico-cv-ranking">
+          <span class="card-area">Condiciones de vida de los hogares</span>
+          <h5 class="card-title">Hogares sin agua por cañería en la vivienda</h5>
+          <p class="card-ind-valor">15,1%</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var none">sin base</span>
+            
+          </p>
+          <span class="card-meta">Anual · último dato 2022</span>
+        </a>
+        
+        <a class="card card-ind" href="./tema/condiciones-vida.html#grafico-cv-ranking">
+          <span class="card-area">Condiciones de vida de los hogares</span>
+          <h5 class="card-title">Hogares: sin inodoro con descarga de agua</h5>
+          <p class="card-ind-valor">16,6%</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var none">sin base</span>
+            
+          </p>
+          <span class="card-meta">Anual · último dato 2022</span>
+        </a>
+        
+        <a class="card card-ind" href="./tema/condiciones-vida.html#grafico-cv-ranking">
+          <span class="card-area">Condiciones de vida de los hogares</span>
+          <h5 class="card-title">Hogares: no propietarios de la vivienda</h5>
+          <p class="card-ind-valor">29,6%</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var none">sin base</span>
+            
+          </p>
+          <span class="card-meta">Anual · último dato 2022</span>
+        </a>
+        
+        <a class="card card-ind" href="./tema/condiciones-vida.html#grafico-cv-ranking">
+          <span class="card-area">Condiciones de vida de los hogares</span>
+          <h5 class="card-title">Hogares: sin computadora ni tablet</h5>
+          <p class="card-ind-valor">53,1%</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var none">sin base</span>
+            
+          </p>
+          <span class="card-meta">Anual · último dato 2022</span>
+        </a>
+        
+        <a class="card card-ind" href="./tema/condiciones-vida.html#grafico-cv-ranking">
+          <span class="card-area">Condiciones de vida de los hogares</span>
+          <h5 class="card-title">Hogares sin internet en la vivienda</h5>
+          <p class="card-ind-valor">37,3%</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var none">sin base</span>
+            
+          </p>
+          <span class="card-meta">Anual · último dato 2022</span>
+        </a>
+        
+        <a class="card card-ind" href="./tema/condiciones-vida.html#grafico-cv-ranking">
+          <span class="card-area">Condiciones de vida de los hogares</span>
+          <h5 class="card-title">Hogares: sin celular con internet</h5>
+          <p class="card-ind-valor">17,9%</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var none">sin base</span>
+            
+          </p>
+          <span class="card-meta">Anual · último dato 2022</span>
         </a>
         
       </div>
     </div>
     
     <div class="subeje-block">
-      <h4 class="subeje-title">Salud <span class="eje-count">10</span></h4>
+      <h4 class="subeje-title">Salud <span class="eje-count">30</span></h4>
       <div class="cards">
+        
+        <a class="card card-ind" href="./tema/salud-reproduccion.html#grafico-sr-vida-mortalidad">
+          <span class="card-area">Salud y reproducción por departamento</span>
+          <h5 class="card-title">Esperanza de vida al nacer</h5>
+          <p class="card-ind-valor">76,0 años</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var none">sin base</span>
+            
+          </p>
+          <span class="card-meta">Anual · último dato 2023</span>
+        </a>
+        
+        <a class="card card-ind" href="./tema/salud-reproduccion.html#grafico-sr-vida-mortalidad">
+          <span class="card-area">Salud y reproducción por departamento</span>
+          <h5 class="card-title">Tasa bruta de mortalidad</h5>
+          <p class="card-ind-valor">6,55 por mil hab.</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var none">sin base</span>
+            
+          </p>
+          <span class="card-meta">Anual · último dato 2023</span>
+        </a>
+        
+        <a class="card card-ind" href="./tema/salud-reproduccion.html#grafico-sr-vida-mortalidad">
+          <span class="card-area">Salud y reproducción por departamento</span>
+          <h5 class="card-title">Tasa de mortalidad ajustada por edad</h5>
+          <p class="card-ind-valor">6,55 por mil hab.</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var none">sin base</span>
+            
+          </p>
+          <span class="card-meta">Anual · último dato 2023</span>
+        </a>
+        
+        <a class="card card-ind" href="./tema/salud-reproduccion.html#grafico-sr-vida-mortalidad">
+          <span class="card-area">Salud y reproducción por departamento</span>
+          <h5 class="card-title">Dispersión territorial de la mortalidad ajustada (coeficiente de variación)</h5>
+          <p class="card-ind-valor">17,3%</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var none">sin base</span>
+            
+          </p>
+          <span class="card-meta">Anual · último dato 2023</span>
+        </a>
+        
+        <a class="card card-ind" href="./tema/salud-reproduccion.html#grafico-sr-causas">
+          <span class="card-area">Salud y reproducción por departamento</span>
+          <h5 class="card-title">Mortalidad prematura (30 a 69 años)</h5>
+          <p class="card-ind-valor">557,2 por cien mil hab.</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var none">sin base</span>
+            
+          </p>
+          <span class="card-meta">Anual · último dato 2023</span>
+        </a>
+        
+        <a class="card card-ind" href="./tema/salud-reproduccion.html#grafico-sr-causas">
+          <span class="card-area">Salud y reproducción por departamento</span>
+          <h5 class="card-title">Años potenciales de vida perdidos</h5>
+          <p class="card-ind-valor">5.586 años por cien mil hab.</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var none">sin base</span>
+            
+          </p>
+          <span class="card-meta">Anual · último dato 2023</span>
+        </a>
+        
+        <a class="card card-ind" href="./tema/salud-reproduccion.html#grafico-sr-materno-infantil">
+          <span class="card-area">Salud y reproducción por departamento</span>
+          <h5 class="card-title">Mortalidad materna</h5>
+          <p class="card-ind-valor">82,1 por cien mil nacidos vivos</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var none">sin base</span>
+            
+          </p>
+          <span class="card-meta">Anual · último dato 2023</span>
+        </a>
+        
+        <a class="card card-ind" href="./tema/salud-reproduccion.html#grafico-sr-materno-infantil">
+          <span class="card-area">Salud y reproducción por departamento</span>
+          <h5 class="card-title">Tasa de mortalidad infantil, trienio 2021-2023 (por mil nacidos vivos)</h5>
+          <p class="card-ind-valor">9,12 por mil nacidos vivos</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var none">sin base</span>
+            
+          </p>
+          <span class="card-meta">Anual · último dato 2023</span>
+        </a>
+        
+        <a class="card card-ind" href="./tema/salud-reproduccion.html#grafico-sr-materno-infantil">
+          <span class="card-area">Salud y reproducción por departamento</span>
+          <h5 class="card-title">Mortalidad de menores de 5 años</h5>
+          <p class="card-ind-valor">11,7 por mil nacidos vivos</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var none">sin base</span>
+            
+          </p>
+          <span class="card-meta">Anual · último dato 2023</span>
+        </a>
+        
+        <a class="card card-ind" href="./tema/salud-reproduccion.html#grafico-sr-materno-infantil">
+          <span class="card-area">Salud y reproducción por departamento</span>
+          <h5 class="card-title">Nacidos vivos con bajo peso al nacer</h5>
+          <p class="card-ind-valor">7,61%</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var none">sin base</span>
+            
+          </p>
+          <span class="card-meta">Anual · último dato 2023</span>
+        </a>
+        
+        <a class="card card-ind" href="./tema/salud-reproduccion.html#grafico-sr-causas">
+          <span class="card-area">Salud y reproducción por departamento</span>
+          <h5 class="card-title">Mortalidad cardiovascular</h5>
+          <p class="card-ind-valor">136,8 por cien mil hab.</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var none">sin base</span>
+            
+          </p>
+          <span class="card-meta">Anual · último dato 2023</span>
+        </a>
+        
+        <a class="card card-ind" href="./tema/salud-reproduccion.html#grafico-sr-causas">
+          <span class="card-area">Salud y reproducción por departamento</span>
+          <h5 class="card-title">Mortalidad por cáncer</h5>
+          <p class="card-ind-valor">97,2 por cien mil hab.</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var none">sin base</span>
+            
+          </p>
+          <span class="card-meta">Anual · último dato 2023</span>
+        </a>
+        
+        <a class="card card-ind" href="./tema/salud-reproduccion.html#grafico-sr-causas">
+          <span class="card-area">Salud y reproducción por departamento</span>
+          <h5 class="card-title">Mortalidad por diabetes</h5>
+          <p class="card-ind-valor">24,9 por cien mil hab.</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var none">sin base</span>
+            
+          </p>
+          <span class="card-meta">Anual · último dato 2023</span>
+        </a>
+        
+        <a class="card card-ind" href="./tema/salud-reproduccion.html#grafico-sr-fecundidad">
+          <span class="card-area">Salud y reproducción por departamento</span>
+          <h5 class="card-title">Tasa global de fecundidad</h5>
+          <p class="card-ind-valor">1,59 hijos por mujer</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var none">sin base</span>
+            
+          </p>
+          <span class="card-meta">Anual · último dato 2023</span>
+        </a>
+        
+        <a class="card card-ind" href="./tema/salud-reproduccion.html#grafico-sr-fecundidad">
+          <span class="card-area">Salud y reproducción por departamento</span>
+          <h5 class="card-title">Tasa general de fecundidad</h5>
+          <p class="card-ind-valor">48,0 por mil mujeres de 15 a 49</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var none">sin base</span>
+            
+          </p>
+          <span class="card-meta">Anual · último dato 2023</span>
+        </a>
+        
+        <a class="card card-ind" href="./tema/salud-reproduccion.html#grafico-sr-tef">
+          <span class="card-area">Salud y reproducción por departamento</span>
+          <h5 class="card-title">Tasa específica de fecundidad, 25 a 29 años</h5>
+          <p class="card-ind-valor">78,2 por mil mujeres</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var none">sin base</span>
+            
+          </p>
+          <span class="card-meta">Anual · último dato 2023</span>
+        </a>
+        
+        <a class="card card-ind" href="./tema/salud-reproduccion.html#grafico-sr-fecundidad">
+          <span class="card-area">Salud y reproducción por departamento</span>
+          <h5 class="card-title">Fecundidad de niñas de 10 a 14 años</h5>
+          <p class="card-ind-valor">1,38 por mil niñas</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var none">sin base</span>
+            
+          </p>
+          <span class="card-meta">Anual · último dato 2023</span>
+        </a>
+        
+        <a class="card card-ind" href="./tema/salud-reproduccion.html#grafico-sr-fecundidad">
+          <span class="card-area">Salud y reproducción por departamento</span>
+          <h5 class="card-title">Fecundidad adolescente (15 a 19)</h5>
+          <p class="card-ind-valor">34,6 por mil mujeres</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var none">sin base</span>
+            
+          </p>
+          <span class="card-meta">Anual · último dato 2023</span>
+        </a>
+        
+        <a class="card card-ind" href="./tema/salud-reproduccion.html#grafico-sr-fecundidad">
+          <span class="card-area">Salud y reproducción por departamento</span>
+          <h5 class="card-title">Nacimientos de madres menores de 20 años</h5>
+          <p class="card-ind-valor">11,8%</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var none">sin base</span>
+            
+          </p>
+          <span class="card-meta">Anual · último dato 2023</span>
+        </a>
+        
+        <a class="card card-ind" href="./tema/salud-reproduccion.html#grafico-sr-fecundidad">
+          <span class="card-area">Salud y reproducción por departamento</span>
+          <h5 class="card-title">Edad media de la maternidad</h5>
+          <p class="card-ind-valor">28,4 años</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var none">sin base</span>
+            
+          </p>
+          <span class="card-meta">Anual · último dato 2023</span>
+        </a>
         
         <a class="card card-ind" href="./tema/salud.html#grafico-sal-hechos-vitales">
           <span class="card-area">Salud</span>
@@ -1209,10 +2219,277 @@
       </div>
     </div>
     
+    <div class="subeje-block">
+      <h4 class="subeje-title">Educación <span class="eje-count">13</span></h4>
+      <div class="cards">
+        
+        <a class="card card-ind" href="./tema/educacion-aprendizajes.html#grafico-ea-trayectorias">
+          <span class="card-area">Trayectorias y aprendizajes por departamento</span>
+          <h5 class="card-title">Matrícula de primaria y secundaria</h5>
+          <p class="card-ind-valor">308.566 alumnos</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var none">sin base</span>
+            
+          </p>
+          <span class="card-meta">Anual · último dato 2025</span>
+        </a>
+        
+        <a class="card card-ind" href="./tema/educacion-aprendizajes.html#grafico-ea-trayectorias">
+          <span class="card-area">Trayectorias y aprendizajes por departamento</span>
+          <h5 class="card-title">Repitencia en secundaria</h5>
+          <p class="card-ind-valor">11,4%</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var none">sin base</span>
+            
+          </p>
+          <span class="card-meta">Anual · último dato 2025</span>
+        </a>
+        
+        <a class="card card-ind" href="./tema/educacion-aprendizajes.html#grafico-ea-trayectorias">
+          <span class="card-area">Trayectorias y aprendizajes por departamento</span>
+          <h5 class="card-title">Tasa de egreso aparente de secundaria</h5>
+          <p class="card-ind-valor">10,3%</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var none">sin base</span>
+            
+          </p>
+          <span class="card-meta">Anual · último dato 2025</span>
+        </a>
+        
+        <a class="card card-ind" href="./tema/educacion-aprendizajes.html#grafico-ea-trayectorias">
+          <span class="card-area">Trayectorias y aprendizajes por departamento</span>
+          <h5 class="card-title">Alumnos por establecimiento (secundaria)</h5>
+          <p class="card-ind-valor">362,0 alumnos</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var none">sin base</span>
+            
+          </p>
+          <span class="card-meta">Anual · último dato 2025</span>
+        </a>
+        
+        <a class="card card-ind" href="./tema/educacion-aprendizajes.html#grafico-ea-trayectorias">
+          <span class="card-area">Trayectorias y aprendizajes por departamento</span>
+          <h5 class="card-title">Alumnos por cargo docente (secundaria)</h5>
+          <p class="card-ind-valor">23,3 alumnos</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var none">sin base</span>
+            
+          </p>
+          <span class="card-meta">Anual · último dato 2025</span>
+        </a>
+        
+        <a class="card card-ind" href="./tema/educacion-aprendizajes.html#grafico-ea-trayectorias">
+          <span class="card-area">Trayectorias y aprendizajes por departamento</span>
+          <h5 class="card-title">Alumnos extranjeros (secundaria)</h5>
+          <p class="card-ind-valor">0,23%</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var none">sin base</span>
+            
+          </p>
+          <span class="card-meta">Anual · último dato 2025</span>
+        </a>
+        
+        <a class="card card-ind" href="./tema/educacion-aprendizajes.html#grafico-ea-aprender-ranking">
+          <span class="card-area">Trayectorias y aprendizajes por departamento</span>
+          <h5 class="card-title">Aprender 6.º grado, Lengua: alumnos en nivel satisfactorio o avanzado</h5>
+          <p class="card-ind-valor">74,5%</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var none">sin base</span>
+            
+          </p>
+          <span class="card-meta">Anual · último dato 2025</span>
+        </a>
+        
+        <a class="card card-ind" href="./tema/educacion-aprendizajes.html#grafico-ea-aprender-ranking">
+          <span class="card-area">Trayectorias y aprendizajes por departamento</span>
+          <h5 class="card-title">Aprender 6.º grado, Matemática: alumnos en nivel satisfactorio o avanzado</h5>
+          <p class="card-ind-valor">51,0%</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var none">sin base</span>
+            
+          </p>
+          <span class="card-meta">Anual · último dato 2025</span>
+        </a>
+        
+        <a class="card card-ind" href="./tema/educacion-aprendizajes.html#grafico-ea-aprender-dist">
+          <span class="card-area">Trayectorias y aprendizajes por departamento</span>
+          <h5 class="card-title">Alumnos de 6.º grado sin sobreedad</h5>
+          <p class="card-ind-valor">88,6%</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var none">sin base</span>
+            
+          </p>
+          <span class="card-meta">Anual · último dato 2025</span>
+        </a>
+        
+        <a class="card card-ind" href="./tema/educacion-aprendizajes.html#grafico-ea-aprender-dist">
+          <span class="card-area">Trayectorias y aprendizajes por departamento</span>
+          <h5 class="card-title">Alumnos de 6.º grado en el quintil socioeconómico más bajo</h5>
+          <p class="card-ind-valor">23,6%</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var none">sin base</span>
+            
+          </p>
+          <span class="card-meta">Anual · último dato 2025</span>
+        </a>
+        
+        <a class="card card-ind" href="./tema/educacion.html#grafico-edu-matricula-nivel">
+          <span class="card-area">Educación por departamento</span>
+          <h5 class="card-title">Matrícula total</h5>
+          <p class="card-ind-valor">360.078 alumnos</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var down">▼ 1,4 %</span>
+            <span class="card-ind-ref">2024/2023</span>
+          </p>
+          <span class="card-meta">Anual · último dato 2024</span>
+        </a>
+        
+        <a class="card card-ind" href="./tema/educacion.html">
+          <span class="card-area">Educación por departamento</span>
+          <h5 class="card-title">Egresados de secundaria</h5>
+          <p class="card-ind-valor">13.075 alumnos</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var down">▼ 9,7 %</span>
+            <span class="card-ind-ref">2024/2023</span>
+          </p>
+          <span class="card-meta">Anual · último dato 2024</span>
+        </a>
+        
+        <a class="card card-ind" href="./tema/educacion.html">
+          <span class="card-area">Educación por departamento</span>
+          <h5 class="card-title">Cargos docentes</h5>
+          <p class="card-ind-valor">39.547 cargos</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var up">▲ 23,3 %</span>
+            <span class="card-ind-ref">2024/2023</span>
+          </p>
+          <span class="card-meta">Anual · último dato 2024</span>
+        </a>
+        
+      </div>
+    </div>
+    
+    <div class="subeje-block">
+      <h4 class="subeje-title">Seguridad <span class="eje-count">10</span></h4>
+      <div class="cards">
+        
+        <a class="card card-ind" href="./tema/seguridad.html#grafico-seg-ranking">
+          <span class="card-area">Seguridad: suicidios y siniestros viales</span>
+          <h5 class="card-title">Tasa de suicidio, media 2021-2023</h5>
+          <p class="card-ind-valor">13,5 por cien mil hab.</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var none">sin base</span>
+            
+          </p>
+          <span class="card-meta">Anual · último dato 2023</span>
+        </a>
+        
+        <a class="card card-ind" href="./tema/seguridad.html#grafico-seg-ranking">
+          <span class="card-area">Seguridad: suicidios y siniestros viales</span>
+          <h5 class="card-title">Tasa de suicidio, media 2017-2024</h5>
+          <p class="card-ind-valor">12,8 por cien mil hab.</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var none">sin base</span>
+            
+          </p>
+          <span class="card-meta">Anual · último dato 2024</span>
+        </a>
+        
+        <a class="card card-ind" href="./tema/seguridad.html#grafico-seg-sexo">
+          <span class="card-area">Seguridad: suicidios y siniestros viales</span>
+          <h5 class="card-title">Tasa de suicidio de varones, media 2017-2024</h5>
+          <p class="card-ind-valor">20,8 por cien mil hab.</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var none">sin base</span>
+            
+          </p>
+          <span class="card-meta">Anual · último dato 2024</span>
+        </a>
+        
+        <a class="card card-ind" href="./tema/seguridad.html#grafico-seg-ranking">
+          <span class="card-area">Seguridad: suicidios y siniestros viales</span>
+          <h5 class="card-title">Razón de suicidio varones / mujeres</h5>
+          <p class="card-ind-valor">3,98 veces</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var none">sin base</span>
+            
+          </p>
+          <span class="card-meta">Anual · último dato 2024</span>
+        </a>
+        
+        <a class="card card-ind" href="./tema/seguridad.html#grafico-seg-ranking">
+          <span class="card-area">Seguridad: suicidios y siniestros viales</span>
+          <h5 class="card-title">Tasa de suicidio adolescente (10 a 19)</h5>
+          <p class="card-ind-valor">16,2 por cien mil hab. de 10 a 19</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var none">sin base</span>
+            
+          </p>
+          <span class="card-meta">Anual · último dato 2024</span>
+        </a>
+        
+        <a class="card card-ind" href="./tema/seguridad.html#grafico-seg-ranking">
+          <span class="card-area">Seguridad: suicidios y siniestros viales</span>
+          <h5 class="card-title">Suicidios de adolescentes sobre el total</h5>
+          <p class="card-ind-valor">22,3%</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var none">sin base</span>
+            
+          </p>
+          <span class="card-meta">Anual · último dato 2024</span>
+        </a>
+        
+        <a class="card card-ind" href="./tema/seguridad.html#grafico-seg-ranking">
+          <span class="card-area">Seguridad: suicidios y siniestros viales</span>
+          <h5 class="card-title">Suicidios por ahorcamiento</h5>
+          <p class="card-ind-valor">89,8%</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var none">sin base</span>
+            
+          </p>
+          <span class="card-meta">Anual · último dato 2024</span>
+        </a>
+        
+        <a class="card card-ind" href="./tema/seguridad.html#grafico-seg-ranking">
+          <span class="card-area">Seguridad: suicidios y siniestros viales</span>
+          <h5 class="card-title">Suicidios en domicilio particular</h5>
+          <p class="card-ind-valor">79,2%</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var none">sin base</span>
+            
+          </p>
+          <span class="card-meta">Anual · último dato 2024</span>
+        </a>
+        
+        <a class="card card-ind" href="./tema/seguridad.html#grafico-seg-serie">
+          <span class="card-area">Seguridad: suicidios y siniestros viales</span>
+          <h5 class="card-title">Tasa de suicidio (por cien mil habitantes)</h5>
+          <p class="card-ind-valor">12,5 por cien mil hab.</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var down invertido">▼ 2,7 %</span>
+            <span class="card-ind-ref">2024/2023</span>
+          </p>
+          <span class="card-meta">Anual · último dato 2024</span>
+        </a>
+        
+        <a class="card card-ind" href="./tema/seguridad.html#grafico-seg-transito">
+          <span class="card-area">Seguridad: suicidios y siniestros viales</span>
+          <h5 class="card-title">Mortalidad por lesiones de tránsito</h5>
+          <p class="card-ind-valor">11,1 por cien mil hab.</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var none">sin base</span>
+            
+          </p>
+          <span class="card-meta">Anual · último dato 2023</span>
+        </a>
+        
+      </div>
+    </div>
+    
   </div>
   
   <div class="eje-block" data-eje="economico-productivo" id="eje-economico-productivo">
-    <h3 class="eje-title">Económico-productivo <span class="eje-count">38</span></h3>
+    <h3 class="eje-title">Económico-productivo <span class="eje-count">44</span></h3>
     <p class="eje-descr muted">Producción, empleo, inversión y financiamiento de la economía salteña.</p>
     
     <div class="subeje-block">
@@ -1222,9 +2499,9 @@
         <a class="card card-ind" href="./tema/agricultura.html#grafico-agri-produccion-depto">
           <span class="card-area">Agricultura por departamento</span>
           <h5 class="card-title">Producción agrícola total</h5>
-          <p class="card-ind-valor">3.021.748 toneladas</p>
+          <p class="card-ind-valor">3.103.824 toneladas</p>
           <p class="card-ind-var">
-            <span class="tabla-ind-var up">▲ 8,1 %</span>
+            <span class="tabla-ind-var up">▲ 9,1 %</span>
             <span class="card-ind-ref">2024/2023</span>
           </p>
           <span class="card-meta">Anual (campaña) · último dato 2024</span>
@@ -1233,9 +2510,9 @@
         <a class="card card-ind" href="./tema/agricultura.html#grafico-agri-superficie">
           <span class="card-area">Agricultura por departamento</span>
           <h5 class="card-title">Superficie sembrada</h5>
-          <p class="card-ind-valor">1.177.556 ha</p>
+          <p class="card-ind-valor">1.253.058 ha</p>
           <p class="card-ind-var">
-            <span class="tabla-ind-var down">▼ 3,7 %</span>
+            <span class="tabla-ind-var down">▼ 3,0 %</span>
             <span class="card-ind-ref">2024/2023</span>
           </p>
           <span class="card-meta">Anual (campaña) · último dato 2024</span>
@@ -1321,34 +2598,34 @@
         <a class="card card-ind" href="./tema/produccion-energia.html#grafico-prod-gas-mensual">
           <span class="card-area">Producción de petróleo y gas</span>
           <h5 class="card-title">Producción de gas</h5>
-          <p class="card-ind-valor">242.901 miles de m³</p>
+          <p class="card-ind-valor">241.645 miles de m³</p>
           <p class="card-ind-var">
-            <span class="tabla-ind-var down">▼ 17,4 %</span>
-            <span class="card-ind-ref">1T2026/1T2025</span>
+            <span class="tabla-ind-var down">▼ 16,9 %</span>
+            <span class="card-ind-ref">2T2026/2T2025</span>
           </p>
-          <span class="card-meta">Trimestral · último dato 1T2026</span>
+          <span class="card-meta">Trimestral · último dato 2T2026</span>
         </a>
         
         <a class="card card-ind" href="./tema/produccion-energia.html#grafico-prod-pet-mensual">
           <span class="card-area">Producción de petróleo y gas</span>
           <h5 class="card-title">Producción de petróleo</h5>
-          <p class="card-ind-valor">27.821 m³</p>
+          <p class="card-ind-valor">27.394 m³</p>
           <p class="card-ind-var">
-            <span class="tabla-ind-var down">▼ 23,3 %</span>
-            <span class="card-ind-ref">1T2026/1T2025</span>
+            <span class="tabla-ind-var down">▼ 20,6 %</span>
+            <span class="card-ind-ref">2T2026/2T2025</span>
           </p>
-          <span class="card-meta">Trimestral · último dato 1T2026</span>
+          <span class="card-meta">Trimestral · último dato 2T2026</span>
         </a>
         
         <a class="card card-ind" href="./tema/produccion-energia.html">
           <span class="card-area">Producción de petróleo y gas</span>
           <h5 class="card-title">Pozos en producción</h5>
-          <p class="card-ind-valor">2.319 pozos</p>
+          <p class="card-ind-valor">2.238 pozos</p>
           <p class="card-ind-var">
-            <span class="tabla-ind-var down">▼ 13,7 %</span>
-            <span class="card-ind-ref">1T2026/1T2025</span>
+            <span class="tabla-ind-var down">▼ 16,7 %</span>
+            <span class="card-ind-ref">2T2026/2T2025</span>
           </p>
-          <span class="card-meta">Trimestral · último dato 1T2026</span>
+          <span class="card-meta">Trimestral · último dato 2T2026</span>
         </a>
         
         <a class="card card-ind" href="./tema/construccion.html#grafico-constr-superficie">
@@ -1428,13 +2705,13 @@
     </div>
     
     <div class="subeje-block">
-      <h4 class="subeje-title">Inversión y financiamiento <span class="eje-count">14</span></h4>
+      <h4 class="subeje-title">Inversión y financiamiento <span class="eje-count">17</span></h4>
       <div class="cards">
         
         <a class="card card-ind" href="./tema/resultado-fiscal.html#grafico-fisc-resultado">
           <span class="card-area">Resultado fiscal provincial</span>
           <h5 class="card-title">Ingresos totales (constante, jul-2026)</h5>
-          <p class="card-ind-valor">956.547.583.482 pesos</p>
+          <p class="card-ind-valor">956.547.583.481 pesos</p>
           <p class="card-ind-var">
             <span class="tabla-ind-var down">▼ 3,0 %</span>
             <span class="card-ind-ref">mar-2026/mar-2025</span>
@@ -1500,7 +2777,7 @@
         <a class="card card-ind" href="./tema/recaudacion.html#grafico-rec-total">
           <span class="card-area">Recaudación de Ingresos Brutos (Convenio Multilateral)</span>
           <h5 class="card-title">Recaudación de Ingresos Brutos (constante, jul-2026)</h5>
-          <p class="card-ind-valor">119.688.368.353 pesos</p>
+          <p class="card-ind-valor">119.688.368.352 pesos</p>
           <p class="card-ind-var">
             <span class="tabla-ind-var down">▼ 9,9 %</span>
             <span class="card-ind-ref">1T2026/1T2025</span>
@@ -1511,7 +2788,7 @@
         <a class="card card-ind" href="./tema/recaudacion.html#grafico-rec-total">
           <span class="card-area">Recaudación de Ingresos Brutos (Convenio Multilateral)</span>
           <h5 class="card-title">Recaudación de la industria manufacturera</h5>
-          <p class="card-ind-valor">36.285.535.062 pesos</p>
+          <p class="card-ind-valor">36.285.535.063 pesos</p>
           <p class="card-ind-var">
             <span class="tabla-ind-var down">▼ 14,7 %</span>
             <span class="card-ind-ref">1T2026/1T2025</span>
@@ -1555,23 +2832,23 @@
         <a class="card card-ind" href="./tema/financiero.html#grafico-fin-prestamos-depositos">
           <span class="card-area">Crédito y depósitos (BCRA)</span>
           <h5 class="card-title">Préstamos al sector privado (constante, jul-2026)</h5>
-          <p class="card-ind-valor">2.099.390.200.840 pesos</p>
+          <p class="card-ind-valor">2.142.346.795.306 pesos</p>
           <p class="card-ind-var">
-            <span class="tabla-ind-var up">▲ 9,2 %</span>
-            <span class="card-ind-ref">1T2026/1T2025</span>
+            <span class="tabla-ind-var up">▲ 0,1 %</span>
+            <span class="card-ind-ref">2T2026/2T2025</span>
           </p>
-          <span class="card-meta">Trimestral · último dato 1T2026</span>
+          <span class="card-meta">Trimestral · último dato 2T2026</span>
         </a>
         
         <a class="card card-ind" href="./tema/financiero.html#grafico-fin-prestamos-depositos">
           <span class="card-area">Crédito y depósitos (BCRA)</span>
           <h5 class="card-title">Depósitos del sector privado (constante, jul-2026)</h5>
-          <p class="card-ind-valor">1.472.286.308.858 pesos</p>
+          <p class="card-ind-valor">1.540.055.452.956 pesos</p>
           <p class="card-ind-var">
-            <span class="tabla-ind-var up">▲ 7,7 %</span>
-            <span class="card-ind-ref">1T2026/1T2025</span>
+            <span class="tabla-ind-var up">▲ 0,6 %</span>
+            <span class="card-ind-ref">2T2026/2T2025</span>
           </p>
-          <span class="card-meta">Trimestral · último dato 1T2026</span>
+          <span class="card-meta">Trimestral · último dato 2T2026</span>
         </a>
         
         <a class="card card-ind" href="./tema/financiero.html#grafico-fin-inclusion">
@@ -1585,11 +2862,44 @@
           <span class="card-meta">Anual · último dato 2025</span>
         </a>
         
+        <a class="card card-ind" href="./tema/gobierno.html#grafico-gob-personal-primario">
+          <span class="card-area">Finanzas públicas provinciales</span>
+          <h5 class="card-title">Gasto en personal (% del gasto primario)</h5>
+          <p class="card-ind-valor">57,9%</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var up invertido">▲ 0,6 p.p.</span>
+            <span class="card-ind-ref">2025/2024</span>
+          </p>
+          <span class="card-meta">Anual · último dato 2025</span>
+        </a>
+        
+        <a class="card card-ind" href="./tema/gobierno.html#grafico-gob-ird-primario">
+          <span class="card-area">Finanzas públicas provinciales</span>
+          <h5 class="card-title">Inversión real directa (% del gasto primario)</h5>
+          <p class="card-ind-valor">5,00%</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var down">▼ 0,4 p.p.</span>
+            <span class="card-ind-ref">2025/2024</span>
+          </p>
+          <span class="card-meta">Anual · último dato 2025</span>
+        </a>
+        
+        <a class="card card-ind" href="./tema/gobierno.html#grafico-gob-recursos-propios">
+          <span class="card-area">Finanzas públicas provinciales</span>
+          <h5 class="card-title">Recursos tributarios propios (% de ingresos totales)</h5>
+          <p class="card-ind-valor">23,2%</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var down">▼ 1,8 p.p.</span>
+            <span class="card-ind-ref">2025/2024</span>
+          </p>
+          <span class="card-meta">Anual · último dato 2025</span>
+        </a>
+        
       </div>
     </div>
     
     <div class="subeje-block">
-      <h4 class="subeje-title">Infraestructura y logística <span class="eje-count">2</span></h4>
+      <h4 class="subeje-title">Infraestructura y logística <span class="eje-count">5</span></h4>
       <div class="cards">
         
         <a class="card card-ind" href="./tema/energia-electrica.html#grafico-elec-fuente">
@@ -1612,6 +2922,39 @@
             
           </p>
           <span class="card-meta">Anual · último dato 2026</span>
+        </a>
+        
+        <a class="card card-ind" href="./tema/conectividad.html#grafico-con-penetracion">
+          <span class="card-area">Conectividad: internet fijo (ENACOM)</span>
+          <h5 class="card-title">Accesos a internet fijo cada 100 hogares</h5>
+          <p class="card-ind-valor">73,8 accesos/100 hogares</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var up">▲ 59,9 %</span>
+            <span class="card-ind-ref">2T2026/2T2025</span>
+          </p>
+          <span class="card-meta">Trimestral · último dato 2T2026</span>
+        </a>
+        
+        <a class="card card-ind" href="./tema/conectividad.html#grafico-con-tecnologia">
+          <span class="card-area">Conectividad: internet fijo (ENACOM)</span>
+          <h5 class="card-title">Accesos a internet fijo</h5>
+          <p class="card-ind-valor">319.688 accesos</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var up">▲ 60,5 %</span>
+            <span class="card-ind-ref">2T2026/2T2025</span>
+          </p>
+          <span class="card-meta">Trimestral · último dato 2T2026</span>
+        </a>
+        
+        <a class="card card-ind" href="./tema/conectividad.html#grafico-con-velocidad">
+          <span class="card-area">Conectividad: internet fijo (ENACOM)</span>
+          <h5 class="card-title">Velocidad media de bajada</h5>
+          <p class="card-ind-valor">176,2 Mbps</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var up">▲ 23,2 %</span>
+            <span class="card-ind-ref">2T2026/2T2025</span>
+          </p>
+          <span class="card-meta">Trimestral · último dato 2T2026</span>
         </a>
         
       </div>
@@ -1760,9 +3103,9 @@
 <script src="./assets/vendor/echarts.min.js"></script>
 <script src="./assets/vendor/minisearch.min.js"></script>
 <script>window.CESS_BASE = ".";</script>
-<script src="./assets/js/app.js?v=1793194727"></script>
+<script src="./assets/js/app.js?v=1793031187"></script>
 
-<script src="./assets/js/search.js?v=1793194727"></script>
+<script src="./assets/js/search.js?v=1793031187"></script>
 
 </body>
 </html>

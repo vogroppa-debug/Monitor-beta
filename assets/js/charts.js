@@ -20,6 +20,9 @@
   var nfFull = new Intl.NumberFormat("es-AR", { maximumFractionDigits: 0 });
   var nfCompact = new Intl.NumberFormat("es-AR", { notation: "compact", maximumFractionDigits: 1 });
   var nfPct = new Intl.NumberFormat("es-AR", { maximumFractionDigits: 1 });
+  // Nivel de un KPI: por debajo de 10 un solo decimal redondea de más (3,975 -> "4").
+  var nfNivel2 = new Intl.NumberFormat("es-AR", { maximumFractionDigits: 2 });
+  function fmtNivel(v) { return v < 10 ? nfNivel2.format(v) : nfCompact.format(v); }
   var ALL = "__ALL__";
 
   function isDark() {
@@ -261,7 +264,13 @@
     if (pctMode) { yAxis.min = 0; yAxis.max = 100; }
     else if (lineAdaptive) { yAxis.scale = true; }
     else if (opts.yMax != null) { yAxis.max = opts.yMax; }
+    if (ch.yMax != null) yAxis.max = ch.yMax;
     opt.xAxis = Object.assign({ type: "category", boundaryGap: isBar, data: xs }, ax);
+    // Barras con muchas categorías no temporales (departamentos): mostrar todas las etiquetas,
+    // giradas, en vez de que hideOverlap oculte la mayoría.
+    if (isBar && !opts.forGrid && !TIME_X[ch.x] && xs.length > 8) {
+      opt.xAxis.axisLabel = Object.assign({}, opt.xAxis.axisLabel, { interval: 0, rotate: 40, hideOverlap: false });
+    }
     if (opts.forGrid) { opt.xAxis.axisLabel = Object.assign({}, opt.xAxis.axisLabel, { fontSize: 9, interval: "auto" }); yAxis.axisLabel.fontSize = 9; }
     opt.yAxis = yAxis;
     if (!opts.forGrid && !single) {
@@ -520,10 +529,10 @@
         }
         var ctxN = (last != null ? esc(String(last)) : "");
         if (prev != null) ctxN += " · " + esc(String(prevKey)) + ": " +
-          (prev < 0 ? "−" : "") + nfCompact.format(Math.abs(prev)) + " " + esc(k.unidad);
+          (prev < 0 ? "−" : "") + fmtNivel(Math.abs(prev)) + " " + esc(k.unidad);
         el.innerHTML =
           '<div class="kpi-value kpi-delta ' + clsN + '">' + (pos ? "" : "−") +
-          nfCompact.format(Math.abs(now)) + '<span class="kpi-unit">' + esc(k.unidad) + '</span></div>' +
+          fmtNivel(Math.abs(now)) + '<span class="kpi-unit">' + esc(k.unidad) + '</span></div>' +
           '<div class="kpi-label">' + esc(k.label) + '</div>' +
           '<div class="kpi-context">' + ctxN + '</div>';
         mount.appendChild(el);

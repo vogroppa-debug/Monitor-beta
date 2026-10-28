@@ -12,7 +12,7 @@ Los CSV de origen (`Actualizar_*` / scripts) ya están en **formato inglés** (d
 - **empleo**: empleo por rubro/departamento y remuneración real, agregados por **trimestre** y por **año** (media de los meses del período). La remuneración es un **índice de salario real** deflactado por el **IPC NOA** (serie `145.3_INGNOANOA_DICI_M_10` de datos.gob.ar, base dic-2016), rebasado a **dic-2023 = 100** por serie; la provincial es media ponderada por empleo (Σ empleo·salario / Σ empleo). Se incluyen períodos parciales (2025); el KPI compara el último trimestre completo contra el mismo trimestre del año anterior.
 
 ## Números de ficha de la tabla de indicadores
-Los códigos `I.1`…`V.4` de la Tabla de indicadores son los de las **notas técnicas de indicadores económico-productivos**, generadas desde `../notas-tecnicas-fuente/fichas.js`. Ese archivo vive **fuera del repo**, así que el código se carga a mano en el spec del indicador (`catalog.py`, y `EXTRA` en `indicadores.py`) y `qc_fichas()` lo verifica en cada build: aborta ante un código repetido o con el romano cambiado, y avisa acá abajo de los huecos. El número **ordena** la tabla dentro de cada subeje. Los indicadores sociales, de turismo y de ambiente esperan el documento complementario y muestran «—».
+Los códigos `I.1`…`V.4` de la Tabla de indicadores son los de las **notas técnicas de indicadores económico-productivos**, generadas desde `../notas-tecnicas-fuente/fichas.js`. Ese archivo vive **fuera del repo**, así que el código se carga a mano en el spec del indicador (`catalog.py`, y `EXTRA` en `indicadores.py`) y `qc_fichas()` lo verifica en cada build: aborta ante un código repetido o con el romano cambiado, y avisa acá abajo de los huecos. El número **ordena** la tabla dentro de cada subeje. En el eje sociocultural los códigos `I.1`…`IV.10` son los de las **Notas técnicas integradas de indicadores sociales** (Dimensiones I a IV, PDF en la carpeta de Drive de los xlsx); la numeración es propia de cada eje, así que el control de duplicados es por eje. Turismo, ambiente y los tableros sociales previos (educación por departamento, salud) no tienen ficha y muestran «—».
 
 ## Fuentes externas materializadas
 - `ipc_noa_mensual.csv` — IPC Nivel General región NOA (INDEC), vía `https://apis.datos.gob.ar/series/api/series?ids=145.3_INGNOANOA_DICI_M_10&format=csv`. Refrescar volviendo a descargar ese CSV.
@@ -22,7 +22,7 @@ Los códigos `I.1`…`V.4` de la Tabla de indicadores son los de las **notas té
 ### produccion-energia
 - produccion_energia: se descartan iny_gas, iny_co2 y vida_util (todos 0 en Salta).
 - produccion_energia: serie temporal agregada por TRIMESTRE (suma de meses); el ranking y los KPIs usan el total anual oficial.
-- prod_gas: 42 valor(es) a >1000× de la mediana (mediana=240.974); revisar posible artefacto de parseo.
+- prod_gas: 32 valor(es) a >1000× de la mediana (mediana=432.893); revisar posible artefacto de parseo.
 ### empleo
 - empleo: remuneración expresada como ÍNDICE REAL (deflactado por IPC NOA, serie 145.3_INGNOANOA_DICI_M_10 de datos.gob.ar), base dic-2023 = 100 por serie.
 - empleo: agregación TRIMESTRAL y ANUAL (media de los meses del período para empleo e índice real). Se incluyen períodos parciales (p. ej. 2025); el KPI compara el último trimestre completo contra el mismo trimestre del año anterior.
@@ -38,6 +38,7 @@ Los códigos `I.1`…`V.4` de la Tabla de indicadores son los de las **notas té
 ### gobierno
 - gobierno: ejecución del gasto provincial (consolidado Adm. Central + Organismos Descentralizados), acumulada a diciembre; fuente presupuesto.salta.gob.ar.
 - gobierno: 'objeto' usa los compromisos ejecutados; el gasto es un flujo ANUAL, así que se deflacta por el IPC NOA promedio del año y se expresa en pesos de julio de 2026 (la base es el último mes publicado del IPC y se mueve con él).
+- gobierno: gasto en personal e inversión real directa sobre gasto primario, y recursos tributarios de origen provincial sobre ingresos totales, del Esquema AIF de la DNAP (APNF, 2015–2025; 2024–2025 provisorios). NOA = suma de las seis provincias.
 - gasto_corr: 4 valor(es) a >1000× de la mediana (mediana=5.62828e+10); revisar posible artefacto de parseo.
 - gasto_real: 4 valor(es) a >1000× de la mediana (mediana=2.96965e+11); revisar posible artefacto de parseo.
 ### resultado-fiscal
@@ -62,12 +63,16 @@ Los códigos `I.1`…`V.4` de la Tabla de indicadores son los de las **notas té
 ### financiero
 - financiero: préstamos y depósitos al sector privado (BCRA, stock a fin de trimestre, miles de $); 'Salta' es el total provincial. Los reales se deflactan por el IPC NOA del ÚLTIMO MES DEL TRIMESTRE, porque el dato es un stock a esa fecha, y quedan en pesos de julio de 2026; la base es el último mes publicado del IPC y se mueve con él. El dato anual promedia los trimestres ya deflactados.
 - financiero: inclusión financiera = puntos de acceso cada 10.000 adultos (promedio anual, suma de tipos); cobertura desde 2019.
+- monto_corr tiene 108 período(s) sin su par monto_real (el IPC no llega a ese período); en modo Constantes no se dibujan.
+### conectividad
+- conectividad: ENACOM, accesos a internet fijo por provincia (trimestral desde 2015). La penetración por hogares se recalculó con proyecciones del Censo 2022, lo que baja los valores desde 2022; el salto de accesos de Salta entre 2025-T4 y 2026-T1 responde a cambios en la fuente.
+- conectividad: la apertura por departamento parte de la tabla de ENACOM por localidad, que solo publica el último trimestre (serie desde 2026-T2, se acumula en cada actualización); la tasa usa hogares del Censo 2022 (no comparable estrictamente con la provincial de ENACOM).
 ### construccion
 - construccion: permisos de edificación privada informados a INDEC por 5 municipios de Salta (mensual); los flujos se SUMAN por trimestre/año. La superficie es intención de construir, no obra ejecutada; 'Salta' suma los municipios.
 ### recursos-municipios
 - recursos-municipios: transferencias a municipios de Salta (Contaduría Gral.), mensual desde 2021, sumadas por trimestre/año. Cada MES se deflacta con el IPC NOA de ese mes antes de sumar, y el resultado queda en pesos de julio de 2026; la base es el último mes publicado del IPC y se mueve con él. Grupos: Coparticipación, Regalías, Canon, Fondo compensador, Otros.
-- monto_corr: 276 valor(es) a >1000× de la mediana (mediana=1.86279e+07); revisar posible artefacto de parseo.
-- monto_real: 245 valor(es) a >1000× de la mediana (mediana=1.03027e+08); revisar posible artefacto de parseo.
+- monto_corr: 278 valor(es) a >1000× de la mediana (mediana=1.94172e+07); revisar posible artefacto de parseo.
+- monto_real: 270 valor(es) a >1000× de la mediana (mediana=1.15985e+08); revisar posible artefacto de parseo.
 ### energia-renovable
 - energia-renovable: generación eléctrica de Salta (CAMMESA), MWh convertidos a GWh; los flujos se suman por trimestre/año. 'Renovable' = régimen Ley 27.191; la potencia instalada es una foto al último mes disponible.
 ### energia-electrica
@@ -87,26 +92,40 @@ Los códigos `I.1`…`V.4` de la Tabla de indicadores son los de las **notas té
 - salud: las tres tablas provinciales del documento fuente se contradicen entre sí (defunciones 2021/2024/2025, nacidos vivos 2025). Se publica la Tabla 1 (Resumen Quinquenal), la única internamente consistente y la única que cierra contra la apertura territorial. El detalle está en datos-drive/Metodologia_Salud_Estadisticas_Vitales_Salta.md.
 - salud: las tasas de mortalidad general de 2021 y 2022 no se reproducen con la población que publica el propio documento (la fuente usó proyecciones anteriores a las INDEC 2022–2040); se publican tal como las emitió el MSP.
 - salud: 2025 es provisorio en toda la fuente.
+### condiciones-vida
+- condiciones-vida: privación material de los hogares según el Censo 2022 (INDEC/REDATAM), un solo corte por departamento; xlsx estático elaborado por el CESS (Dimensión I).
+### salud-reproduccion
+- salud-reproduccion: tasas medias anuales del trienio 2021-2023 (defunciones y nacimientos DEIS) sobre población del Censo 2022; se publican con anio=2023. Un solo corte por departamento; en departamentos chicos las tasas son inestables (pocos casos).
+### educacion-aprendizajes
+- educacion-aprendizajes: Relevamiento Anual 2025 (primaria y secundaria) y Aprender 2025 (6.º grado), por departamento; xlsx estático elaborado por el CESS (Dimensión III). Los departamentos sin dato confiable en Aprender (ND) se omiten.
+### seguridad
+- seguridad: suicidios del SATSSBU (2017-2024; tasas medias anuales, publicadas con anio=2024) y del trienio 2021-2023 (DEIS, anio=2023), sobre población del Censo 2022. La serie anual es sólo provincial: por departamento los casos por año son muy pocos.
+- seguridad: mortalidad por lesiones de tránsito, tasa media anual 2021-2023 (DEIS), no ajustada por edad.
 ### tabla de indicadores
-- 18 indicadores todavía sin ficha en las notas técnicas (muestran «—» y van al final de su subeje): Matrícula total, Egresados de secundaria, Cargos docentes, Nacidos vivos, Defunciones, Tasa de mortalidad infantil (por mil nacidos vivos), Consultas médicas por habitante, Ocupación de camas en establecimientos públicos, Tasa de natalidad, Tasa de mortalidad general, Tasa de mortalidad materna, Egresos hospitalarios, Camas disponibles, Participación renovable en la generación, Ocupación de habitaciones, Viajeros, Pernoctaciones, Estadía media.
+- 24 indicadores todavía sin ficha en las notas técnicas (muestran «—» y van al final de su subeje): Nacidos vivos, Defunciones, Tasa de mortalidad infantil (por mil nacidos vivos), Consultas médicas por habitante, Ocupación de camas en establecimientos públicos, Tasa de natalidad, Tasa de mortalidad general, Tasa de mortalidad materna, Egresos hospitalarios, Camas disponibles, Matrícula total, Egresados de secundaria, Cargos docentes, Gasto en personal (% del gasto primario), Inversión real directa (% del gasto primario), Recursos tributarios propios (% de ingresos totales), Accesos a internet fijo cada 100 hogares, Accesos a internet fijo, Velocidad media de bajada, Participación renovable en la generación, Ocupación de habitaciones, Viajeros, Pernoctaciones, Estadía media.
 
 ## Control (filas por tema)
 - `educacion`: 11202 filas, cobertura 2011–2024.
-- `vitivinicultura`: 132 filas, cobertura 2018–2025.
-- `produccion-energia`: 2373 filas, cobertura 2018–2026.
+- `vitivinicultura`: 178 filas, cobertura 2015–2025.
+- `produccion-energia`: 3150 filas, cobertura 2018–2026.
 - `empleo`: 4345 filas, cobertura 2019–2025.
 - `turismo`: 738 filas, cobertura 2021–2025.
-- `agricultura`: 2464 filas, cobertura campañas 2018/19–2024/25.
-- `gobierno`: 170 filas, cobertura 2021–2025.
+- `agricultura`: 3932 filas, cobertura campañas 2018/19–2024/25.
+- `gobierno`: 269 filas, cobertura 2015–2025.
 - `resultado-fiscal`: 1736 filas, cobertura 2021–2026.
 - `recaudacion`: 3276 filas, cobertura 2021–2026.
 - `ganaderia`: 3323 filas, cobertura 2012–2025.
 - `mineria`: 3024 filas, cobertura 2007–2025.
-- `financiero`: 868 filas, cobertura 2019–2026.
+- `financiero`: 1480 filas, cobertura 2019–2026.
+- `conectividad`: 792 filas, cobertura 2015–2026.
 - `construccion`: 1682 filas, cobertura 2021–2026.
-- `recursos-municipios`: 9814 filas, cobertura 2021–2026.
+- `recursos-municipios`: 10044 filas, cobertura 2021–2026.
 - `energia-renovable`: 233 filas, cobertura 2019–2026.
 - `energia-electrica`: 233 filas, cobertura 2019–2026.
 - `id-innovacion`: 54 filas, cobertura 2003–2024.
 - `exportaciones`: 5306 filas, cobertura 2021–2025.
 - `salud`: 652 filas, cobertura 2020–2025.
+- `condiciones-vida`: 528 filas, cobertura 2022 (Censo).
+- `salud-reproduccion`: 770 filas, cobertura 2021–2023 (trienio).
+- `educacion-aprendizajes`: 748 filas, cobertura 2025.
+- `seguridad`: 361 filas, cobertura 2017–2024.
