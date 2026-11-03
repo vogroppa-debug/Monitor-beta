@@ -61,6 +61,8 @@ Spec de KPI (el front muestra la VARIACIÓN INTERANUAL, no el valor absoluto):
        Por defecto el nivel sale de las FILAS de la métrica (la apertura más fina con más de
        un valor territorial); sólo hace falta declararlo cuando la apertura del concepto vive
        en una métrica hermana, como `nacidos_vivos` / `nacidos_vivos_res` en salud.
+  meta_2030_nota: aclaración al pie de la celda de meta (p. ej. cuando el PDES fija la
+       cobertura y el Monitor mide la carencia, y hay que invertir el sentido)
   base_valor / base_periodo: línea de base del PDES y el período al que corresponde
   meta_2030 / meta_2040 / meta_2050: metas del PDES 2050 en los tres cortes
        Cargar `base_valor` y las metas como NÚMEROS, no como texto ya formateado: la tabla
@@ -122,6 +124,15 @@ TAGS = {
 # `base_valor` / `meta_2030` / ... siguen siendo válidos en el spec de KPI, así que volver a
 # mostrarlas es cambiar esto a True y reconstruir.
 MOSTRAR_METAS = False
+
+# La meta 2030 vuelve SOLA, sin el resto del bloque de metas: es la única con datos cargados.
+# El título lleva la fuente porque existe otra versión del plan (PDES 2018) cuyas metas no
+# coinciden con esta —en stock bovino, por ejemplo, fija 3.000.000 en vez de 2.000.000—.
+# Fuente: `sectores, objetivos y metas 2024.xlsx`. De sus 64 filas, 27 traen meta 2030 y sólo
+# 7 tienen un indicador equivalente en el Monitor: el resto del PDES no quedó cuantificado, o
+# mide cosas que el Monitor no publica.
+MOSTRAR_META_2030 = True
+META_2030_TITULO = "Meta 2030 (PDES 2024)"
 
 SUBEJE_ORDEN = {
     # sociocultural
@@ -264,7 +275,7 @@ TEMAS = [
              "fixed": {"categoria": "cosecha_elaboracion"}, "year": "latest", "unidad": "quintales", "format": "int"},
             {"ficha": "I.7", "label": "Elaboración de vino y mosto", "metrica": "elaboracion_total", "ciiu": "C",
              "fixed": {"categoria": "cosecha_elaboracion"}, "year": "latest", "unidad": "hectolitros", "format": "int"},
-            {"ficha": "I.8", "label": "Exportaciones (valor FOB)", "tabla_label": "Exportaciones de vino (valor FOB)",
+            {"ficha": "I.8", "label": "Exportaciones (valor FOB)", "tabla_label": "Exportaciones de vino, valor FOB (miles US$)",
              "metrica": "export_valor_fob",
              "fixed": {"categoria": "mercado_externo"}, "year": "latest", "unidad": "miles US$", "format": "int"},
         ],
@@ -615,10 +626,10 @@ TEMAS = [
         ],
         "tags": ["inversion-financiamiento"],
         "kpis": [
-            {"ficha": "III.5", "label": "Gasto ejecutado total (constante, {base})", "metrica": "gasto_real",
+            {"ficha": "III.5", "label": "Gasto ejecutado total (pesos constantes, {base})", "metrica": "gasto_real",
              "fixed": {"clasificador": "objeto", "nivel": "total"}, "year": "latest",
              "unidad": "pesos", "format": "int"},
-            {"ficha": "III.6", "label": "Gasto en personal (constante, {base})", "metrica": "gasto_real",
+            {"ficha": "III.6", "label": "Gasto en personal (pesos constantes, {base})", "metrica": "gasto_real",
              "fixed": {"clasificador": "objeto", "partida": "Gastos en personal"}, "year": "latest",
              "unidad": "pesos", "format": "int"},
             {"label": "Gasto en personal (% del gasto primario)", "metrica": "pct_aif",
@@ -724,10 +735,10 @@ TEMAS = [
         ],
         "tags": ["inversion-financiamiento"],
         "kpis": [
-            {"ficha": "III.1", "label": "Ingresos totales (constante, {base})", "metrica": "monto_real",
+            {"ficha": "III.1", "label": "Ingresos totales (pesos constantes, {base})", "metrica": "monto_real",
              "fixed": {"grano": "acumulado", "concepto": "Ingresos totales"}, "year": "latest",
              "unidad": "pesos", "format": "int"},
-            {"ficha": "III.2", "label": "Gastos totales (constante, {base})", "metrica": "monto_real",
+            {"ficha": "III.2", "label": "Gastos totales (pesos constantes, {base})", "metrica": "monto_real",
              "fixed": {"grano": "acumulado", "concepto": "Gastos totales"}, "year": "latest",
              "unidad": "pesos", "format": "int"},
             {"ficha": "III.3", "label": "Resultado financiero (% del gasto primario)",
@@ -833,10 +844,10 @@ TEMAS = [
         ],
         "tags": ["inversion-financiamiento", "actividad-productividad"],
         "kpis": [
-            {"ficha": "III.7", "label": "Recaudación de Ingresos Brutos (constante, {base})", "metrica": "recaud_real",
+            {"ficha": "III.7", "label": "Recaudación de Ingresos Brutos (pesos constantes, {base})", "metrica": "recaud_real",
              "fixed": {}, "year": "latest", "unidad": "pesos", "format": "int"},
-            {"ficha": "III.8", "label": "Industria manufacturera (constante, {base})", "ciiu": "C",
-             "tabla_label": "Recaudación de la industria manufacturera", "metrica": "recaud_real",
+            {"ficha": "III.8", "label": "Industria manufacturera (pesos constantes, {base})", "ciiu": "C",
+             "tabla_label": "Recaudación de la industria manufacturera (pesos constantes)", "metrica": "recaud_real",
              "fixed": {"sector": "Industria manufacturera"}, "year": "latest",
              "unidad": "pesos", "format": "int"},
         ],
@@ -907,7 +918,8 @@ TEMAS = [
         "kpis": [
             {"ficha": "I.4", "label": "Stock bovino total", "metrica": "stock_bovino",
              "fixed": {"categoria": "Total", "departamento": "Salta"}, "year": "latest",
-             "unidad": "cabezas", "format": "int"},
+             "unidad": "cabezas", "format": "int",
+             "meta_2030": 2000000},
             {"ficha": "I.5", "label": "Vacas", "tabla_label": "Stock de vacas", "metrica": "stock_bovino",
              "fixed": {"categoria": "Vacas", "departamento": "Salta"}, "year": "latest",
              "unidad": "cabezas", "format": "int"},
@@ -1032,10 +1044,10 @@ TEMAS = [
         ],
         "tags": ["inversion-financiamiento"],
         "kpis": [
-            {"ficha": "III.12", "label": "Préstamos al sector privado (constante, {base})", "metrica": "monto_real",
+            {"ficha": "III.12", "label": "Préstamos al sector privado (pesos constantes, {base})", "metrica": "monto_real",
              "fixed": {"grano": "anual", "departamento": "Salta", "operacion": "Préstamos"},
              "year": "latest_complete", "unidad": "pesos", "format": "int"},
-            {"ficha": "III.13", "label": "Depósitos del sector privado (constante, {base})", "metrica": "monto_real",
+            {"ficha": "III.13", "label": "Depósitos del sector privado (pesos constantes, {base})", "metrica": "monto_real",
              "fixed": {"grano": "anual", "departamento": "Salta", "operacion": "Depósitos"},
              "year": "latest_complete", "unidad": "pesos", "format": "int"},
         ],
@@ -1260,9 +1272,9 @@ TEMAS = [
         ],
         "tags": ["inversion-financiamiento"],
         "kpis": [
-            {"ficha": "III.10", "label": "Recursos a municipios (constante, {base})", "metrica": "monto_real",
+            {"ficha": "III.10", "label": "Recursos a municipios (pesos constantes, {base})", "metrica": "monto_real",
              "fixed": {"grano": "anual"}, "year": "latest_complete", "unidad": "pesos", "format": "int"},
-            {"ficha": "III.11", "label": "Coparticipación (constante, {base})", "tabla_label": "Coparticipación a municipios",
+            {"ficha": "III.11", "label": "Coparticipación (pesos constantes, {base})", "tabla_label": "Coparticipación a municipios (pesos constantes)",
              "metrica": "monto_real",
              "fixed": {"grano": "anual", "grupo": "Coparticipación"}, "year": "latest_complete",
              "unidad": "pesos", "format": "int"},
@@ -1448,7 +1460,7 @@ TEMAS = [
         ],
         "tags": ["innovacion-mercados"],
         "kpis": [
-            {"ficha": "V.3", "label": "Inversión en I+D (constante, 2017)", "metrica": "inv_id_real",
+            {"ficha": "V.3", "label": "Inversión en I+D (millones de $ de 2017)", "metrica": "inv_id_real",
              "fixed": {}, "year": "latest", "unidad": "millones de $", "format": "int"},
             {"ficha": "V.4", "label": "Investigadores/as y becarios/as", "metrica": "personal_id",
              "fixed": {"funcion": "Investigadores y becarios"}, "year": "latest",
@@ -1758,14 +1770,20 @@ TEMAS = [
         "kpis": [
             {"ficha": "I.1", "label": "Hogares con NBI", "metrica": "pct_hogares",
              "fixed": {"departamento": "Salta", "indicador": "NBI"}, "year": "latest",
-             "unidad": "% de hogares", "format": "int", "display": "nivel", "sentido": "menor_mejor"},
+             "unidad": "% de hogares", "format": "int", "display": "nivel", "sentido": "menor_mejor",
+             "meta_2030": 10, "meta_2030_nota": "El PDES fija la meta al Censo 2030."},
             {"ficha": "I.2", "label": "Hogares con hacinamiento crítico", "metrica": "pct_hogares",
              "fixed": {"departamento": "Salta", "indicador": "Hacinamiento crítico"}, "year": "latest",
-             "unidad": "% de hogares", "format": "int", "display": "nivel", "sentido": "menor_mejor"},
+             "unidad": "% de hogares", "format": "int", "display": "nivel", "sentido": "menor_mejor",
+             "meta_2030": 4, "meta_2030_nota": "El PDES fija la meta al Censo 2030."},
             {"ficha": "I.6", "label": "Hogares sin agua por cañería en la vivienda", "metrica": "pct_hogares",
              "fixed": {"departamento": "Salta", "indicador": "Sin agua por cañería en la vivienda"},
              "year": "latest", "unidad": "% de hogares", "format": "int", "display": "nivel",
-             "sentido": "menor_mejor"},
+             "sentido": "menor_mejor",
+             "meta_2030": 7,
+             "meta_2030_nota": "El PDES fija una cobertura de agua de red del 93 % al Censo 2030; "
+                               "acá se expresa como su complemento, porque el Monitor mide la "
+                               "carencia y no la cobertura."},
             {"ficha": "I.10", "label": "Hogares sin internet en la vivienda", "metrica": "pct_hogares",
              "fixed": {"departamento": "Salta", "indicador": "Sin internet en la vivienda"},
              "year": "latest", "unidad": "% de hogares", "format": "int", "display": "nivel",

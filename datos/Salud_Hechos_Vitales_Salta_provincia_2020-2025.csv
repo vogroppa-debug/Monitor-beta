@@ -1,0 +1,110 @@
+﻿anio,desagregacion,metrica,valor
+2021,1 año y más,defunciones,9595.0
+2022,1 año y más,defunciones,9039.0
+2023,1 año y más,defunciones,8042.0
+2024,1 año y más,defunciones,8568.0
+2025,1 año y más,defunciones,8041.0
+2021,De 1 a 4 años,defunciones,41.0
+2022,De 1 a 4 años,defunciones,45.0
+2023,De 1 a 4 años,defunciones,56.0
+2024,De 1 a 4 años,defunciones,34.0
+2025,De 1 a 4 años,defunciones,29.0
+2020,Menores de 1 año,defunciones,184.0
+2021,Menores de 1 año,defunciones,175.0
+2022,Menores de 1 año,defunciones,158.0
+2023,Menores de 1 año,defunciones,153.0
+2024,Menores de 1 año,defunciones,132.0
+2025,Menores de 1 año,defunciones,134.0
+2020,Total,defunciones,9522.0
+2021,Total,defunciones,9811.0
+2022,Total,defunciones,9242.0
+2023,Total,defunciones,8251.0
+2024,Total,defunciones,8734.0
+2025,Total,defunciones,8204.0
+2020,Total,defunciones_fetales,283.0
+2021,Total,defunciones_fetales,174.0
+2022,Total,defunciones_fetales,271.0
+2023,Total,defunciones_fetales,519.0
+2024,Total,defunciones_fetales,191.0
+2025,Total,defunciones_fetales,161.0
+2020,Neonatal (< 28 días),defunciones_infantiles,138.0
+2021,Neonatal (< 28 días),defunciones_infantiles,124.0
+2022,Neonatal (< 28 días),defunciones_infantiles,97.0
+2023,Neonatal (< 28 días),defunciones_infantiles,109.0
+2024,Neonatal (< 28 días),defunciones_infantiles,85.0
+2025,Neonatal (< 28 días),defunciones_infantiles,44.0
+2020,Posneonatal (28 días y más),defunciones_infantiles,46.0
+2021,Posneonatal (28 días y más),defunciones_infantiles,51.0
+2022,Posneonatal (28 días y más),defunciones_infantiles,61.0
+2023,Posneonatal (28 días y más),defunciones_infantiles,44.0
+2024,Posneonatal (28 días y más),defunciones_infantiles,47.0
+2025,Posneonatal (28 días y más),defunciones_infantiles,90.0
+2020,Total,defunciones_infantiles,184.0
+2021,Total,defunciones_infantiles,175.0
+2022,Total,defunciones_infantiles,158.0
+2023,Total,defunciones_infantiles,153.0
+2024,Total,defunciones_infantiles,132.0
+2025,Total,defunciones_infantiles,134.0
+2020,Total,defunciones_maternas,15.0
+2021,Total,defunciones_maternas,22.0
+2022,Total,defunciones_maternas,9.0
+2023,Total,defunciones_maternas,5.0
+2024,Total,defunciones_maternas,7.0
+2025,Total,defunciones_maternas,7.0
+2020,Total,matrimonios,1372.0
+2021,Total,matrimonios,2826.0
+2022,Total,matrimonios,3177.0
+2023,Total,matrimonios,3184.0
+2024,Total,matrimonios,2984.0
+2025,Total,matrimonios,2584.0
+2020,2.500 g y más,nacidos_vivos,16536.0
+2021,2.500 g y más,nacidos_vivos,18707.0
+2022,2.500 g y más,nacidos_vivos,17119.0
+2023,2.500 g y más,nacidos_vivos,15463.0
+2024,2.500 g y más,nacidos_vivos,13056.0
+2025,2.500 g y más,nacidos_vivos,12762.0
+2020,Menos de 2.500 g,nacidos_vivos,1294.0
+2021,Menos de 2.500 g,nacidos_vivos,1449.0
+2022,Menos de 2.500 g,nacidos_vivos,1428.0
+2023,Menos de 2.500 g,nacidos_vivos,1350.0
+2024,Menos de 2.500 g,nacidos_vivos,1227.0
+2025,Menos de 2.500 g,nacidos_vivos,1180.0
+2020,Peso sin especificar,nacidos_vivos,42.0
+2021,Peso sin especificar,nacidos_vivos,51.0
+2022,Peso sin especificar,nacidos_vivos,40.0
+2023,Peso sin especificar,nacidos_vivos,37.0
+2024,Peso sin especificar,nacidos_vivos,33.0
+2025,Peso sin especificar,nacidos_vivos,28.0
+2020,Total,nacidos_vivos,17877.0
+2021,Total,nacidos_vivos,20207.0
+2022,Total,nacidos_vivos,18587.0
+2023,Total,nacidos_vivos,16850.0
+2024,Total,nacidos_vivos,14316.0
+2025,Total,nacidos_vivos,13941.0
+2021,Total,otras_defunciones,194.0
+2022,Total,otras_defunciones,182.0
+2023,Total,otras_defunciones,194.0
+2024,Total,otras_defunciones,163.0
+2025,Total,otras_defunciones,152.0
+2021,Total,tasa_mortalidad_general,6.89
+2022,Total,tasa_mortalidad_general,6.6
+2023,Total,tasa_mortalidad_general,5.72
+2024,Total,tasa_mortalidad_general,5.9
+2025,Total,tasa_mortalidad_general,5.52
+2020,Total,tasa_mortalidad_infantil,10.29
+2021,Total,tasa_mortalidad_infantil,8.66
+2022,Total,tasa_mortalidad_infantil,8.5
+2023,Total,tasa_mortalidad_infantil,9.08
+2024,Total,tasa_mortalidad_infantil,9.22
+2025,Total,tasa_mortalidad_infantil,9.61
+2020,Total,tasa_mortalidad_materna,8.39
+2021,Total,tasa_mortalidad_materna,10.89
+2022,Total,tasa_mortalidad_materna,4.84
+2023,Total,tasa_mortalidad_materna,2.97
+2024,Total,tasa_mortalidad_materna,4.89
+2025,Total,tasa_mortalidad_materna,5.02
+2021,Total,tasa_natalidad,14.01
+2022,Total,tasa_natalidad,12.86
+2023,Total,tasa_natalidad,11.69
+2024,Total,tasa_natalidad,9.67
+2025,Total,tasa_natalidad,9.38

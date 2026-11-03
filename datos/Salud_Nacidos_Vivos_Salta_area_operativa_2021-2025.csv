@@ -1,0 +1,241 @@
+﻿anio,cod_ao,area_operativa,departamento,metrica,valor
+2021,0,Total,Salta,nacidos_vivos_res,20207.0
+2021,1,Colonia Sta Rosa,Orán,nacidos_vivos_res,360.0
+2021,2,Pichanal,Orán,nacidos_vivos_res,607.0
+2021,3,Aguaray,General José de San Martín,nacidos_vivos_res,336.0
+2021,4,Morillo,Rivadavia,nacidos_vivos_res,238.0
+2021,5,Sta Victoria Oeste,Santa Victoria,nacidos_vivos_res,47.0
+2021,6,Iruya,Iruya,nacidos_vivos_res,39.0
+2021,7,Salvador Mazza,General José de San Martín,nacidos_vivos_res,477.0
+2021,8,Sta Victoria Este,Rivadavia,nacidos_vivos_res,345.0
+2021,9,Embarcación,General José de San Martín,nacidos_vivos_res,844.0
+2021,10,Nazareno,Santa Victoria,nacidos_vivos_res,47.0
+2021,11,Oran,Orán,nacidos_vivos_res,1696.0
+2021,12,Tartagal,General José de San Martín,nacidos_vivos_res,1430.0
+2021,13,Rivadavia Banda Sur,Rivadavia,nacidos_vivos_res,245.0
+2021,14,Las Lajitas,Anta,nacidos_vivos_res,229.0
+2021,15,J. V. Gonzalez,Anta,nacidos_vivos_res,405.0
+2021,16,El Quebrachal,Anta,nacidos_vivos_res,226.0
+2021,17,El Galpón,Metán,nacidos_vivos_res,113.0
+2021,18,Rosario de la Frontera,Rosario de la Frontera,nacidos_vivos_res,398.0
+2021,19,Metan,Metán,nacidos_vivos_res,513.0
+2021,21,El Tala,La Candelaria,nacidos_vivos_res,84.0
+2021,22,Gral Güemes,General Güemes,nacidos_vivos_res,674.0
+2021,23,Apolinario Saravia,Anta,nacidos_vivos_res,321.0
+2021,24,Cafayate,Cafayate,nacidos_vivos_res,197.0
+2021,25,San Carlos,San Carlos,nacidos_vivos_res,48.0
+2021,26,Molinos,Molinos,nacidos_vivos_res,28.0
+2021,27,Cachi,Cachi,nacidos_vivos_res,106.0
+2021,28,Gral Mosconi,General José de San Martín,nacidos_vivos_res,469.0
+2021,29,S. A. de los Cobres,Los Andes,nacidos_vivos_res,127.0
+2021,30,Cerrillos,Cerrillos,nacidos_vivos_res,501.0
+2021,31,Hipólito Yrigoyen,Orán,nacidos_vivos_res,181.0
+2021,32,Rosario de Lerma,Rosario de Lerma,nacidos_vivos_res,402.0
+2021,33,Chicoana,Chicoana,nacidos_vivos_res,122.0
+2021,34,El Carril,Chicoana,nacidos_vivos_res,164.0
+2021,35,Coronel Moldes,La Viña,nacidos_vivos_res,62.0
+2021,36,La Viña,La Viña,nacidos_vivos_res,36.0
+2021,37,Guachipas,Guachipas,nacidos_vivos_res,29.0
+2021,38,El Potrero,Rosario de la Frontera,nacidos_vivos_res,20.0
+2021,39,La Caldera,La Caldera,nacidos_vivos_res,138.0
+2021,44,Alto la Sierra,Rivadavia,nacidos_vivos_res,63.0
+2021,45,Capital,Capital,nacidos_vivos_res,7252.0
+2021,46,Campo Quijano,Rosario de Lerma,nacidos_vivos_res,233.0
+2021,48,Seclantas,Molinos,nacidos_vivos_res,32.0
+2021,49,Urundel,Orán,nacidos_vivos_res,43.0
+2021,50,La Merced,Cerrillos,nacidos_vivos_res,174.0
+2021,51,La Unión,Rivadavia,nacidos_vivos_res,74.0
+2021,52,La Poma,La Poma,nacidos_vivos_res,12.0
+2021,53,Angastaco,San Carlos,nacidos_vivos_res,20.0
+2022,0,Total,Salta,nacidos_vivos_res,18587.0
+2022,1,Colonia Sta Rosa,Orán,nacidos_vivos_res,370.0
+2022,2,Pichanal,Orán,nacidos_vivos_res,533.0
+2022,3,Aguaray,General José de San Martín,nacidos_vivos_res,289.0
+2022,4,Morillo,Rivadavia,nacidos_vivos_res,217.0
+2022,5,Sta Victoria Oeste,Santa Victoria,nacidos_vivos_res,39.0
+2022,6,Iruya,Iruya,nacidos_vivos_res,45.0
+2022,7,Salvador Mazza,General José de San Martín,nacidos_vivos_res,466.0
+2022,8,Sta Victoria Este,Rivadavia,nacidos_vivos_res,412.0
+2022,9,Embarcación,General José de San Martín,nacidos_vivos_res,684.0
+2022,10,Nazareno,Santa Victoria,nacidos_vivos_res,33.0
+2022,11,Oran,Orán,nacidos_vivos_res,1659.0
+2022,12,Tartagal,General José de San Martín,nacidos_vivos_res,1353.0
+2022,13,Rivadavia Banda Sur,Rivadavia,nacidos_vivos_res,167.0
+2022,14,Las Lajitas,Anta,nacidos_vivos_res,266.0
+2022,15,J. V. Gonzalez,Anta,nacidos_vivos_res,351.0
+2022,16,El Quebrachal,Anta,nacidos_vivos_res,217.0
+2022,17,El Galpón,Metán,nacidos_vivos_res,115.0
+2022,18,Rosario de la Frontera,Rosario de la Frontera,nacidos_vivos_res,421.0
+2022,19,Metan,Metán,nacidos_vivos_res,488.0
+2022,21,El Tala,La Candelaria,nacidos_vivos_res,66.0
+2022,22,Gral Güemes,General Güemes,nacidos_vivos_res,632.0
+2022,23,Apolinario Saravia,Anta,nacidos_vivos_res,299.0
+2022,24,Cafayate,Cafayate,nacidos_vivos_res,201.0
+2022,25,San Carlos,San Carlos,nacidos_vivos_res,57.0
+2022,26,Molinos,Molinos,nacidos_vivos_res,21.0
+2022,27,Cachi,Cachi,nacidos_vivos_res,109.0
+2022,28,Gral Mosconi,General José de San Martín,nacidos_vivos_res,398.0
+2022,29,S. A. de los Cobres,Los Andes,nacidos_vivos_res,115.0
+2022,30,Cerrillos,Cerrillos,nacidos_vivos_res,471.0
+2022,31,Hipólito Yrigoyen,Orán,nacidos_vivos_res,160.0
+2022,32,Rosario de Lerma,Rosario de Lerma,nacidos_vivos_res,363.0
+2022,33,Chicoana,Chicoana,nacidos_vivos_res,97.0
+2022,34,El Carril,Chicoana,nacidos_vivos_res,147.0
+2022,35,Coronel Moldes,La Viña,nacidos_vivos_res,78.0
+2022,36,La Viña,La Viña,nacidos_vivos_res,30.0
+2022,37,Guachipas,Guachipas,nacidos_vivos_res,34.0
+2022,38,El Potrero,Rosario de la Frontera,nacidos_vivos_res,29.0
+2022,39,La Caldera,La Caldera,nacidos_vivos_res,141.0
+2022,44,Alto la Sierra,Rivadavia,nacidos_vivos_res,64.0
+2022,45,Capital,Capital,nacidos_vivos_res,6370.0
+2022,46,Campo Quijano,Rosario de Lerma,nacidos_vivos_res,218.0
+2022,48,Seclantas,Molinos,nacidos_vivos_res,26.0
+2022,49,Urundel,Orán,nacidos_vivos_res,47.0
+2022,50,La Merced,Cerrillos,nacidos_vivos_res,172.0
+2022,51,La Unión,Rivadavia,nacidos_vivos_res,70.0
+2022,52,La Poma,La Poma,nacidos_vivos_res,22.0
+2022,53,Angastaco,San Carlos,nacidos_vivos_res,25.0
+2023,0,Total,Salta,nacidos_vivos_res,16850.0
+2023,1,Colonia Sta Rosa,Orán,nacidos_vivos_res,335.0
+2023,2,Pichanal,Orán,nacidos_vivos_res,391.0
+2023,3,Aguaray,General José de San Martín,nacidos_vivos_res,275.0
+2023,4,Morillo,Rivadavia,nacidos_vivos_res,208.0
+2023,5,Sta Victoria Oeste,Santa Victoria,nacidos_vivos_res,34.0
+2023,6,Iruya,Iruya,nacidos_vivos_res,31.0
+2023,7,Salvador Mazza,General José de San Martín,nacidos_vivos_res,408.0
+2023,8,Sta Victoria Este,Rivadavia,nacidos_vivos_res,417.0
+2023,9,Embarcación,General José de San Martín,nacidos_vivos_res,680.0
+2023,10,Nazareno,Santa Victoria,nacidos_vivos_res,19.0
+2023,11,Oran,Orán,nacidos_vivos_res,1392.0
+2023,12,Tartagal,General José de San Martín,nacidos_vivos_res,1280.0
+2023,13,Rivadavia Banda Sur,Rivadavia,nacidos_vivos_res,112.0
+2023,14,Las Lajitas,Anta,nacidos_vivos_res,194.0
+2023,15,J. V. Gonzalez,Anta,nacidos_vivos_res,349.0
+2023,16,El Quebrachal,Anta,nacidos_vivos_res,189.0
+2023,17,El Galpón,Metán,nacidos_vivos_res,94.0
+2023,18,Rosario de la Frontera,Rosario de la Frontera,nacidos_vivos_res,328.0
+2023,19,Metan,Metán,nacidos_vivos_res,413.0
+2023,21,El Tala,La Candelaria,nacidos_vivos_res,52.0
+2023,22,Gral Güemes,General Güemes,nacidos_vivos_res,593.0
+2023,23,Apolinario Saravia,Anta,nacidos_vivos_res,250.0
+2023,24,Cafayate,Cafayate,nacidos_vivos_res,212.0
+2023,25,San Carlos,San Carlos,nacidos_vivos_res,60.0
+2023,26,Molinos,Molinos,nacidos_vivos_res,31.0
+2023,27,Cachi,Cachi,nacidos_vivos_res,99.0
+2023,28,Gral Mosconi,General José de San Martín,nacidos_vivos_res,348.0
+2023,29,S. A. de los Cobres,Los Andes,nacidos_vivos_res,104.0
+2023,30,Cerrillos,Cerrillos,nacidos_vivos_res,466.0
+2023,31,Hipólito Yrigoyen,Orán,nacidos_vivos_res,131.0
+2023,32,Rosario de Lerma,Rosario de Lerma,nacidos_vivos_res,343.0
+2023,33,Chicoana,Chicoana,nacidos_vivos_res,122.0
+2023,34,El Carril,Chicoana,nacidos_vivos_res,147.0
+2023,35,Coronel Moldes,La Viña,nacidos_vivos_res,68.0
+2023,36,La Viña,La Viña,nacidos_vivos_res,31.0
+2023,37,Guachipas,Guachipas,nacidos_vivos_res,35.0
+2023,38,El Potrero,Rosario de la Frontera,nacidos_vivos_res,20.0
+2023,39,La Caldera,La Caldera,nacidos_vivos_res,110.0
+2023,44,Alto la Sierra,Rivadavia,nacidos_vivos_res,39.0
+2023,45,Capital,Capital,nacidos_vivos_res,5897.0
+2023,46,Campo Quijano,Rosario de Lerma,nacidos_vivos_res,224.0
+2023,48,Seclantas,Molinos,nacidos_vivos_res,43.0
+2023,49,Urundel,Orán,nacidos_vivos_res,32.0
+2023,50,La Merced,Cerrillos,nacidos_vivos_res,163.0
+2023,51,La Unión,Rivadavia,nacidos_vivos_res,61.0
+2023,52,La Poma,La Poma,nacidos_vivos_res,7.0
+2023,53,Angastaco,San Carlos,nacidos_vivos_res,13.0
+2024,0,Total,Salta,nacidos_vivos_res,14316.0
+2024,1,Colonia Sta Rosa,Orán,nacidos_vivos_res,314.0
+2024,2,Pichanal,Orán,nacidos_vivos_res,379.0
+2024,3,Aguaray,General José de San Martín,nacidos_vivos_res,191.0
+2024,4,Morillo,Rivadavia,nacidos_vivos_res,169.0
+2024,5,Sta Victoria Oeste,Santa Victoria,nacidos_vivos_res,22.0
+2024,6,Iruya,Iruya,nacidos_vivos_res,35.0
+2024,7,Salvador Mazza,General José de San Martín,nacidos_vivos_res,379.0
+2024,8,Sta Victoria Este,Rivadavia,nacidos_vivos_res,391.0
+2024,9,Embarcación,General José de San Martín,nacidos_vivos_res,488.0
+2024,10,Nazareno,Santa Victoria,nacidos_vivos_res,8.0
+2024,11,Oran,Orán,nacidos_vivos_res,1265.0
+2024,12,Tartagal,General José de San Martín,nacidos_vivos_res,1062.0
+2024,13,Rivadavia Banda Sur,Rivadavia,nacidos_vivos_res,94.0
+2024,14,Las Lajitas,Anta,nacidos_vivos_res,162.0
+2024,15,J. V. Gonzalez,Anta,nacidos_vivos_res,262.0
+2024,16,El Quebrachal,Anta,nacidos_vivos_res,134.0
+2024,17,El Galpón,Metán,nacidos_vivos_res,67.0
+2024,18,Rosario de la Frontera,Rosario de la Frontera,nacidos_vivos_res,305.0
+2024,19,Metan,Metán,nacidos_vivos_res,333.0
+2024,21,El Tala,La Candelaria,nacidos_vivos_res,40.0
+2024,22,Gral Güemes,General Güemes,nacidos_vivos_res,498.0
+2024,23,Apolinario Saravia,Anta,nacidos_vivos_res,194.0
+2024,24,Cafayate,Cafayate,nacidos_vivos_res,176.0
+2024,25,San Carlos,San Carlos,nacidos_vivos_res,58.0
+2024,26,Molinos,Molinos,nacidos_vivos_res,27.0
+2024,27,Cachi,Cachi,nacidos_vivos_res,65.0
+2024,28,Gral Mosconi,General José de San Martín,nacidos_vivos_res,302.0
+2024,29,S. A. de los Cobres,Los Andes,nacidos_vivos_res,72.0
+2024,30,Cerrillos,Cerrillos,nacidos_vivos_res,373.0
+2024,31,Hipólito Yrigoyen,Orán,nacidos_vivos_res,105.0
+2024,32,Rosario de Lerma,Rosario de Lerma,nacidos_vivos_res,272.0
+2024,33,Chicoana,Chicoana,nacidos_vivos_res,88.0
+2024,34,El Carril,Chicoana,nacidos_vivos_res,125.0
+2024,35,Coronel Moldes,La Viña,nacidos_vivos_res,53.0
+2024,36,La Viña,La Viña,nacidos_vivos_res,28.0
+2024,37,Guachipas,Guachipas,nacidos_vivos_res,37.0
+2024,38,El Potrero,Rosario de la Frontera,nacidos_vivos_res,22.0
+2024,39,La Caldera,La Caldera,nacidos_vivos_res,97.0
+2024,44,Alto la Sierra,Rivadavia,nacidos_vivos_res,20.0
+2024,45,Capital,Capital,nacidos_vivos_res,5147.0
+2024,46,Campo Quijano,Rosario de Lerma,nacidos_vivos_res,168.0
+2024,48,Seclantas,Molinos,nacidos_vivos_res,35.0
+2024,49,Urundel,Orán,nacidos_vivos_res,33.0
+2024,50,La Merced,Cerrillos,nacidos_vivos_res,130.0
+2024,51,La Unión,Rivadavia,nacidos_vivos_res,59.0
+2024,52,La Poma,La Poma,nacidos_vivos_res,9.0
+2024,53,Angastaco,San Carlos,nacidos_vivos_res,23.0
+2025,0,Total,Salta,nacidos_vivos_res,13941.0
+2025,1,Colonia Sta Rosa,Orán,nacidos_vivos_res,263.0
+2025,2,Pichanal,Orán,nacidos_vivos_res,358.0
+2025,3,Aguaray,General José de San Martín,nacidos_vivos_res,179.0
+2025,4,Morillo,Rivadavia,nacidos_vivos_res,188.0
+2025,5,Sta Victoria Oeste,Santa Victoria,nacidos_vivos_res,21.0
+2025,6,Iruya,Iruya,nacidos_vivos_res,20.0
+2025,7,Salvador Mazza,General José de San Martín,nacidos_vivos_res,352.0
+2025,8,Sta Victoria Este,Rivadavia,nacidos_vivos_res,476.0
+2025,9,Embarcación,General José de San Martín,nacidos_vivos_res,485.0
+2025,10,Nazareno,Santa Victoria,nacidos_vivos_res,15.0
+2025,11,Oran,Orán,nacidos_vivos_res,1159.0
+2025,12,Tartagal,General José de San Martín,nacidos_vivos_res,1025.0
+2025,13,Rivadavia Banda Sur,Rivadavia,nacidos_vivos_res,99.0
+2025,14,Las Lajitas,Anta,nacidos_vivos_res,176.0
+2025,15,J. V. Gonzalez,Anta,nacidos_vivos_res,261.0
+2025,16,El Quebrachal,Anta,nacidos_vivos_res,129.0
+2025,17,El Galpón,Metán,nacidos_vivos_res,68.0
+2025,18,Rosario de la Frontera,Rosario de la Frontera,nacidos_vivos_res,240.0
+2025,19,Metan,Metán,nacidos_vivos_res,355.0
+2025,21,El Tala,La Candelaria,nacidos_vivos_res,51.0
+2025,22,Gral Güemes,General Güemes,nacidos_vivos_res,475.0
+2025,23,Apolinario Saravia,Anta,nacidos_vivos_res,213.0
+2025,24,Cafayate,Cafayate,nacidos_vivos_res,162.0
+2025,25,San Carlos,San Carlos,nacidos_vivos_res,42.0
+2025,26,Molinos,Molinos,nacidos_vivos_res,27.0
+2025,27,Cachi,Cachi,nacidos_vivos_res,63.0
+2025,28,Gral Mosconi,General José de San Martín,nacidos_vivos_res,317.0
+2025,29,S. A. de los Cobres,Los Andes,nacidos_vivos_res,85.0
+2025,30,Cerrillos,Cerrillos,nacidos_vivos_res,348.0
+2025,31,Hipólito Yrigoyen,Orán,nacidos_vivos_res,101.0
+2025,32,Rosario de Lerma,Rosario de Lerma,nacidos_vivos_res,229.0
+2025,33,Chicoana,Chicoana,nacidos_vivos_res,65.0
+2025,34,El Carril,Chicoana,nacidos_vivos_res,104.0
+2025,35,Coronel Moldes,La Viña,nacidos_vivos_res,64.0
+2025,36,La Viña,La Viña,nacidos_vivos_res,33.0
+2025,37,Guachipas,Guachipas,nacidos_vivos_res,21.0
+2025,38,El Potrero,Rosario de la Frontera,nacidos_vivos_res,15.0
+2025,39,La Caldera,La Caldera,nacidos_vivos_res,96.0
+2025,44,Alto la Sierra,Rivadavia,nacidos_vivos_res,20.0
+2025,45,Capital,Capital,nacidos_vivos_res,5114.0
+2025,46,Campo Quijano,Rosario de Lerma,nacidos_vivos_res,211.0
+2025,48,Seclantas,Molinos,nacidos_vivos_res,11.0
+2025,49,Urundel,Orán,nacidos_vivos_res,30.0
+2025,50,La Merced,Cerrillos,nacidos_vivos_res,116.0
+2025,51,La Unión,Rivadavia,nacidos_vivos_res,38.0
+2025,52,La Poma,La Poma,nacidos_vivos_res,8.0
+2025,53,Angastaco,San Carlos,nacidos_vivos_res,13.0

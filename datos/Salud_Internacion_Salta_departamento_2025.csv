@@ -1,0 +1,254 @@
+﻿anio,departamento,metrica,valor
+2025,Anta,altas,5444.0
+2025,Cachi,altas,593.0
+2025,Cafayate,altas,2376.0
+2025,Capital,altas,53218.0
+2025,Cerrillos,altas,1184.0
+2025,Chicoana,altas,719.0
+2025,General Güemes,altas,5732.0
+2025,General José de San Martín,altas,20264.0
+2025,Guachipas,altas,365.0
+2025,Iruya,altas,235.0
+2025,La Caldera,altas,367.0
+2025,La Candelaria,altas,350.0
+2025,La Poma,altas,62.0
+2025,La Viña,altas,636.0
+2025,Los Andes,altas,1024.0
+2025,Metán,altas,3107.0
+2025,Molinos,altas,323.0
+2025,Orán,altas,19473.0
+2025,Rivadavia,altas,5251.0
+2025,Rosario de Lerma,altas,3356.0
+2025,Rosario de la Frontera,altas,2223.0
+2025,San Carlos,altas,441.0
+2025,Santa Victoria,altas,647.0
+2025,Anta,camas_disponibles,48.34
+2025,Cachi,camas_disponibles,12.14
+2025,Cafayate,camas_disponibles,41.04
+2025,Capital,camas_disponibles,1054.5
+2025,Cerrillos,camas_disponibles,28.63
+2025,Chicoana,camas_disponibles,31.24
+2025,General Güemes,camas_disponibles,149.47
+2025,General José de San Martín,camas_disponibles,402.56
+2025,Guachipas,camas_disponibles,7.98
+2025,Iruya,camas_disponibles,4.59
+2025,La Caldera,camas_disponibles,4.56
+2025,La Candelaria,camas_disponibles,9.81
+2025,La Poma,camas_disponibles,2.9
+2025,La Viña,camas_disponibles,15.22
+2025,Los Andes,camas_disponibles,7.04
+2025,Metán,camas_disponibles,59.55
+2025,Molinos,camas_disponibles,4.8
+2025,Orán,camas_disponibles,314.94
+2025,Rivadavia,camas_disponibles,117.14
+2025,Rosario de Lerma,camas_disponibles,49.71
+2025,Rosario de la Frontera,camas_disponibles,53.88
+2025,San Carlos,camas_disponibles,11.01
+2025,Santa Victoria,camas_disponibles,20.35
+2025,Anta,defunciones_hosp,47.0
+2025,Cachi,defunciones_hosp,22.0
+2025,Cafayate,defunciones_hosp,80.0
+2025,Capital,defunciones_hosp,1462.0
+2025,Cerrillos,defunciones_hosp,33.0
+2025,Chicoana,defunciones_hosp,27.0
+2025,General Güemes,defunciones_hosp,226.0
+2025,General José de San Martín,defunciones_hosp,550.0
+2025,Guachipas,defunciones_hosp,0.0
+2025,Iruya,defunciones_hosp,1.0
+2025,La Caldera,defunciones_hosp,1.0
+2025,La Candelaria,defunciones_hosp,7.0
+2025,La Poma,defunciones_hosp,0.0
+2025,La Viña,defunciones_hosp,9.0
+2025,Los Andes,defunciones_hosp,6.0
+2025,Metán,defunciones_hosp,21.0
+2025,Molinos,defunciones_hosp,13.0
+2025,Orán,defunciones_hosp,546.0
+2025,Rivadavia,defunciones_hosp,31.0
+2025,Rosario de Lerma,defunciones_hosp,60.0
+2025,Rosario de la Frontera,defunciones_hosp,114.0
+2025,San Carlos,defunciones_hosp,2.0
+2025,Santa Victoria,defunciones_hosp,3.0
+2025,Anta,egresos,5491.0
+2025,Cachi,egresos,615.0
+2025,Cafayate,egresos,2456.0
+2025,Capital,egresos,54680.0
+2025,Cerrillos,egresos,1217.0
+2025,Chicoana,egresos,746.0
+2025,General Güemes,egresos,5958.0
+2025,General José de San Martín,egresos,20814.0
+2025,Guachipas,egresos,365.0
+2025,Iruya,egresos,236.0
+2025,La Caldera,egresos,368.0
+2025,La Candelaria,egresos,357.0
+2025,La Poma,egresos,62.0
+2025,La Viña,egresos,645.0
+2025,Los Andes,egresos,1030.0
+2025,Metán,egresos,3128.0
+2025,Molinos,egresos,336.0
+2025,Orán,egresos,20019.0
+2025,Rivadavia,egresos,5282.0
+2025,Rosario de Lerma,egresos,3416.0
+2025,Rosario de la Frontera,egresos,2337.0
+2025,San Carlos,egresos,443.0
+2025,Santa Victoria,egresos,650.0
+2025,Anta,establecimientos,4.0
+2025,Cachi,establecimientos,1.0
+2025,Cafayate,establecimientos,1.0
+2025,Capital,establecimientos,7.0
+2025,Cerrillos,establecimientos,2.0
+2025,Chicoana,establecimientos,2.0
+2025,General Güemes,establecimientos,1.0
+2025,General José de San Martín,establecimientos,5.0
+2025,Guachipas,establecimientos,1.0
+2025,Iruya,establecimientos,1.0
+2025,La Caldera,establecimientos,1.0
+2025,La Candelaria,establecimientos,1.0
+2025,La Poma,establecimientos,1.0
+2025,La Viña,establecimientos,2.0
+2025,Los Andes,establecimientos,1.0
+2025,Metán,establecimientos,2.0
+2025,Molinos,establecimientos,2.0
+2025,Orán,establecimientos,5.0
+2025,Rivadavia,establecimientos,5.0
+2025,Rosario de Lerma,establecimientos,2.0
+2025,Rosario de la Frontera,establecimientos,2.0
+2025,San Carlos,establecimientos,2.0
+2025,Santa Victoria,establecimientos,2.0
+2025,Anta,giro_camas,113.59
+2025,Cachi,giro_camas,50.66
+2025,Cafayate,giro_camas,59.84
+2025,Capital,giro_camas,51.85
+2025,Cerrillos,giro_camas,42.51
+2025,Chicoana,giro_camas,23.88
+2025,General Güemes,giro_camas,39.86
+2025,General José de San Martín,giro_camas,51.7
+2025,Guachipas,giro_camas,45.74
+2025,Iruya,giro_camas,51.42
+2025,La Caldera,giro_camas,80.7
+2025,La Candelaria,giro_camas,36.39
+2025,La Poma,giro_camas,21.38
+2025,La Viña,giro_camas,42.38
+2025,Los Andes,giro_camas,146.31
+2025,Metán,giro_camas,52.53
+2025,Molinos,giro_camas,70.0
+2025,Orán,giro_camas,63.56
+2025,Rivadavia,giro_camas,45.09
+2025,Rosario de Lerma,giro_camas,68.72
+2025,Rosario de la Frontera,giro_camas,43.37
+2025,San Carlos,giro_camas,40.24
+2025,Santa Victoria,giro_camas,31.94
+2025,Anta,ocupacion_camas,63.18
+2025,Cachi,ocupacion_camas,65.98
+2025,Cafayate,ocupacion_camas,70.0
+2025,Capital,ocupacion_camas,86.66
+2025,Cerrillos,ocupacion_camas,40.1
+2025,Chicoana,ocupacion_camas,24.87
+2025,General Güemes,ocupacion_camas,41.57
+2025,General José de San Martín,ocupacion_camas,49.02
+2025,Guachipas,ocupacion_camas,29.7
+2025,Iruya,ocupacion_camas,41.83
+2025,La Caldera,ocupacion_camas,94.08
+2025,La Candelaria,ocupacion_camas,19.06
+2025,La Poma,ocupacion_camas,9.31
+2025,La Viña,ocupacion_camas,30.09
+2025,Los Andes,ocupacion_camas,58.95
+2025,Metán,ocupacion_camas,34.68
+2025,Molinos,ocupacion_camas,72.71
+2025,Orán,ocupacion_camas,54.03
+2025,Rivadavia,ocupacion_camas,34.9
+2025,Rosario de Lerma,ocupacion_camas,38.12
+2025,Rosario de la Frontera,ocupacion_camas,42.0
+2025,San Carlos,ocupacion_camas,27.16
+2025,Santa Victoria,ocupacion_camas,27.17
+2025,Anta,pacientes_dia,30.54
+2025,Cachi,pacientes_dia,8.01
+2025,Cafayate,pacientes_dia,28.73
+2025,Capital,pacientes_dia,913.84
+2025,Cerrillos,pacientes_dia,11.48
+2025,Chicoana,pacientes_dia,7.77
+2025,General Güemes,pacientes_dia,62.13
+2025,General José de San Martín,pacientes_dia,197.34
+2025,Guachipas,pacientes_dia,2.37
+2025,Iruya,pacientes_dia,1.92
+2025,La Caldera,pacientes_dia,4.29
+2025,La Candelaria,pacientes_dia,1.87
+2025,La Poma,pacientes_dia,0.27
+2025,La Viña,pacientes_dia,4.58
+2025,Los Andes,pacientes_dia,4.15
+2025,Metán,pacientes_dia,20.65
+2025,Molinos,pacientes_dia,3.49
+2025,Orán,pacientes_dia,170.15
+2025,Rivadavia,pacientes_dia,40.88
+2025,Rosario de Lerma,pacientes_dia,18.95
+2025,Rosario de la Frontera,pacientes_dia,22.63
+2025,San Carlos,pacientes_dia,2.99
+2025,Santa Victoria,pacientes_dia,5.53
+2025,Anta,pases,195.0
+2025,Cachi,pases,20.0
+2025,Cafayate,pases,0.0
+2025,Capital,pases,21592.0
+2025,Cerrillos,pases,0.0
+2025,Chicoana,pases,12.0
+2025,General Güemes,pases,1567.0
+2025,General José de San Martín,pases,5653.0
+2025,Guachipas,pases,1.0
+2025,Iruya,pases,0.0
+2025,La Caldera,pases,0.0
+2025,La Candelaria,pases,0.0
+2025,La Poma,pases,0.0
+2025,La Viña,pases,0.0
+2025,Los Andes,pases,0.0
+2025,Metán,pases,131.0
+2025,Molinos,pases,0.0
+2025,Orán,pases,4239.0
+2025,Rivadavia,pases,12.0
+2025,Rosario de Lerma,pases,588.0
+2025,Rosario de la Frontera,pases,0.0
+2025,San Carlos,pases,0.0
+2025,Santa Victoria,pases,0.0
+2025,Anta,permanencia_promedio,2.03
+2025,Cachi,permanencia_promedio,4.75
+2025,Cafayate,permanencia_promedio,4.27
+2025,Capital,permanencia_promedio,6.1
+2025,Cerrillos,permanencia_promedio,3.44
+2025,Chicoana,permanencia_promedio,3.8
+2025,General Güemes,permanencia_promedio,3.81
+2025,General José de San Martín,permanencia_promedio,3.46
+2025,Guachipas,permanencia_promedio,2.37
+2025,Iruya,permanencia_promedio,2.97
+2025,La Caldera,permanencia_promedio,4.26
+2025,La Candelaria,permanencia_promedio,1.91
+2025,La Poma,permanencia_promedio,1.59
+2025,La Viña,permanencia_promedio,2.59
+2025,Los Andes,permanencia_promedio,1.47
+2025,Metán,permanencia_promedio,2.41
+2025,Molinos,permanencia_promedio,3.79
+2025,Orán,permanencia_promedio,3.1
+2025,Rivadavia,permanencia_promedio,2.82
+2025,Rosario de Lerma,permanencia_promedio,2.02
+2025,Rosario de la Frontera,permanencia_promedio,3.53
+2025,San Carlos,permanencia_promedio,2.46
+2025,Santa Victoria,permanencia_promedio,3.11
+2025,Anta,tasa_mortalidad_hospitalaria,0.86
+2025,Cachi,tasa_mortalidad_hospitalaria,3.58
+2025,Cafayate,tasa_mortalidad_hospitalaria,3.26
+2025,Capital,tasa_mortalidad_hospitalaria,2.67
+2025,Cerrillos,tasa_mortalidad_hospitalaria,2.71
+2025,Chicoana,tasa_mortalidad_hospitalaria,3.62
+2025,General Güemes,tasa_mortalidad_hospitalaria,3.79
+2025,General José de San Martín,tasa_mortalidad_hospitalaria,2.64
+2025,Guachipas,tasa_mortalidad_hospitalaria,0.0
+2025,Iruya,tasa_mortalidad_hospitalaria,0.42
+2025,La Caldera,tasa_mortalidad_hospitalaria,0.27
+2025,La Candelaria,tasa_mortalidad_hospitalaria,1.96
+2025,La Poma,tasa_mortalidad_hospitalaria,0.0
+2025,La Viña,tasa_mortalidad_hospitalaria,1.4
+2025,Los Andes,tasa_mortalidad_hospitalaria,0.58
+2025,Metán,tasa_mortalidad_hospitalaria,0.67
+2025,Molinos,tasa_mortalidad_hospitalaria,3.87
+2025,Orán,tasa_mortalidad_hospitalaria,2.73
+2025,Rivadavia,tasa_mortalidad_hospitalaria,0.59
+2025,Rosario de Lerma,tasa_mortalidad_hospitalaria,1.76
+2025,Rosario de la Frontera,tasa_mortalidad_hospitalaria,4.88
+2025,San Carlos,tasa_mortalidad_hospitalaria,0.45
+2025,Santa Victoria,tasa_mortalidad_hospitalaria,0.46

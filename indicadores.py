@@ -24,11 +24,25 @@ import re
 
 import adapters
 
+# Metas 2030 (PDES 2024) de las fichas de condiciones de vida que las tienen.
+_CV_METAS = {
+    7: {"meta_2030": 20,
+        "meta_2030_nota": "El PDES fija una cobertura de desagüe a red del 80 % al Censo 2030; "
+                          "acá se expresa como su complemento, porque el Monitor mide la "
+                          "carencia y no la cobertura."},
+}
+
+# Las fichas 3 y 4 de condiciones de vida terminan en «(NBI)», que es calificativo y no
+# unidad: se redactan a mano para que el «(%)» pueda ir al final.
+_CV_LABEL = {3: "Hogares: condiciones sanitarias, NBI (%)",
+             4: "Hogares: capacidad de subsistencia, NBI (%)"}
+
 # Indicadores visibles en un gráfico pero sin tarjeta KPI. Igual entran en la tabla maestra,
 # así que los que están documentados llevan su `ficha` como cualquier KPI de `catalog.py`.
 EXTRA = {
     "vitivinicultura": [
-        {"ficha": "I.9", "label": "Exportaciones de vino (volumen)", "metrica": "export_volumen",
+        {"ficha": "I.9", "label": "Exportaciones de vino (volumen)",
+         "tabla_label": "Exportaciones de vino, volumen (hectolitros)", "metrica": "export_volumen",
          "fixed": {"categoria": "mercado_externo", "nivel": "provincia"}},
     ],
     "turismo": [
@@ -66,15 +80,30 @@ EXTRA = {
     # Temas sociales: una fila por ficha de las Notas técnicas integradas de indicadores
     # sociales que no tiene tarjeta KPI en su tablero. Las fichas con varias aperturas (nivel,
     # sexo, edad, categoría) muestran la que dice el `tabla_label`; el resto está en el gráfico.
+    # `_CV_METAS`: metas 2030 del PDES 2024 para las fichas que las tienen. La de desagüe va
+    # invertida —el plan fija 80 % de cobertura y acá se mide la carencia—, de ahí la nota.
     "condiciones-vida": [
-        {"ficha": "I.%d" % n, "label": ind, "metrica": "pct_hogares",
-         "fixed": {"departamento": "Salta", "indicador": ind}, "sentido": "menor_mejor",
-         "tabla_label": "Hogares: " + ind[0].lower() + ind[1:]}
+        dict({"ficha": "I.%d" % n, "label": ind, "metrica": "pct_hogares",
+              "fixed": {"departamento": "Salta", "indicador": ind}, "sentido": "menor_mejor",
+              "tabla_label": _CV_LABEL.get(n, "Hogares: " + ind[0].lower() + ind[1:])},
+             **_CV_METAS.get(n, {}))
         for n, ind in ((3, "Condiciones sanitarias (NBI)"), (4, "Capacidad de subsistencia (NBI)"),
                        (7, "Sin inodoro con descarga de agua"), (8, "No propietarios de la vivienda"),
                        (9, "Sin computadora ni tablet"), (11, "Sin celular con internet"))
     ],
     "salud-reproduccion": [
+        {"label": "Esperanza de vida al nacer (mujeres)",
+         "tabla_label": "Esperanza de vida al nacer (años). Mujeres", "metrica": "esperanza_vida",
+         "fixed": {"departamento": "Salta", "sexo": "Mujeres"}, "grafico": "sr-sexo",
+         "sentido": "mayor_mejor", "meta_2030": 84.14,
+         "tabla_nota": "Apertura por sexo de la ficha II.1. Se lista aparte porque el PDES fija "
+                       "meta 2030 para mujeres y varones por separado, y ninguna para el total."},
+        {"label": "Esperanza de vida al nacer (varones)",
+         "tabla_label": "Esperanza de vida al nacer (años). Varones", "metrica": "esperanza_vida",
+         "fixed": {"departamento": "Salta", "sexo": "Varones"}, "grafico": "sr-sexo",
+         "sentido": "mayor_mejor", "meta_2030": 77.96,
+         "tabla_nota": "Apertura por sexo de la ficha II.1. Se lista aparte porque el PDES fija "
+                       "meta 2030 para mujeres y varones por separado, y ninguna para el total."},
         {"ficha": "II.2", "label": "Tasa bruta de mortalidad", "metrica": "tasa_bruta_mort",
          "fixed": {"departamento": "Salta", "sexo": "Total"}, "sentido": "menor_mejor"},
         {"ficha": "II.3", "label": "Tasa de mortalidad ajustada por edad", "metrica": "tasa_mort_ajustada",
@@ -118,11 +147,15 @@ EXTRA = {
         {"ficha": "III.1", "label": "Matrícula de primaria y secundaria", "metrica": "matricula",
          "fixed": {"departamento": "Salta"}, "sentido": "neutro"},
         {"ficha": "III.4", "label": "Alumnos por establecimiento (secundaria)",
+         "tabla_label": "Alumnos por establecimiento. Secundaria",
          "metrica": "alumnos_establecimiento",
          "fixed": {"departamento": "Salta", "nivel": "Secundaria"}, "sentido": "neutro"},
-        {"ficha": "III.5", "label": "Alumnos por cargo docente (secundaria)", "metrica": "alumnos_cargo",
+        {"ficha": "III.5", "label": "Alumnos por cargo docente (secundaria)",
+         "tabla_label": "Alumnos por cargo docente. Secundaria", "metrica": "alumnos_cargo",
          "fixed": {"departamento": "Salta", "nivel": "Secundaria"}, "sentido": "neutro"},
-        {"ficha": "III.6", "label": "Alumnos extranjeros (secundaria)", "metrica": "pct_extranjeros",
+        {"ficha": "III.6", "label": "Alumnos extranjeros (secundaria)",
+         "tabla_label": "Alumnos extranjeros (% de la matrícula). Secundaria",
+         "metrica": "pct_extranjeros",
          "fixed": {"departamento": "Salta", "nivel": "Secundaria"}, "sentido": "neutro"},
         {"ficha": "III.9", "label": "Alumnos de 6.º grado sin sobreedad", "metrica": "aprender_sobreedad",
          "fixed": {"departamento": "Salta", "categoria": "Sin sobreedad"}, "sentido": "mayor_mejor"},
@@ -282,7 +315,7 @@ def _calcular(payload, ix, spec, freq):
 # ------------------------------------------------------------------ formato
 _MESES = ["ene", "feb", "mar", "abr", "may", "jun", "jul", "ago", "sep", "oct", "nov", "dic"]
 _FREC = {"mensual": "Mensual", "trimestral": "Trimestral", "anual": "Anual",
-         "acumulado": "Mensual acumulado"}
+         "acumulado": "Mensual acum."}
 
 
 def _periodo_corto(p):
@@ -328,6 +361,111 @@ def _valor(v):
     else:
         txt = "{:.2f}".format(a).replace(".", ",")
     return signo, txt
+
+
+# Denominador de una tasa: no es unidad del VALOR sino parte de la definición del indicador,
+# así que viaja al NOMBRE —«Mortalidad materna (c/ 100 mil nacidos vivos)»— y la celda del
+# último dato queda con el número solo. `c/` = «cada». Sin esto la columna se estiraba a 33
+# caracteres («16,2 por cien mil hab. de 10 a 19») y la tabla no entraba a 1.280 px.
+_DENOMINADOR = {
+    "por cien mil hab.": "c/ 100 mil hab.",
+    "por cien mil habitantes": "c/ 100 mil hab.",
+    "por mil habitantes": "c/ mil hab.",
+    "por mil hab.": "c/ mil hab.",
+    "por mil nacidos vivos": "c/ mil nacidos vivos",
+    "por cien mil nacidos vivos": "c/ 100 mil nacidos vivos",
+    "por diez mil nacidos vivos": "c/ 10 mil nacidos vivos",
+    "por mil mujeres": "c/ mil mujeres",
+    "por mil mujeres de 15 a 49": "c/ mil mujeres de 15 a 49",
+    "por mil niñas": "c/ mil niñas",
+    # El nombre ya acota la edad («Tasa de suicidio adolescente (10 a 19)»): no se repite.
+    "por cien mil hab. de 10 a 19": "c/ 100 mil hab.",
+    "años por cien mil hab.": "años c/ 100 mil hab.",
+    "hijos por mujer": "hijos c/ mujer",
+}
+
+# Unidades que el nombre del indicador ya enuncia: no se repiten.
+_UNIDAD_REDUNDANTE = {"accesos/100 hogares", "consultas/hab.", "nacimientos", "defunciones"}
+
+# Cómo se escribe cada unidad DENTRO del nombre. Las que no figuran acá van tal cual.
+# Los «% de hogares» / «% de alumnos» se reducen a «%» porque el sujeto ya está en el nombre.
+_UNIDAD_NOMBRE = {
+    "% de hogares": "%", "% de alumnos": "%", "% de nacidos vivos": "%",
+    "% de la matrícula": "%", "camas (promedio)": "promedio",
+    "PDA/10k": "c/ 10 mil adultos",
+}
+
+# Paréntesis final con un denominador ya escrito a mano en la etiqueta, para no duplicarlo.
+_RE_DENOM = re.compile(r"\s*\((?:por|cada|c/)\s[^)]*\)\s*$", re.I)
+
+
+def _ya_dice(nombre, texto):
+    """¿El nombre ya enuncia la unidad? «Egresos hospitalarios» no necesita «(egresos)».
+
+    Por palabra completa, no por subcadena: una unidad corta como «ha» o «t» aparece dentro de
+    cualquier palabra y haría desaparecer la unidad de media tabla. Las que empiezan con un
+    signo —«% de la matrícula»— no tienen borde de palabra y se buscan literales.
+    """
+    if re.match(r"\w", texto, re.U):
+        return re.search(r"(?<!\w)" + re.escape(texto) + r"(?!\w)", nombre, re.I | re.U) is not None
+    return texto in nombre
+
+
+def _nombre_con_unidad(nombre, unidad):
+    """Mete la unidad en el NOMBRE del indicador: «Stock bovino total (cabezas)».
+
+    La unidad es propiedad del indicador, no de cada medición, así que la celda del último dato
+    queda sólo con el número. Se deriva acá en vez de editar 115 etiquetas a mano: queda
+    sincronizado si una métrica cambia de unidad.
+
+    Un nombre que YA termina en paréntesis se deja intacto: o bien ese paréntesis es la unidad
+    («Remuneración real (índice dic-23 = 100)»), o bien es un calificativo y hay que redactar el
+    nombre a mano con `tabla_label` («Esperanza de vida al nacer (años). Mujeres»). La excepción
+    son los denominadores de tasa, que se agregan siempre porque antes se escribían de formas
+    distintas: a esos se les quita el paréntesis viejo para no duplicarlo.
+    """
+    u = str(unidad or "")
+    if not u or u in _UNIDAD_REDUNDANTE:
+        return nombre
+    if u in _DENOMINADOR:
+        return "%s (%s)" % (_RE_DENOM.sub("", nombre).strip(), _DENOMINADOR[u])
+    texto = _UNIDAD_NOMBRE.get(u, u)
+    if _ya_dice(nombre, texto):
+        return nombre
+    if nombre.rstrip().endswith(")"):
+        return nombre
+    return "%s (%s)" % (nombre.rstrip(), texto)
+
+
+def _num_dato(v):
+    """Número del último dato para la tabla.
+
+    Desde mil millones se compacta —«4,6 B», «119,7 mil M»— como en las tarjetas KPI de los
+    tableros: un monto de 16 dígitos no se lee en una celda. Por DEBAJO van todos los dígitos,
+    porque ahí está la comparación que motiva la columna: «1.073.532 cabezas» contra su meta de
+    «2.000.000» sólo se lee si ambos están en la misma escala.
+    """
+    if v is None:
+        return ""
+    a = abs(v)
+    if a >= 1e12:
+        txt = "{:.1f} B".format(v / 1e12)
+    elif a >= 1e9:
+        txt = "{:.1f} mil M".format(v / 1e9)
+    elif a >= 1000:
+        return "{:,.0f}".format(v).replace(",", ".").replace("-", "−")
+    elif float(v) == int(v):
+        return "{:.0f}".format(v).replace("-", "−")   # un entero no lleva «,0»
+    elif a >= 10:
+        txt = "{:.1f}".format(v)
+    else:
+        txt = "{:.2f}".format(v)
+    return txt.replace(".", ",", 1).replace("-", "−")
+
+
+def _dato(v, unidad):
+    """Celda de «Último dato»: sólo el número. La unidad vive en el nombre del indicador."""
+    return "" if v is None else _num_dato(v)
 
 
 def _medida(v, unidad):
@@ -379,6 +517,23 @@ def _celda(v):
     signo, txt = r
     return (signo if signo == "−" else "") + txt
 
+
+def _meta(v):
+    """Formatea una meta respetando la precisión con que el plan la fijó.
+
+    `_valor` elige los decimales por MAGNITUD (>= 10 -> un decimal), y eso redondeaba la meta
+    de esperanza de vida de varones de 77,96 a "78,0" y mostraba el entero 4 como "4,00". Una
+    meta es una cifra oficial: entera va sin decimales (10, 2.000.000) y con decimales lleva
+    los suyos, hasta dos (84,14).
+    """
+    if v is None or v == "":
+        return ""
+    if isinstance(v, str):
+        return v
+    if float(v) == int(v):
+        return "{:,.0f}".format(v).replace(",", ".")
+    entero, _, dec = "{:,.2f}".format(v).partition(".")
+    return entero.replace(",", ".") + "," + dec.rstrip("0")
 
 def _brecha(v):
     """Brecha: SÍ lleva signo, porque el sentido es la mitad de la información."""
@@ -503,7 +658,7 @@ def tabla(payloads, catalogo, ejes_pdes_meta, tags_meta, subeje_orden, ciiu_secc
                 flecha = "≈" if direccion == "flat" else ("▲" if direccion == "up" else "▼")
                 var_cls = _clase_color(s, direccion)
                 var_txt = "%s %s %s" % (flecha, _pct(abs(v)), "p.p." if pp else "%")
-                ref = "%s/%s" % (_periodo_corto(res["ultimo"]), _periodo_corto(res["prev"]))
+                ref = _periodo_corto(res["prev"])
             # Brecha a 2050: cuánto le falta al indicador para llegar a la meta final.
             # Queda vacía hasta que se carguen las metas en catalog.py.
             m2050, actual = _num(s.get("meta_2050")), _num(res.get("valor"))
@@ -512,25 +667,28 @@ def tabla(payloads, catalogo, ejes_pdes_meta, tags_meta, subeje_orden, ciiu_secc
             # Letra CIIU: override por KPI, o la del tema; sólo se muestra en económico-productivo.
             ciiu = s.get("ciiu") or t.get("ciiu") or ""
 
+            _unidad = payload["metricas"].get(s["metrica"], {}).get("unidad", "")
             filas.append({
                 "eje": t.get("eje_pdes"),
                 "subeje": _subeje(s, t, tags_meta),
                 "ciiu": ciiu, "ciiu_label": ciiu_secciones.get(ciiu, ""),
-                "indicador": s.get("tabla_label") or s["label"],
+                "indicador": _nombre_con_unidad(
+                    s.get("tabla_label") or s["label"], _unidad),
                 "ficha": s.get("ficha", ""),
                 "nota": s.get("tabla_nota", ""),
                 "tema_id": t["id"], "tema_title": t["title"],
                 "chart_id": s.get("grafico") or _grafico(payload, s["metrica"]),
                 "geo": desag, "geo_nota": desag_nota,
-                "valor_txt": _medida(res["valor"],
-                                     payload["metricas"].get(s["metrica"], {}).get("unidad", "")),
+                "valor_txt": _medida(res["valor"], _unidad),
+                "dato_txt": _dato(res["valor"], _unidad),
                 "frecuencia": _frecuencia(res, t["id"]),
                 "ultimo": _periodo_corto(res["ultimo"]),
                 "base_valor": _celda(s.get("base_valor")),
                 "base_periodo": s.get("base_periodo", ""),
-                "meta_2030": _celda(s.get("meta_2030")),
-                "meta_2040": _celda(s.get("meta_2040")),
-                "meta_2050": _celda(s.get("meta_2050")),
+                "meta_2030": _meta(s.get("meta_2030")),
+                "meta_2030_nota": s.get("meta_2030_nota", ""),
+                "meta_2040": _meta(s.get("meta_2040")),
+                "meta_2050": _meta(s.get("meta_2050")),
                 "brecha_2050": _brecha(brecha),
                 "var_txt": var_txt, "var_cls": var_cls, "var_ref": ref,
             })

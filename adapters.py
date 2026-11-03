@@ -25,8 +25,12 @@ import unicodedata
 import pandas as pd
 import openpyxl
 
-# Carpeta padre = donde viven los CSV de los indicadores.
-DATA_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+# Los datos fuente se versionan JUNTO al sitio, en sitio-indicadores/datos/, para que
+# cualquier clon del repositorio pueda correr build.py. Antes vivían en la carpeta padre y en
+# datos-drive/, fuera del repo: una máquina que clonaba no podía reconstruir nada, y un build
+# con archivos faltantes se cae a mitad dejando JSON degradados. La procedencia de cada
+# archivo (carpetas de Drive) está documentada en README.md.
+DATA_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "datos")
 
 
 def _src(name):
@@ -34,8 +38,9 @@ def _src(name):
 
 
 def _drv(name):
-    """Archivos descargados del Drive a la subcarpeta datos-drive/."""
-    return os.path.join(DATA_DIR, "datos-drive", name)
+    """Alias de `_src`: la separación datos-drive/ desapareció al unificar en datos/.
+    Se conserva el nombre para no tocar las llamadas de cada adapter."""
+    return _src(name)
 
 
 @functools.lru_cache(maxsize=1)
@@ -779,7 +784,7 @@ def gobierno():
             rows.append([y, "transferencia", "tipo", etq, "gasto_real", round(real(v, y), 1)])
 
     # ---- Indicadores AIF (DNAP): en estas filas `nivel` = ámbito y `partida` = indicador ----
-    aif = pd.read_csv(os.path.join(os.path.dirname(DATA_DIR), "Salta_AIF_DNAP_anual.csv"), encoding="utf-8-sig")
+    aif = pd.read_csv(_src("Salta_AIF_DNAP_anual.csv"), encoding="utf-8-sig")
     aif = aif.drop_duplicates(["provincia", "concepto", "anio"])  # el AIF repite nombres (p. ej. transferencias)
 
     def _serie(provs, prefijo):

@@ -325,7 +325,7 @@ p { margin: 0 0 1em; }
 }
 /* Los encabezados envuelven a proposito: con nowrap, "Periodo de la variacion" se comia el
    ancho de la primera columna y los nombres de indicador pasaban a dos lineas. */
-.tabla-ind th:first-child { width: 34%; }
+.tabla-ind th:first-child { width: 40%; }
 .tabla-ind tbody th { font-weight: 600; }
 .tabla-ind tbody th a { color: var(--ink); }
 .tabla-ind tbody th a:hover { color: var(--accent-600); }
@@ -368,6 +368,8 @@ p { margin: 0 0 1em; }
 .tabla-ind-var.down.invertido { color: var(--pos); }
 .tabla-ind-var.neutro { color: var(--muted); font-weight: 500; }
 .tabla-ind-ref { color: var(--ink-2); }
+/* El último dato manda en la fila: numero en tinta plena y sin cortar. */
+.tabla-ind-dato { white-space: nowrap; font-weight: 600; }
 .tabla-ind-vacio { color: var(--muted); }
 .tabla-ind-nota {
   margin-left: 5px; color: var(--muted); cursor: help; text-decoration: none;

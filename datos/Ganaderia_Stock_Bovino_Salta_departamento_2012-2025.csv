@@ -1,0 +1,3180 @@
+﻿departamento,anio,metrica,valor
+Anta,2012,bueyes,0.0
+Anta,2012,novillitos,36357.0
+Anta,2012,novillos,23257.0
+Anta,2012,terneras,27199.0
+Anta,2012,terneros,27053.0
+Anta,2012,toritos,0.0
+Anta,2012,toros,11885.0
+Anta,2012,total_bovinos,369835.0
+Anta,2012,vacas,157788.0
+Anta,2012,vaquillonas,86296.0
+Cachi,2012,bueyes,0.0
+Cachi,2012,novillitos,51.0
+Cachi,2012,novillos,90.0
+Cachi,2012,terneras,174.0
+Cachi,2012,terneros,159.0
+Cachi,2012,toritos,0.0
+Cachi,2012,toros,82.0
+Cachi,2012,total_bovinos,1419.0
+Cachi,2012,vacas,633.0
+Cachi,2012,vaquillonas,230.0
+Cafayate,2012,bueyes,0.0
+Cafayate,2012,novillitos,320.0
+Cafayate,2012,novillos,473.0
+Cafayate,2012,terneras,551.0
+Cafayate,2012,terneros,531.0
+Cafayate,2012,toritos,0.0
+Cafayate,2012,toros,337.0
+Cafayate,2012,total_bovinos,4705.0
+Cafayate,2012,vacas,1858.0
+Cafayate,2012,vaquillonas,635.0
+Capital,2012,bueyes,0.0
+Capital,2012,novillitos,1067.0
+Capital,2012,novillos,961.0
+Capital,2012,terneras,1352.0
+Capital,2012,terneros,1224.0
+Capital,2012,toritos,0.0
+Capital,2012,toros,428.0
+Capital,2012,total_bovinos,14847.0
+Capital,2012,vacas,6759.0
+Capital,2012,vaquillonas,3056.0
+Cerrillos,2012,bueyes,0.0
+Cerrillos,2012,novillitos,2615.0
+Cerrillos,2012,novillos,997.0
+Cerrillos,2012,terneras,1971.0
+Cerrillos,2012,terneros,2524.0
+Cerrillos,2012,toritos,0.0
+Cerrillos,2012,toros,196.0
+Cerrillos,2012,total_bovinos,14848.0
+Cerrillos,2012,vacas,3880.0
+Cerrillos,2012,vaquillonas,2665.0
+Chicoana,2012,bueyes,0.0
+Chicoana,2012,novillitos,4468.0
+Chicoana,2012,novillos,1364.0
+Chicoana,2012,terneras,2747.0
+Chicoana,2012,terneros,2937.0
+Chicoana,2012,toritos,0.0
+Chicoana,2012,toros,719.0
+Chicoana,2012,total_bovinos,24336.0
+Chicoana,2012,vacas,7808.0
+Chicoana,2012,vaquillonas,4293.0
+General Güemes,2012,bueyes,0.0
+General Güemes,2012,novillitos,3298.0
+General Güemes,2012,novillos,2697.0
+General Güemes,2012,terneras,2012.0
+General Güemes,2012,terneros,2405.0
+General Güemes,2012,toritos,0.0
+General Güemes,2012,toros,886.0
+General Güemes,2012,total_bovinos,29315.0
+General Güemes,2012,vacas,13209.0
+General Güemes,2012,vaquillonas,4808.0
+General José de San Martín,2012,bueyes,0.0
+General José de San Martín,2012,novillitos,19867.0
+General José de San Martín,2012,novillos,7687.0
+General José de San Martín,2012,terneras,12932.0
+General José de San Martín,2012,terneros,13789.0
+General José de San Martín,2012,toritos,0.0
+General José de San Martín,2012,toros,2990.0
+General José de San Martín,2012,total_bovinos,125677.0
+General José de San Martín,2012,vacas,46013.0
+General José de San Martín,2012,vaquillonas,22399.0
+Guachipas,2012,bueyes,0.0
+Guachipas,2012,novillitos,1416.0
+Guachipas,2012,novillos,1787.0
+Guachipas,2012,terneras,2901.0
+Guachipas,2012,terneros,2687.0
+Guachipas,2012,toritos,0.0
+Guachipas,2012,toros,1066.0
+Guachipas,2012,total_bovinos,25887.0
+Guachipas,2012,vacas,11497.0
+Guachipas,2012,vaquillonas,4533.0
+Iruya,2012,bueyes,0.0
+Iruya,2012,novillitos,1293.0
+Iruya,2012,novillos,2305.0
+Iruya,2012,terneras,1254.0
+Iruya,2012,terneros,1253.0
+Iruya,2012,toritos,0.0
+Iruya,2012,toros,524.0
+Iruya,2012,total_bovinos,13817.0
+Iruya,2012,vacas,4895.0
+Iruya,2012,vaquillonas,2293.0
+La Caldera,2012,bueyes,0.0
+La Caldera,2012,novillitos,716.0
+La Caldera,2012,novillos,922.0
+La Caldera,2012,terneras,1014.0
+La Caldera,2012,terneros,956.0
+La Caldera,2012,toritos,0.0
+La Caldera,2012,toros,341.0
+La Caldera,2012,total_bovinos,9602.0
+La Caldera,2012,vacas,4012.0
+La Caldera,2012,vaquillonas,1641.0
+La Candelaria,2012,bueyes,0.0
+La Candelaria,2012,novillitos,1378.0
+La Candelaria,2012,novillos,2751.0
+La Candelaria,2012,terneras,2248.0
+La Candelaria,2012,terneros,1637.0
+La Candelaria,2012,toritos,0.0
+La Candelaria,2012,toros,934.0
+La Candelaria,2012,total_bovinos,22924.0
+La Candelaria,2012,vacas,10459.0
+La Candelaria,2012,vaquillonas,3517.0
+La Poma,2012,bueyes,0.0
+La Poma,2012,novillitos,19.0
+La Poma,2012,novillos,37.0
+La Poma,2012,terneras,77.0
+La Poma,2012,terneros,96.0
+La Poma,2012,toritos,0.0
+La Poma,2012,toros,41.0
+La Poma,2012,total_bovinos,801.0
+La Poma,2012,vacas,456.0
+La Poma,2012,vaquillonas,75.0
+La Viña,2012,bueyes,0.0
+La Viña,2012,novillitos,946.0
+La Viña,2012,novillos,1060.0
+La Viña,2012,terneras,1248.0
+La Viña,2012,terneros,1141.0
+La Viña,2012,toritos,6.0
+La Viña,2012,toros,415.0
+La Viña,2012,total_bovinos,13407.0
+La Viña,2012,vacas,6094.0
+La Viña,2012,vaquillonas,2497.0
+Metán,2012,bueyes,0.0
+Metán,2012,novillitos,7237.0
+Metán,2012,novillos,5282.0
+Metán,2012,terneras,6078.0
+Metán,2012,terneros,6122.0
+Metán,2012,toritos,0.0
+Metán,2012,toros,1691.0
+Metán,2012,total_bovinos,66481.0
+Metán,2012,vacas,27043.0
+Metán,2012,vaquillonas,13028.0
+Molinos,2012,bueyes,0.0
+Molinos,2012,novillitos,293.0
+Molinos,2012,novillos,924.0
+Molinos,2012,terneras,633.0
+Molinos,2012,terneros,785.0
+Molinos,2012,toritos,0.0
+Molinos,2012,toros,422.0
+Molinos,2012,total_bovinos,7392.0
+Molinos,2012,vacas,3395.0
+Molinos,2012,vaquillonas,940.0
+Orán,2012,bueyes,0.0
+Orán,2012,novillitos,1805.0
+Orán,2012,novillos,1848.0
+Orán,2012,terneras,3177.0
+Orán,2012,terneros,3205.0
+Orán,2012,toritos,0.0
+Orán,2012,toros,824.0
+Orán,2012,total_bovinos,26136.0
+Orán,2012,vacas,11277.0
+Orán,2012,vaquillonas,4000.0
+Rivadavia,2012,bueyes,0.0
+Rivadavia,2012,novillitos,17220.0
+Rivadavia,2012,novillos,12949.0
+Rivadavia,2012,terneras,15480.0
+Rivadavia,2012,terneros,17051.0
+Rivadavia,2012,toritos,0.0
+Rivadavia,2012,toros,4506.0
+Rivadavia,2012,total_bovinos,156820.0
+Rivadavia,2012,vacas,64963.0
+Rivadavia,2012,vaquillonas,24651.0
+Rosario de Lerma,2012,bueyes,0.0
+Rosario de Lerma,2012,novillitos,1893.0
+Rosario de Lerma,2012,novillos,1774.0
+Rosario de Lerma,2012,terneras,2397.0
+Rosario de Lerma,2012,terneros,3022.0
+Rosario de Lerma,2012,toritos,0.0
+Rosario de Lerma,2012,toros,891.0
+Rosario de Lerma,2012,total_bovinos,23260.0
+Rosario de Lerma,2012,vacas,8994.0
+Rosario de Lerma,2012,vaquillonas,4289.0
+Rosario de la Frontera,2012,bueyes,0.0
+Rosario de la Frontera,2012,novillitos,1720.0
+Rosario de la Frontera,2012,novillos,4512.0
+Rosario de la Frontera,2012,terneras,5314.0
+Rosario de la Frontera,2012,terneros,4590.0
+Rosario de la Frontera,2012,toritos,0.0
+Rosario de la Frontera,2012,toros,2128.0
+Rosario de la Frontera,2012,total_bovinos,57594.0
+Rosario de la Frontera,2012,vacas,28707.0
+Rosario de la Frontera,2012,vaquillonas,10623.0
+San Carlos,2012,bueyes,1.0
+San Carlos,2012,novillitos,351.0
+San Carlos,2012,novillos,705.0
+San Carlos,2012,terneras,687.0
+San Carlos,2012,terneros,634.0
+San Carlos,2012,toritos,0.0
+San Carlos,2012,toros,361.0
+San Carlos,2012,total_bovinos,6034.0
+San Carlos,2012,vacas,2304.0
+San Carlos,2012,vaquillonas,991.0
+Santa Victoria,2012,bueyes,0.0
+Santa Victoria,2012,novillitos,2882.0
+Santa Victoria,2012,novillos,4617.0
+Santa Victoria,2012,terneras,1927.0
+Santa Victoria,2012,terneros,1885.0
+Santa Victoria,2012,toritos,0.0
+Santa Victoria,2012,toros,1137.0
+Santa Victoria,2012,total_bovinos,26382.0
+Santa Victoria,2012,vacas,9802.0
+Santa Victoria,2012,vaquillonas,4132.0
+Anta,2013,bueyes,0.0
+Anta,2013,novillitos,24120.0
+Anta,2013,novillos,10889.0
+Anta,2013,terneras,27475.0
+Anta,2013,terneros,26650.0
+Anta,2013,toritos,3235.0
+Anta,2013,toros,8606.0
+Anta,2013,total_bovinos,300327.0
+Anta,2013,vacas,135267.0
+Anta,2013,vaquillonas,64085.0
+Cachi,2013,bueyes,0.0
+Cachi,2013,novillitos,108.0
+Cachi,2013,novillos,107.0
+Cachi,2013,terneras,231.0
+Cachi,2013,terneros,234.0
+Cachi,2013,toritos,0.0
+Cachi,2013,toros,95.0
+Cachi,2013,total_bovinos,1830.0
+Cachi,2013,vacas,805.0
+Cachi,2013,vaquillonas,250.0
+Cafayate,2013,bueyes,0.0
+Cafayate,2013,novillitos,329.0
+Cafayate,2013,novillos,494.0
+Cafayate,2013,terneras,495.0
+Cafayate,2013,terneros,494.0
+Cafayate,2013,toritos,5.0
+Cafayate,2013,toros,342.0
+Cafayate,2013,total_bovinos,4854.0
+Cafayate,2013,vacas,1949.0
+Cafayate,2013,vaquillonas,746.0
+Capital,2013,bueyes,0.0
+Capital,2013,novillitos,681.0
+Capital,2013,novillos,913.0
+Capital,2013,terneras,1319.0
+Capital,2013,terneros,1264.0
+Capital,2013,toritos,40.0
+Capital,2013,toros,486.0
+Capital,2013,total_bovinos,14206.0
+Capital,2013,vacas,7097.0
+Capital,2013,vaquillonas,2406.0
+Cerrillos,2013,bueyes,0.0
+Cerrillos,2013,novillitos,2558.0
+Cerrillos,2013,novillos,540.0
+Cerrillos,2013,terneras,2496.0
+Cerrillos,2013,terneros,2715.0
+Cerrillos,2013,toritos,329.0
+Cerrillos,2013,toros,121.0
+Cerrillos,2013,total_bovinos,16010.0
+Cerrillos,2013,vacas,4051.0
+Cerrillos,2013,vaquillonas,3200.0
+Chicoana,2013,bueyes,0.0
+Chicoana,2013,novillitos,3406.0
+Chicoana,2013,novillos,1476.0
+Chicoana,2013,terneras,2264.0
+Chicoana,2013,terneros,2279.0
+Chicoana,2013,toritos,33.0
+Chicoana,2013,toros,679.0
+Chicoana,2013,total_bovinos,21578.0
+Chicoana,2013,vacas,7741.0
+Chicoana,2013,vaquillonas,3700.0
+General Güemes,2013,bueyes,1.0
+General Güemes,2013,novillitos,3002.0
+General Güemes,2013,novillos,1169.0
+General Güemes,2013,terneras,4067.0
+General Güemes,2013,terneros,3055.0
+General Güemes,2013,toritos,67.0
+General Güemes,2013,toros,792.0
+General Güemes,2013,total_bovinos,28955.0
+General Güemes,2013,vacas,12143.0
+General Güemes,2013,vaquillonas,4659.0
+General José de San Martín,2013,bueyes,4.0
+General José de San Martín,2013,novillitos,12292.0
+General José de San Martín,2013,novillos,4833.0
+General José de San Martín,2013,terneras,12159.0
+General José de San Martín,2013,terneros,12006.0
+General José de San Martín,2013,toritos,4.0
+General José de San Martín,2013,toros,3088.0
+General José de San Martín,2013,total_bovinos,108251.0
+General José de San Martín,2013,vacas,43601.0
+General José de San Martín,2013,vaquillonas,20264.0
+Guachipas,2013,bueyes,0.0
+Guachipas,2013,novillitos,1777.0
+Guachipas,2013,novillos,2020.0
+Guachipas,2013,terneras,3247.0
+Guachipas,2013,terneros,2857.0
+Guachipas,2013,toritos,94.0
+Guachipas,2013,toros,989.0
+Guachipas,2013,total_bovinos,27202.0
+Guachipas,2013,vacas,12405.0
+Guachipas,2013,vaquillonas,3813.0
+Iruya,2013,bueyes,3.0
+Iruya,2013,novillitos,1005.0
+Iruya,2013,novillos,1555.0
+Iruya,2013,terneras,919.0
+Iruya,2013,terneros,944.0
+Iruya,2013,toritos,0.0
+Iruya,2013,toros,382.0
+Iruya,2013,total_bovinos,10056.0
+Iruya,2013,vacas,3594.0
+Iruya,2013,vaquillonas,1654.0
+La Caldera,2013,bueyes,0.0
+La Caldera,2013,novillitos,823.0
+La Caldera,2013,novillos,973.0
+La Caldera,2013,terneras,1052.0
+La Caldera,2013,terneros,970.0
+La Caldera,2013,toritos,0.0
+La Caldera,2013,toros,314.0
+La Caldera,2013,total_bovinos,9875.0
+La Caldera,2013,vacas,4040.0
+La Caldera,2013,vaquillonas,1703.0
+La Candelaria,2013,bueyes,3.0
+La Candelaria,2013,novillitos,1927.0
+La Candelaria,2013,novillos,1706.0
+La Candelaria,2013,terneras,2810.0
+La Candelaria,2013,terneros,2222.0
+La Candelaria,2013,toritos,12.0
+La Candelaria,2013,toros,801.0
+La Candelaria,2013,total_bovinos,23053.0
+La Candelaria,2013,vacas,9616.0
+La Candelaria,2013,vaquillonas,3956.0
+La Poma,2013,bueyes,0.0
+La Poma,2013,novillitos,15.0
+La Poma,2013,novillos,58.0
+La Poma,2013,terneras,116.0
+La Poma,2013,terneros,166.0
+La Poma,2013,toritos,0.0
+La Poma,2013,toros,53.0
+La Poma,2013,total_bovinos,975.0
+La Poma,2013,vacas,486.0
+La Poma,2013,vaquillonas,81.0
+La Viña,2013,bueyes,0.0
+La Viña,2013,novillitos,770.0
+La Viña,2013,novillos,800.0
+La Viña,2013,terneras,1396.0
+La Viña,2013,terneros,1153.0
+La Viña,2013,toritos,29.0
+La Viña,2013,toros,406.0
+La Viña,2013,total_bovinos,12873.0
+La Viña,2013,vacas,6094.0
+La Viña,2013,vaquillonas,2225.0
+Metán,2013,bueyes,0.0
+Metán,2013,novillitos,6095.0
+Metán,2013,novillos,3265.0
+Metán,2013,terneras,7288.0
+Metán,2013,terneros,6055.0
+Metán,2013,toritos,12.0
+Metán,2013,toros,1817.0
+Metán,2013,total_bovinos,69113.0
+Metán,2013,vacas,30835.0
+Metán,2013,vaquillonas,13746.0
+Molinos,2013,bueyes,0.0
+Molinos,2013,novillitos,366.0
+Molinos,2013,novillos,861.0
+Molinos,2013,terneras,850.0
+Molinos,2013,terneros,789.0
+Molinos,2013,toritos,0.0
+Molinos,2013,toros,488.0
+Molinos,2013,total_bovinos,7829.0
+Molinos,2013,vacas,3573.0
+Molinos,2013,vaquillonas,902.0
+Orán,2013,bueyes,0.0
+Orán,2013,novillitos,2047.0
+Orán,2013,novillos,1685.0
+Orán,2013,terneras,3193.0
+Orán,2013,terneros,2979.0
+Orán,2013,toritos,11.0
+Orán,2013,toros,723.0
+Orán,2013,total_bovinos,25244.0
+Orán,2013,vacas,11190.0
+Orán,2013,vaquillonas,3416.0
+Rivadavia,2013,bueyes,3.0
+Rivadavia,2013,novillitos,15361.0
+Rivadavia,2013,novillos,10258.0
+Rivadavia,2013,terneras,14052.0
+Rivadavia,2013,terneros,15615.0
+Rivadavia,2013,toritos,9.0
+Rivadavia,2013,toros,3693.0
+Rivadavia,2013,total_bovinos,138054.0
+Rivadavia,2013,vacas,57277.0
+Rivadavia,2013,vaquillonas,21786.0
+Rosario de Lerma,2013,bueyes,0.0
+Rosario de Lerma,2013,novillitos,3043.0
+Rosario de Lerma,2013,novillos,1679.0
+Rosario de Lerma,2013,terneras,2644.0
+Rosario de Lerma,2013,terneros,2353.0
+Rosario de Lerma,2013,toritos,9.0
+Rosario de Lerma,2013,toros,663.0
+Rosario de Lerma,2013,total_bovinos,22960.0
+Rosario de Lerma,2013,vacas,8120.0
+Rosario de Lerma,2013,vaquillonas,4449.0
+Rosario de la Frontera,2013,bueyes,4.0
+Rosario de la Frontera,2013,novillitos,1645.0
+Rosario de la Frontera,2013,novillos,2849.0
+Rosario de la Frontera,2013,terneras,4963.0
+Rosario de la Frontera,2013,terneros,4068.0
+Rosario de la Frontera,2013,toritos,7.0
+Rosario de la Frontera,2013,toros,1839.0
+Rosario de la Frontera,2013,total_bovinos,51759.0
+Rosario de la Frontera,2013,vacas,27367.0
+Rosario de la Frontera,2013,vaquillonas,9017.0
+San Carlos,2013,bueyes,1.0
+San Carlos,2013,novillitos,438.0
+San Carlos,2013,novillos,726.0
+San Carlos,2013,terneras,691.0
+San Carlos,2013,terneros,695.0
+San Carlos,2013,toritos,5.0
+San Carlos,2013,toros,344.0
+San Carlos,2013,total_bovinos,6482.0
+San Carlos,2013,vacas,2523.0
+San Carlos,2013,vaquillonas,1059.0
+Santa Victoria,2013,bueyes,3.0
+Santa Victoria,2013,novillitos,2342.0
+Santa Victoria,2013,novillos,3670.0
+Santa Victoria,2013,terneras,1764.0
+Santa Victoria,2013,terneros,1799.0
+Santa Victoria,2013,toritos,0.0
+Santa Victoria,2013,toros,837.0
+Santa Victoria,2013,total_bovinos,22176.0
+Santa Victoria,2013,vacas,8396.0
+Santa Victoria,2013,vaquillonas,3365.0
+Anta,2014,bueyes,0.0
+Anta,2014,novillitos,21553.0
+Anta,2014,novillos,21250.0
+Anta,2014,terneras,23539.0
+Anta,2014,terneros,30306.0
+Anta,2014,toritos,3386.0
+Anta,2014,toros,8254.0
+Anta,2014,total_bovinos,321074.0
+Anta,2014,vacas,137362.0
+Anta,2014,vaquillonas,75424.0
+Cachi,2014,bueyes,0.0
+Cachi,2014,novillitos,122.0
+Cachi,2014,novillos,166.0
+Cachi,2014,terneras,268.0
+Cachi,2014,terneros,213.0
+Cachi,2014,toritos,0.0
+Cachi,2014,toros,140.0
+Cachi,2014,total_bovinos,2259.0
+Cachi,2014,vacas,946.0
+Cachi,2014,vaquillonas,404.0
+Cafayate,2014,bueyes,9.0
+Cafayate,2014,novillitos,288.0
+Cafayate,2014,novillos,602.0
+Cafayate,2014,terneras,437.0
+Cafayate,2014,terneros,442.0
+Cafayate,2014,toritos,111.0
+Cafayate,2014,toros,296.0
+Cafayate,2014,total_bovinos,4889.0
+Cafayate,2014,vacas,2024.0
+Cafayate,2014,vaquillonas,680.0
+Capital,2014,bueyes,0.0
+Capital,2014,novillitos,710.0
+Capital,2014,novillos,686.0
+Capital,2014,terneras,1529.0
+Capital,2014,terneros,1275.0
+Capital,2014,toritos,47.0
+Capital,2014,toros,430.0
+Capital,2014,total_bovinos,14135.0
+Capital,2014,vacas,6969.0
+Capital,2014,vaquillonas,2489.0
+Cerrillos,2014,bueyes,0.0
+Cerrillos,2014,novillitos,2229.0
+Cerrillos,2014,novillos,827.0
+Cerrillos,2014,terneras,2725.0
+Cerrillos,2014,terneros,3503.0
+Cerrillos,2014,toritos,262.0
+Cerrillos,2014,toros,125.0
+Cerrillos,2014,total_bovinos,16560.0
+Cerrillos,2014,vacas,4024.0
+Cerrillos,2014,vaquillonas,2865.0
+Chicoana,2014,bueyes,1.0
+Chicoana,2014,novillitos,3248.0
+Chicoana,2014,novillos,1274.0
+Chicoana,2014,terneras,1781.0
+Chicoana,2014,terneros,2092.0
+Chicoana,2014,toritos,327.0
+Chicoana,2014,toros,628.0
+Chicoana,2014,total_bovinos,21026.0
+Chicoana,2014,vacas,7825.0
+Chicoana,2014,vaquillonas,3850.0
+General Güemes,2014,bueyes,0.0
+General Güemes,2014,novillitos,2789.0
+General Güemes,2014,novillos,1450.0
+General Güemes,2014,terneras,4905.0
+General Güemes,2014,terneros,3736.0
+General Güemes,2014,toritos,7.0
+General Güemes,2014,toros,792.0
+General Güemes,2014,total_bovinos,31511.0
+General Güemes,2014,vacas,12272.0
+General Güemes,2014,vaquillonas,5560.0
+General José de San Martín,2014,bueyes,24.0
+General José de San Martín,2014,novillitos,17823.0
+General José de San Martín,2014,novillos,4863.0
+General José de San Martín,2014,terneras,10861.0
+General José de San Martín,2014,terneros,10745.0
+General José de San Martín,2014,toritos,24.0
+General José de San Martín,2014,toros,2938.0
+General José de San Martín,2014,total_bovinos,112789.0
+General José de San Martín,2014,vacas,42280.0
+General José de San Martín,2014,vaquillonas,23231.0
+Guachipas,2014,bueyes,0.0
+Guachipas,2014,novillitos,1834.0
+Guachipas,2014,novillos,1728.0
+Guachipas,2014,terneras,2117.0
+Guachipas,2014,terneros,2166.0
+Guachipas,2014,toritos,68.0
+Guachipas,2014,toros,939.0
+Guachipas,2014,total_bovinos,26297.0
+Guachipas,2014,vacas,12507.0
+Guachipas,2014,vaquillonas,4938.0
+Iruya,2014,bueyes,5.0
+Iruya,2014,novillitos,969.0
+Iruya,2014,novillos,1523.0
+Iruya,2014,terneras,911.0
+Iruya,2014,terneros,881.0
+Iruya,2014,toritos,0.0
+Iruya,2014,toros,383.0
+Iruya,2014,total_bovinos,9948.0
+Iruya,2014,vacas,3626.0
+Iruya,2014,vaquillonas,1650.0
+La Caldera,2014,bueyes,3.0
+La Caldera,2014,novillitos,752.0
+La Caldera,2014,novillos,928.0
+La Caldera,2014,terneras,1063.0
+La Caldera,2014,terneros,809.0
+La Caldera,2014,toritos,2.0
+La Caldera,2014,toros,281.0
+La Caldera,2014,total_bovinos,9536.0
+La Caldera,2014,vacas,4198.0
+La Caldera,2014,vaquillonas,1500.0
+La Candelaria,2014,bueyes,0.0
+La Candelaria,2014,novillitos,1839.0
+La Candelaria,2014,novillos,1827.0
+La Candelaria,2014,terneras,2324.0
+La Candelaria,2014,terneros,2434.0
+La Candelaria,2014,toritos,0.0
+La Candelaria,2014,toros,823.0
+La Candelaria,2014,total_bovinos,23685.0
+La Candelaria,2014,vacas,10166.0
+La Candelaria,2014,vaquillonas,4272.0
+La Poma,2014,bueyes,0.0
+La Poma,2014,novillitos,23.0
+La Poma,2014,novillos,85.0
+La Poma,2014,terneras,150.0
+La Poma,2014,terneros,108.0
+La Poma,2014,toritos,0.0
+La Poma,2014,toros,63.0
+La Poma,2014,total_bovinos,1049.0
+La Poma,2014,vacas,509.0
+La Poma,2014,vaquillonas,111.0
+La Viña,2014,bueyes,0.0
+La Viña,2014,novillitos,815.0
+La Viña,2014,novillos,662.0
+La Viña,2014,terneras,1055.0
+La Viña,2014,terneros,987.0
+La Viña,2014,toritos,27.0
+La Viña,2014,toros,328.0
+La Viña,2014,total_bovinos,11521.0
+La Viña,2014,vacas,5193.0
+La Viña,2014,vaquillonas,2454.0
+Metán,2014,bueyes,0.0
+Metán,2014,novillitos,9321.0
+Metán,2014,novillos,3529.0
+Metán,2014,terneras,5547.0
+Metán,2014,terneros,5522.0
+Metán,2014,toritos,191.0
+Metán,2014,toros,1564.0
+Metán,2014,total_bovinos,68078.0
+Metán,2014,vacas,28443.0
+Metán,2014,vaquillonas,13961.0
+Molinos,2014,bueyes,0.0
+Molinos,2014,novillitos,356.0
+Molinos,2014,novillos,919.0
+Molinos,2014,terneras,611.0
+Molinos,2014,terneros,687.0
+Molinos,2014,toritos,0.0
+Molinos,2014,toros,515.0
+Molinos,2014,total_bovinos,7999.0
+Molinos,2014,vacas,3766.0
+Molinos,2014,vaquillonas,1145.0
+Orán,2014,bueyes,1.0
+Orán,2014,novillitos,2238.0
+Orán,2014,novillos,1809.0
+Orán,2014,terneras,2137.0
+Orán,2014,terneros,2392.0
+Orán,2014,toritos,5.0
+Orán,2014,toros,698.0
+Orán,2014,total_bovinos,22903.0
+Orán,2014,vacas,10162.0
+Orán,2014,vaquillonas,3461.0
+Rivadavia,2014,bueyes,0.0
+Rivadavia,2014,novillitos,15730.0
+Rivadavia,2014,novillos,10577.0
+Rivadavia,2014,terneras,11965.0
+Rivadavia,2014,terneros,13400.0
+Rivadavia,2014,toritos,0.0
+Rivadavia,2014,toros,3757.0
+Rivadavia,2014,total_bovinos,136153.0
+Rivadavia,2014,vacas,57113.0
+Rivadavia,2014,vaquillonas,23611.0
+Rosario de Lerma,2014,bueyes,5.0
+Rosario de Lerma,2014,novillitos,3191.0
+Rosario de Lerma,2014,novillos,1898.0
+Rosario de Lerma,2014,terneras,2790.0
+Rosario de Lerma,2014,terneros,3247.0
+Rosario de Lerma,2014,toritos,50.0
+Rosario de Lerma,2014,toros,739.0
+Rosario de Lerma,2014,total_bovinos,26717.0
+Rosario de Lerma,2014,vacas,8993.0
+Rosario de Lerma,2014,vaquillonas,5804.0
+Rosario de la Frontera,2014,bueyes,0.0
+Rosario de la Frontera,2014,novillitos,1717.0
+Rosario de la Frontera,2014,novillos,3771.0
+Rosario de la Frontera,2014,terneras,4756.0
+Rosario de la Frontera,2014,terneros,3577.0
+Rosario de la Frontera,2014,toritos,2.0
+Rosario de la Frontera,2014,toros,1711.0
+Rosario de la Frontera,2014,total_bovinos,50276.0
+Rosario de la Frontera,2014,vacas,26677.0
+Rosario de la Frontera,2014,vaquillonas,8065.0
+San Carlos,2014,bueyes,1.0
+San Carlos,2014,novillitos,574.0
+San Carlos,2014,novillos,690.0
+San Carlos,2014,terneras,631.0
+San Carlos,2014,terneros,628.0
+San Carlos,2014,toritos,14.0
+San Carlos,2014,toros,312.0
+San Carlos,2014,total_bovinos,6418.0
+San Carlos,2014,vacas,2443.0
+San Carlos,2014,vaquillonas,1125.0
+Santa Victoria,2014,bueyes,3.0
+Santa Victoria,2014,novillitos,2564.0
+Santa Victoria,2014,novillos,3635.0
+Santa Victoria,2014,terneras,1513.0
+Santa Victoria,2014,terneros,1619.0
+Santa Victoria,2014,toritos,0.0
+Santa Victoria,2014,toros,846.0
+Santa Victoria,2014,total_bovinos,21681.0
+Santa Victoria,2014,vacas,8057.0
+Santa Victoria,2014,vaquillonas,3444.0
+Anta,2015,bueyes,0.0
+Anta,2015,novillitos,28446.0
+Anta,2015,novillos,19726.0
+Anta,2015,terneras,36849.0
+Anta,2015,terneros,41757.0
+Anta,2015,toritos,2782.0
+Anta,2015,toros,7604.0
+Anta,2015,total_bovinos,347865.0
+Anta,2015,vacas,138817.0
+Anta,2015,vaquillonas,71884.0
+Cachi,2015,bueyes,0.0
+Cachi,2015,novillitos,118.0
+Cachi,2015,novillos,142.0
+Cachi,2015,terneras,233.0
+Cachi,2015,terneros,253.0
+Cachi,2015,toritos,6.0
+Cachi,2015,toros,90.0
+Cachi,2015,total_bovinos,2188.0
+Cachi,2015,vacas,936.0
+Cachi,2015,vaquillonas,410.0
+Cafayate,2015,bueyes,0.0
+Cafayate,2015,novillitos,276.0
+Cafayate,2015,novillos,553.0
+Cafayate,2015,terneras,504.0
+Cafayate,2015,terneros,516.0
+Cafayate,2015,toritos,133.0
+Cafayate,2015,toros,257.0
+Cafayate,2015,total_bovinos,4989.0
+Cafayate,2015,vacas,2054.0
+Cafayate,2015,vaquillonas,696.0
+Capital,2015,bueyes,0.0
+Capital,2015,novillitos,593.0
+Capital,2015,novillos,578.0
+Capital,2015,terneras,1634.0
+Capital,2015,terneros,1590.0
+Capital,2015,toritos,75.0
+Capital,2015,toros,336.0
+Capital,2015,total_bovinos,13732.0
+Capital,2015,vacas,6765.0
+Capital,2015,vaquillonas,2161.0
+Cerrillos,2015,bueyes,8.0
+Cerrillos,2015,novillitos,2126.0
+Cerrillos,2015,novillos,550.0
+Cerrillos,2015,terneras,2453.0
+Cerrillos,2015,terneros,3438.0
+Cerrillos,2015,toritos,64.0
+Cerrillos,2015,toros,105.0
+Cerrillos,2015,total_bovinos,14379.0
+Cerrillos,2015,vacas,3423.0
+Cerrillos,2015,vaquillonas,2212.0
+Chicoana,2015,bueyes,0.0
+Chicoana,2015,novillitos,2170.0
+Chicoana,2015,novillos,690.0
+Chicoana,2015,terneras,1634.0
+Chicoana,2015,terneros,1761.0
+Chicoana,2015,toritos,412.0
+Chicoana,2015,toros,598.0
+Chicoana,2015,total_bovinos,18735.0
+Chicoana,2015,vacas,7833.0
+Chicoana,2015,vaquillonas,3637.0
+General Güemes,2015,bueyes,0.0
+General Güemes,2015,novillitos,3509.0
+General Güemes,2015,novillos,2345.0
+General Güemes,2015,terneras,4034.0
+General Güemes,2015,terneros,3041.0
+General Güemes,2015,toritos,189.0
+General Güemes,2015,toros,768.0
+General Güemes,2015,total_bovinos,31337.0
+General Güemes,2015,vacas,12680.0
+General Güemes,2015,vaquillonas,4771.0
+General José de San Martín,2015,bueyes,97.0
+General José de San Martín,2015,novillitos,16201.0
+General José de San Martín,2015,novillos,5433.0
+General José de San Martín,2015,terneras,10302.0
+General José de San Martín,2015,terneros,9831.0
+General José de San Martín,2015,toritos,3179.0
+General José de San Martín,2015,toros,2831.0
+General José de San Martín,2015,total_bovinos,116471.0
+General José de San Martín,2015,vacas,44405.0
+General José de San Martín,2015,vaquillonas,24192.0
+Guachipas,2015,bueyes,2.0
+Guachipas,2015,novillitos,1351.0
+Guachipas,2015,novillos,1695.0
+Guachipas,2015,terneras,2039.0
+Guachipas,2015,terneros,1690.0
+Guachipas,2015,toritos,347.0
+Guachipas,2015,toros,865.0
+Guachipas,2015,total_bovinos,24781.0
+Guachipas,2015,vacas,12123.0
+Guachipas,2015,vaquillonas,4669.0
+Iruya,2015,bueyes,2.0
+Iruya,2015,novillitos,1099.0
+Iruya,2015,novillos,1730.0
+Iruya,2015,terneras,971.0
+Iruya,2015,terneros,962.0
+Iruya,2015,toritos,35.0
+Iruya,2015,toros,393.0
+Iruya,2015,total_bovinos,11374.0
+Iruya,2015,vacas,4196.0
+Iruya,2015,vaquillonas,1986.0
+La Caldera,2015,bueyes,2.0
+La Caldera,2015,novillitos,679.0
+La Caldera,2015,novillos,921.0
+La Caldera,2015,terneras,1125.0
+La Caldera,2015,terneros,1030.0
+La Caldera,2015,toritos,52.0
+La Caldera,2015,toros,296.0
+La Caldera,2015,total_bovinos,10320.0
+La Caldera,2015,vacas,4504.0
+La Caldera,2015,vaquillonas,1711.0
+La Candelaria,2015,bueyes,0.0
+La Candelaria,2015,novillitos,2185.0
+La Candelaria,2015,novillos,1462.0
+La Candelaria,2015,terneras,2963.0
+La Candelaria,2015,terneros,3050.0
+La Candelaria,2015,toritos,9.0
+La Candelaria,2015,toros,815.0
+La Candelaria,2015,total_bovinos,26315.0
+La Candelaria,2015,vacas,11366.0
+La Candelaria,2015,vaquillonas,4465.0
+La Poma,2015,bueyes,0.0
+La Poma,2015,novillitos,2.0
+La Poma,2015,novillos,101.0
+La Poma,2015,terneras,135.0
+La Poma,2015,terneros,103.0
+La Poma,2015,toritos,0.0
+La Poma,2015,toros,56.0
+La Poma,2015,total_bovinos,992.0
+La Poma,2015,vacas,572.0
+La Poma,2015,vaquillonas,23.0
+La Viña,2015,bueyes,1.0
+La Viña,2015,novillitos,586.0
+La Viña,2015,novillos,633.0
+La Viña,2015,terneras,997.0
+La Viña,2015,terneros,863.0
+La Viña,2015,toritos,80.0
+La Viña,2015,toros,291.0
+La Viña,2015,total_bovinos,10903.0
+La Viña,2015,vacas,5373.0
+La Viña,2015,vaquillonas,2079.0
+Metán,2015,bueyes,0.0
+Metán,2015,novillitos,7446.0
+Metán,2015,novillos,4787.0
+Metán,2015,terneras,6224.0
+Metán,2015,terneros,4513.0
+Metán,2015,toritos,192.0
+Metán,2015,toros,1747.0
+Metán,2015,total_bovinos,66485.0
+Metán,2015,vacas,29855.0
+Metán,2015,vaquillonas,11721.0
+Molinos,2015,bueyes,9.0
+Molinos,2015,novillitos,556.0
+Molinos,2015,novillos,726.0
+Molinos,2015,terneras,531.0
+Molinos,2015,terneros,593.0
+Molinos,2015,toritos,16.0
+Molinos,2015,toros,441.0
+Molinos,2015,total_bovinos,7404.0
+Molinos,2015,vacas,3351.0
+Molinos,2015,vaquillonas,1181.0
+Orán,2015,bueyes,14.0
+Orán,2015,novillitos,2322.0
+Orán,2015,novillos,1839.0
+Orán,2015,terneras,2563.0
+Orán,2015,terneros,3005.0
+Orán,2015,toritos,148.0
+Orán,2015,toros,660.0
+Orán,2015,total_bovinos,24455.0
+Orán,2015,vacas,10424.0
+Orán,2015,vaquillonas,3480.0
+Rivadavia,2015,bueyes,8.0
+Rivadavia,2015,novillitos,16041.0
+Rivadavia,2015,novillos,9792.0
+Rivadavia,2015,terneras,12323.0
+Rivadavia,2015,terneros,13843.0
+Rivadavia,2015,toritos,82.0
+Rivadavia,2015,toros,3735.0
+Rivadavia,2015,total_bovinos,139726.0
+Rivadavia,2015,vacas,60303.0
+Rivadavia,2015,vaquillonas,23599.0
+Rosario de Lerma,2015,bueyes,8.0
+Rosario de Lerma,2015,novillitos,2717.0
+Rosario de Lerma,2015,novillos,1566.0
+Rosario de Lerma,2015,terneras,2546.0
+Rosario de Lerma,2015,terneros,2375.0
+Rosario de Lerma,2015,toritos,779.0
+Rosario de Lerma,2015,toros,701.0
+Rosario de Lerma,2015,total_bovinos,25458.0
+Rosario de Lerma,2015,vacas,9707.0
+Rosario de Lerma,2015,vaquillonas,5059.0
+Rosario de la Frontera,2015,bueyes,0.0
+Rosario de la Frontera,2015,novillitos,2168.0
+Rosario de la Frontera,2015,novillos,2524.0
+Rosario de la Frontera,2015,terneras,5351.0
+Rosario de la Frontera,2015,terneros,4445.0
+Rosario de la Frontera,2015,toritos,3.0
+Rosario de la Frontera,2015,toros,1689.0
+Rosario de la Frontera,2015,total_bovinos,53436.0
+Rosario de la Frontera,2015,vacas,26893.0
+Rosario de la Frontera,2015,vaquillonas,10363.0
+San Carlos,2015,bueyes,1.0
+San Carlos,2015,novillitos,489.0
+San Carlos,2015,novillos,679.0
+San Carlos,2015,terneras,592.0
+San Carlos,2015,terneros,634.0
+San Carlos,2015,toritos,106.0
+San Carlos,2015,toros,272.0
+San Carlos,2015,total_bovinos,6354.0
+San Carlos,2015,vacas,2462.0
+San Carlos,2015,vaquillonas,1119.0
+Santa Victoria,2015,bueyes,1.0
+Santa Victoria,2015,novillitos,2392.0
+Santa Victoria,2015,novillos,3493.0
+Santa Victoria,2015,terneras,1560.0
+Santa Victoria,2015,terneros,1560.0
+Santa Victoria,2015,toritos,0.0
+Santa Victoria,2015,toros,893.0
+Santa Victoria,2015,total_bovinos,21110.0
+Santa Victoria,2015,vacas,7918.0
+Santa Victoria,2015,vaquillonas,3293.0
+Anta,2016,bueyes,0.0
+Anta,2016,novillitos,43606.0
+Anta,2016,novillos,27549.0
+Anta,2016,terneras,46136.0
+Anta,2016,terneros,41967.0
+Anta,2016,toritos,3847.0
+Anta,2016,toros,7782.0
+Anta,2016,total_bovinos,400346.0
+Anta,2016,vacas,145113.0
+Anta,2016,vaquillonas,84346.0
+Cachi,2016,bueyes,0.0
+Cachi,2016,novillitos,97.0
+Cachi,2016,novillos,173.0
+Cachi,2016,terneras,221.0
+Cachi,2016,terneros,224.0
+Cachi,2016,toritos,37.0
+Cachi,2016,toros,107.0
+Cachi,2016,total_bovinos,2237.0
+Cachi,2016,vacas,968.0
+Cachi,2016,vaquillonas,410.0
+Cafayate,2016,bueyes,3.0
+Cafayate,2016,novillitos,316.0
+Cafayate,2016,novillos,600.0
+Cafayate,2016,terneras,541.0
+Cafayate,2016,terneros,507.0
+Cafayate,2016,toritos,92.0
+Cafayate,2016,toros,256.0
+Cafayate,2016,total_bovinos,5146.0
+Cafayate,2016,vacas,2124.0
+Cafayate,2016,vaquillonas,707.0
+Capital,2016,bueyes,1.0
+Capital,2016,novillitos,1545.0
+Capital,2016,novillos,508.0
+Capital,2016,terneras,1627.0
+Capital,2016,terneros,2568.0
+Capital,2016,toritos,131.0
+Capital,2016,toros,346.0
+Capital,2016,total_bovinos,15930.0
+Capital,2016,vacas,6499.0
+Capital,2016,vaquillonas,2705.0
+Cerrillos,2016,bueyes,6.0
+Cerrillos,2016,novillitos,2463.0
+Cerrillos,2016,novillos,153.0
+Cerrillos,2016,terneras,1664.0
+Cerrillos,2016,terneros,3180.0
+Cerrillos,2016,toritos,323.0
+Cerrillos,2016,toros,280.0
+Cerrillos,2016,total_bovinos,14955.0
+Cerrillos,2016,vacas,3524.0
+Cerrillos,2016,vaquillonas,3362.0
+Chicoana,2016,bueyes,0.0
+Chicoana,2016,novillitos,2955.0
+Chicoana,2016,novillos,775.0
+Chicoana,2016,terneras,1850.0
+Chicoana,2016,terneros,1815.0
+Chicoana,2016,toritos,350.0
+Chicoana,2016,toros,459.0
+Chicoana,2016,total_bovinos,20050.0
+Chicoana,2016,vacas,8228.0
+Chicoana,2016,vaquillonas,3618.0
+General Güemes,2016,bueyes,0.0
+General Güemes,2016,novillitos,5179.0
+General Güemes,2016,novillos,3921.0
+General Güemes,2016,terneras,6896.0
+General Güemes,2016,terneros,5412.0
+General Güemes,2016,toritos,341.0
+General Güemes,2016,toros,802.0
+General Güemes,2016,total_bovinos,42913.0
+General Güemes,2016,vacas,14059.0
+General Güemes,2016,vaquillonas,6303.0
+General José de San Martín,2016,bueyes,185.0
+General José de San Martín,2016,novillitos,18680.0
+General José de San Martín,2016,novillos,7315.0
+General José de San Martín,2016,terneras,13510.0
+General José de San Martín,2016,terneros,15020.0
+General José de San Martín,2016,toritos,2873.0
+General José de San Martín,2016,toros,2749.0
+General José de San Martín,2016,total_bovinos,133970.0
+General José de San Martín,2016,vacas,48076.0
+General José de San Martín,2016,vaquillonas,25562.0
+Guachipas,2016,bueyes,1.0
+Guachipas,2016,novillitos,1750.0
+Guachipas,2016,novillos,1789.0
+Guachipas,2016,terneras,2166.0
+Guachipas,2016,terneros,1988.0
+Guachipas,2016,toritos,204.0
+Guachipas,2016,toros,901.0
+Guachipas,2016,total_bovinos,25765.0
+Guachipas,2016,vacas,12709.0
+Guachipas,2016,vaquillonas,4257.0
+Iruya,2016,bueyes,0.0
+Iruya,2016,novillitos,1015.0
+Iruya,2016,novillos,1610.0
+Iruya,2016,terneras,958.0
+Iruya,2016,terneros,977.0
+Iruya,2016,toritos,39.0
+Iruya,2016,toros,303.0
+Iruya,2016,total_bovinos,10487.0
+Iruya,2016,vacas,3820.0
+Iruya,2016,vaquillonas,1765.0
+La Caldera,2016,bueyes,0.0
+La Caldera,2016,novillitos,699.0
+La Caldera,2016,novillos,784.0
+La Caldera,2016,terneras,1180.0
+La Caldera,2016,terneros,1066.0
+La Caldera,2016,toritos,85.0
+La Caldera,2016,toros,293.0
+La Caldera,2016,total_bovinos,10475.0
+La Caldera,2016,vacas,4676.0
+La Caldera,2016,vaquillonas,1692.0
+La Candelaria,2016,bueyes,0.0
+La Candelaria,2016,novillitos,2400.0
+La Candelaria,2016,novillos,1697.0
+La Candelaria,2016,terneras,2933.0
+La Candelaria,2016,terneros,2394.0
+La Candelaria,2016,toritos,5.0
+La Candelaria,2016,toros,837.0
+La Candelaria,2016,total_bovinos,27286.0
+La Candelaria,2016,vacas,12061.0
+La Candelaria,2016,vaquillonas,4959.0
+La Poma,2016,bueyes,0.0
+La Poma,2016,novillitos,35.0
+La Poma,2016,novillos,44.0
+La Poma,2016,terneras,113.0
+La Poma,2016,terneros,96.0
+La Poma,2016,toritos,4.0
+La Poma,2016,toros,36.0
+La Poma,2016,total_bovinos,792.0
+La Poma,2016,vacas,389.0
+La Poma,2016,vaquillonas,75.0
+La Viña,2016,bueyes,0.0
+La Viña,2016,novillitos,819.0
+La Viña,2016,novillos,506.0
+La Viña,2016,terneras,1376.0
+La Viña,2016,terneros,904.0
+La Viña,2016,toritos,128.0
+La Viña,2016,toros,300.0
+La Viña,2016,total_bovinos,11848.0
+La Viña,2016,vacas,5742.0
+La Viña,2016,vaquillonas,2073.0
+Metán,2016,bueyes,0.0
+Metán,2016,novillitos,9008.0
+Metán,2016,novillos,5560.0
+Metán,2016,terneras,7656.0
+Metán,2016,terneros,5556.0
+Metán,2016,toritos,249.0
+Metán,2016,toros,1659.0
+Metán,2016,total_bovinos,72382.0
+Metán,2016,vacas,30631.0
+Metán,2016,vaquillonas,12063.0
+Molinos,2016,bueyes,6.0
+Molinos,2016,novillitos,333.0
+Molinos,2016,novillos,888.0
+Molinos,2016,terneras,461.0
+Molinos,2016,terneros,461.0
+Molinos,2016,toritos,118.0
+Molinos,2016,toros,314.0
+Molinos,2016,total_bovinos,6597.0
+Molinos,2016,vacas,2908.0
+Molinos,2016,vaquillonas,1108.0
+Orán,2016,bueyes,8.0
+Orán,2016,novillitos,2534.0
+Orán,2016,novillos,1954.0
+Orán,2016,terneras,2960.0
+Orán,2016,terneros,3409.0
+Orán,2016,toritos,229.0
+Orán,2016,toros,616.0
+Orán,2016,total_bovinos,26031.0
+Orán,2016,vacas,10791.0
+Orán,2016,vaquillonas,3530.0
+Rivadavia,2016,bueyes,5.0
+Rivadavia,2016,novillitos,16677.0
+Rivadavia,2016,novillos,8382.0
+Rivadavia,2016,terneras,13370.0
+Rivadavia,2016,terneros,14940.0
+Rivadavia,2016,toritos,154.0
+Rivadavia,2016,toros,3722.0
+Rivadavia,2016,total_bovinos,146880.0
+Rivadavia,2016,vacas,64366.0
+Rivadavia,2016,vaquillonas,25264.0
+Rosario de Lerma,2016,bueyes,4.0
+Rosario de Lerma,2016,novillitos,3033.0
+Rosario de Lerma,2016,novillos,1409.0
+Rosario de Lerma,2016,terneras,3297.0
+Rosario de Lerma,2016,terneros,3850.0
+Rosario de Lerma,2016,toritos,941.0
+Rosario de Lerma,2016,toros,566.0
+Rosario de Lerma,2016,total_bovinos,28422.0
+Rosario de Lerma,2016,vacas,9812.0
+Rosario de Lerma,2016,vaquillonas,5510.0
+Rosario de la Frontera,2016,bueyes,0.0
+Rosario de la Frontera,2016,novillitos,2343.0
+Rosario de la Frontera,2016,novillos,2840.0
+Rosario de la Frontera,2016,terneras,6575.0
+Rosario de la Frontera,2016,terneros,5428.0
+Rosario de la Frontera,2016,toritos,16.0
+Rosario de la Frontera,2016,toros,1851.0
+Rosario de la Frontera,2016,total_bovinos,58548.0
+Rosario de la Frontera,2016,vacas,28825.0
+Rosario de la Frontera,2016,vaquillonas,10670.0
+San Carlos,2016,bueyes,41.0
+San Carlos,2016,novillitos,449.0
+San Carlos,2016,novillos,643.0
+San Carlos,2016,terneras,644.0
+San Carlos,2016,terneros,586.0
+San Carlos,2016,toritos,172.0
+San Carlos,2016,toros,226.0
+San Carlos,2016,total_bovinos,6309.0
+San Carlos,2016,vacas,2537.0
+San Carlos,2016,vaquillonas,1011.0
+Santa Victoria,2016,bueyes,6.0
+Santa Victoria,2016,novillitos,2319.0
+Santa Victoria,2016,novillos,3141.0
+Santa Victoria,2016,terneras,1600.0
+Santa Victoria,2016,terneros,1608.0
+Santa Victoria,2016,toritos,0.0
+Santa Victoria,2016,toros,799.0
+Santa Victoria,2016,total_bovinos,20117.0
+Santa Victoria,2016,vacas,7464.0
+Santa Victoria,2016,vaquillonas,3180.0
+Anta,2017,bueyes,0.0
+Anta,2017,novillitos,45701.0
+Anta,2017,novillos,31382.0
+Anta,2017,terneras,64593.0
+Anta,2017,terneros,54345.0
+Anta,2017,toritos,2367.0
+Anta,2017,toros,8263.0
+Anta,2017,total_bovinos,435099.0
+Anta,2017,vacas,159409.0
+Anta,2017,vaquillonas,69039.0
+Cachi,2017,bueyes,0.0
+Cachi,2017,novillitos,130.0
+Cachi,2017,novillos,150.0
+Cachi,2017,terneras,209.0
+Cachi,2017,terneros,203.0
+Cachi,2017,toritos,38.0
+Cachi,2017,toros,83.0
+Cachi,2017,total_bovinos,2275.0
+Cachi,2017,vacas,1052.0
+Cachi,2017,vaquillonas,410.0
+Cafayate,2017,bueyes,13.0
+Cafayate,2017,novillitos,295.0
+Cafayate,2017,novillos,594.0
+Cafayate,2017,terneras,531.0
+Cafayate,2017,terneros,526.0
+Cafayate,2017,toritos,103.0
+Cafayate,2017,toros,219.0
+Cafayate,2017,total_bovinos,5236.0
+Cafayate,2017,vacas,2217.0
+Cafayate,2017,vaquillonas,738.0
+Capital,2017,bueyes,2.0
+Capital,2017,novillitos,2915.0
+Capital,2017,novillos,867.0
+Capital,2017,terneras,3750.0
+Capital,2017,terneros,3977.0
+Capital,2017,toritos,308.0
+Capital,2017,toros,355.0
+Capital,2017,total_bovinos,22640.0
+Capital,2017,vacas,7620.0
+Capital,2017,vaquillonas,2846.0
+Cerrillos,2017,bueyes,6.0
+Cerrillos,2017,novillitos,2097.0
+Cerrillos,2017,novillos,188.0
+Cerrillos,2017,terneras,1705.0
+Cerrillos,2017,terneros,3247.0
+Cerrillos,2017,toritos,562.0
+Cerrillos,2017,toros,209.0
+Cerrillos,2017,total_bovinos,14146.0
+Cerrillos,2017,vacas,3432.0
+Cerrillos,2017,vaquillonas,2700.0
+Chicoana,2017,bueyes,0.0
+Chicoana,2017,novillitos,3812.0
+Chicoana,2017,novillos,1511.0
+Chicoana,2017,terneras,2088.0
+Chicoana,2017,terneros,2497.0
+Chicoana,2017,toritos,306.0
+Chicoana,2017,toros,408.0
+Chicoana,2017,total_bovinos,23464.0
+Chicoana,2017,vacas,7773.0
+Chicoana,2017,vaquillonas,5069.0
+General Güemes,2017,bueyes,0.0
+General Güemes,2017,novillitos,2660.0
+General Güemes,2017,novillos,1894.0
+General Güemes,2017,terneras,3618.0
+General Güemes,2017,terneros,4992.0
+General Güemes,2017,toritos,1675.0
+General Güemes,2017,toros,721.0
+General Güemes,2017,total_bovinos,33734.0
+General Güemes,2017,vacas,14520.0
+General Güemes,2017,vaquillonas,3654.0
+General José de San Martín,2017,bueyes,150.0
+General José de San Martín,2017,novillitos,24788.0
+General José de San Martín,2017,novillos,7447.0
+General José de San Martín,2017,terneras,13421.0
+General José de San Martín,2017,terneros,14979.0
+General José de San Martín,2017,toritos,2748.0
+General José de San Martín,2017,toros,2417.0
+General José de San Martín,2017,total_bovinos,141063.0
+General José de San Martín,2017,vacas,42930.0
+General José de San Martín,2017,vaquillonas,32183.0
+Guachipas,2017,bueyes,0.0
+Guachipas,2017,novillitos,2131.0
+Guachipas,2017,novillos,1644.0
+Guachipas,2017,terneras,2180.0
+Guachipas,2017,terneros,1987.0
+Guachipas,2017,toritos,337.0
+Guachipas,2017,toros,905.0
+Guachipas,2017,total_bovinos,26453.0
+Guachipas,2017,vacas,11907.0
+Guachipas,2017,vaquillonas,5362.0
+Iruya,2017,bueyes,0.0
+Iruya,2017,novillitos,985.0
+Iruya,2017,novillos,1429.0
+Iruya,2017,terneras,908.0
+Iruya,2017,terneros,849.0
+Iruya,2017,toritos,62.0
+Iruya,2017,toros,317.0
+Iruya,2017,total_bovinos,9868.0
+Iruya,2017,vacas,3535.0
+Iruya,2017,vaquillonas,1783.0
+La Caldera,2017,bueyes,0.0
+La Caldera,2017,novillitos,750.0
+La Caldera,2017,novillos,929.0
+La Caldera,2017,terneras,1098.0
+La Caldera,2017,terneros,1014.0
+La Caldera,2017,toritos,248.0
+La Caldera,2017,toros,283.0
+La Caldera,2017,total_bovinos,11080.0
+La Caldera,2017,vacas,4874.0
+La Caldera,2017,vaquillonas,1884.0
+La Candelaria,2017,bueyes,0.0
+La Candelaria,2017,novillitos,1650.0
+La Candelaria,2017,novillos,1454.0
+La Candelaria,2017,terneras,2877.0
+La Candelaria,2017,terneros,2142.0
+La Candelaria,2017,toritos,0.0
+La Candelaria,2017,toros,715.0
+La Candelaria,2017,total_bovinos,25844.0
+La Candelaria,2017,vacas,12920.0
+La Candelaria,2017,vaquillonas,4086.0
+La Poma,2017,bueyes,0.0
+La Poma,2017,novillitos,49.0
+La Poma,2017,novillos,40.0
+La Poma,2017,terneras,116.0
+La Poma,2017,terneros,69.0
+La Poma,2017,toritos,52.0
+La Poma,2017,toros,34.0
+La Poma,2017,total_bovinos,952.0
+La Poma,2017,vacas,445.0
+La Poma,2017,vaquillonas,147.0
+La Viña,2017,bueyes,0.0
+La Viña,2017,novillitos,663.0
+La Viña,2017,novillos,388.0
+La Viña,2017,terneras,1276.0
+La Viña,2017,terneros,1129.0
+La Viña,2017,toritos,167.0
+La Viña,2017,toros,301.0
+La Viña,2017,total_bovinos,11411.0
+La Viña,2017,vacas,5540.0
+La Viña,2017,vaquillonas,1947.0
+Metán,2017,bueyes,0.0
+Metán,2017,novillitos,7988.0
+Metán,2017,novillos,4389.0
+Metán,2017,terneras,7836.0
+Metán,2017,terneros,6499.0
+Metán,2017,toritos,232.0
+Metán,2017,toros,1760.0
+Metán,2017,total_bovinos,70316.0
+Metán,2017,vacas,33035.0
+Metán,2017,vaquillonas,8577.0
+Molinos,2017,bueyes,7.0
+Molinos,2017,novillitos,336.0
+Molinos,2017,novillos,614.0
+Molinos,2017,terneras,448.0
+Molinos,2017,terneros,408.0
+Molinos,2017,toritos,172.0
+Molinos,2017,toros,387.0
+Molinos,2017,total_bovinos,6416.0
+Molinos,2017,vacas,3068.0
+Molinos,2017,vaquillonas,976.0
+Orán,2017,bueyes,11.0
+Orán,2017,novillitos,2881.0
+Orán,2017,novillos,2609.0
+Orán,2017,terneras,3678.0
+Orán,2017,terneros,5365.0
+Orán,2017,toritos,277.0
+Orán,2017,toros,613.0
+Orán,2017,total_bovinos,31081.0
+Orán,2017,vacas,11020.0
+Orán,2017,vaquillonas,4627.0
+Rivadavia,2017,bueyes,7.0
+Rivadavia,2017,novillitos,18086.0
+Rivadavia,2017,novillos,6791.0
+Rivadavia,2017,terneras,15508.0
+Rivadavia,2017,terneros,16907.0
+Rivadavia,2017,toritos,208.0
+Rivadavia,2017,toros,3566.0
+Rivadavia,2017,total_bovinos,153379.0
+Rivadavia,2017,vacas,63588.0
+Rivadavia,2017,vaquillonas,28718.0
+Rosario de Lerma,2017,bueyes,2.0
+Rosario de Lerma,2017,novillitos,2659.0
+Rosario de Lerma,2017,novillos,2105.0
+Rosario de Lerma,2017,terneras,3378.0
+Rosario de Lerma,2017,terneros,3069.0
+Rosario de Lerma,2017,toritos,909.0
+Rosario de Lerma,2017,toros,567.0
+Rosario de Lerma,2017,total_bovinos,28175.0
+Rosario de Lerma,2017,vacas,9438.0
+Rosario de Lerma,2017,vaquillonas,6048.0
+Rosario de la Frontera,2017,bueyes,0.0
+Rosario de la Frontera,2017,novillitos,4713.0
+Rosario de la Frontera,2017,novillos,3045.0
+Rosario de la Frontera,2017,terneras,7976.0
+Rosario de la Frontera,2017,terneros,7052.0
+Rosario de la Frontera,2017,toritos,43.0
+Rosario de la Frontera,2017,toros,1878.0
+Rosario de la Frontera,2017,total_bovinos,64474.0
+Rosario de la Frontera,2017,vacas,30033.0
+Rosario de la Frontera,2017,vaquillonas,9734.0
+San Carlos,2017,bueyes,14.0
+San Carlos,2017,novillitos,408.0
+San Carlos,2017,novillos,590.0
+San Carlos,2017,terneras,543.0
+San Carlos,2017,terneros,483.0
+San Carlos,2017,toritos,88.0
+San Carlos,2017,toros,168.0
+San Carlos,2017,total_bovinos,5600.0
+San Carlos,2017,vacas,2324.0
+San Carlos,2017,vaquillonas,982.0
+Santa Victoria,2017,bueyes,0.0
+Santa Victoria,2017,novillitos,2234.0
+Santa Victoria,2017,novillos,2722.0
+Santa Victoria,2017,terneras,1406.0
+Santa Victoria,2017,terneros,1383.0
+Santa Victoria,2017,toritos,0.0
+Santa Victoria,2017,toros,601.0
+Santa Victoria,2017,total_bovinos,17862.0
+Santa Victoria,2017,vacas,6635.0
+Santa Victoria,2017,vaquillonas,2881.0
+Anta,2018,bueyes,0.0
+Anta,2018,novillitos,55188.0
+Anta,2018,novillos,39064.0
+Anta,2018,terneras,44356.0
+Anta,2018,terneros,51958.0
+Anta,2018,toritos,4775.0
+Anta,2018,toros,8086.0
+Anta,2018,total_bovinos,477807.0
+Anta,2018,vacas,173991.0
+Anta,2018,vaquillonas,100389.0
+Cachi,2018,bueyes,0.0
+Cachi,2018,novillitos,94.0
+Cachi,2018,novillos,124.0
+Cachi,2018,terneras,186.0
+Cachi,2018,terneros,232.0
+Cachi,2018,toritos,21.0
+Cachi,2018,toros,72.0
+Cachi,2018,total_bovinos,2116.0
+Cachi,2018,vacas,1044.0
+Cachi,2018,vaquillonas,343.0
+Cafayate,2018,bueyes,0.0
+Cafayate,2018,novillitos,300.0
+Cafayate,2018,novillos,531.0
+Cafayate,2018,terneras,504.0
+Cafayate,2018,terneros,486.0
+Cafayate,2018,toritos,174.0
+Cafayate,2018,toros,210.0
+Cafayate,2018,total_bovinos,5096.0
+Cafayate,2018,vacas,2186.0
+Cafayate,2018,vaquillonas,705.0
+Capital,2018,bueyes,0.0
+Capital,2018,novillitos,2688.0
+Capital,2018,novillos,671.0
+Capital,2018,terneras,2918.0
+Capital,2018,terneros,2852.0
+Capital,2018,toritos,494.0
+Capital,2018,toros,427.0
+Capital,2018,total_bovinos,22036.0
+Capital,2018,vacas,8108.0
+Capital,2018,vaquillonas,3878.0
+Cerrillos,2018,bueyes,0.0
+Cerrillos,2018,novillitos,2046.0
+Cerrillos,2018,novillos,394.0
+Cerrillos,2018,terneras,1315.0
+Cerrillos,2018,terneros,2388.0
+Cerrillos,2018,toritos,654.0
+Cerrillos,2018,toros,134.0
+Cerrillos,2018,total_bovinos,13087.0
+Cerrillos,2018,vacas,3517.0
+Cerrillos,2018,vaquillonas,2639.0
+Chicoana,2018,bueyes,0.0
+Chicoana,2018,novillitos,2929.0
+Chicoana,2018,novillos,1386.0
+Chicoana,2018,terneras,2010.0
+Chicoana,2018,terneros,1684.0
+Chicoana,2018,toritos,388.0
+Chicoana,2018,toros,382.0
+Chicoana,2018,total_bovinos,20428.0
+Chicoana,2018,vacas,7991.0
+Chicoana,2018,vaquillonas,3658.0
+General Güemes,2018,bueyes,0.0
+General Güemes,2018,novillitos,2913.0
+General Güemes,2018,novillos,1860.0
+General Güemes,2018,terneras,3888.0
+General Güemes,2018,terneros,4249.0
+General Güemes,2018,toritos,1106.0
+General Güemes,2018,toros,815.0
+General Güemes,2018,total_bovinos,32812.0
+General Güemes,2018,vacas,14415.0
+General Güemes,2018,vaquillonas,3566.0
+General José de San Martín,2018,bueyes,122.0
+General José de San Martín,2018,novillitos,27357.0
+General José de San Martín,2018,novillos,7452.0
+General José de San Martín,2018,terneras,22001.0
+General José de San Martín,2018,terneros,20788.0
+General José de San Martín,2018,toritos,2723.0
+General José de San Martín,2018,toros,2397.0
+General José de San Martín,2018,total_bovinos,164612.0
+General José de San Martín,2018,vacas,45498.0
+General José de San Martín,2018,vaquillonas,36274.0
+Guachipas,2018,bueyes,1.0
+Guachipas,2018,novillitos,1872.0
+Guachipas,2018,novillos,1846.0
+Guachipas,2018,terneras,2023.0
+Guachipas,2018,terneros,1708.0
+Guachipas,2018,toritos,431.0
+Guachipas,2018,toros,818.0
+Guachipas,2018,total_bovinos,26538.0
+Guachipas,2018,vacas,12778.0
+Guachipas,2018,vaquillonas,5061.0
+Iruya,2018,bueyes,2.0
+Iruya,2018,novillitos,914.0
+Iruya,2018,novillos,1613.0
+Iruya,2018,terneras,900.0
+Iruya,2018,terneros,897.0
+Iruya,2018,toritos,9.0
+Iruya,2018,toros,344.0
+Iruya,2018,total_bovinos,10310.0
+Iruya,2018,vacas,3982.0
+Iruya,2018,vaquillonas,1649.0
+La Caldera,2018,bueyes,2.0
+La Caldera,2018,novillitos,904.0
+La Caldera,2018,novillos,722.0
+La Caldera,2018,terneras,1153.0
+La Caldera,2018,terneros,971.0
+La Caldera,2018,toritos,278.0
+La Caldera,2018,toros,241.0
+La Caldera,2018,total_bovinos,10533.0
+La Caldera,2018,vacas,4653.0
+La Caldera,2018,vaquillonas,1609.0
+La Candelaria,2018,bueyes,0.0
+La Candelaria,2018,novillitos,2532.0
+La Candelaria,2018,novillos,1439.0
+La Candelaria,2018,terneras,1934.0
+La Candelaria,2018,terneros,1682.0
+La Candelaria,2018,toritos,200.0
+La Candelaria,2018,toros,839.0
+La Candelaria,2018,total_bovinos,27333.0
+La Candelaria,2018,vacas,13881.0
+La Candelaria,2018,vaquillonas,4826.0
+La Poma,2018,bueyes,0.0
+La Poma,2018,novillitos,37.0
+La Poma,2018,novillos,45.0
+La Poma,2018,terneras,99.0
+La Poma,2018,terneros,67.0
+La Poma,2018,toritos,40.0
+La Poma,2018,toros,34.0
+La Poma,2018,total_bovinos,917.0
+La Poma,2018,vacas,469.0
+La Poma,2018,vaquillonas,126.0
+La Viña,2018,bueyes,1.0
+La Viña,2018,novillitos,769.0
+La Viña,2018,novillos,405.0
+La Viña,2018,terneras,1392.0
+La Viña,2018,terneros,1018.0
+La Viña,2018,toritos,296.0
+La Viña,2018,toros,280.0
+La Viña,2018,total_bovinos,11820.0
+La Viña,2018,vacas,5661.0
+La Viña,2018,vaquillonas,1998.0
+Metán,2018,bueyes,0.0
+Metán,2018,novillitos,8891.0
+Metán,2018,novillos,4341.0
+Metán,2018,terneras,8587.0
+Metán,2018,terneros,7061.0
+Metán,2018,toritos,360.0
+Metán,2018,toros,1734.0
+Metán,2018,total_bovinos,75871.0
+Metán,2018,vacas,34940.0
+Metán,2018,vaquillonas,9957.0
+Molinos,2018,bueyes,1.0
+Molinos,2018,novillitos,263.0
+Molinos,2018,novillos,533.0
+Molinos,2018,terneras,486.0
+Molinos,2018,terneros,420.0
+Molinos,2018,toritos,147.0
+Molinos,2018,toros,345.0
+Molinos,2018,total_bovinos,5822.0
+Molinos,2018,vacas,2964.0
+Molinos,2018,vaquillonas,663.0
+Orán,2018,bueyes,9.0
+Orán,2018,novillitos,6649.0
+Orán,2018,novillos,2881.0
+Orán,2018,terneras,3366.0
+Orán,2018,terneros,3138.0
+Orán,2018,toritos,203.0
+Orán,2018,toros,827.0
+Orán,2018,total_bovinos,36406.0
+Orán,2018,vacas,11983.0
+Orán,2018,vaquillonas,7350.0
+Rivadavia,2018,bueyes,16.0
+Rivadavia,2018,novillitos,12178.0
+Rivadavia,2018,novillos,8084.0
+Rivadavia,2018,terneras,18185.0
+Rivadavia,2018,terneros,20550.0
+Rivadavia,2018,toritos,1815.0
+Rivadavia,2018,toros,3558.0
+Rivadavia,2018,total_bovinos,153580.0
+Rivadavia,2018,vacas,65586.0
+Rivadavia,2018,vaquillonas,23608.0
+Rosario de Lerma,2018,bueyes,1.0
+Rosario de Lerma,2018,novillitos,2832.0
+Rosario de Lerma,2018,novillos,1791.0
+Rosario de Lerma,2018,terneras,3640.0
+Rosario de Lerma,2018,terneros,3009.0
+Rosario de Lerma,2018,toritos,838.0
+Rosario de Lerma,2018,toros,490.0
+Rosario de Lerma,2018,total_bovinos,27126.0
+Rosario de Lerma,2018,vacas,9373.0
+Rosario de Lerma,2018,vaquillonas,5152.0
+Rosario de la Frontera,2018,bueyes,0.0
+Rosario de la Frontera,2018,novillitos,7364.0
+Rosario de la Frontera,2018,novillos,4260.0
+Rosario de la Frontera,2018,terneras,6321.0
+Rosario de la Frontera,2018,terneros,5520.0
+Rosario de la Frontera,2018,toritos,389.0
+Rosario de la Frontera,2018,toros,1700.0
+Rosario de la Frontera,2018,total_bovinos,69015.0
+Rosario de la Frontera,2018,vacas,32639.0
+Rosario de la Frontera,2018,vaquillonas,10822.0
+San Carlos,2018,bueyes,4.0
+San Carlos,2018,novillitos,351.0
+San Carlos,2018,novillos,649.0
+San Carlos,2018,terneras,597.0
+San Carlos,2018,terneros,561.0
+San Carlos,2018,toritos,98.0
+San Carlos,2018,toros,186.0
+San Carlos,2018,total_bovinos,5785.0
+San Carlos,2018,vacas,2321.0
+San Carlos,2018,vaquillonas,1018.0
+Santa Victoria,2018,bueyes,0.0
+Santa Victoria,2018,novillitos,1830.0
+Santa Victoria,2018,novillos,2307.0
+Santa Victoria,2018,terneras,1005.0
+Santa Victoria,2018,terneros,1066.0
+Santa Victoria,2018,toritos,0.0
+Santa Victoria,2018,toros,504.0
+Santa Victoria,2018,total_bovinos,14195.0
+Santa Victoria,2018,vacas,5146.0
+Santa Victoria,2018,vaquillonas,2337.0
+Anta,2019,bueyes,10.0
+Anta,2019,novillitos,47598.0
+Anta,2019,novillos,32757.0
+Anta,2019,terneras,69279.0
+Anta,2019,terneros,66018.0
+Anta,2019,toritos,5188.0
+Anta,2019,toros,7656.0
+Anta,2019,total_bovinos,483542.0
+Anta,2019,vacas,170257.0
+Anta,2019,vaquillonas,84779.0
+Cachi,2019,bueyes,2.0
+Cachi,2019,novillitos,101.0
+Cachi,2019,novillos,87.0
+Cachi,2019,terneras,165.0
+Cachi,2019,terneros,293.0
+Cachi,2019,toritos,33.0
+Cachi,2019,toros,74.0
+Cachi,2019,total_bovinos,2138.0
+Cachi,2019,vacas,968.0
+Cachi,2019,vaquillonas,415.0
+Cafayate,2019,bueyes,0.0
+Cafayate,2019,novillitos,267.0
+Cafayate,2019,novillos,428.0
+Cafayate,2019,terneras,554.0
+Cafayate,2019,terneros,487.0
+Cafayate,2019,toritos,91.0
+Cafayate,2019,toros,212.0
+Cafayate,2019,total_bovinos,4790.0
+Cafayate,2019,vacas,2091.0
+Cafayate,2019,vaquillonas,660.0
+Capital,2019,bueyes,0.0
+Capital,2019,novillitos,1705.0
+Capital,2019,novillos,432.0
+Capital,2019,terneras,1924.0
+Capital,2019,terneros,1889.0
+Capital,2019,toritos,790.0
+Capital,2019,toros,392.0
+Capital,2019,total_bovinos,17370.0
+Capital,2019,vacas,7773.0
+Capital,2019,vaquillonas,2465.0
+Cerrillos,2019,bueyes,0.0
+Cerrillos,2019,novillitos,1256.0
+Cerrillos,2019,novillos,370.0
+Cerrillos,2019,terneras,1625.0
+Cerrillos,2019,terneros,2420.0
+Cerrillos,2019,toritos,652.0
+Cerrillos,2019,toros,153.0
+Cerrillos,2019,total_bovinos,12581.0
+Cerrillos,2019,vacas,3895.0
+Cerrillos,2019,vaquillonas,2210.0
+Chicoana,2019,bueyes,0.0
+Chicoana,2019,novillitos,2539.0
+Chicoana,2019,novillos,1234.0
+Chicoana,2019,terneras,1776.0
+Chicoana,2019,terneros,1523.0
+Chicoana,2019,toritos,201.0
+Chicoana,2019,toros,345.0
+Chicoana,2019,total_bovinos,18352.0
+Chicoana,2019,vacas,7332.0
+Chicoana,2019,vaquillonas,3402.0
+General Güemes,2019,bueyes,3.0
+General Güemes,2019,novillitos,1855.0
+General Güemes,2019,novillos,1387.0
+General Güemes,2019,terneras,2723.0
+General Güemes,2019,terneros,2732.0
+General Güemes,2019,toritos,186.0
+General Güemes,2019,toros,724.0
+General Güemes,2019,total_bovinos,27342.0
+General Güemes,2019,vacas,15739.0
+General Güemes,2019,vaquillonas,1993.0
+General José de San Martín,2019,bueyes,166.0
+General José de San Martín,2019,novillitos,23879.0
+General José de San Martín,2019,novillos,5476.0
+General José de San Martín,2019,terneras,18312.0
+General José de San Martín,2019,terneros,22395.0
+General José de San Martín,2019,toritos,3197.0
+General José de San Martín,2019,toros,2083.0
+General José de San Martín,2019,total_bovinos,146485.0
+General José de San Martín,2019,vacas,37299.0
+General José de San Martín,2019,vaquillonas,33678.0
+Guachipas,2019,bueyes,0.0
+Guachipas,2019,novillitos,1980.0
+Guachipas,2019,novillos,1560.0
+Guachipas,2019,terneras,1888.0
+Guachipas,2019,terneros,1999.0
+Guachipas,2019,toritos,401.0
+Guachipas,2019,toros,833.0
+Guachipas,2019,total_bovinos,24862.0
+Guachipas,2019,vacas,11539.0
+Guachipas,2019,vaquillonas,4662.0
+Iruya,2019,bueyes,0.0
+Iruya,2019,novillitos,884.0
+Iruya,2019,novillos,1354.0
+Iruya,2019,terneras,784.0
+Iruya,2019,terneros,768.0
+Iruya,2019,toritos,13.0
+Iruya,2019,toros,262.0
+Iruya,2019,total_bovinos,8722.0
+Iruya,2019,vacas,3273.0
+Iruya,2019,vaquillonas,1384.0
+La Caldera,2019,bueyes,0.0
+La Caldera,2019,novillitos,789.0
+La Caldera,2019,novillos,804.0
+La Caldera,2019,terneras,1353.0
+La Caldera,2019,terneros,1107.0
+La Caldera,2019,toritos,103.0
+La Caldera,2019,toros,257.0
+La Caldera,2019,total_bovinos,10663.0
+La Caldera,2019,vacas,4707.0
+La Caldera,2019,vaquillonas,1543.0
+La Candelaria,2019,bueyes,0.0
+La Candelaria,2019,novillitos,1409.0
+La Candelaria,2019,novillos,839.0
+La Candelaria,2019,terneras,1770.0
+La Candelaria,2019,terneros,2008.0
+La Candelaria,2019,toritos,159.0
+La Candelaria,2019,toros,551.0
+La Candelaria,2019,total_bovinos,22885.0
+La Candelaria,2019,vacas,12589.0
+La Candelaria,2019,vaquillonas,3560.0
+La Poma,2019,bueyes,2.0
+La Poma,2019,novillitos,42.0
+La Poma,2019,novillos,36.0
+La Poma,2019,terneras,100.0
+La Poma,2019,terneros,77.0
+La Poma,2019,toritos,30.0
+La Poma,2019,toros,24.0
+La Poma,2019,total_bovinos,871.0
+La Poma,2019,vacas,450.0
+La Poma,2019,vaquillonas,110.0
+La Viña,2019,bueyes,0.0
+La Viña,2019,novillitos,874.0
+La Viña,2019,novillos,319.0
+La Viña,2019,terneras,1103.0
+La Viña,2019,terneros,1063.0
+La Viña,2019,toritos,227.0
+La Viña,2019,toros,298.0
+La Viña,2019,total_bovinos,11888.0
+La Viña,2019,vacas,5748.0
+La Viña,2019,vaquillonas,2256.0
+Metán,2019,bueyes,0.0
+Metán,2019,novillitos,6844.0
+Metán,2019,novillos,7194.0
+Metán,2019,terneras,5134.0
+Metán,2019,terneros,4445.0
+Metán,2019,toritos,402.0
+Metán,2019,toros,1663.0
+Metán,2019,total_bovinos,70418.0
+Metán,2019,vacas,35307.0
+Metán,2019,vaquillonas,9429.0
+Molinos,2019,bueyes,15.0
+Molinos,2019,novillitos,236.0
+Molinos,2019,novillos,297.0
+Molinos,2019,terneras,437.0
+Molinos,2019,terneros,453.0
+Molinos,2019,toritos,167.0
+Molinos,2019,toros,265.0
+Molinos,2019,total_bovinos,4951.0
+Molinos,2019,vacas,2301.0
+Molinos,2019,vaquillonas,780.0
+Orán,2019,bueyes,0.0
+Orán,2019,novillitos,8034.0
+Orán,2019,novillos,2266.0
+Orán,2019,terneras,5479.0
+Orán,2019,terneros,5594.0
+Orán,2019,toritos,443.0
+Orán,2019,toros,558.0
+Orán,2019,total_bovinos,45933.0
+Orán,2019,vacas,16769.0
+Orán,2019,vaquillonas,6790.0
+Rivadavia,2019,bueyes,34.0
+Rivadavia,2019,novillitos,10622.0
+Rivadavia,2019,novillos,4924.0
+Rivadavia,2019,terneras,12312.0
+Rivadavia,2019,terneros,12497.0
+Rivadavia,2019,toritos,3918.0
+Rivadavia,2019,toros,2752.0
+Rivadavia,2019,total_bovinos,125081.0
+Rivadavia,2019,vacas,59116.0
+Rivadavia,2019,vaquillonas,18906.0
+Rosario de Lerma,2019,bueyes,3.0
+Rosario de Lerma,2019,novillitos,2325.0
+Rosario de Lerma,2019,novillos,1307.0
+Rosario de Lerma,2019,terneras,4946.0
+Rosario de Lerma,2019,terneros,4813.0
+Rosario de Lerma,2019,toritos,1080.0
+Rosario de Lerma,2019,toros,439.0
+Rosario de Lerma,2019,total_bovinos,29282.0
+Rosario de Lerma,2019,vacas,9198.0
+Rosario de Lerma,2019,vaquillonas,5171.0
+Rosario de la Frontera,2019,bueyes,0.0
+Rosario de la Frontera,2019,novillitos,8621.0
+Rosario de la Frontera,2019,novillos,2818.0
+Rosario de la Frontera,2019,terneras,6575.0
+Rosario de la Frontera,2019,terneros,6185.0
+Rosario de la Frontera,2019,toritos,651.0
+Rosario de la Frontera,2019,toros,1663.0
+Rosario de la Frontera,2019,total_bovinos,67563.0
+Rosario de la Frontera,2019,vacas,31214.0
+Rosario de la Frontera,2019,vaquillonas,9836.0
+San Carlos,2019,bueyes,13.0
+San Carlos,2019,novillitos,314.0
+San Carlos,2019,novillos,486.0
+San Carlos,2019,terneras,631.0
+San Carlos,2019,terneros,576.0
+San Carlos,2019,toritos,121.0
+San Carlos,2019,toros,189.0
+San Carlos,2019,total_bovinos,5625.0
+San Carlos,2019,vacas,2351.0
+San Carlos,2019,vaquillonas,944.0
+Santa Victoria,2019,bueyes,10.0
+Santa Victoria,2019,novillitos,1297.0
+Santa Victoria,2019,novillos,1627.0
+Santa Victoria,2019,terneras,727.0
+Santa Victoria,2019,terneros,701.0
+Santa Victoria,2019,toritos,3.0
+Santa Victoria,2019,toros,323.0
+Santa Victoria,2019,total_bovinos,10092.0
+Santa Victoria,2019,vacas,3661.0
+Santa Victoria,2019,vaquillonas,1743.0
+Anta,2020,bueyes,53.0
+Anta,2020,novillitos,49288.0
+Anta,2020,novillos,31145.0
+Anta,2020,terneras,70272.0
+Anta,2020,terneros,57288.0
+Anta,2020,toritos,4266.0
+Anta,2020,toros,8166.0
+Anta,2020,total_bovinos,467539.0
+Anta,2020,vacas,174433.0
+Anta,2020,vaquillonas,72628.0
+Cachi,2020,bueyes,0.0
+Cachi,2020,novillitos,150.0
+Cachi,2020,novillos,103.0
+Cachi,2020,terneras,222.0
+Cachi,2020,terneros,243.0
+Cachi,2020,toritos,55.0
+Cachi,2020,toros,82.0
+Cachi,2020,total_bovinos,2414.0
+Cachi,2020,vacas,1110.0
+Cachi,2020,vaquillonas,449.0
+Cafayate,2020,bueyes,0.0
+Cafayate,2020,novillitos,285.0
+Cafayate,2020,novillos,495.0
+Cafayate,2020,terneras,445.0
+Cafayate,2020,terneros,536.0
+Cafayate,2020,toritos,116.0
+Cafayate,2020,toros,232.0
+Cafayate,2020,total_bovinos,5032.0
+Cafayate,2020,vacas,2266.0
+Cafayate,2020,vaquillonas,657.0
+Capital,2020,bueyes,0.0
+Capital,2020,novillitos,2047.0
+Capital,2020,novillos,499.0
+Capital,2020,terneras,1985.0
+Capital,2020,terneros,1588.0
+Capital,2020,toritos,2359.0
+Capital,2020,toros,355.0
+Capital,2020,total_bovinos,19144.0
+Capital,2020,vacas,6734.0
+Capital,2020,vaquillonas,3577.0
+Cerrillos,2020,bueyes,0.0
+Cerrillos,2020,novillitos,1202.0
+Cerrillos,2020,novillos,233.0
+Cerrillos,2020,terneras,2072.0
+Cerrillos,2020,terneros,2284.0
+Cerrillos,2020,toritos,872.0
+Cerrillos,2020,toros,264.0
+Cerrillos,2020,total_bovinos,13046.0
+Cerrillos,2020,vacas,3815.0
+Cerrillos,2020,vaquillonas,2304.0
+Chicoana,2020,bueyes,1.0
+Chicoana,2020,novillitos,1301.0
+Chicoana,2020,novillos,1370.0
+Chicoana,2020,terneras,2099.0
+Chicoana,2020,terneros,1771.0
+Chicoana,2020,toritos,1333.0
+Chicoana,2020,toros,392.0
+Chicoana,2020,total_bovinos,19991.0
+Chicoana,2020,vacas,7746.0
+Chicoana,2020,vaquillonas,3978.0
+General Güemes,2020,bueyes,6.0
+General Güemes,2020,novillitos,1348.0
+General Güemes,2020,novillos,1035.0
+General Güemes,2020,terneras,3528.0
+General Güemes,2020,terneros,2021.0
+General Güemes,2020,toritos,195.0
+General Güemes,2020,toros,757.0
+General Güemes,2020,total_bovinos,27646.0
+General Güemes,2020,vacas,15708.0
+General Güemes,2020,vaquillonas,3048.0
+General José de San Martín,2020,bueyes,47.0
+General José de San Martín,2020,novillitos,14782.0
+General José de San Martín,2020,novillos,3012.0
+General José de San Martín,2020,terneras,16067.0
+General José de San Martín,2020,terneros,14271.0
+General José de San Martín,2020,toritos,3133.0
+General José de San Martín,2020,toros,1490.0
+General José de San Martín,2020,total_bovinos,110686.0
+General José de San Martín,2020,vacas,28542.0
+General José de San Martín,2020,vaquillonas,29342.0
+Guachipas,2020,bueyes,1.0
+Guachipas,2020,novillitos,1428.0
+Guachipas,2020,novillos,1216.0
+Guachipas,2020,terneras,2166.0
+Guachipas,2020,terneros,2040.0
+Guachipas,2020,toritos,354.0
+Guachipas,2020,toros,687.0
+Guachipas,2020,total_bovinos,23558.0
+Guachipas,2020,vacas,11550.0
+Guachipas,2020,vaquillonas,4116.0
+Iruya,2020,bueyes,46.0
+Iruya,2020,novillitos,144.0
+Iruya,2020,novillos,217.0
+Iruya,2020,terneras,156.0
+Iruya,2020,terneros,143.0
+Iruya,2020,toritos,45.0
+Iruya,2020,toros,55.0
+Iruya,2020,total_bovinos,1779.0
+Iruya,2020,vacas,661.0
+Iruya,2020,vaquillonas,312.0
+La Caldera,2020,bueyes,0.0
+La Caldera,2020,novillitos,831.0
+La Caldera,2020,novillos,670.0
+La Caldera,2020,terneras,1074.0
+La Caldera,2020,terneros,940.0
+La Caldera,2020,toritos,103.0
+La Caldera,2020,toros,228.0
+La Caldera,2020,total_bovinos,10426.0
+La Caldera,2020,vacas,5000.0
+La Caldera,2020,vaquillonas,1580.0
+La Candelaria,2020,bueyes,0.0
+La Candelaria,2020,novillitos,740.0
+La Candelaria,2020,novillos,913.0
+La Candelaria,2020,terneras,1680.0
+La Candelaria,2020,terneros,2144.0
+La Candelaria,2020,toritos,175.0
+La Candelaria,2020,toros,494.0
+La Candelaria,2020,total_bovinos,20594.0
+La Candelaria,2020,vacas,11496.0
+La Candelaria,2020,vaquillonas,2952.0
+La Poma,2020,bueyes,0.0
+La Poma,2020,novillitos,48.0
+La Poma,2020,novillos,54.0
+La Poma,2020,terneras,96.0
+La Poma,2020,terneros,94.0
+La Poma,2020,toritos,39.0
+La Poma,2020,toros,38.0
+La Poma,2020,total_bovinos,1075.0
+La Poma,2020,vacas,540.0
+La Poma,2020,vaquillonas,166.0
+La Viña,2020,bueyes,0.0
+La Viña,2020,novillitos,420.0
+La Viña,2020,novillos,349.0
+La Viña,2020,terneras,1307.0
+La Viña,2020,terneros,1477.0
+La Viña,2020,toritos,161.0
+La Viña,2020,toros,324.0
+La Viña,2020,total_bovinos,11848.0
+La Viña,2020,vacas,6140.0
+La Viña,2020,vaquillonas,1670.0
+Metán,2020,bueyes,0.0
+Metán,2020,novillitos,6826.0
+Metán,2020,novillos,6142.0
+Metán,2020,terneras,9297.0
+Metán,2020,terneros,10286.0
+Metán,2020,toritos,329.0
+Metán,2020,toros,1639.0
+Metán,2020,total_bovinos,76838.0
+Metán,2020,vacas,31302.0
+Metán,2020,vaquillonas,11017.0
+Molinos,2020,bueyes,1.0
+Molinos,2020,novillitos,272.0
+Molinos,2020,novillos,366.0
+Molinos,2020,terneras,553.0
+Molinos,2020,terneros,465.0
+Molinos,2020,toritos,149.0
+Molinos,2020,toros,339.0
+Molinos,2020,total_bovinos,5990.0
+Molinos,2020,vacas,2914.0
+Molinos,2020,vaquillonas,931.0
+Orán,2020,bueyes,0.0
+Orán,2020,novillitos,3442.0
+Orán,2020,novillos,5683.0
+Orán,2020,terneras,2407.0
+Orán,2020,terneros,2315.0
+Orán,2020,toritos,157.0
+Orán,2020,toros,424.0
+Orán,2020,total_bovinos,34503.0
+Orán,2020,vacas,14968.0
+Orán,2020,vaquillonas,5107.0
+Rivadavia,2020,bueyes,29.0
+Rivadavia,2020,novillitos,5930.0
+Rivadavia,2020,novillos,1719.0
+Rivadavia,2020,terneras,12330.0
+Rivadavia,2020,terneros,11528.0
+Rivadavia,2020,toritos,2864.0
+Rivadavia,2020,toros,2403.0
+Rivadavia,2020,total_bovinos,106445.0
+Rivadavia,2020,vacas,52663.0
+Rivadavia,2020,vaquillonas,16979.0
+Rosario de Lerma,2020,bueyes,3.0
+Rosario de Lerma,2020,novillitos,2450.0
+Rosario de Lerma,2020,novillos,1758.0
+Rosario de Lerma,2020,terneras,3624.0
+Rosario de Lerma,2020,terneros,4078.0
+Rosario de Lerma,2020,toritos,934.0
+Rosario de Lerma,2020,toros,448.0
+Rosario de Lerma,2020,total_bovinos,28018.0
+Rosario de Lerma,2020,vacas,9144.0
+Rosario de Lerma,2020,vaquillonas,5579.0
+Rosario de la Frontera,2020,bueyes,0.0
+Rosario de la Frontera,2020,novillitos,7892.0
+Rosario de la Frontera,2020,novillos,3356.0
+Rosario de la Frontera,2020,terneras,6945.0
+Rosario de la Frontera,2020,terneros,6840.0
+Rosario de la Frontera,2020,toritos,929.0
+Rosario de la Frontera,2020,toros,1574.0
+Rosario de la Frontera,2020,total_bovinos,71375.0
+Rosario de la Frontera,2020,vacas,30894.0
+Rosario de la Frontera,2020,vaquillonas,12945.0
+San Carlos,2020,bueyes,1.0
+San Carlos,2020,novillitos,342.0
+San Carlos,2020,novillos,445.0
+San Carlos,2020,terneras,551.0
+San Carlos,2020,terneros,581.0
+San Carlos,2020,toritos,115.0
+San Carlos,2020,toros,202.0
+San Carlos,2020,total_bovinos,5659.0
+San Carlos,2020,vacas,2415.0
+San Carlos,2020,vaquillonas,1007.0
+Santa Victoria,2020,bueyes,285.0
+Santa Victoria,2020,novillitos,849.0
+Santa Victoria,2020,novillos,998.0
+Santa Victoria,2020,terneras,546.0
+Santa Victoria,2020,terneros,488.0
+Santa Victoria,2020,toritos,24.0
+Santa Victoria,2020,toros,244.0
+Santa Victoria,2020,total_bovinos,6728.0
+Santa Victoria,2020,vacas,2151.0
+Santa Victoria,2020,vaquillonas,1143.0
+Anta,2021,bueyes,0.0
+Anta,2021,novillitos,49469.0
+Anta,2021,novillos,36099.0
+Anta,2021,terneras,57468.0
+Anta,2021,terneros,61439.0
+Anta,2021,toritos,5296.0
+Anta,2021,toros,8569.0
+Anta,2021,total_bovinos,465172.3649999997
+Anta,2021,vacas,180774.36500000005
+Anta,2021,vaquillonas,66058.0
+Cachi,2021,bueyes,0.0
+Cachi,2021,novillitos,110.0
+Cachi,2021,novillos,116.0
+Cachi,2021,terneras,239.0
+Cachi,2021,terneros,298.0
+Cachi,2021,toritos,78.0
+Cachi,2021,toros,78.0
+Cachi,2021,total_bovinos,2583.0
+Cachi,2021,vacas,1183.0
+Cachi,2021,vaquillonas,481.0
+Cafayate,2021,bueyes,1.0
+Cafayate,2021,novillitos,254.0
+Cafayate,2021,novillos,439.0
+Cafayate,2021,terneras,439.0
+Cafayate,2021,terneros,416.0
+Cafayate,2021,toritos,107.0
+Cafayate,2021,toros,203.0
+Cafayate,2021,total_bovinos,4633.0
+Cafayate,2021,vacas,2136.0
+Cafayate,2021,vaquillonas,638.0
+Capital,2021,bueyes,0.0
+Capital,2021,novillitos,1312.0
+Capital,2021,novillos,335.0
+Capital,2021,terneras,2861.0
+Capital,2021,terneros,4177.0
+Capital,2021,toritos,749.0
+Capital,2021,toros,316.0
+Capital,2021,total_bovinos,20859.975
+Capital,2021,vacas,7262.974999999999
+Capital,2021,vaquillonas,3847.0
+Cerrillos,2021,bueyes,0.0
+Cerrillos,2021,novillitos,840.0
+Cerrillos,2021,novillos,183.0
+Cerrillos,2021,terneras,2365.0
+Cerrillos,2021,terneros,2781.0
+Cerrillos,2021,toritos,839.0
+Cerrillos,2021,toros,226.0
+Cerrillos,2021,total_bovinos,13171.845000000001
+Cerrillos,2021,vacas,4012.8450000000003
+Cerrillos,2021,vaquillonas,1925.0
+Chicoana,2021,bueyes,0.0
+Chicoana,2021,novillitos,2200.0
+Chicoana,2021,novillos,1466.0
+Chicoana,2021,terneras,1958.0
+Chicoana,2021,terneros,2133.0
+Chicoana,2021,toritos,1020.0
+Chicoana,2021,toros,413.0
+Chicoana,2021,total_bovinos,20794.340000000004
+Chicoana,2021,vacas,7458.339999999999
+Chicoana,2021,vaquillonas,4146.0
+General Güemes,2021,bueyes,0.0
+General Güemes,2021,novillitos,1097.0
+General Güemes,2021,novillos,982.0
+General Güemes,2021,terneras,2843.0
+General Güemes,2021,terneros,2633.0
+General Güemes,2021,toritos,544.0
+General Güemes,2021,toros,746.0
+General Güemes,2021,total_bovinos,31008.92
+General Güemes,2021,vacas,16949.92
+General Güemes,2021,vaquillonas,5214.0
+General José de San Martín,2021,bueyes,42.0
+General José de San Martín,2021,novillitos,15553.0
+General José de San Martín,2021,novillos,3127.0
+General José de San Martín,2021,terneras,8062.0
+General José de San Martín,2021,terneros,9528.0
+General José de San Martín,2021,toritos,2393.0
+General José de San Martín,2021,toros,1801.0
+General José de San Martín,2021,total_bovinos,112216.34000000003
+General José de San Martín,2021,vacas,31189.339999999997
+General José de San Martín,2021,vaquillonas,40521.0
+Guachipas,2021,bueyes,2.0
+Guachipas,2021,novillitos,1160.0
+Guachipas,2021,novillos,1268.0
+Guachipas,2021,terneras,2347.0
+Guachipas,2021,terneros,2344.0
+Guachipas,2021,toritos,409.0
+Guachipas,2021,toros,842.0
+Guachipas,2021,total_bovinos,24483.640000000003
+Guachipas,2021,vacas,11985.64
+Guachipas,2021,vaquillonas,4126.0
+Iruya,2021,bueyes,171.0
+Iruya,2021,novillitos,528.0
+Iruya,2021,novillos,742.0
+Iruya,2021,terneras,534.0
+Iruya,2021,terneros,499.0
+Iruya,2021,toritos,152.0
+Iruya,2021,toros,181.0
+Iruya,2021,total_bovinos,6043.0
+Iruya,2021,vacas,2237.0
+Iruya,2021,vaquillonas,999.0
+La Caldera,2021,bueyes,0.0
+La Caldera,2021,novillitos,884.0
+La Caldera,2021,novillos,1093.0
+La Caldera,2021,terneras,1288.0
+La Caldera,2021,terneros,1178.0
+La Caldera,2021,toritos,226.0
+La Caldera,2021,toros,236.0
+La Caldera,2021,total_bovinos,11797.49
+La Caldera,2021,vacas,5226.49
+La Caldera,2021,vaquillonas,1666.0
+La Candelaria,2021,bueyes,0.0
+La Candelaria,2021,novillitos,1348.0
+La Candelaria,2021,novillos,582.0
+La Candelaria,2021,terneras,1949.0
+La Candelaria,2021,terneros,2251.0
+La Candelaria,2021,toritos,168.0
+La Candelaria,2021,toros,680.0
+La Candelaria,2021,total_bovinos,21706.51
+La Candelaria,2021,vacas,11893.51
+La Candelaria,2021,vaquillonas,2835.0
+La Poma,2021,bueyes,0.0
+La Poma,2021,novillitos,58.0
+La Poma,2021,novillos,64.0
+La Poma,2021,terneras,101.0
+La Poma,2021,terneros,95.0
+La Poma,2021,toritos,34.0
+La Poma,2021,toros,40.0
+La Poma,2021,total_bovinos,1153.0
+La Poma,2021,vacas,594.0
+La Poma,2021,vaquillonas,167.0
+La Viña,2021,bueyes,2.0
+La Viña,2021,novillitos,433.0
+La Viña,2021,novillos,331.0
+La Viña,2021,terneras,1381.0
+La Viña,2021,terneros,1107.0
+La Viña,2021,toritos,207.0
+La Viña,2021,toros,313.0
+La Viña,2021,total_bovinos,11486.250000000002
+La Viña,2021,vacas,6099.249999999999
+La Viña,2021,vaquillonas,1613.0
+Metán,2021,bueyes,0.0
+Metán,2021,novillitos,8312.0
+Metán,2021,novillos,2640.0
+Metán,2021,terneras,7871.0
+Metán,2021,terneros,6048.0
+Metán,2021,toritos,2292.0
+Metán,2021,toros,1596.0
+Metán,2021,total_bovinos,69852.1
+Metán,2021,vacas,30335.100000000002
+Metán,2021,vaquillonas,10758.0
+Molinos,2021,bueyes,0.0
+Molinos,2021,novillitos,253.0
+Molinos,2021,novillos,421.0
+Molinos,2021,terneras,498.0
+Molinos,2021,terneros,541.0
+Molinos,2021,toritos,155.0
+Molinos,2021,toros,377.0
+Molinos,2021,total_bovinos,6310.41
+Molinos,2021,vacas,3176.41
+Molinos,2021,vaquillonas,889.0
+Orán,2021,bueyes,16.0
+Orán,2021,novillitos,5145.0
+Orán,2021,novillos,6008.0
+Orán,2021,terneras,3678.0
+Orán,2021,terneros,3028.0
+Orán,2021,toritos,132.0
+Orán,2021,toros,641.0
+Orán,2021,total_bovinos,41106.08
+Orán,2021,vacas,14787.08
+Orán,2021,vaquillonas,7671.0
+Rivadavia,2021,bueyes,16.0
+Rivadavia,2021,novillitos,5032.0
+Rivadavia,2021,novillos,2686.0
+Rivadavia,2021,terneras,11516.0
+Rivadavia,2021,terneros,11224.0
+Rivadavia,2021,toritos,2426.0
+Rivadavia,2021,toros,2403.0
+Rivadavia,2021,total_bovinos,99087.54500000001
+Rivadavia,2021,vacas,48992.54500000001
+Rivadavia,2021,vaquillonas,14792.0
+Rosario de Lerma,2021,bueyes,0.0
+Rosario de Lerma,2021,novillitos,1985.0
+Rosario de Lerma,2021,novillos,1251.0
+Rosario de Lerma,2021,terneras,4137.0
+Rosario de Lerma,2021,terneros,3511.0
+Rosario de Lerma,2021,toritos,1275.0
+Rosario de Lerma,2021,toros,434.0
+Rosario de Lerma,2021,total_bovinos,27454.535
+Rosario de Lerma,2021,vacas,9213.534999999998
+Rosario de Lerma,2021,vaquillonas,5648.0
+Rosario de la Frontera,2021,bueyes,0.0
+Rosario de la Frontera,2021,novillitos,8722.0
+Rosario de la Frontera,2021,novillos,2687.0
+Rosario de la Frontera,2021,terneras,7977.0
+Rosario de la Frontera,2021,terneros,7476.0
+Rosario de la Frontera,2021,toritos,1188.0
+Rosario de la Frontera,2021,toros,1591.0
+Rosario de la Frontera,2021,total_bovinos,71505.95000000003
+Rosario de la Frontera,2021,vacas,30094.950000000008
+Rosario de la Frontera,2021,vaquillonas,11770.0
+San Carlos,2021,bueyes,1.0
+San Carlos,2021,novillitos,311.0
+San Carlos,2021,novillos,565.0
+San Carlos,2021,terneras,629.0
+San Carlos,2021,terneros,594.0
+San Carlos,2021,toritos,144.0
+San Carlos,2021,toros,199.0
+San Carlos,2021,total_bovinos,5940.0
+San Carlos,2021,vacas,2553.0
+San Carlos,2021,vaquillonas,944.0
+Santa Victoria,2021,bueyes,315.0
+Santa Victoria,2021,novillitos,1012.0
+Santa Victoria,2021,novillos,1426.0
+Santa Victoria,2021,terneras,682.0
+Santa Victoria,2021,terneros,644.0
+Santa Victoria,2021,toritos,151.0
+Santa Victoria,2021,toros,311.0
+Santa Victoria,2021,total_bovinos,9518.955
+Santa Victoria,2021,vacas,3250.955
+Santa Victoria,2021,vaquillonas,1727.0
+Anta,2022,bueyes,0.0
+Anta,2022,cantidad_up,963.0
+Anta,2022,novillitos,51220.0
+Anta,2022,novillos,19095.0
+Anta,2022,terneras,51714.0
+Anta,2022,terneros,77121.0
+Anta,2022,toritos,3780.0
+Anta,2022,toros,7832.0
+Anta,2022,total_bovinos,444570.0
+Anta,2022,vacas,172408.0
+Anta,2022,vaquillonas,61400.0
+Cachi,2022,bueyes,0.0
+Cachi,2022,cantidad_up,176.0
+Cachi,2022,novillitos,178.0
+Cachi,2022,novillos,100.0
+Cachi,2022,terneras,313.0
+Cachi,2022,terneros,299.0
+Cachi,2022,toritos,101.0
+Cachi,2022,toros,93.0
+Cachi,2022,total_bovinos,3076.0
+Cachi,2022,vacas,1432.0
+Cachi,2022,vaquillonas,560.0
+Cafayate,2022,bueyes,0.0
+Cafayate,2022,cantidad_up,225.0
+Cafayate,2022,novillitos,314.0
+Cafayate,2022,novillos,430.0
+Cafayate,2022,terneras,444.0
+Cafayate,2022,terneros,384.0
+Cafayate,2022,toritos,109.0
+Cafayate,2022,toros,208.0
+Cafayate,2022,total_bovinos,4772.0
+Cafayate,2022,vacas,2200.0
+Cafayate,2022,vaquillonas,683.0
+Capital,2022,bueyes,0.0
+Capital,2022,cantidad_up,238.0
+Capital,2022,novillitos,805.0
+Capital,2022,novillos,336.0
+Capital,2022,terneras,1965.0
+Capital,2022,terneros,1919.0
+Capital,2022,toritos,1486.0
+Capital,2022,toros,432.0
+Capital,2022,total_bovinos,18332.0
+Capital,2022,vacas,7605.0
+Capital,2022,vaquillonas,3784.0
+Cerrillos,2022,bueyes,0.0
+Cerrillos,2022,cantidad_up,77.0
+Cerrillos,2022,novillitos,1376.0
+Cerrillos,2022,novillos,308.0
+Cerrillos,2022,terneras,2073.0
+Cerrillos,2022,terneros,2791.0
+Cerrillos,2022,toritos,350.0
+Cerrillos,2022,toros,230.0
+Cerrillos,2022,total_bovinos,13312.0
+Cerrillos,2022,vacas,4069.0
+Cerrillos,2022,vaquillonas,2115.0
+Chicoana,2022,bueyes,0.0
+Chicoana,2022,cantidad_up,321.0
+Chicoana,2022,novillitos,1773.0
+Chicoana,2022,novillos,1811.0
+Chicoana,2022,terneras,2407.0
+Chicoana,2022,terneros,2788.0
+Chicoana,2022,toritos,1151.0
+Chicoana,2022,toros,473.0
+Chicoana,2022,total_bovinos,22179.0
+Chicoana,2022,vacas,8167.0
+Chicoana,2022,vaquillonas,3609.0
+General Güemes,2022,bueyes,0.0
+General Güemes,2022,cantidad_up,151.0
+General Güemes,2022,novillitos,1446.0
+General Güemes,2022,novillos,757.0
+General Güemes,2022,terneras,2731.0
+General Güemes,2022,terneros,2787.0
+General Güemes,2022,toritos,458.0
+General Güemes,2022,toros,751.0
+General Güemes,2022,total_bovinos,29357.0
+General Güemes,2022,vacas,16026.0
+General Güemes,2022,vaquillonas,4401.0
+General José de San Martín,2022,bueyes,2.0
+General José de San Martín,2022,cantidad_up,806.0
+General José de San Martín,2022,novillitos,13315.0
+General José de San Martín,2022,novillos,4636.0
+General José de San Martín,2022,terneras,13287.0
+General José de San Martín,2022,terneros,16885.0
+General José de San Martín,2022,toritos,2532.0
+General José de San Martín,2022,toros,1884.0
+General José de San Martín,2022,total_bovinos,104274.0
+General José de San Martín,2022,vacas,30716.0
+General José de San Martín,2022,vaquillonas,21017.0
+Guachipas,2022,bueyes,1.0
+Guachipas,2022,cantidad_up,465.0
+Guachipas,2022,novillitos,1268.0
+Guachipas,2022,novillos,1093.0
+Guachipas,2022,terneras,2292.0
+Guachipas,2022,terneros,2138.0
+Guachipas,2022,toritos,515.0
+Guachipas,2022,toros,921.0
+Guachipas,2022,total_bovinos,24961.0
+Guachipas,2022,vacas,12399.0
+Guachipas,2022,vaquillonas,4334.0
+Iruya,2022,bueyes,238.0
+Iruya,2022,cantidad_up,326.0
+Iruya,2022,novillitos,655.0
+Iruya,2022,novillos,941.0
+Iruya,2022,terneras,692.0
+Iruya,2022,terneros,667.0
+Iruya,2022,toritos,180.0
+Iruya,2022,toros,246.0
+Iruya,2022,total_bovinos,7901.0
+Iruya,2022,vacas,2880.0
+Iruya,2022,vaquillonas,1402.0
+La Caldera,2022,bueyes,0.0
+La Caldera,2022,cantidad_up,248.0
+La Caldera,2022,novillitos,814.0
+La Caldera,2022,novillos,980.0
+La Caldera,2022,terneras,1382.0
+La Caldera,2022,terneros,1677.0
+La Caldera,2022,toritos,217.0
+La Caldera,2022,toros,243.0
+La Caldera,2022,total_bovinos,12264.0
+La Caldera,2022,vacas,5335.0
+La Caldera,2022,vaquillonas,1616.0
+La Candelaria,2022,bueyes,0.0
+La Candelaria,2022,cantidad_up,215.0
+La Candelaria,2022,novillitos,892.0
+La Candelaria,2022,novillos,611.0
+La Candelaria,2022,terneras,2537.0
+La Candelaria,2022,terneros,2176.0
+La Candelaria,2022,toritos,214.0
+La Candelaria,2022,toros,597.0
+La Candelaria,2022,total_bovinos,21269.0
+La Candelaria,2022,vacas,10807.0
+La Candelaria,2022,vaquillonas,3435.0
+La Poma,2022,bueyes,0.0
+La Poma,2022,cantidad_up,60.0
+La Poma,2022,novillitos,75.0
+La Poma,2022,novillos,85.0
+La Poma,2022,terneras,124.0
+La Poma,2022,terneros,85.0
+La Poma,2022,toritos,36.0
+La Poma,2022,toros,37.0
+La Poma,2022,total_bovinos,1229.0
+La Poma,2022,vacas,621.0
+La Poma,2022,vaquillonas,166.0
+La Viña,2022,bueyes,0.0
+La Viña,2022,cantidad_up,304.0
+La Viña,2022,novillitos,631.0
+La Viña,2022,novillos,337.0
+La Viña,2022,terneras,1476.0
+La Viña,2022,terneros,1268.0
+La Viña,2022,toritos,162.0
+La Viña,2022,toros,324.0
+La Viña,2022,total_bovinos,12154.0
+La Viña,2022,vacas,6194.0
+La Viña,2022,vaquillonas,1762.0
+Metán,2022,bueyes,0.0
+Metán,2022,cantidad_up,358.0
+Metán,2022,novillitos,13264.0
+Metán,2022,novillos,2093.0
+Metán,2022,terneras,6994.0
+Metán,2022,terneros,6513.0
+Metán,2022,toritos,2632.0
+Metán,2022,toros,1619.0
+Metán,2022,total_bovinos,82671.0
+Metán,2022,vacas,32044.0
+Metán,2022,vaquillonas,17512.0
+Molinos,2022,bueyes,2.0
+Molinos,2022,cantidad_up,293.0
+Molinos,2022,novillitos,280.0
+Molinos,2022,novillos,437.0
+Molinos,2022,terneras,437.0
+Molinos,2022,terneros,422.0
+Molinos,2022,toritos,203.0
+Molinos,2022,toros,377.0
+Molinos,2022,total_bovinos,6410.0
+Molinos,2022,vacas,3178.0
+Molinos,2022,vaquillonas,1074.0
+Orán,2022,bueyes,2.0
+Orán,2022,cantidad_up,371.0
+Orán,2022,novillitos,5605.0
+Orán,2022,novillos,2907.0
+Orán,2022,terneras,3895.0
+Orán,2022,terneros,3113.0
+Orán,2022,toritos,118.0
+Orán,2022,toros,648.0
+Orán,2022,total_bovinos,38557.0
+Orán,2022,vacas,15083.0
+Orán,2022,vaquillonas,7186.0
+Rivadavia,2022,bueyes,10.0
+Rivadavia,2022,cantidad_up,2597.0
+Rivadavia,2022,novillitos,5411.0
+Rivadavia,2022,novillos,2707.0
+Rivadavia,2022,terneras,13066.0
+Rivadavia,2022,terneros,12016.0
+Rivadavia,2022,toritos,2125.0
+Rivadavia,2022,toros,2418.0
+Rivadavia,2022,total_bovinos,105901.0
+Rivadavia,2022,vacas,52202.0
+Rivadavia,2022,vaquillonas,15946.0
+Rosario de Lerma,2022,bueyes,8.0
+Rosario de Lerma,2022,cantidad_up,409.0
+Rosario de Lerma,2022,novillitos,1953.0
+Rosario de Lerma,2022,novillos,1047.0
+Rosario de Lerma,2022,terneras,5143.0
+Rosario de Lerma,2022,terneros,4724.0
+Rosario de Lerma,2022,toritos,606.0
+Rosario de Lerma,2022,toros,456.0
+Rosario de Lerma,2022,total_bovinos,30148.0
+Rosario de Lerma,2022,vacas,10128.0
+Rosario de Lerma,2022,vaquillonas,6083.0
+Rosario de la Frontera,2022,bueyes,0.0
+Rosario de la Frontera,2022,cantidad_up,455.0
+Rosario de la Frontera,2022,novillitos,9044.0
+Rosario de la Frontera,2022,novillos,3950.0
+Rosario de la Frontera,2022,terneras,7157.0
+Rosario de la Frontera,2022,terneros,7750.0
+Rosario de la Frontera,2022,toritos,1889.0
+Rosario de la Frontera,2022,toros,1703.0
+Rosario de la Frontera,2022,total_bovinos,74084.0
+Rosario de la Frontera,2022,vacas,30826.0
+Rosario de la Frontera,2022,vaquillonas,11765.0
+San Carlos,2022,bueyes,4.0
+San Carlos,2022,cantidad_up,268.0
+San Carlos,2022,novillitos,335.0
+San Carlos,2022,novillos,460.0
+San Carlos,2022,terneras,685.0
+San Carlos,2022,terneros,596.0
+San Carlos,2022,toritos,173.0
+San Carlos,2022,toros,223.0
+San Carlos,2022,total_bovinos,6185.0
+San Carlos,2022,vacas,2692.0
+San Carlos,2022,vaquillonas,1017.0
+Santa Victoria,2022,bueyes,666.0
+Santa Victoria,2022,cantidad_up,753.0
+Santa Victoria,2022,novillitos,1213.0
+Santa Victoria,2022,novillos,1822.0
+Santa Victoria,2022,terneras,965.0
+Santa Victoria,2022,terneros,931.0
+Santa Victoria,2022,toritos,230.0
+Santa Victoria,2022,toros,516.0
+Santa Victoria,2022,total_bovinos,13342.0
+Santa Victoria,2022,vacas,4703.0
+Santa Victoria,2022,vaquillonas,2296.0
+Anta,2023,bueyes,0.0
+Anta,2023,cantidad_up,983.0
+Anta,2023,novillitos,59479.0
+Anta,2023,novillos,15683.0
+Anta,2023,terneras,49842.0
+Anta,2023,terneros,53151.0
+Anta,2023,toritos,7209.0
+Anta,2023,toros,8041.0
+Anta,2023,total_bovinos,438562.0
+Anta,2023,vacas,172563.0
+Anta,2023,vaquillonas,72594.0
+Cachi,2023,bueyes,0.0
+Cachi,2023,cantidad_up,177.0
+Cachi,2023,novillitos,131.0
+Cachi,2023,novillos,101.0
+Cachi,2023,terneras,300.0
+Cachi,2023,terneros,316.0
+Cachi,2023,toritos,111.0
+Cachi,2023,toros,95.0
+Cachi,2023,total_bovinos,3065.0
+Cachi,2023,vacas,1497.0
+Cachi,2023,vaquillonas,514.0
+Cafayate,2023,bueyes,5.0
+Cafayate,2023,cantidad_up,226.0
+Cafayate,2023,novillitos,305.0
+Cafayate,2023,novillos,445.0
+Cafayate,2023,terneras,431.0
+Cafayate,2023,terneros,467.0
+Cafayate,2023,toritos,112.0
+Cafayate,2023,toros,220.0
+Cafayate,2023,total_bovinos,5049.0
+Cafayate,2023,vacas,2314.0
+Cafayate,2023,vaquillonas,750.0
+Capital,2023,bueyes,1.0
+Capital,2023,cantidad_up,243.0
+Capital,2023,novillitos,1425.0
+Capital,2023,novillos,303.0
+Capital,2023,terneras,2138.0
+Capital,2023,terneros,1837.0
+Capital,2023,toritos,328.0
+Capital,2023,toros,329.0
+Capital,2023,total_bovinos,17096.0
+Capital,2023,vacas,7145.0
+Capital,2023,vaquillonas,3590.0
+Cerrillos,2023,bueyes,0.0
+Cerrillos,2023,cantidad_up,79.0
+Cerrillos,2023,novillitos,949.0
+Cerrillos,2023,novillos,274.0
+Cerrillos,2023,terneras,2385.0
+Cerrillos,2023,terneros,3006.0
+Cerrillos,2023,toritos,917.0
+Cerrillos,2023,toros,170.0
+Cerrillos,2023,total_bovinos,13797.0
+Cerrillos,2023,vacas,3814.0
+Cerrillos,2023,vaquillonas,2282.0
+Chicoana,2023,bueyes,0.0
+Chicoana,2023,cantidad_up,332.0
+Chicoana,2023,novillitos,1267.0
+Chicoana,2023,novillos,877.0
+Chicoana,2023,terneras,2149.0
+Chicoana,2023,terneros,2987.0
+Chicoana,2023,toritos,1240.0
+Chicoana,2023,toros,505.0
+Chicoana,2023,total_bovinos,21681.0
+Chicoana,2023,vacas,8954.0
+Chicoana,2023,vaquillonas,3702.0
+General Güemes,2023,bueyes,0.0
+General Güemes,2023,cantidad_up,151.0
+General Güemes,2023,novillitos,4748.0
+General Güemes,2023,novillos,889.0
+General Güemes,2023,terneras,4288.0
+General Güemes,2023,terneros,3279.0
+General Güemes,2023,toritos,643.0
+General Güemes,2023,toros,885.0
+General Güemes,2023,total_bovinos,36272.0
+General Güemes,2023,vacas,17367.0
+General Güemes,2023,vaquillonas,4173.0
+General José de San Martín,2023,bueyes,13.0
+General José de San Martín,2023,cantidad_up,835.0
+General José de San Martín,2023,novillitos,20527.0
+General José de San Martín,2023,novillos,2955.0
+General José de San Martín,2023,terneras,19688.0
+General José de San Martín,2023,terneros,19310.0
+General José de San Martín,2023,toritos,2645.0
+General José de San Martín,2023,toros,1723.0
+General José de San Martín,2023,total_bovinos,120812.0
+General José de San Martín,2023,vacas,31455.0
+General José de San Martín,2023,vaquillonas,22496.0
+Guachipas,2023,bueyes,0.0
+Guachipas,2023,cantidad_up,473.0
+Guachipas,2023,novillitos,1653.0
+Guachipas,2023,novillos,1210.0
+Guachipas,2023,terneras,1985.0
+Guachipas,2023,terneros,1643.0
+Guachipas,2023,toritos,445.0
+Guachipas,2023,toros,738.0
+Guachipas,2023,total_bovinos,23922.0
+Guachipas,2023,vacas,11794.0
+Guachipas,2023,vaquillonas,4454.0
+Iruya,2023,bueyes,225.0
+Iruya,2023,cantidad_up,328.0
+Iruya,2023,novillitos,672.0
+Iruya,2023,novillos,989.0
+Iruya,2023,terneras,688.0
+Iruya,2023,terneros,653.0
+Iruya,2023,toritos,191.0
+Iruya,2023,toros,256.0
+Iruya,2023,total_bovinos,8063.0
+Iruya,2023,vacas,2937.0
+Iruya,2023,vaquillonas,1452.0
+La Caldera,2023,bueyes,0.0
+La Caldera,2023,cantidad_up,252.0
+La Caldera,2023,novillitos,791.0
+La Caldera,2023,novillos,585.0
+La Caldera,2023,terneras,1624.0
+La Caldera,2023,terneros,1210.0
+La Caldera,2023,toritos,264.0
+La Caldera,2023,toros,253.0
+La Caldera,2023,total_bovinos,11692.0
+La Caldera,2023,vacas,5395.0
+La Caldera,2023,vaquillonas,1570.0
+La Candelaria,2023,bueyes,0.0
+La Candelaria,2023,cantidad_up,227.0
+La Candelaria,2023,novillitos,1297.0
+La Candelaria,2023,novillos,825.0
+La Candelaria,2023,terneras,2184.0
+La Candelaria,2023,terneros,2360.0
+La Candelaria,2023,toritos,173.0
+La Candelaria,2023,toros,609.0
+La Candelaria,2023,total_bovinos,22704.0
+La Candelaria,2023,vacas,11861.0
+La Candelaria,2023,vaquillonas,3395.0
+La Poma,2023,bueyes,0.0
+La Poma,2023,cantidad_up,60.0
+La Poma,2023,novillitos,83.0
+La Poma,2023,novillos,61.0
+La Poma,2023,terneras,127.0
+La Poma,2023,terneros,58.0
+La Poma,2023,toritos,30.0
+La Poma,2023,toros,33.0
+La Poma,2023,total_bovinos,1188.0
+La Poma,2023,vacas,625.0
+La Poma,2023,vaquillonas,171.0
+La Viña,2023,bueyes,2.0
+La Viña,2023,cantidad_up,319.0
+La Viña,2023,novillitos,635.0
+La Viña,2023,novillos,304.0
+La Viña,2023,terneras,1092.0
+La Viña,2023,terneros,945.0
+La Viña,2023,toritos,191.0
+La Viña,2023,toros,317.0
+La Viña,2023,total_bovinos,11727.0
+La Viña,2023,vacas,6038.0
+La Viña,2023,vaquillonas,2203.0
+Metán,2023,bueyes,0.0
+Metán,2023,cantidad_up,373.0
+Metán,2023,novillitos,9961.0
+Metán,2023,novillos,3559.0
+Metán,2023,terneras,13433.0
+Metán,2023,terneros,13687.0
+Metán,2023,toritos,655.0
+Metán,2023,toros,1704.0
+Metán,2023,total_bovinos,93804.0
+Metán,2023,vacas,35961.0
+Metán,2023,vaquillonas,14844.0
+Molinos,2023,bueyes,8.0
+Molinos,2023,cantidad_up,300.0
+Molinos,2023,novillitos,239.0
+Molinos,2023,novillos,388.0
+Molinos,2023,terneras,553.0
+Molinos,2023,terneros,520.0
+Molinos,2023,toritos,190.0
+Molinos,2023,toros,418.0
+Molinos,2023,total_bovinos,6571.0
+Molinos,2023,vacas,3327.0
+Molinos,2023,vaquillonas,928.0
+Orán,2023,bueyes,0.0
+Orán,2023,cantidad_up,387.0
+Orán,2023,novillitos,4712.0
+Orán,2023,novillos,2996.0
+Orán,2023,terneras,4327.0
+Orán,2023,terneros,4944.0
+Orán,2023,toritos,502.0
+Orán,2023,toros,700.0
+Orán,2023,total_bovinos,38518.0
+Orán,2023,vacas,15303.0
+Orán,2023,vaquillonas,5034.0
+Rivadavia,2023,bueyes,36.0
+Rivadavia,2023,cantidad_up,2827.0
+Rivadavia,2023,novillitos,5660.0
+Rivadavia,2023,novillos,2536.0
+Rivadavia,2023,terneras,15311.0
+Rivadavia,2023,terneros,15201.0
+Rivadavia,2023,toritos,3107.0
+Rivadavia,2023,toros,2837.0
+Rivadavia,2023,total_bovinos,123786.0
+Rivadavia,2023,vacas,58828.0
+Rivadavia,2023,vaquillonas,20270.0
+Rosario de Lerma,2023,bueyes,5.0
+Rosario de Lerma,2023,cantidad_up,427.0
+Rosario de Lerma,2023,novillitos,1957.0
+Rosario de Lerma,2023,novillos,859.0
+Rosario de Lerma,2023,terneras,4239.0
+Rosario de Lerma,2023,terneros,4411.0
+Rosario de Lerma,2023,toritos,844.0
+Rosario de Lerma,2023,toros,456.0
+Rosario de Lerma,2023,total_bovinos,28907.0
+Rosario de Lerma,2023,vacas,9817.0
+Rosario de Lerma,2023,vaquillonas,6319.0
+Rosario de la Frontera,2023,bueyes,0.0
+Rosario de la Frontera,2023,cantidad_up,486.0
+Rosario de la Frontera,2023,novillitos,11149.0
+Rosario de la Frontera,2023,novillos,3680.0
+Rosario de la Frontera,2023,terneras,7931.0
+Rosario de la Frontera,2023,terneros,7619.0
+Rosario de la Frontera,2023,toritos,1622.0
+Rosario de la Frontera,2023,toros,1729.0
+Rosario de la Frontera,2023,total_bovinos,77951.0
+Rosario de la Frontera,2023,vacas,31220.0
+Rosario de la Frontera,2023,vaquillonas,13001.0
+San Carlos,2023,bueyes,2.0
+San Carlos,2023,cantidad_up,271.0
+San Carlos,2023,novillitos,349.0
+San Carlos,2023,novillos,550.0
+San Carlos,2023,terneras,589.0
+San Carlos,2023,terneros,571.0
+San Carlos,2023,toritos,164.0
+San Carlos,2023,toros,206.0
+San Carlos,2023,total_bovinos,6162.0
+San Carlos,2023,vacas,2595.0
+San Carlos,2023,vaquillonas,1136.0
+Santa Victoria,2023,bueyes,637.0
+Santa Victoria,2023,cantidad_up,871.0
+Santa Victoria,2023,novillitos,1682.0
+Santa Victoria,2023,novillos,2415.0
+Santa Victoria,2023,terneras,1505.0
+Santa Victoria,2023,terneros,1440.0
+Santa Victoria,2023,toritos,346.0
+Santa Victoria,2023,toros,611.0
+Santa Victoria,2023,total_bovinos,18789.0
+Santa Victoria,2023,vacas,6951.0
+Santa Victoria,2023,vaquillonas,3202.0
+Anta,2024,bueyes,0.0
+Anta,2024,cantidad_up,997.0
+Anta,2024,novillitos,65771.0
+Anta,2024,novillos,17051.0
+Anta,2024,terneras,43580.0
+Anta,2024,terneros,42491.0
+Anta,2024,toritos,7243.0
+Anta,2024,toros,7566.0
+Anta,2024,total_bovinos,416540.0
+Anta,2024,vacas,167330.0
+Anta,2024,vaquillonas,65508.0
+Cachi,2024,bueyes,0.0
+Cachi,2024,cantidad_up,195.0
+Cachi,2024,novillitos,95.0
+Cachi,2024,novillos,101.0
+Cachi,2024,terneras,286.0
+Cachi,2024,terneros,339.0
+Cachi,2024,toritos,154.0
+Cachi,2024,toros,122.0
+Cachi,2024,total_bovinos,3280.0
+Cachi,2024,vacas,1575.0
+Cachi,2024,vaquillonas,608.0
+Cafayate,2024,bueyes,2.0
+Cafayate,2024,cantidad_up,236.0
+Cafayate,2024,novillitos,246.0
+Cafayate,2024,novillos,483.0
+Cafayate,2024,terneras,508.0
+Cafayate,2024,terneros,454.0
+Cafayate,2024,toritos,92.0
+Cafayate,2024,toros,217.0
+Cafayate,2024,total_bovinos,4988.0
+Cafayate,2024,vacas,2366.0
+Cafayate,2024,vaquillonas,620.0
+Capital,2024,bueyes,7.0
+Capital,2024,cantidad_up,245.0
+Capital,2024,novillitos,758.0
+Capital,2024,novillos,249.0
+Capital,2024,terneras,2349.0
+Capital,2024,terneros,2234.0
+Capital,2024,toritos,537.0
+Capital,2024,toros,323.0
+Capital,2024,total_bovinos,16535.0
+Capital,2024,vacas,6546.0
+Capital,2024,vaquillonas,3532.0
+Cerrillos,2024,bueyes,0.0
+Cerrillos,2024,cantidad_up,81.0
+Cerrillos,2024,novillitos,979.0
+Cerrillos,2024,novillos,312.0
+Cerrillos,2024,terneras,1727.0
+Cerrillos,2024,terneros,3482.0
+Cerrillos,2024,toritos,501.0
+Cerrillos,2024,toros,175.0
+Cerrillos,2024,total_bovinos,12226.0
+Cerrillos,2024,vacas,3293.0
+Cerrillos,2024,vaquillonas,1757.0
+Chicoana,2024,bueyes,1.0
+Chicoana,2024,cantidad_up,329.0
+Chicoana,2024,novillitos,2314.0
+Chicoana,2024,novillos,1100.0
+Chicoana,2024,terneras,2356.0
+Chicoana,2024,terneros,2024.0
+Chicoana,2024,toritos,1082.0
+Chicoana,2024,toros,436.0
+Chicoana,2024,total_bovinos,22211.0
+Chicoana,2024,vacas,9139.0
+Chicoana,2024,vaquillonas,3759.0
+General Güemes,2024,bueyes,0.0
+General Güemes,2024,cantidad_up,155.0
+General Güemes,2024,novillitos,5422.0
+General Güemes,2024,novillos,2229.0
+General Güemes,2024,terneras,2963.0
+General Güemes,2024,terneros,2659.0
+General Güemes,2024,toritos,1059.0
+General Güemes,2024,toros,951.0
+General Güemes,2024,total_bovinos,37873.0
+General Güemes,2024,vacas,16453.0
+General Güemes,2024,vaquillonas,6137.0
+General José de San Martín,2024,bueyes,10.0
+General José de San Martín,2024,cantidad_up,852.0
+General José de San Martín,2024,novillitos,17583.0
+General José de San Martín,2024,novillos,1940.0
+General José de San Martín,2024,terneras,18098.0
+General José de San Martín,2024,terneros,22167.0
+General José de San Martín,2024,toritos,2826.0
+General José de San Martín,2024,toros,1875.0
+General José de San Martín,2024,total_bovinos,115197.0
+General José de San Martín,2024,vacas,29808.0
+General José de San Martín,2024,vaquillonas,20890.0
+Guachipas,2024,bueyes,0.0
+Guachipas,2024,cantidad_up,483.0
+Guachipas,2024,novillitos,1005.0
+Guachipas,2024,novillos,1249.0
+Guachipas,2024,terneras,2608.0
+Guachipas,2024,terneros,2223.0
+Guachipas,2024,toritos,387.0
+Guachipas,2024,toros,879.0
+Guachipas,2024,total_bovinos,23811.0
+Guachipas,2024,vacas,12222.0
+Guachipas,2024,vaquillonas,3238.0
+Iruya,2024,bueyes,207.0
+Iruya,2024,cantidad_up,344.0
+Iruya,2024,novillitos,688.0
+Iruya,2024,novillos,1076.0
+Iruya,2024,terneras,718.0
+Iruya,2024,terneros,689.0
+Iruya,2024,toritos,220.0
+Iruya,2024,toros,260.0
+Iruya,2024,total_bovinos,8500.0
+Iruya,2024,vacas,3125.0
+Iruya,2024,vaquillonas,1517.0
+La Caldera,2024,bueyes,1.0
+La Caldera,2024,cantidad_up,261.0
+La Caldera,2024,novillitos,735.0
+La Caldera,2024,novillos,662.0
+La Caldera,2024,terneras,1104.0
+La Caldera,2024,terneros,1044.0
+La Caldera,2024,toritos,359.0
+La Caldera,2024,toros,246.0
+La Caldera,2024,total_bovinos,10632.0
+La Caldera,2024,vacas,4950.0
+La Caldera,2024,vaquillonas,1531.0
+La Candelaria,2024,bueyes,0.0
+La Candelaria,2024,cantidad_up,247.0
+La Candelaria,2024,novillitos,751.0
+La Candelaria,2024,novillos,714.0
+La Candelaria,2024,terneras,1992.0
+La Candelaria,2024,terneros,1991.0
+La Candelaria,2024,toritos,277.0
+La Candelaria,2024,toros,686.0
+La Candelaria,2024,total_bovinos,21418.0
+La Candelaria,2024,vacas,12079.0
+La Candelaria,2024,vaquillonas,2928.0
+La Poma,2024,bueyes,0.0
+La Poma,2024,cantidad_up,60.0
+La Poma,2024,novillitos,34.0
+La Poma,2024,novillos,45.0
+La Poma,2024,terneras,113.0
+La Poma,2024,terneros,89.0
+La Poma,2024,toritos,22.0
+La Poma,2024,toros,38.0
+La Poma,2024,total_bovinos,1121.0
+La Poma,2024,vacas,608.0
+La Poma,2024,vaquillonas,172.0
+La Viña,2024,bueyes,0.0
+La Viña,2024,cantidad_up,328.0
+La Viña,2024,novillitos,429.0
+La Viña,2024,novillos,363.0
+La Viña,2024,terneras,1529.0
+La Viña,2024,terneros,1399.0
+La Viña,2024,toritos,204.0
+La Viña,2024,toros,352.0
+La Viña,2024,total_bovinos,11748.0
+La Viña,2024,vacas,5909.0
+La Viña,2024,vaquillonas,1563.0
+Metán,2024,bueyes,0.0
+Metán,2024,cantidad_up,379.0
+Metán,2024,novillitos,9793.0
+Metán,2024,novillos,3726.0
+Metán,2024,terneras,8493.0
+Metán,2024,terneros,7173.0
+Metán,2024,toritos,2855.0
+Metán,2024,toros,1713.0
+Metán,2024,total_bovinos,80885.0
+Metán,2024,vacas,32621.0
+Metán,2024,vaquillonas,14511.0
+Molinos,2024,bueyes,3.0
+Molinos,2024,cantidad_up,312.0
+Molinos,2024,novillitos,254.0
+Molinos,2024,novillos,433.0
+Molinos,2024,terneras,632.0
+Molinos,2024,terneros,556.0
+Molinos,2024,toritos,201.0
+Molinos,2024,toros,410.0
+Molinos,2024,total_bovinos,6712.0
+Molinos,2024,vacas,3301.0
+Molinos,2024,vaquillonas,922.0
+Orán,2024,bueyes,5.0
+Orán,2024,cantidad_up,393.0
+Orán,2024,novillitos,3900.0
+Orán,2024,novillos,4023.0
+Orán,2024,terneras,4224.0
+Orán,2024,terneros,4146.0
+Orán,2024,toritos,177.0
+Orán,2024,toros,755.0
+Orán,2024,total_bovinos,38203.0
+Orán,2024,vacas,14837.0
+Orán,2024,vaquillonas,6136.0
+Rivadavia,2024,bueyes,8.0
+Rivadavia,2024,cantidad_up,2976.0
+Rivadavia,2024,novillitos,4374.0
+Rivadavia,2024,novillos,2565.0
+Rivadavia,2024,terneras,16338.0
+Rivadavia,2024,terneros,14067.0
+Rivadavia,2024,toritos,2822.0
+Rivadavia,2024,toros,2880.0
+Rivadavia,2024,total_bovinos,119371.0
+Rivadavia,2024,vacas,58538.0
+Rivadavia,2024,vaquillonas,17779.0
+Rosario de Lerma,2024,bueyes,3.0
+Rosario de Lerma,2024,cantidad_up,437.0
+Rosario de Lerma,2024,novillitos,1838.0
+Rosario de Lerma,2024,novillos,1090.0
+Rosario de Lerma,2024,terneras,3038.0
+Rosario de Lerma,2024,terneros,4928.0
+Rosario de Lerma,2024,toritos,668.0
+Rosario de Lerma,2024,toros,567.0
+Rosario de Lerma,2024,total_bovinos,28789.0
+Rosario de Lerma,2024,vacas,9880.0
+Rosario de Lerma,2024,vaquillonas,6777.0
+Rosario de la Frontera,2024,bueyes,0.0
+Rosario de la Frontera,2024,cantidad_up,506.0
+Rosario de la Frontera,2024,novillitos,9676.0
+Rosario de la Frontera,2024,novillos,3282.0
+Rosario de la Frontera,2024,terneras,9843.0
+Rosario de la Frontera,2024,terneros,7798.0
+Rosario de la Frontera,2024,toritos,977.0
+Rosario de la Frontera,2024,toros,1796.0
+Rosario de la Frontera,2024,total_bovinos,76324.0
+Rosario de la Frontera,2024,vacas,31394.0
+Rosario de la Frontera,2024,vaquillonas,11558.0
+San Carlos,2024,bueyes,6.0
+San Carlos,2024,cantidad_up,283.0
+San Carlos,2024,novillitos,302.0
+San Carlos,2024,novillos,487.0
+San Carlos,2024,terneras,681.0
+San Carlos,2024,terneros,611.0
+San Carlos,2024,toritos,145.0
+San Carlos,2024,toros,213.0
+San Carlos,2024,total_bovinos,6141.0
+San Carlos,2024,vacas,2614.0
+San Carlos,2024,vaquillonas,1082.0
+Santa Victoria,2024,bueyes,700.0
+Santa Victoria,2024,cantidad_up,935.0
+Santa Victoria,2024,novillitos,1821.0
+Santa Victoria,2024,novillos,2669.0
+Santa Victoria,2024,terneras,1838.0
+Santa Victoria,2024,terneros,1791.0
+Santa Victoria,2024,toritos,372.0
+Santa Victoria,2024,toros,642.0
+Santa Victoria,2024,total_bovinos,21112.0
+Santa Victoria,2024,vacas,7641.0
+Santa Victoria,2024,vaquillonas,3638.0
+Anta,2025,bueyes,0.0
+Anta,2025,cantidad_up,1009.0
+Anta,2025,novillitos,71948.0
+Anta,2025,novillos,19623.0
+Anta,2025,terneras,45599.0
+Anta,2025,terneros,52858.0
+Anta,2025,toritos,6637.0
+Anta,2025,toros,7633.0
+Anta,2025,total_bovinos,424695.0
+Anta,2025,vacas,156366.0
+Anta,2025,vaquillonas,64031.0
+Cachi,2025,bueyes,7.0
+Cachi,2025,cantidad_up,195.0
+Cachi,2025,novillitos,116.0
+Cachi,2025,novillos,104.0
+Cachi,2025,terneras,261.0
+Cachi,2025,terneros,307.0
+Cachi,2025,toritos,119.0
+Cachi,2025,toros,109.0
+Cachi,2025,total_bovinos,3139.0
+Cachi,2025,vacas,1525.0
+Cachi,2025,vaquillonas,591.0
+Cafayate,2025,bueyes,0.0
+Cafayate,2025,cantidad_up,240.0
+Cafayate,2025,novillitos,239.0
+Cafayate,2025,novillos,467.0
+Cafayate,2025,terneras,657.0
+Cafayate,2025,terneros,661.0
+Cafayate,2025,toritos,111.0
+Cafayate,2025,toros,233.0
+Cafayate,2025,total_bovinos,5578.0
+Cafayate,2025,vacas,2526.0
+Cafayate,2025,vaquillonas,684.0
+Capital,2025,bueyes,0.0
+Capital,2025,cantidad_up,253.0
+Capital,2025,novillitos,1111.0
+Capital,2025,novillos,293.0
+Capital,2025,terneras,1598.0
+Capital,2025,terneros,1561.0
+Capital,2025,toritos,320.0
+Capital,2025,toros,369.0
+Capital,2025,total_bovinos,16045.0
+Capital,2025,vacas,7295.0
+Capital,2025,vaquillonas,3498.0
+Cerrillos,2025,bueyes,0.0
+Cerrillos,2025,cantidad_up,77.0
+Cerrillos,2025,novillitos,525.0
+Cerrillos,2025,novillos,329.0
+Cerrillos,2025,terneras,2284.0
+Cerrillos,2025,terneros,3894.0
+Cerrillos,2025,toritos,835.0
+Cerrillos,2025,toros,140.0
+Cerrillos,2025,total_bovinos,13195.0
+Cerrillos,2025,vacas,3439.0
+Cerrillos,2025,vaquillonas,1749.0
+Chicoana,2025,bueyes,0.0
+Chicoana,2025,cantidad_up,349.0
+Chicoana,2025,novillitos,1846.0
+Chicoana,2025,novillos,1452.0
+Chicoana,2025,terneras,2987.0
+Chicoana,2025,terneros,2832.0
+Chicoana,2025,toritos,1650.0
+Chicoana,2025,toros,417.0
+Chicoana,2025,total_bovinos,22773.0
+Chicoana,2025,vacas,7352.0
+Chicoana,2025,vaquillonas,4237.0
+General Güemes,2025,bueyes,0.0
+General Güemes,2025,cantidad_up,157.0
+General Güemes,2025,novillitos,3370.0
+General Güemes,2025,novillos,2709.0
+General Güemes,2025,terneras,4300.0
+General Güemes,2025,terneros,3440.0
+General Güemes,2025,toritos,2247.0
+General Güemes,2025,toros,895.0
+General Güemes,2025,total_bovinos,40669.0
+General Güemes,2025,vacas,17340.0
+General Güemes,2025,vaquillonas,6368.0
+General José de San Martín,2025,bueyes,22.0
+General José de San Martín,2025,cantidad_up,873.0
+General José de San Martín,2025,novillitos,19697.0
+General José de San Martín,2025,novillos,1643.0
+General José de San Martín,2025,terneras,12232.0
+General José de San Martín,2025,terneros,13486.0
+General José de San Martín,2025,toritos,2185.0
+General José de San Martín,2025,toros,1463.0
+General José de San Martín,2025,total_bovinos,99610.0
+General José de San Martín,2025,vacas,26714.0
+General José de San Martín,2025,vaquillonas,22168.0
+Guachipas,2025,bueyes,0.0
+Guachipas,2025,cantidad_up,492.0
+Guachipas,2025,novillitos,1104.0
+Guachipas,2025,novillos,871.0
+Guachipas,2025,terneras,2424.0
+Guachipas,2025,terneros,2054.0
+Guachipas,2025,toritos,380.0
+Guachipas,2025,toros,721.0
+Guachipas,2025,total_bovinos,23111.0
+Guachipas,2025,vacas,11982.0
+Guachipas,2025,vaquillonas,3575.0
+Iruya,2025,bueyes,210.0
+Iruya,2025,cantidad_up,362.0
+Iruya,2025,novillitos,783.0
+Iruya,2025,novillos,1165.0
+Iruya,2025,terneras,777.0
+Iruya,2025,terneros,778.0
+Iruya,2025,toritos,193.0
+Iruya,2025,toros,281.0
+Iruya,2025,total_bovinos,9263.0
+Iruya,2025,vacas,3395.0
+Iruya,2025,vaquillonas,1681.0
+La Caldera,2025,bueyes,1.0
+La Caldera,2025,cantidad_up,266.0
+La Caldera,2025,novillitos,669.0
+La Caldera,2025,novillos,754.0
+La Caldera,2025,terneras,951.0
+La Caldera,2025,terneros,819.0
+La Caldera,2025,toritos,333.0
+La Caldera,2025,toros,244.0
+La Caldera,2025,total_bovinos,10152.0
+La Caldera,2025,vacas,4955.0
+La Caldera,2025,vaquillonas,1426.0
+La Candelaria,2025,bueyes,0.0
+La Candelaria,2025,cantidad_up,256.0
+La Candelaria,2025,novillitos,660.0
+La Candelaria,2025,novillos,817.0
+La Candelaria,2025,terneras,2413.0
+La Candelaria,2025,terneros,2232.0
+La Candelaria,2025,toritos,348.0
+La Candelaria,2025,toros,712.0
+La Candelaria,2025,total_bovinos,22594.0
+La Candelaria,2025,vacas,11993.0
+La Candelaria,2025,vaquillonas,3419.0
+La Poma,2025,bueyes,0.0
+La Poma,2025,cantidad_up,60.0
+La Poma,2025,novillitos,67.0
+La Poma,2025,novillos,42.0
+La Poma,2025,terneras,111.0
+La Poma,2025,terneros,84.0
+La Poma,2025,toritos,19.0
+La Poma,2025,toros,36.0
+La Poma,2025,total_bovinos,1162.0
+La Poma,2025,vacas,676.0
+La Poma,2025,vaquillonas,127.0
+La Viña,2025,bueyes,4.0
+La Viña,2025,cantidad_up,330.0
+La Viña,2025,novillitos,378.0
+La Viña,2025,novillos,270.0
+La Viña,2025,terneras,1482.0
+La Viña,2025,terneros,1113.0
+La Viña,2025,toritos,257.0
+La Viña,2025,toros,332.0
+La Viña,2025,total_bovinos,11163.0
+La Viña,2025,vacas,5646.0
+La Viña,2025,vaquillonas,1681.0
+Los Andes,2025,bueyes,0.0
+Los Andes,2025,cantidad_up,1.0
+Los Andes,2025,novillitos,0.0
+Los Andes,2025,novillos,1.0
+Los Andes,2025,terneras,1.0
+Los Andes,2025,terneros,1.0
+Los Andes,2025,toritos,0.0
+Los Andes,2025,toros,0.0
+Los Andes,2025,total_bovinos,5.0
+Los Andes,2025,vacas,2.0
+Los Andes,2025,vaquillonas,0.0
+Metán,2025,bueyes,0.0
+Metán,2025,cantidad_up,400.0
+Metán,2025,novillitos,5246.0
+Metán,2025,novillos,1865.0
+Metán,2025,terneras,10789.0
+Metán,2025,terneros,11806.0
+Metán,2025,toritos,324.0
+Metán,2025,toros,1594.0
+Metán,2025,total_bovinos,75715.0
+Metán,2025,vacas,33862.0
+Metán,2025,vaquillonas,10229.0
+Molinos,2025,bueyes,6.0
+Molinos,2025,cantidad_up,315.0
+Molinos,2025,novillitos,297.0
+Molinos,2025,novillos,423.0
+Molinos,2025,terneras,550.0
+Molinos,2025,terneros,551.0
+Molinos,2025,toritos,215.0
+Molinos,2025,toros,394.0
+Molinos,2025,total_bovinos,6715.0
+Molinos,2025,vacas,3264.0
+Molinos,2025,vaquillonas,1015.0
+Orán,2025,bueyes,0.0
+Orán,2025,cantidad_up,399.0
+Orán,2025,novillitos,5030.0
+Orán,2025,novillos,2930.0
+Orán,2025,terneras,4297.0
+Orán,2025,terneros,3666.0
+Orán,2025,toritos,651.0
+Orán,2025,toros,813.0
+Orán,2025,total_bovinos,37950.0
+Orán,2025,vacas,14091.0
+Orán,2025,vaquillonas,6472.0
+Rivadavia,2025,bueyes,7.0
+Rivadavia,2025,cantidad_up,3046.0
+Rivadavia,2025,novillitos,4142.0
+Rivadavia,2025,novillos,2433.0
+Rivadavia,2025,terneras,12524.0
+Rivadavia,2025,terneros,11478.0
+Rivadavia,2025,toritos,4180.0
+Rivadavia,2025,toros,2804.0
+Rivadavia,2025,total_bovinos,115660.0
+Rivadavia,2025,vacas,60393.0
+Rivadavia,2025,vaquillonas,17699.0
+Rosario de Lerma,2025,bueyes,2.0
+Rosario de Lerma,2025,cantidad_up,462.0
+Rosario de Lerma,2025,novillitos,3306.0
+Rosario de Lerma,2025,novillos,817.0
+Rosario de Lerma,2025,terneras,3918.0
+Rosario de Lerma,2025,terneros,4426.0
+Rosario de Lerma,2025,toritos,455.0
+Rosario de Lerma,2025,toros,938.0
+Rosario de Lerma,2025,total_bovinos,29391.0
+Rosario de Lerma,2025,vacas,9758.0
+Rosario de Lerma,2025,vaquillonas,5771.0
+Rosario de la Frontera,2025,bueyes,0.0
+Rosario de la Frontera,2025,cantidad_up,523.0
+Rosario de la Frontera,2025,novillitos,12446.0
+Rosario de la Frontera,2025,novillos,3069.0
+Rosario de la Frontera,2025,terneras,9065.0
+Rosario de la Frontera,2025,terneros,6885.0
+Rosario de la Frontera,2025,toritos,1422.0
+Rosario de la Frontera,2025,toros,1497.0
+Rosario de la Frontera,2025,total_bovinos,76059.0
+Rosario de la Frontera,2025,vacas,30417.0
+Rosario de la Frontera,2025,vaquillonas,11258.0
+San Carlos,2025,bueyes,0.0
+San Carlos,2025,cantidad_up,288.0
+San Carlos,2025,novillitos,334.0
+San Carlos,2025,novillos,516.0
+San Carlos,2025,terneras,735.0
+San Carlos,2025,terneros,652.0
+San Carlos,2025,toritos,143.0
+San Carlos,2025,toros,236.0
+San Carlos,2025,total_bovinos,6485.0
+San Carlos,2025,vacas,2763.0
+San Carlos,2025,vaquillonas,1106.0
+Santa Victoria,2025,bueyes,724.0
+Santa Victoria,2025,cantidad_up,980.0
+Santa Victoria,2025,novillitos,1975.0
+Santa Victoria,2025,novillos,2793.0
+Santa Victoria,2025,terneras,1995.0
+Santa Victoria,2025,terneros,1936.0
+Santa Victoria,2025,toritos,360.0
+Santa Victoria,2025,toros,685.0
+Santa Victoria,2025,total_bovinos,22403.0
+Santa Victoria,2025,vacas,8096.0
+Santa Victoria,2025,vaquillonas,3839.0

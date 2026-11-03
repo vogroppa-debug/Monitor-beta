@@ -453,7 +453,9 @@ def main():
     with open(os.path.join(HERE, "index.html"), "w", encoding="utf-8") as f:
         f.write(tpl_index.render(site=catalog.SITE, ejes=ejes_pdes, base=".",
                                  asset_ver=asset_ver, tabla=tabla_ind, n_indicadores=n_ind,
-                                 mostrar_metas=catalog.MOSTRAR_METAS))
+                                 mostrar_metas=catalog.MOSTRAR_METAS,
+                                 mostrar_meta_2030=catalog.MOSTRAR_META_2030,
+                                 meta_2030_titulo=catalog.META_2030_TITULO))
 
     # tema/<id>.html
     tpl_tema = env.get_template("tema.html")
