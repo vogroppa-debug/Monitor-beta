@@ -42,6 +42,15 @@
       return pal[(i < 0 ? 0 : i) % pal.length];
     });
   }
+
+  // Color fijo de una serie (spec `seriesColor`), por encima de la paleta categorica. Para
+  // categorias que tienen un color convencional —el gris de lo urbanizado— y que la paleta,
+  // que reparte por posicion alfabetica, pintaria de cualquier tono. Acepta un color suelto o
+  // {light, dark}, porque un tono calibrado para fondo blanco se apaga sobre el fondo oscuro.
+  function colorFijo(v) {
+    if (v == null) return null;
+    return (typeof v === "object") ? (isDark() ? v.dark : v.light) : v;
+  }
   function cssvar(name) { return getComputedStyle(document.documentElement).getPropertyValue(name).trim(); }
   function chrome() {
     return { ink: cssvar("--ink"), ink2: cssvar("--ink-2"), grid: cssvar("--grid"),
@@ -277,6 +286,17 @@
       opt.legend = { show: true, bottom: 0, textStyle: { color: c.ink2 }, itemWidth: 14, itemHeight: 10, icon: "roundRect" };
       opt.grid.bottom = 28;
     }
+    if (ch.seriesColor) {
+      series.forEach(function (s) {
+        var fijo = colorFijo(ch.seriesColor[s.name]);
+        if (!fijo) return;
+        // itemStyle manda sobre `option.color`, asi que tambien pinta el area apilada, el
+        // simbolo y la marca de la leyenda; lineStyle ya trae el ancho y hay que conservarlo.
+        s.itemStyle = Object.assign({}, s.itemStyle, { color: fijo });
+        if (s.lineStyle) s.lineStyle = Object.assign({}, s.lineStyle, { color: fijo });
+      });
+    }
+
     // Franja final que la FUENTE va a reescribir (MapBiomas aplica reglas de fin de serie a
     // los ultimos cuatro anios: en 2024 el bosque sube y en 2025 cae 139.000 ha). Sin la marca,
     // el ultimo tramo se lee como un hecho del territorio. Va sobre la primera serie porque el
@@ -736,12 +756,17 @@
   }
 
   // -------------------------------------------------------- Bootstrap
+  // Los JSON de datos se piden con la misma marca de version que el CSS y el JS. Sin esto el
+  // navegador sirve el payload viejo despues de un build —el HTML y el JS llegan nuevos, los
+  // datos no— y el grafico queda con una copia que ya no existe en el repo.
+  function verQS() { return window.CESS_VER ? "?v=" + window.CESS_VER : ""; }
+
   function init() {
     var page = document.querySelector(".tema-page");
     if (!page) return;
     var id = page.getAttribute("data-tema");
     var base = page.getAttribute("data-base") || ".";
-    fetch(base + "/data/" + id + ".json").then(function (r) { return r.json(); }).then(function (data) {
+    fetch(base + "/data/" + id + ".json" + verQS()).then(function (r) { return r.json(); }).then(function (data) {
       var ix = makeIndex(data.fields);
       var kpiMount = document.getElementById("kpis");
 

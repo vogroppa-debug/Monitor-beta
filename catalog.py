@@ -28,6 +28,10 @@ Spec de gráfico:
   stack:       bool
   yMax:        tope fijo del eje Y (p. ej. 100 en distribuciones porcentuales apiladas)
   unidad:      etiqueta de unidad (si metrica es conmutable, la resuelve el front)
+  seriesColor: {nombre de serie: color} - fija el color de esas series por encima de la paleta
+               categórica, que reparte por posición alfabética. Para categorías con un color
+               convencional (gris para áreas urbanas). El color puede ser una cadena o
+               {"light": ..., "dark": ...} si hace falta distinguir por modo.
   provisorio_desde: int - sombrea el eje X desde ese valor con la etiqueta «provisorio».
                Para fuentes cuyos últimos períodos la propia fuente va a reescribir (MapBiomas
                aplica reglas de fin de serie a los últimos cuatro años). Es sólo la marca
@@ -1502,6 +1506,9 @@ TEMAS = [
              "x": "anio", "seriesBy": "clase", "metrica": "superficie_grupo_ha",
              "fixed": {"departamento": "Salta"}, "stack": True,
              "provisorio_desde": 2022,
+             # Gris para lo urbanizado: es el color con el que se lee una mancha urbana en
+             # cualquier mapa de cobertura, y la paleta le tocaba un tono cualquiera.
+             "seriesColor": {"Áreas urbanas": {"light": "#6f767e", "dark": "#9aa2ab"}},
              "controls": [
                  {"kind": "mode", "label": "Medida", "default": "ha", "options": [
                      {"value": "ha", "label": "Hectáreas"},

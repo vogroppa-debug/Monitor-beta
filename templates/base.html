@@ -63,7 +63,7 @@
 
 <script src="{{ base }}/assets/vendor/echarts.min.js"></script>
 <script src="{{ base }}/assets/vendor/minisearch.min.js"></script>
-<script>window.CESS_BASE = "{{ base }}";</script>
+<script>window.CESS_BASE = "{{ base }}"; window.CESS_VER = "{{ asset_ver|default('') }}";</script>
 <script src="{{ base }}/assets/js/app.js{% if asset_ver %}?v={{ asset_ver }}{% endif %}"></script>
 {% block scripts %}{% endblock %}
 </body>

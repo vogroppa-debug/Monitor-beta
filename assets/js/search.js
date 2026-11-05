@@ -3,6 +3,9 @@
 (function () {
   "use strict";
   var base = window.CESS_BASE || ".";
+  // Misma marca de version que el CSS y el JS: sin ella el navegador sirve el catalogo viejo
+  // despues de un build y el buscador no encuentra los tableros nuevos.
+  var verQS = window.CESS_VER ? "?v=" + window.CESS_VER : "";
 
   function fold(s) {
     return String(s).normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase();
@@ -14,7 +17,7 @@
   var explorar = document.getElementById("explorar");
   if (!input) return;
 
-  fetch(base + "/data/catalog.json").then(function (r) { return r.json(); }).then(function (cat) {
+  fetch(base + "/data/catalog.json" + verQS).then(function (r) { return r.json(); }).then(function (cat) {
     var temas = cat.temas;
     var byId = {};
     temas.forEach(function (t) { byId[t.id] = t; });
