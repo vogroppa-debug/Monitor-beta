@@ -75,6 +75,21 @@ Los códigos `I.1`…`V.4` de la Tabla de indicadores son los de las **notas té
 - monto_real: 270 valor(es) a >1000× de la mediana (mediana=1.15985e+08); revisar posible artefacto de parseo.
 ### energia-renovable
 - energia-renovable: generación eléctrica de Salta (CAMMESA), MWh convertidos a GWh; los flujos se suman por trimestre/año. 'Renovable' = régimen Ley 27.191; la potencia instalada es una foto al último mes disponible.
+### bosques
+- bosques: MapBiomas Argentina, Colección 3. El stock por clase sale de la planilla oficial por provincia; el desmonte y la regeneración, del producto de transiciones reducido por departamento en Earth Engine (la planilla sólo trae stock, y la resta entre años es cambio NETO, no desmonte).
+- bosques: 2022-2025 son PROVISORIOS —el ráster aplica reglas de fin de serie a los últimos cuatro años y la colección siguiente los reescribe—. Los KPI y la tabla de indicadores se paran en 2021, el último año consolidado, fijando serie='Consolidada'; los gráficos muestran la serie completa con la franja final marcada.
+- bosques: desmonte no es lo mismo que pérdida de bosque. `desmonte_bosque_ha` exige conversión a uso antrópico; `bosque_perdido_ha` incluye además el bosque que pasa a arbustal o pastizal (31.000-58.000 ha/año), donde se mezclan degradación, incendios y oscilación de la clasificación entre clases vecinas, que el producto no separa.
+- bosques: 'regeneración' no es 'reforestación'. Es vegetación que vuelve sobre suelo que tuvo uso antrópico; no distingue restauración activa de abandono de lotes, y en los últimos años está subestimada por construcción (necesita años posteriores para confirmarse).
+- bosques: los niveles no son comparables con Greenpeace ni con la UMSEF —para 2022 MapBiomas da 44.723 ha de desmonte y Greenpeace 15.230 ha, muy probablemente por la definición de bosque—. Usar una sola fuente y leer la tendencia, no el nivel.
+- bosques: qc_saltos avisa sobre siete métricas, y en las siete los valores señalados están en el extremo BAJO, no en el alto: son los departamentos de puna —La Poma, Cachi, Molinos, Los Andes—, donde el bosque es marginal (La Poma, 119 ha en 1990, contra una mediana departamental de 122.082 ha). Es la escala real del territorio, no un separador decimal mal leído: los avisos son esperados.
+- bosques: límites departamentales FAO GAUL 2025. Los Andes no tiene bosque en ningún año de la serie, así que queda fuera de los rankings y de la grilla.
+- superficie_bosque_ha: 16 valor(es) a >1000× de la mediana (mediana=122082); revisar posible artefacto de parseo.
+- desmonte_bosque_ha: 9 valor(es) a >1000× de la mediana (mediana=245.8); revisar posible artefacto de parseo.
+- desmonte_bosque_primario_ha: 5 valor(es) a >1000× de la mediana (mediana=142.6); revisar posible artefacto de parseo.
+- desmonte_bosque_secundario_ha: 8 valor(es) a >1000× de la mediana (mediana=112); revisar posible artefacto de parseo.
+- regeneracion_bosque_ha: 17 valor(es) a >1000× de la mediana (mediana=261.3); revisar posible artefacto de parseo.
+- bosque_perdido_ha: 1 valor(es) a >1000× de la mediana (mediana=1596.5); revisar posible artefacto de parseo.
+- share_bosque_pct: 32 valor(es) a >1000× de la mediana (mediana=56.53); revisar posible artefacto de parseo.
 ### energia-electrica
 - energia-renovable: generación eléctrica de Salta (CAMMESA), MWh convertidos a GWh; los flujos se suman por trimestre/año. 'Renovable' = régimen Ley 27.191; la potencia instalada es una foto al último mes disponible.
 ### id-innovacion
@@ -102,7 +117,7 @@ Los códigos `I.1`…`V.4` de la Tabla de indicadores son los de las **notas té
 - seguridad: suicidios del SATSSBU (2017-2024; tasas medias anuales, publicadas con anio=2024) y del trienio 2021-2023 (DEIS, anio=2023), sobre población del Censo 2022. La serie anual es sólo provincial: por departamento los casos por año son muy pocos.
 - seguridad: mortalidad por lesiones de tránsito, tasa media anual 2021-2023 (DEIS), no ajustada por edad.
 ### tabla de indicadores
-- 26 indicadores todavía sin ficha en las notas técnicas (muestran «—» y van al final de su subeje): Nacidos vivos, Defunciones, Tasa de mortalidad infantil (c/ mil nacidos vivos), Consultas médicas por habitante, Ocupación de camas en establecimientos públicos (%), Tasa de natalidad (c/ mil hab.), Tasa de mortalidad general (c/ mil hab.), Tasa de mortalidad materna (c/ 10 mil nacidos vivos), Egresos hospitalarios, Camas disponibles (promedio), Esperanza de vida al nacer (años). Mujeres, Esperanza de vida al nacer (años). Varones, Matrícula total (alumnos), Egresados de secundaria (alumnos), Cargos docentes, Gasto en personal (% del gasto primario), Inversión real directa (% del gasto primario), Recursos tributarios propios (% de ingresos totales), Accesos a internet fijo cada 100 hogares, Accesos a internet fijo, Velocidad media de bajada (Mbps), Participación renovable en la generación (%), Ocupación de habitaciones (%), Viajeros, Pernoctaciones (noches), Estadía media (noches).
+- 30 indicadores todavía sin ficha en las notas técnicas (muestran «—» y van al final de su subeje): Nacidos vivos, Defunciones, Tasa de mortalidad infantil (c/ mil nacidos vivos), Consultas médicas por habitante, Ocupación de camas en establecimientos públicos (%), Tasa de natalidad (c/ mil hab.), Tasa de mortalidad general (c/ mil hab.), Tasa de mortalidad materna (c/ 10 mil nacidos vivos), Egresos hospitalarios, Camas disponibles (promedio), Esperanza de vida al nacer (años). Mujeres, Esperanza de vida al nacer (años). Varones, Matrícula total (alumnos), Egresados de secundaria (alumnos), Cargos docentes, Gasto en personal (% del gasto primario), Inversión real directa (% del gasto primario), Recursos tributarios propios (% de ingresos totales), Accesos a internet fijo cada 100 hogares, Accesos a internet fijo, Velocidad media de bajada (Mbps), Superficie de bosque nativo (ha), Desmonte anual de bosque (ha), Regeneración de bosque (ha), Bosque sobre la superficie provincial (%), Participación renovable en la generación (%), Ocupación de habitaciones (%), Viajeros, Pernoctaciones (noches), Estadía media (noches).
 
 ## Control (filas por tema)
 - `educacion`: 11202 filas, cobertura 2011–2024.
@@ -121,6 +136,7 @@ Los códigos `I.1`…`V.4` de la Tabla de indicadores son los de las **notas té
 - `construccion`: 1682 filas, cobertura 2021–2026.
 - `recursos-municipios`: 10044 filas, cobertura 2021–2026.
 - `energia-renovable`: 233 filas, cobertura 2019–2026.
+- `bosques`: 8472 filas, cobertura 1985–2025 (consolidado hasta 2021).
 - `energia-electrica`: 233 filas, cobertura 2019–2026.
 - `id-innovacion`: 54 filas, cobertura 2003–2024.
 - `exportaciones`: 5306 filas, cobertura 2021–2025.

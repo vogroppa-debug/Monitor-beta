@@ -277,6 +277,22 @@
       opt.legend = { show: true, bottom: 0, textStyle: { color: c.ink2 }, itemWidth: 14, itemHeight: 10, icon: "roundRect" };
       opt.grid.bottom = 28;
     }
+    // Franja final que la FUENTE va a reescribir (MapBiomas aplica reglas de fin de serie a
+    // los ultimos cuatro anios: en 2024 el bosque sube y en 2025 cae 139.000 ha). Sin la marca,
+    // el ultimo tramo se lee como un hecho del territorio. Va sobre la primera serie porque el
+    // markArea es del grafico, no de la serie: repetirlo en cada una lo pinta N veces y el
+    // sombreado se vuelve opaco. Se omite en la grilla: en una faceta de 150 px no se lee.
+    if (ch.provisorio_desde != null && !opts.forGrid && TIME_X[ch.x] && series.length) {
+      var desde = xs.filter(function (x) { return parseInt(x, 10) >= ch.provisorio_desde; })[0];
+      if (desde != null) {
+        series[0].markArea = {
+          silent: true, itemStyle: { color: c.grid, opacity: 0.45 },
+          label: { show: true, position: "insideTop", color: c.muted, fontSize: 10,
+                   formatter: "provisorio" },
+          data: [[{ xAxis: desde }, { xAxis: xs[xs.length - 1] }]]
+        };
+      }
+    }
     opt.series = series;
     return { option: opt, table: tableFromSeries(xs, seriesKeys, series, ch), height: 380,
              seriesKeys: seriesKeys, seriesNames: series.map(function (s) { return s.name; }) };
@@ -288,6 +304,7 @@
     unidad_geografica: "Unidad geográfica", sector: "Sector", rubro: "Rubro",
     pais_destino: "País de destino", continente: "Continente", gran_rubro: "Tipo de producto",
     central: "Central", partida: "Partida", impuesto: "Impuesto", cultivo: "Cultivo",
+    clase: "Clase de cobertura",
     concepto: "Concepto", categoria: "Categoría", nivel: "Nivel", funcion: "Función"
   };
   function dimLabel(d) { return DIM_LABEL[d] || cap(String(d).replace(/_/g, " ")); }

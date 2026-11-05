@@ -2240,6 +2240,210 @@ def seguridad():
     ])
 
 
+# ==========================================================================
+# TEMA — Bosque nativo y uso del suelo (MapBiomas Argentina, Colección 3)
+# ==========================================================================
+BOS_SRC_DEP = "MapBiomas_Bosques_Salta_departamento_1987-2025.csv"
+BOS_SRC_COB = "MapBiomas_Cobertura_Salta_provincia_1985-2025.csv"
+
+# Último año que MapBiomas da por cerrado. El producto de transiciones aplica reglas de fin de
+# serie a los últimos cuatro años y la colección siguiente los reescribe: en 2024 el stock de
+# bosque SUBE 27.725 ha y en 2025 cae 139.417 ha. La metodología (§6) pide reportar hasta 2021.
+BOS_ANIO_CONSOLIDADO = 2021
+
+BOS_METRICAS = {
+    "superficie_bosque_ha": {"label": "Superficie de bosque nativo", "unidad": "ha", "agg": "sum"},
+    "share_bosque_pct": {"label": "Bosque sobre la superficie del territorio", "unidad": "%",
+                         "agg": "mean"},
+    "desmonte_bosque_ha": {"label": "Desmonte de bosque", "unidad": "ha", "agg": "sum"},
+    "desmonte_bosque_primario_ha": {"label": "Desmonte de bosque primario", "unidad": "ha",
+                                    "agg": "sum"},
+    "desmonte_bosque_secundario_ha": {"label": "Desmonte de bosque secundario", "unidad": "ha",
+                                      "agg": "sum"},
+    "regeneracion_bosque_ha": {"label": "Regeneración de bosque", "unidad": "ha", "agg": "sum"},
+    "bosque_a_otra_vegetacion_natural_ha": {"label": "Bosque que pasa a otra vegetación natural",
+                                            "unidad": "ha", "agg": "sum"},
+    "bosque_perdido_ha": {"label": "Bosque perdido (todas las causas)", "unidad": "ha",
+                          "agg": "sum"},
+    "superficie_clase_ha": {"label": "Superficie por clase de cobertura", "unidad": "ha",
+                            "agg": "sum"},
+    "superficie_grupo_ha": {"label": "Superficie por grupo de cobertura", "unidad": "ha",
+                            "agg": "sum"},
+}
+
+# Métricas del CSV departamental que se publican tal cual. `superficie_total_ha` NO está: sólo
+# sirve para derivar el porcentaje y como serie propia sería ruido.
+BOS_PASAN = ["superficie_bosque_ha", "desmonte_bosque_ha", "desmonte_bosque_primario_ha",
+             "desmonte_bosque_secundario_ha", "regeneracion_bosque_ha",
+             "bosque_a_otra_vegetacion_natural_ha", "bosque_perdido_ha"]
+
+# Las 18 clases de cobertura, agrupadas para que el apilado se lea: 18 series apiladas son
+# ilegibles y la paleta no tiene 18 colores distinguibles. El detalle por clase sigue estando
+# en `superficie_clase_ha`, que alimenta el ranking.
+#
+# "Otras áreas no vegetadas" NO va con lo urbano aunque las dos sean suelo sin vegetación: son
+# 2,67 millones de hectáreas de puna, salares y roca contra 39.000 ha de ciudad. Agrupadas
+# bajo una etiqueta con la palabra "urbano", la banda más ancha del gráfico diría lo contrario
+# de lo que es.
+BOS_GRUPO = {
+    "Bosques cerrados": "Bosques", "Bosques abiertos": "Bosques",
+    "Bosques inundables": "Bosques",
+    "Arbustales cerrados": "Otra vegetación natural",
+    "Arbustales abiertos": "Otra vegetación natural",
+    "Mosaicos de arbustos y herbáceas": "Otra vegetación natural",
+    "Herbáceas": "Otra vegetación natural",
+    "Herbáceas inundables": "Otra vegetación natural",
+    "Cultivos temporarios": "Agropecuario", "Cultivos perennes": "Agropecuario",
+    "Pasturas": "Agropecuario", "Mosaico de usos": "Agropecuario",
+    "Silvicultura": "Agropecuario",
+    "Otras áreas no vegetadas": "Suelo desnudo y salares",
+    "Hielo y nieve permanente": "Suelo desnudo y salares",
+    "No observado": "Suelo desnudo y salares",
+    "Ríos, lagunas, lagos y océano": "Agua",
+    "Áreas urbanas": "Áreas urbanas",
+}
+
+
+def _bos_serie(anio):
+    """Etiqueta de vintage del año. ES LA PALANCA QUE PARA LOS KPI EN 2021.
+
+    Ni `renderKpis` (charts.js) ni su espejo `_calcular` (indicadores.py) miran el `year` del
+    spec: los dos toman el último período con dato. Lo único que ambos respetan es `fixed`, así
+    que los KPI fijan `serie: "Consolidada"` y su último dato queda en 2021, mientras los
+    gráficos —que NO fijan la dimensión— reconstruyen la serie entera 1987-2025.
+
+    El invariante que lo hace funcionar: cada (anio, departamento, clase, métrica) existe bajo
+    UN solo valor de `serie`, así que sumar sobre la dimensión no duplica nada. Por eso ningún
+    gráfico debe llevar un `select` sobre `serie`: partiría la serie en dos pedazos.
+    """
+    return "Consolidada" if int(anio) <= BOS_ANIO_CONSOLIDADO else "Provisoria"
+
+
+def bosques():
+    """Bosque nativo por departamento + cobertura y uso del suelo provincial (MapBiomas C3).
+
+    Dos CSV tidy con geografías distintas que conviven en un esquema único: las filas de bosque
+    llevan `clase = "Total"` y abren por departamento; las de cobertura llevan
+    `departamento = "Salta"` y abren por clase. Cada gráfico elige una familia con su métrica,
+    así que no se mezclan.
+    """
+    dep = pd.read_csv(_src(BOS_SRC_DEP), encoding="utf-8-sig")
+    dep["departamento"] = dep["departamento"].map(norm_dept)
+    dep["anio"] = pd.to_numeric(dep["anio"], errors="coerce").astype("Int64")
+    dep["valor"] = pd.to_numeric(dep["valor"], errors="coerce")
+    dep = dep.dropna(subset=["anio", "valor"])
+    dep["anio"] = dep["anio"].astype(int)
+
+    # El CSV no trae fila provincial a propósito: una fila "Salta" duplicaría todo al sumar por
+    # departamento. Se arma acá, como en `ganaderia`, porque es la opción "Salta (provincia)"
+    # del selector y la que leen los KPI.
+    utiles = set(BOS_PASAN) | {"superficie_total_ha"}
+    por_dep, prov = {}, {}
+    for r in dep.itertuples(index=False):
+        if r.metrica not in utiles:
+            continue
+        por_dep[(int(r.anio), r.departamento, r.metrica)] = float(r.valor)
+        k = (int(r.anio), r.metrica)
+        prov[k] = prov.get(k, 0.0) + float(r.valor)
+
+    rows = []
+    for (anio, depto, met), val in por_dep.items():
+        if met in BOS_PASAN:
+            rows.append([anio, depto, "Total", _bos_serie(anio), met, round(val, 1)])
+    for (anio, met), val in prov.items():
+        if met in BOS_PASAN:
+            rows.append([anio, "Salta", "Total", _bos_serie(anio), met, round(val, 1)])
+
+    # Porcentaje del territorio con bosque: el stock en hectáreas no se lee sin saber que Salta
+    # tiene 15,5 millones. Se calcula por departamento y para la provincia.
+    for (anio, depto, met), val in por_dep.items():
+        if met != "superficie_bosque_ha":
+            continue
+        tot = por_dep.get((anio, depto, "superficie_total_ha"))
+        if tot:
+            rows.append([anio, depto, "Total", _bos_serie(anio), "share_bosque_pct",
+                         round(val / tot * 100, 2)])
+    for (anio, met), val in prov.items():
+        if met != "superficie_bosque_ha":
+            continue
+        tot = prov.get((anio, "superficie_total_ha"))
+        if tot:
+            rows.append([anio, "Salta", "Total", _bos_serie(anio), "share_bosque_pct",
+                         round(val / tot * 100, 2)])
+
+    # ---- Cobertura y uso del suelo (planilla oficial por provincia) ----
+    cob = pd.read_csv(_src(BOS_SRC_COB), encoding="utf-8-sig")
+    cob["anio"] = pd.to_numeric(cob["anio"], errors="coerce").astype("Int64")
+    cob["valor"] = pd.to_numeric(cob["valor"], errors="coerce")
+    cob = cob.dropna(subset=["anio", "valor"])
+    cob["anio"] = cob["anio"].astype(int)
+
+    sin_grupo, grupos = set(), {}
+    for r in cob.itertuples(index=False):
+        clase = str(r.clase).strip()
+        anio = int(r.anio)
+        rows.append([anio, "Salta", clase, _bos_serie(anio), "superficie_clase_ha",
+                     round(float(r.valor), 1)])
+        g = BOS_GRUPO.get(clase)
+        if g is None:
+            sin_grupo.add(clase)
+            continue
+        grupos[(anio, g)] = grupos.get((anio, g), 0.0) + float(r.valor)
+    for (anio, g), val in grupos.items():
+        rows.append([anio, "Salta", g, _bos_serie(anio), "superficie_grupo_ha", round(val, 1)])
+
+    fields = ["anio", "departamento", "clase", "serie", "metrica", "valor"]
+    deptos = [d for d in sorted({r[1] for r in rows})
+              if d not in NON_GEO and d not in PROVINCIAL_TOKENS]
+    clases = sorted({r[2] for r in rows if r[2] != "Total"})
+
+    notas = [
+        "bosques: MapBiomas Argentina, Colección 3. El stock por clase sale de la planilla "
+        "oficial por provincia; el desmonte y la regeneración, del producto de transiciones "
+        "reducido por departamento en Earth Engine (la planilla sólo trae stock, y la resta "
+        "entre años es cambio NETO, no desmonte).",
+        "bosques: 2022-2025 son PROVISORIOS —el ráster aplica reglas de fin de serie a los "
+        "últimos cuatro años y la colección siguiente los reescribe—. Los KPI y la tabla de "
+        "indicadores se paran en %d, el último año consolidado, fijando serie='Consolidada'; "
+        "los gráficos muestran la serie completa con la franja final marcada."
+        % BOS_ANIO_CONSOLIDADO,
+        "bosques: desmonte no es lo mismo que pérdida de bosque. `desmonte_bosque_ha` exige "
+        "conversión a uso antrópico; `bosque_perdido_ha` incluye además el bosque que pasa a "
+        "arbustal o pastizal (31.000-58.000 ha/año), donde se mezclan degradación, incendios y "
+        "oscilación de la clasificación entre clases vecinas, que el producto no separa.",
+        "bosques: 'regeneración' no es 'reforestación'. Es vegetación que vuelve sobre suelo "
+        "que tuvo uso antrópico; no distingue restauración activa de abandono de lotes, y en "
+        "los últimos años está subestimada por construcción (necesita años posteriores para "
+        "confirmarse).",
+        "bosques: los niveles no son comparables con Greenpeace ni con la UMSEF —para 2022 "
+        "MapBiomas da 44.723 ha de desmonte y Greenpeace 15.230 ha, muy probablemente por la "
+        "definición de bosque—. Usar una sola fuente y leer la tendencia, no el nivel.",
+        "bosques: qc_saltos avisa sobre siete métricas, y en las siete los valores señalados "
+        "están en el extremo BAJO, no en el alto: son los departamentos de puna —La Poma, "
+        "Cachi, Molinos, Los Andes—, donde el bosque es marginal (La Poma, 119 ha en 1990, "
+        "contra una mediana departamental de 122.082 ha). Es la escala real del territorio, "
+        "no un separador decimal mal leído: los avisos son esperados.",
+        "bosques: límites departamentales FAO GAUL 2025. Los Andes no tiene bosque en ningún "
+        "año de la serie, así que queda fuera de los rankings y de la grilla.",
+    ]
+    if sin_grupo:
+        notas.append("bosques: clases de cobertura sin grupo asignado (quedan fuera del "
+                     "apilado): %s. Revisar BOS_GRUPO." % ", ".join(sorted(sin_grupo)))
+
+    return {
+        "fields": fields,
+        "rows": rows,
+        "dims": {
+            "anio": sorted({r[0] for r in rows}),
+            "departamento": deptos,
+            "clase": clases,
+            "serie": ["Consolidada", "Provisoria"],
+        },
+        "metricas": BOS_METRICAS,
+        "notas": notas,
+    }
+
+
 # Registro id_tema -> función adapter
 ADAPTERS = {
     "educacion": educacion,
@@ -2266,4 +2470,5 @@ ADAPTERS = {
     "salud-reproduccion": salud_reproduccion,
     "educacion-aprendizajes": educacion_aprendizajes,
     "seguridad": seguridad,
+    "bosques": bosques,
 }

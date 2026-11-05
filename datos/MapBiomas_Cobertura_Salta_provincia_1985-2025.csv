@@ -1,0 +1,739 @@
+﻿provincia,anio,clase,metrica,valor
+Salta,1985,Bosques cerrados,superficie_ha,8867940.27
+Salta,1986,Bosques cerrados,superficie_ha,8917652.14
+Salta,1987,Bosques cerrados,superficie_ha,8934155.09
+Salta,1988,Bosques cerrados,superficie_ha,8953882.06
+Salta,1989,Bosques cerrados,superficie_ha,8917513.19
+Salta,1990,Bosques cerrados,superficie_ha,8852959.12
+Salta,1991,Bosques cerrados,superficie_ha,8852235.37
+Salta,1992,Bosques cerrados,superficie_ha,8804780.13
+Salta,1993,Bosques cerrados,superficie_ha,8801438.67
+Salta,1994,Bosques cerrados,superficie_ha,8781294.94
+Salta,1995,Bosques cerrados,superficie_ha,8751429.56
+Salta,1996,Bosques cerrados,superficie_ha,8693240.68
+Salta,1997,Bosques cerrados,superficie_ha,8638841.24
+Salta,1998,Bosques cerrados,superficie_ha,8537658.63
+Salta,1999,Bosques cerrados,superficie_ha,8494605.99
+Salta,2000,Bosques cerrados,superficie_ha,8418677.76
+Salta,2001,Bosques cerrados,superficie_ha,8369960.23
+Salta,2002,Bosques cerrados,superficie_ha,8307462.25
+Salta,2003,Bosques cerrados,superficie_ha,8223502.52
+Salta,2004,Bosques cerrados,superficie_ha,8216126.08
+Salta,2005,Bosques cerrados,superficie_ha,8159807.6
+Salta,2006,Bosques cerrados,superficie_ha,8044009.07
+Salta,2007,Bosques cerrados,superficie_ha,7962698.37
+Salta,2008,Bosques cerrados,superficie_ha,7820486.72
+Salta,2009,Bosques cerrados,superficie_ha,7736279.34
+Salta,2010,Bosques cerrados,superficie_ha,7678214.25
+Salta,2011,Bosques cerrados,superficie_ha,7605751.4
+Salta,2012,Bosques cerrados,superficie_ha,7545142.74
+Salta,2013,Bosques cerrados,superficie_ha,7504206.0
+Salta,2014,Bosques cerrados,superficie_ha,7470601.75
+Salta,2015,Bosques cerrados,superficie_ha,7360091.05
+Salta,2016,Bosques cerrados,superficie_ha,7310649.4
+Salta,2017,Bosques cerrados,superficie_ha,7317773.26
+Salta,2018,Bosques cerrados,superficie_ha,7311689.15
+Salta,2019,Bosques cerrados,superficie_ha,7286823.09
+Salta,2020,Bosques cerrados,superficie_ha,7248886.45
+Salta,2021,Bosques cerrados,superficie_ha,7198229.41
+Salta,2022,Bosques cerrados,superficie_ha,7140905.63
+Salta,2023,Bosques cerrados,superficie_ha,7125038.77
+Salta,2024,Bosques cerrados,superficie_ha,7167976.02
+Salta,2025,Bosques cerrados,superficie_ha,6989997.48
+Salta,1985,Bosques abiertos,superficie_ha,326935.4
+Salta,1986,Bosques abiertos,superficie_ha,285116.96
+Salta,1987,Bosques abiertos,superficie_ha,271262.31
+Salta,1988,Bosques abiertos,superficie_ha,242550.85
+Salta,1989,Bosques abiertos,superficie_ha,263474.23
+Salta,1990,Bosques abiertos,superficie_ha,272149.28
+Salta,1991,Bosques abiertos,superficie_ha,248665.25
+Salta,1992,Bosques abiertos,superficie_ha,254132.59
+Salta,1993,Bosques abiertos,superficie_ha,236826.4
+Salta,1994,Bosques abiertos,superficie_ha,221692.64
+Salta,1995,Bosques abiertos,superficie_ha,216305.3
+Salta,1996,Bosques abiertos,superficie_ha,221411.23
+Salta,1997,Bosques abiertos,superficie_ha,227448.15
+Salta,1998,Bosques abiertos,superficie_ha,243054.87
+Salta,1999,Bosques abiertos,superficie_ha,239052.44
+Salta,2000,Bosques abiertos,superficie_ha,255757.92
+Salta,2001,Bosques abiertos,superficie_ha,272041.79
+Salta,2002,Bosques abiertos,superficie_ha,293418.19
+Salta,2003,Bosques abiertos,superficie_ha,311218.5
+Salta,2004,Bosques abiertos,superficie_ha,271922.66
+Salta,2005,Bosques abiertos,superficie_ha,218160.26
+Salta,2006,Bosques abiertos,superficie_ha,204862.23
+Salta,2007,Bosques abiertos,superficie_ha,220295.86
+Salta,2008,Bosques abiertos,superficie_ha,238109.8
+Salta,2009,Bosques abiertos,superficie_ha,249543.84
+Salta,2010,Bosques abiertos,superficie_ha,228325.94
+Salta,2011,Bosques abiertos,superficie_ha,217312.34
+Salta,2012,Bosques abiertos,superficie_ha,199431.85
+Salta,2013,Bosques abiertos,superficie_ha,191609.47
+Salta,2014,Bosques abiertos,superficie_ha,198681.72
+Salta,2015,Bosques abiertos,superficie_ha,213169.25
+Salta,2016,Bosques abiertos,superficie_ha,232487.13
+Salta,2017,Bosques abiertos,superficie_ha,222580.11
+Salta,2018,Bosques abiertos,superficie_ha,204918.7
+Salta,2019,Bosques abiertos,superficie_ha,208196.0
+Salta,2020,Bosques abiertos,superficie_ha,221325.96
+Salta,2021,Bosques abiertos,superficie_ha,229299.57
+Salta,2022,Bosques abiertos,superficie_ha,230940.12
+Salta,2023,Bosques abiertos,superficie_ha,214791.57
+Salta,2024,Bosques abiertos,superficie_ha,199440.83
+Salta,2025,Bosques abiertos,superficie_ha,220682.43
+Salta,1985,Bosques inundables,superficie_ha,25522.82
+Salta,1986,Bosques inundables,superficie_ha,17240.27
+Salta,1987,Bosques inundables,superficie_ha,18052.16
+Salta,1988,Bosques inundables,superficie_ha,18198.09
+Salta,1989,Bosques inundables,superficie_ha,17651.07
+Salta,1990,Bosques inundables,superficie_ha,16992.57
+Salta,1991,Bosques inundables,superficie_ha,14157.67
+Salta,1992,Bosques inundables,superficie_ha,12497.74
+Salta,1993,Bosques inundables,superficie_ha,13742.66
+Salta,1994,Bosques inundables,superficie_ha,13263.3
+Salta,1995,Bosques inundables,superficie_ha,13096.38
+Salta,1996,Bosques inundables,superficie_ha,11538.64
+Salta,1997,Bosques inundables,superficie_ha,15402.65
+Salta,1998,Bosques inundables,superficie_ha,16816.52
+Salta,1999,Bosques inundables,superficie_ha,22136.75
+Salta,2000,Bosques inundables,superficie_ha,26112.86
+Salta,2001,Bosques inundables,superficie_ha,28698.74
+Salta,2002,Bosques inundables,superficie_ha,38231.99
+Salta,2003,Bosques inundables,superficie_ha,35252.57
+Salta,2004,Bosques inundables,superficie_ha,16271.21
+Salta,2005,Bosques inundables,superficie_ha,9602.1
+Salta,2006,Bosques inundables,superficie_ha,11037.94
+Salta,2007,Bosques inundables,superficie_ha,10288.42
+Salta,2008,Bosques inundables,superficie_ha,8689.03
+Salta,2009,Bosques inundables,superficie_ha,7675.96
+Salta,2010,Bosques inundables,superficie_ha,9153.35
+Salta,2011,Bosques inundables,superficie_ha,10482.96
+Salta,2012,Bosques inundables,superficie_ha,10587.64
+Salta,2013,Bosques inundables,superficie_ha,14396.34
+Salta,2014,Bosques inundables,superficie_ha,14929.69
+Salta,2015,Bosques inundables,superficie_ha,16439.56
+Salta,2016,Bosques inundables,superficie_ha,13910.9
+Salta,2017,Bosques inundables,superficie_ha,12380.94
+Salta,2018,Bosques inundables,superficie_ha,12386.13
+Salta,2019,Bosques inundables,superficie_ha,13178.5
+Salta,2020,Bosques inundables,superficie_ha,12747.49
+Salta,2021,Bosques inundables,superficie_ha,13640.78
+Salta,2022,Bosques inundables,superficie_ha,17469.15
+Salta,2023,Bosques inundables,superficie_ha,20034.55
+Salta,2024,Bosques inundables,superficie_ha,20321.11
+Salta,2025,Bosques inundables,superficie_ha,37452.2
+Salta,1985,Arbustales cerrados,superficie_ha,28216.73
+Salta,1986,Arbustales cerrados,superficie_ha,27578.16
+Salta,1987,Arbustales cerrados,superficie_ha,30063.15
+Salta,1988,Arbustales cerrados,superficie_ha,38111.2
+Salta,1989,Arbustales cerrados,superficie_ha,41038.27
+Salta,1990,Arbustales cerrados,superficie_ha,40871.51
+Salta,1991,Arbustales cerrados,superficie_ha,39729.64
+Salta,1992,Arbustales cerrados,superficie_ha,42199.72
+Salta,1993,Arbustales cerrados,superficie_ha,39800.12
+Salta,1994,Arbustales cerrados,superficie_ha,37760.42
+Salta,1995,Arbustales cerrados,superficie_ha,37213.51
+Salta,1996,Arbustales cerrados,superficie_ha,34833.55
+Salta,1997,Arbustales cerrados,superficie_ha,32999.72
+Salta,1998,Arbustales cerrados,superficie_ha,29994.87
+Salta,1999,Arbustales cerrados,superficie_ha,29113.02
+Salta,2000,Arbustales cerrados,superficie_ha,30232.5
+Salta,2001,Arbustales cerrados,superficie_ha,29963.8
+Salta,2002,Arbustales cerrados,superficie_ha,30341.03
+Salta,2003,Arbustales cerrados,superficie_ha,32986.06
+Salta,2004,Arbustales cerrados,superficie_ha,36244.75
+Salta,2005,Arbustales cerrados,superficie_ha,67718.73
+Salta,2006,Arbustales cerrados,superficie_ha,70828.76
+Salta,2007,Arbustales cerrados,superficie_ha,65067.29
+Salta,2008,Arbustales cerrados,superficie_ha,68893.93
+Salta,2009,Arbustales cerrados,superficie_ha,71201.44
+Salta,2010,Arbustales cerrados,superficie_ha,76716.57
+Salta,2011,Arbustales cerrados,superficie_ha,73953.06
+Salta,2012,Arbustales cerrados,superficie_ha,73143.5
+Salta,2013,Arbustales cerrados,superficie_ha,70993.74
+Salta,2014,Arbustales cerrados,superficie_ha,78718.54
+Salta,2015,Arbustales cerrados,superficie_ha,135158.7
+Salta,2016,Arbustales cerrados,superficie_ha,158465.79
+Salta,2017,Arbustales cerrados,superficie_ha,160209.31
+Salta,2018,Arbustales cerrados,superficie_ha,164849.28
+Salta,2019,Arbustales cerrados,superficie_ha,166764.0
+Salta,2020,Arbustales cerrados,superficie_ha,170216.15
+Salta,2021,Arbustales cerrados,superficie_ha,181405.87
+Salta,2022,Arbustales cerrados,superficie_ha,182667.84
+Salta,2023,Arbustales cerrados,superficie_ha,179659.74
+Salta,2024,Arbustales cerrados,superficie_ha,169096.98
+Salta,2025,Arbustales cerrados,superficie_ha,204488.73
+Salta,1985,Arbustales abiertos,superficie_ha,525371.29
+Salta,1986,Arbustales abiertos,superficie_ha,520352.26
+Salta,1987,Arbustales abiertos,superficie_ha,538831.95
+Salta,1988,Arbustales abiertos,superficie_ha,557988.49
+Salta,1989,Arbustales abiertos,superficie_ha,568543.04
+Salta,1990,Arbustales abiertos,superficie_ha,579328.08
+Salta,1991,Arbustales abiertos,superficie_ha,572569.4
+Salta,1992,Arbustales abiertos,superficie_ha,588455.75
+Salta,1993,Arbustales abiertos,superficie_ha,567781.93
+Salta,1994,Arbustales abiertos,superficie_ha,566361.45
+Salta,1995,Arbustales abiertos,superficie_ha,567410.18
+Salta,1996,Arbustales abiertos,superficie_ha,562806.06
+Salta,1997,Arbustales abiertos,superficie_ha,561998.24
+Salta,1998,Arbustales abiertos,superficie_ha,563810.86
+Salta,1999,Arbustales abiertos,superficie_ha,567597.72
+Salta,2000,Arbustales abiertos,superficie_ha,576812.88
+Salta,2001,Arbustales abiertos,superficie_ha,578620.58
+Salta,2002,Arbustales abiertos,superficie_ha,577537.2
+Salta,2003,Arbustales abiertos,superficie_ha,579262.82
+Salta,2004,Arbustales abiertos,superficie_ha,566968.22
+Salta,2005,Arbustales abiertos,superficie_ha,557065.63
+Salta,2006,Arbustales abiertos,superficie_ha,552277.76
+Salta,2007,Arbustales abiertos,superficie_ha,536076.32
+Salta,2008,Arbustales abiertos,superficie_ha,526339.55
+Salta,2009,Arbustales abiertos,superficie_ha,530410.34
+Salta,2010,Arbustales abiertos,superficie_ha,532901.2
+Salta,2011,Arbustales abiertos,superficie_ha,539454.82
+Salta,2012,Arbustales abiertos,superficie_ha,541251.43
+Salta,2013,Arbustales abiertos,superficie_ha,531864.89
+Salta,2014,Arbustales abiertos,superficie_ha,523556.54
+Salta,2015,Arbustales abiertos,superficie_ha,517890.96
+Salta,2016,Arbustales abiertos,superficie_ha,516650.88
+Salta,2017,Arbustales abiertos,superficie_ha,496696.34
+Salta,2018,Arbustales abiertos,superficie_ha,493921.92
+Salta,2019,Arbustales abiertos,superficie_ha,503591.35
+Salta,2020,Arbustales abiertos,superficie_ha,516980.76
+Salta,2021,Arbustales abiertos,superficie_ha,514167.47
+Salta,2022,Arbustales abiertos,superficie_ha,529039.11
+Salta,2023,Arbustales abiertos,superficie_ha,520382.84
+Salta,2024,Arbustales abiertos,superficie_ha,504026.69
+Salta,2025,Arbustales abiertos,superficie_ha,478916.35
+Salta,1985,Mosaicos de arbustos y herbáceas,superficie_ha,2447081.04
+Salta,1986,Mosaicos de arbustos y herbáceas,superficie_ha,2446211.11
+Salta,1987,Mosaicos de arbustos y herbáceas,superficie_ha,2419378.54
+Salta,1988,Mosaicos de arbustos y herbáceas,superficie_ha,2342031.27
+Salta,1989,Mosaicos de arbustos y herbáceas,superficie_ha,2321104.0
+Salta,1990,Mosaicos de arbustos y herbáceas,superficie_ha,2300915.66
+Salta,1991,Mosaicos de arbustos y herbáceas,superficie_ha,2312705.5
+Salta,1992,Mosaicos de arbustos y herbáceas,superficie_ha,2307741.84
+Salta,1993,Mosaicos de arbustos y herbáceas,superficie_ha,2307982.2
+Salta,1994,Mosaicos de arbustos y herbáceas,superficie_ha,2308430.12
+Salta,1995,Mosaicos de arbustos y herbáceas,superficie_ha,2348908.93
+Salta,1996,Mosaicos de arbustos y herbáceas,superficie_ha,2373535.73
+Salta,1997,Mosaicos de arbustos y herbáceas,superficie_ha,2402901.97
+Salta,1998,Mosaicos de arbustos y herbáceas,superficie_ha,2398346.84
+Salta,1999,Mosaicos de arbustos y herbáceas,superficie_ha,2380820.82
+Salta,2000,Mosaicos de arbustos y herbáceas,superficie_ha,2384444.9
+Salta,2001,Mosaicos de arbustos y herbáceas,superficie_ha,2380653.24
+Salta,2002,Mosaicos de arbustos y herbáceas,superficie_ha,2375656.35
+Salta,2003,Mosaicos de arbustos y herbáceas,superficie_ha,2377393.94
+Salta,2004,Mosaicos de arbustos y herbáceas,superficie_ha,2380046.69
+Salta,2005,Mosaicos de arbustos y herbáceas,superficie_ha,2358370.78
+Salta,2006,Mosaicos de arbustos y herbáceas,superficie_ha,2349090.98
+Salta,2007,Mosaicos de arbustos y herbáceas,superficie_ha,2344939.11
+Salta,2008,Mosaicos de arbustos y herbáceas,superficie_ha,2339455.61
+Salta,2009,Mosaicos de arbustos y herbáceas,superficie_ha,2320160.9
+Salta,2010,Mosaicos de arbustos y herbáceas,superficie_ha,2316238.37
+Salta,2011,Mosaicos de arbustos y herbáceas,superficie_ha,2327638.56
+Salta,2012,Mosaicos de arbustos y herbáceas,superficie_ha,2332314.51
+Salta,2013,Mosaicos de arbustos y herbáceas,superficie_ha,2330768.06
+Salta,2014,Mosaicos de arbustos y herbáceas,superficie_ha,2336789.08
+Salta,2015,Mosaicos de arbustos y herbáceas,superficie_ha,2343743.16
+Salta,2016,Mosaicos de arbustos y herbáceas,superficie_ha,2330854.92
+Salta,2017,Mosaicos de arbustos y herbáceas,superficie_ha,2341072.24
+Salta,2018,Mosaicos de arbustos y herbáceas,superficie_ha,2352523.03
+Salta,2019,Mosaicos de arbustos y herbáceas,superficie_ha,2342076.36
+Salta,2020,Mosaicos de arbustos y herbáceas,superficie_ha,2345784.24
+Salta,2021,Mosaicos de arbustos y herbáceas,superficie_ha,2342661.81
+Salta,2022,Mosaicos de arbustos y herbáceas,superficie_ha,2332879.84
+Salta,2023,Mosaicos de arbustos y herbáceas,superficie_ha,2330436.6
+Salta,2024,Mosaicos de arbustos y herbáceas,superficie_ha,2319032.66
+Salta,2025,Mosaicos de arbustos y herbáceas,superficie_ha,2273478.15
+Salta,1985,Herbáceas,superficie_ha,57601.92
+Salta,1986,Herbáceas,superficie_ha,53153.21
+Salta,1987,Herbáceas,superficie_ha,52308.6
+Salta,1988,Herbáceas,superficie_ha,56296.55
+Salta,1989,Herbáceas,superficie_ha,55331.36
+Salta,1990,Herbáceas,superficie_ha,53379.12
+Salta,1991,Herbáceas,superficie_ha,51202.12
+Salta,1992,Herbáceas,superficie_ha,55741.68
+Salta,1993,Herbáceas,superficie_ha,57170.02
+Salta,1994,Herbáceas,superficie_ha,51377.94
+Salta,1995,Herbáceas,superficie_ha,52135.83
+Salta,1996,Herbáceas,superficie_ha,50710.25
+Salta,1997,Herbáceas,superficie_ha,48326.83
+Salta,1998,Herbáceas,superficie_ha,48507.84
+Salta,1999,Herbáceas,superficie_ha,48564.25
+Salta,2000,Herbáceas,superficie_ha,53319.0
+Salta,2001,Herbáceas,superficie_ha,57651.49
+Salta,2002,Herbáceas,superficie_ha,56162.15
+Salta,2003,Herbáceas,superficie_ha,55890.38
+Salta,2004,Herbáceas,superficie_ha,57812.89
+Salta,2005,Herbáceas,superficie_ha,73161.4
+Salta,2006,Herbáceas,superficie_ha,76246.32
+Salta,2007,Herbáceas,superficie_ha,83891.27
+Salta,2008,Herbáceas,superficie_ha,86228.08
+Salta,2009,Herbáceas,superficie_ha,85683.52
+Salta,2010,Herbáceas,superficie_ha,84163.23
+Salta,2011,Herbáceas,superficie_ha,83997.57
+Salta,2012,Herbáceas,superficie_ha,83166.38
+Salta,2013,Herbáceas,superficie_ha,89434.86
+Salta,2014,Herbáceas,superficie_ha,85383.52
+Salta,2015,Herbáceas,superficie_ha,63095.8
+Salta,2016,Herbáceas,superficie_ha,56479.12
+Salta,2017,Herbáceas,superficie_ha,57263.06
+Salta,2018,Herbáceas,superficie_ha,59526.76
+Salta,2019,Herbáceas,superficie_ha,61083.14
+Salta,2020,Herbáceas,superficie_ha,59615.54
+Salta,2021,Herbáceas,superficie_ha,60312.32
+Salta,2022,Herbáceas,superficie_ha,56153.83
+Salta,2023,Herbáceas,superficie_ha,58771.98
+Salta,2024,Herbáceas,superficie_ha,54907.56
+Salta,2025,Herbáceas,superficie_ha,65155.95
+Salta,1985,Herbáceas inundables,superficie_ha,76809.87
+Salta,1986,Herbáceas inundables,superficie_ha,73765.51
+Salta,1987,Herbáceas inundables,superficie_ha,70395.26
+Salta,1988,Herbáceas inundables,superficie_ha,69784.27
+Salta,1989,Herbáceas inundables,superficie_ha,67952.75
+Salta,1990,Herbáceas inundables,superficie_ha,71440.37
+Salta,1991,Herbáceas inundables,superficie_ha,69151.16
+Salta,1992,Herbáceas inundables,superficie_ha,65057.08
+Salta,1993,Herbáceas inundables,superficie_ha,65685.55
+Salta,1994,Herbáceas inundables,superficie_ha,64218.84
+Salta,1995,Herbáceas inundables,superficie_ha,64129.11
+Salta,1996,Herbáceas inundables,superficie_ha,63913.06
+Salta,1997,Herbáceas inundables,superficie_ha,66364.75
+Salta,1998,Herbáceas inundables,superficie_ha,68070.16
+Salta,1999,Herbáceas inundables,superficie_ha,69240.64
+Salta,2000,Herbáceas inundables,superficie_ha,69060.6
+Salta,2001,Herbáceas inundables,superficie_ha,68078.91
+Salta,2002,Herbáceas inundables,superficie_ha,70198.14
+Salta,2003,Herbáceas inundables,superficie_ha,78044.94
+Salta,2004,Herbáceas inundables,superficie_ha,94478.9
+Salta,2005,Herbáceas inundables,superficie_ha,91727.73
+Salta,2006,Herbáceas inundables,superficie_ha,81109.94
+Salta,2007,Herbáceas inundables,superficie_ha,76283.57
+Salta,2008,Herbáceas inundables,superficie_ha,75911.13
+Salta,2009,Herbáceas inundables,superficie_ha,82574.36
+Salta,2010,Herbáceas inundables,superficie_ha,87487.47
+Salta,2011,Herbáceas inundables,superficie_ha,85496.24
+Salta,2012,Herbáceas inundables,superficie_ha,90072.57
+Salta,2013,Herbáceas inundables,superficie_ha,91568.74
+Salta,2014,Herbáceas inundables,superficie_ha,94570.53
+Salta,2015,Herbáceas inundables,superficie_ha,95889.71
+Salta,2016,Herbáceas inundables,superficie_ha,98668.7
+Salta,2017,Herbáceas inundables,superficie_ha,102612.16
+Salta,2018,Herbáceas inundables,superficie_ha,101033.7
+Salta,2019,Herbáceas inundables,superficie_ha,102156.95
+Salta,2020,Herbáceas inundables,superficie_ha,121572.73
+Salta,2021,Herbáceas inundables,superficie_ha,126349.09
+Salta,2022,Herbáceas inundables,superficie_ha,140721.22
+Salta,2023,Herbáceas inundables,superficie_ha,153674.79
+Salta,2024,Herbáceas inundables,superficie_ha,147214.54
+Salta,2025,Herbáceas inundables,superficie_ha,167160.22
+Salta,1985,Cultivos temporarios,superficie_ha,568810.31
+Salta,1986,Cultivos temporarios,superficie_ha,610724.92
+Salta,1987,Cultivos temporarios,superficie_ha,630240.86
+Salta,1988,Cultivos temporarios,superficie_ha,644202.77
+Salta,1989,Cultivos temporarios,superficie_ha,653507.02
+Salta,1990,Cultivos temporarios,superficie_ha,711473.9
+Salta,1991,Cultivos temporarios,superficie_ha,745778.74
+Salta,1992,Cultivos temporarios,superficie_ha,775250.59
+Salta,1993,Cultivos temporarios,superficie_ha,797239.95
+Salta,1994,Cultivos temporarios,superficie_ha,853297.32
+Salta,1995,Cultivos temporarios,superficie_ha,874709.27
+Salta,1996,Cultivos temporarios,superficie_ha,913292.68
+Salta,1997,Cultivos temporarios,superficie_ha,949376.28
+Salta,1998,Cultivos temporarios,superficie_ha,1031626.71
+Salta,1999,Cultivos temporarios,superficie_ha,1080877.06
+Salta,2000,Cultivos temporarios,superficie_ha,1105742.37
+Salta,2001,Cultivos temporarios,superficie_ha,1126732.98
+Salta,2002,Cultivos temporarios,superficie_ha,1158784.39
+Salta,2003,Cultivos temporarios,superficie_ha,1211332.67
+Salta,2004,Cultivos temporarios,superficie_ha,1244161.68
+Salta,2005,Cultivos temporarios,superficie_ha,1262652.09
+Salta,2006,Cultivos temporarios,superficie_ha,1347624.58
+Salta,2007,Cultivos temporarios,superficie_ha,1405403.59
+Salta,2008,Cultivos temporarios,superficie_ha,1496845.34
+Salta,2009,Cultivos temporarios,superficie_ha,1571043.79
+Salta,2010,Cultivos temporarios,superficie_ha,1648766.3
+Salta,2011,Cultivos temporarios,superficie_ha,1726900.09
+Salta,2012,Cultivos temporarios,superficie_ha,1813369.87
+Salta,2013,Cultivos temporarios,superficie_ha,1851947.54
+Salta,2014,Cultivos temporarios,superficie_ha,1846872.81
+Salta,2015,Cultivos temporarios,superficie_ha,1841655.42
+Salta,2016,Cultivos temporarios,superficie_ha,1784512.6
+Salta,2017,Cultivos temporarios,superficie_ha,1721510.32
+Salta,2018,Cultivos temporarios,superficie_ha,1722994.35
+Salta,2019,Cultivos temporarios,superficie_ha,1748821.2
+Salta,2020,Cultivos temporarios,superficie_ha,1752595.94
+Salta,2021,Cultivos temporarios,superficie_ha,1773066.32
+Salta,2022,Cultivos temporarios,superficie_ha,1807257.68
+Salta,2023,Cultivos temporarios,superficie_ha,1855457.0
+Salta,2024,Cultivos temporarios,superficie_ha,1865589.29
+Salta,2025,Cultivos temporarios,superficie_ha,1902928.03
+Salta,1985,Cultivos perennes,superficie_ha,2576.79
+Salta,1986,Cultivos perennes,superficie_ha,2437.42
+Salta,1987,Cultivos perennes,superficie_ha,2545.03
+Salta,1988,Cultivos perennes,superficie_ha,2930.26
+Salta,1989,Cultivos perennes,superficie_ha,3428.19
+Salta,1990,Cultivos perennes,superficie_ha,3781.14
+Salta,1991,Cultivos perennes,superficie_ha,3746.69
+Salta,1992,Cultivos perennes,superficie_ha,3700.83
+Salta,1993,Cultivos perennes,superficie_ha,3718.38
+Salta,1994,Cultivos perennes,superficie_ha,3377.74
+Salta,1995,Cultivos perennes,superficie_ha,3240.39
+Salta,1996,Cultivos perennes,superficie_ha,3120.81
+Salta,1997,Cultivos perennes,superficie_ha,3009.91
+Salta,1998,Cultivos perennes,superficie_ha,2781.07
+Salta,1999,Cultivos perennes,superficie_ha,2573.74
+Salta,2000,Cultivos perennes,superficie_ha,2635.24
+Salta,2001,Cultivos perennes,superficie_ha,2598.32
+Salta,2002,Cultivos perennes,superficie_ha,2609.72
+Salta,2003,Cultivos perennes,superficie_ha,2557.72
+Salta,2004,Cultivos perennes,superficie_ha,3280.36
+Salta,2005,Cultivos perennes,superficie_ha,3787.0
+Salta,2006,Cultivos perennes,superficie_ha,3894.55
+Salta,2007,Cultivos perennes,superficie_ha,3701.93
+Salta,2008,Cultivos perennes,superficie_ha,3769.68
+Salta,2009,Cultivos perennes,superficie_ha,3598.74
+Salta,2010,Cultivos perennes,superficie_ha,3582.61
+Salta,2011,Cultivos perennes,superficie_ha,3884.72
+Salta,2012,Cultivos perennes,superficie_ha,3920.53
+Salta,2013,Cultivos perennes,superficie_ha,4246.63
+Salta,2014,Cultivos perennes,superficie_ha,3778.79
+Salta,2015,Cultivos perennes,superficie_ha,5186.03
+Salta,2016,Cultivos perennes,superficie_ha,6374.62
+Salta,2017,Cultivos perennes,superficie_ha,7395.29
+Salta,2018,Cultivos perennes,superficie_ha,8613.74
+Salta,2019,Cultivos perennes,superficie_ha,9183.01
+Salta,2020,Cultivos perennes,superficie_ha,10262.55
+Salta,2021,Cultivos perennes,superficie_ha,12013.03
+Salta,2022,Cultivos perennes,superficie_ha,13629.17
+Salta,2023,Cultivos perennes,superficie_ha,13546.55
+Salta,2024,Cultivos perennes,superficie_ha,10758.05
+Salta,2025,Cultivos perennes,superficie_ha,19342.71
+Salta,1985,Pasturas,superficie_ha,21661.19
+Salta,1986,Pasturas,superficie_ha,12715.66
+Salta,1987,Pasturas,superficie_ha,12982.54
+Salta,1988,Pasturas,superficie_ha,11773.9
+Salta,1989,Pasturas,superficie_ha,11649.51
+Salta,1990,Pasturas,superficie_ha,11646.18
+Salta,1991,Pasturas,superficie_ha,10554.52
+Salta,1992,Pasturas,superficie_ha,7990.76
+Salta,1993,Pasturas,superficie_ha,12086.38
+Salta,1994,Pasturas,superficie_ha,11374.67
+Salta,1995,Pasturas,superficie_ha,2368.36
+Salta,1996,Pasturas,superficie_ha,2849.63
+Salta,1997,Pasturas,superficie_ha,7908.04
+Salta,1998,Pasturas,superficie_ha,14944.23
+Salta,1999,Pasturas,superficie_ha,10677.47
+Salta,2000,Pasturas,superficie_ha,14452.37
+Salta,2001,Pasturas,superficie_ha,17363.99
+Salta,2002,Pasturas,superficie_ha,21356.25
+Salta,2003,Pasturas,superficie_ha,23179.1
+Salta,2004,Pasturas,superficie_ha,38885.19
+Salta,2005,Pasturas,superficie_ha,102945.68
+Salta,2006,Pasturas,superficie_ha,158109.35
+Salta,2007,Pasturas,superficie_ha,186906.57
+Salta,2008,Pasturas,superficie_ha,210994.33
+Salta,2009,Pasturas,superficie_ha,214780.33
+Salta,2010,Pasturas,superficie_ha,202247.96
+Salta,2011,Pasturas,superficie_ha,193067.75
+Salta,2012,Pasturas,superficie_ha,186470.13
+Salta,2013,Pasturas,superficie_ha,189952.1
+Salta,2014,Pasturas,superficie_ha,213195.92
+Salta,2015,Pasturas,superficie_ha,274229.51
+Salta,2016,Pasturas,superficie_ha,342053.43
+Salta,2017,Pasturas,superficie_ha,415593.62
+Salta,2018,Pasturas,superficie_ha,429740.8
+Salta,2019,Pasturas,superficie_ha,420173.01
+Salta,2020,Pasturas,superficie_ha,409774.67
+Salta,2021,Pasturas,superficie_ha,409193.95
+Salta,2022,Pasturas,superficie_ha,406589.37
+Salta,2023,Pasturas,superficie_ha,382084.29
+Salta,2024,Pasturas,superficie_ha,382372.69
+Salta,2025,Pasturas,superficie_ha,394013.69
+Salta,1985,Silvicultura,superficie_ha,14945.47
+Salta,1986,Silvicultura,superficie_ha,10471.29
+Salta,1987,Silvicultura,superficie_ha,8284.81
+Salta,1988,Silvicultura,superficie_ha,9363.72
+Salta,1989,Silvicultura,superficie_ha,17380.08
+Salta,1990,Silvicultura,superficie_ha,17447.85
+Salta,1991,Silvicultura,superficie_ha,9315.23
+Salta,1992,Silvicultura,superficie_ha,8645.68
+Salta,1993,Silvicultura,superficie_ha,7722.19
+Salta,1994,Silvicultura,superficie_ha,8207.62
+Salta,1995,Silvicultura,superficie_ha,6977.38
+Salta,1996,Silvicultura,superficie_ha,8150.59
+Salta,1997,Silvicultura,superficie_ha,8436.98
+Salta,1998,Silvicultura,superficie_ha,9680.29
+Salta,1999,Silvicultura,superficie_ha,8106.78
+Salta,2000,Silvicultura,superficie_ha,9659.51
+Salta,2001,Silvicultura,superficie_ha,7729.41
+Salta,2002,Silvicultura,superficie_ha,6344.56
+Salta,2003,Silvicultura,superficie_ha,5752.52
+Salta,2004,Silvicultura,superficie_ha,4834.43
+Salta,2005,Silvicultura,superficie_ha,1540.38
+Salta,2006,Silvicultura,superficie_ha,1557.41
+Salta,2007,Silvicultura,superficie_ha,1594.59
+Salta,2008,Silvicultura,superficie_ha,2965.45
+Salta,2009,Silvicultura,superficie_ha,2885.44
+Salta,2010,Silvicultura,superficie_ha,2055.55
+Salta,2011,Silvicultura,superficie_ha,2095.43
+Salta,2012,Silvicultura,superficie_ha,1264.29
+Salta,2013,Silvicultura,superficie_ha,1864.17
+Salta,2014,Silvicultura,superficie_ha,1947.58
+Salta,2015,Silvicultura,superficie_ha,3320.29
+Salta,2016,Silvicultura,superficie_ha,4298.59
+Salta,2017,Silvicultura,superficie_ha,3259.47
+Salta,2018,Silvicultura,superficie_ha,3556.95
+Salta,2019,Silvicultura,superficie_ha,4716.46
+Salta,2020,Silvicultura,superficie_ha,5943.85
+Salta,2021,Silvicultura,superficie_ha,6305.37
+Salta,2022,Silvicultura,superficie_ha,7444.53
+Salta,2023,Silvicultura,superficie_ha,6055.02
+Salta,2024,Silvicultura,superficie_ha,5025.7
+Salta,2025,Silvicultura,superficie_ha,8692.87
+Salta,1985,Mosaico de usos,superficie_ha,6176.66
+Salta,1986,Mosaico de usos,superficie_ha,6173.48
+Salta,1987,Mosaico de usos,superficie_ha,7519.19
+Salta,1988,Mosaico de usos,superficie_ha,8668.83
+Salta,1989,Mosaico de usos,superficie_ha,9563.82
+Salta,1990,Mosaico de usos,superficie_ha,10068.71
+Salta,1991,Mosaico de usos,superficie_ha,10566.68
+Salta,1992,Mosaico de usos,superficie_ha,10866.37
+Salta,1993,Mosaico de usos,superficie_ha,10668.35
+Salta,1994,Mosaico de usos,superficie_ha,11004.85
+Salta,1995,Mosaico de usos,superficie_ha,10586.77
+Salta,1996,Mosaico de usos,superficie_ha,10928.48
+Salta,1997,Mosaico de usos,superficie_ha,11972.89
+Salta,1998,Mosaico de usos,superficie_ha,13080.62
+Salta,1999,Mosaico de usos,superficie_ha,14305.08
+Salta,2000,Mosaico de usos,superficie_ha,14809.18
+Salta,2001,Mosaico de usos,superficie_ha,14780.73
+Salta,2002,Mosaico de usos,superficie_ha,14918.26
+Salta,2003,Mosaico de usos,superficie_ha,14551.84
+Salta,2004,Mosaico de usos,superficie_ha,14029.79
+Salta,2005,Mosaico de usos,superficie_ha,12902.95
+Salta,2006,Mosaico de usos,superficie_ha,12802.46
+Salta,2007,Mosaico de usos,superficie_ha,12762.96
+Salta,2008,Mosaico de usos,superficie_ha,13047.89
+Salta,2009,Mosaico de usos,superficie_ha,13046.46
+Salta,2010,Mosaico de usos,superficie_ha,12991.19
+Salta,2011,Mosaico de usos,superficie_ha,12516.56
+Salta,2012,Mosaico de usos,superficie_ha,11836.25
+Salta,2013,Mosaico de usos,superficie_ha,11741.48
+Salta,2014,Mosaico de usos,superficie_ha,11532.81
+Salta,2015,Mosaico de usos,superficie_ha,11574.24
+Salta,2016,Mosaico de usos,superficie_ha,11708.29
+Salta,2017,Mosaico de usos,superficie_ha,12119.34
+Salta,2018,Mosaico de usos,superficie_ha,12006.25
+Salta,2019,Mosaico de usos,superficie_ha,12139.11
+Salta,2020,Mosaico de usos,superficie_ha,12052.64
+Salta,2021,Mosaico de usos,superficie_ha,11370.83
+Salta,2022,Mosaico de usos,superficie_ha,10753.83
+Salta,2023,Mosaico de usos,superficie_ha,10270.28
+Salta,2024,Mosaico de usos,superficie_ha,9807.76
+Salta,2025,Mosaico de usos,superficie_ha,8667.54
+Salta,1985,Áreas urbanas,superficie_ha,27803.4
+Salta,1986,Áreas urbanas,superficie_ha,28324.16
+Salta,1987,Áreas urbanas,superficie_ha,28493.27
+Salta,1988,Áreas urbanas,superficie_ha,28871.34
+Salta,1989,Áreas urbanas,superficie_ha,29805.86
+Salta,1990,Áreas urbanas,superficie_ha,30301.4
+Salta,1991,Áreas urbanas,superficie_ha,31144.61
+Salta,1992,Áreas urbanas,superficie_ha,31701.82
+Salta,1993,Áreas urbanas,superficie_ha,32546.4
+Salta,1994,Áreas urbanas,superficie_ha,32906.54
+Salta,1995,Áreas urbanas,superficie_ha,33343.69
+Salta,1996,Áreas urbanas,superficie_ha,33726.19
+Salta,1997,Áreas urbanas,superficie_ha,34123.96
+Salta,1998,Áreas urbanas,superficie_ha,34430.77
+Salta,1999,Áreas urbanas,superficie_ha,34856.53
+Salta,2000,Áreas urbanas,superficie_ha,35130.93
+Salta,2001,Áreas urbanas,superficie_ha,35309.03
+Salta,2002,Áreas urbanas,superficie_ha,35443.35
+Salta,2003,Áreas urbanas,superficie_ha,35530.63
+Salta,2004,Áreas urbanas,superficie_ha,35667.18
+Salta,2005,Áreas urbanas,superficie_ha,35816.4
+Salta,2006,Áreas urbanas,superficie_ha,36007.06
+Salta,2007,Áreas urbanas,superficie_ha,36157.34
+Salta,2008,Áreas urbanas,superficie_ha,36349.46
+Salta,2009,Áreas urbanas,superficie_ha,36499.88
+Salta,2010,Áreas urbanas,superficie_ha,36628.65
+Salta,2011,Áreas urbanas,superficie_ha,36790.63
+Salta,2012,Áreas urbanas,superficie_ha,37002.3
+Salta,2013,Áreas urbanas,superficie_ha,37253.18
+Salta,2014,Áreas urbanas,superficie_ha,37520.3
+Salta,2015,Áreas urbanas,superficie_ha,37743.11
+Salta,2016,Áreas urbanas,superficie_ha,37916.87
+Salta,2017,Áreas urbanas,superficie_ha,38072.83
+Salta,2018,Áreas urbanas,superficie_ha,38285.91
+Salta,2019,Áreas urbanas,superficie_ha,38433.82
+Salta,2020,Áreas urbanas,superficie_ha,38512.54
+Salta,2021,Áreas urbanas,superficie_ha,38716.17
+Salta,2022,Áreas urbanas,superficie_ha,38939.74
+Salta,2023,Áreas urbanas,superficie_ha,39095.96
+Salta,2024,Áreas urbanas,superficie_ha,39103.04
+Salta,2025,Áreas urbanas,superficie_ha,39238.71
+Salta,1985,Otras áreas no vegetadas,superficie_ha,2470944.23
+Salta,1986,Otras áreas no vegetadas,superficie_ha,2453823.64
+Salta,1987,Otras áreas no vegetadas,superficie_ha,2442605.95
+Salta,1988,Otras áreas no vegetadas,superficie_ha,2481306.92
+Salta,1989,Otras áreas no vegetadas,superficie_ha,2493412.43
+Salta,1990,Otras áreas no vegetadas,superficie_ha,2498365.9
+Salta,1991,Otras áreas no vegetadas,superficie_ha,2495991.38
+Salta,1992,Otras áreas no vegetadas,superficie_ha,2498106.34
+Salta,1993,Otras áreas no vegetadas,superficie_ha,2515179.03
+Salta,1994,Otras áreas no vegetadas,superficie_ha,2510242.38
+Salta,1995,Otras áreas no vegetadas,superficie_ha,2494527.32
+Salta,1996,Otras áreas no vegetadas,superficie_ha,2493853.71
+Salta,1997,Otras áreas no vegetadas,superficie_ha,2467949.44
+Salta,1998,Otras áreas no vegetadas,superficie_ha,2464094.14
+Salta,1999,Otras áreas no vegetadas,superficie_ha,2470537.83
+Salta,2000,Otras áreas no vegetadas,superficie_ha,2475895.57
+Salta,2001,Otras áreas no vegetadas,superficie_ha,2481862.16
+Salta,2002,Otras áreas no vegetadas,superficie_ha,2485674.14
+Salta,2003,Otras áreas no vegetadas,superficie_ha,2489986.46
+Salta,2004,Otras áreas no vegetadas,superficie_ha,2495981.97
+Salta,2005,Otras áreas no vegetadas,superficie_ha,2521689.07
+Salta,2006,Otras áreas no vegetadas,superficie_ha,2525355.27
+Salta,2007,Otras áreas no vegetadas,superficie_ha,2529133.72
+Salta,2008,Otras áreas no vegetadas,superficie_ha,2543242.52
+Salta,2009,Otras áreas no vegetadas,superficie_ha,2547682.08
+Salta,2010,Otras áreas no vegetadas,superficie_ha,2549904.45
+Salta,2011,Otras áreas no vegetadas,superficie_ha,2550197.92
+Salta,2012,Otras áreas no vegetadas,superficie_ha,2541747.23
+Salta,2013,Otras áreas no vegetadas,superficie_ha,2554030.69
+Salta,2014,Otras áreas no vegetadas,superficie_ha,2560041.21
+Salta,2015,Otras áreas no vegetadas,superficie_ha,2561074.48
+Salta,2016,Otras áreas no vegetadas,superficie_ha,2576436.97
+Salta,2017,Otras áreas no vegetadas,superficie_ha,2574461.08
+Salta,2018,Otras áreas no vegetadas,superficie_ha,2568194.87
+Salta,2019,Otras áreas no vegetadas,superficie_ha,2564448.65
+Salta,2020,Otras áreas no vegetadas,superficie_ha,2557565.91
+Salta,2021,Otras áreas no vegetadas,superficie_ha,2568956.83
+Salta,2022,Otras áreas no vegetadas,superficie_ha,2570928.69
+Salta,2023,Otras áreas no vegetadas,superficie_ha,2576629.79
+Salta,2024,Otras áreas no vegetadas,superficie_ha,2587840.81
+Salta,2025,Otras áreas no vegetadas,superficie_ha,2668728.03
+Salta,1985,Hielo y nieve permanente,superficie_ha,303.9
+Salta,1986,Hielo y nieve permanente,superficie_ha,303.9
+Salta,1987,Hielo y nieve permanente,superficie_ha,303.01
+Salta,1988,Hielo y nieve permanente,superficie_ha,299.58
+Salta,1989,Hielo y nieve permanente,superficie_ha,247.55
+Salta,1990,Hielo y nieve permanente,superficie_ha,240.55
+Salta,1991,Hielo y nieve permanente,superficie_ha,251.12
+Salta,1992,Hielo y nieve permanente,superficie_ha,254.77
+Salta,1993,Hielo y nieve permanente,superficie_ha,247.86
+Salta,1994,Hielo y nieve permanente,superficie_ha,190.53
+Salta,1995,Hielo y nieve permanente,superficie_ha,146.66
+Salta,1996,Hielo y nieve permanente,superficie_ha,187.78
+Salta,1997,Hielo y nieve permanente,superficie_ha,215.88
+Salta,1998,Hielo y nieve permanente,superficie_ha,153.07
+Salta,1999,Hielo y nieve permanente,superficie_ha,206.15
+Salta,2000,Hielo y nieve permanente,superficie_ha,211.27
+Salta,2001,Hielo y nieve permanente,superficie_ha,200.86
+Salta,2002,Hielo y nieve permanente,superficie_ha,203.63
+Salta,2003,Hielo y nieve permanente,superficie_ha,103.41
+Salta,2004,Hielo y nieve permanente,superficie_ha,65.32
+Salta,2005,Hielo y nieve permanente,superficie_ha,95.79
+Salta,2006,Hielo y nieve permanente,superficie_ha,97.9
+Salta,2007,Hielo y nieve permanente,superficie_ha,99.28
+Salta,2008,Hielo y nieve permanente,superficie_ha,93.02
+Salta,2009,Hielo y nieve permanente,superficie_ha,69.74
+Salta,2010,Hielo y nieve permanente,superficie_ha,77.87
+Salta,2011,Hielo y nieve permanente,superficie_ha,76.81
+Salta,2012,Hielo y nieve permanente,superficie_ha,72.67
+Salta,2013,Hielo y nieve permanente,superficie_ha,104.81
+Salta,2014,Hielo y nieve permanente,superficie_ha,112.47
+Salta,2015,Hielo y nieve permanente,superficie_ha,108.57
+Salta,2016,Hielo y nieve permanente,superficie_ha,103.52
+Salta,2017,Hielo y nieve permanente,superficie_ha,114.5
+Salta,2018,Hielo y nieve permanente,superficie_ha,145.56
+Salta,2019,Hielo y nieve permanente,superficie_ha,149.64
+Salta,2020,Hielo y nieve permanente,superficie_ha,158.17
+Salta,2021,Hielo y nieve permanente,superficie_ha,162.96
+Salta,2022,Hielo y nieve permanente,superficie_ha,131.58
+Salta,2023,Hielo y nieve permanente,superficie_ha,115.31
+Salta,2024,Hielo y nieve permanente,superficie_ha,113.92
+Salta,2025,Hielo y nieve permanente,superficie_ha,61.15
+Salta,1985,"Ríos, lagunas, lagos y océano",superficie_ha,65886.8
+Salta,1986,"Ríos, lagunas, lagos y océano",superficie_ha,68624.4
+Salta,1987,"Ríos, lagunas, lagos y océano",superficie_ha,67164.6
+Salta,1988,"Ríos, lagunas, lagos y océano",superficie_ha,68325.74
+Salta,1989,"Ríos, lagunas, lagos y océano",superficie_ha,63052.46
+Salta,1990,"Ríos, lagunas, lagos y océano",superficie_ha,63224.26
+Salta,1991,"Ríos, lagunas, lagos y océano",superficie_ha,66885.45
+Salta,1992,"Ríos, lagunas, lagos y océano",superficie_ha,67537.3
+Salta,1993,"Ríos, lagunas, lagos y océano",superficie_ha,64664.51
+Salta,1994,"Ríos, lagunas, lagos y océano",superficie_ha,59627.01
+Salta,1995,"Ríos, lagunas, lagos y océano",superficie_ha,58126.18
+Salta,1996,"Ríos, lagunas, lagos y océano",superficie_ha,56494.46
+Salta,1997,"Ríos, lagunas, lagos y océano",superficie_ha,57307.35
+Salta,1998,"Ríos, lagunas, lagos y océano",superficie_ha,57591.08
+Salta,1999,"Ríos, lagunas, lagos y océano",superficie_ha,60952.19
+Salta,2000,"Ríos, lagunas, lagos y océano",superficie_ha,61659.02
+Salta,2001,"Ríos, lagunas, lagos y océano",superficie_ha,61913.14
+Salta,2002,"Ríos, lagunas, lagos y océano",superficie_ha,60162.17
+Salta,2003,"Ríos, lagunas, lagos y océano",superficie_ha,58065.99
+Salta,2004,"Ríos, lagunas, lagos y océano",superficie_ha,57760.97
+Salta,2005,"Ríos, lagunas, lagos y océano",superficie_ha,57541.77
+Salta,2006,"Ríos, lagunas, lagos y océano",superficie_ha,59377.67
+Salta,2007,"Ríos, lagunas, lagos y océano",superficie_ha,59356.81
+Salta,2008,"Ríos, lagunas, lagos y océano",superficie_ha,63219.44
+Salta,2009,"Ríos, lagunas, lagos y océano",superficie_ha,61498.95
+Salta,2010,"Ríos, lagunas, lagos y océano",superficie_ha,65054.29
+Salta,2011,"Ríos, lagunas, lagos y océano",superficie_ha,64510.02
+Salta,2012,"Ríos, lagunas, lagos y océano",superficie_ha,63343.81
+Salta,2013,"Ríos, lagunas, lagos y océano",superficie_ha,58679.4
+Salta,2014,"Ríos, lagunas, lagos y océano",superficie_ha,56350.1
+Salta,2015,"Ríos, lagunas, lagos y océano",superficie_ha,54262.94
+Salta,2016,"Ríos, lagunas, lagos y océano",superficie_ha,53085.57
+Salta,2017,"Ríos, lagunas, lagos y océano",superficie_ha,50432.63
+Salta,2018,"Ríos, lagunas, lagos y océano",superficie_ha,50275.51
+Salta,2019,"Ríos, lagunas, lagos y océano",superficie_ha,52735.1
+Salta,2020,"Ríos, lagunas, lagos y océano",superficie_ha,50599.2
+Salta,2021,"Ríos, lagunas, lagos y océano",superficie_ha,48810.5
+Salta,2022,"Ríos, lagunas, lagos y océano",superficie_ha,48226.07
+Salta,2023,"Ríos, lagunas, lagos y océano",superficie_ha,48634.41
+Salta,2024,"Ríos, lagunas, lagos y océano",superficie_ha,51825.96
+Salta,2025,"Ríos, lagunas, lagos y océano",superficie_ha,55644.71
+Salta,1985,No observado,superficie_ha,1872.62
+Salta,1986,No observado,superficie_ha,1792.22
+Salta,1987,No observado,superficie_ha,1874.38
+Salta,1988,No observado,superficie_ha,1874.87
+Salta,1989,No observado,superficie_ha,1805.89
+Salta,1990,No observado,superficie_ha,1875.12
+Salta,1991,No observado,superficie_ha,1810.21
+Salta,1992,No observado,superficie_ha,1799.73
+Salta,1993,No observado,superficie_ha,1960.12
+Salta,1994,No observado,superficie_ha,1832.43
+Salta,1995,No observado,superficie_ha,1805.88
+Salta,1996,No observado,superficie_ha,1867.16
+Salta,1997,No observado,superficie_ha,1876.44
+Salta,1998,No observado,superficie_ha,1818.19
+Salta,1999,No observado,superficie_ha,2236.27
+Salta,2000,No observado,superficie_ha,1846.82
+Salta,2001,No observado,superficie_ha,2301.32
+Salta,2002,No observado,superficie_ha,1956.92
+Salta,2003,No observado,superficie_ha,1848.64
+Salta,2004,No observado,superficie_ha,1922.42
+Salta,2005,No observado,superficie_ha,1875.38
+Salta,2006,No observado,superficie_ha,2171.47
+Salta,2007,No observado,superficie_ha,1803.7
+Salta,2008,No observado,superficie_ha,1819.74
+Salta,2009,No observado,superficie_ha,1825.61
+Salta,2010,No observado,superficie_ha,1951.45
+Salta,2011,No observado,superficie_ha,2333.84
+Salta,2012,No observado,superficie_ha,2323.04
+Salta,2013,No observado,superficie_ha,1798.6
+Salta,2014,No observado,superficie_ha,1877.35
+Salta,2015,No observado,superficie_ha,1827.93
+Salta,2016,No observado,superficie_ha,1803.4
+Salta,2017,No observado,superficie_ha,2914.22
+Salta,2018,No observado,superficie_ha,1798.1
+Salta,2019,No observado,superficie_ha,1791.31
+Salta,2020,No observado,superficie_ha,1865.91
+Salta,2021,No observado,superficie_ha,1798.46
+Salta,2022,No observado,superficie_ha,1783.32
+Salta,2023,No observado,superficie_ha,1781.28
+Salta,2024,No observado,superficie_ha,2007.1
+Salta,2025,No observado,superficie_ha,1811.78

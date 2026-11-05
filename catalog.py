@@ -28,6 +28,11 @@ Spec de gráfico:
   stack:       bool
   yMax:        tope fijo del eje Y (p. ej. 100 en distribuciones porcentuales apiladas)
   unidad:      etiqueta de unidad (si metrica es conmutable, la resuelve el front)
+  provisorio_desde: int - sombrea el eje X desde ese valor con la etiqueta «provisorio».
+               Para fuentes cuyos últimos períodos la propia fuente va a reescribir (MapBiomas
+               aplica reglas de fin de serie a los últimos cuatro años). Es sólo la marca
+               visual: la salvedad va además en `descr`, y parar un KPI en el último período
+               firme se hace fijando una dimensión en `fixed` (ver abajo).
   fuente/fuente_url: fuente propia del gráfico (si difiere de la del tema)
 
 Campos de tema para la tabla maestra:
@@ -36,6 +41,11 @@ Campos de tema para la tabla maestra:
 
 Spec de KPI (el front muestra la VARIACIÓN INTERANUAL, no el valor absoluto):
   label, metrica, fixed, year('latest'|'latest_complete'|int), unidad, format
+  OJO con `year`: NO sirve para parar un indicador en un período anterior al último. Ni
+       `renderKpis` (charts.js) ni su espejo `_calcular` (indicadores.py) lo miran: los dos
+       toman el último período con dato. Lo único que ambos respetan es `fixed`, así que un
+       indicador que deba quedarse en un año firme necesita una dimensión propia en el
+       adapter —`serie` en `bosques`— que el KPI fije y los gráficos no.
   tabla_label: nombre para la tabla maestra de la portada (si el `label` es ambiguo fuera
                de su tablero, p. ej. "Vacas" o "Pozos"); tabla_nota: aclaración al pie
   subeje: pisa el subeje del tema para ESTE indicador (temas que mezclan subejes)
@@ -1375,6 +1385,137 @@ TEMAS = [
                      {"value": "anual", "label": "Anual", "x": "anio", "grano": "anual"}]},
              ],
              "unidad": "GWh"},
+        ],
+    },
+    # ======================================================================
+    {
+        "id": "bosques",
+        "subeje": "Ambiente",
+        "area": "ambiente",
+        "eje_pdes": "territorio-ambiente-turismo",
+        "title": "Bosque nativo y uso del suelo",
+        "resumen": (
+            "Cuánto bosque nativo queda en Salta, cuánto se desmonta cada año y cuánto se "
+            "regenera, por departamento y desde 1987, según MapBiomas Argentina; y en qué se "
+            "convierte el territorio, con la cobertura y uso del suelo provincial desde 1985. "
+            "Dos salvedades que cambian la lectura: el desmonte es la conversión de bosque a "
+            "uso antrópico y no incluye el bosque que pasa a arbustal o pastizal, que se "
+            "publica aparte; y los años 2022-2025 son provisorios —la fuente los reescribe "
+            "cuando hay años posteriores que confirman o revierten cada cambio—, así que los "
+            "indicadores de la portada se detienen en 2021."
+        ),
+        "resumen_corto": "Bosque nativo, desmonte y regeneración por departamento, y uso del suelo.",
+        "fuente": ("MapBiomas Argentina — Colección 3 (cobertura y uso; desmonte y vegetación "
+                   "secundaria)"),
+        "fuente_url": "https://argentina.mapbiomas.org",
+        "cobertura": "1985–2025 (consolidado hasta 2021)",
+        "keywords": [
+            "bosque", "bosques", "bosque nativo", "desmonte", "deforestación", "tala",
+            "regeneración", "MapBiomas", "OTBN", "ordenamiento territorial", "Ley 26331",
+            "Chaco", "yungas", "monte", "cobertura del suelo", "uso del suelo", "hectáreas",
+            "ambiente", "Anta", "Rivadavia", "Orán", "San Martín", "frontera agropecuaria",
+        ],
+        "tags": ["actividad-productividad"],
+        # Los cuatro fijan `serie: "Consolidada"`, que es lo que los deja en 2021 —el último
+        # año que MapBiomas da por cerrado—. No alcanza con `year`: ver la nota del spec de KPI
+        # arriba. Los gráficos NO fijan la dimensión, así que muestran hasta 2025.
+        "kpis": [
+            {"label": "Superficie de bosque nativo", "metrica": "superficie_bosque_ha",
+             "tabla_nota": ("Último año consolidado por la fuente. Los gráficos del tablero "
+                            "llegan hasta 2025, con la franja provisoria marcada."),
+             "fixed": {"serie": "Consolidada", "departamento": "Salta", "clase": "Total"},
+             "year": "latest", "unidad": "ha", "format": "int", "sentido": "mayor_mejor"},
+            {"label": "Desmonte anual de bosque", "metrica": "desmonte_bosque_ha",
+             "tabla_nota": ("Conversión de bosque a uso antrópico; no incluye el bosque que "
+                            "pasa a arbustal o pastizal. Último año consolidado por la fuente."),
+             "fixed": {"serie": "Consolidada", "departamento": "Salta", "clase": "Total"},
+             "year": "latest", "unidad": "ha", "format": "int", "sentido": "menor_mejor"},
+            {"label": "Regeneración de bosque", "metrica": "regeneracion_bosque_ha",
+             "tabla_nota": ("Vegetación que vuelve sobre suelo que tuvo uso antrópico: no es "
+                            "reforestación y no distingue restauración activa de abandono de "
+                            "lotes. Último año consolidado por la fuente."),
+             "fixed": {"serie": "Consolidada", "departamento": "Salta", "clase": "Total"},
+             "year": "latest", "unidad": "ha", "format": "int", "sentido": "mayor_mejor"},
+            {"label": "Bosque sobre la superficie provincial",
+             "metrica": "share_bosque_pct",
+             "tabla_nota": ("Sobre las 15,5 millones de hectáreas de la provincia. Último año "
+                            "consolidado por la fuente."),
+             "fixed": {"serie": "Consolidada", "departamento": "Salta", "clase": "Total"},
+             "year": "latest", "unidad": "%", "format": "dec1", "sentido": "mayor_mejor"},
+        ],
+        "charts": [
+            {"id": "bos-superficie", "type": "line",
+             "title": "Evolución del bosque nativo",
+             "descr": ("Superficie con bosque al cierre de cada año. Los años 2022-2025 son "
+                       "provisorios: la fuente aplica reglas de fin de serie a los últimos "
+                       "cuatro años y los reescribe en cada colección nueva."),
+             "x": "anio", "seriesBy": None, "metrica": "superficie_bosque_ha",
+             "fixed": {"departamento": "Salta", "clase": "Total"}, "geoDim": "departamento",
+             "provisorio_desde": 2022,
+             "controls": [
+                 {"kind": "mode", "label": "Medida", "default": "ha", "options": [
+                     {"value": "ha", "label": "Hectáreas", "metric": "superficie_bosque_ha"},
+                     {"value": "pct", "label": "% del territorio", "metric": "share_bosque_pct",
+                      "unidad": "%"}]},
+                 {"dim": "departamento", "label": "Departamento", "kind": "select",
+                  "all": True, "allValue": "Salta", "allLabel": "Salta (provincia)"},
+             ],
+             "unidad": "ha"},
+            {"id": "bos-flujos", "type": "line",
+             "title": "Desmonte y regeneración",
+             "descr": ("Hectáreas que cambian de estado cada año. El desmonte exige conversión "
+                       "a uso antrópico; el bosque que pasa a arbustal o pastizal va aparte, "
+                       "porque ahí se mezclan degradación, incendios y oscilación de la "
+                       "clasificación. La regeneración de los últimos años está subestimada "
+                       "por construcción, y 2022-2025 son provisorios."),
+             "x": "anio", "seriesBy": None, "metrica": "desmonte_bosque_ha",
+             "fixed": {"departamento": "Salta", "clase": "Total"}, "geoDim": "departamento",
+             "provisorio_desde": 2022,
+             "controls": [
+                 {"kind": "metric", "label": "Flujo", "options": [
+                     "desmonte_bosque_ha", "desmonte_bosque_primario_ha",
+                     "desmonte_bosque_secundario_ha", "regeneracion_bosque_ha",
+                     "bosque_a_otra_vegetacion_natural_ha", "bosque_perdido_ha"]},
+                 {"dim": "departamento", "label": "Departamento", "kind": "select",
+                  "all": True, "allValue": "Salta", "allLabel": "Salta (provincia)"},
+             ],
+             "unidad": "ha"},
+            {"id": "bos-ranking", "type": "barh",
+             "title": "Ranking por departamento",
+             "descr": ("Departamentos ordenados por la medida y el año seleccionados. Los años "
+                       "2022-2025 son provisorios: la fuente los reescribe cuando hay años "
+                       "posteriores que confirman o revierten cada cambio."),
+             "x": "departamento", "seriesBy": None, "metrica": "desmonte_bosque_ha",
+             "fixed": {"clase": "Total"},
+             "controls": [
+                 {"kind": "metric", "label": "Medida", "options": [
+                     "desmonte_bosque_ha", "superficie_bosque_ha", "regeneracion_bosque_ha"]},
+                 {"dim": "anio", "label": "Año", "kind": "year"},
+             ],
+             "sort": "desc", "unidad": "ha"},
+            {"id": "bos-grupos", "type": "stacked-area",
+             "title": "Cobertura y uso del suelo",
+             "descr": ("En qué está cubierto el territorio provincial, por grandes grupos. Es "
+                       "el contexto que el dato de desmonte no da por sí solo: a qué se "
+                       "convierte lo que deja de ser bosque. Dato provincial de la planilla "
+                       "oficial de MapBiomas."),
+             "x": "anio", "seriesBy": "clase", "metrica": "superficie_grupo_ha",
+             "fixed": {"departamento": "Salta"}, "stack": True,
+             "provisorio_desde": 2022,
+             "controls": [
+                 {"kind": "mode", "label": "Medida", "default": "ha", "options": [
+                     {"value": "ha", "label": "Hectáreas"},
+                     {"value": "pct", "label": "% del total", "percent": True, "unidad": "%"}]},
+             ],
+             "unidad": "ha"},
+            {"id": "bos-clases", "type": "barh",
+             "title": "Superficie por clase de cobertura",
+             "descr": ("Las 18 clases de MapBiomas para el año seleccionado, el detalle de los "
+                       "grupos del gráfico anterior. Los años 2022-2025 son provisorios."),
+             "x": "clase", "seriesBy": None, "metrica": "superficie_clase_ha",
+             "fixed": {"departamento": "Salta"},
+             "controls": [{"dim": "anio", "label": "Año", "kind": "year"}],
+             "sort": "desc", "unidad": "ha"},
         ],
     },
     # ======================================================================
