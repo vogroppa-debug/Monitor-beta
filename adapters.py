@@ -2444,6 +2444,171 @@ def bosques():
     }
 
 
+# ==========================================================================
+# TEMA — Transparencia del sector público (municipios y Ejecutivo provincial)
+# ==========================================================================
+TRA_SRC_CESS = "Transparencia_Municipal_Salta_RelevamientoPropio.csv"
+TRA_SRC_PROV = "Transparencia_Provincial_RelevamientoPropio.csv"
+
+# Los 10 criterios de la grilla, agrupados por tema: primero lo presupuestario, después lo
+# contractual y al final lo que hace a la apertura. Es el orden del código y de la tabla de
+# datos; en el eje X de los gráficos manda el alfabético, que es como ordena `sortX`.
+# Las etiquetas son más cortas que los nombres de la grilla ("Planta de personal y sueldos",
+# "Declara cuántos empleados tiene"): con 10 categorías en el eje X, aun giradas 40°, los
+# nombres largos se pisan. El enunciado completo de cada criterio está en la metodología.
+TRA_CRITERIOS = [
+    ("presupuesto_vigente", "Presupuesto vigente"),
+    ("ejecucion_presupuestaria", "Ejecución presupuestaria"),
+    ("planta_personal_sueldos", "Planta y sueldos"),
+    ("declara_empleados", "Cantidad de empleados"),
+    ("compras_contrataciones", "Compras y contrataciones"),
+    ("publica_adjudicaciones", "Adjudicaciones"),
+    ("declaraciones_juradas", "Declaraciones juradas"),
+    ("boletin_oficial", "Boletín oficial"),
+    ("canal_acceso_informacion", "Acceso a la información"),
+    ("datos_abiertos", "Datos abiertos"),
+]
+
+# Valor crudo -> etiqueta. El orden alfabético de las etiquetas ("No", "No verificado",
+# "Parcial", "Sí") apila la barra de peor a mejor, que es como se quiere leer.
+TRA_ESTADO = {"si": "Sí", "parcial": "Parcial", "no": "No", "no_verificado": "No verificado"}
+TRA_ORDEN_ESTADO = ["No", "No verificado", "Parcial", "Sí"]
+# Peso de cada estado en el índice: sí = 1, parcial = 0,5, no y no verificado = 0.
+TRA_PESO = {"Sí": 1.0, "Parcial": 0.5, "No": 0.0, "No verificado": 0.0}
+
+# Los CSV de transparencia nombran cuatro municipios de otra forma que el resto del sitio. Sin
+# este mapa el mismo municipio aparecería dos veces en el buscador y en el selector.
+# "Salta" -> "Salta (ciudad)" es la convención que ya usan construcción y recursos-municipios:
+# "Salta" a secas es el token provincial.
+TRA_MUNI_ALIAS = {
+    "Salta": "Salta (ciudad)",
+    "San José de los Cerrillos": "Cerrillos",
+    "San José de Metán": "Metán",
+    "Profesor Salvador Mazza": "Prof. Salvador Mazza",
+}
+
+TRA_METRICAS = {
+    "transparencia": {"label": "Índice de transparencia", "unidad": "/100", "agg": "sum"},
+    "puntaje_pct": {"label": "Cumplimiento del criterio", "unidad": "/100", "agg": "mean"},
+    "municipios": {"label": "Municipios", "unidad": "municipios", "agg": "sum"},
+    "municipios_con_sitio": {"label": "Municipios con sitio web oficial",
+                             "unidad": "municipios", "agg": "sum"},
+    "municipios_en_cero": {"label": "Municipios con índice cero",
+                           "unidad": "municipios", "agg": "sum"},
+}
+
+
+def _tra_muni(nombre):
+    n = str(nombre).strip()
+    return TRA_MUNI_ALIAS.get(n, n)
+
+
+def transparencia():
+    """Transparencia activa de los 60 municipios de Salta y del Ejecutivo provincial.
+
+    Dos relevamientos propios del CESS sobre los mismos 10 criterios conviven en un esquema
+    único: el de los 60 municipios y el del Ejecutivo provincial, que se distinguen por
+    `nivel`. Cada gráfico elige una familia con su métrica y su `fixed`. No se usa ninguna
+    medición de terceros.
+
+    Mide PUBLICACIÓN ACTIVA en canales oficiales en línea, en una fecha: no mide cumplimiento
+    legal, ni calidad de lo publicado, ni lo que se entrega a pedido. Las salvedades completas
+    están en `datos/metodologia/Metodologia_Transparencia_*.md` y en `notas`.
+    """
+    cess = pd.read_csv(_src(TRA_SRC_CESS), encoding="utf-8-sig")
+    prov = pd.read_csv(_src(TRA_SRC_PROV), encoding="utf-8-sig")
+
+    # El año sale de la fecha de verificación: los dos niveles se relevaron en la misma semana
+    # (municipios el 04-11, provincia el 07-11) y la tabla maestra muestra el período, no el día.
+    anio = int(str(cess["fecha_verificacion"].iloc[0])[:4])
+
+    rows = []
+
+    def emitir(nivel, dep, muni, crit, estado, met, val):
+        rows.append([anio, nivel, dep, muni, crit, estado, met, round(float(val), 2)])
+
+    # ---- Índice por municipio ----
+    for r in cess.itertuples(index=False):
+        emitir("Municipio", norm_dept(r.departamento), _tra_muni(r.municipio),
+               "—", "—", "transparencia", r.transparencia)
+
+    # ---- Conteo por criterio y estado, sobre los 60 ----
+    # Se emiten también los ceros: una barra apilada con categorías faltantes se dibuja
+    # incompleta y el lector no sabe si el estado no existe o vale cero.
+    for clave, etiqueta in TRA_CRITERIOS:
+        vals = [TRA_ESTADO.get(str(v).strip(), "No") for v in cess["crit_" + clave]]
+        for est in TRA_ORDEN_ESTADO:
+            emitir("Municipio", "—", "—", etiqueta, est, "municipios", vals.count(est))
+
+    # ---- Puntaje por criterio: Ejecutivo provincial contra el promedio de los 60 ----
+    # Lleva los dos niveles a la misma escala 0-100 para que se puedan dibujar juntos: el
+    # provincial es el peso de su propio estado; el municipal, el promedio de los 60 pesos.
+    fila_prov = prov.iloc[0]
+    for clave, etiqueta in TRA_CRITERIOS:
+        est_prov = TRA_ESTADO.get(str(fila_prov["crit_" + clave]).strip(), "No")
+        emitir("Ejecutivo provincial", "—", "—", etiqueta, est_prov,
+               "puntaje_pct", TRA_PESO[est_prov] * 100)
+        pesos = [TRA_PESO[TRA_ESTADO.get(str(v).strip(), "No")] for v in cess["crit_" + clave]]
+        emitir("Municipios (promedio)", "—", "—", etiqueta, "—",
+               "puntaje_pct", sum(pesos) / len(pesos) * 100)
+
+    # ---- Índice del Ejecutivo provincial ----
+    emitir("Ejecutivo provincial", "—", "—", "—", "—",
+           "transparencia", fila_prov["transparencia"])
+
+    # ---- Cobertura de los 60 municipios ----
+    con_sitio = int(cess["sitio_oficial"].fillna("").astype(str).str.strip().ne("").sum())
+    en_cero = int((pd.to_numeric(cess["transparencia"], errors="coerce") == 0).sum())
+    emitir("Municipio", "—", "—", "—", "—", "municipios_con_sitio", con_sitio)
+    emitir("Municipio", "—", "—", "—", "—", "municipios_en_cero", en_cero)
+
+    fields = ["anio", "nivel", "departamento", "municipio",
+              "criterio", "estado", "metrica", "valor"]
+    munis = [m for m in sorted({r[3] for r in rows})
+             if m != "—" and m not in NON_GEO and m not in PROVINCIAL_TOKENS]
+    deptos = [d for d in sorted({r[2] for r in rows})
+              if d != "—" and d not in NON_GEO and d not in PROVINCIAL_TOKENS]
+
+    notas = [
+        "transparencia: mide PUBLICACIÓN ACTIVA en canales oficiales en línea, en una fecha. No "
+        "mide cumplimiento de la ley de acceso a la información, ni la calidad o veracidad de lo "
+        "publicado, ni lo que el Estado entrega a pedido. Un municipio que publica su presupuesto "
+        "en papel o en el Concejo Deliberante puntúa 0.",
+        "transparencia: el indicador del Monitor es el relevamiento propio del CESS, que apoya "
+        "cada puntaje en una URL oficial que cualquiera puede abrir y separa 'no publica' de 'no "
+        "se pudo verificar'. Lo relevó un asistente de IA con navegador, SIN segundo codificador "
+        "humano: la metodología pide que una persona del CESS verifique las evidencias, sobre "
+        "todo las de los 11 municipios con puntaje, antes de darlo por publicado.",
+        "transparencia: efecto piso. Con 49 de 60 municipios en cero, el promedio provincial lo "
+        "determinan los 11 que puntúan y un ranking de 60 barras sería engañoso. Las lecturas "
+        "defendibles son el cumplimiento por criterio y el conteo de municipios sobre cero.",
+        "transparencia: no hay retrospectiva posible. Los relevamientos propios de noviembre de "
+        "2026 son la línea de base, así que no hay variación interanual. "
+        "Entre dos tomas, un puntaje puede cambiar porque el gobierno "
+        "empezó a publicar o porque el relevador buscó mejor: la comparación honesta es criterio "
+        "por criterio, con la evidencia a la vista.",
+        "transparencia: la vara municipal le queda chica al nivel provincial. Criterios propios "
+        "de una provincia —deuda, transferencias a municipios, presupuesto ciudadano— no se "
+        "miden; se dejaron afuera para mantener la comparabilidad. El alcance es sólo el Poder "
+        "Ejecutivo: Legislatura, Poder Judicial y Ministerio Público quedan fuera.",
+    ]
+
+    return {
+        "fields": fields,
+        "rows": rows,
+        "dims": {
+            "anio": sorted({r[0] for r in rows}),
+            "nivel": ["Ejecutivo provincial", "Municipio", "Municipios (promedio)"],
+            "departamento": deptos,
+            "municipio": munis,
+            "criterio": [e for _, e in TRA_CRITERIOS],
+            "estado": TRA_ORDEN_ESTADO,
+        },
+        "metricas": TRA_METRICAS,
+        "notas": notas,
+    }
+
+
 # Registro id_tema -> función adapter
 ADAPTERS = {
     "educacion": educacion,
@@ -2471,4 +2636,5 @@ ADAPTERS = {
     "educacion-aprendizajes": educacion_aprendizajes,
     "seguridad": seguridad,
     "bosques": bosques,
+    "transparencia": transparencia,
 }

@@ -279,6 +279,10 @@
     // giradas, en vez de que hideOverlap oculte la mayoría.
     if (isBar && !opts.forGrid && !TIME_X[ch.x] && xs.length > 8) {
       opt.xAxis.axisLabel = Object.assign({}, opt.xAxis.axisLabel, { interval: 0, rotate: 40, hideOverlap: false });
+      // `containLabel` no alcanza con las etiquetas giradas: la primera se extiende hacia la
+      // izquierda del grafico y queda cortada por el borde ("Acceso a la informacion" se veia
+      // "o a la informacion"). El margen se agranda solo en esta rama, que es la unica que gira.
+      opt.grid.left = 40;
     }
     if (opts.forGrid) { opt.xAxis.axisLabel = Object.assign({}, opt.xAxis.axisLabel, { fontSize: 9, interval: "auto" }); yAxis.axisLabel.fontSize = 9; }
     opt.yAxis = yAxis;
@@ -324,7 +328,8 @@
     unidad_geografica: "Unidad geográfica", sector: "Sector", rubro: "Rubro",
     pais_destino: "País de destino", continente: "Continente", gran_rubro: "Tipo de producto",
     central: "Central", partida: "Partida", impuesto: "Impuesto", cultivo: "Cultivo",
-    clase: "Clase de cobertura",
+    clase: "Clase de cobertura", criterio: "Criterio", estado: "Estado",
+    jurisdiccion: "Jurisdicción", nivel: "Nivel de gobierno", fuente: "Relevamiento",
     concepto: "Concepto", categoria: "Categoría", nivel: "Nivel", funcion: "Función"
   };
   function dimLabel(d) { return DIM_LABEL[d] || cap(String(d).replace(/_/g, " ")); }

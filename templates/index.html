@@ -6,7 +6,7 @@
   <div class="wrap">
     <p class="hero-eyebrow">{{ site.institucion }}</p>
     <h1 class="hero-title">{{ site.nombre }}</h1>
-    <p class="hero-lead">{{ site.subtitulo }}. Evolución de los principales indicadores de la provincia en tableros claros e interactivos.</p>
+    <p class="hero-lead">{{ site.subtitulo }}</p>
 
     <div class="search" id="buscador">
       <label for="search-input" class="search-label">Buscar un tema, un indicador o un departamento</label>
@@ -32,6 +32,70 @@
   <h2 class="section-title">Resultados</h2>
   <div class="cards" id="resultados"></div>
 </section>
+
+{% if semaforo %}
+<section class="wrap section" id="semaforo">
+  <h2 class="section-title">Semáforo de metas 2030</h2>
+
+  <div class="sem-tiles">
+    {% for e in semaforo.estados %}
+    <div class="sem-tile">
+      <p class="sem-tile-label"><span class="sem-ico sem-{{ e.id }}" aria-hidden="true"></span>{{ e.label }}</p>
+      <p class="sem-tile-valor">{{ e.n }}</p>
+      <p class="sem-tile-regla">{{ e.regla }}</p>
+    </div>
+    {% endfor %}
+  </div>
+
+  <p class="sem-nota muted">
+    El avance mide cuánto recorrió cada indicador desde su línea de base hacia la meta 2030 del PDES, y sólo se calcula cuando tiene las tres cosas: línea de base, meta y dato.
+    Hoy eso ocurre en <strong>{{ semaforo.calculados }} de {{ semaforo.n }}</strong> indicadores{% if semaforo.motivos %}; de los {{ semaforo.n - semaforo.calculados }} restantes, {% for m in semaforo.motivos %}{{ m.n }} {{ m.texto }}{% if not loop.last %}{% if loop.revindex == 2 %} y {% else %}, {% endif %}{% endif %}{% endfor %}{% endif %}.
+  </p>
+
+  <div class="sem-ejes">
+    {% for e in semaforo.ejes %}
+    <div class="sem-eje">
+      <span class="sem-eje-label">{{ e.label }}</span>
+      <span class="sem-bar" role="img" aria-label="{{ e.label }}: {% for p in e.partes %}{{ p.n }} {{ p.label|lower }}{% if not loop.last %}, {% endif %}{% endfor %}" title="{% for p in e.partes %}{{ p.label }}: {{ p.n }}{% if not loop.last %} · {% endif %}{% endfor %}">{% for p in e.partes %}{% if p.n %}<i class="sem-seg sem-{{ p.id }}" style="flex-grow: {{ p.n }}"></i>{% endif %}{% endfor %}</span>
+      <span class="sem-eje-num">{{ e.calculados }} de {{ e.n }} con avance</span>
+    </div>
+    {% endfor %}
+  </div>
+
+  <div class="sem-listas">
+    <div class="sem-lista">
+      <h3 class="sem-lista-title">Mejores desempeños</h3>
+      {% if semaforo.mejores %}
+      <ul>
+        {% for f in semaforo.mejores %}
+        <li>
+          <span class="sem-lista-nombre"><a href="{{ base }}/tema/{{ f.tema_id }}.html{% if f.chart_id %}#grafico-{{ f.chart_id }}{% endif %}">{{ f.indicador }}</a><small>{{ f.eje_label }} · {{ f.subeje }}</small></span>
+          <span class="sem-chip" title="{{ f.sem_motivo }}"><span class="sem-ico sem-{{ f.sem_estado }}" aria-hidden="true"></span>{{ f.sem_txt }}</span>
+        </li>
+        {% endfor %}
+      </ul>
+      {% else %}
+      <p class="sem-vacio muted">Todavía no hay indicadores con avance calculado.</p>
+      {% endif %}
+    </div>
+    <div class="sem-lista">
+      <h3 class="sem-lista-title">Mayores rezagos</h3>
+      {% if semaforo.rezagos %}
+      <ul>
+        {% for f in semaforo.rezagos %}
+        <li>
+          <span class="sem-lista-nombre"><a href="{{ base }}/tema/{{ f.tema_id }}.html{% if f.chart_id %}#grafico-{{ f.chart_id }}{% endif %}">{{ f.indicador }}</a><small>{{ f.eje_label }} · {{ f.subeje }}</small></span>
+          <span class="sem-chip" title="{{ f.sem_motivo }}"><span class="sem-ico sem-{{ f.sem_estado }}" aria-hidden="true"></span>{{ f.sem_txt }}</span>
+        </li>
+        {% endfor %}
+      </ul>
+      {% else %}
+      <p class="sem-vacio muted">Todavía no hay indicadores en rezago: para calcularlo hacen falta la línea de base y la meta.</p>
+      {% endif %}
+    </div>
+  </div>
+</section>
+{% endif %}
 
 <section class="wrap section" id="tabla-indicadores">
   <h2 class="section-title">Tabla de indicadores</h2>
@@ -65,7 +129,9 @@
         {% for sg in g.subgrupos %}
         <tbody>
           <tr class="subeje-row"><th class="subeje-row-head" colspan="{{ ncols }}" scope="colgroup">{{ sg.label }}</th></tr>
-          {% for f in sg.filas %}
+          {% for tp in sg.tipos %}
+          <tr class="tipo-row tipo-{{ tp.id }}"><th class="tipo-row-head" colspan="{{ ncols }}" scope="colgroup">{{ tp.label }}</th></tr>
+          {% for f in tp.filas %}
           <tr>
             <th scope="row">
               <a href="{{ base }}/tema/{{ f.tema_id }}.html" title="Ver el tablero: {{ f.tema_title }}">{% if f.ficha %}<span class="tabla-ind-ficha">{{ f.ficha }}</span>{% else %}<span class="tabla-ind-ficha tabla-ind-vacio" title="Todavía sin ficha en las notas técnicas">—</span>{% endif %}{{ f.indicador }}</a>{% if f.nota %}<abbr class="tabla-ind-nota" title="{{ f.nota }}">ⓘ</abbr>{% endif %}
@@ -76,7 +142,7 @@
             <td class="num tabla-ind-dato">{% if f.dato_txt %}{{ f.dato_txt }}{% else %}<span class="tabla-ind-vacio" title="Sin dato">—</span>{% endif %}</td>
             <td class="num">{{ f.ultimo }}</td>
             <td class="num"><span class="tabla-ind-var {{ f.var_cls }}">{{ f.var_txt }}</span></td>
-            {% if mostrar_meta_2030 %}<td class="num tabla-ind-meta-ini">{% if f.meta_2030 %}{% if f.meta_2030_nota %}<abbr title="{{ f.meta_2030_nota }}">{{ f.meta_2030 }}</abbr>{% else %}{{ f.meta_2030 }}{% endif %}{% else %}<span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span>{% endif %}</td>{% endif %}
+            {% if mostrar_meta_2030 %}<td class="num tabla-ind-meta-ini">{% if f.meta_2030 %}{% if semaforo %}<span class="sem-ico sem-{{ f.sem_estado }}" role="img" aria-label="{{ f.sem_label }}" title="{{ f.sem_label }}. {{ f.sem_motivo }}"></span>{% endif %}{% if f.meta_2030_nota %}<abbr title="{{ f.meta_2030_nota }}">{{ f.meta_2030 }}</abbr>{% else %}{{ f.meta_2030 }}{% endif %}{% else %}<span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span>{% endif %}</td>{% endif %}
             {% if mostrar_metas %}
             <td class="num tabla-ind-meta-ini">{% if f.base_valor %}{{ f.base_valor }}{% else %}<span class="tabla-ind-vacio" title="A definir">—</span>{% endif %}</td>
             <td class="num">{% if f.base_periodo %}{{ f.base_periodo }}{% else %}<span class="tabla-ind-vacio" title="A definir">—</span>{% endif %}</td>
@@ -86,6 +152,7 @@
             <td class="num">{% if f.brecha_2050 %}{{ f.brecha_2050 }}{% else %}<span class="tabla-ind-vacio" title="Se calcula cuando esté cargada la meta 2050">—</span>{% endif %}</td>
             {% endif %}
           </tr>
+          {% endfor %}
           {% endfor %}
         </tbody>
         {% endfor %}
@@ -113,8 +180,10 @@
     {% for sg in eje.subgrupos %}
     <div class="subeje-block">
       <h4 class="subeje-title">{{ sg.label }} <span class="eje-count">{{ sg.indicadores|length }}</span></h4>
+      {% for tp in sg.tipos %}
+      <p class="tipo-title tipo-{{ tp.id }}">{{ tp.label }}</p>
       <div class="cards">
-        {% for i in sg.indicadores %}
+        {% for i in tp.indicadores %}
         <a class="card card-ind" href="{{ base }}/tema/{{ i.tema_id }}.html{% if i.chart_id %}#grafico-{{ i.chart_id }}{% endif %}">
           <span class="card-area">{{ i.tema_title }}</span>
           <h5 class="card-title">{{ i.indicador }}</h5>
@@ -127,6 +196,7 @@
         </a>
         {% endfor %}
       </div>
+      {% endfor %}
     </div>
     {% endfor %}
   </div>

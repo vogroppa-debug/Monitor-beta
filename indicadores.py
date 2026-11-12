@@ -54,7 +54,7 @@ EXTRA = {
          "fixed": {"departamento": "Salta", "cultivo": "Soja"}},
     ],
     "financiero": [
-        {"ficha": "III.14", "label": "Puntos de acceso al sistema financiero", "metrica": "pda_10m",
+        {"tipo": "oferta", "ficha": "III.14", "label": "Puntos de acceso al sistema financiero", "metrica": "pda_10m",
          "fixed": {"operacion": "PDA"}},
     ],
     "construccion": [
@@ -72,9 +72,9 @@ EXTRA = {
         {"label": "Tasa de mortalidad materna", "metrica": "tasa_mortalidad_materna",
          "fixed": {"departamento": "Salta", "desagregacion": "Total"},
          "sentido": "menor_mejor"},
-        {"label": "Egresos hospitalarios", "metrica": "egresos",
+        {"tipo": "oferta", "label": "Egresos hospitalarios", "metrica": "egresos",
          "fixed": {"departamento": "Salta", "desagregacion": "Total"}},
-        {"label": "Camas disponibles", "metrica": "camas_disponibles",
+        {"tipo": "oferta", "label": "Camas disponibles", "metrica": "camas_disponibles",
          "fixed": {"departamento": "Salta", "desagregacion": "Total"}},
     ],
     # Temas sociales: una fila por ficha de las Notas técnicas integradas de indicadores
@@ -146,11 +146,11 @@ EXTRA = {
     "educacion-aprendizajes": [
         {"ficha": "III.1", "label": "Matrícula de primaria y secundaria", "metrica": "matricula",
          "fixed": {"departamento": "Salta"}, "sentido": "neutro"},
-        {"ficha": "III.4", "label": "Alumnos por establecimiento (secundaria)",
+        {"tipo": "oferta", "ficha": "III.4", "label": "Alumnos por establecimiento (secundaria)",
          "tabla_label": "Alumnos por establecimiento. Secundaria",
          "metrica": "alumnos_establecimiento",
          "fixed": {"departamento": "Salta", "nivel": "Secundaria"}, "sentido": "neutro"},
-        {"ficha": "III.5", "label": "Alumnos por cargo docente (secundaria)",
+        {"tipo": "oferta", "ficha": "III.5", "label": "Alumnos por cargo docente (secundaria)",
          "tabla_label": "Alumnos por cargo docente. Secundaria", "metrica": "alumnos_cargo",
          "fixed": {"departamento": "Salta", "nivel": "Secundaria"}, "sentido": "neutro"},
         {"ficha": "III.6", "label": "Alumnos extranjeros (secundaria)",
@@ -209,7 +209,8 @@ def _desagregacion(payload, ix, spec):
     """
     if spec.get("geo"):
         return spec["geo"], spec.get("geo_nota", "")
-    excl = adapters.NON_GEO | adapters.PROVINCIAL_TOKENS | adapters.NON_DEPT | {"", "Total", None}
+    excl = (adapters.NON_GEO | adapters.PROVINCIAL_TOKENS | adapters.NON_DEPT
+            | {"", "Total", "—", None})
     mi = ix["metrica"]
     for dim, label, plural in GEO_NIVELES:
         if dim not in ix:
@@ -333,6 +334,11 @@ def _periodo_corto(p):
 
 
 def _frecuencia(res, tema_id):
+    """Frecuencia deducida de la serie. El spec puede pisarla con `frecuencia`.
+
+    Un dato de una sola toma no tiene frecuencia y acá caería en "Anual", que sugiere una serie
+    que no existe. Para esos casos el KPI declara `"frecuencia": "Toma única"`.
+    """
     if res["grano"]:
         return _FREC.get(res["grano"], res["grano"].capitalize())
     if res["x"] == "trimestre":
@@ -571,6 +577,143 @@ def _en_pp(spec, metricas):
 
 
 # ------------------------------------------------------------------ API
+# ------------------------------------------------------------------ clase del indicador
+# Orden de lectura dentro de cada subeje: primero lo que se obtiene, después lo que se ofrece.
+TIPOS = [("resultado", "De resultados"), ("oferta", "De oferta o proceso")]
+_TIPO_LABEL = dict(TIPOS)
+_TIPO_ORDEN = {k: i for i, (k, _) in enumerate(TIPOS)}
+
+
+def _tipo(spec):
+    t = spec.get("tipo", "resultado")
+    if t not in _TIPO_LABEL:
+        raise RuntimeError("Indicador '%s': `tipo` desconocido %r (válidos: %s)."
+                           % (spec.get("label"), t, ", ".join(_TIPO_LABEL)))
+    return t
+
+
+def _por_tipo(filas, clave="filas"):
+    """Parte una lista de filas YA ORDENADA en bloques consecutivos de la misma clase."""
+    bloques = []
+    for f in filas:
+        if not bloques or bloques[-1]["id"] != f["tipo"]:
+            bloques.append({"id": f["tipo"], "label": f["tipo_label"], clave: []})
+        bloques[-1][clave].append(f)
+    return bloques
+
+
+# ------------------------------------------------------------------ semáforo de metas
+# Orden de lectura: de mejor a peor y, al final, lo que todavía no se puede evaluar.
+SEM_ESTADOS = [("verde", "En camino"), ("amarillo", "Atención"),
+               ("rojo", "Rezago"), ("gris", "Sin información")]
+_SEM_LABEL = dict(SEM_ESTADOS)
+_SEM_UMBRALES = {"verde": 90, "amarillo": 70}
+
+# Por qué un indicador queda en gris. La clave agrupa; el texto es el que lee el usuario.
+_SEM_MOTIVO = {
+    "sin_meta": "sin meta cuantificada",
+    "sin_base": "con meta, pero sin línea de base",
+    "sin_dato": "sin dato publicado",
+    "meta_igual_base": "con la meta igual a la línea de base",
+}
+
+
+def _avance(spec, valor, umbrales=None):
+    """Avance del indicador hacia su meta 2030 y el color que le toca.
+
+        avance = (último dato − línea de base) / (meta − línea de base) × 100
+
+    La fórmula no necesita saber si el indicador tiene que subir o bajar: el signo del
+    denominador lo resuelve. Un avance negativo es un indicador que se aleja de la meta.
+
+    Sin línea de base no hay avance que calcular, con UNA excepción: si el último dato ya
+    cumple la meta, eso es cierto cualquiera haya sido el punto de partida. Para afirmarlo sí
+    hace falta la dirección, y sólo se usa si el spec declara `sentido` de forma explícita: con
+    el valor por defecto se podría dar por cumplida una meta que en realidad es un techo.
+
+    Devuelve {estado, pct, txt, clave, motivo}; `pct` es None cuando no se pudo calcular.
+    """
+    u = umbrales or _SEM_UMBRALES
+    meta, base, dato = _num(spec.get("meta_2030")), _num(spec.get("base_valor")), _num(valor)
+
+    def gris(clave):
+        return {"estado": "gris", "pct": None, "txt": "", "clave": clave,
+                "motivo": "No se puede calcular el avance: el indicador está %s."
+                          % _SEM_MOTIVO[clave]}
+
+    if dato is None:
+        return gris("sin_dato")
+    if meta is None:
+        return gris("sin_meta")
+    if base is None:
+        sentido = spec.get("sentido")
+        if (sentido == "mayor_mejor" and dato >= meta) or (sentido == "menor_mejor" and dato <= meta):
+            return {"estado": "verde", "pct": 100.0, "txt": "Meta alcanzada", "clave": "alcanzada",
+                    "motivo": "El último dato ya cumple la meta 2030. No tiene línea de base "
+                              "cargada, pero no hace falta para afirmarlo."}
+        return gris("sin_base")
+    if meta == base:
+        return gris("meta_igual_base")
+
+    pct = (dato - base) / (meta - base) * 100
+    estado = "verde" if pct >= u["verde"] else ("amarillo" if pct >= u["amarillo"] else "rojo")
+    if pct >= 100:
+        txt = "Meta alcanzada"
+    else:
+        txt = ("%d %%" % round(pct)).replace("-", "−")
+    return {"estado": estado, "pct": pct, "txt": txt, "clave": "calculado",
+            "motivo": "Recorrió el %s del camino entre la línea de base y la meta 2030."
+                      % ("%d %%" % round(pct)).replace("-", "−")}
+
+
+def semaforo(grupos, umbrales=None, top=5):
+    """Resumen del semáforo para la portada, a partir de la salida de `tabla()`.
+
+    Cuenta los cuatro estados sobre TODOS los indicadores —los grises también: la cobertura
+    del cálculo es parte del resultado, no una nota al pie—, los abre por eje y arma las dos
+    listas. «Mejores desempeños» y «Mayores rezagos» no se pisan: la primera toma los que no
+    están en rojo y la segunda sólo los que sí, así que con pocos indicadores calculados el
+    mismo no aparece en las dos.
+    """
+    u = umbrales or _SEM_UMBRALES
+    reglas = {
+        "verde": "%d %% de avance o más" % u["verde"],
+        "amarillo": "entre %d y %d %%" % (u["amarillo"], u["verde"] - 1),
+        "rojo": "menos de %d %%" % u["amarillo"],
+        "gris": "falta la meta, la línea de base o el dato",
+    }
+    filas = [dict(f, eje_label=g["label"]) for g in grupos for f in g["filas"]]
+
+    def contar(fs):
+        return {k: sum(1 for f in fs if f["sem_estado"] == k) for k, _ in SEM_ESTADOS}
+
+    total = contar(filas)
+    calculados = [f for f in filas if f["sem_pct"] is not None]
+    motivos = {}
+    for f in filas:
+        if f["sem_estado"] == "gris":
+            motivos[f["sem_clave"]] = motivos.get(f["sem_clave"], 0) + 1
+    ejes = []
+    for g in grupos:
+        c = contar(g["filas"])
+        ejes.append({"id": g["id"], "label": g["label"], "n": len(g["filas"]),
+                     "calculados": sum(1 for f in g["filas"] if f["sem_pct"] is not None),
+                     "partes": [{"id": k, "label": lab, "n": c[k]} for k, lab in SEM_ESTADOS]})
+    return {
+        "n": len(filas),
+        "calculados": len(calculados),
+        "estados": [{"id": k, "label": lab, "n": total[k], "regla": reglas[k]}
+                    for k, lab in SEM_ESTADOS],
+        "motivos": [{"n": n, "texto": _SEM_MOTIVO[k]}
+                    for k, n in sorted(motivos.items(), key=lambda kv: -kv[1])],
+        "ejes": ejes,
+        "mejores": sorted([f for f in calculados if f["sem_estado"] != "rojo"],
+                          key=lambda f: -f["sem_pct"])[:top],
+        "rezagos": sorted([f for f in calculados if f["sem_estado"] == "rojo"],
+                          key=lambda f: f["sem_pct"])[:top],
+    }
+
+
 def _subeje(spec, tema, tags_meta):
     """Subeje del indicador: el propio, el del tema, o la etiqueta de su PRIMER tag.
 
@@ -630,7 +773,8 @@ def _orden_subejes(tags_meta, subeje_orden):
     return orden
 
 
-def tabla(payloads, catalogo, ejes_pdes_meta, tags_meta, subeje_orden, ciiu_secciones=None):
+def tabla(payloads, catalogo, ejes_pdes_meta, tags_meta, subeje_orden, ciiu_secciones=None,
+          umbrales=None):
     """payloads: {tema_id: payload}; catalogo: temas livianos YA ORDENADOS;
     ejes_pdes_meta: catalog.EJES_PDES; tags_meta: catalog.TAGS;
     subeje_orden: catalog.SUBEJE_ORDEN; ciiu_secciones: catalog.CIIU_SECCIONES (letra→nombre).
@@ -668,9 +812,11 @@ def tabla(payloads, catalogo, ejes_pdes_meta, tags_meta, subeje_orden, ciiu_secc
             ciiu = s.get("ciiu") or t.get("ciiu") or ""
 
             _unidad = payload["metricas"].get(s["metrica"], {}).get("unidad", "")
+            sem = _avance(s, res.get("valor"), umbrales)
             filas.append({
                 "eje": t.get("eje_pdes"),
                 "subeje": _subeje(s, t, tags_meta),
+                "tipo": _tipo(s), "tipo_label": _TIPO_LABEL[_tipo(s)],
                 "ciiu": ciiu, "ciiu_label": ciiu_secciones.get(ciiu, ""),
                 "indicador": _nombre_con_unidad(
                     s.get("tabla_label") or s["label"], _unidad),
@@ -681,7 +827,7 @@ def tabla(payloads, catalogo, ejes_pdes_meta, tags_meta, subeje_orden, ciiu_secc
                 "geo": desag, "geo_nota": desag_nota,
                 "valor_txt": _medida(res["valor"], _unidad),
                 "dato_txt": _dato(res["valor"], _unidad),
-                "frecuencia": _frecuencia(res, t["id"]),
+                "frecuencia": s.get("frecuencia") or _frecuencia(res, t["id"]),
                 "ultimo": _periodo_corto(res["ultimo"]),
                 "base_valor": _celda(s.get("base_valor")),
                 "base_periodo": s.get("base_periodo", ""),
@@ -691,6 +837,9 @@ def tabla(payloads, catalogo, ejes_pdes_meta, tags_meta, subeje_orden, ciiu_secc
                 "meta_2050": _meta(s.get("meta_2050")),
                 "brecha_2050": _brecha(brecha),
                 "var_txt": var_txt, "var_cls": var_cls, "var_ref": ref,
+                "sem_estado": sem["estado"], "sem_label": _SEM_LABEL[sem["estado"]],
+                "sem_pct": sem["pct"], "sem_txt": sem["txt"],
+                "sem_clave": sem["clave"], "sem_motivo": sem["motivo"],
             })
 
     grupos = []
@@ -703,7 +852,11 @@ def tabla(payloads, catalogo, ejes_pdes_meta, tags_meta, subeje_orden, ciiu_secc
         # caen al final del subeje ordenadas como antes: por la letra CIIU del tablero, que deja
         # contiguos a los indicadores de un mismo tablero (el orden estable conserva el de los
         # KPIs dentro del tablero).
-        sub.sort(key=lambda f: (orden_tag.get(f["subeje"], 99), _orden_ficha(f),
+        # Antes que la ficha manda la CLASE: dentro de cada subeje van primero los indicadores de
+        # resultados y después los de oferta o proceso, así que la numeración se lee corrida
+        # dentro de cada clase y no a lo largo de todo el subeje.
+        sub.sort(key=lambda f: (orden_tag.get(f["subeje"], 99), _TIPO_ORDEN[f["tipo"]],
+                                _orden_ficha(f),
                                 ciiu_orden_tema.get(f["tema_id"], "￿"), f["tema_title"]))
         # El subeje pasa a ser SUBTÍTULO (fila de encabezado), no una columna: agrupamos las
         # filas consecutivas del mismo subeje conservando el orden ya fijado.
@@ -712,6 +865,8 @@ def tabla(payloads, catalogo, ejes_pdes_meta, tags_meta, subeje_orden, ciiu_secc
             if not subgrupos or subgrupos[-1]["label"] != f["subeje"]:
                 subgrupos.append({"label": f["subeje"], "filas": []})
             subgrupos[-1]["filas"].append(f)
+        for sg in subgrupos:
+            sg["tipos"] = _por_tipo(sg["filas"])
         grupos.append({"id": eje_id, "label": eje["label"], "filas": sub,
                        "has_ciiu": eje_id == "economico-productivo", "subgrupos": subgrupos})
     return grupos
@@ -737,7 +892,8 @@ def explorar(grupos, tags_meta, subeje_orden):
         porsub = {}
         for f in g["filas"]:
             porsub.setdefault(f["subeje"], []).append(f)
-        subgrupos = [{"label": k, "indicadores": v} for k, v in
+        subgrupos = [{"label": k, "indicadores": v, "tipos": _por_tipo(v, "indicadores")}
+                     for k, v in
                      sorted(porsub.items(), key=lambda kv: (orden.get(kv[0], 99), kv[0]))]
         out.append({"id": g["id"], "label": g["label"],
                     "n": len(g["filas"]), "subgrupos": subgrupos})

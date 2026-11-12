@@ -9,7 +9,7 @@
     /* fija el tema antes de pintar para evitar flash */
     (function(){try{var t=localStorage.getItem('cess-theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
   </script>
-  <link rel="stylesheet" href="./assets/css/styles.css?v=1793920280">
+  <link rel="stylesheet" href="./assets/css/styles.css?v=1794527417">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%232a78d6'/><text x='50' y='68' font-size='52' text-anchor='middle' fill='white' font-family='sans-serif' font-weight='700'>C</text></svg>">
 </head>
 <body>
@@ -96,6 +96,8 @@
             
             <a role="menuitem" href="./tema/energia-renovable.html">Energías renovables</a>
             
+            <a role="menuitem" href="./tema/transparencia.html">Transparencia del sector público</a>
+            
           </div>
           
         </div>
@@ -115,7 +117,7 @@
   <div class="wrap">
     <p class="hero-eyebrow">Consejo Económico y Social de Salta (CESS)</p>
     <h1 class="hero-title">Monitor de Indicadores (versión Beta)</h1>
-    <p class="hero-lead">Seguimiento del Plan de Desarrollo Estratégico de Salta (PDES 2050). Evolución de los principales indicadores de la provincia en tableros claros e interactivos.</p>
+    <p class="hero-lead">Seguimiento del Plan de Desarrollo Estratégico de Salta (PDES 2050)</p>
 
     <div class="search" id="buscador">
       <label for="search-input" class="search-label">Buscar un tema, un indicador o un departamento</label>
@@ -141,6 +143,89 @@
   <h2 class="section-title">Resultados</h2>
   <div class="cards" id="resultados"></div>
 </section>
+
+
+<section class="wrap section" id="semaforo">
+  <h2 class="section-title">Semáforo de metas 2030</h2>
+
+  <div class="sem-tiles">
+    
+    <div class="sem-tile">
+      <p class="sem-tile-label"><span class="sem-ico sem-verde" aria-hidden="true"></span>En camino</p>
+      <p class="sem-tile-valor">1</p>
+      <p class="sem-tile-regla">90 % de avance o más</p>
+    </div>
+    
+    <div class="sem-tile">
+      <p class="sem-tile-label"><span class="sem-ico sem-amarillo" aria-hidden="true"></span>Atención</p>
+      <p class="sem-tile-valor">0</p>
+      <p class="sem-tile-regla">entre 70 y 89 %</p>
+    </div>
+    
+    <div class="sem-tile">
+      <p class="sem-tile-label"><span class="sem-ico sem-rojo" aria-hidden="true"></span>Rezago</p>
+      <p class="sem-tile-valor">0</p>
+      <p class="sem-tile-regla">menos de 70 %</p>
+    </div>
+    
+    <div class="sem-tile">
+      <p class="sem-tile-label"><span class="sem-ico sem-gris" aria-hidden="true"></span>Sin información</p>
+      <p class="sem-tile-valor">120</p>
+      <p class="sem-tile-regla">falta la meta, la línea de base o el dato</p>
+    </div>
+    
+  </div>
+
+  <p class="sem-nota muted">
+    El avance mide cuánto recorrió cada indicador desde su línea de base hacia la meta 2030 del PDES, y sólo se calcula cuando tiene las tres cosas: línea de base, meta y dato.
+    Hoy eso ocurre en <strong>1 de 121</strong> indicadores; de los 120 restantes, 114 sin meta cuantificada y 6 con meta, pero sin línea de base.
+  </p>
+
+  <div class="sem-ejes">
+    
+    <div class="sem-eje">
+      <span class="sem-eje-label">Sociocultural</span>
+      <span class="sem-bar" role="img" aria-label="Sociocultural: 1 en camino, 0 atención, 0 rezago, 65 sin información" title="En camino: 1 · Atención: 0 · Rezago: 0 · Sin información: 65"><i class="sem-seg sem-verde" style="flex-grow: 1"></i><i class="sem-seg sem-gris" style="flex-grow: 65"></i></span>
+      <span class="sem-eje-num">1 de 66 con avance</span>
+    </div>
+    
+    <div class="sem-eje">
+      <span class="sem-eje-label">Económico-productivo</span>
+      <span class="sem-bar" role="img" aria-label="Económico-productivo: 0 en camino, 0 atención, 0 rezago, 44 sin información" title="En camino: 0 · Atención: 0 · Rezago: 0 · Sin información: 44"><i class="sem-seg sem-gris" style="flex-grow: 44"></i></span>
+      <span class="sem-eje-num">0 de 44 con avance</span>
+    </div>
+    
+    <div class="sem-eje">
+      <span class="sem-eje-label">Territorio, ambiente y turismo</span>
+      <span class="sem-bar" role="img" aria-label="Territorio, ambiente y turismo: 0 en camino, 0 atención, 0 rezago, 11 sin información" title="En camino: 0 · Atención: 0 · Rezago: 0 · Sin información: 11"><i class="sem-seg sem-gris" style="flex-grow: 11"></i></span>
+      <span class="sem-eje-num">0 de 11 con avance</span>
+    </div>
+    
+  </div>
+
+  <div class="sem-listas">
+    <div class="sem-lista">
+      <h3 class="sem-lista-title">Mejores desempeños</h3>
+      
+      <ul>
+        
+        <li>
+          <span class="sem-lista-nombre"><a href="./tema/condiciones-vida.html#grafico-cv-ranking">Hogares: sin inodoro con descarga de agua (%)</a><small>Sociocultural · Condiciones de vida</small></span>
+          <span class="sem-chip" title="El último dato ya cumple la meta 2030. No tiene línea de base cargada, pero no hace falta para afirmarlo."><span class="sem-ico sem-verde" aria-hidden="true"></span>Meta alcanzada</span>
+        </li>
+        
+      </ul>
+      
+    </div>
+    <div class="sem-lista">
+      <h3 class="sem-lista-title">Mayores rezagos</h3>
+      
+      <p class="sem-vacio muted">Todavía no hay indicadores en rezago: para calcularlo hacen falta la línea de base y la meta.</p>
+      
+    </div>
+  </div>
+</section>
+
 
 <section class="wrap section" id="tabla-indicadores">
   <h2 class="section-title">Tabla de indicadores</h2>
@@ -168,6 +253,8 @@
         <tbody>
           <tr class="subeje-row"><th class="subeje-row-head" colspan="7" scope="colgroup">Condiciones de vida</th></tr>
           
+          <tr class="tipo-row tipo-resultado"><th class="tipo-row-head" colspan="7" scope="colgroup">De resultados</th></tr>
+          
           <tr>
             <th scope="row">
               <a href="./tema/condiciones-vida.html" title="Ver el tablero: Condiciones de vida de los hogares"><span class="tabla-ind-ficha">I.1</span>Hogares con NBI (%)</a>
@@ -178,7 +265,7 @@
             <td class="num tabla-ind-dato">14,2</td>
             <td class="num">2022</td>
             <td class="num"><span class="tabla-ind-var none">sin base</span></td>
-            <td class="num tabla-ind-meta-ini"><abbr title="El PDES fija la meta al Censo 2030.">10</abbr></td>
+            <td class="num tabla-ind-meta-ini"><span class="sem-ico sem-gris" role="img" aria-label="Sin información" title="Sin información. No se puede calcular el avance: el indicador está con meta, pero sin línea de base."></span><abbr title="El PDES fija la meta al Censo 2030.">10</abbr></td>
             
           </tr>
           
@@ -192,7 +279,7 @@
             <td class="num tabla-ind-dato">4,68</td>
             <td class="num">2022</td>
             <td class="num"><span class="tabla-ind-var none">sin base</span></td>
-            <td class="num tabla-ind-meta-ini"><abbr title="El PDES fija la meta al Censo 2030.">4</abbr></td>
+            <td class="num tabla-ind-meta-ini"><span class="sem-ico sem-gris" role="img" aria-label="Sin información" title="Sin información. No se puede calcular el avance: el indicador está con meta, pero sin línea de base."></span><abbr title="El PDES fija la meta al Censo 2030.">4</abbr></td>
             
           </tr>
           
@@ -248,7 +335,7 @@
             <td class="num tabla-ind-dato">15,1</td>
             <td class="num">2022</td>
             <td class="num"><span class="tabla-ind-var none">sin base</span></td>
-            <td class="num tabla-ind-meta-ini"><abbr title="El PDES fija una cobertura de agua de red del 93 % al Censo 2030; acá se expresa como su complemento, porque el Monitor mide la carencia y no la cobertura.">7</abbr></td>
+            <td class="num tabla-ind-meta-ini"><span class="sem-ico sem-gris" role="img" aria-label="Sin información" title="Sin información. No se puede calcular el avance: el indicador está con meta, pero sin línea de base."></span><abbr title="El PDES fija una cobertura de agua de red del 93 % al Censo 2030; acá se expresa como su complemento, porque el Monitor mide la carencia y no la cobertura.">7</abbr></td>
             
           </tr>
           
@@ -262,7 +349,7 @@
             <td class="num tabla-ind-dato">16,6</td>
             <td class="num">2022</td>
             <td class="num"><span class="tabla-ind-var none">sin base</span></td>
-            <td class="num tabla-ind-meta-ini"><abbr title="El PDES fija una cobertura de desagüe a red del 80 % al Censo 2030; acá se expresa como su complemento, porque el Monitor mide la carencia y no la cobertura.">20</abbr></td>
+            <td class="num tabla-ind-meta-ini"><span class="sem-ico sem-verde" role="img" aria-label="En camino" title="En camino. El último dato ya cumple la meta 2030. No tiene línea de base cargada, pero no hace falta para afirmarlo."></span><abbr title="El PDES fija una cobertura de desagüe a red del 80 % al Censo 2030; acá se expresa como su complemento, porque el Monitor mide la carencia y no la cobertura.">20</abbr></td>
             
           </tr>
           
@@ -322,10 +409,13 @@
             
           </tr>
           
+          
         </tbody>
         
         <tbody>
           <tr class="subeje-row"><th class="subeje-row-head" colspan="7" scope="colgroup">Salud</th></tr>
+          
+          <tr class="tipo-row tipo-resultado"><th class="tipo-row-head" colspan="7" scope="colgroup">De resultados</th></tr>
           
           <tr>
             <th scope="row">
@@ -651,34 +741,6 @@
           
           <tr>
             <th scope="row">
-              <a href="./tema/salud.html" title="Ver el tablero: Salud"><span class="tabla-ind-ficha tabla-ind-vacio" title="Todavía sin ficha en las notas técnicas">—</span>Consultas médicas por habitante</a>
-            </th>
-            
-            <td class="tabla-ind-frec">Anual</td>
-            <td class="tabla-ind-geo"><abbr title="Se publica sólo como total provincial">Provincia</abbr></td>
-            <td class="num tabla-ind-dato">2,21</td>
-            <td class="num">2025</td>
-            <td class="num"><span class="tabla-ind-var down neutro">▼ 5,6 %</span></td>
-            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
-            
-          </tr>
-          
-          <tr>
-            <th scope="row">
-              <a href="./tema/salud.html" title="Ver el tablero: Salud"><span class="tabla-ind-ficha tabla-ind-vacio" title="Todavía sin ficha en las notas técnicas">—</span>Ocupación de camas en establecimientos públicos (%)</a>
-            </th>
-            
-            <td class="tabla-ind-frec">Anual</td>
-            <td class="tabla-ind-geo"><abbr title="23 departamentos con datos">Departamento</abbr></td>
-            <td class="num tabla-ind-dato">63,8</td>
-            <td class="num">2025</td>
-            <td class="num"><span class="tabla-ind-var up neutro">▲ 0,8 p.p.</span></td>
-            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
-            
-          </tr>
-          
-          <tr>
-            <th scope="row">
               <a href="./tema/salud.html" title="Ver el tablero: Salud"><span class="tabla-ind-ficha tabla-ind-vacio" title="Todavía sin ficha en las notas técnicas">—</span>Tasa de natalidad (c/ mil hab.)</a>
             </th>
             
@@ -721,6 +783,65 @@
           
           <tr>
             <th scope="row">
+              <a href="./tema/salud-reproduccion.html" title="Ver el tablero: Salud y reproducción por departamento"><span class="tabla-ind-ficha tabla-ind-vacio" title="Todavía sin ficha en las notas técnicas">—</span>Esperanza de vida al nacer (años). Mujeres</a><abbr class="tabla-ind-nota" title="Apertura por sexo de la ficha II.1. Se lista aparte porque el PDES fija meta 2030 para mujeres y varones por separado, y ninguna para el total.">ⓘ</abbr>
+            </th>
+            
+            <td class="tabla-ind-frec">Anual</td>
+            <td class="tabla-ind-geo"><abbr title="23 departamentos con datos">Departamento</abbr></td>
+            <td class="num tabla-ind-dato">78,8</td>
+            <td class="num">2023</td>
+            <td class="num"><span class="tabla-ind-var none">sin base</span></td>
+            <td class="num tabla-ind-meta-ini"><span class="sem-ico sem-gris" role="img" aria-label="Sin información" title="Sin información. No se puede calcular el avance: el indicador está con meta, pero sin línea de base."></span>84,14</td>
+            
+          </tr>
+          
+          <tr>
+            <th scope="row">
+              <a href="./tema/salud-reproduccion.html" title="Ver el tablero: Salud y reproducción por departamento"><span class="tabla-ind-ficha tabla-ind-vacio" title="Todavía sin ficha en las notas técnicas">—</span>Esperanza de vida al nacer (años). Varones</a><abbr class="tabla-ind-nota" title="Apertura por sexo de la ficha II.1. Se lista aparte porque el PDES fija meta 2030 para mujeres y varones por separado, y ninguna para el total.">ⓘ</abbr>
+            </th>
+            
+            <td class="tabla-ind-frec">Anual</td>
+            <td class="tabla-ind-geo"><abbr title="23 departamentos con datos">Departamento</abbr></td>
+            <td class="num tabla-ind-dato">73,1</td>
+            <td class="num">2023</td>
+            <td class="num"><span class="tabla-ind-var none">sin base</span></td>
+            <td class="num tabla-ind-meta-ini"><span class="sem-ico sem-gris" role="img" aria-label="Sin información" title="Sin información. No se puede calcular el avance: el indicador está con meta, pero sin línea de base."></span>77,96</td>
+            
+          </tr>
+          
+          
+          <tr class="tipo-row tipo-oferta"><th class="tipo-row-head" colspan="7" scope="colgroup">De oferta o proceso</th></tr>
+          
+          <tr>
+            <th scope="row">
+              <a href="./tema/salud.html" title="Ver el tablero: Salud"><span class="tabla-ind-ficha tabla-ind-vacio" title="Todavía sin ficha en las notas técnicas">—</span>Consultas médicas por habitante</a>
+            </th>
+            
+            <td class="tabla-ind-frec">Anual</td>
+            <td class="tabla-ind-geo"><abbr title="Se publica sólo como total provincial">Provincia</abbr></td>
+            <td class="num tabla-ind-dato">2,21</td>
+            <td class="num">2025</td>
+            <td class="num"><span class="tabla-ind-var down neutro">▼ 5,6 %</span></td>
+            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
+            
+          </tr>
+          
+          <tr>
+            <th scope="row">
+              <a href="./tema/salud.html" title="Ver el tablero: Salud"><span class="tabla-ind-ficha tabla-ind-vacio" title="Todavía sin ficha en las notas técnicas">—</span>Ocupación de camas en establecimientos públicos (%)</a>
+            </th>
+            
+            <td class="tabla-ind-frec">Anual</td>
+            <td class="tabla-ind-geo"><abbr title="23 departamentos con datos">Departamento</abbr></td>
+            <td class="num tabla-ind-dato">63,8</td>
+            <td class="num">2025</td>
+            <td class="num"><span class="tabla-ind-var up neutro">▲ 0,8 p.p.</span></td>
+            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
+            
+          </tr>
+          
+          <tr>
+            <th scope="row">
               <a href="./tema/salud.html" title="Ver el tablero: Salud"><span class="tabla-ind-ficha tabla-ind-vacio" title="Todavía sin ficha en las notas técnicas">—</span>Egresos hospitalarios</a>
             </th>
             
@@ -747,38 +868,13 @@
             
           </tr>
           
-          <tr>
-            <th scope="row">
-              <a href="./tema/salud-reproduccion.html" title="Ver el tablero: Salud y reproducción por departamento"><span class="tabla-ind-ficha tabla-ind-vacio" title="Todavía sin ficha en las notas técnicas">—</span>Esperanza de vida al nacer (años). Mujeres</a><abbr class="tabla-ind-nota" title="Apertura por sexo de la ficha II.1. Se lista aparte porque el PDES fija meta 2030 para mujeres y varones por separado, y ninguna para el total.">ⓘ</abbr>
-            </th>
-            
-            <td class="tabla-ind-frec">Anual</td>
-            <td class="tabla-ind-geo"><abbr title="23 departamentos con datos">Departamento</abbr></td>
-            <td class="num tabla-ind-dato">78,8</td>
-            <td class="num">2023</td>
-            <td class="num"><span class="tabla-ind-var none">sin base</span></td>
-            <td class="num tabla-ind-meta-ini">84,14</td>
-            
-          </tr>
-          
-          <tr>
-            <th scope="row">
-              <a href="./tema/salud-reproduccion.html" title="Ver el tablero: Salud y reproducción por departamento"><span class="tabla-ind-ficha tabla-ind-vacio" title="Todavía sin ficha en las notas técnicas">—</span>Esperanza de vida al nacer (años). Varones</a><abbr class="tabla-ind-nota" title="Apertura por sexo de la ficha II.1. Se lista aparte porque el PDES fija meta 2030 para mujeres y varones por separado, y ninguna para el total.">ⓘ</abbr>
-            </th>
-            
-            <td class="tabla-ind-frec">Anual</td>
-            <td class="tabla-ind-geo"><abbr title="23 departamentos con datos">Departamento</abbr></td>
-            <td class="num tabla-ind-dato">73,1</td>
-            <td class="num">2023</td>
-            <td class="num"><span class="tabla-ind-var none">sin base</span></td>
-            <td class="num tabla-ind-meta-ini">77,96</td>
-            
-          </tr>
           
         </tbody>
         
         <tbody>
           <tr class="subeje-row"><th class="subeje-row-head" colspan="7" scope="colgroup">Educación</th></tr>
+          
+          <tr class="tipo-row tipo-resultado"><th class="tipo-row-head" colspan="7" scope="colgroup">De resultados</th></tr>
           
           <tr>
             <th scope="row">
@@ -816,34 +912,6 @@
             <td class="tabla-ind-frec">Anual</td>
             <td class="tabla-ind-geo"><abbr title="23 departamentos con datos">Departamento</abbr></td>
             <td class="num tabla-ind-dato">10,3</td>
-            <td class="num">2025</td>
-            <td class="num"><span class="tabla-ind-var none">sin base</span></td>
-            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
-            
-          </tr>
-          
-          <tr>
-            <th scope="row">
-              <a href="./tema/educacion-aprendizajes.html" title="Ver el tablero: Trayectorias y aprendizajes por departamento"><span class="tabla-ind-ficha">III.4</span>Alumnos por establecimiento. Secundaria</a>
-            </th>
-            
-            <td class="tabla-ind-frec">Anual</td>
-            <td class="tabla-ind-geo"><abbr title="23 departamentos con datos">Departamento</abbr></td>
-            <td class="num tabla-ind-dato">362,0</td>
-            <td class="num">2025</td>
-            <td class="num"><span class="tabla-ind-var none">sin base</span></td>
-            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
-            
-          </tr>
-          
-          <tr>
-            <th scope="row">
-              <a href="./tema/educacion-aprendizajes.html" title="Ver el tablero: Trayectorias y aprendizajes por departamento"><span class="tabla-ind-ficha">III.5</span>Alumnos por cargo docente. Secundaria</a>
-            </th>
-            
-            <td class="tabla-ind-frec">Anual</td>
-            <td class="tabla-ind-geo"><abbr title="23 departamentos con datos">Departamento</abbr></td>
-            <td class="num tabla-ind-dato">23,3</td>
             <td class="num">2025</td>
             <td class="num"><span class="tabla-ind-var none">sin base</span></td>
             <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
@@ -948,6 +1016,37 @@
             
           </tr>
           
+          
+          <tr class="tipo-row tipo-oferta"><th class="tipo-row-head" colspan="7" scope="colgroup">De oferta o proceso</th></tr>
+          
+          <tr>
+            <th scope="row">
+              <a href="./tema/educacion-aprendizajes.html" title="Ver el tablero: Trayectorias y aprendizajes por departamento"><span class="tabla-ind-ficha">III.4</span>Alumnos por establecimiento. Secundaria</a>
+            </th>
+            
+            <td class="tabla-ind-frec">Anual</td>
+            <td class="tabla-ind-geo"><abbr title="23 departamentos con datos">Departamento</abbr></td>
+            <td class="num tabla-ind-dato">362,0</td>
+            <td class="num">2025</td>
+            <td class="num"><span class="tabla-ind-var none">sin base</span></td>
+            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
+            
+          </tr>
+          
+          <tr>
+            <th scope="row">
+              <a href="./tema/educacion-aprendizajes.html" title="Ver el tablero: Trayectorias y aprendizajes por departamento"><span class="tabla-ind-ficha">III.5</span>Alumnos por cargo docente. Secundaria</a>
+            </th>
+            
+            <td class="tabla-ind-frec">Anual</td>
+            <td class="tabla-ind-geo"><abbr title="23 departamentos con datos">Departamento</abbr></td>
+            <td class="num tabla-ind-dato">23,3</td>
+            <td class="num">2025</td>
+            <td class="num"><span class="tabla-ind-var none">sin base</span></td>
+            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
+            
+          </tr>
+          
           <tr>
             <th scope="row">
               <a href="./tema/educacion.html" title="Ver el tablero: Educación por departamento"><span class="tabla-ind-ficha tabla-ind-vacio" title="Todavía sin ficha en las notas técnicas">—</span>Cargos docentes</a>
@@ -962,10 +1061,13 @@
             
           </tr>
           
+          
         </tbody>
         
         <tbody>
           <tr class="subeje-row"><th class="subeje-row-head" colspan="7" scope="colgroup">Seguridad</th></tr>
+          
+          <tr class="tipo-row tipo-resultado"><th class="tipo-row-head" colspan="7" scope="colgroup">De resultados</th></tr>
           
           <tr>
             <th scope="row">
@@ -1107,6 +1209,7 @@
             
           </tr>
           
+          
         </tbody>
         
       </table>
@@ -1135,6 +1238,8 @@
         <tbody>
           <tr class="subeje-row"><th class="subeje-row-head" colspan="8" scope="colgroup">Actividad y productividad</th></tr>
           
+          <tr class="tipo-row tipo-resultado"><th class="tipo-row-head" colspan="8" scope="colgroup">De resultados</th></tr>
+          
           <tr>
             <th scope="row">
               <a href="./tema/agricultura.html" title="Ver el tablero: Agricultura por departamento"><span class="tabla-ind-ficha">I.1</span>Producción agrícola total (toneladas)</a>
@@ -1145,20 +1250,6 @@
             <td class="num tabla-ind-dato">3.103.824</td>
             <td class="num">2024</td>
             <td class="num"><span class="tabla-ind-var up">▲ 9,1 %</span></td>
-            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
-            
-          </tr>
-          
-          <tr>
-            <th scope="row">
-              <a href="./tema/agricultura.html" title="Ver el tablero: Agricultura por departamento"><span class="tabla-ind-ficha">I.2</span>Superficie sembrada (ha)</a>
-            </th>
-            <td class="tabla-ind-ciiu"><abbr title="A — Agricultura, ganadería, caza, silvicultura y pesca">A</abbr></td>
-            <td class="tabla-ind-frec">Anual (campaña)</td>
-            <td class="tabla-ind-geo"><abbr title="18 departamentos con datos">Departamento</abbr></td>
-            <td class="num tabla-ind-dato">1.253.058</td>
-            <td class="num">2024</td>
-            <td class="num"><span class="tabla-ind-var down">▼ 3,0 %</span></td>
             <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
             
           </tr>
@@ -1187,7 +1278,7 @@
             <td class="num tabla-ind-dato">1.073.532</td>
             <td class="num">2025</td>
             <td class="num"><span class="tabla-ind-var down">▼ 0,9 %</span></td>
-            <td class="num tabla-ind-meta-ini">2.000.000</td>
+            <td class="num tabla-ind-meta-ini"><span class="sem-ico sem-gris" role="img" aria-label="Sin información" title="Sin información. No se puede calcular el avance: el indicador está con meta, pero sin línea de base."></span>2.000.000</td>
             
           </tr>
           
@@ -1291,20 +1382,6 @@
           
           <tr>
             <th scope="row">
-              <a href="./tema/produccion-energia.html" title="Ver el tablero: Producción de petróleo y gas"><span class="tabla-ind-ficha">I.12</span>Pozos en producción</a>
-            </th>
-            <td class="tabla-ind-ciiu"><abbr title="B — Explotación de minas y canteras">B</abbr></td>
-            <td class="tabla-ind-frec">Trimestral</td>
-            <td class="tabla-ind-geo"><abbr title="6 departamentos con datos">Departamento</abbr></td>
-            <td class="num tabla-ind-dato">2.238</td>
-            <td class="num">2T2026</td>
-            <td class="num"><span class="tabla-ind-var down">▼ 16,7 %</span></td>
-            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
-            
-          </tr>
-          
-          <tr>
-            <th scope="row">
               <a href="./tema/construccion.html" title="Ver el tablero: Construcción (permisos de edificación)"><span class="tabla-ind-ficha">I.13</span>Superficie autorizada a construir (m²)</a>
             </th>
             <td class="tabla-ind-ciiu"><abbr title="F — Construcción">F</abbr></td>
@@ -1345,10 +1422,44 @@
             
           </tr>
           
+          
+          <tr class="tipo-row tipo-oferta"><th class="tipo-row-head" colspan="8" scope="colgroup">De oferta o proceso</th></tr>
+          
+          <tr>
+            <th scope="row">
+              <a href="./tema/agricultura.html" title="Ver el tablero: Agricultura por departamento"><span class="tabla-ind-ficha">I.2</span>Superficie sembrada (ha)</a>
+            </th>
+            <td class="tabla-ind-ciiu"><abbr title="A — Agricultura, ganadería, caza, silvicultura y pesca">A</abbr></td>
+            <td class="tabla-ind-frec">Anual (campaña)</td>
+            <td class="tabla-ind-geo"><abbr title="18 departamentos con datos">Departamento</abbr></td>
+            <td class="num tabla-ind-dato">1.253.058</td>
+            <td class="num">2024</td>
+            <td class="num"><span class="tabla-ind-var down">▼ 3,0 %</span></td>
+            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
+            
+          </tr>
+          
+          <tr>
+            <th scope="row">
+              <a href="./tema/produccion-energia.html" title="Ver el tablero: Producción de petróleo y gas"><span class="tabla-ind-ficha">I.12</span>Pozos en producción</a>
+            </th>
+            <td class="tabla-ind-ciiu"><abbr title="B — Explotación de minas y canteras">B</abbr></td>
+            <td class="tabla-ind-frec">Trimestral</td>
+            <td class="tabla-ind-geo"><abbr title="6 departamentos con datos">Departamento</abbr></td>
+            <td class="num tabla-ind-dato">2.238</td>
+            <td class="num">2T2026</td>
+            <td class="num"><span class="tabla-ind-var down">▼ 16,7 %</span></td>
+            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
+            
+          </tr>
+          
+          
         </tbody>
         
         <tbody>
           <tr class="subeje-row"><th class="subeje-row-head" colspan="8" scope="colgroup">Empleo y capacidades</th></tr>
+          
+          <tr class="tipo-row tipo-resultado"><th class="tipo-row-head" colspan="8" scope="colgroup">De resultados</th></tr>
           
           <tr>
             <th scope="row">
@@ -1392,10 +1503,13 @@
             
           </tr>
           
+          
         </tbody>
         
         <tbody>
           <tr class="subeje-row"><th class="subeje-row-head" colspan="8" scope="colgroup">Inversión y financiamiento</th></tr>
+          
+          <tr class="tipo-row tipo-resultado"><th class="tipo-row-head" colspan="8" scope="colgroup">De resultados</th></tr>
           
           <tr>
             <th scope="row">
@@ -1407,20 +1521,6 @@
             <td class="num tabla-ind-dato">956,5 mil M</td>
             <td class="num">mar-2026</td>
             <td class="num"><span class="tabla-ind-var down">▼ 3,0 %</span></td>
-            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
-            
-          </tr>
-          
-          <tr>
-            <th scope="row">
-              <a href="./tema/resultado-fiscal.html" title="Ver el tablero: Resultado fiscal provincial"><span class="tabla-ind-ficha">III.2</span>Gastos totales (pesos constantes, jul-2026)</a>
-            </th>
-            <td class="tabla-ind-ciiu"><span class="tabla-ind-vacio" title="Sin sección de actividad asignable">—</span></td>
-            <td class="tabla-ind-frec">Mensual acum.</td>
-            <td class="tabla-ind-geo"><abbr title="Se publica sólo como total provincial">Provincia</abbr></td>
-            <td class="num tabla-ind-dato">889,2 mil M</td>
-            <td class="num">mar-2026</td>
-            <td class="num"><span class="tabla-ind-var down">▼ 4,6 %</span></td>
             <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
             
           </tr>
@@ -1449,34 +1549,6 @@
             <td class="num tabla-ind-dato">9,28</td>
             <td class="num">mar-2026</td>
             <td class="num"><span class="tabla-ind-var up">▲ 2,0 p.p.</span></td>
-            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
-            
-          </tr>
-          
-          <tr>
-            <th scope="row">
-              <a href="./tema/gobierno.html" title="Ver el tablero: Finanzas públicas provinciales"><span class="tabla-ind-ficha">III.5</span>Gasto ejecutado total (pesos constantes, jul-2026)</a>
-            </th>
-            <td class="tabla-ind-ciiu"><span class="tabla-ind-vacio" title="Sin sección de actividad asignable">—</span></td>
-            <td class="tabla-ind-frec">Anual</td>
-            <td class="tabla-ind-geo"><abbr title="Se publica sólo como total provincial">Provincia</abbr></td>
-            <td class="num tabla-ind-dato">4,6 B</td>
-            <td class="num">2025</td>
-            <td class="num"><span class="tabla-ind-var down">▼ 2,7 %</span></td>
-            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
-            
-          </tr>
-          
-          <tr>
-            <th scope="row">
-              <a href="./tema/gobierno.html" title="Ver el tablero: Finanzas públicas provinciales"><span class="tabla-ind-ficha">III.6</span>Gasto en personal (pesos constantes, jul-2026)</a>
-            </th>
-            <td class="tabla-ind-ciiu"><span class="tabla-ind-vacio" title="Sin sección de actividad asignable">—</span></td>
-            <td class="tabla-ind-frec">Anual</td>
-            <td class="tabla-ind-geo"><abbr title="Se publica sólo como total provincial">Provincia</abbr></td>
-            <td class="num tabla-ind-dato">2,5 B</td>
-            <td class="num">2025</td>
-            <td class="num"><span class="tabla-ind-var up">▲ 0,5 %</span></td>
             <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
             
           </tr>
@@ -1525,34 +1597,6 @@
           
           <tr>
             <th scope="row">
-              <a href="./tema/recursos-municipios.html" title="Ver el tablero: Recursos de los municipios"><span class="tabla-ind-ficha">III.10</span>Recursos a municipios (pesos constantes, jul-2026)</a>
-            </th>
-            <td class="tabla-ind-ciiu"><span class="tabla-ind-vacio" title="Sin sección de actividad asignable">—</span></td>
-            <td class="tabla-ind-frec">Trimestral</td>
-            <td class="tabla-ind-geo"><abbr title="60 municipios con datos">Municipio</abbr></td>
-            <td class="num tabla-ind-dato">106,7 mil M</td>
-            <td class="num">2T2026</td>
-            <td class="num"><span class="tabla-ind-var down">▼ 1,9 %</span></td>
-            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
-            
-          </tr>
-          
-          <tr>
-            <th scope="row">
-              <a href="./tema/recursos-municipios.html" title="Ver el tablero: Recursos de los municipios"><span class="tabla-ind-ficha">III.11</span>Coparticipación a municipios (pesos constantes)</a>
-            </th>
-            <td class="tabla-ind-ciiu"><span class="tabla-ind-vacio" title="Sin sección de actividad asignable">—</span></td>
-            <td class="tabla-ind-frec">Trimestral</td>
-            <td class="tabla-ind-geo"><abbr title="60 municipios con datos">Municipio</abbr></td>
-            <td class="num tabla-ind-dato">92,9 mil M</td>
-            <td class="num">2T2026</td>
-            <td class="num"><span class="tabla-ind-var down">▼ 4,1 %</span></td>
-            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
-            
-          </tr>
-          
-          <tr>
-            <th scope="row">
               <a href="./tema/financiero.html" title="Ver el tablero: Crédito y depósitos (BCRA)"><span class="tabla-ind-ficha">III.12</span>Préstamos al sector privado (pesos constantes, jul-2026)</a>
             </th>
             <td class="tabla-ind-ciiu"><abbr title="K — Intermediación financiera y servicios de seguros">K</abbr></td>
@@ -1575,6 +1619,93 @@
             <td class="num tabla-ind-dato">1,5 B</td>
             <td class="num">2T2026</td>
             <td class="num"><span class="tabla-ind-var up">▲ 0,6 %</span></td>
+            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
+            
+          </tr>
+          
+          <tr>
+            <th scope="row">
+              <a href="./tema/gobierno.html" title="Ver el tablero: Finanzas públicas provinciales"><span class="tabla-ind-ficha tabla-ind-vacio" title="Todavía sin ficha en las notas técnicas">—</span>Recursos tributarios propios (% de ingresos totales)</a><abbr class="tabla-ind-nota" title="Esquema AIF (DNAP). Grado de autonomía fiscal: recaudación provincial sobre ingresos totales. La variación va en puntos porcentuales.">ⓘ</abbr>
+            </th>
+            <td class="tabla-ind-ciiu"><span class="tabla-ind-vacio" title="Sin sección de actividad asignable">—</span></td>
+            <td class="tabla-ind-frec">Anual</td>
+            <td class="tabla-ind-geo"><abbr title="Se publica sólo como total provincial">Provincia</abbr></td>
+            <td class="num tabla-ind-dato">23,2</td>
+            <td class="num">2025</td>
+            <td class="num"><span class="tabla-ind-var down">▼ 1,8 p.p.</span></td>
+            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
+            
+          </tr>
+          
+          
+          <tr class="tipo-row tipo-oferta"><th class="tipo-row-head" colspan="8" scope="colgroup">De oferta o proceso</th></tr>
+          
+          <tr>
+            <th scope="row">
+              <a href="./tema/resultado-fiscal.html" title="Ver el tablero: Resultado fiscal provincial"><span class="tabla-ind-ficha">III.2</span>Gastos totales (pesos constantes, jul-2026)</a>
+            </th>
+            <td class="tabla-ind-ciiu"><span class="tabla-ind-vacio" title="Sin sección de actividad asignable">—</span></td>
+            <td class="tabla-ind-frec">Mensual acum.</td>
+            <td class="tabla-ind-geo"><abbr title="Se publica sólo como total provincial">Provincia</abbr></td>
+            <td class="num tabla-ind-dato">889,2 mil M</td>
+            <td class="num">mar-2026</td>
+            <td class="num"><span class="tabla-ind-var down">▼ 4,6 %</span></td>
+            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
+            
+          </tr>
+          
+          <tr>
+            <th scope="row">
+              <a href="./tema/gobierno.html" title="Ver el tablero: Finanzas públicas provinciales"><span class="tabla-ind-ficha">III.5</span>Gasto ejecutado total (pesos constantes, jul-2026)</a>
+            </th>
+            <td class="tabla-ind-ciiu"><span class="tabla-ind-vacio" title="Sin sección de actividad asignable">—</span></td>
+            <td class="tabla-ind-frec">Anual</td>
+            <td class="tabla-ind-geo"><abbr title="Se publica sólo como total provincial">Provincia</abbr></td>
+            <td class="num tabla-ind-dato">4,6 B</td>
+            <td class="num">2025</td>
+            <td class="num"><span class="tabla-ind-var down">▼ 2,7 %</span></td>
+            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
+            
+          </tr>
+          
+          <tr>
+            <th scope="row">
+              <a href="./tema/gobierno.html" title="Ver el tablero: Finanzas públicas provinciales"><span class="tabla-ind-ficha">III.6</span>Gasto en personal (pesos constantes, jul-2026)</a>
+            </th>
+            <td class="tabla-ind-ciiu"><span class="tabla-ind-vacio" title="Sin sección de actividad asignable">—</span></td>
+            <td class="tabla-ind-frec">Anual</td>
+            <td class="tabla-ind-geo"><abbr title="Se publica sólo como total provincial">Provincia</abbr></td>
+            <td class="num tabla-ind-dato">2,5 B</td>
+            <td class="num">2025</td>
+            <td class="num"><span class="tabla-ind-var up">▲ 0,5 %</span></td>
+            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
+            
+          </tr>
+          
+          <tr>
+            <th scope="row">
+              <a href="./tema/recursos-municipios.html" title="Ver el tablero: Recursos de los municipios"><span class="tabla-ind-ficha">III.10</span>Recursos a municipios (pesos constantes, jul-2026)</a>
+            </th>
+            <td class="tabla-ind-ciiu"><span class="tabla-ind-vacio" title="Sin sección de actividad asignable">—</span></td>
+            <td class="tabla-ind-frec">Trimestral</td>
+            <td class="tabla-ind-geo"><abbr title="60 municipios con datos">Municipio</abbr></td>
+            <td class="num tabla-ind-dato">106,7 mil M</td>
+            <td class="num">2T2026</td>
+            <td class="num"><span class="tabla-ind-var down">▼ 1,9 %</span></td>
+            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
+            
+          </tr>
+          
+          <tr>
+            <th scope="row">
+              <a href="./tema/recursos-municipios.html" title="Ver el tablero: Recursos de los municipios"><span class="tabla-ind-ficha">III.11</span>Coparticipación a municipios (pesos constantes)</a>
+            </th>
+            <td class="tabla-ind-ciiu"><span class="tabla-ind-vacio" title="Sin sección de actividad asignable">—</span></td>
+            <td class="tabla-ind-frec">Trimestral</td>
+            <td class="tabla-ind-geo"><abbr title="60 municipios con datos">Municipio</abbr></td>
+            <td class="num tabla-ind-dato">92,9 mil M</td>
+            <td class="num">2T2026</td>
+            <td class="num"><span class="tabla-ind-var down">▼ 4,1 %</span></td>
             <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
             
           </tr>
@@ -1621,24 +1752,13 @@
             
           </tr>
           
-          <tr>
-            <th scope="row">
-              <a href="./tema/gobierno.html" title="Ver el tablero: Finanzas públicas provinciales"><span class="tabla-ind-ficha tabla-ind-vacio" title="Todavía sin ficha en las notas técnicas">—</span>Recursos tributarios propios (% de ingresos totales)</a><abbr class="tabla-ind-nota" title="Esquema AIF (DNAP). Grado de autonomía fiscal: recaudación provincial sobre ingresos totales. La variación va en puntos porcentuales.">ⓘ</abbr>
-            </th>
-            <td class="tabla-ind-ciiu"><span class="tabla-ind-vacio" title="Sin sección de actividad asignable">—</span></td>
-            <td class="tabla-ind-frec">Anual</td>
-            <td class="tabla-ind-geo"><abbr title="Se publica sólo como total provincial">Provincia</abbr></td>
-            <td class="num tabla-ind-dato">23,2</td>
-            <td class="num">2025</td>
-            <td class="num"><span class="tabla-ind-var down">▼ 1,8 p.p.</span></td>
-            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
-            
-          </tr>
           
         </tbody>
         
         <tbody>
           <tr class="subeje-row"><th class="subeje-row-head" colspan="8" scope="colgroup">Infraestructura y logística</th></tr>
+          
+          <tr class="tipo-row tipo-resultado"><th class="tipo-row-head" colspan="8" scope="colgroup">De resultados</th></tr>
           
           <tr>
             <th scope="row">
@@ -1650,20 +1770,6 @@
             <td class="num tabla-ind-dato">768</td>
             <td class="num">2T2026</td>
             <td class="num"><span class="tabla-ind-var down">▼ 14,4 %</span></td>
-            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
-            
-          </tr>
-          
-          <tr>
-            <th scope="row">
-              <a href="./tema/energia-electrica.html" title="Ver el tablero: Energía eléctrica"><span class="tabla-ind-ficha">IV.2</span>Potencia instalada (MW)</a><abbr class="tabla-ind-nota" title="Es un stock (fotografía), no un flujo: no corresponde variación interanual.">ⓘ</abbr>
-            </th>
-            <td class="tabla-ind-ciiu"><abbr title="D — Suministro de electricidad, gas, vapor y aire acondicionado">D</abbr></td>
-            <td class="tabla-ind-frec">Anual</td>
-            <td class="tabla-ind-geo"><abbr title="Se publica sólo como total provincial">Provincia</abbr></td>
-            <td class="num tabla-ind-dato">1.455</td>
-            <td class="num">2026</td>
-            <td class="num"><span class="tabla-ind-var none">sin base</span></td>
             <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
             
           </tr>
@@ -1696,6 +1802,23 @@
             
           </tr>
           
+          
+          <tr class="tipo-row tipo-oferta"><th class="tipo-row-head" colspan="8" scope="colgroup">De oferta o proceso</th></tr>
+          
+          <tr>
+            <th scope="row">
+              <a href="./tema/energia-electrica.html" title="Ver el tablero: Energía eléctrica"><span class="tabla-ind-ficha">IV.2</span>Potencia instalada (MW)</a><abbr class="tabla-ind-nota" title="Es un stock (fotografía), no un flujo: no corresponde variación interanual.">ⓘ</abbr>
+            </th>
+            <td class="tabla-ind-ciiu"><abbr title="D — Suministro de electricidad, gas, vapor y aire acondicionado">D</abbr></td>
+            <td class="tabla-ind-frec">Anual</td>
+            <td class="tabla-ind-geo"><abbr title="Se publica sólo como total provincial">Provincia</abbr></td>
+            <td class="num tabla-ind-dato">1.455</td>
+            <td class="num">2026</td>
+            <td class="num"><span class="tabla-ind-var none">sin base</span></td>
+            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
+            
+          </tr>
+          
           <tr>
             <th scope="row">
               <a href="./tema/conectividad.html" title="Ver el tablero: Conectividad: internet fijo (ENACOM)"><span class="tabla-ind-ficha tabla-ind-vacio" title="Todavía sin ficha en las notas técnicas">—</span>Velocidad media de bajada (Mbps)</a>
@@ -1710,10 +1833,13 @@
             
           </tr>
           
+          
         </tbody>
         
         <tbody>
           <tr class="subeje-row"><th class="subeje-row-head" colspan="8" scope="colgroup">Innovación y mercados</th></tr>
+          
+          <tr class="tipo-row tipo-resultado"><th class="tipo-row-head" colspan="8" scope="colgroup">De resultados</th></tr>
           
           <tr>
             <th scope="row">
@@ -1743,6 +1869,9 @@
             
           </tr>
           
+          
+          <tr class="tipo-row tipo-oferta"><th class="tipo-row-head" colspan="8" scope="colgroup">De oferta o proceso</th></tr>
+          
           <tr>
             <th scope="row">
               <a href="./tema/id-innovacion.html" title="Ver el tablero: Inversión en I+D"><span class="tabla-ind-ficha">V.3</span>Inversión en I+D (millones de $ de 2017)</a>
@@ -1771,6 +1900,7 @@
             
           </tr>
           
+          
         </tbody>
         
       </table>
@@ -1778,7 +1908,7 @@
   </div>
   
   <div class="tabla-ind-block">
-    <h3 class="eje-title">Territorio, ambiente y turismo <span class="eje-count">9</span></h3>
+    <h3 class="eje-title">Territorio, ambiente y turismo <span class="eje-count">11</span></h3>
     <div class="tabla-ind-scroll">
       
       <table class="tabla-ind">
@@ -1797,7 +1927,48 @@
         </thead>
         
         <tbody>
+          <tr class="subeje-row"><th class="subeje-row-head" colspan="7" scope="colgroup">Territorio</th></tr>
+          
+          <tr class="tipo-row tipo-resultado"><th class="tipo-row-head" colspan="7" scope="colgroup">De resultados</th></tr>
+          
+          <tr>
+            <th scope="row">
+              <a href="./tema/transparencia.html" title="Ver el tablero: Transparencia del sector público"><span class="tabla-ind-ficha tabla-ind-vacio" title="Todavía sin ficha en las notas técnicas">—</span>Transparencia del Ejecutivo provincial (índice 0-100)</a><abbr class="tabla-ind-nota" title="Relevamiento propio del CESS sobre canales oficiales, 2026-11-07: 6 criterios en sí, 2 en parcial y 2 en no. Mide publicación activa en línea, no cumplimiento legal. Alcance: sólo el Poder Ejecutivo. Las evidencias están pendientes de verificación humana.">ⓘ</abbr>
+            </th>
+            
+            <td class="tabla-ind-frec">Toma única</td>
+            <td class="tabla-ind-geo"><abbr title="Sólo el Poder Ejecutivo provincial">Provincia</abbr></td>
+            <td class="num tabla-ind-dato">70</td>
+            <td class="num">2026</td>
+            <td class="num"><span class="tabla-ind-var none">sin base</span></td>
+            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
+            
+          </tr>
+          
+          
+          <tr class="tipo-row tipo-oferta"><th class="tipo-row-head" colspan="7" scope="colgroup">De oferta o proceso</th></tr>
+          
+          <tr>
+            <th scope="row">
+              <a href="./tema/transparencia.html" title="Ver el tablero: Transparencia del sector público"><span class="tabla-ind-ficha tabla-ind-vacio" title="Todavía sin ficha en las notas técnicas">—</span>Municipios con sitio web oficial (de 60)</a><abbr class="tabla-ind-nota" title="Relevamiento propio del CESS, 2026-11-04. Es la lectura menos expuesta al efecto piso: 49 de los 60 municipios tienen índice 0 y el índice está midiendo, en buena medida, quién tiene página web.">ⓘ</abbr>
+            </th>
+            
+            <td class="tabla-ind-frec">Toma única</td>
+            <td class="tabla-ind-geo"><abbr title="Conteo sobre los 60 municipios de Salta">Provincia</abbr></td>
+            <td class="num tabla-ind-dato">17</td>
+            <td class="num">2026</td>
+            <td class="num"><span class="tabla-ind-var none">sin base</span></td>
+            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
+            
+          </tr>
+          
+          
+        </tbody>
+        
+        <tbody>
           <tr class="subeje-row"><th class="subeje-row-head" colspan="7" scope="colgroup">Ambiente</th></tr>
+          
+          <tr class="tipo-row tipo-resultado"><th class="tipo-row-head" colspan="7" scope="colgroup">De resultados</th></tr>
           
           <tr>
             <th scope="row">
@@ -1869,10 +2040,13 @@
             
           </tr>
           
+          
         </tbody>
         
         <tbody>
           <tr class="subeje-row"><th class="subeje-row-head" colspan="7" scope="colgroup">Turismo</th></tr>
+          
+          <tr class="tipo-row tipo-resultado"><th class="tipo-row-head" colspan="7" scope="colgroup">De resultados</th></tr>
           
           <tr>
             <th scope="row">
@@ -1930,6 +2104,7 @@
             
           </tr>
           
+          
         </tbody>
         
       </table>
@@ -1943,13 +2118,13 @@
   <p class="section-lead muted">El Plan de Desarrollo Estratégico organiza los indicadores en tres ejes y, dentro de cada uno, en subejes. Cada tarjeta resume un indicador —último valor y variación interanual— y lleva al gráfico que lo publica.</p>
 
   <div class="eje-pills" role="tablist" aria-label="Ejes del PDES">
-    <button class="eje-pill is-active" data-eje="all" role="tab" aria-selected="true">Todos <span class="eje-count">119</span></button>
+    <button class="eje-pill is-active" data-eje="all" role="tab" aria-selected="true">Todos <span class="eje-count">121</span></button>
     
     <button class="eje-pill" data-eje="sociocultural" role="tab" aria-selected="false">Sociocultural <span class="eje-count">66</span></button>
     
     <button class="eje-pill" data-eje="economico-productivo" role="tab" aria-selected="false">Económico-productivo <span class="eje-count">44</span></button>
     
-    <button class="eje-pill" data-eje="territorio-ambiente-turismo" role="tab" aria-selected="false">Territorio, ambiente y turismo <span class="eje-count">9</span></button>
+    <button class="eje-pill" data-eje="territorio-ambiente-turismo" role="tab" aria-selected="false">Territorio, ambiente y turismo <span class="eje-count">11</span></button>
     
   </div>
 
@@ -1960,6 +2135,8 @@
     
     <div class="subeje-block">
       <h4 class="subeje-title">Condiciones de vida <span class="eje-count">11</span></h4>
+      
+      <p class="tipo-title tipo-resultado">De resultados</p>
       <div class="cards">
         
         <a class="card card-ind" href="./tema/condiciones-vida.html#grafico-cv-ranking">
@@ -2084,10 +2261,13 @@
         </a>
         
       </div>
+      
     </div>
     
     <div class="subeje-block">
       <h4 class="subeje-title">Salud <span class="eje-count">32</span></h4>
+      
+      <p class="tipo-title tipo-resultado">De resultados</p>
       <div class="cards">
         
         <a class="card card-ind" href="./tema/salud-reproduccion.html#grafico-sr-vida-mortalidad">
@@ -2343,28 +2523,6 @@
           <span class="card-meta">Anual · último dato 2025</span>
         </a>
         
-        <a class="card card-ind" href="./tema/salud.html#grafico-sal-consultas">
-          <span class="card-area">Salud</span>
-          <h5 class="card-title">Consultas médicas por habitante</h5>
-          <p class="card-ind-valor">2,21 consultas/hab.</p>
-          <p class="card-ind-var">
-            <span class="tabla-ind-var down neutro">▼ 5,6 %</span>
-            <span class="card-ind-ref">2024</span>
-          </p>
-          <span class="card-meta">Anual · último dato 2025</span>
-        </a>
-        
-        <a class="card card-ind" href="./tema/salud.html#grafico-sal-internacion">
-          <span class="card-area">Salud</span>
-          <h5 class="card-title">Ocupación de camas en establecimientos públicos (%)</h5>
-          <p class="card-ind-valor">63,8%</p>
-          <p class="card-ind-var">
-            <span class="tabla-ind-var up neutro">▲ 0,8 p.p.</span>
-            <span class="card-ind-ref">2024</span>
-          </p>
-          <span class="card-meta">Anual · último dato 2025</span>
-        </a>
-        
         <a class="card card-ind" href="./tema/salud.html#grafico-sal-tasas">
           <span class="card-area">Salud</span>
           <h5 class="card-title">Tasa de natalidad (c/ mil hab.)</h5>
@@ -2398,28 +2556,6 @@
           <span class="card-meta">Anual · último dato 2025</span>
         </a>
         
-        <a class="card card-ind" href="./tema/salud.html#grafico-sal-internacion">
-          <span class="card-area">Salud</span>
-          <h5 class="card-title">Egresos hospitalarios</h5>
-          <p class="card-ind-valor">130.649 egresos</p>
-          <p class="card-ind-var">
-            <span class="tabla-ind-var up">▲ 5,1 %</span>
-            <span class="card-ind-ref">2024</span>
-          </p>
-          <span class="card-meta">Anual · último dato 2025</span>
-        </a>
-        
-        <a class="card card-ind" href="./tema/salud.html#grafico-sal-internacion">
-          <span class="card-area">Salud</span>
-          <h5 class="card-title">Camas disponibles (promedio)</h5>
-          <p class="card-ind-valor">2.451 camas (promedio)</p>
-          <p class="card-ind-var">
-            <span class="tabla-ind-var up">▲ 4,1 %</span>
-            <span class="card-ind-ref">2024</span>
-          </p>
-          <span class="card-meta">Anual · último dato 2025</span>
-        </a>
-        
         <a class="card card-ind" href="./tema/salud-reproduccion.html#grafico-sr-sexo">
           <span class="card-area">Salud y reproducción por departamento</span>
           <h5 class="card-title">Esperanza de vida al nacer (años). Mujeres</h5>
@@ -2443,10 +2579,62 @@
         </a>
         
       </div>
+      
+      <p class="tipo-title tipo-oferta">De oferta o proceso</p>
+      <div class="cards">
+        
+        <a class="card card-ind" href="./tema/salud.html#grafico-sal-consultas">
+          <span class="card-area">Salud</span>
+          <h5 class="card-title">Consultas médicas por habitante</h5>
+          <p class="card-ind-valor">2,21 consultas/hab.</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var down neutro">▼ 5,6 %</span>
+            <span class="card-ind-ref">2024</span>
+          </p>
+          <span class="card-meta">Anual · último dato 2025</span>
+        </a>
+        
+        <a class="card card-ind" href="./tema/salud.html#grafico-sal-internacion">
+          <span class="card-area">Salud</span>
+          <h5 class="card-title">Ocupación de camas en establecimientos públicos (%)</h5>
+          <p class="card-ind-valor">63,8%</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var up neutro">▲ 0,8 p.p.</span>
+            <span class="card-ind-ref">2024</span>
+          </p>
+          <span class="card-meta">Anual · último dato 2025</span>
+        </a>
+        
+        <a class="card card-ind" href="./tema/salud.html#grafico-sal-internacion">
+          <span class="card-area">Salud</span>
+          <h5 class="card-title">Egresos hospitalarios</h5>
+          <p class="card-ind-valor">130.649 egresos</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var up">▲ 5,1 %</span>
+            <span class="card-ind-ref">2024</span>
+          </p>
+          <span class="card-meta">Anual · último dato 2025</span>
+        </a>
+        
+        <a class="card card-ind" href="./tema/salud.html#grafico-sal-internacion">
+          <span class="card-area">Salud</span>
+          <h5 class="card-title">Camas disponibles (promedio)</h5>
+          <p class="card-ind-valor">2.451 camas (promedio)</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var up">▲ 4,1 %</span>
+            <span class="card-ind-ref">2024</span>
+          </p>
+          <span class="card-meta">Anual · último dato 2025</span>
+        </a>
+        
+      </div>
+      
     </div>
     
     <div class="subeje-block">
       <h4 class="subeje-title">Educación <span class="eje-count">13</span></h4>
+      
+      <p class="tipo-title tipo-resultado">De resultados</p>
       <div class="cards">
         
         <a class="card card-ind" href="./tema/educacion-aprendizajes.html#grafico-ea-trayectorias">
@@ -2475,28 +2663,6 @@
           <span class="card-area">Trayectorias y aprendizajes por departamento</span>
           <h5 class="card-title">Tasa de egreso aparente de secundaria (%)</h5>
           <p class="card-ind-valor">10,3%</p>
-          <p class="card-ind-var">
-            <span class="tabla-ind-var none">sin base</span>
-            
-          </p>
-          <span class="card-meta">Anual · último dato 2025</span>
-        </a>
-        
-        <a class="card card-ind" href="./tema/educacion-aprendizajes.html#grafico-ea-trayectorias">
-          <span class="card-area">Trayectorias y aprendizajes por departamento</span>
-          <h5 class="card-title">Alumnos por establecimiento. Secundaria</h5>
-          <p class="card-ind-valor">362,0 alumnos</p>
-          <p class="card-ind-var">
-            <span class="tabla-ind-var none">sin base</span>
-            
-          </p>
-          <span class="card-meta">Anual · último dato 2025</span>
-        </a>
-        
-        <a class="card card-ind" href="./tema/educacion-aprendizajes.html#grafico-ea-trayectorias">
-          <span class="card-area">Trayectorias y aprendizajes por departamento</span>
-          <h5 class="card-title">Alumnos por cargo docente. Secundaria</h5>
-          <p class="card-ind-valor">23,3 alumnos</p>
           <p class="card-ind-var">
             <span class="tabla-ind-var none">sin base</span>
             
@@ -2581,6 +2747,33 @@
           <span class="card-meta">Anual · último dato 2024</span>
         </a>
         
+      </div>
+      
+      <p class="tipo-title tipo-oferta">De oferta o proceso</p>
+      <div class="cards">
+        
+        <a class="card card-ind" href="./tema/educacion-aprendizajes.html#grafico-ea-trayectorias">
+          <span class="card-area">Trayectorias y aprendizajes por departamento</span>
+          <h5 class="card-title">Alumnos por establecimiento. Secundaria</h5>
+          <p class="card-ind-valor">362,0 alumnos</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var none">sin base</span>
+            
+          </p>
+          <span class="card-meta">Anual · último dato 2025</span>
+        </a>
+        
+        <a class="card card-ind" href="./tema/educacion-aprendizajes.html#grafico-ea-trayectorias">
+          <span class="card-area">Trayectorias y aprendizajes por departamento</span>
+          <h5 class="card-title">Alumnos por cargo docente. Secundaria</h5>
+          <p class="card-ind-valor">23,3 alumnos</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var none">sin base</span>
+            
+          </p>
+          <span class="card-meta">Anual · último dato 2025</span>
+        </a>
+        
         <a class="card card-ind" href="./tema/educacion.html">
           <span class="card-area">Educación por departamento</span>
           <h5 class="card-title">Cargos docentes</h5>
@@ -2593,10 +2786,13 @@
         </a>
         
       </div>
+      
     </div>
     
     <div class="subeje-block">
       <h4 class="subeje-title">Seguridad <span class="eje-count">10</span></h4>
+      
+      <p class="tipo-title tipo-resultado">De resultados</p>
       <div class="cards">
         
         <a class="card card-ind" href="./tema/seguridad.html#grafico-seg-ranking">
@@ -2710,6 +2906,7 @@
         </a>
         
       </div>
+      
     </div>
     
   </div>
@@ -2720,6 +2917,8 @@
     
     <div class="subeje-block">
       <h4 class="subeje-title">Actividad y productividad <span class="eje-count">15</span></h4>
+      
+      <p class="tipo-title tipo-resultado">De resultados</p>
       <div class="cards">
         
         <a class="card card-ind" href="./tema/agricultura.html#grafico-agri-produccion-depto">
@@ -2728,17 +2927,6 @@
           <p class="card-ind-valor">3.103.824 toneladas</p>
           <p class="card-ind-var">
             <span class="tabla-ind-var up">▲ 9,1 %</span>
-            <span class="card-ind-ref">2023</span>
-          </p>
-          <span class="card-meta">Anual (campaña) · último dato 2024</span>
-        </a>
-        
-        <a class="card card-ind" href="./tema/agricultura.html#grafico-agri-superficie">
-          <span class="card-area">Agricultura por departamento</span>
-          <h5 class="card-title">Superficie sembrada (ha)</h5>
-          <p class="card-ind-valor">1.253.058 ha</p>
-          <p class="card-ind-var">
-            <span class="tabla-ind-var down">▼ 3,0 %</span>
             <span class="card-ind-ref">2023</span>
           </p>
           <span class="card-meta">Anual (campaña) · último dato 2024</span>
@@ -2843,17 +3031,6 @@
           <span class="card-meta">Trimestral · último dato 2T2026</span>
         </a>
         
-        <a class="card card-ind" href="./tema/produccion-energia.html">
-          <span class="card-area">Producción de petróleo y gas</span>
-          <h5 class="card-title">Pozos en producción</h5>
-          <p class="card-ind-valor">2.238 pozos</p>
-          <p class="card-ind-var">
-            <span class="tabla-ind-var down">▼ 16,7 %</span>
-            <span class="card-ind-ref">2T2025</span>
-          </p>
-          <span class="card-meta">Trimestral · último dato 2T2026</span>
-        </a>
-        
         <a class="card card-ind" href="./tema/construccion.html#grafico-constr-superficie">
           <span class="card-area">Construcción (permisos de edificación)</span>
           <h5 class="card-title">Superficie autorizada a construir (m²)</h5>
@@ -2888,10 +3065,40 @@
         </a>
         
       </div>
+      
+      <p class="tipo-title tipo-oferta">De oferta o proceso</p>
+      <div class="cards">
+        
+        <a class="card card-ind" href="./tema/agricultura.html#grafico-agri-superficie">
+          <span class="card-area">Agricultura por departamento</span>
+          <h5 class="card-title">Superficie sembrada (ha)</h5>
+          <p class="card-ind-valor">1.253.058 ha</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var down">▼ 3,0 %</span>
+            <span class="card-ind-ref">2023</span>
+          </p>
+          <span class="card-meta">Anual (campaña) · último dato 2024</span>
+        </a>
+        
+        <a class="card card-ind" href="./tema/produccion-energia.html">
+          <span class="card-area">Producción de petróleo y gas</span>
+          <h5 class="card-title">Pozos en producción</h5>
+          <p class="card-ind-valor">2.238 pozos</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var down">▼ 16,7 %</span>
+            <span class="card-ind-ref">2T2025</span>
+          </p>
+          <span class="card-meta">Trimestral · último dato 2T2026</span>
+        </a>
+        
+      </div>
+      
     </div>
     
     <div class="subeje-block">
       <h4 class="subeje-title">Empleo y capacidades <span class="eje-count">3</span></h4>
+      
+      <p class="tipo-title tipo-resultado">De resultados</p>
       <div class="cards">
         
         <a class="card card-ind" href="./tema/empleo.html#grafico-emp-rubro">
@@ -2928,10 +3135,13 @@
         </a>
         
       </div>
+      
     </div>
     
     <div class="subeje-block">
       <h4 class="subeje-title">Inversión y financiamiento <span class="eje-count">17</span></h4>
+      
+      <p class="tipo-title tipo-resultado">De resultados</p>
       <div class="cards">
         
         <a class="card card-ind" href="./tema/resultado-fiscal.html#grafico-fisc-resultado">
@@ -2940,17 +3150,6 @@
           <p class="card-ind-valor">956.547.583.482 pesos</p>
           <p class="card-ind-var">
             <span class="tabla-ind-var down">▼ 3,0 %</span>
-            <span class="card-ind-ref">mar-2025</span>
-          </p>
-          <span class="card-meta">Mensual acum. · último dato mar-2026</span>
-        </a>
-        
-        <a class="card card-ind" href="./tema/resultado-fiscal.html#grafico-fisc-resultado">
-          <span class="card-area">Resultado fiscal provincial</span>
-          <h5 class="card-title">Gastos totales (pesos constantes, jul-2026)</h5>
-          <p class="card-ind-valor">889.206.942.085 pesos</p>
-          <p class="card-ind-var">
-            <span class="tabla-ind-var down">▼ 4,6 %</span>
             <span class="card-ind-ref">mar-2025</span>
           </p>
           <span class="card-meta">Mensual acum. · último dato mar-2026</span>
@@ -2976,28 +3175,6 @@
             <span class="card-ind-ref">mar-2025</span>
           </p>
           <span class="card-meta">Mensual acum. · último dato mar-2026</span>
-        </a>
-        
-        <a class="card card-ind" href="./tema/gobierno.html#grafico-gob-objeto">
-          <span class="card-area">Finanzas públicas provinciales</span>
-          <h5 class="card-title">Gasto ejecutado total (pesos constantes, jul-2026)</h5>
-          <p class="card-ind-valor">4.643.298.199.198 pesos</p>
-          <p class="card-ind-var">
-            <span class="tabla-ind-var down">▼ 2,7 %</span>
-            <span class="card-ind-ref">2024</span>
-          </p>
-          <span class="card-meta">Anual · último dato 2025</span>
-        </a>
-        
-        <a class="card card-ind" href="./tema/gobierno.html#grafico-gob-objeto">
-          <span class="card-area">Finanzas públicas provinciales</span>
-          <h5 class="card-title">Gasto en personal (pesos constantes, jul-2026)</h5>
-          <p class="card-ind-valor">2.464.525.047.249 pesos</p>
-          <p class="card-ind-var">
-            <span class="tabla-ind-var up">▲ 0,5 %</span>
-            <span class="card-ind-ref">2024</span>
-          </p>
-          <span class="card-meta">Anual · último dato 2025</span>
         </a>
         
         <a class="card card-ind" href="./tema/recaudacion.html#grafico-rec-total">
@@ -3033,28 +3210,6 @@
           <span class="card-meta">Anual · último dato 2023</span>
         </a>
         
-        <a class="card card-ind" href="./tema/recursos-municipios.html#grafico-rec-grupo">
-          <span class="card-area">Recursos de los municipios</span>
-          <h5 class="card-title">Recursos a municipios (pesos constantes, jul-2026)</h5>
-          <p class="card-ind-valor">106.749.779.542 pesos</p>
-          <p class="card-ind-var">
-            <span class="tabla-ind-var down">▼ 1,9 %</span>
-            <span class="card-ind-ref">2T2025</span>
-          </p>
-          <span class="card-meta">Trimestral · último dato 2T2026</span>
-        </a>
-        
-        <a class="card card-ind" href="./tema/recursos-municipios.html#grafico-rec-grupo">
-          <span class="card-area">Recursos de los municipios</span>
-          <h5 class="card-title">Coparticipación a municipios (pesos constantes)</h5>
-          <p class="card-ind-valor">92.852.412.987 pesos</p>
-          <p class="card-ind-var">
-            <span class="tabla-ind-var down">▼ 4,1 %</span>
-            <span class="card-ind-ref">2T2025</span>
-          </p>
-          <span class="card-meta">Trimestral · último dato 2T2026</span>
-        </a>
-        
         <a class="card card-ind" href="./tema/financiero.html#grafico-fin-prestamos-depositos">
           <span class="card-area">Crédito y depósitos (BCRA)</span>
           <h5 class="card-title">Préstamos al sector privado (pesos constantes, jul-2026)</h5>
@@ -3072,6 +3227,77 @@
           <p class="card-ind-valor">1.540.055.452.956 pesos</p>
           <p class="card-ind-var">
             <span class="tabla-ind-var up">▲ 0,6 %</span>
+            <span class="card-ind-ref">2T2025</span>
+          </p>
+          <span class="card-meta">Trimestral · último dato 2T2026</span>
+        </a>
+        
+        <a class="card card-ind" href="./tema/gobierno.html#grafico-gob-recursos-propios">
+          <span class="card-area">Finanzas públicas provinciales</span>
+          <h5 class="card-title">Recursos tributarios propios (% de ingresos totales)</h5>
+          <p class="card-ind-valor">23,2%</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var down">▼ 1,8 p.p.</span>
+            <span class="card-ind-ref">2024</span>
+          </p>
+          <span class="card-meta">Anual · último dato 2025</span>
+        </a>
+        
+      </div>
+      
+      <p class="tipo-title tipo-oferta">De oferta o proceso</p>
+      <div class="cards">
+        
+        <a class="card card-ind" href="./tema/resultado-fiscal.html#grafico-fisc-resultado">
+          <span class="card-area">Resultado fiscal provincial</span>
+          <h5 class="card-title">Gastos totales (pesos constantes, jul-2026)</h5>
+          <p class="card-ind-valor">889.206.942.085 pesos</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var down">▼ 4,6 %</span>
+            <span class="card-ind-ref">mar-2025</span>
+          </p>
+          <span class="card-meta">Mensual acum. · último dato mar-2026</span>
+        </a>
+        
+        <a class="card card-ind" href="./tema/gobierno.html#grafico-gob-objeto">
+          <span class="card-area">Finanzas públicas provinciales</span>
+          <h5 class="card-title">Gasto ejecutado total (pesos constantes, jul-2026)</h5>
+          <p class="card-ind-valor">4.643.298.199.198 pesos</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var down">▼ 2,7 %</span>
+            <span class="card-ind-ref">2024</span>
+          </p>
+          <span class="card-meta">Anual · último dato 2025</span>
+        </a>
+        
+        <a class="card card-ind" href="./tema/gobierno.html#grafico-gob-objeto">
+          <span class="card-area">Finanzas públicas provinciales</span>
+          <h5 class="card-title">Gasto en personal (pesos constantes, jul-2026)</h5>
+          <p class="card-ind-valor">2.464.525.047.249 pesos</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var up">▲ 0,5 %</span>
+            <span class="card-ind-ref">2024</span>
+          </p>
+          <span class="card-meta">Anual · último dato 2025</span>
+        </a>
+        
+        <a class="card card-ind" href="./tema/recursos-municipios.html#grafico-rec-grupo">
+          <span class="card-area">Recursos de los municipios</span>
+          <h5 class="card-title">Recursos a municipios (pesos constantes, jul-2026)</h5>
+          <p class="card-ind-valor">106.749.779.542 pesos</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var down">▼ 1,9 %</span>
+            <span class="card-ind-ref">2T2025</span>
+          </p>
+          <span class="card-meta">Trimestral · último dato 2T2026</span>
+        </a>
+        
+        <a class="card card-ind" href="./tema/recursos-municipios.html#grafico-rec-grupo">
+          <span class="card-area">Recursos de los municipios</span>
+          <h5 class="card-title">Coparticipación a municipios (pesos constantes)</h5>
+          <p class="card-ind-valor">92.852.412.987 pesos</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var down">▼ 4,1 %</span>
             <span class="card-ind-ref">2T2025</span>
           </p>
           <span class="card-meta">Trimestral · último dato 2T2026</span>
@@ -3110,22 +3336,14 @@
           <span class="card-meta">Anual · último dato 2025</span>
         </a>
         
-        <a class="card card-ind" href="./tema/gobierno.html#grafico-gob-recursos-propios">
-          <span class="card-area">Finanzas públicas provinciales</span>
-          <h5 class="card-title">Recursos tributarios propios (% de ingresos totales)</h5>
-          <p class="card-ind-valor">23,2%</p>
-          <p class="card-ind-var">
-            <span class="tabla-ind-var down">▼ 1,8 p.p.</span>
-            <span class="card-ind-ref">2024</span>
-          </p>
-          <span class="card-meta">Anual · último dato 2025</span>
-        </a>
-        
       </div>
+      
     </div>
     
     <div class="subeje-block">
       <h4 class="subeje-title">Infraestructura y logística <span class="eje-count">5</span></h4>
+      
+      <p class="tipo-title tipo-resultado">De resultados</p>
       <div class="cards">
         
         <a class="card card-ind" href="./tema/energia-electrica.html#grafico-elec-fuente">
@@ -3137,17 +3355,6 @@
             <span class="card-ind-ref">2T2025</span>
           </p>
           <span class="card-meta">Trimestral · último dato 2T2026</span>
-        </a>
-        
-        <a class="card card-ind" href="./tema/energia-electrica.html#grafico-elec-potencia">
-          <span class="card-area">Energía eléctrica</span>
-          <h5 class="card-title">Potencia instalada (MW)</h5>
-          <p class="card-ind-valor">1.455 MW</p>
-          <p class="card-ind-var">
-            <span class="tabla-ind-var none">sin base</span>
-            
-          </p>
-          <span class="card-meta">Anual · último dato 2026</span>
         </a>
         
         <a class="card card-ind" href="./tema/conectividad.html#grafico-con-penetracion">
@@ -3172,6 +3379,22 @@
           <span class="card-meta">Trimestral · último dato 2T2026</span>
         </a>
         
+      </div>
+      
+      <p class="tipo-title tipo-oferta">De oferta o proceso</p>
+      <div class="cards">
+        
+        <a class="card card-ind" href="./tema/energia-electrica.html#grafico-elec-potencia">
+          <span class="card-area">Energía eléctrica</span>
+          <h5 class="card-title">Potencia instalada (MW)</h5>
+          <p class="card-ind-valor">1.455 MW</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var none">sin base</span>
+            
+          </p>
+          <span class="card-meta">Anual · último dato 2026</span>
+        </a>
+        
         <a class="card card-ind" href="./tema/conectividad.html#grafico-con-velocidad">
           <span class="card-area">Conectividad: internet fijo (ENACOM)</span>
           <h5 class="card-title">Velocidad media de bajada (Mbps)</h5>
@@ -3184,10 +3407,13 @@
         </a>
         
       </div>
+      
     </div>
     
     <div class="subeje-block">
       <h4 class="subeje-title">Innovación y mercados <span class="eje-count">4</span></h4>
+      
+      <p class="tipo-title tipo-resultado">De resultados</p>
       <div class="cards">
         
         <a class="card card-ind" href="./tema/exportaciones.html#grafico-expo-total">
@@ -3212,6 +3438,11 @@
           <span class="card-meta">Anual · último dato 2025</span>
         </a>
         
+      </div>
+      
+      <p class="tipo-title tipo-oferta">De oferta o proceso</p>
+      <div class="cards">
+        
         <a class="card card-ind" href="./tema/id-innovacion.html#grafico-id-inversion">
           <span class="card-area">Inversión en I+D</span>
           <h5 class="card-title">Inversión en I+D (millones de $ de 2017)</h5>
@@ -3235,16 +3466,56 @@
         </a>
         
       </div>
+      
     </div>
     
   </div>
   
   <div class="eje-block" data-eje="territorio-ambiente-turismo" id="eje-territorio-ambiente-turismo">
-    <h3 class="eje-title">Territorio, ambiente y turismo <span class="eje-count">9</span></h3>
+    <h3 class="eje-title">Territorio, ambiente y turismo <span class="eje-count">11</span></h3>
     <p class="eje-descr muted">Uso del territorio, energía y ambiente, y actividad turística.</p>
     
     <div class="subeje-block">
+      <h4 class="subeje-title">Territorio <span class="eje-count">2</span></h4>
+      
+      <p class="tipo-title tipo-resultado">De resultados</p>
+      <div class="cards">
+        
+        <a class="card card-ind" href="./tema/transparencia.html#grafico-tra-nivel">
+          <span class="card-area">Transparencia del sector público</span>
+          <h5 class="card-title">Transparencia del Ejecutivo provincial (índice 0-100)</h5>
+          <p class="card-ind-valor">70,0 /100</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var none">sin base</span>
+            
+          </p>
+          <span class="card-meta">Toma única · último dato 2026</span>
+        </a>
+        
+      </div>
+      
+      <p class="tipo-title tipo-oferta">De oferta o proceso</p>
+      <div class="cards">
+        
+        <a class="card card-ind" href="./tema/transparencia.html#grafico-tra-municipios">
+          <span class="card-area">Transparencia del sector público</span>
+          <h5 class="card-title">Municipios con sitio web oficial (de 60)</h5>
+          <p class="card-ind-valor">17,0 municipios</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var none">sin base</span>
+            
+          </p>
+          <span class="card-meta">Toma única · último dato 2026</span>
+        </a>
+        
+      </div>
+      
+    </div>
+    
+    <div class="subeje-block">
       <h4 class="subeje-title">Ambiente <span class="eje-count">5</span></h4>
+      
+      <p class="tipo-title tipo-resultado">De resultados</p>
       <div class="cards">
         
         <a class="card card-ind" href="./tema/bosques.html#grafico-bos-superficie">
@@ -3303,10 +3574,13 @@
         </a>
         
       </div>
+      
     </div>
     
     <div class="subeje-block">
       <h4 class="subeje-title">Turismo <span class="eje-count">4</span></h4>
+      
+      <p class="tipo-title tipo-resultado">De resultados</p>
       <div class="cards">
         
         <a class="card card-ind" href="./tema/turismo.html#grafico-tur-ocupacion">
@@ -3354,6 +3628,7 @@
         </a>
         
       </div>
+      
     </div>
     
   </div>
@@ -3372,10 +3647,10 @@
 
 <script src="./assets/vendor/echarts.min.js"></script>
 <script src="./assets/vendor/minisearch.min.js"></script>
-<script>window.CESS_BASE = "."; window.CESS_VER = "1793920280";</script>
-<script src="./assets/js/app.js?v=1793920280"></script>
+<script>window.CESS_BASE = "."; window.CESS_VER = "1794527417";</script>
+<script src="./assets/js/app.js?v=1794527417"></script>
 
-<script src="./assets/js/search.js?v=1793920280"></script>
+<script src="./assets/js/search.js?v=1794527417"></script>
 
 </body>
 </html>

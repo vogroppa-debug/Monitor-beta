@@ -90,6 +90,12 @@ Los códigos `I.1`…`V.4` de la Tabla de indicadores son los de las **notas té
 - regeneracion_bosque_ha: 17 valor(es) a >1000× de la mediana (mediana=261.3); revisar posible artefacto de parseo.
 - bosque_perdido_ha: 1 valor(es) a >1000× de la mediana (mediana=1596.5); revisar posible artefacto de parseo.
 - share_bosque_pct: 32 valor(es) a >1000× de la mediana (mediana=56.53); revisar posible artefacto de parseo.
+### transparencia
+- transparencia: mide PUBLICACIÓN ACTIVA en canales oficiales en línea, en una fecha. No mide cumplimiento de la ley de acceso a la información, ni la calidad o veracidad de lo publicado, ni lo que el Estado entrega a pedido. Un municipio que publica su presupuesto en papel o en el Concejo Deliberante puntúa 0.
+- transparencia: el indicador del Monitor es el relevamiento propio del CESS, que apoya cada puntaje en una URL oficial que cualquiera puede abrir y separa 'no publica' de 'no se pudo verificar'. Lo relevó un asistente de IA con navegador, SIN segundo codificador humano: la metodología pide que una persona del CESS verifique las evidencias, sobre todo las de los 11 municipios con puntaje, antes de darlo por publicado.
+- transparencia: efecto piso. Con 49 de 60 municipios en cero, el promedio provincial lo determinan los 11 que puntúan y un ranking de 60 barras sería engañoso. Las lecturas defendibles son el cumplimiento por criterio y el conteo de municipios sobre cero.
+- transparencia: no hay retrospectiva posible. Los relevamientos propios de noviembre de 2026 son la línea de base, así que no hay variación interanual. Entre dos tomas, un puntaje puede cambiar porque el gobierno empezó a publicar o porque el relevador buscó mejor: la comparación honesta es criterio por criterio, con la evidencia a la vista.
+- transparencia: la vara municipal le queda chica al nivel provincial. Criterios propios de una provincia —deuda, transferencias a municipios, presupuesto ciudadano— no se miden; se dejaron afuera para mantener la comparabilidad. El alcance es sólo el Poder Ejecutivo: Legislatura, Poder Judicial y Ministerio Público quedan fuera.
 ### energia-electrica
 - energia-renovable: generación eléctrica de Salta (CAMMESA), MWh convertidos a GWh; los flujos se suman por trimestre/año. 'Renovable' = régimen Ley 27.191; la potencia instalada es una foto al último mes disponible.
 ### id-innovacion
@@ -117,7 +123,31 @@ Los códigos `I.1`…`V.4` de la Tabla de indicadores son los de las **notas té
 - seguridad: suicidios del SATSSBU (2017-2024; tasas medias anuales, publicadas con anio=2024) y del trienio 2021-2023 (DEIS, anio=2023), sobre población del Censo 2022. La serie anual es sólo provincial: por departamento los casos por año son muy pocos.
 - seguridad: mortalidad por lesiones de tránsito, tasa media anual 2021-2023 (DEIS), no ajustada por edad.
 ### tabla de indicadores
-- 30 indicadores todavía sin ficha en las notas técnicas (muestran «—» y van al final de su subeje): Nacidos vivos, Defunciones, Tasa de mortalidad infantil (c/ mil nacidos vivos), Consultas médicas por habitante, Ocupación de camas en establecimientos públicos (%), Tasa de natalidad (c/ mil hab.), Tasa de mortalidad general (c/ mil hab.), Tasa de mortalidad materna (c/ 10 mil nacidos vivos), Egresos hospitalarios, Camas disponibles (promedio), Esperanza de vida al nacer (años). Mujeres, Esperanza de vida al nacer (años). Varones, Matrícula total (alumnos), Egresados de secundaria (alumnos), Cargos docentes, Gasto en personal (% del gasto primario), Inversión real directa (% del gasto primario), Recursos tributarios propios (% de ingresos totales), Accesos a internet fijo cada 100 hogares, Accesos a internet fijo, Velocidad media de bajada (Mbps), Superficie de bosque nativo (ha), Desmonte anual de bosque (ha), Regeneración de bosque (ha), Bosque sobre la superficie provincial (%), Participación renovable en la generación (%), Ocupación de habitaciones (%), Viajeros, Pernoctaciones (noches), Estadía media (noches).
+- 32 indicadores todavía sin ficha en las notas técnicas (muestran «—» y van al final de su subeje): Nacidos vivos, Defunciones, Tasa de mortalidad infantil (c/ mil nacidos vivos), Tasa de natalidad (c/ mil hab.), Tasa de mortalidad general (c/ mil hab.), Tasa de mortalidad materna (c/ 10 mil nacidos vivos), Esperanza de vida al nacer (años). Mujeres, Esperanza de vida al nacer (años). Varones, Consultas médicas por habitante, Ocupación de camas en establecimientos públicos (%), Egresos hospitalarios, Camas disponibles (promedio), Matrícula total (alumnos), Egresados de secundaria (alumnos), Cargos docentes, Recursos tributarios propios (% de ingresos totales), Gasto en personal (% del gasto primario), Inversión real directa (% del gasto primario), Accesos a internet fijo cada 100 hogares, Accesos a internet fijo, Velocidad media de bajada (Mbps), Transparencia del Ejecutivo provincial (índice 0-100), Municipios con sitio web oficial (de 60), Superficie de bosque nativo (ha), Desmonte anual de bosque (ha), Regeneración de bosque (ha), Bosque sobre la superficie provincial (%), Participación renovable en la generación (%), Ocupación de habitaciones (%), Viajeros, Pernoctaciones (noches), Estadía media (noches).
+### clase de los indicadores
+- 22 de 121 indicadores están clasificados como «De oferta o proceso»; los demás, como «De resultados» (`tipo` en el spec, ver catalog.py).
+- De oferta o proceso — Sociocultural / Salud: Consultas médicas por habitante
+- De oferta o proceso — Sociocultural / Salud: Ocupación de camas en establecimientos públicos (%)
+- De oferta o proceso — Sociocultural / Salud: Egresos hospitalarios
+- De oferta o proceso — Sociocultural / Salud: Camas disponibles (promedio)
+- De oferta o proceso — Sociocultural / Educación: Alumnos por establecimiento. Secundaria
+- De oferta o proceso — Sociocultural / Educación: Alumnos por cargo docente. Secundaria
+- De oferta o proceso — Sociocultural / Educación: Cargos docentes
+- De oferta o proceso — Económico-productivo / Actividad y productividad: Superficie sembrada (ha)
+- De oferta o proceso — Económico-productivo / Actividad y productividad: Pozos en producción
+- De oferta o proceso — Económico-productivo / Inversión y financiamiento: Gastos totales (pesos constantes, jul-2026)
+- De oferta o proceso — Económico-productivo / Inversión y financiamiento: Gasto ejecutado total (pesos constantes, jul-2026)
+- De oferta o proceso — Económico-productivo / Inversión y financiamiento: Gasto en personal (pesos constantes, jul-2026)
+- De oferta o proceso — Económico-productivo / Inversión y financiamiento: Recursos a municipios (pesos constantes, jul-2026)
+- De oferta o proceso — Económico-productivo / Inversión y financiamiento: Coparticipación a municipios (pesos constantes)
+- De oferta o proceso — Económico-productivo / Inversión y financiamiento: Puntos de acceso al sistema financiero (c/ 10 mil adultos)
+- De oferta o proceso — Económico-productivo / Inversión y financiamiento: Gasto en personal (% del gasto primario)
+- De oferta o proceso — Económico-productivo / Inversión y financiamiento: Inversión real directa (% del gasto primario)
+- De oferta o proceso — Económico-productivo / Infraestructura y logística: Potencia instalada (MW)
+- De oferta o proceso — Económico-productivo / Infraestructura y logística: Velocidad media de bajada (Mbps)
+- De oferta o proceso — Económico-productivo / Innovación y mercados: Inversión en I+D (millones de $ de 2017)
+- De oferta o proceso — Económico-productivo / Innovación y mercados: Investigadores/as y becarios/as (personas)
+- De oferta o proceso — Territorio, ambiente y turismo / Territorio: Municipios con sitio web oficial (de 60)
 
 ## Control (filas por tema)
 - `educacion`: 11202 filas, cobertura 2011–2024.
@@ -137,6 +167,7 @@ Los códigos `I.1`…`V.4` de la Tabla de indicadores son los de las **notas té
 - `recursos-municipios`: 10044 filas, cobertura 2021–2026.
 - `energia-renovable`: 233 filas, cobertura 2019–2026.
 - `bosques`: 8472 filas, cobertura 1985–2025 (consolidado hasta 2021).
+- `transparencia`: 123 filas, cobertura Toma 2026 (municipios 04-11, provincia 07-11).
 - `energia-electrica`: 233 filas, cobertura 2019–2026.
 - `id-innovacion`: 54 filas, cobertura 2003–2024.
 - `exportaciones`: 5306 filas, cobertura 2021–2025.

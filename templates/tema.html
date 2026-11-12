@@ -20,6 +20,9 @@
     </div>
     {% endif %}
     <p class="tema-resumen">{{ tema.resumen_corto }}</p>
+    {% if tema.advertencia %}
+    <p class="tema-aviso" role="note">{{ tema.advertencia }}</p>
+    {% endif %}
     <p class="tema-meta muted">
       <strong>Fuente:</strong> {{ tema.fuente }} ·
       <strong>Cobertura:</strong> {{ tema.cobertura }}

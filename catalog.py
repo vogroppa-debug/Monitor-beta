@@ -39,6 +39,12 @@ Spec de gráfico:
                firme se hace fijando una dimensión en `fixed` (ver abajo).
   fuente/fuente_url: fuente propia del gráfico (si difiere de la del tema)
 
+Campo de tema opcional:
+  advertencia: salvedad que condiciona la lectura del tablero, en un recuadro bajo el título.
+       Para lo que el lector tiene que saber ANTES de mirar los gráficos (un dato sin
+       verificación humana, una serie provisoria). El `resumen` largo no sirve para esto:
+       `tema.html` muestra sólo `resumen_corto`, y el largo va a la tarjeta del buscador.
+
 Campos de tema para la tabla maestra:
   subeje: subeje de la tabla de la portada. Si falta, se usa la etiqueta del PRIMER `tag`
           (válido en el eje económico-productivo, donde los subejes SON los tags).
@@ -60,6 +66,17 @@ Spec de KPI (el front muestra la VARIACIÓN INTERANUAL, no el valor absoluto):
        ficha (sociales, turismo, ambiente) lo dejan vacío y van al final de su subeje.
   grafico: id del gráfico al que enlaza la tarjeta del indicador (por defecto, el primero
        que publica su métrica; hace falta cuando varios gráficos comparten métrica).
+  tipo: 'resultado' (por defecto) | 'oferta'. Clase del indicador en la tabla de la portada, que
+       dentro de cada subeje lista primero los «De resultados» y después los «De oferta o
+       proceso». De oferta o proceso son los que miden recursos, capacidad instalada, insumos
+       o la actividad de los establecimientos que prestan el servicio (camas, consultas,
+       egresos, cargos docentes, gasto, potencia instalada); de resultados, lo que se obtiene
+       con ellos o el estado de la población y de la economía (mortalidad, aprendizajes,
+       producción, empleo). Sólo se declara en los de
+       oferta; `BUILD_NOTES.md` los lista todos para que la clasificación se pueda revisar.
+  frecuencia: pisa la columna "Frecuencia" de la tabla maestra, que si no se deduce de la serie.
+       Para un dato de una sola toma ("Toma única"), donde el valor deducido sería "Anual" y
+       sugeriría una serie que no existe.
   display: 'nivel' -> muestra el NIVEL en vez de la variación. Pensado para magnitudes con
        signo (resultado fiscal: superávit verde / déficit rojo).
   sentido: 'mayor_mejor' (por defecto) | 'menor_mejor' | 'neutro'
@@ -103,6 +120,7 @@ AREAS = {
     "ambiente":     {"label": "Ambiente y energía",   "orden": 9},
     "construccion": {"label": "Construcción",          "orden": 10},
     "ciencia":      {"label": "Ciencia y tecnología",  "orden": 11},
+    "institucional": {"label": "Gestión pública",        "orden": 12},
 }
 
 # Ejes transversales de desarrollo productivo. Un tema puede tener varios (campo
@@ -147,6 +165,17 @@ MOSTRAR_METAS = False
 # mide cosas que el Monitor no publica.
 MOSTRAR_META_2030 = True
 META_2030_TITULO = "Meta 2030 (PDES 2024)"
+
+# Semáforo de avance hacia la meta 2030 (sección de la portada + marca en la columna de la meta).
+# El avance es la parte recorrida del camino entre la línea de base y la meta:
+#     avance = (último dato − línea de base) / (meta 2030 − línea de base)
+# y sólo se calcula cuando el indicador tiene las tres cosas (`base_valor` y `meta_2030` en su
+# spec, y un dato publicado). Lo que no se puede calcular queda en gris, CONTADO y con su
+# motivo: es un esqueleto, y que se vea cuánto falta cargar es parte de lo que muestra.
+# La regla completa está en `indicadores._avance`.
+MOSTRAR_SEMAFORO = True
+SEMAFORO_UMBRALES = {"verde": 90, "amarillo": 70}   # % de avance: >= verde, >= amarillo, resto rojo
+SEMAFORO_TOP = 5                                    # largo de «Mejores desempeños» / «Mayores rezagos»
 
 SUBEJE_ORDEN = {
     # sociocultural
@@ -232,7 +261,7 @@ TEMAS = [
              "unidad": "alumnos", "format": "int"},
             {"label": "Egresados de secundaria", "metrica": "egresados",
              "fixed": {"nivel": "secundaria"}, "year": "latest", "unidad": "alumnos", "format": "int"},
-            {"label": "Cargos docentes", "metrica": "cargos", "fixed": {}, "year": "latest",
+            {"tipo": "oferta", "label": "Cargos docentes", "metrica": "cargos", "fixed": {}, "year": "latest",
              "unidad": "cargos", "format": "int"},
         ],
         "charts": [
@@ -345,7 +374,7 @@ TEMAS = [
              "year": "latest_complete", "unidad": "miles de m³", "format": "int"},
             {"ficha": "I.11", "label": "Producción de petróleo", "metrica": "prod_pet", "fixed": {"grano": "anual"},
              "year": "latest_complete", "unidad": "m³", "format": "int"},
-            {"ficha": "I.12", "label": "Pozos", "tabla_label": "Pozos en producción", "metrica": "pozos", "fixed": {"grano": "anual"},
+            {"tipo": "oferta", "ficha": "I.12", "label": "Pozos", "tabla_label": "Pozos en producción", "metrica": "pozos", "fixed": {"grano": "anual"},
              "year": "latest_complete", "unidad": "pozos", "format": "int"},
         ],
         "charts": [
@@ -577,7 +606,7 @@ TEMAS = [
         "kpis": [
             {"ficha": "I.1", "label": "Producción total", "tabla_label": "Producción agrícola total", "metrica": "produccion_tm",
              "fixed": {"departamento": "Salta"}, "year": "latest", "unidad": "toneladas", "format": "int"},
-            {"ficha": "I.2", "label": "Superficie sembrada", "metrica": "superficie_sembrada_ha",
+            {"tipo": "oferta", "ficha": "I.2", "label": "Superficie sembrada", "metrica": "superficie_sembrada_ha",
              "fixed": {"departamento": "Salta"}, "year": "latest", "unidad": "ha", "format": "int"},
         ],
         "charts": [
@@ -640,18 +669,18 @@ TEMAS = [
         ],
         "tags": ["inversion-financiamiento"],
         "kpis": [
-            {"ficha": "III.5", "label": "Gasto ejecutado total (pesos constantes, {base})", "metrica": "gasto_real",
+            {"tipo": "oferta", "ficha": "III.5", "label": "Gasto ejecutado total (pesos constantes, {base})", "metrica": "gasto_real",
              "fixed": {"clasificador": "objeto", "nivel": "total"}, "year": "latest",
              "unidad": "pesos", "format": "int"},
-            {"ficha": "III.6", "label": "Gasto en personal (pesos constantes, {base})", "metrica": "gasto_real",
+            {"tipo": "oferta", "ficha": "III.6", "label": "Gasto en personal (pesos constantes, {base})", "metrica": "gasto_real",
              "fixed": {"clasificador": "objeto", "partida": "Gastos en personal"}, "year": "latest",
              "unidad": "pesos", "format": "int"},
-            {"label": "Gasto en personal (% del gasto primario)", "metrica": "pct_aif",
+            {"tipo": "oferta", "label": "Gasto en personal (% del gasto primario)", "metrica": "pct_aif",
              "tabla_nota": "Esquema AIF (DNAP). Gasto primario = gastos totales − intereses de la deuda. La variación va en puntos porcentuales.",
              "fixed": {"clasificador": "aif", "nivel": "Salta", "partida": "Gasto en personal / gasto primario"},
              "grafico": "gob-personal-primario",
              "year": "latest", "unidad": "%", "format": "int", "display": "nivel", "sentido": "menor_mejor"},
-            {"label": "Inversión real directa (% del gasto primario)", "metrica": "pct_aif",
+            {"tipo": "oferta", "label": "Inversión real directa (% del gasto primario)", "metrica": "pct_aif",
              "tabla_nota": "Esquema AIF (DNAP): obra pública y bienes de capital. La variación va en puntos porcentuales.",
              "fixed": {"clasificador": "aif", "nivel": "Salta", "partida": "Inversión real directa / gasto primario"},
              "grafico": "gob-ird-primario",
@@ -752,7 +781,7 @@ TEMAS = [
             {"ficha": "III.1", "label": "Ingresos totales (pesos constantes, {base})", "metrica": "monto_real",
              "fixed": {"grano": "acumulado", "concepto": "Ingresos totales"}, "year": "latest",
              "unidad": "pesos", "format": "int"},
-            {"ficha": "III.2", "label": "Gastos totales (pesos constantes, {base})", "metrica": "monto_real",
+            {"tipo": "oferta", "ficha": "III.2", "label": "Gastos totales (pesos constantes, {base})", "metrica": "monto_real",
              "fixed": {"grano": "acumulado", "concepto": "Gastos totales"}, "year": "latest",
              "unidad": "pesos", "format": "int"},
             {"ficha": "III.3", "label": "Resultado financiero (% del gasto primario)",
@@ -1134,7 +1163,7 @@ TEMAS = [
             {"label": "Accesos a internet fijo", "metrica": "accesos",
              "fixed": {"grano": "trimestral", "departamento": "Salta", "ambito": "Salta", "tecnologia": "Total"},
              "cmp": "quarter", "year": "latest", "unidad": "accesos", "format": "int"},
-            {"label": "Velocidad media de bajada", "metrica": "vel_mbps",
+            {"tipo": "oferta", "label": "Velocidad media de bajada", "metrica": "vel_mbps",
              "fixed": {"grano": "trimestral", "departamento": "Salta", "ambito": "Salta", "tecnologia": "Total"},
              "cmp": "quarter", "year": "latest", "unidad": "Mbps", "format": "dec1"},
         ],
@@ -1286,9 +1315,9 @@ TEMAS = [
         ],
         "tags": ["inversion-financiamiento"],
         "kpis": [
-            {"ficha": "III.10", "label": "Recursos a municipios (pesos constantes, {base})", "metrica": "monto_real",
+            {"tipo": "oferta", "ficha": "III.10", "label": "Recursos a municipios (pesos constantes, {base})", "metrica": "monto_real",
              "fixed": {"grano": "anual"}, "year": "latest_complete", "unidad": "pesos", "format": "int"},
-            {"ficha": "III.11", "label": "Coparticipación (pesos constantes, {base})", "tabla_label": "Coparticipación a municipios (pesos constantes)",
+            {"tipo": "oferta", "ficha": "III.11", "label": "Coparticipación (pesos constantes, {base})", "tabla_label": "Coparticipación a municipios (pesos constantes)",
              "metrica": "monto_real",
              "fixed": {"grano": "anual", "grupo": "Coparticipación"}, "year": "latest_complete",
              "unidad": "pesos", "format": "int"},
@@ -1527,6 +1556,116 @@ TEMAS = [
     },
     # ======================================================================
     {
+        "id": "transparencia",
+        "subeje": "Territorio",
+        "area": "institucional",
+        "eje_pdes": "territorio-ambiente-turismo",
+        "title": "Transparencia del sector público",
+        "resumen": (
+            "Qué información pública publican en sus canales oficiales los 60 municipios de "
+            "Salta y el Poder Ejecutivo provincial, medidos con la misma vara: 10 criterios "
+            "—presupuesto, ejecución, planta y sueldos, compras, adjudicaciones, declaraciones "
+            "juradas, boletín, acceso a la información y datos abiertos— con un puntaje de 0 a "
+            "100. Tres advertencias para leerlo: mide publicación en línea y no cumplimiento de "
+            "la ley, así que un municipio que entrega información a pedido o en papel puntúa 0; "
+            "no hay serie, porque es la primera toma; y el relevamiento propio lo hizo un "
+            "asistente de IA sobre canales oficiales, con cada puntaje respaldado por una URL "
+            "pero sin un segundo codificador humano, de modo que las evidencias de los 11 "
+            "municipios con puntaje están pendientes de verificación por el CESS."
+        ),
+        "resumen_corto": ("Qué publican los 60 municipios y el Ejecutivo provincial, "
+                          "en 10 criterios."),
+        "advertencia": (
+            "Para leer estos números: el índice mide publicación activa en canales oficiales "
+            "en línea, no cumplimiento de la ley —un municipio que entrega información a "
+            "pedido, en papel o en el Concejo puntúa 0—; es la primera toma, así que no hay "
+            "variación con que compararla; y el relevamiento propio lo hizo un asistente de IA "
+            "sobre canales oficiales, con cada puntaje respaldado por una URL pero sin un "
+            "segundo codificador humano, de modo que las evidencias de los 11 municipios con "
+            "puntaje están pendientes de verificación por el CESS."
+        ),
+        "fuente": ("Relevamiento propio del CESS sobre canales oficiales (municipios y "
+                   "Ejecutivo provincial)"),
+        "fuente_url": "https://boletinoficialsalta.gob.ar/Municipios.php",
+        "cobertura": "Toma 2026 (municipios 04-11, provincia 07-11)",
+        "keywords": [
+            "transparencia", "acceso a la información", "información pública", "datos abiertos",
+            "municipios", "gobiernos locales", "intendencias", "boletín oficial",
+            "declaraciones juradas", "presupuesto municipal", "compras", "contrataciones",
+            "adjudicaciones", "rendición de cuentas", "gobierno abierto", "gestión pública",
+        ],
+        # Ninguno de los cinco ejes transversales de desarrollo productivo describe esto, y el
+        # chip quedaría diciendo algo falso. El subeje va declarado arriba, así que la lista
+        # vacía no deja al tablero sin agrupar.
+        "tags": [],
+        "kpis": [
+            {"label": "Transparencia del Ejecutivo provincial",
+             "tabla_label": "Transparencia del Ejecutivo provincial (índice 0-100)",
+             "tabla_nota": ("Relevamiento propio del CESS sobre canales oficiales, 2026-11-07: "
+                            "6 criterios en sí, 2 en parcial y 2 en no. Mide publicación activa "
+                            "en línea, no cumplimiento legal. Alcance: sólo el Poder Ejecutivo. "
+                            "Las evidencias están pendientes de verificación humana."),
+             "metrica": "transparencia",
+             "fixed": {"nivel": "Ejecutivo provincial"},
+             "year": "latest", "unidad": "/100", "format": "int",
+             "display": "nivel", "sentido": "mayor_mejor", "frecuencia": "Toma única",
+             # La métrica `transparencia` la comparten los 60 municipios, así que el cálculo
+             # automático la daría por municipal: este indicador es de una sola unidad.
+             "geo": "Provincia", "geo_nota": "Sólo el Poder Ejecutivo provincial",
+             "grafico": "tra-nivel"},
+            {"tipo": "oferta", "label": "Municipios con sitio web oficial",
+             "tabla_label": "Municipios con sitio web oficial (de 60)",
+             "tabla_nota": ("Relevamiento propio del CESS, 2026-11-04. Es la lectura menos "
+                            "expuesta al efecto piso: 49 de los 60 municipios tienen índice 0 y "
+                            "el índice está midiendo, en buena medida, quién tiene página web."),
+             "metrica": "municipios_con_sitio",
+             "fixed": {"nivel": "Municipio"},
+             "year": "latest", "unidad": "municipios", "format": "int",
+             "display": "nivel", "sentido": "mayor_mejor", "frecuencia": "Toma única",
+             "geo": "Provincia", "geo_nota": "Conteo sobre los 60 municipios de Salta",
+             "grafico": "tra-municipios"},
+        ],
+        "charts": [
+            {"id": "tra-criterios", "type": "stacked-bar",
+             "title": "Cumplimiento por criterio, en los 60 municipios",
+             "descr": ("Cuántos municipios publican cada cosa. Es la lectura más informativa del "
+                       "dato: con 49 municipios en cero, el conteo por criterio dice más que "
+                       "cualquier promedio. «No verificado» es el canal que existe pero no se "
+                       "pudo leer ese día —sitio caído, certificado vencido—: se cuenta aparte "
+                       "de «no», que es lo que se buscó y no está."),
+             "x": "criterio", "seriesBy": "estado", "metrica": "municipios",
+             "fixed": {"nivel": "Municipio"}, "stack": True,
+             "seriesColor": {
+                 "Sí": {"light": "#16a97a", "dark": "#1fbe8b"},
+                 "Parcial": {"light": "#e0a000", "dark": "#f0b52a"},
+                 "No": {"light": "#d4625a", "dark": "#e58078"},
+                 "No verificado": {"light": "#6f767e", "dark": "#9aa2ab"}},
+             "controls": [],
+             "unidad": "municipios"},
+            {"id": "tra-nivel", "type": "bar",
+             "title": "El Ejecutivo provincial frente a los municipios",
+             "descr": ("Cumplimiento de cada criterio en una escala de 0 a 100: la provincia "
+                       "vale 100 si publica, 50 si publica en parte y 0 si no; los municipios "
+                       "son el promedio de los 60. La brecha entre niveles es grande, pero en "
+                       "acceso a la información la provincia está detrás de tres municipios."),
+             "x": "criterio", "seriesBy": "nivel", "metrica": "puntaje_pct",
+             "fixed": {}, "yMax": 100,
+             "controls": [],
+             "unidad": "/100"},
+            {"id": "tra-municipios", "type": "barh",
+             "title": "Municipios con puntaje",
+             "descr": ("Sólo los municipios que superan el cero: son 11 de 60. Cinco de ellos "
+                       "tienen 5 puntos, que vienen únicamente del boletín. Los otros 49 "
+                       "municipios quedan en 0; a 40 de ellos no se les halló un sitio "
+                       "oficial."),
+             "x": "municipio", "seriesBy": None, "metrica": "transparencia",
+             "fixed": {"nivel": "Municipio"},
+             "controls": [],
+             "sort": "desc", "unidad": "/100"},
+        ],
+    },
+    # ======================================================================
+    {
         "id": "energia-electrica",
         "ciiu": "D",
         "area": "energia",
@@ -1551,7 +1690,7 @@ TEMAS = [
             {"ficha": "IV.1", "label": "Generación eléctrica total", "metrica": "generacion_gwh",
              "fixed": {"grano": "trimestral"}, "cmp": "quarter", "year": "latest",
              "unidad": "GWh", "format": "int"},
-            {"ficha": "IV.2", "label": "Potencia instalada", "tabla_nota": "Es un stock (fotografía), no un flujo: no corresponde variación interanual.",
+            {"tipo": "oferta", "ficha": "IV.2", "label": "Potencia instalada", "tabla_nota": "Es un stock (fotografía), no un flujo: no corresponde variación interanual.",
              "metrica": "potencia_mw",
              "fixed": {"grano": "anual"}, "year": "latest", "unidad": "MW", "format": "int"},
         ],
@@ -1608,9 +1747,9 @@ TEMAS = [
         ],
         "tags": ["innovacion-mercados"],
         "kpis": [
-            {"ficha": "V.3", "label": "Inversión en I+D (millones de $ de 2017)", "metrica": "inv_id_real",
+            {"tipo": "oferta", "ficha": "V.3", "label": "Inversión en I+D (millones de $ de 2017)", "metrica": "inv_id_real",
              "fixed": {}, "year": "latest", "unidad": "millones de $", "format": "int"},
-            {"ficha": "V.4", "label": "Investigadores/as y becarios/as", "metrica": "personal_id",
+            {"tipo": "oferta", "ficha": "V.4", "label": "Investigadores/as y becarios/as", "metrica": "personal_id",
              "fixed": {"funcion": "Investigadores y becarios"}, "year": "latest",
              "unidad": "personas", "format": "int"},
         ],
@@ -1776,11 +1915,11 @@ TEMAS = [
              "fixed": {"departamento": "Salta", "desagregacion": "Total"}, "year": "latest",
              "unidad": "por mil nacidos vivos", "format": "int", "display": "nivel",
              "sentido": "menor_mejor"},
-            {"label": "Consultas médicas por habitante", "metrica": "consultas_por_habitante",
+            {"tipo": "oferta", "label": "Consultas médicas por habitante", "metrica": "consultas_por_habitante",
              "fixed": {"departamento": "Salta"}, "year": "latest",
              "unidad": "consultas/hab.", "format": "int", "display": "nivel",
              "sentido": "neutro"},
-            {"label": "Ocupación de camas",
+            {"tipo": "oferta", "label": "Ocupación de camas",
              "tabla_label": "Ocupación de camas en establecimientos públicos",
              "metrica": "ocupacion_camas",
              "fixed": {"departamento": "Salta"}, "year": "latest",

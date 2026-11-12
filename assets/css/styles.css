@@ -166,6 +166,13 @@ p { margin: 0 0 1em; }
 .tema-header { padding-top: 18px; padding-bottom: 8px; }
 .tema-header h1 { font-size: clamp(1.7rem, 3vw, 2.4rem); margin-top: 6px; }
 .tema-resumen { font-size: 1.1rem; color: var(--ink-2); max-width: 74ch; }
+/* Salvedad que condiciona la lectura del tablero (un dato provisorio, uno sin verificar).
+   Va ARRIBA, junto al título: al pie se leería después de haber sacado conclusiones. */
+.tema-aviso {
+  max-width: 74ch; margin: 14px 0 0; padding: 10px 14px;
+  border-left: 3px solid #e0a000; background: var(--surface-2);
+  border-radius: 0 8px 8px 0; font-size: .92rem; color: var(--ink-2);
+}
 .tema-meta { font-size: .88rem; }
 
 /* KPIs */
@@ -378,3 +385,92 @@ p { margin: 0 0 1em; }
 @media (max-width: 720px) { .tabla-ind { font-size: .78rem; } .tabla-ind th, .tabla-ind td { padding: 6px 9px; } }
 
 @media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; transition: none !important; } }
+
+/* =========================================================================
+   Semáforo de metas (portada)
+   Colores de ESTADO, reservados: no se usan para series. Nunca van solos: cada estado lleva
+   además un glifo distinto (✓ ! ✕ y el aro vacío) y su nombre, para que se distinga sin color.
+   ========================================================================= */
+:root { --sem-verde: #0ca30c; --sem-amarillo: #fab219; --sem-rojo: #d03b3b; --sem-gris: #c3c2b7; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --sem-gris: #4a4a47; } }
+:root[data-theme="dark"] { --sem-gris: #4a4a47; }
+
+.sem-ico {
+  display: inline-grid; place-items: center; flex: none; width: 16px; height: 16px;
+  border-radius: 50%; margin-right: 6px; vertical-align: -3px;
+  font-size: 10px; font-weight: 800; line-height: 1; font-style: normal;
+}
+.sem-ico.sem-verde    { background: var(--sem-verde);    color: #fff; }
+.sem-ico.sem-amarillo { background: var(--sem-amarillo); color: #0b0b0b; }
+.sem-ico.sem-rojo     { background: var(--sem-rojo);     color: #fff; }
+.sem-ico.sem-gris     { box-shadow: inset 0 0 0 2px var(--muted); }
+.sem-ico.sem-verde::after    { content: "\2713"; }
+.sem-ico.sem-amarillo::after { content: "!"; }
+.sem-ico.sem-rojo::after     { content: "\2715"; }
+
+.sem-tiles { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.sem-tile {
+  background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 18px 20px; box-shadow: var(--shadow);
+}
+.sem-tile p { margin: 0; }
+.sem-tile-label { font-size: .95rem; font-weight: 600; color: var(--ink); display: flex; align-items: center; }
+.sem-tile-valor { font-size: 2rem; font-weight: 800; letter-spacing: -0.02em; color: var(--ink); margin-top: 6px !important; }
+.sem-tile-regla { font-size: .8rem; color: var(--muted); margin-top: 2px !important; }
+
+.sem-nota { font-size: .9rem; max-width: 86ch; margin: 18px 0 22px; }
+.sem-nota strong { color: var(--ink); }
+
+/* Barra segmentada fina por eje: sin texto adentro, las cifras van al lado. */
+.sem-ejes { display: grid; gap: 10px; margin-bottom: 26px; }
+.sem-eje { display: grid; grid-template-columns: minmax(180px, 260px) 1fr auto; gap: 16px; align-items: center; font-size: .9rem; }
+.sem-eje-label { font-weight: 600; color: var(--ink); }
+.sem-eje-num { color: var(--ink-2); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.sem-bar { display: flex; gap: 2px; height: 8px; }
+.sem-seg { flex: 0 1 0; min-width: 6px; border-radius: 999px; }
+.sem-seg.sem-verde { background: var(--sem-verde); }
+.sem-seg.sem-amarillo { background: var(--sem-amarillo); }
+.sem-seg.sem-rojo { background: var(--sem-rojo); }
+.sem-seg.sem-gris { background: var(--sem-gris); }
+
+.sem-listas { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.sem-lista {
+  background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 18px 20px; box-shadow: var(--shadow);
+}
+.sem-lista-title { font-size: 1rem; margin: 0 0 10px; }
+.sem-lista ul { list-style: none; margin: 0; padding: 0; }
+.sem-lista li {
+  display: flex; justify-content: space-between; align-items: center; gap: 16px;
+  padding: 9px 0; border-top: 1px solid var(--grid); font-size: .9rem;
+}
+.sem-lista li:first-child { border-top: 0; }
+.sem-lista-nombre a { color: var(--ink); font-weight: 600; }
+.sem-lista-nombre a:hover { color: var(--accent-600); }
+.sem-lista-nombre small { display: block; color: var(--muted); font-size: .78rem; margin-top: 2px; }
+.sem-chip { display: inline-flex; align-items: center; white-space: nowrap; font-weight: 700; color: var(--ink); font-variant-numeric: tabular-nums; }
+.sem-vacio { margin: 0; font-size: .9rem; }
+
+@media (max-width: 760px) {
+  .sem-tiles { grid-template-columns: 1fr 1fr; }
+  .sem-listas { grid-template-columns: 1fr; }
+  .sem-eje { grid-template-columns: 1fr auto; }
+  .sem-eje .sem-bar { grid-column: 1 / -1; order: 3; }
+}
+
+/* Clase del indicador (de resultados / de oferta o proceso): tercer nivel de la tabla, debajo
+   del subeje. Lleva el mismo celeste que la fila del subeje pero a menos intensidad, para que
+   se lea como un nivel subordinado y no compita con ella. */
+:root { --tipo-bg: color-mix(in srgb, var(--accent-050) 40%, var(--surface)); }
+.tabla-ind .tipo-row-head {
+  padding: 7px 12px; border-top: 20px solid var(--page); border-bottom: 1px solid var(--grid);
+  font-size: .72rem; font-weight: 700; letter-spacing: .05em; text-transform: uppercase;
+  color: var(--ink-2); background: var(--tipo-bg);
+}
+.tabla-ind tbody tr.tipo-row:hover { background: var(--tipo-bg); }
+/* Texto de las dos clases en gris, no en azul: sólo cambia la letra; el fondo no se toca. */
+.tipo-title {
+  display: inline-block; margin: 26px 0 10px; padding: 4px 10px; border-radius: 6px;
+  font-size: .74rem; font-weight: 700; letter-spacing: .05em; text-transform: uppercase;
+  color: var(--ink-2); background: var(--tipo-bg);
+}

@@ -331,6 +331,7 @@ def construir_tema(tmeta):
         "cobertura": tmeta["cobertura"], "keywords": tmeta["keywords"],
         "tags": tmeta.get("tags", []),
         "subeje": tmeta.get("subeje", ""),
+        "advertencia": tmeta.get("advertencia", ""),
         "ciiu": tmeta.get("ciiu", ""),
         "dims": dims, "metricas": metricas,
         "fields": fields, "rows": rows,
@@ -381,6 +382,7 @@ def main():
             "cobertura": payload["cobertura"], "keywords": payload["keywords"],
             "tags": tags,
             "subeje": payload.get("subeje", ""),
+            "advertencia": payload.get("advertencia", ""),
             "ciiu": payload.get("ciiu", ""),
             # CIIU representativa del tablero para ordenar dentro del subeje: la del tema o, si
             # el tema mezcla sectores por KPI (uva=A / vino=C), la menor letra de sus KPIs.
@@ -429,9 +431,20 @@ def main():
 
     # Tabla maestra de indicadores (portada). Espeja renderKpis de charts.js: ver indicadores.py.
     tabla_ind = indicadores.tabla(payloads, catalogo, catalog.EJES_PDES,
-                                  catalog.TAGS, catalog.SUBEJE_ORDEN, catalog.CIIU_SECCIONES)
+                                  catalog.TAGS, catalog.SUBEJE_ORDEN, catalog.CIIU_SECCIONES,
+                                  umbrales=catalog.SEMAFORO_UMBRALES)
+    sem = (indicadores.semaforo(tabla_ind, catalog.SEMAFORO_UMBRALES, catalog.SEMAFORO_TOP)
+           if catalog.MOSTRAR_SEMAFORO else None)
     n_ind = sum(len(g["filas"]) for g in tabla_ind)
     todas_notas["tabla de indicadores"] = qc_fichas(tabla_ind, catalog.TAGS, catalog.SUBEJE_NUM)
+    # La clase de cada indicador se declara sólo en los de oferta (el resto es de resultado por
+    # defecto), así que acá se deja la lista entera a la vista para poder revisarla.
+    _oferta = [(g["label"], f["subeje"], f["indicador"])
+               for g in tabla_ind for f in g["filas"] if f["tipo"] == "oferta"]
+    todas_notas["clase de los indicadores"] = [
+        "%d de %d indicadores están clasificados como «De oferta o proceso»; los demás, como "
+        "«De resultados» (`tipo` en el spec, ver catalog.py)." % (len(_oferta), n_ind)
+    ] + ["De oferta o proceso — %s / %s: %s" % o for o in _oferta]
 
     # Agrupar en DOS NIVELES: eje del PDES (nivel 1) y subeje (nivel 2). La unidad es el
     # INDICADOR, no el tablero: así la cuenta de las pills coincide con la tabla maestra
@@ -455,7 +468,8 @@ def main():
                                  asset_ver=asset_ver, tabla=tabla_ind, n_indicadores=n_ind,
                                  mostrar_metas=catalog.MOSTRAR_METAS,
                                  mostrar_meta_2030=catalog.MOSTRAR_META_2030,
-                                 meta_2030_titulo=catalog.META_2030_TITULO))
+                                 meta_2030_titulo=catalog.META_2030_TITULO,
+                                 semaforo=sem))
 
     # tema/<id>.html
     tpl_tema = env.get_template("tema.html")
@@ -471,6 +485,10 @@ def main():
         print(f"  {tid:22s} {n:6d} filas  {cob}")
     print(f"  {len(catalogo)} temas | {n_ind} indicadores en la tabla maestra"
           f" | index.html + {len(catalogo)} páginas de tema")
+    if sem:
+        print("  semáforo: avance calculado en %d de %d indicadores (%s)" % (
+            sem["calculados"], sem["n"],
+            ", ".join("%s %d" % (e["label"].lower(), e["n"]) for e in sem["estados"])))
 
 
 def escribir_build_notes(todas_notas, resumen_build):
