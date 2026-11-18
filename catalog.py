@@ -210,7 +210,7 @@ PDES_FUENTE_SNIC = ("Sistema Nacional de Información Criminal (SNIC, Ministerio
 # sin forma corta se muestra completa y queda anotada en BUILD_NOTES.md para agregarla acá.
 FUENTE_CORTA = {
     "CESS sobre la base del Censo Nacional de Población, Hogares y Viviendas 2022 (INDEC/REDATAM)":
-        "INDEC, CNPV 2022",
+        "CNPV 2022",
     "CESS sobre la base de defunciones y nacimientos 2021-2023 (DEIS, Ministerio de Salud) y "
     "Censo 2022 (INDEC)": "DEIS e INDEC",
     "Programa de Estadísticas de Información en Salud — Ministerio de Salud Pública de Salta":
@@ -254,7 +254,7 @@ FUENTE_CORTA = {
     "MapBiomas Argentina — Colección 3 (cobertura y uso; desmonte y vegetación secundaria)":
         "MapBiomas",
     "Encuesta de Ocupación Hotelera (EOH) — INDEC": "INDEC, EOH",
-    PDES_FUENTE_CENSO: "INDEC, CNPV 2010-22",
+    PDES_FUENTE_CENSO: "CNPV 2010-2022",
     PDES_FUENTE_SALUD: "DEIS",
     PDES_FUENTE_EDUCACION: "RA y Aprender",
     PDES_FUENTE_SNIC: "SNIC",
