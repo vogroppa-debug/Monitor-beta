@@ -116,7 +116,7 @@
             <th scope="col"><abbr title="Máxima apertura territorial con la que la fuente publica este indicador. Provincia: sólo el total provincial.">Apertura</abbr></th>
             <th scope="col">Último dato</th>
             <th scope="col">Período</th>
-            <th scope="col">Var. interanual</th>
+            <th scope="col"><abbr title="Contra el período que indica la columna Frecuencia: el año anterior en las series anuales, el mismo trimestre o mes del año anterior en las trimestrales y mensuales, el censo anterior en las intercensales y el trienio anterior en las de trienios. Los porcentajes, en puntos porcentuales.">Variación</abbr></th>
             {% if mostrar_linea_base %}<th scope="col" class="tabla-ind-meta-ini"><abbr title="Dato de {{ base_anio }}, en el mismo período del año que el último dato (si el último es 2T2026, la base es 2T2024). Vacía cuando la serie no tiene dato en ese período.">Línea de base {{ base_anio }}</abbr></th>{% endif %}
             {% if mostrar_meta_2030 %}<th scope="col"{% if not mostrar_linea_base %} class="tabla-ind-meta-ini"{% endif %}>{{ meta_2030_titulo }}</th>{% endif %}
             {% if mostrar_metas %}
@@ -169,7 +169,7 @@
 
 <section class="wrap section" id="explorar">
   <h2 class="section-title">Explorar por eje del PDES</h2>
-  <p class="section-lead muted">El Plan de Desarrollo Estratégico organiza los indicadores en tres ejes y, dentro de cada uno, en subejes. Cada tarjeta resume un indicador —último valor y variación interanual— y lleva al gráfico que lo publica.</p>
+  <p class="section-lead muted">El Plan de Desarrollo Estratégico organiza los indicadores en tres ejes y, dentro de cada uno, en subejes. Cada tarjeta resume un indicador —último valor y variación contra el período anterior— y lleva al gráfico que lo publica.</p>
 
   <div class="eje-pills" role="tablist" aria-label="Ejes del PDES">
     <button class="eje-pill is-active" data-eje="all" role="tab" aria-selected="true">Todos <span class="eje-count">{{ n_indicadores }}</span></button>

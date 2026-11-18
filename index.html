@@ -9,7 +9,7 @@
     /* fija el tema antes de pintar para evitar flash */
     (function(){try{var t=localStorage.getItem('cess-theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
   </script>
-  <link rel="stylesheet" href="./assets/css/styles.css?v=1795030596">
+  <link rel="stylesheet" href="./assets/css/styles.css?v=1795033029">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%232a78d6'/><text x='50' y='68' font-size='52' text-anchor='middle' fill='white' font-family='sans-serif' font-weight='700'>C</text></svg>">
 </head>
 <body>
@@ -38,15 +38,25 @@
             
             <a role="menuitem" href="./tema/condiciones-vida.html">Condiciones de vida de los hogares</a>
             
+            <a role="menuitem" href="./tema/pdes-delitos.html">Delitos registrados por departamento y región</a>
+            
             <a role="menuitem" href="./tema/educacion.html">Educación por departamento</a>
             
+            <a role="menuitem" href="./tema/pdes-privacion.html">Privación por departamento y región (censos 2010 y 2022)</a>
+            
             <a role="menuitem" href="./tema/salud.html">Salud</a>
+            
+            <a role="menuitem" href="./tema/pdes-salud.html">Salud materno-infantil por departamento y región</a>
             
             <a role="menuitem" href="./tema/salud-reproduccion.html">Salud y reproducción por departamento</a>
             
             <a role="menuitem" href="./tema/seguridad.html">Seguridad: suicidios y siniestros viales</a>
             
+            <a role="menuitem" href="./tema/pdes-trabajo.html">Trabajo por departamento y región (censos 2010 y 2022)</a>
+            
             <a role="menuitem" href="./tema/educacion-aprendizajes.html">Trayectorias y aprendizajes por departamento</a>
+            
+            <a role="menuitem" href="./tema/pdes-educacion.html">Trayectorias y aprendizajes, 2018 y 2025</a>
             
           </div>
           
@@ -176,7 +186,7 @@
     
     <div class="sem-tile">
       <p class="sem-tile-label"><span class="sem-ico sem-gris" aria-hidden="true"></span>Sin información</p>
-      <p class="sem-tile-valor">125</p>
+      <p class="sem-tile-valor">142</p>
       <p class="sem-tile-regla">falta la meta, la línea de base o el dato</p>
     </div>
     
@@ -184,15 +194,15 @@
 
   <p class="sem-nota muted">
     El avance mide cuánto recorrió cada indicador desde su línea de base hacia la meta 2030 del PDES, y sólo se calcula cuando tiene las tres cosas: línea de base, meta y dato.
-    Hoy eso ocurre en <strong>2 de 127</strong> indicadores; de los 125 restantes, 120 sin meta cuantificada y 5 con meta, pero sin línea de base.
+    Hoy eso ocurre en <strong>2 de 144</strong> indicadores; de los 142 restantes, 136 sin meta cuantificada y 6 con meta, pero sin línea de base.
   </p>
 
   <div class="sem-ejes">
     
     <div class="sem-eje">
       <span class="sem-eje-label">Sociocultural</span>
-      <span class="sem-bar" role="img" aria-label="Sociocultural: 1 en camino, 0 atención, 0 rezago, 65 sin información" title="En camino: 1 · Atención: 0 · Rezago: 0 · Sin información: 65"><i class="sem-seg sem-verde" style="flex-grow: 1"></i><i class="sem-seg sem-gris" style="flex-grow: 65"></i></span>
-      <span class="sem-eje-num">1 de 66 con avance</span>
+      <span class="sem-bar" role="img" aria-label="Sociocultural: 1 en camino, 0 atención, 0 rezago, 82 sin información" title="En camino: 1 · Atención: 0 · Rezago: 0 · Sin información: 82"><i class="sem-seg sem-verde" style="flex-grow: 1"></i><i class="sem-seg sem-gris" style="flex-grow: 82"></i></span>
+      <span class="sem-eje-num">1 de 83 con avance</span>
     </div>
     
     <div class="sem-eje">
@@ -245,7 +255,7 @@
 
   
   <div class="tabla-ind-block">
-    <h3 class="eje-title">Sociocultural <span class="eje-count">66</span></h3>
+    <h3 class="eje-title">Sociocultural <span class="eje-count">83</span></h3>
     <div class="tabla-ind-scroll">
       
       
@@ -259,7 +269,7 @@
             <th scope="col"><abbr title="Máxima apertura territorial con la que la fuente publica este indicador. Provincia: sólo el total provincial.">Apertura</abbr></th>
             <th scope="col">Último dato</th>
             <th scope="col">Período</th>
-            <th scope="col">Var. interanual</th>
+            <th scope="col"><abbr title="Contra el período que indica la columna Frecuencia: el año anterior en las series anuales, el mismo trimestre o mes del año anterior en las trimestrales y mensuales, el censo anterior en las intercensales y el trienio anterior en las de trienios. Los porcentajes, en puntos porcentuales.">Variación</abbr></th>
             <th scope="col" class="tabla-ind-meta-ini"><abbr title="Dato de 2024, en el mismo período del año que el último dato (si el último es 2T2026, la base es 2T2024). Vacía cuando la serie no tiene dato en ese período.">Línea de base 2024</abbr></th>
             <th scope="col">Meta 2030 (PDES 2024)</th>
             
@@ -276,7 +286,7 @@
               <a href="./tema/condiciones-vida.html" title="Ver el tablero: Condiciones de vida de los hogares"><span class="tabla-ind-ficha">I.1</span>Hogares con NBI <span class="tabla-ind-par">(%)</span></a>
             </th>
             
-            <td class="tabla-ind-frec">Anual</td>
+            <td class="tabla-ind-frec">Intercensal</td>
             <td class="tabla-ind-fuente"><abbr title="CESS sobre la base del Censo Nacional de Población, Hogares y Viviendas 2022 (INDEC/REDATAM)">INDEC, CNPV 2022</abbr></td>
             <td class="tabla-ind-geo"><abbr title="Departamento: 23 departamentos con datos">Depto.</abbr></td>
             <td class="num tabla-ind-dato">14,2</td>
@@ -292,7 +302,7 @@
               <a href="./tema/condiciones-vida.html" title="Ver el tablero: Condiciones de vida de los hogares"><span class="tabla-ind-ficha">I.2</span>Hogares con hacinamiento crítico <span class="tabla-ind-par">(%)</span></a>
             </th>
             
-            <td class="tabla-ind-frec">Anual</td>
+            <td class="tabla-ind-frec">Intercensal</td>
             <td class="tabla-ind-fuente"><abbr title="CESS sobre la base del Censo Nacional de Población, Hogares y Viviendas 2022 (INDEC/REDATAM)">INDEC, CNPV 2022</abbr></td>
             <td class="tabla-ind-geo"><abbr title="Departamento: 23 departamentos con datos">Depto.</abbr></td>
             <td class="num tabla-ind-dato">4,68</td>
@@ -308,7 +318,7 @@
               <a href="./tema/condiciones-vida.html" title="Ver el tablero: Condiciones de vida de los hogares"><span class="tabla-ind-ficha">I.3</span>Hogares: condiciones sanitarias, NBI <span class="tabla-ind-par">(%)</span></a>
             </th>
             
-            <td class="tabla-ind-frec">Anual</td>
+            <td class="tabla-ind-frec">Intercensal</td>
             <td class="tabla-ind-fuente"><abbr title="CESS sobre la base del Censo Nacional de Población, Hogares y Viviendas 2022 (INDEC/REDATAM)">INDEC, CNPV 2022</abbr></td>
             <td class="tabla-ind-geo"><abbr title="Departamento: 23 departamentos con datos">Depto.</abbr></td>
             <td class="num tabla-ind-dato">2,42</td>
@@ -324,7 +334,7 @@
               <a href="./tema/condiciones-vida.html" title="Ver el tablero: Condiciones de vida de los hogares"><span class="tabla-ind-ficha">I.4</span>Hogares: capacidad de subsistencia, NBI <span class="tabla-ind-par">(%)</span></a>
             </th>
             
-            <td class="tabla-ind-frec">Anual</td>
+            <td class="tabla-ind-frec">Intercensal</td>
             <td class="tabla-ind-fuente"><abbr title="CESS sobre la base del Censo Nacional de Población, Hogares y Viviendas 2022 (INDEC/REDATAM)">INDEC, CNPV 2022</abbr></td>
             <td class="tabla-ind-geo"><abbr title="Departamento: 23 departamentos con datos">Depto.</abbr></td>
             <td class="num tabla-ind-dato">0,96</td>
@@ -340,7 +350,7 @@
               <a href="./tema/condiciones-vida.html" title="Ver el tablero: Condiciones de vida de los hogares"><span class="tabla-ind-ficha">I.5</span>Hogares con clima educativo bajo o muy bajo <span class="tabla-ind-par">(%)</span></a>
             </th>
             
-            <td class="tabla-ind-frec">Anual</td>
+            <td class="tabla-ind-frec">Intercensal</td>
             <td class="tabla-ind-fuente"><abbr title="CESS sobre la base del Censo Nacional de Población, Hogares y Viviendas 2022 (INDEC/REDATAM)">INDEC, CNPV 2022</abbr></td>
             <td class="tabla-ind-geo"><abbr title="Departamento: 23 departamentos con datos">Depto.</abbr></td>
             <td class="num tabla-ind-dato">46,4</td>
@@ -353,17 +363,17 @@
           
           <tr>
             <th scope="row">
-              <a href="./tema/condiciones-vida.html" title="Ver el tablero: Condiciones de vida de los hogares"><span class="tabla-ind-ficha">I.6</span>Hogares sin agua por cañería en la vivienda <span class="tabla-ind-par">(%)</span></a>
+              <a href="./tema/condiciones-vida.html" title="Ver el tablero: Condiciones de vida de los hogares"><span class="tabla-ind-ficha">I.6</span>Hogares sin agua por cañería en la vivienda <span class="tabla-ind-par">(%)</span></a><abbr class="tabla-ind-nota" title="Agua por cañería dentro de la vivienda, cualquiera sea su procedencia. La meta del PDES de agua de red está en el indicador de personas sin agua de red pública.">ⓘ</abbr>
             </th>
             
-            <td class="tabla-ind-frec">Anual</td>
+            <td class="tabla-ind-frec">Intercensal</td>
             <td class="tabla-ind-fuente"><abbr title="CESS sobre la base del Censo Nacional de Población, Hogares y Viviendas 2022 (INDEC/REDATAM)">INDEC, CNPV 2022</abbr></td>
             <td class="tabla-ind-geo"><abbr title="Departamento: 23 departamentos con datos">Depto.</abbr></td>
             <td class="num tabla-ind-dato">15,1</td>
             <td class="num">2022</td>
             <td class="num"><span class="tabla-ind-var none">sin base</span></td>
             <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="La serie no tiene dato en 2024 para este período">—</span></td>
-            <td class="num"><span class="sem-ico sem-gris" role="img" aria-label="Sin información" title="Sin información. No se puede calcular el avance: el indicador está con meta, pero sin línea de base."></span><abbr title="El PDES fija una cobertura de agua de red del 93 % al Censo 2030; acá se expresa como su complemento, porque el Monitor mide la carencia y no la cobertura.">7</abbr></td>
+            <td class="num"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
             
           </tr>
           
@@ -372,7 +382,7 @@
               <a href="./tema/condiciones-vida.html" title="Ver el tablero: Condiciones de vida de los hogares"><span class="tabla-ind-ficha">I.7</span>Hogares: sin inodoro con descarga de agua <span class="tabla-ind-par">(%)</span></a>
             </th>
             
-            <td class="tabla-ind-frec">Anual</td>
+            <td class="tabla-ind-frec">Intercensal</td>
             <td class="tabla-ind-fuente"><abbr title="CESS sobre la base del Censo Nacional de Población, Hogares y Viviendas 2022 (INDEC/REDATAM)">INDEC, CNPV 2022</abbr></td>
             <td class="tabla-ind-geo"><abbr title="Departamento: 23 departamentos con datos">Depto.</abbr></td>
             <td class="num tabla-ind-dato">16,6</td>
@@ -388,7 +398,7 @@
               <a href="./tema/condiciones-vida.html" title="Ver el tablero: Condiciones de vida de los hogares"><span class="tabla-ind-ficha">I.8</span>Hogares: no propietarios de la vivienda <span class="tabla-ind-par">(%)</span></a>
             </th>
             
-            <td class="tabla-ind-frec">Anual</td>
+            <td class="tabla-ind-frec">Intercensal</td>
             <td class="tabla-ind-fuente"><abbr title="CESS sobre la base del Censo Nacional de Población, Hogares y Viviendas 2022 (INDEC/REDATAM)">INDEC, CNPV 2022</abbr></td>
             <td class="tabla-ind-geo"><abbr title="Departamento: 23 departamentos con datos">Depto.</abbr></td>
             <td class="num tabla-ind-dato">29,6</td>
@@ -404,7 +414,7 @@
               <a href="./tema/condiciones-vida.html" title="Ver el tablero: Condiciones de vida de los hogares"><span class="tabla-ind-ficha">I.9</span>Hogares: sin computadora ni tablet <span class="tabla-ind-par">(%)</span></a>
             </th>
             
-            <td class="tabla-ind-frec">Anual</td>
+            <td class="tabla-ind-frec">Intercensal</td>
             <td class="tabla-ind-fuente"><abbr title="CESS sobre la base del Censo Nacional de Población, Hogares y Viviendas 2022 (INDEC/REDATAM)">INDEC, CNPV 2022</abbr></td>
             <td class="tabla-ind-geo"><abbr title="Departamento: 23 departamentos con datos">Depto.</abbr></td>
             <td class="num tabla-ind-dato">53,1</td>
@@ -420,7 +430,7 @@
               <a href="./tema/condiciones-vida.html" title="Ver el tablero: Condiciones de vida de los hogares"><span class="tabla-ind-ficha">I.10</span>Hogares sin internet en la vivienda <span class="tabla-ind-par">(%)</span></a>
             </th>
             
-            <td class="tabla-ind-frec">Anual</td>
+            <td class="tabla-ind-frec">Intercensal</td>
             <td class="tabla-ind-fuente"><abbr title="CESS sobre la base del Censo Nacional de Población, Hogares y Viviendas 2022 (INDEC/REDATAM)">INDEC, CNPV 2022</abbr></td>
             <td class="tabla-ind-geo"><abbr title="Departamento: 23 departamentos con datos">Depto.</abbr></td>
             <td class="num tabla-ind-dato">37,3</td>
@@ -436,12 +446,60 @@
               <a href="./tema/condiciones-vida.html" title="Ver el tablero: Condiciones de vida de los hogares"><span class="tabla-ind-ficha">I.11</span>Hogares: sin celular con internet <span class="tabla-ind-par">(%)</span></a>
             </th>
             
-            <td class="tabla-ind-frec">Anual</td>
+            <td class="tabla-ind-frec">Intercensal</td>
             <td class="tabla-ind-fuente"><abbr title="CESS sobre la base del Censo Nacional de Población, Hogares y Viviendas 2022 (INDEC/REDATAM)">INDEC, CNPV 2022</abbr></td>
             <td class="tabla-ind-geo"><abbr title="Departamento: 23 departamentos con datos">Depto.</abbr></td>
             <td class="num tabla-ind-dato">17,9</td>
             <td class="num">2022</td>
             <td class="num"><span class="tabla-ind-var none">sin base</span></td>
+            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="La serie no tiene dato en 2024 para este período">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
+            
+          </tr>
+          
+          <tr>
+            <th scope="row">
+              <a href="./tema/pdes-privacion.html" title="Ver el tablero: Privación por departamento y región (censos 2010 y 2022)"><span class="tabla-ind-ficha tabla-ind-vacio" title="Todavía sin ficha en las notas técnicas">—</span>Personas en hogares con NBI <span class="tabla-ind-par">(%)</span></a>
+            </th>
+            
+            <td class="tabla-ind-frec">Intercensal</td>
+            <td class="tabla-ind-fuente"><abbr title="Censos Nacionales de Población, Hogares y Viviendas 2010 y 2022 (INDEC), procesamiento de microdatos para el PDES 2030 (J. Paz)">INDEC, CNPV 2010-22</abbr></td>
+            <td class="tabla-ind-geo"><abbr title="Departamento y región: 23 departamentos y 8 regiones del PDES">Depto./región</abbr></td>
+            <td class="num tabla-ind-dato">16,9</td>
+            <td class="num">2022</td>
+            <td class="num"><span class="tabla-ind-var down invertido">▼ 8,6 p.p.</span></td>
+            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="La serie no tiene dato en 2024 para este período">—</span></td>
+            <td class="num"><span class="sem-ico sem-gris" role="img" aria-label="Sin información" title="Sin información. No se puede calcular el avance: el indicador está con meta, pero sin línea de base."></span><abbr title="El PDES fija la meta de «NBI población» al Censo 2030 (la de NBI hogares, 10 %, está en el indicador de hogares).">12</abbr></td>
+            
+          </tr>
+          
+          <tr>
+            <th scope="row">
+              <a href="./tema/pdes-privacion.html" title="Ver el tablero: Privación por departamento y región (censos 2010 y 2022)"><span class="tabla-ind-ficha tabla-ind-vacio" title="Todavía sin ficha en las notas técnicas">—</span>Personas en hogares sin agua de red pública <span class="tabla-ind-par">(%)</span></a>
+            </th>
+            
+            <td class="tabla-ind-frec">Intercensal</td>
+            <td class="tabla-ind-fuente"><abbr title="Censos Nacionales de Población, Hogares y Viviendas 2010 y 2022 (INDEC), procesamiento de microdatos para el PDES 2030 (J. Paz)">INDEC, CNPV 2010-22</abbr></td>
+            <td class="tabla-ind-geo"><abbr title="Departamento y región: 23 departamentos y 8 regiones del PDES">Depto./región</abbr></td>
+            <td class="num tabla-ind-dato">8,32</td>
+            <td class="num">2022</td>
+            <td class="num"><span class="tabla-ind-var up invertido">▲ 0,3 p.p.</span></td>
+            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="La serie no tiene dato en 2024 para este período">—</span></td>
+            <td class="num"><span class="sem-ico sem-gris" role="img" aria-label="Sin información" title="Sin información. No se puede calcular el avance: el indicador está con meta, pero sin línea de base."></span><abbr title="El PDES fija una cobertura de agua de red del 93 % al Censo 2030; acá se expresa como su complemento, porque el Monitor mide la carencia y no la cobertura.">7</abbr></td>
+            
+          </tr>
+          
+          <tr>
+            <th scope="row">
+              <a href="./tema/pdes-privacion.html" title="Ver el tablero: Privación por departamento y región (censos 2010 y 2022)"><span class="tabla-ind-ficha tabla-ind-vacio" title="Todavía sin ficha en las notas técnicas">—</span>Personas indígenas en hogares con NBI <span class="tabla-ind-par">(%)</span></a><abbr class="tabla-ind-nota" title="La pregunta cambia entre censos (por hogar en 2010, autorreconocimiento individual en 2022): la variación no es la de una misma población.">ⓘ</abbr>
+            </th>
+            
+            <td class="tabla-ind-frec">Intercensal</td>
+            <td class="tabla-ind-fuente"><abbr title="Censos Nacionales de Población, Hogares y Viviendas 2010 y 2022 (INDEC), procesamiento de microdatos para el PDES 2030 (J. Paz)">INDEC, CNPV 2010-22</abbr></td>
+            <td class="tabla-ind-geo"><abbr title="Departamento y región: 23 departamentos y 8 regiones del PDES">Depto./región</abbr></td>
+            <td class="num tabla-ind-dato">32,3</td>
+            <td class="num">2022</td>
+            <td class="num"><span class="tabla-ind-var down invertido">▼ 17,3 p.p.</span></td>
             <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="La serie no tiene dato en 2024 para este período">—</span></td>
             <td class="num"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
             
@@ -569,15 +627,15 @@
           
           <tr>
             <th scope="row">
-              <a href="./tema/salud-reproduccion.html" title="Ver el tablero: Salud y reproducción por departamento"><span class="tabla-ind-ficha">II.8</span>Tasa de mortalidad infantil, trienio 2021-2023 <span class="tabla-ind-par">(c/ mil nacidos vivos)</span></a>
+              <a href="./tema/pdes-salud.html" title="Ver el tablero: Salud materno-infantil por departamento y región"><span class="tabla-ind-ficha">II.8</span>Tasa de mortalidad infantil <span class="tabla-ind-par">(c/ mil nacidos vivos)</span></a>
             </th>
             
-            <td class="tabla-ind-frec">Anual</td>
-            <td class="tabla-ind-fuente"><abbr title="CESS sobre la base de defunciones y nacimientos 2021-2023 (DEIS, Ministerio de Salud) y Censo 2022 (INDEC)">DEIS e INDEC</abbr></td>
-            <td class="tabla-ind-geo"><abbr title="Departamento: 23 departamentos con datos">Depto.</abbr></td>
+            <td class="tabla-ind-frec">Entre trienios</td>
+            <td class="tabla-ind-fuente"><abbr title="Estadísticas vitales (DEIS, Ministerio de Salud de la Nación), trienios 2018-2020 y 2021-2023, procesadas para el PDES 2030 (J. Paz)">DEIS</abbr></td>
+            <td class="tabla-ind-geo"><abbr title="Departamento y región: 23 departamentos y 8 regiones del PDES">Depto./región</abbr></td>
             <td class="num tabla-ind-dato">9,12</td>
-            <td class="num">2023</td>
-            <td class="num"><span class="tabla-ind-var none">sin base</span></td>
+            <td class="num">2021-23</td>
+            <td class="num"><span class="tabla-ind-var down invertido">▼ 16,1 %</span></td>
             <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="La serie no tiene dato en 2024 para este período">—</span></td>
             <td class="num"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
             
@@ -601,15 +659,15 @@
           
           <tr>
             <th scope="row">
-              <a href="./tema/salud-reproduccion.html" title="Ver el tablero: Salud y reproducción por departamento"><span class="tabla-ind-ficha">II.10</span>Nacidos vivos con bajo peso al nacer <span class="tabla-ind-par">(%)</span></a>
+              <a href="./tema/pdes-salud.html" title="Ver el tablero: Salud materno-infantil por departamento y región"><span class="tabla-ind-ficha">II.10</span>Nacidos vivos con bajo peso al nacer <span class="tabla-ind-par">(%)</span></a><abbr class="tabla-ind-nota" title="Menos de 2.500 g, sobre los nacidos vivos con peso informado.">ⓘ</abbr>
             </th>
             
-            <td class="tabla-ind-frec">Anual</td>
-            <td class="tabla-ind-fuente"><abbr title="CESS sobre la base de defunciones y nacimientos 2021-2023 (DEIS, Ministerio de Salud) y Censo 2022 (INDEC)">DEIS e INDEC</abbr></td>
-            <td class="tabla-ind-geo"><abbr title="Departamento: 23 departamentos con datos">Depto.</abbr></td>
-            <td class="num tabla-ind-dato">7,61</td>
-            <td class="num">2023</td>
-            <td class="num"><span class="tabla-ind-var none">sin base</span></td>
+            <td class="tabla-ind-frec">Entre trienios</td>
+            <td class="tabla-ind-fuente"><abbr title="Estadísticas vitales (DEIS, Ministerio de Salud de la Nación), trienios 2018-2020 y 2021-2023, procesadas para el PDES 2030 (J. Paz)">DEIS</abbr></td>
+            <td class="tabla-ind-geo"><abbr title="Departamento y región: 23 departamentos y 8 regiones del PDES">Depto./región</abbr></td>
+            <td class="num tabla-ind-dato">7,63</td>
+            <td class="num">2021-23</td>
+            <td class="num"><span class="tabla-ind-var up invertido">▲ 0,1 p.p.</span></td>
             <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="La serie no tiene dato en 2024 para este período">—</span></td>
             <td class="num"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
             
@@ -729,15 +787,15 @@
           
           <tr>
             <th scope="row">
-              <a href="./tema/salud-reproduccion.html" title="Ver el tablero: Salud y reproducción por departamento"><span class="tabla-ind-ficha">II.18</span>Fecundidad adolescente (15 a 19) <span class="tabla-ind-par">(c/ mil mujeres)</span></a>
+              <a href="./tema/pdes-salud.html" title="Ver el tablero: Salud materno-infantil por departamento y región"><span class="tabla-ind-ficha">II.18</span>Fecundidad adolescente (15 a 19) <span class="tabla-ind-par">(c/ mil mujeres)</span></a>
             </th>
             
-            <td class="tabla-ind-frec">Anual</td>
-            <td class="tabla-ind-fuente"><abbr title="CESS sobre la base de defunciones y nacimientos 2021-2023 (DEIS, Ministerio de Salud) y Censo 2022 (INDEC)">DEIS e INDEC</abbr></td>
-            <td class="tabla-ind-geo"><abbr title="Departamento: 23 departamentos con datos">Depto.</abbr></td>
+            <td class="tabla-ind-frec">Entre trienios</td>
+            <td class="tabla-ind-fuente"><abbr title="Estadísticas vitales (DEIS, Ministerio de Salud de la Nación), trienios 2018-2020 y 2021-2023, procesadas para el PDES 2030 (J. Paz)">DEIS</abbr></td>
+            <td class="tabla-ind-geo"><abbr title="Departamento y región: 23 departamentos y 8 regiones del PDES">Depto./región</abbr></td>
             <td class="num tabla-ind-dato">34,6</td>
-            <td class="num">2023</td>
-            <td class="num"><span class="tabla-ind-var none">sin base</span></td>
+            <td class="num">2021-23</td>
+            <td class="num"><span class="tabla-ind-var down invertido">▼ 37,1 %</span></td>
             <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="La serie no tiene dato en 2024 para este período">—</span></td>
             <td class="num"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
             
@@ -980,15 +1038,15 @@
           
           <tr>
             <th scope="row">
-              <a href="./tema/educacion-aprendizajes.html" title="Ver el tablero: Trayectorias y aprendizajes por departamento"><span class="tabla-ind-ficha">III.1</span>Matrícula de primaria y secundaria <span class="tabla-ind-par">(alumnos)</span></a>
+              <a href="./tema/pdes-educacion.html" title="Ver el tablero: Trayectorias y aprendizajes, 2018 y 2025"><span class="tabla-ind-ficha">III.1</span>Matrícula de primaria y secundaria <span class="tabla-ind-par">(alumnos)</span></a>
             </th>
             
-            <td class="tabla-ind-frec">Anual</td>
-            <td class="tabla-ind-fuente"><abbr title="CESS sobre la base del Relevamiento Anual 2025 y Aprender 2025 (Ministerio de Educación de la Nación)">Educación Nación</abbr></td>
-            <td class="tabla-ind-geo"><abbr title="Departamento: 23 departamentos con datos">Depto.</abbr></td>
-            <td class="num tabla-ind-dato">308.566</td>
+            <td class="tabla-ind-frec">Entre 2018 y 2025</td>
+            <td class="tabla-ind-fuente"><abbr title="Relevamiento Anual y Aprender 2018 y 2025 (DiNIEE, Ministerio de Capital Humano), procesados para el PDES 2030 (J. Paz)">RA y Aprender</abbr></td>
+            <td class="tabla-ind-geo"><abbr title="Departamento y región: 23 departamentos y 8 regiones del PDES">Depto./región</abbr></td>
+            <td class="num tabla-ind-dato">308.460</td>
             <td class="num">2025</td>
-            <td class="num"><span class="tabla-ind-var none">sin base</span></td>
+            <td class="num"><span class="tabla-ind-var down neutro">▼ 1,2 %</span></td>
             <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="La serie no tiene dato en 2024 para este período">—</span></td>
             <td class="num"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
             
@@ -996,15 +1054,15 @@
           
           <tr>
             <th scope="row">
-              <a href="./tema/educacion-aprendizajes.html" title="Ver el tablero: Trayectorias y aprendizajes por departamento"><span class="tabla-ind-ficha">III.2</span>Repitencia en secundaria <span class="tabla-ind-par">(%)</span></a>
+              <a href="./tema/pdes-educacion.html" title="Ver el tablero: Trayectorias y aprendizajes, 2018 y 2025"><span class="tabla-ind-ficha">III.2</span>Repitencia en secundaria <span class="tabla-ind-par">(%)</span></a>
             </th>
             
-            <td class="tabla-ind-frec">Anual</td>
-            <td class="tabla-ind-fuente"><abbr title="CESS sobre la base del Relevamiento Anual 2025 y Aprender 2025 (Ministerio de Educación de la Nación)">Educación Nación</abbr></td>
-            <td class="tabla-ind-geo"><abbr title="Departamento: 23 departamentos con datos">Depto.</abbr></td>
+            <td class="tabla-ind-frec">Entre 2018 y 2025</td>
+            <td class="tabla-ind-fuente"><abbr title="Relevamiento Anual y Aprender 2018 y 2025 (DiNIEE, Ministerio de Capital Humano), procesados para el PDES 2030 (J. Paz)">RA y Aprender</abbr></td>
+            <td class="tabla-ind-geo"><abbr title="Departamento y región: 23 departamentos y 8 regiones del PDES">Depto./región</abbr></td>
             <td class="num tabla-ind-dato">11,4</td>
             <td class="num">2025</td>
-            <td class="num"><span class="tabla-ind-var none">sin base</span></td>
+            <td class="num"><span class="tabla-ind-var down invertido">▼ 0,7 p.p.</span></td>
             <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="La serie no tiene dato en 2024 para este período">—</span></td>
             <td class="num"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
             
@@ -1060,15 +1118,15 @@
           
           <tr>
             <th scope="row">
-              <a href="./tema/educacion-aprendizajes.html" title="Ver el tablero: Trayectorias y aprendizajes por departamento"><span class="tabla-ind-ficha">III.8</span>Aprender 6.º grado, Matemática: alumnos en nivel satisfactorio o avanzado <span class="tabla-ind-par">(%)</span></a>
+              <a href="./tema/pdes-educacion.html" title="Ver el tablero: Trayectorias y aprendizajes, 2018 y 2025"><span class="tabla-ind-ficha">III.8</span>Aprender 6.º grado, Matemática: alumnos en nivel satisfactorio o avanzado <span class="tabla-ind-par">(%)</span></a>
             </th>
             
-            <td class="tabla-ind-frec">Anual</td>
-            <td class="tabla-ind-fuente"><abbr title="CESS sobre la base del Relevamiento Anual 2025 y Aprender 2025 (Ministerio de Educación de la Nación)">Educación Nación</abbr></td>
-            <td class="tabla-ind-geo"><abbr title="Departamento: 23 departamentos con datos">Depto.</abbr></td>
+            <td class="tabla-ind-frec">Entre 2018 y 2025</td>
+            <td class="tabla-ind-fuente"><abbr title="Relevamiento Anual y Aprender 2018 y 2025 (DiNIEE, Ministerio de Capital Humano), procesados para el PDES 2030 (J. Paz)">RA y Aprender</abbr></td>
+            <td class="tabla-ind-geo"><abbr title="Departamento y región: 23 departamentos y 8 regiones del PDES">Depto./región</abbr></td>
             <td class="num tabla-ind-dato">51,0</td>
             <td class="num">2025</td>
-            <td class="num"><span class="tabla-ind-var none">sin base</span></td>
+            <td class="num"><span class="tabla-ind-var down">▼ 8,9 p.p.</span></td>
             <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="La serie no tiene dato en 2024 para este período">—</span></td>
             <td class="num"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
             
@@ -1138,6 +1196,86 @@
             
           </tr>
           
+          <tr>
+            <th scope="row">
+              <a href="./tema/pdes-educacion.html" title="Ver el tablero: Trayectorias y aprendizajes, 2018 y 2025"><span class="tabla-ind-ficha tabla-ind-vacio" title="Todavía sin ficha en las notas técnicas">—</span>Repitencia en primaria <span class="tabla-ind-par">(%)</span></a>
+            </th>
+            
+            <td class="tabla-ind-frec">Entre 2018 y 2025</td>
+            <td class="tabla-ind-fuente"><abbr title="Relevamiento Anual y Aprender 2018 y 2025 (DiNIEE, Ministerio de Capital Humano), procesados para el PDES 2030 (J. Paz)">RA y Aprender</abbr></td>
+            <td class="tabla-ind-geo"><abbr title="Departamento y región: 23 departamentos y 8 regiones del PDES">Depto./región</abbr></td>
+            <td class="num tabla-ind-dato">1,23</td>
+            <td class="num">2025</td>
+            <td class="num"><span class="tabla-ind-var down invertido">▼ 1,4 p.p.</span></td>
+            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="La serie no tiene dato en 2024 para este período">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
+            
+          </tr>
+          
+          <tr>
+            <th scope="row">
+              <a href="./tema/pdes-educacion.html" title="Ver el tablero: Trayectorias y aprendizajes, 2018 y 2025"><span class="tabla-ind-ficha tabla-ind-vacio" title="Todavía sin ficha en las notas técnicas">—</span>Sobreedad en primaria <span class="tabla-ind-par">(%)</span></a>
+            </th>
+            
+            <td class="tabla-ind-frec">Entre 2018 y 2025</td>
+            <td class="tabla-ind-fuente"><abbr title="Relevamiento Anual y Aprender 2018 y 2025 (DiNIEE, Ministerio de Capital Humano), procesados para el PDES 2030 (J. Paz)">RA y Aprender</abbr></td>
+            <td class="tabla-ind-geo"><abbr title="Departamento y región: 23 departamentos y 8 regiones del PDES">Depto./región</abbr></td>
+            <td class="num tabla-ind-dato">4,66</td>
+            <td class="num">2025</td>
+            <td class="num"><span class="tabla-ind-var down invertido">▼ 7,9 p.p.</span></td>
+            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="La serie no tiene dato en 2024 para este período">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
+            
+          </tr>
+          
+          <tr>
+            <th scope="row">
+              <a href="./tema/pdes-educacion.html" title="Ver el tablero: Trayectorias y aprendizajes, 2018 y 2025"><span class="tabla-ind-ficha tabla-ind-vacio" title="Todavía sin ficha en las notas técnicas">—</span>Sobreedad en secundaria <span class="tabla-ind-par">(%)</span></a>
+            </th>
+            
+            <td class="tabla-ind-frec">Entre 2018 y 2025</td>
+            <td class="tabla-ind-fuente"><abbr title="Relevamiento Anual y Aprender 2018 y 2025 (DiNIEE, Ministerio de Capital Humano), procesados para el PDES 2030 (J. Paz)">RA y Aprender</abbr></td>
+            <td class="tabla-ind-geo"><abbr title="Departamento y región: 23 departamentos y 8 regiones del PDES">Depto./región</abbr></td>
+            <td class="num tabla-ind-dato">29,3</td>
+            <td class="num">2025</td>
+            <td class="num"><span class="tabla-ind-var down invertido">▼ 11,8 p.p.</span></td>
+            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="La serie no tiene dato en 2024 para este período">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
+            
+          </tr>
+          
+          <tr>
+            <th scope="row">
+              <a href="./tema/pdes-educacion.html" title="Ver el tablero: Trayectorias y aprendizajes, 2018 y 2025"><span class="tabla-ind-ficha tabla-ind-vacio" title="Todavía sin ficha en las notas técnicas">—</span>Aprender 6.º grado, Matemática: alumnos por debajo del nivel básico <span class="tabla-ind-par">(%)</span></a>
+            </th>
+            
+            <td class="tabla-ind-frec">Entre 2018 y 2025</td>
+            <td class="tabla-ind-fuente"><abbr title="Relevamiento Anual y Aprender 2018 y 2025 (DiNIEE, Ministerio de Capital Humano), procesados para el PDES 2030 (J. Paz)">RA y Aprender</abbr></td>
+            <td class="tabla-ind-geo"><abbr title="Departamento y región: 23 departamentos y 8 regiones del PDES">Depto./región</abbr></td>
+            <td class="num tabla-ind-dato">22,6</td>
+            <td class="num">2025</td>
+            <td class="num"><span class="tabla-ind-var up invertido">▲ 5,1 p.p.</span></td>
+            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="La serie no tiene dato en 2024 para este período">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
+            
+          </tr>
+          
+          <tr>
+            <th scope="row">
+              <a href="./tema/pdes-educacion.html" title="Ver el tablero: Trayectorias y aprendizajes, 2018 y 2025"><span class="tabla-ind-ficha tabla-ind-vacio" title="Todavía sin ficha en las notas técnicas">—</span>Alumnos de 6.º que asistieron al jardín desde sala de 3 <span class="tabla-ind-par">(%)</span></a>
+            </th>
+            
+            <td class="tabla-ind-frec">Entre 2018 y 2025</td>
+            <td class="tabla-ind-fuente"><abbr title="Relevamiento Anual y Aprender 2018 y 2025 (DiNIEE, Ministerio de Capital Humano), procesados para el PDES 2030 (J. Paz)">RA y Aprender</abbr></td>
+            <td class="tabla-ind-geo"><abbr title="Departamento y región: 23 departamentos y 8 regiones del PDES">Depto./región</abbr></td>
+            <td class="num tabla-ind-dato">45,2</td>
+            <td class="num">2025</td>
+            <td class="num"><span class="tabla-ind-var up">▲ 10,4 p.p.</span></td>
+            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="La serie no tiene dato en 2024 para este período">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
+            
+          </tr>
+          
           
           <tr class="tipo-row tipo-oferta"><th class="tipo-row-head" colspan="9" scope="colgroup">De oferta o proceso</th></tr>
           
@@ -1185,6 +1323,94 @@
             <td class="num">2024</td>
             <td class="num"><span class="tabla-ind-var up">▲ 23,3 %</span></td>
             <td class="num tabla-ind-meta-ini"><abbr title="Dato de 2024">39.547</abbr></td>
+            <td class="num"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
+            
+          </tr>
+          
+          
+        </tbody>
+        
+        <tbody>
+          <tr class="subeje-row"><th class="subeje-row-head" colspan="9" scope="colgroup">Trabajo</th></tr>
+          
+          <tr class="tipo-row tipo-resultado"><th class="tipo-row-head" colspan="9" scope="colgroup">De resultados</th></tr>
+          
+          <tr>
+            <th scope="row">
+              <a href="./tema/pdes-trabajo.html" title="Ver el tablero: Trabajo por departamento y región (censos 2010 y 2022)"><span class="tabla-ind-ficha tabla-ind-vacio" title="Todavía sin ficha en las notas técnicas">—</span>Tasa de desocupación, 18 años y más <span class="tabla-ind-par">(%)</span></a>
+            </th>
+            
+            <td class="tabla-ind-frec">Intercensal</td>
+            <td class="tabla-ind-fuente"><abbr title="Censos Nacionales de Población, Hogares y Viviendas 2010 y 2022 (INDEC), procesamiento de microdatos para el PDES 2030 (J. Paz)">INDEC, CNPV 2010-22</abbr></td>
+            <td class="tabla-ind-geo"><abbr title="Departamento y región: 23 departamentos y 8 regiones del PDES">Depto./región</abbr></td>
+            <td class="num tabla-ind-dato">7,91</td>
+            <td class="num">2022</td>
+            <td class="num"><span class="tabla-ind-var up invertido">▲ 0,2 p.p.</span></td>
+            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="La serie no tiene dato en 2024 para este período">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
+            
+          </tr>
+          
+          <tr>
+            <th scope="row">
+              <a href="./tema/pdes-trabajo.html" title="Ver el tablero: Trabajo por departamento y región (censos 2010 y 2022)"><span class="tabla-ind-ficha tabla-ind-vacio" title="Todavía sin ficha en las notas técnicas">—</span>Informalidad laboral, ocupados de 18 a 64 años <span class="tabla-ind-par">(%)</span></a><abbr class="tabla-ind-nota" title="Ocupados sin descuento ni aporte jubilatorio.">ⓘ</abbr>
+            </th>
+            
+            <td class="tabla-ind-frec">Intercensal</td>
+            <td class="tabla-ind-fuente"><abbr title="Censos Nacionales de Población, Hogares y Viviendas 2010 y 2022 (INDEC), procesamiento de microdatos para el PDES 2030 (J. Paz)">INDEC, CNPV 2010-22</abbr></td>
+            <td class="tabla-ind-geo"><abbr title="Departamento y región: 23 departamentos y 8 regiones del PDES">Depto./región</abbr></td>
+            <td class="num tabla-ind-dato">45,6</td>
+            <td class="num">2022</td>
+            <td class="num"><span class="tabla-ind-var down invertido">▼ 3,7 p.p.</span></td>
+            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="La serie no tiene dato en 2024 para este período">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
+            
+          </tr>
+          
+          <tr>
+            <th scope="row">
+              <a href="./tema/pdes-trabajo.html" title="Ver el tablero: Trabajo por departamento y región (censos 2010 y 2022)"><span class="tabla-ind-ficha tabla-ind-vacio" title="Todavía sin ficha en las notas técnicas">—</span>Brecha de participación varones-mujeres, 18 a 64 años <span class="tabla-ind-par">(p.p.)</span></a><abbr class="tabla-ind-nota" title="Tasa de actividad de varones menos la de mujeres.">ⓘ</abbr>
+            </th>
+            
+            <td class="tabla-ind-frec">Intercensal</td>
+            <td class="tabla-ind-fuente"><abbr title="Censos Nacionales de Población, Hogares y Viviendas 2010 y 2022 (INDEC), procesamiento de microdatos para el PDES 2030 (J. Paz)">INDEC, CNPV 2010-22</abbr></td>
+            <td class="tabla-ind-geo"><abbr title="Departamento y región: 23 departamentos y 8 regiones del PDES">Depto./región</abbr></td>
+            <td class="num tabla-ind-dato">17,5</td>
+            <td class="num">2022</td>
+            <td class="num"><span class="tabla-ind-var down invertido">▼ 8,8 p.p.</span></td>
+            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="La serie no tiene dato en 2024 para este período">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
+            
+          </tr>
+          
+          <tr>
+            <th scope="row">
+              <a href="./tema/pdes-trabajo.html" title="Ver el tablero: Trabajo por departamento y región (censos 2010 y 2022)"><span class="tabla-ind-ficha tabla-ind-vacio" title="Todavía sin ficha en las notas técnicas">—</span>Tasa de actividad de mujeres, 18 a 64 años <span class="tabla-ind-par">(%)</span></a>
+            </th>
+            
+            <td class="tabla-ind-frec">Intercensal</td>
+            <td class="tabla-ind-fuente"><abbr title="Censos Nacionales de Población, Hogares y Viviendas 2010 y 2022 (INDEC), procesamiento de microdatos para el PDES 2030 (J. Paz)">INDEC, CNPV 2010-22</abbr></td>
+            <td class="tabla-ind-geo"><abbr title="Departamento y región: 23 departamentos y 8 regiones del PDES">Depto./región</abbr></td>
+            <td class="num tabla-ind-dato">64,1</td>
+            <td class="num">2022</td>
+            <td class="num"><span class="tabla-ind-var up">▲ 8,4 p.p.</span></td>
+            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="La serie no tiene dato en 2024 para este período">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
+            
+          </tr>
+          
+          <tr>
+            <th scope="row">
+              <a href="./tema/pdes-trabajo.html" title="Ver el tablero: Trabajo por departamento y región (censos 2010 y 2022)"><span class="tabla-ind-ficha tabla-ind-vacio" title="Todavía sin ficha en las notas técnicas">—</span>Tasa de actividad de varones, 18 a 64 años <span class="tabla-ind-par">(%)</span></a>
+            </th>
+            
+            <td class="tabla-ind-frec">Intercensal</td>
+            <td class="tabla-ind-fuente"><abbr title="Censos Nacionales de Población, Hogares y Viviendas 2010 y 2022 (INDEC), procesamiento de microdatos para el PDES 2030 (J. Paz)">INDEC, CNPV 2010-22</abbr></td>
+            <td class="tabla-ind-geo"><abbr title="Departamento y región: 23 departamentos y 8 regiones del PDES">Depto./región</abbr></td>
+            <td class="num tabla-ind-dato">81,7</td>
+            <td class="num">2022</td>
+            <td class="num"><span class="tabla-ind-var down neutro">▼ 0,4 p.p.</span></td>
+            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="La serie no tiene dato en 2024 para este período">—</span></td>
             <td class="num"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
             
           </tr>
@@ -1357,6 +1583,70 @@
             
           </tr>
           
+          <tr>
+            <th scope="row">
+              <a href="./tema/pdes-delitos.html" title="Ver el tablero: Delitos registrados por departamento y región"><span class="tabla-ind-ficha tabla-ind-vacio" title="Todavía sin ficha en las notas técnicas">—</span>Víctimas de homicidio doloso <span class="tabla-ind-par">(c/ 100 mil hab.)</span></a>
+            </th>
+            
+            <td class="tabla-ind-frec">Entre trienios</td>
+            <td class="tabla-ind-fuente"><abbr title="Sistema Nacional de Información Criminal (SNIC, Ministerio de Seguridad de la Nación), trienios 2013-2015 y 2021-2023, procesado para el PDES 2030 (J. Paz)">SNIC</abbr></td>
+            <td class="tabla-ind-geo"><abbr title="Departamento y región: 23 departamentos y 8 regiones del PDES">Depto./región</abbr></td>
+            <td class="num tabla-ind-dato">4,08</td>
+            <td class="num">2021-23</td>
+            <td class="num"><span class="tabla-ind-var down invertido">▼ 30,0 %</span></td>
+            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="La serie no tiene dato en 2024 para este período">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
+            
+          </tr>
+          
+          <tr>
+            <th scope="row">
+              <a href="./tema/pdes-delitos.html" title="Ver el tablero: Delitos registrados por departamento y región"><span class="tabla-ind-ficha tabla-ind-vacio" title="Todavía sin ficha en las notas técnicas">—</span>Robos y tentativas de robo <span class="tabla-ind-par">(c/ 100 mil hab.)</span></a>
+            </th>
+            
+            <td class="tabla-ind-frec">Entre trienios</td>
+            <td class="tabla-ind-fuente"><abbr title="Sistema Nacional de Información Criminal (SNIC, Ministerio de Seguridad de la Nación), trienios 2013-2015 y 2021-2023, procesado para el PDES 2030 (J. Paz)">SNIC</abbr></td>
+            <td class="tabla-ind-geo"><abbr title="Departamento y región: 23 departamentos y 8 regiones del PDES">Depto./región</abbr></td>
+            <td class="num tabla-ind-dato">1.417</td>
+            <td class="num">2021-23</td>
+            <td class="num"><span class="tabla-ind-var up invertido">▲ 0,4 %</span></td>
+            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="La serie no tiene dato en 2024 para este período">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
+            
+          </tr>
+          
+          <tr>
+            <th scope="row">
+              <a href="./tema/pdes-delitos.html" title="Ver el tablero: Delitos registrados por departamento y región"><span class="tabla-ind-ficha tabla-ind-vacio" title="Todavía sin ficha en las notas técnicas">—</span>Lesiones dolosas <span class="tabla-ind-par">(c/ 100 mil hab.)</span></a>
+            </th>
+            
+            <td class="tabla-ind-frec">Entre trienios</td>
+            <td class="tabla-ind-fuente"><abbr title="Sistema Nacional de Información Criminal (SNIC, Ministerio de Seguridad de la Nación), trienios 2013-2015 y 2021-2023, procesado para el PDES 2030 (J. Paz)">SNIC</abbr></td>
+            <td class="tabla-ind-geo"><abbr title="Departamento y región: 23 departamentos y 8 regiones del PDES">Depto./región</abbr></td>
+            <td class="num tabla-ind-dato">725,0</td>
+            <td class="num">2021-23</td>
+            <td class="num"><span class="tabla-ind-var down invertido">▼ 15,0 %</span></td>
+            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="La serie no tiene dato en 2024 para este período">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
+            
+          </tr>
+          
+          <tr>
+            <th scope="row">
+              <a href="./tema/pdes-delitos.html" title="Ver el tablero: Delitos registrados por departamento y región"><span class="tabla-ind-ficha tabla-ind-vacio" title="Todavía sin ficha en las notas técnicas">—</span>Abusos sexuales con acceso carnal <span class="tabla-ind-par">(c/ 100 mil hab.)</span></a><abbr class="tabla-ind-nota" title="Hechos registrados, no víctimas mujeres: entre un tercio y la mitad de las víctimas no tiene sexo registrado.">ⓘ</abbr>
+            </th>
+            
+            <td class="tabla-ind-frec">Entre trienios</td>
+            <td class="tabla-ind-fuente"><abbr title="Sistema Nacional de Información Criminal (SNIC, Ministerio de Seguridad de la Nación), trienios 2013-2015 y 2021-2023, procesado para el PDES 2030 (J. Paz)">SNIC</abbr></td>
+            <td class="tabla-ind-geo"><abbr title="Departamento y región: 23 departamentos y 8 regiones del PDES">Depto./región</abbr></td>
+            <td class="num tabla-ind-dato">24,1</td>
+            <td class="num">2021-23</td>
+            <td class="num"><span class="tabla-ind-var down invertido">▼ 2,3 %</span></td>
+            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="La serie no tiene dato en 2024 para este período">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
+            
+          </tr>
+          
           
         </tbody>
         
@@ -1379,7 +1669,7 @@
             <th scope="col"><abbr title="Máxima apertura territorial con la que la fuente publica este indicador. Provincia: sólo el total provincial.">Apertura</abbr></th>
             <th scope="col">Último dato</th>
             <th scope="col">Período</th>
-            <th scope="col">Var. interanual</th>
+            <th scope="col"><abbr title="Contra el período que indica la columna Frecuencia: el año anterior en las series anuales, el mismo trimestre o mes del año anterior en las trimestrales y mensuales, el censo anterior en las intercensales y el trienio anterior en las de trienios. Los porcentajes, en puntos porcentuales.">Variación</abbr></th>
             <th scope="col" class="tabla-ind-meta-ini"><abbr title="Dato de 2024, en el mismo período del año que el último dato (si el último es 2T2026, la base es 2T2024). Vacía cuando la serie no tiene dato en ese período.">Línea de base 2024</abbr></th>
             <th scope="col">Meta 2030 (PDES 2024)</th>
             
@@ -2225,7 +2515,7 @@
             <th scope="col"><abbr title="Máxima apertura territorial con la que la fuente publica este indicador. Provincia: sólo el total provincial.">Apertura</abbr></th>
             <th scope="col">Último dato</th>
             <th scope="col">Período</th>
-            <th scope="col">Var. interanual</th>
+            <th scope="col"><abbr title="Contra el período que indica la columna Frecuencia: el año anterior en las series anuales, el mismo trimestre o mes del año anterior en las trimestrales y mensuales, el censo anterior en las intercensales y el trienio anterior en las de trienios. Los porcentajes, en puntos porcentuales.">Variación</abbr></th>
             <th scope="col" class="tabla-ind-meta-ini"><abbr title="Dato de 2024, en el mismo período del año que el último dato (si el último es 2T2026, la base es 2T2024). Vacía cuando la serie no tiene dato en ese período.">Línea de base 2024</abbr></th>
             <th scope="col">Meta 2030 (PDES 2024)</th>
             
@@ -2475,12 +2765,12 @@
 
 <section class="wrap section" id="explorar">
   <h2 class="section-title">Explorar por eje del PDES</h2>
-  <p class="section-lead muted">El Plan de Desarrollo Estratégico organiza los indicadores en tres ejes y, dentro de cada uno, en subejes. Cada tarjeta resume un indicador —último valor y variación interanual— y lleva al gráfico que lo publica.</p>
+  <p class="section-lead muted">El Plan de Desarrollo Estratégico organiza los indicadores en tres ejes y, dentro de cada uno, en subejes. Cada tarjeta resume un indicador —último valor y variación contra el período anterior— y lleva al gráfico que lo publica.</p>
 
   <div class="eje-pills" role="tablist" aria-label="Ejes del PDES">
-    <button class="eje-pill is-active" data-eje="all" role="tab" aria-selected="true">Todos <span class="eje-count">127</span></button>
+    <button class="eje-pill is-active" data-eje="all" role="tab" aria-selected="true">Todos <span class="eje-count">144</span></button>
     
-    <button class="eje-pill" data-eje="sociocultural" role="tab" aria-selected="false">Sociocultural <span class="eje-count">66</span></button>
+    <button class="eje-pill" data-eje="sociocultural" role="tab" aria-selected="false">Sociocultural <span class="eje-count">83</span></button>
     
     <button class="eje-pill" data-eje="economico-productivo" role="tab" aria-selected="false">Económico-productivo <span class="eje-count">48</span></button>
     
@@ -2490,11 +2780,11 @@
 
   
   <div class="eje-block" data-eje="sociocultural" id="eje-sociocultural">
-    <h3 class="eje-title">Sociocultural <span class="eje-count">66</span></h3>
+    <h3 class="eje-title">Sociocultural <span class="eje-count">83</span></h3>
     <p class="eje-descr muted">Educación, salud, trabajo y condiciones de vida de la población.</p>
     
     <div class="subeje-block">
-      <h4 class="subeje-title">Condiciones de vida <span class="eje-count">11</span></h4>
+      <h4 class="subeje-title">Condiciones de vida <span class="eje-count">14</span></h4>
       
       <p class="tipo-title tipo-resultado">De resultados</p>
       <div class="cards">
@@ -2507,7 +2797,7 @@
             <span class="tabla-ind-var none">sin base</span>
             
           </p>
-          <span class="card-meta">Anual · último dato 2022</span>
+          <span class="card-meta">Intercensal · último dato 2022</span>
         </a>
         
         <a class="card card-ind" href="./tema/condiciones-vida.html#grafico-cv-ranking">
@@ -2518,7 +2808,7 @@
             <span class="tabla-ind-var none">sin base</span>
             
           </p>
-          <span class="card-meta">Anual · último dato 2022</span>
+          <span class="card-meta">Intercensal · último dato 2022</span>
         </a>
         
         <a class="card card-ind" href="./tema/condiciones-vida.html#grafico-cv-ranking">
@@ -2529,7 +2819,7 @@
             <span class="tabla-ind-var none">sin base</span>
             
           </p>
-          <span class="card-meta">Anual · último dato 2022</span>
+          <span class="card-meta">Intercensal · último dato 2022</span>
         </a>
         
         <a class="card card-ind" href="./tema/condiciones-vida.html#grafico-cv-ranking">
@@ -2540,7 +2830,7 @@
             <span class="tabla-ind-var none">sin base</span>
             
           </p>
-          <span class="card-meta">Anual · último dato 2022</span>
+          <span class="card-meta">Intercensal · último dato 2022</span>
         </a>
         
         <a class="card card-ind" href="./tema/condiciones-vida.html#grafico-cv-ranking">
@@ -2551,7 +2841,7 @@
             <span class="tabla-ind-var none">sin base</span>
             
           </p>
-          <span class="card-meta">Anual · último dato 2022</span>
+          <span class="card-meta">Intercensal · último dato 2022</span>
         </a>
         
         <a class="card card-ind" href="./tema/condiciones-vida.html#grafico-cv-ranking">
@@ -2562,7 +2852,7 @@
             <span class="tabla-ind-var none">sin base</span>
             
           </p>
-          <span class="card-meta">Anual · último dato 2022</span>
+          <span class="card-meta">Intercensal · último dato 2022</span>
         </a>
         
         <a class="card card-ind" href="./tema/condiciones-vida.html#grafico-cv-ranking">
@@ -2573,7 +2863,7 @@
             <span class="tabla-ind-var none">sin base</span>
             
           </p>
-          <span class="card-meta">Anual · último dato 2022</span>
+          <span class="card-meta">Intercensal · último dato 2022</span>
         </a>
         
         <a class="card card-ind" href="./tema/condiciones-vida.html#grafico-cv-ranking">
@@ -2584,7 +2874,7 @@
             <span class="tabla-ind-var none">sin base</span>
             
           </p>
-          <span class="card-meta">Anual · último dato 2022</span>
+          <span class="card-meta">Intercensal · último dato 2022</span>
         </a>
         
         <a class="card card-ind" href="./tema/condiciones-vida.html#grafico-cv-ranking">
@@ -2595,7 +2885,7 @@
             <span class="tabla-ind-var none">sin base</span>
             
           </p>
-          <span class="card-meta">Anual · último dato 2022</span>
+          <span class="card-meta">Intercensal · último dato 2022</span>
         </a>
         
         <a class="card card-ind" href="./tema/condiciones-vida.html#grafico-cv-ranking">
@@ -2606,7 +2896,7 @@
             <span class="tabla-ind-var none">sin base</span>
             
           </p>
-          <span class="card-meta">Anual · último dato 2022</span>
+          <span class="card-meta">Intercensal · último dato 2022</span>
         </a>
         
         <a class="card card-ind" href="./tema/condiciones-vida.html#grafico-cv-ranking">
@@ -2617,7 +2907,40 @@
             <span class="tabla-ind-var none">sin base</span>
             
           </p>
-          <span class="card-meta">Anual · último dato 2022</span>
+          <span class="card-meta">Intercensal · último dato 2022</span>
+        </a>
+        
+        <a class="card card-ind" href="./tema/pdes-privacion.html#grafico-pp-ranking">
+          <span class="card-area">Privación por departamento y región (censos 2010 y 2022)</span>
+          <h5 class="card-title">Personas en hogares con NBI (%)</h5>
+          <p class="card-ind-valor">16,9%</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var down invertido">▼ 8,6 p.p.</span>
+            <span class="card-ind-ref">2010</span>
+          </p>
+          <span class="card-meta">Intercensal · último dato 2022</span>
+        </a>
+        
+        <a class="card card-ind" href="./tema/pdes-privacion.html#grafico-pp-ranking">
+          <span class="card-area">Privación por departamento y región (censos 2010 y 2022)</span>
+          <h5 class="card-title">Personas en hogares sin agua de red pública (%)</h5>
+          <p class="card-ind-valor">8,32%</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var up invertido">▲ 0,3 p.p.</span>
+            <span class="card-ind-ref">2010</span>
+          </p>
+          <span class="card-meta">Intercensal · último dato 2022</span>
+        </a>
+        
+        <a class="card card-ind" href="./tema/pdes-privacion.html#grafico-pp-ranking">
+          <span class="card-area">Privación por departamento y región (censos 2010 y 2022)</span>
+          <h5 class="card-title">Personas indígenas en hogares con NBI (%)</h5>
+          <p class="card-ind-valor">32,3%</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var down invertido">▼ 17,3 p.p.</span>
+            <span class="card-ind-ref">2010</span>
+          </p>
+          <span class="card-meta">Intercensal · último dato 2022</span>
         </a>
         
       </div>
@@ -2707,15 +3030,15 @@
           <span class="card-meta">Anual · último dato 2023</span>
         </a>
         
-        <a class="card card-ind" href="./tema/salud-reproduccion.html#grafico-sr-materno-infantil">
-          <span class="card-area">Salud y reproducción por departamento</span>
-          <h5 class="card-title">Tasa de mortalidad infantil, trienio 2021-2023 (c/ mil nacidos vivos)</h5>
+        <a class="card card-ind" href="./tema/pdes-salud.html#grafico-ps-ranking">
+          <span class="card-area">Salud materno-infantil por departamento y región</span>
+          <h5 class="card-title">Tasa de mortalidad infantil (c/ mil nacidos vivos)</h5>
           <p class="card-ind-valor">9,12 por mil nacidos vivos</p>
           <p class="card-ind-var">
-            <span class="tabla-ind-var none">sin base</span>
-            
+            <span class="tabla-ind-var down invertido">▼ 16,1 %</span>
+            <span class="card-ind-ref">2018-20</span>
           </p>
-          <span class="card-meta">Anual · último dato 2023</span>
+          <span class="card-meta">Entre trienios · último dato 2021-23</span>
         </a>
         
         <a class="card card-ind" href="./tema/salud-reproduccion.html#grafico-sr-materno-infantil">
@@ -2729,15 +3052,15 @@
           <span class="card-meta">Anual · último dato 2023</span>
         </a>
         
-        <a class="card card-ind" href="./tema/salud-reproduccion.html#grafico-sr-materno-infantil">
-          <span class="card-area">Salud y reproducción por departamento</span>
+        <a class="card card-ind" href="./tema/pdes-salud.html#grafico-ps-ranking">
+          <span class="card-area">Salud materno-infantil por departamento y región</span>
           <h5 class="card-title">Nacidos vivos con bajo peso al nacer (%)</h5>
-          <p class="card-ind-valor">7,61%</p>
+          <p class="card-ind-valor">7,63%</p>
           <p class="card-ind-var">
-            <span class="tabla-ind-var none">sin base</span>
-            
+            <span class="tabla-ind-var up invertido">▲ 0,1 p.p.</span>
+            <span class="card-ind-ref">2018-20</span>
           </p>
-          <span class="card-meta">Anual · último dato 2023</span>
+          <span class="card-meta">Entre trienios · último dato 2021-23</span>
         </a>
         
         <a class="card card-ind" href="./tema/salud-reproduccion.html#grafico-sr-causas">
@@ -2817,15 +3140,15 @@
           <span class="card-meta">Anual · último dato 2023</span>
         </a>
         
-        <a class="card card-ind" href="./tema/salud-reproduccion.html#grafico-sr-fecundidad">
-          <span class="card-area">Salud y reproducción por departamento</span>
+        <a class="card card-ind" href="./tema/pdes-salud.html#grafico-ps-ranking">
+          <span class="card-area">Salud materno-infantil por departamento y región</span>
           <h5 class="card-title">Fecundidad adolescente (15 a 19) (c/ mil mujeres)</h5>
           <p class="card-ind-valor">34,6 por mil mujeres</p>
           <p class="card-ind-var">
-            <span class="tabla-ind-var none">sin base</span>
-            
+            <span class="tabla-ind-var down invertido">▼ 37,1 %</span>
+            <span class="card-ind-ref">2018-20</span>
           </p>
-          <span class="card-meta">Anual · último dato 2023</span>
+          <span class="card-meta">Entre trienios · último dato 2021-23</span>
         </a>
         
         <a class="card card-ind" href="./tema/salud-reproduccion.html#grafico-sr-fecundidad">
@@ -2992,31 +3315,31 @@
     </div>
     
     <div class="subeje-block">
-      <h4 class="subeje-title">Educación <span class="eje-count">13</span></h4>
+      <h4 class="subeje-title">Educación <span class="eje-count">18</span></h4>
       
       <p class="tipo-title tipo-resultado">De resultados</p>
       <div class="cards">
         
-        <a class="card card-ind" href="./tema/educacion-aprendizajes.html#grafico-ea-trayectorias">
-          <span class="card-area">Trayectorias y aprendizajes por departamento</span>
+        <a class="card card-ind" href="./tema/pdes-educacion.html#grafico-pe-ranking">
+          <span class="card-area">Trayectorias y aprendizajes, 2018 y 2025</span>
           <h5 class="card-title">Matrícula de primaria y secundaria (alumnos)</h5>
-          <p class="card-ind-valor">308.566 alumnos</p>
+          <p class="card-ind-valor">308.460 alumnos</p>
           <p class="card-ind-var">
-            <span class="tabla-ind-var none">sin base</span>
-            
+            <span class="tabla-ind-var down neutro">▼ 1,2 %</span>
+            <span class="card-ind-ref">2018</span>
           </p>
-          <span class="card-meta">Anual · último dato 2025</span>
+          <span class="card-meta">Entre 2018 y 2025 · último dato 2025</span>
         </a>
         
-        <a class="card card-ind" href="./tema/educacion-aprendizajes.html#grafico-ea-trayectorias">
-          <span class="card-area">Trayectorias y aprendizajes por departamento</span>
+        <a class="card card-ind" href="./tema/pdes-educacion.html#grafico-pe-ranking">
+          <span class="card-area">Trayectorias y aprendizajes, 2018 y 2025</span>
           <h5 class="card-title">Repitencia en secundaria (%)</h5>
           <p class="card-ind-valor">11,4%</p>
           <p class="card-ind-var">
-            <span class="tabla-ind-var none">sin base</span>
-            
+            <span class="tabla-ind-var down invertido">▼ 0,7 p.p.</span>
+            <span class="card-ind-ref">2018</span>
           </p>
-          <span class="card-meta">Anual · último dato 2025</span>
+          <span class="card-meta">Entre 2018 y 2025 · último dato 2025</span>
         </a>
         
         <a class="card card-ind" href="./tema/educacion-aprendizajes.html#grafico-ea-trayectorias">
@@ -3052,15 +3375,15 @@
           <span class="card-meta">Anual · último dato 2025</span>
         </a>
         
-        <a class="card card-ind" href="./tema/educacion-aprendizajes.html#grafico-ea-aprender-ranking">
-          <span class="card-area">Trayectorias y aprendizajes por departamento</span>
+        <a class="card card-ind" href="./tema/pdes-educacion.html#grafico-pe-ranking">
+          <span class="card-area">Trayectorias y aprendizajes, 2018 y 2025</span>
           <h5 class="card-title">Aprender 6.º grado, Matemática: alumnos en nivel satisfactorio o avanzado (%)</h5>
           <p class="card-ind-valor">51,0%</p>
           <p class="card-ind-var">
-            <span class="tabla-ind-var none">sin base</span>
-            
+            <span class="tabla-ind-var down">▼ 8,9 p.p.</span>
+            <span class="card-ind-ref">2018</span>
           </p>
-          <span class="card-meta">Anual · último dato 2025</span>
+          <span class="card-meta">Entre 2018 y 2025 · último dato 2025</span>
         </a>
         
         <a class="card card-ind" href="./tema/educacion-aprendizajes.html#grafico-ea-aprender-dist">
@@ -3107,6 +3430,61 @@
           <span class="card-meta">Anual · último dato 2024</span>
         </a>
         
+        <a class="card card-ind" href="./tema/pdes-educacion.html#grafico-pe-ranking">
+          <span class="card-area">Trayectorias y aprendizajes, 2018 y 2025</span>
+          <h5 class="card-title">Repitencia en primaria (%)</h5>
+          <p class="card-ind-valor">1,23%</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var down invertido">▼ 1,4 p.p.</span>
+            <span class="card-ind-ref">2018</span>
+          </p>
+          <span class="card-meta">Entre 2018 y 2025 · último dato 2025</span>
+        </a>
+        
+        <a class="card card-ind" href="./tema/pdes-educacion.html#grafico-pe-ranking">
+          <span class="card-area">Trayectorias y aprendizajes, 2018 y 2025</span>
+          <h5 class="card-title">Sobreedad en primaria (%)</h5>
+          <p class="card-ind-valor">4,66%</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var down invertido">▼ 7,9 p.p.</span>
+            <span class="card-ind-ref">2018</span>
+          </p>
+          <span class="card-meta">Entre 2018 y 2025 · último dato 2025</span>
+        </a>
+        
+        <a class="card card-ind" href="./tema/pdes-educacion.html#grafico-pe-ranking">
+          <span class="card-area">Trayectorias y aprendizajes, 2018 y 2025</span>
+          <h5 class="card-title">Sobreedad en secundaria (%)</h5>
+          <p class="card-ind-valor">29,3%</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var down invertido">▼ 11,8 p.p.</span>
+            <span class="card-ind-ref">2018</span>
+          </p>
+          <span class="card-meta">Entre 2018 y 2025 · último dato 2025</span>
+        </a>
+        
+        <a class="card card-ind" href="./tema/pdes-educacion.html#grafico-pe-ranking">
+          <span class="card-area">Trayectorias y aprendizajes, 2018 y 2025</span>
+          <h5 class="card-title">Aprender 6.º grado, Matemática: alumnos por debajo del nivel básico (%)</h5>
+          <p class="card-ind-valor">22,6%</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var up invertido">▲ 5,1 p.p.</span>
+            <span class="card-ind-ref">2018</span>
+          </p>
+          <span class="card-meta">Entre 2018 y 2025 · último dato 2025</span>
+        </a>
+        
+        <a class="card card-ind" href="./tema/pdes-educacion.html#grafico-pe-ranking">
+          <span class="card-area">Trayectorias y aprendizajes, 2018 y 2025</span>
+          <h5 class="card-title">Alumnos de 6.º que asistieron al jardín desde sala de 3 (%)</h5>
+          <p class="card-ind-valor">45,2%</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var up">▲ 10,4 p.p.</span>
+            <span class="card-ind-ref">2018</span>
+          </p>
+          <span class="card-meta">Entre 2018 y 2025 · último dato 2025</span>
+        </a>
+        
       </div>
       
       <p class="tipo-title tipo-oferta">De oferta o proceso</p>
@@ -3150,7 +3528,72 @@
     </div>
     
     <div class="subeje-block">
-      <h4 class="subeje-title">Seguridad <span class="eje-count">10</span></h4>
+      <h4 class="subeje-title">Trabajo <span class="eje-count">5</span></h4>
+      
+      <p class="tipo-title tipo-resultado">De resultados</p>
+      <div class="cards">
+        
+        <a class="card card-ind" href="./tema/pdes-trabajo.html#grafico-pt-ranking">
+          <span class="card-area">Trabajo por departamento y región (censos 2010 y 2022)</span>
+          <h5 class="card-title">Tasa de desocupación, 18 años y más (%)</h5>
+          <p class="card-ind-valor">7,91%</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var up invertido">▲ 0,2 p.p.</span>
+            <span class="card-ind-ref">2010</span>
+          </p>
+          <span class="card-meta">Intercensal · último dato 2022</span>
+        </a>
+        
+        <a class="card card-ind" href="./tema/pdes-trabajo.html#grafico-pt-ranking">
+          <span class="card-area">Trabajo por departamento y región (censos 2010 y 2022)</span>
+          <h5 class="card-title">Informalidad laboral, ocupados de 18 a 64 años (%)</h5>
+          <p class="card-ind-valor">45,6%</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var down invertido">▼ 3,7 p.p.</span>
+            <span class="card-ind-ref">2010</span>
+          </p>
+          <span class="card-meta">Intercensal · último dato 2022</span>
+        </a>
+        
+        <a class="card card-ind" href="./tema/pdes-trabajo.html#grafico-pt-ranking">
+          <span class="card-area">Trabajo por departamento y región (censos 2010 y 2022)</span>
+          <h5 class="card-title">Brecha de participación varones-mujeres, 18 a 64 años (p.p.)</h5>
+          <p class="card-ind-valor">17,5 p.p.</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var down invertido">▼ 8,8 p.p.</span>
+            <span class="card-ind-ref">2010</span>
+          </p>
+          <span class="card-meta">Intercensal · último dato 2022</span>
+        </a>
+        
+        <a class="card card-ind" href="./tema/pdes-trabajo.html#grafico-pt-ranking">
+          <span class="card-area">Trabajo por departamento y región (censos 2010 y 2022)</span>
+          <h5 class="card-title">Tasa de actividad de mujeres, 18 a 64 años (%)</h5>
+          <p class="card-ind-valor">64,1%</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var up">▲ 8,4 p.p.</span>
+            <span class="card-ind-ref">2010</span>
+          </p>
+          <span class="card-meta">Intercensal · último dato 2022</span>
+        </a>
+        
+        <a class="card card-ind" href="./tema/pdes-trabajo.html#grafico-pt-ranking">
+          <span class="card-area">Trabajo por departamento y región (censos 2010 y 2022)</span>
+          <h5 class="card-title">Tasa de actividad de varones, 18 a 64 años (%)</h5>
+          <p class="card-ind-valor">81,7%</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var down neutro">▼ 0,4 p.p.</span>
+            <span class="card-ind-ref">2010</span>
+          </p>
+          <span class="card-meta">Intercensal · último dato 2022</span>
+        </a>
+        
+      </div>
+      
+    </div>
+    
+    <div class="subeje-block">
+      <h4 class="subeje-title">Seguridad <span class="eje-count">14</span></h4>
       
       <p class="tipo-title tipo-resultado">De resultados</p>
       <div class="cards">
@@ -3263,6 +3706,50 @@
             
           </p>
           <span class="card-meta">Anual · último dato 2023</span>
+        </a>
+        
+        <a class="card card-ind" href="./tema/pdes-delitos.html#grafico-pd-ranking">
+          <span class="card-area">Delitos registrados por departamento y región</span>
+          <h5 class="card-title">Víctimas de homicidio doloso (c/ 100 mil hab.)</h5>
+          <p class="card-ind-valor">4,08 por cien mil hab.</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var down invertido">▼ 30,0 %</span>
+            <span class="card-ind-ref">2013-15</span>
+          </p>
+          <span class="card-meta">Entre trienios · último dato 2021-23</span>
+        </a>
+        
+        <a class="card card-ind" href="./tema/pdes-delitos.html#grafico-pd-ranking">
+          <span class="card-area">Delitos registrados por departamento y región</span>
+          <h5 class="card-title">Robos y tentativas de robo (c/ 100 mil hab.)</h5>
+          <p class="card-ind-valor">1.417 por cien mil hab.</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var up invertido">▲ 0,4 %</span>
+            <span class="card-ind-ref">2013-15</span>
+          </p>
+          <span class="card-meta">Entre trienios · último dato 2021-23</span>
+        </a>
+        
+        <a class="card card-ind" href="./tema/pdes-delitos.html#grafico-pd-ranking">
+          <span class="card-area">Delitos registrados por departamento y región</span>
+          <h5 class="card-title">Lesiones dolosas (c/ 100 mil hab.)</h5>
+          <p class="card-ind-valor">725,0 por cien mil hab.</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var down invertido">▼ 15,0 %</span>
+            <span class="card-ind-ref">2013-15</span>
+          </p>
+          <span class="card-meta">Entre trienios · último dato 2021-23</span>
+        </a>
+        
+        <a class="card card-ind" href="./tema/pdes-delitos.html#grafico-pd-ranking">
+          <span class="card-area">Delitos registrados por departamento y región</span>
+          <h5 class="card-title">Abusos sexuales con acceso carnal (c/ 100 mil hab.)</h5>
+          <p class="card-ind-valor">24,1 por cien mil hab.</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var down invertido">▼ 2,3 %</span>
+            <span class="card-ind-ref">2013-15</span>
+          </p>
+          <span class="card-meta">Entre trienios · último dato 2021-23</span>
         </a>
         
       </div>
@@ -4073,10 +4560,10 @@
 
 <script src="./assets/vendor/echarts.min.js"></script>
 <script src="./assets/vendor/minisearch.min.js"></script>
-<script>window.CESS_BASE = "."; window.CESS_VER = "1795030596";</script>
-<script src="./assets/js/app.js?v=1795030596"></script>
+<script>window.CESS_BASE = "."; window.CESS_VER = "1795033029";</script>
+<script src="./assets/js/app.js?v=1795033029"></script>
 
-<script src="./assets/js/search.js?v=1795030596"></script>
+<script src="./assets/js/search.js?v=1795033029"></script>
 
 </body>
 </html>

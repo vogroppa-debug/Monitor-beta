@@ -74,6 +74,15 @@ Spec de KPI (el front muestra la VARIACIÓN INTERANUAL, no el valor absoluto):
        con ellos o el estado de la población y de la economía (mortalidad, aprendizajes,
        producción, empleo). Sólo se declara en los de
        oferta; `BUILD_NOTES.md` los lista todos para que la clasificación se pueda revisar.
+  var: 'anterior' -> la variación se calcula contra el período anterior CON DATO de la serie
+       (2022 contra 2010, un trienio contra el anterior), no contra el mismo período del año
+       anterior. Para series espaciadas: censos, trienios, relevamientos de años salteados.
+       Va siempre junto con una `frecuencia` que diga qué compara («Intercensal», «Entre
+       trienios»): la tabla de la portada no aclara la base y se deduce de esa columna. Lo
+       aplican `indicadores._calcular` y `renderKpis` (charts.js).
+  periodos: {"2023": "2021-23"} -> cómo se muestra cada período en la tabla y en la tarjeta,
+       para las series que guardan un trienio con su último año como `anio`.
+  (`frecuencia` también puede ir a nivel de TEMA: vale para todos sus indicadores.)
   frecuencia: pisa la columna "Frecuencia" de la tabla maestra, que si no se deduce de la serie.
        Para un dato de una sola toma ("Toma única"), donde el valor deducido sería "Anual" y
        sugeriría una serie que no existe.
@@ -182,6 +191,17 @@ BASE_ANIO = 2024
 MOSTRAR_CIIU = False
 META_2030_TITULO = "Meta 2030 (PDES 2024)"
 
+# Fuentes de las planillas del PDES 2030 (J. Paz, 2026). Van como constantes porque las usan los
+# tableros y la tabla de formas cortas.
+PDES_FUENTE_CENSO = ("Censos Nacionales de Población, Hogares y Viviendas 2010 y 2022 (INDEC), "
+                     "procesamiento de microdatos para el PDES 2030 (J. Paz)")
+PDES_FUENTE_SALUD = ("Estadísticas vitales (DEIS, Ministerio de Salud de la Nación), trienios "
+                     "2018-2020 y 2021-2023, procesadas para el PDES 2030 (J. Paz)")
+PDES_FUENTE_EDUCACION = ("Relevamiento Anual y Aprender 2018 y 2025 (DiNIEE, Ministerio de Capital "
+                         "Humano), procesados para el PDES 2030 (J. Paz)")
+PDES_FUENTE_SNIC = ("Sistema Nacional de Información Criminal (SNIC, Ministerio de Seguridad de la "
+                    "Nación), trienios 2013-2015 y 2021-2023, procesado para el PDES 2030 (J. Paz)")
+
 # Forma corta de cada fuente para la columna «Fuente» de la tabla de la portada. La clave es el
 # texto COMPLETO de la fuente tal como lo declara el tema (o el gráfico, cuando tiene una propia);
 # la celda muestra la forma corta y el texto completo aparece al pasar el mouse; si el valor es un
@@ -234,6 +254,10 @@ FUENTE_CORTA = {
     "MapBiomas Argentina — Colección 3 (cobertura y uso; desmonte y vegetación secundaria)":
         "MapBiomas",
     "Encuesta de Ocupación Hotelera (EOH) — INDEC": "INDEC, EOH",
+    PDES_FUENTE_CENSO: "INDEC, CNPV 2010-22",
+    PDES_FUENTE_SALUD: "DEIS",
+    PDES_FUENTE_EDUCACION: "RA y Aprender",
+    PDES_FUENTE_SNIC: "SNIC",
     "Administración Nacional de Aviación Civil (ANAC)": "ANAC",
     "Asociación de Fabricantes de Cemento Portland (AFCP)": "Asoc. Fab. Cemento",
     "Encuesta de Supermercados — INDEC": "INDEC",
@@ -252,7 +276,7 @@ SEMAFORO_TOP = 5                                    # largo de «Mejores desempe
 
 SUBEJE_ORDEN = {
     # sociocultural
-    "Condiciones de vida": 1, "Salud": 2, "Educación": 3, "Seguridad": 4,
+    "Condiciones de vida": 1, "Salud": 2, "Educación": 3, "Trabajo": 4, "Seguridad": 5,
     # territorio, ambiente y turismo (Territorio todavía sin temas)
     "Territorio": 1, "Ambiente": 2, "Turismo": 3,
 }
@@ -2106,6 +2130,9 @@ TEMAS = [
     # ======================================================================
     {
         "id": "condiciones-vida",
+        # Fuente CNPV: la frecuencia es intercensal, no anual. Esta planilla sólo trae 2022, así
+        # que la variación queda «sin base»; la comparación con 2010 está en «pdes-privacion».
+        "frecuencia": "Intercensal",
         "subeje": "Condiciones de vida",
         "area": "social",
         "eje_pdes": "sociocultural",
@@ -2140,10 +2167,11 @@ TEMAS = [
              "fixed": {"departamento": "Salta", "indicador": "Sin agua por cañería en la vivienda"},
              "year": "latest", "unidad": "% de hogares", "format": "int", "display": "nivel",
              "sentido": "menor_mejor",
-             "meta_2030": 7,
-             "meta_2030_nota": "El PDES fija una cobertura de agua de red del 93 % al Censo 2030; "
-                               "acá se expresa como su complemento, porque el Monitor mide la "
-                               "carencia y no la cobertura."},
+             # Sin meta: la del PDES es de cobertura de agua de RED (93 %) y pasó al indicador
+             # de personas sin agua de red pública del tablero «pdes-privacion».
+             "tabla_nota": "Agua por cañería dentro de la vivienda, cualquiera sea su "
+                           "procedencia. La meta del PDES de agua de red está en el indicador "
+                           "de personas sin agua de red pública."},
             {"ficha": "I.10", "label": "Hogares sin internet en la vivienda", "metrica": "pct_hogares",
              "fixed": {"departamento": "Salta", "indicador": "Sin internet en la vivienda"},
              "year": "latest", "unidad": "% de hogares", "format": "int", "display": "nivel",
@@ -2203,20 +2231,14 @@ TEMAS = [
             {"ficha": "II.1", "label": "Esperanza de vida al nacer", "metrica": "esperanza_vida",
              "fixed": {"departamento": "Salta", "sexo": "Total"}, "year": "latest",
              "unidad": "años", "format": "int", "display": "nivel", "sentido": "mayor_mejor"},
-            {"ficha": "II.8", "label": "Mortalidad infantil",
-             "tabla_label": "Tasa de mortalidad infantil, trienio 2021-2023 (por mil nacidos vivos)",
-             "metrica": "tmi", "fixed": {"departamento": "Salta"}, "year": "latest",
-             "unidad": "por mil nacidos vivos", "format": "int", "display": "nivel",
-             "sentido": "menor_mejor"},
+            # II.8 (mortalidad infantil) pasó al tablero «pdes-salud»: trienios 2018-20 y 2021-23.
             {"ficha": "II.7", "label": "Mortalidad materna", "metrica": "rmm", "fixed": {"departamento": "Salta"},
              "year": "latest", "unidad": "por cien mil nacidos vivos", "format": "int",
              "display": "nivel", "sentido": "menor_mejor"},
             {"ficha": "II.5", "label": "Mortalidad prematura (30 a 69 años)", "metrica": "mort_prematura",
              "fixed": {"departamento": "Salta"}, "year": "latest", "unidad": "por cien mil hab.",
              "format": "int", "display": "nivel", "sentido": "menor_mejor"},
-            {"ficha": "II.18", "label": "Fecundidad adolescente (15 a 19)", "metrica": "fec_15_19",
-             "fixed": {"departamento": "Salta"}, "year": "latest", "unidad": "por mil mujeres",
-             "format": "int", "display": "nivel", "sentido": "menor_mejor"},
+            # II.18 (fecundidad adolescente) pasó al tablero «pdes-salud».
         ],
         "charts": [
             {"id": "sr-vida-mortalidad", "type": "barh",
@@ -2308,10 +2330,7 @@ TEMAS = [
             "primaria", "secundaria", "6to grado", "calidad educativa",
         ],
         "kpis": [
-            {"ficha": "III.2", "label": "Repitencia en secundaria", "metrica": "pct_repitencia",
-             "fixed": {"departamento": "Salta", "nivel": "Secundaria"}, "year": "latest",
-             "unidad": "% de la matrícula", "format": "int", "display": "nivel",
-             "sentido": "menor_mejor"},
+            # III.2 (repitencia en secundaria) pasó al tablero «pdes-educacion»: 2018 y 2025.
             {"ficha": "III.3", "label": "Tasa de egreso aparente de secundaria", "metrica": "tasa_egreso_aparente",
              "fixed": {"departamento": "Salta", "nivel": "Secundaria"}, "year": "latest",
              "unidad": "%", "format": "int", "display": "nivel", "sentido": "mayor_mejor"},
@@ -2319,10 +2338,7 @@ TEMAS = [
              "tabla_label": "Aprender 6.º grado, Lengua: alumnos en nivel satisfactorio o avanzado",
              "fixed": {"departamento": "Salta"}, "year": "latest", "unidad": "% de alumnos",
              "format": "int", "display": "nivel", "sentido": "mayor_mejor"},
-            {"ficha": "III.8", "label": "Matemática: satisfactorio o avanzado", "metrica": "pct_satisf_mat",
-             "tabla_label": "Aprender 6.º grado, Matemática: alumnos en nivel satisfactorio o avanzado",
-             "fixed": {"departamento": "Salta"}, "year": "latest", "unidad": "% de alumnos",
-             "format": "int", "display": "nivel", "sentido": "mayor_mejor"},
+            # III.8 (Aprender Matemática) pasó al tablero «pdes-educacion»: 2018 y 2025.
         ],
         "charts": [
             {"id": "ea-trayectorias", "type": "barh",
@@ -2743,6 +2759,304 @@ TEMAS = [
              "controls": [{"dim": "anio", "label": "Año", "kind": "year"}],
              "sort": "desc", "unidad": "toneladas"},
         ],
+    },
+]
+# ==========================================================================
+# EJE SOCIOCULTURAL — planillas del PDES 2030 (J. Paz, 2026): dos períodos por indicador, por
+# departamento y por las 8 regiones del PDES. Los cinco tableros comparten la misma estructura
+# de datos (`adapters.PDES_FIELDS`) y los mismos tres gráficos.
+# ==========================================================================
+# Frecuencia + base de la variación. Cada spec despliega una con **: la frecuencia dice contra qué
+# período se compara, porque la tabla de la portada no lo aclara en el encabezado.
+INTERCENSAL = {"frecuencia": "Intercensal", "var": "anterior"}
+ENTRE_TRIENIOS_SALUD = {"frecuencia": "Entre trienios", "var": "anterior",
+                        "periodos": {"2020": "2018-20", "2023": "2021-23"}}
+ENTRE_TRIENIOS_SNIC = {"frecuencia": "Entre trienios", "var": "anterior",
+                       "periodos": {"2015": "2013-15", "2023": "2021-23"}}
+ENTRE_2018_2025 = {"frecuencia": "Entre 2018 y 2025", "var": "anterior"}
+
+
+def _pdes_kpi(label, metrica, unidad, sentido, frecuencia, **extra):
+    """Spec de KPI de los tableros del PDES: total provincial, nivel (no variación relativa) y
+    apertura por departamento y región."""
+    spec = {"label": label, "metrica": metrica,
+            "fixed": {"nivel_geo": "Provincia", "territorio": "Salta"}, "year": "latest",
+            "unidad": unidad, "format": "int", "display": "nivel", "sentido": sentido,
+            "geo": "Departamento y región",
+            "geo_nota": "23 departamentos y 8 regiones del PDES"}
+    spec.update(frecuencia)
+    spec.update(extra)
+    return spec
+
+
+def _pdes_graficos(pref, base, opciones, periodo_ultimo, unidad, nota_ranking=""):
+    """Los tres gráficos de cada tablero del PDES. `opciones`: métricas que se pueden elegir."""
+    return [
+        {"id": pref + "-ranking", "type": "barh",
+         "title": "Ranking por departamento o región",
+         "descr": ("Cada departamento, o cada región del PDES, en el período elegido. "
+                   + nota_ranking).strip(),
+         "x": "territorio", "seriesBy": None, "metrica": base, "fixed": {},
+         "exclude": ["Salta"],
+         "controls": [
+             {"kind": "metric", "label": "Indicador", "options": opciones},
+             {"dim": "nivel_geo", "label": "Apertura", "kind": "select", "default": "Departamento"},
+             {"dim": "periodo", "label": "Período", "kind": "select", "default": periodo_ultimo},
+         ],
+         "sort": "desc", "unidad": unidad},
+        {"id": pref + "-comparacion", "type": "bar",
+         "title": "Comparación entre los dos períodos",
+         "descr": "El indicador en cada período, para la provincia, un departamento o una región.",
+         "x": "periodo", "seriesBy": None, "metrica": base, "fixed": {},
+         "controls": [
+             {"kind": "metric", "label": "Indicador", "options": opciones},
+             {"dim": "territorio", "label": "Territorio", "kind": "select",
+              "all": True, "allValue": "Salta", "allLabel": "Salta (provincia)"},
+         ],
+         "unidad": unidad},
+        {"id": pref + "-cambio", "type": "bar",
+         "title": "Cambio entre los dos períodos",
+         "descr": ("Último período menos el primero, por departamento o región: los porcentajes, "
+                   "en puntos porcentuales. Que un indicador de privación baje es una mejora."),
+         "x": "territorio", "seriesBy": None, "metrica": base + "_dif", "fixed": {},
+         "exclude": ["Salta"],
+         "controls": [
+             {"kind": "metric", "label": "Indicador", "options": [m + "_dif" for m in opciones]},
+             {"dim": "nivel_geo", "label": "Apertura", "kind": "select", "default": "Departamento"},
+         ],
+         "unidad": unidad},
+    ]
+
+
+_PDES_AVISO_REGIONES = ("Las regiones del PDES se aproximan con departamentos completos: Puna es "
+                        "sólo Los Andes y Yungas sólo Orán.")
+
+TEMAS += [
+    # ======================================================================
+    {
+        "id": "pdes-privacion",
+        "subeje": "Condiciones de vida",
+        "area": "social",
+        "eje_pdes": "sociocultural",
+        "title": "Privación por departamento y región (censos 2010 y 2022)",
+        "resumen": (
+            "Personas en hogares con necesidades básicas insatisfechas, sin agua de red pública y, "
+            "entre la población indígena, con NBI, según los censos 2010 y 2022, por departamento "
+            "y por las 8 regiones del PDES 2030. Permite ver la variación intercensal: en la "
+            "provincia, la NBI bajó de 25,5 % a 16,9 % de las personas."
+        ),
+        "resumen_corto": "NBI, agua de red y NBI indígena entre los censos 2010 y 2022.",
+        "advertencia": (
+            "2010 sale de la muestra del cuestionario ampliado y 2022 del censo completo: en los "
+            "departamentos chicos la estimación de 2010 tiene error muestral. La NBI indígena "
+            "cambia de pregunta entre censos (por hogar en 2010, autorreconocimiento en 2022), así "
+            "que su variación no es la de una misma población. «Sin agua de red» no significa sin "
+            "agua apta. " + _PDES_AVISO_REGIONES
+        ),
+        "fuente": PDES_FUENTE_CENSO, "fuente_url": "",
+        "cobertura": "Censos 2010 y 2022",
+        "keywords": ["NBI", "necesidades básicas insatisfechas", "pobreza estructural", "agua",
+                     "agua de red", "indígenas", "pueblos originarios", "censo", "intercensal",
+                     "regiones", "privación"],
+        "tags": [],
+        "kpis": [
+            _pdes_kpi("Personas en hogares con NBI", "nbi_personas", "%", "menor_mejor",
+                      INTERCENSAL, meta_2030=12,
+                      meta_2030_nota="El PDES fija la meta de «NBI población» al Censo 2030 "
+                                     "(la de NBI hogares, 10 %, está en el indicador de hogares)."),
+            _pdes_kpi("Personas en hogares sin agua de red pública", "sin_agua_red", "%",
+                      "menor_mejor", INTERCENSAL, meta_2030=7,
+                      meta_2030_nota="El PDES fija una cobertura de agua de red del 93 % al Censo "
+                                     "2030; acá se expresa como su complemento, porque el Monitor "
+                                     "mide la carencia y no la cobertura."),
+            _pdes_kpi("Personas indígenas en hogares con NBI", "nbi_indigena", "%", "menor_mejor",
+                      INTERCENSAL,
+                      tabla_nota="La pregunta cambia entre censos (por hogar en 2010, "
+                                 "autorreconocimiento individual en 2022): la variación no es la "
+                                 "de una misma población."),
+        ],
+        "charts": _pdes_graficos("pp", "nbi_personas",
+                                 ["nbi_personas", "sin_agua_red", "nbi_indigena"], "2022", "%"),
+    },
+    # ======================================================================
+    {
+        "id": "pdes-salud",
+        "subeje": "Salud",
+        "area": "social",
+        "eje_pdes": "sociocultural",
+        "title": "Salud materno-infantil por departamento y región",
+        "resumen": (
+            "Mortalidad infantil, bajo peso al nacer, fecundidad adolescente y natalidad en los "
+            "trienios 2018-2020 y 2021-2023, por departamento y por las 8 regiones del PDES 2030, "
+            "según las estadísticas vitales de la DEIS. La mortalidad infantil bajó de 10,9 a 9,1 "
+            "por mil nacidos vivos y la fecundidad adolescente, de 55,1 a 34,6 por mil."
+        ),
+        "resumen_corto": "Mortalidad infantil, bajo peso y fecundidad adolescente por trienio.",
+        "advertencia": (
+            "Los trienios agregan tres años de casos, pero en departamentos chicos (La Poma, Los "
+            "Andes, Guachipas, La Caldera, Molinos) la mortalidad infantil sigue siendo inestable: "
+            "una o dos defunciones mueven la tasa. La fecundidad adolescente no es el porcentaje de "
+            "adolescentes que fueron madres y no incluye a las menores de 15. "
+            + _PDES_AVISO_REGIONES
+        ),
+        "fuente": PDES_FUENTE_SALUD, "fuente_url": "",
+        "cobertura": "Trienios 2018-2020 y 2021-2023",
+        "keywords": ["mortalidad infantil", "TMI", "bajo peso al nacer", "fecundidad adolescente",
+                     "embarazo adolescente", "natalidad", "nacidos vivos", "DEIS", "trienio",
+                     "regiones", "salud materno-infantil"],
+        "tags": [],
+        "kpis": [
+            _pdes_kpi("Tasa de mortalidad infantil", "tmi", "por mil nacidos vivos",
+                      "menor_mejor", ENTRE_TRIENIOS_SALUD, ficha="II.8"),
+            _pdes_kpi("Nacidos vivos con bajo peso al nacer", "bajo_peso", "%", "menor_mejor",
+                      ENTRE_TRIENIOS_SALUD, ficha="II.10",
+                      tabla_nota="Menos de 2.500 g, sobre los nacidos vivos con peso informado."),
+            _pdes_kpi("Fecundidad adolescente (15 a 19)", "tfa_15_19", "por mil mujeres",
+                      "menor_mejor", ENTRE_TRIENIOS_SALUD, ficha="II.18"),
+        ],
+        "charts": _pdes_graficos("ps", "tmi", ["tmi", "bajo_peso", "tfa_15_19", "natalidad",
+                                               "nv_sin_peso"], "2021-2023",
+                                 "por mil nacidos vivos"),
+    },
+    # ======================================================================
+    {
+        "id": "pdes-educacion",
+        "subeje": "Educación",
+        "area": "social",
+        "eje_pdes": "sociocultural",
+        "title": "Trayectorias y aprendizajes, 2018 y 2025",
+        "resumen": (
+            "Matrícula, repitencia y sobreedad del Relevamiento Anual, y desempeño en Matemática "
+            "de 6.º grado en Aprender, en 2018 y 2025, por departamento y por las 8 regiones del "
+            "PDES 2030. La sobreedad en secundaria bajó de 41,1 % a 29,3 %; los alumnos con "
+            "desempeño satisfactorio o avanzado en Matemática, de 59,9 % a 51,0 %."
+        ),
+        "resumen_corto": "Repitencia, sobreedad y Aprender Matemática entre 2018 y 2025.",
+        "advertencia": (
+            "La fuente enmascara las combinaciones con pocos casos y esos alumnos entran sólo al "
+            "total: la matrícula por departamento está subestimada. Aprender compara dos cohortes "
+            "distintas, no a los mismos alumnos, y en Guachipas, La Poma y Cachi hay pocos "
+            "evaluados. " + _PDES_AVISO_REGIONES
+        ),
+        "fuente": PDES_FUENTE_EDUCACION, "fuente_url": "",
+        "cobertura": "2018 y 2025",
+        "keywords": ["educación", "matrícula", "repitencia", "sobreedad", "Aprender",
+                     "matemática", "desempeño", "jardín", "nivel inicial", "secciones múltiples",
+                     "escuela rural", "regiones", "trayectorias escolares"],
+        "tags": [],
+        "kpis": [
+            _pdes_kpi("Matrícula de primaria y secundaria", "matricula_prim_sec", "alumnos",
+                      "neutro", ENTRE_2018_2025, ficha="III.1"),
+            _pdes_kpi("Repitencia en secundaria", "repitencia_sec", "% de la matrícula",
+                      "menor_mejor", ENTRE_2018_2025, ficha="III.2"),
+            _pdes_kpi("Aprender Matemática 6.º: satisfactorio o avanzado", "mat_satisf_avanzado",
+                      "% de alumnos", "mayor_mejor", ENTRE_2018_2025, ficha="III.8",
+                      tabla_label="Aprender 6.º grado, Matemática: alumnos en nivel satisfactorio "
+                                  "o avanzado"),
+            _pdes_kpi("Repitencia en primaria", "repitencia_pri", "% de la matrícula",
+                      "menor_mejor", ENTRE_2018_2025),
+            _pdes_kpi("Sobreedad en primaria", "sobreedad_pri", "% de la matrícula",
+                      "menor_mejor", ENTRE_2018_2025),
+            _pdes_kpi("Sobreedad en secundaria", "sobreedad_sec", "% de la matrícula",
+                      "menor_mejor", ENTRE_2018_2025),
+            _pdes_kpi("Aprender Matemática 6.º: por debajo del nivel básico", "mat_debajo_basico",
+                      "% de alumnos", "menor_mejor", ENTRE_2018_2025,
+                      tabla_label="Aprender 6.º grado, Matemática: alumnos por debajo del nivel "
+                                  "básico"),
+            _pdes_kpi("Alumnos de 6.º que asistieron al jardín desde sala de 3", "jardin_sala3",
+                      "% de alumnos", "mayor_mejor", ENTRE_2018_2025),
+        ],
+        "charts": _pdes_graficos("pe", "repitencia_sec", [
+            "repitencia_sec", "repitencia_pri", "sobreedad_sec", "sobreedad_pri",
+            "mat_satisf_avanzado", "mat_debajo_basico", "jardin_sala3", "sin_libros",
+            "madre_secundaria", "matricula_prim_sec", "matricula_inicial", "alumnos_seccion_pri",
+            "alumnos_seccion_sec", "secciones_multiples", "pct_estatal", "pct_rural"], "2025",
+            "% de la matrícula"),
+    },
+    # ======================================================================
+    {
+        "id": "pdes-trabajo",
+        "subeje": "Trabajo",
+        "area": "social",
+        "eje_pdes": "sociocultural",
+        "title": "Trabajo por departamento y región (censos 2010 y 2022)",
+        "resumen": (
+            "Desocupación, informalidad y participación laboral de varones y mujeres según los "
+            "censos 2010 y 2022, por departamento y por las 8 regiones del PDES 2030. La "
+            "informalidad bajó de 49,3 % a 45,6 % de los ocupados y la brecha de participación "
+            "entre varones y mujeres se achicó de 26,4 a 17,5 puntos."
+        ),
+        "resumen_corto": "Desocupación, informalidad y brecha de participación entre censos.",
+        "advertencia": (
+            "2010 sale de la muestra del cuestionario ampliado y 2022 del censo completo: en los "
+            "departamentos chicos la estimación de 2010 tiene error muestral. La informalidad mide "
+            "sólo la falta de protección contributiva (ocupados sin descuento ni aporte "
+            "jubilatorio), y la desocupación se lee junto con la participación. "
+            + _PDES_AVISO_REGIONES
+        ),
+        "fuente": PDES_FUENTE_CENSO, "fuente_url": "",
+        "cobertura": "Censos 2010 y 2022",
+        "keywords": ["trabajo", "empleo", "desocupación", "desempleo", "informalidad",
+                     "trabajo no registrado", "participación laboral", "tasa de actividad",
+                     "brecha de género", "mujeres", "censo", "intercensal", "regiones"],
+        "tags": [],
+        "kpis": [
+            _pdes_kpi("Tasa de desocupación, 18 años y más", "desocupacion", "%", "menor_mejor",
+                      INTERCENSAL),
+            _pdes_kpi("Informalidad laboral, ocupados de 18 a 64 años", "informalidad", "%",
+                      "menor_mejor", INTERCENSAL,
+                      tabla_nota="Ocupados sin descuento ni aporte jubilatorio."),
+            _pdes_kpi("Brecha de participación varones-mujeres, 18 a 64 años",
+                      "brecha_participacion", "p.p.", "menor_mejor", INTERCENSAL,
+                      tabla_nota="Tasa de actividad de varones menos la de mujeres."),
+            _pdes_kpi("Tasa de actividad de mujeres, 18 a 64 años", "actividad_mujeres", "%",
+                      "mayor_mejor", INTERCENSAL),
+            _pdes_kpi("Tasa de actividad de varones, 18 a 64 años", "actividad_varones", "%",
+                      "neutro", INTERCENSAL),
+        ],
+        "charts": _pdes_graficos("pt", "informalidad", [
+            "informalidad", "desocupacion", "brecha_participacion", "actividad_mujeres",
+            "actividad_varones", "informalidad_mujeres", "informalidad_varones"], "2022", "%"),
+    },
+    # ======================================================================
+    {
+        "id": "pdes-delitos",
+        "subeje": "Seguridad",
+        "area": "social",
+        "eje_pdes": "sociocultural",
+        "title": "Delitos registrados por departamento y región",
+        "resumen": (
+            "Tasas de víctimas de homicidio doloso, robos, lesiones dolosas y abusos sexuales con "
+            "acceso carnal registrados por el SNIC en los trienios 2013-2015 y 2021-2023, por "
+            "departamento y por las 8 regiones del PDES 2030. La tasa de homicidios bajó de 5,8 a "
+            "4,1 por cien mil habitantes."
+        ),
+        "resumen_corto": "Homicidios, robos, lesiones y abusos sexuales registrados, por trienio.",
+        "advertencia": (
+            "Son delitos registrados, por lugar del hecho: dependen de cuánto se denuncia y de la "
+            "presencia policial, y las tasas bajas de Puna, Pre-Puna y Valles Calchaquíes pueden "
+            "deberse en parte a subregistro. El homicidio es el indicador más comparable. Los "
+            "departamentos sin casos no aparecen en el ranking. " + _PDES_AVISO_REGIONES
+        ),
+        "fuente": PDES_FUENTE_SNIC, "fuente_url": "",
+        "cobertura": "Trienios 2013-2015 y 2021-2023",
+        "keywords": ["delitos", "homicidios", "robos", "lesiones", "abuso sexual", "violencia",
+                     "inseguridad", "SNIC", "criminalidad", "trienio", "regiones"],
+        "tags": [],
+        "kpis": [
+            _pdes_kpi("Víctimas de homicidio doloso", "homicidio", "por cien mil hab.",
+                      "menor_mejor", ENTRE_TRIENIOS_SNIC),
+            _pdes_kpi("Robos y tentativas de robo", "robos", "por cien mil hab.", "menor_mejor",
+                      ENTRE_TRIENIOS_SNIC),
+            _pdes_kpi("Lesiones dolosas", "lesiones", "por cien mil hab.", "menor_mejor",
+                      ENTRE_TRIENIOS_SNIC),
+            _pdes_kpi("Abusos sexuales con acceso carnal", "abusos", "por cien mil hab.",
+                      "menor_mejor", ENTRE_TRIENIOS_SNIC,
+                      tabla_nota="Hechos registrados, no víctimas mujeres: entre un tercio y la "
+                                 "mitad de las víctimas no tiene sexo registrado."),
+        ],
+        "charts": _pdes_graficos("pd", "homicidio", ["homicidio", "robos", "lesiones", "abusos"],
+                                 "2021-2023", "por cien mil hab."),
     },
 ]
 

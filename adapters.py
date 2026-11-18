@@ -2936,6 +2936,378 @@ def cemento():
     }
 
 
+# ==========================================================================
+# TEMAS SOCIALES DEL PDES 2030 — planillas que acompañan el informe «Área Sociocultural del
+# PDES 2030. Objetivos, indicadores y brechas territoriales» (J. Paz, 2026). Cada una trae DOS
+# períodos (censos 2010 y 2022, trienios, o 2018 y 2025) por departamento y por las 8 regiones
+# del PDES. Se leen sólo las hojas de cada período: las de variación vienen como texto
+# («-11.0 p.p.») y la variación la calcula el motor del sitio.
+# ==========================================================================
+# Regiones del PDES con los nombres del informe. Las planillas escriben «Prepuna» o «Pre-Puna» y
+# «Valles de Lerma»; el informe, «Pre-Puna» y «Valle de Lerma».
+_PDES_REGION = {
+    "Puna": "Puna", "Prepuna": "Pre-Puna", "Pre-Puna": "Pre-Puna",
+    "Valles Calchaquíes": "Valles Calchaquíes", "AMVL": "AMVL",
+    "Valles de Lerma": "Valle de Lerma", "Valle de Lerma": "Valle de Lerma",
+    "Valles Centrales": "Valles Centrales", "Chaco": "Chaco", "Yungas": "Yungas",
+}
+# Filas que no son un territorio: sólo cuentan en el total provincial, como en la fuente.
+_PDES_FUERA = {"Departamento sin especificar", "Departamento sin determinar",
+               "Celdas enmascaradas (varios dptos.)"}
+PDES_FIELDS = ["anio", "periodo", "nivel_geo", "territorio", "metrica", "valor"]
+
+
+def _pdes_hoja(archivo, hoja):
+    """[(territorio en crudo, {encabezado: valor})] de una hoja de período.
+
+    El encabezado es la fila cuyo primer valor empieza con «Departamento» o «Región» (fila 5
+    en todas las planillas). Se lee por NOMBRE de columna y no por posición: en Aprender 2018 y
+    2025 la misma columna cambia de lugar.
+    """
+    filas = _soc_libro(archivo)[hoja]
+    i = next(k for k, f in enumerate(filas)
+             if f and isinstance(f[0], str) and f[0].strip().startswith(("Departamento", "Región")))
+    enc = [str(c).strip() if c is not None else "" for c in filas[i]]
+    out = []
+    for f in filas[i + 1:]:
+        if not f or f[0] is None or not str(f[0]).strip():
+            break
+        out.append((str(f[0]).strip(),
+                    {enc[j]: f[j] for j in range(1, min(len(enc), len(f))) if enc[j]}))
+    return out
+
+
+def _pdes_territorio(nombre, es_region):
+    """(nivel_geo, territorio) o None si la fila no es un territorio. Aborta ante un nombre
+    desconocido: una región mal escrita no puede desaparecer en silencio."""
+    if nombre in _PDES_FUERA:
+        return None
+    if nombre == "Total Salta":
+        return None if es_region else ("Provincia", "Salta")
+    if es_region:
+        if nombre not in _PDES_REGION:
+            raise ValueError("Región desconocida en planilla del PDES: %r" % nombre)
+        return "Región", "Región " + _PDES_REGION[nombre]
+    d = norm_dept(nombre)
+    if d not in _SOC_DEPTOS:
+        raise ValueError("Departamento desconocido en planilla del PDES: %r" % nombre)
+    return "Departamento", d
+
+
+def _pdes_leer(archivo, periodos, columnas, derivadas=None):
+    """periodos: [(anio, etiqueta del período, hoja de departamentos, hoja de regiones)]
+    columnas: {metrica: encabezado exacto}; derivadas: {metrica: f(dict de valores)}.
+    Devuelve filas [anio, periodo, nivel_geo, territorio, metrica, valor]."""
+    rows = []
+    for anio, etiqueta, hoja_dep, hoja_reg in periodos:
+        for hoja, es_region in ((hoja_dep, False), (hoja_reg, True)):
+            filas = _pdes_hoja(archivo, hoja)
+            faltan = [c for c in columnas.values() if filas and c not in filas[0][1]]
+            if faltan:
+                raise ValueError("%s / %s: faltan columnas %s" % (archivo, hoja, faltan))
+            for nombre, vals in filas:
+                t = _pdes_territorio(nombre, es_region)
+                if t is None:
+                    continue
+                nums = {m: _soc_num(vals.get(enc)) for m, enc in columnas.items()}
+                for m, f in (derivadas or {}).items():
+                    try:
+                        nums[m] = f(nums)
+                    except TypeError:          # algún insumo vacío
+                        nums[m] = None
+                for m, v in nums.items():
+                    if v is not None:
+                        rows.append([anio, etiqueta, t[0], t[1], m, round(v, 4)])
+    return rows
+
+
+def _pdes_cambios(rows, metricas):
+    """Agrega, por territorio, la diferencia entre el último período y el primero (`<m>_dif`):
+    alimenta el gráfico de cambio, porque el ranking horizontal descarta valores negativos."""
+    por = {}
+    for anio, _per, niv, ter, met, val in rows:
+        if met in metricas:
+            por.setdefault((niv, ter, met), {})[anio] = val
+    extra = []
+    for (niv, ter, met), serie in por.items():
+        if len(serie) >= 2:
+            a0, a1 = min(serie), max(serie)
+            extra.append([a1, "Cambio", niv, ter, met + "_dif", round(serie[a1] - serie[a0], 4)])
+    return rows + extra
+
+
+def _pdes_payload(rows, metricas, notas):
+    territorios = sorted({r[3] for r in rows if r[2] == "Departamento"}) + \
+        sorted({r[3] for r in rows if r[2] == "Región"})
+    return {
+        "fields": PDES_FIELDS,
+        "rows": rows,
+        "dims": {
+            "anio": sorted({r[0] for r in rows}),
+            "periodo": sorted({r[1] for r in rows if r[1] != "Cambio"}),
+            "nivel_geo": ["Departamento", "Región"],
+            "territorio": territorios,
+        },
+        "metricas": metricas,
+        "notas": notas,
+    }
+
+
+def _con_dif(metricas, unidades_dif=None):
+    """Métricas + su `<m>_dif` (cambio entre períodos). Los porcentajes cambian en p.p."""
+    out = dict(metricas)
+    for m, d in metricas.items():
+        u = d["unidad"]
+        u_dif = (unidades_dif or {}).get(m) or ("p.p." if u.startswith("%") else u)
+        out[m + "_dif"] = {"label": "Cambio en " + d["label"][0].lower() + d["label"][1:],
+                           "unidad": u_dif, "agg": "sum"}
+    return out
+
+
+_PDES_NOTA_REGIONES = (
+    "las 8 regiones del PDES se aproximan con departamentos completos: Puna es sólo Los Andes y "
+    "Yungas sólo Orán. Las regiones son sumas de conteos departamentales con el indicador "
+    "recalculado, no promedios; los casos sin departamento entran sólo al total provincial.")
+
+# -- Censos 2010 y 2022: privación ------------------------------------------
+PDES_CENSO_ARCHIVO = "Indicadores_sociocultural_Salta_2010_2022.xlsx"
+PDES_CENSO_METRICAS = {
+    "nbi_personas": {"label": "Personas en hogares con NBI", "unidad": "% de personas",
+                     "agg": "mean"},
+    "sin_agua_red": {"label": "Personas en hogares sin agua de red pública",
+                     "unidad": "% de personas", "agg": "mean"},
+    "nbi_indigena": {"label": "Personas indígenas en hogares con NBI", "unidad": "% de personas",
+                     "agg": "mean"},
+}
+
+
+def pdes_privacion():
+    rows = _pdes_leer(PDES_CENSO_ARCHIVO, [
+        (2010, "2010", "Departamentos 2010", "Regiones 2010"),
+        (2022, "2022", "Departamentos 2022", "Regiones 2022"),
+    ], {
+        "nbi_personas": "(1) % de personas en hogares con al menos una NBI",
+        "sin_agua_red": "(2) % de personas en hogares sin agua de red pública",
+        "nbi_indigena": "(3) % de personas indígenas en hogares con al menos una NBI",
+    })
+    rows = _pdes_cambios(rows, PDES_CENSO_METRICAS)
+    return _pdes_payload(rows, _con_dif(PDES_CENSO_METRICAS), [
+        "pdes-privacion: CNPV 2010 y 2022, procesamiento de microdatos para el PDES 2030 "
+        "(J. Paz). 2010 sale del cuestionario ampliado (muestra expandida, con error muestral en "
+        "departamentos chicos); 2022, del censo completo.",
+        "pdes-privacion: la NBI indígena cambia de pregunta entre censos (2010 por hogar, 2022 "
+        "autorreconocimiento individual): la variación no es la de una misma población.",
+        "pdes-privacion: " + _PDES_NOTA_REGIONES,
+    ])
+
+
+# -- Salud: trienios 2018-2020 y 2021-2023 ----------------------------------
+PDES_SALUD_ARCHIVO = "Indicadores_salud_Salta_2018_2023_regiones.xlsx"
+PDES_SALUD_METRICAS = {
+    "tmi": {"label": "Tasa de mortalidad infantil", "unidad": "por mil nacidos vivos",
+            "agg": "mean"},
+    "bajo_peso": {"label": "Nacidos vivos con bajo peso al nacer", "unidad": "% de nacidos vivos",
+                  "agg": "mean"},
+    "tfa_15_19": {"label": "Fecundidad adolescente (15 a 19)", "unidad": "por mil mujeres",
+                  "agg": "mean"},
+    "natalidad": {"label": "Tasa bruta de natalidad", "unidad": "por mil habitantes",
+                  "agg": "mean"},
+    "nv_sin_peso": {"label": "Nacidos vivos sin peso especificado", "unidad": "% de nacidos vivos",
+                    "agg": "mean"},
+}
+
+
+def pdes_salud():
+    rows = _pdes_leer(PDES_SALUD_ARCHIVO, [
+        (2020, "2018-2020", "Salud 2018-20", "Salud 2018-20 Reg"),
+        (2023, "2021-2023", "Salud 2021-23", "Salud 2021-23 Reg"),
+    ], {
+        "tmi": "TMI (por 1.000 NV)",
+        "bajo_peso": "% bajo peso al nacer (< 2.500 g)",
+        "tfa_15_19": "TFA 15–19 (por 1.000 mujeres)",
+        "natalidad": "Tasa bruta de natalidad (por 1.000 hab.)",
+        "nv_sin_peso": "% NV sin peso especificado",
+    })
+    rows = _pdes_cambios(rows, PDES_SALUD_METRICAS)
+    return _pdes_payload(rows, _con_dif(PDES_SALUD_METRICAS), [
+        "pdes-salud: estadísticas vitales de la DEIS por residencia, trienios 2018-2020 y "
+        "2021-2023 (el año del trienio se guarda como su último año: 2020 y 2023).",
+        "pdes-salud: la TMI departamental es inestable en La Poma, Los Andes, Guachipas, La "
+        "Caldera y Molinos aun agregando tres años; en Puna y Pre-Puna descansa en pocos casos.",
+        "pdes-salud: la población de los denominadores son proyecciones del INDEC base 2010, que "
+        "el propio INDEC recomienda usar con reservas para Salta.",
+        "pdes-salud: " + _PDES_NOTA_REGIONES,
+    ])
+
+
+# -- Educación: 2018 y 2025 (Relevamiento Anual y Aprender) ------------------
+PDES_EDU_ARCHIVO = "Indicadores_educativos_Salta_2018_2025_regiones.xlsx"
+PDES_EDU_METRICAS = {
+    "matricula_prim_sec": {"label": "Matrícula de primaria y secundaria", "unidad": "alumnos",
+                           "agg": "sum"},
+    "matricula_inicial": {"label": "Matrícula de nivel inicial", "unidad": "alumnos", "agg": "sum"},
+    "matricula_primaria": {"label": "Matrícula de primaria", "unidad": "alumnos", "agg": "sum"},
+    "matricula_secundaria": {"label": "Matrícula de secundaria", "unidad": "alumnos", "agg": "sum"},
+    "repitencia_pri": {"label": "Repitencia en primaria", "unidad": "% de la matrícula",
+                       "agg": "mean"},
+    "repitencia_sec": {"label": "Repitencia en secundaria", "unidad": "% de la matrícula",
+                       "agg": "mean"},
+    "sobreedad_pri": {"label": "Sobreedad en primaria", "unidad": "% de la matrícula",
+                      "agg": "mean"},
+    "sobreedad_sec": {"label": "Sobreedad en secundaria", "unidad": "% de la matrícula",
+                      "agg": "mean"},
+    "alumnos_seccion_pri": {"label": "Alumnos por sección en primaria", "unidad": "alumnos",
+                            "agg": "mean"},
+    "alumnos_seccion_sec": {"label": "Alumnos por sección en secundaria", "unidad": "alumnos",
+                            "agg": "mean"},
+    "secciones_multiples": {"label": "Secciones múltiples en primaria", "unidad": "% de secciones",
+                            "agg": "mean"},
+    "pct_estatal": {"label": "Matrícula de primaria y secundaria en el sector estatal",
+                    "unidad": "% de la matrícula", "agg": "mean"},
+    "pct_rural": {"label": "Matrícula de primaria y secundaria en el ámbito rural",
+                  "unidad": "% de la matrícula", "agg": "mean"},
+    "mat_debajo_basico": {"label": "Aprender Matemática 6.º: por debajo del nivel básico",
+                          "unidad": "% de alumnos", "agg": "mean"},
+    "mat_basico": {"label": "Aprender Matemática 6.º: nivel básico", "unidad": "% de alumnos",
+                   "agg": "mean"},
+    "mat_satisfactorio": {"label": "Aprender Matemática 6.º: nivel satisfactorio",
+                          "unidad": "% de alumnos", "agg": "mean"},
+    "mat_avanzado": {"label": "Aprender Matemática 6.º: nivel avanzado", "unidad": "% de alumnos",
+                     "agg": "mean"},
+    "mat_satisf_avanzado": {"label": "Aprender Matemática 6.º: satisfactorio o avanzado",
+                            "unidad": "% de alumnos", "agg": "mean"},
+    "jardin_sala3": {"label": "Alumnos de 6.º que asistieron al jardín desde sala de 3",
+                     "unidad": "% de alumnos", "agg": "mean"},
+    "sin_libros": {"label": "Alumnos de 6.º sin libros en el hogar", "unidad": "% de alumnos",
+                   "agg": "mean"},
+    "madre_secundaria": {"label": "Alumnos de 6.º con madre con secundaria completa",
+                         "unidad": "% de alumnos", "agg": "mean"},
+}
+
+
+def pdes_educacion():
+    ra = _pdes_leer(PDES_EDU_ARCHIVO, [
+        (2018, "2018", "RA 2018", "RA 2018 Reg"),
+        (2025, "2025", "RA 2025", "RA 2025 Reg"),
+    ], {
+        "matricula_inicial": "Matrícula inicial (maternal y salas 2–5)",
+        "matricula_primaria": "Matrícula primaria (1.º–7.º)",
+        "matricula_secundaria": "Matrícula secundaria (8.º–12.º y 13.º/14.º)",
+        "repitencia_pri": "% repitentes primaria",
+        "repitencia_sec": "% repitentes secundaria",
+        "sobreedad_pri": "% alumnos con sobreedad primaria",
+        "sobreedad_sec": "% alumnos con sobreedad secundaria",
+        "alumnos_seccion_pri": "Alumnos por sección primaria",
+        "alumnos_seccion_sec": "Alumnos por sección secundaria",
+        "secciones_multiples": "% secciones múltiples en primaria",
+        "pct_estatal": "% matrícula prim.+sec. en sector estatal",
+        "pct_rural": "% matrícula prim.+sec. en ámbito rural",
+    }, derivadas={
+        "matricula_prim_sec": lambda n: n["matricula_primaria"] + n["matricula_secundaria"],
+    })
+    aprender = _pdes_leer(PDES_EDU_ARCHIVO, [
+        (2018, "2018", "Aprender 2018", "Aprender 2018 Reg"),
+        (2025, "2025", "Aprender 2025", "Aprender 2025 Reg"),
+    ], {
+        "mat_debajo_basico": "% por debajo del nivel básico",
+        "mat_basico": "% nivel básico",
+        "mat_satisfactorio": "% nivel satisfactorio",
+        "mat_avanzado": "% nivel avanzado",
+        "mat_satisf_avanzado": "% satisfactorio o avanzado",
+        "jardin_sala3": "% asistió al jardín desde sala de 3 o antes",
+        "sin_libros": "% sin libros en el hogar",
+        "madre_secundaria": "% con madre con secundaria completa o más",
+    })
+    rows = _pdes_cambios(ra + aprender, PDES_EDU_METRICAS)
+    return _pdes_payload(rows, _con_dif(PDES_EDU_METRICAS, {
+        "matricula_prim_sec": "alumnos", "matricula_inicial": "alumnos",
+        "matricula_primaria": "alumnos", "matricula_secundaria": "alumnos",
+        "alumnos_seccion_pri": "alumnos", "alumnos_seccion_sec": "alumnos",
+    }), [
+        "pdes-educacion: Relevamiento Anual (educación común) y Aprender Matemática 6.º grado, "
+        "2018 y 2025 (DiNIEE). Primaria = 1.º a 7.º y secundaria = 8.º a 12.º y 13.º/14.º.",
+        "pdes-educacion: la fuente enmascara las combinaciones sector × ámbito con pocos casos y "
+        "esos casos entran sólo al total: la matrícula departamental está subestimada.",
+        "pdes-educacion: Aprender compara dos cohortes distintas (no sigue a los mismos "
+        "alumnos) y usa ponderadores; en Guachipas, La Poma y Cachi hay pocos evaluados.",
+        "pdes-educacion: " + _PDES_NOTA_REGIONES,
+    ])
+
+
+# -- Trabajo: censos 2010 y 2022 --------------------------------------------
+PDES_TRABAJO_ARCHIVO = "Indicadores_trabajo_Salta_2010_2022.xlsx"
+PDES_TRABAJO_METRICAS = {
+    "desocupacion": {"label": "Tasa de desocupación, 18 años y más", "unidad": "%", "agg": "mean"},
+    "informalidad": {"label": "Informalidad laboral, ocupados de 18 a 64 años",
+                     "unidad": "% de ocupados", "agg": "mean"},
+    "actividad_varones": {"label": "Tasa de actividad de varones, 18 a 64 años", "unidad": "%",
+                          "agg": "mean"},
+    "actividad_mujeres": {"label": "Tasa de actividad de mujeres, 18 a 64 años", "unidad": "%",
+                          "agg": "mean"},
+    "brecha_participacion": {"label": "Brecha de participación varones-mujeres, 18 a 64 años",
+                             "unidad": "p.p.", "agg": "mean"},
+    "informalidad_varones": {"label": "Informalidad de varones ocupados, 18 a 64 años",
+                             "unidad": "% de ocupados", "agg": "mean"},
+    "informalidad_mujeres": {"label": "Informalidad de mujeres ocupadas, 18 a 64 años",
+                             "unidad": "% de ocupados", "agg": "mean"},
+}
+
+
+def pdes_trabajo():
+    rows = _pdes_leer(PDES_TRABAJO_ARCHIVO, [
+        (2010, "2010", "Departamentos 2010", "Regiones 2010"),
+        (2022, "2022", "Departamentos 2022", "Regiones 2022"),
+    ], {
+        "desocupacion": "(1) Tasa de desocupación, 18 años y más",
+        "informalidad": "(2) % de ocupados de 18–64 sin descuento ni aporte jubilatorio",
+        "actividad_varones": "Tasa de actividad varones 18–64",
+        "actividad_mujeres": "Tasa de actividad mujeres 18–64",
+        "brecha_participacion": "(3) Brecha de participación varones–mujeres 18–64 (p.p.)",
+        "informalidad_varones": "% de ocupados varones 18–64 sin descuento ni aporte",
+        "informalidad_mujeres": "% de ocupadas mujeres 18–64 sin descuento ni aporte",
+    })
+    rows = _pdes_cambios(rows, PDES_TRABAJO_METRICAS)
+    return _pdes_payload(rows, _con_dif(PDES_TRABAJO_METRICAS), [
+        "pdes-trabajo: CNPV 2010 (cuestionario ampliado, con error muestral en departamentos "
+        "chicos) y 2022 (censo completo), procesamiento de microdatos para el PDES 2030 (J. Paz).",
+        "pdes-trabajo: la informalidad mide sólo la falta de protección contributiva (ocupados "
+        "sin descuento ni aporte jubilatorio); la desocupación se lee junto con la actividad.",
+        "pdes-trabajo: " + _PDES_NOTA_REGIONES,
+    ])
+
+
+# -- Delitos registrados (SNIC): trienios 2013-2015 y 2021-2023 -------------
+PDES_SNIC_ARCHIVO = "Indicadores_seguridad_Salta_2013_2023.xlsx"
+PDES_SNIC_METRICAS = {
+    "homicidio": {"label": "Víctimas de homicidio doloso", "unidad": "por cien mil hab.",
+                  "agg": "mean"},
+    "robos": {"label": "Robos y tentativas de robo", "unidad": "por cien mil hab.", "agg": "mean"},
+    "lesiones": {"label": "Lesiones dolosas", "unidad": "por cien mil hab.", "agg": "mean"},
+    "abusos": {"label": "Abusos sexuales con acceso carnal", "unidad": "por cien mil hab.",
+               "agg": "mean"},
+}
+
+
+def pdes_delitos():
+    rows = _pdes_leer(PDES_SNIC_ARCHIVO, [
+        (2015, "2013-2015", "Trienio 2013-2015", "Regiones 2013-2015"),
+        (2023, "2021-2023", "Trienio 2021-2023", "Regiones 2021-2023"),
+    ], {
+        "homicidio": "(1) Tasa de víctimas de homicidio doloso",
+        "robos": "(2) Tasa de robos (incluye tentativas)",
+        "lesiones": "(3) Tasa de lesiones dolosas",
+        "abusos": "(4) Tasa de abusos sexuales con acceso carnal",
+    })
+    rows = _pdes_cambios(rows, PDES_SNIC_METRICAS)
+    return _pdes_payload(rows, _con_dif(PDES_SNIC_METRICAS), [
+        "pdes-delitos: SNIC (Ministerio de Seguridad de la Nación), delitos REGISTRADOS por lugar "
+        "del hecho, tasas anuales promedio por trienio (el año del trienio es su último año).",
+        "pdes-delitos: las tasas bajas de Puna, Pre-Puna y Valles Calchaquíes pueden reflejar "
+        "menos denuncias y menor presencia policial; el homicidio es el más comparable.",
+        "pdes-delitos: " + _PDES_NOTA_REGIONES,
+    ])
+
+
 # Registro id_tema -> función adapter
 ADAPTERS = {
     "aeropuerto": aeropuerto,
@@ -2966,5 +3338,10 @@ ADAPTERS = {
     "educacion-aprendizajes": educacion_aprendizajes,
     "seguridad": seguridad,
     "bosques": bosques,
+    "pdes-privacion": pdes_privacion,
+    "pdes-salud": pdes_salud,
+    "pdes-educacion": pdes_educacion,
+    "pdes-trabajo": pdes_trabajo,
+    "pdes-delitos": pdes_delitos,
     "transparencia": transparencia,
 }

@@ -477,6 +477,13 @@
     return { xs: trimTrailingZero(xs, res.acc), map: map };
   }
 
+  // Cómo se muestra un período: el KPI puede traer `periodos` ({"2023": "2021-23"}) para las
+  // series que guardan un trienio con su último año. Espejo de indicadores._per.
+  function kpiPer(k, p) {
+    if (p == null) return "";
+    return (k.periodos && k.periodos[String(p)]) || String(p);
+  }
+
   // Mismo período del año anterior (texto): "2026"->"2025", "2026-T1"->"2025-T1", "2026-11"->"2025-11".
   function kpiPrevPeriod(p) {
     var m = String(p).match(/^(\d{4})(.*)$/);
@@ -549,7 +556,11 @@
       }
       var last = ser.xs.length ? ser.xs[ser.xs.length - 1] : null;
       var now = last != null ? ser.map[last] : null;
-      var prevKey = last != null ? kpiPrevPeriod(last) : null;
+      // Con `var: "anterior"` (censos, trienios) se compara contra el período anterior CON
+      // DATO de la serie, no contra el año anterior. Espejo de indicadores._calcular.
+      var prevKey = (k["var"] === "anterior")
+        ? (ser.xs.length > 1 ? ser.xs[ser.xs.length - 2] : null)
+        : (last != null ? kpiPrevPeriod(last) : null);
       var prev = (prevKey != null && ser.map[prevKey] != null) ? ser.map[prevKey] : null;
 
       var el = document.createElement("div"); el.className = "kpi";
@@ -569,8 +580,8 @@
           // Nivel CON signo (resultado fiscal): superávit verde, déficit rojo.
           clsN = Math.abs(now) < 1 ? "flat" : (pos ? "up" : "down");
         }
-        var ctxN = (last != null ? esc(String(last)) : "");
-        if (prev != null) ctxN += " · " + esc(String(prevKey)) + ": " +
+        var ctxN = (last != null ? esc(kpiPer(k, last)) : "");
+        if (prev != null) ctxN += " · " + esc(kpiPer(k, prevKey)) + ": " +
           (prev < 0 ? "−" : "") + fmtNivel(Math.abs(prev)) + " " + esc(k.unidad);
         el.innerHTML =
           '<div class="kpi-value kpi-delta ' + clsN + '">' + (pos ? "" : "−") +
@@ -587,7 +598,7 @@
           '<div class="kpi-value">' + (now == null ? "—" : nfFull.format(now)) +
           '<span class="kpi-unit">' + esc(k.unidad) + '</span></div>' +
           '<div class="kpi-label">' + esc(k.label) + '</div>' +
-          '<div class="kpi-context">' + (last != null ? esc(String(last)) : "") +
+          '<div class="kpi-context">' + (last != null ? esc(kpiPer(k, last)) : "") +
           ' · sin base de comparación</div>';
         mount.appendChild(el);
         return;
@@ -602,7 +613,7 @@
         '<div class="kpi-value kpi-delta ' + cls + '">' + arrow + " " + pctTxt + " %</div>" +
         '<div class="kpi-label">' + esc(k.label) + '</div>' +
         '<div class="kpi-context">de ' + nfCompact.format(prev) + " a " + nfCompact.format(now) +
-        " " + esc(k.unidad) + " · " + esc(String(prevKey)) + " → " + esc(String(last)) + "</div>";
+        " " + esc(k.unidad) + " · " + esc(kpiPer(k, prevKey)) + " → " + esc(kpiPer(k, last)) + "</div>";
       mount.appendChild(el);
     });
   }

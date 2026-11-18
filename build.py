@@ -332,6 +332,7 @@ def construir_tema(tmeta):
         "tags": tmeta.get("tags", []),
         "subeje": tmeta.get("subeje", ""),
         "advertencia": tmeta.get("advertencia", ""),
+        "frecuencia": tmeta.get("frecuencia", ""),
         "ciiu": tmeta.get("ciiu", ""),
         "dims": dims, "metricas": metricas,
         "fields": fields, "rows": rows,

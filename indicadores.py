@@ -119,8 +119,8 @@ EXTRA = {
          "fixed": {"departamento": "Salta"}, "sentido": "menor_mejor"},
         {"ficha": "II.9", "label": "Mortalidad de menores de 5 años", "metrica": "mort_menores5",
          "fixed": {"departamento": "Salta"}, "sentido": "menor_mejor"},
-        {"ficha": "II.10", "label": "Nacidos vivos con bajo peso al nacer", "metrica": "pct_bajo_peso",
-         "fixed": {"departamento": "Salta"}, "sentido": "menor_mejor"},
+        # II.10 (bajo peso al nacer) pasó al tablero «pdes-salud», con los trienios 2018-20 y
+        # 2021-23 y apertura por región.
         {"ficha": "II.11", "label": "Mortalidad cardiovascular", "metrica": "mort_cardiovascular",
          "fixed": {"departamento": "Salta"}, "sentido": "menor_mejor"},
         {"ficha": "II.12", "label": "Mortalidad por cáncer", "metrica": "mort_cancer",
@@ -144,8 +144,8 @@ EXTRA = {
          "fixed": {"departamento": "Salta"}, "sentido": "neutro"},
     ],
     "educacion-aprendizajes": [
-        {"ficha": "III.1", "label": "Matrícula de primaria y secundaria", "metrica": "matricula",
-         "fixed": {"departamento": "Salta"}, "sentido": "neutro"},
+        # III.1 (matrícula de primaria y secundaria) pasó al tablero «pdes-educacion», con 2018
+        # y 2025 y apertura por región.
         {"tipo": "oferta", "ficha": "III.4", "label": "Alumnos por establecimiento (secundaria)",
          "tabla_label": "Alumnos por establecimiento. Secundaria",
          "metrica": "alumnos_establecimiento",
@@ -197,7 +197,7 @@ GEO_NIVELES = [
 
 # Forma corta del nivel territorial para la columna «Apertura» de la tabla; el nombre completo
 # queda en el texto del mouse.
-_GEO_CORTO = {"Departamento": "Depto."}
+_GEO_CORTO = {"Departamento": "Depto.", "Departamento y región": "Depto./región"}
 
 
 # Paréntesis final del nombre («(índice 0-100)», «(c/ 100 mil hab.)»). La tabla lo imprime como
@@ -321,7 +321,13 @@ def _calcular(payload, ix, spec, freq):
 
     ult = xs[-1] if xs else None
     ahora = mapa.get(ult) if ult is not None else None
-    prevk = _periodo_previo(ult) if ult is not None else None
+    # Con qué se compara: por defecto, el mismo período del año anterior. Con `var: "anterior"`
+    # —censos, trienios, relevamientos espaciados—, el período anterior CON DATO de la serie:
+    # 2022 contra 2010, el trienio 2021-23 contra el 2018-20. Espejo de renderKpis (charts.js).
+    if spec.get("var") == "anterior":
+        prevk = xs[-2] if len(xs) > 1 else None
+    else:
+        prevk = _periodo_previo(ult) if ult is not None else None
     prev = mapa.get(prevk) if prevk is not None else None
     pct = (ahora / prev - 1) * 100 if (ahora is not None and prev not in (None, 0)) else None
     dif = (ahora - prev) if (ahora is not None and prev is not None) else None
@@ -333,6 +339,14 @@ def _calcular(payload, ix, spec, freq):
 _MESES = ["ene", "feb", "mar", "abr", "may", "jun", "jul", "ago", "sep", "oct", "nov", "dic"]
 _FREC = {"mensual": "Mensual", "trimestral": "Trimestral", "anual": "Anual",
          "acumulado": "Mensual acum."}
+
+
+def _per(spec, p):
+    """Cómo se muestra el período `p` de este indicador: el spec puede declarar `periodos`
+    ({"2023": "2021-23"}) para las series que guardan un trienio con su último año."""
+    if p is None:
+        return ""
+    return (spec.get("periodos") or {}).get(str(p)) or _periodo_corto(p)
 
 
 def _periodo_corto(p):
@@ -415,6 +429,8 @@ _UNIDAD_NOMBRE = {
     "% de hogares": "%", "% de alumnos": "%", "% de nacidos vivos": "%",
     "% de la matrícula": "%", "camas (promedio)": "promedio",
     "PDA/10k": "c/ 10 mil adultos",
+    # Planillas del PDES 2030: el sujeto ya está en el nombre del indicador.
+    "% de personas": "%", "% de ocupados": "%", "% de secciones": "%",
 }
 
 # Paréntesis final con un denominador ya escrito a mano en la etiqueta, para no duplicarlo.
@@ -589,7 +605,7 @@ def _en_pp(spec, metricas):
     if spec.get("display") != "nivel":
         return False
     u = str(metricas.get(spec["metrica"], {}).get("unidad", ""))
-    return u.startswith("%")
+    return u.startswith("%") or u == "p.p."
 
 
 # ------------------------------------------------------------------ API
@@ -846,7 +862,7 @@ def tabla(payloads, catalogo, ejes_pdes_meta, tags_meta, subeje_orden, ciiu_secc
                 flecha = "≈" if direccion == "flat" else ("▲" if direccion == "up" else "▼")
                 var_cls = _clase_color(s, direccion)
                 var_txt = "%s %s %s" % (flecha, _pct(abs(v)), "p.p." if pp else "%")
-                ref = _periodo_corto(res["prev"])
+                ref = _per(s, res["prev"])
             # Brecha a 2050: cuánto le falta al indicador para llegar a la meta final.
             # Queda vacía hasta que se carguen las metas en catalog.py.
             m2050, actual = _num(s.get("meta_2050")), _num(res.get("valor"))
@@ -883,8 +899,9 @@ def tabla(payloads, catalogo, ejes_pdes_meta, tags_meta, subeje_orden, ciiu_secc
                 "geo": desag, "geo_nota": desag_nota,
                 "valor_txt": _medida(res["valor"], _unidad),
                 "dato_txt": _dato(res["valor"], _unidad),
-                "frecuencia": s.get("frecuencia") or _frecuencia(res, t["id"]),
-                "ultimo": _periodo_corto(res["ultimo"]),
+                "frecuencia": (s.get("frecuencia") or payload.get("frecuencia")
+                               or _frecuencia(res, t["id"])),
+                "ultimo": _per(s, res["ultimo"]),
                 "base_valor": _celda(s.get("base_valor")),
                 "base_periodo": s.get("base_periodo", ""),
                 "base_txt": _dato(b_val, _unidad) if b_val is not None else "",
