@@ -164,7 +164,66 @@ MOSTRAR_METAS = False
 # 7 tienen un indicador equivalente en el Monitor: el resto del PDES no quedó cuantificado, o
 # mide cosas que el Monitor no publica.
 MOSTRAR_META_2030 = True
+
+# Columna CIIU (sección de actividad) en la tabla del eje económico-productivo. Oculta por pedido;
+# la letra se sigue cargando y se sigue usando para ORDENAR los indicadores dentro de cada subeje,
+# así que volver a mostrarla es cambiar esto a True y reconstruir.
+MOSTRAR_CIIU = False
 META_2030_TITULO = "Meta 2030 (PDES 2024)"
+
+# Forma corta de cada fuente para la columna «Fuente» de la tabla de la portada. La clave es el
+# texto COMPLETO de la fuente tal como lo declara el tema (o el gráfico, cuando tiene una propia);
+# la celda muestra la forma corta y el texto completo aparece al pasar el mouse; si el valor es un
+# par (forma corta, texto del mouse), el mouse muestra ese texto en vez de la fuente completa.
+# Una fuente nueva
+# sin forma corta se muestra completa y queda anotada en BUILD_NOTES.md para agregarla acá.
+FUENTE_CORTA = {
+    "CESS sobre la base del Censo Nacional de Población, Hogares y Viviendas 2022 (INDEC/REDATAM)":
+        "INDEC, CNPV 2022",
+    "CESS sobre la base de defunciones y nacimientos 2021-2023 (DEIS, Ministerio de Salud) y "
+    "Censo 2022 (INDEC)": "DEIS e INDEC",
+    "Programa de Estadísticas de Información en Salud — Ministerio de Salud Pública de Salta":
+        "Salud Salta",
+    "CESS sobre la base del Relevamiento Anual 2025 y Aprender 2025 (Ministerio de Educación de "
+    "la Nación)": "Educación Nación",
+    "Relevamiento Anual (RA) — Ministerio de Educación de la Nación":
+        "Educación Nación",
+    "CESS sobre la base del Sistema de Alerta Temprana de Suicidios (SATSSBU, suicidios "
+    "2017-2024), DEIS (defunciones 2021-2023) y Censo 2022 (INDEC)": "Alerta Suicidios y DEIS",
+    "Estimaciones Agrícolas — Ministerio de Economía (MAGyP)": "MAGyP",
+    "Existencias bovinas (SENASA) — Ministerio de Economía (MAGyP)": "SENASA y MAGyP",
+    "Instituto Nacional de Vitivinicultura (INV)": "INV",
+    "Secretaría de Energía de la Nación — datos abiertos (producción por pozo)":
+        "Sec. de Energía",
+    "Permisos de edificación — INDEC": "INDEC",
+    "OEDE — Observatorio de Empleo y Dinámica Empresarial (Min. de Trabajo / Capital Humano)":
+        "OEDE",
+    "OEDE (empleo y remuneraciones) e IPC NOA — INDEC (deflactor), vía datos.gob.ar":
+        "OEDE e INDEC",
+    "Empleo: OEDE (Min. de Trabajo). Recaudación: Secretaría de Minería de la Nación":
+        "OEDE y Minería",
+    "Secretaría de Minería de la Nación (aporte tributario del sector, nacional)":
+        "Sec. Minería",
+    "Esquema Ahorro-Inversión-Financiamiento — Presupuesto de la Provincia de Salta":
+        "Ppto. Salta",
+    "Dirección General de Rentas — Ministerio de Economía de Salta": "DGR Salta",
+    "Banco Central de la República Argentina (BCRA)": "BCRA",
+    "Esquema Ahorro-Inversión-Financiamiento provincial — DNAP, Ministerio de Economía de la "
+    "Nación": "DNAP",
+    "Ejecución presupuestaria — Ministerio de Economía de Salta": "Economía Salta",
+    # Con texto propio para el mouse: el pedido fue «Contaduría Gral de la Pvcia», no la fuente
+    # completa del tema.
+    "Contaduría General de la Provincia de Salta": ("CGP", "Contaduría Gral. de la Pvcia."),
+    "CAMMESA — Informe de síntesis mensual": "CAMMESA",
+    "ENACOM (datos abiertos de internet) e INDEC (Censo 2022, hogares)": "ENACOM e INDEC",
+    "INDEC — Comercio Exterior (COMEX), base anual por provincia de origen": "INDEC, COMEX",
+    "RICyT / MINCyT — Indicadores de ciencia y tecnología": "RICyT / MINCyT",
+    "Relevamiento propio del CESS sobre canales oficiales (municipios y Ejecutivo provincial)":
+        "Elab. propia",
+    "MapBiomas Argentina — Colección 3 (cobertura y uso; desmonte y vegetación secundaria)":
+        "MapBiomas",
+    "Encuesta de Ocupación Hotelera (EOH) — INDEC": "INDEC, EOH",
+}
 
 # Semáforo de avance hacia la meta 2030 (sección de la portada + marca en la columna de la meta).
 # El avance es la parte recorrida del camino entre la línea de base y la meta:
@@ -2300,7 +2359,8 @@ TEMAS = [
             "media del trienio 2021-2023."
         ),
         "resumen_corto": "Suicidios (2017-2024) y mortalidad por lesiones de tránsito, por departamento.",
-        "fuente": "CESS sobre la base del SATSSBU (suicidios 2017-2024), DEIS (defunciones 2021-2023) y Censo 2022 (INDEC)",
+        "fuente": ("CESS sobre la base del Sistema de Alerta Temprana de Suicidios (SATSSBU, "
+                   "suicidios 2017-2024), DEIS (defunciones 2021-2023) y Censo 2022 (INDEC)"),
         "fuente_url": "",
         "cobertura": "2017–2024",
         "keywords": [

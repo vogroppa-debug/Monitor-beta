@@ -432,7 +432,8 @@ def main():
     # Tabla maestra de indicadores (portada). Espeja renderKpis de charts.js: ver indicadores.py.
     tabla_ind = indicadores.tabla(payloads, catalogo, catalog.EJES_PDES,
                                   catalog.TAGS, catalog.SUBEJE_ORDEN, catalog.CIIU_SECCIONES,
-                                  umbrales=catalog.SEMAFORO_UMBRALES)
+                                  umbrales=catalog.SEMAFORO_UMBRALES,
+                                  fuentes_cortas=catalog.FUENTE_CORTA)
     sem = (indicadores.semaforo(tabla_ind, catalog.SEMAFORO_UMBRALES, catalog.SEMAFORO_TOP)
            if catalog.MOSTRAR_SEMAFORO else None)
     n_ind = sum(len(g["filas"]) for g in tabla_ind)
@@ -441,6 +442,12 @@ def main():
     # defecto), así que acá se deja la lista entera a la vista para poder revisarla.
     _oferta = [(g["label"], f["subeje"], f["indicador"])
                for g in tabla_ind for f in g["filas"] if f["tipo"] == "oferta"]
+    _sin_corta = sorted({f["fuente"] for g in tabla_ind for f in g["filas"]
+                         if f["fuente"] not in catalog.FUENTE_CORTA})
+    if _sin_corta:
+        todas_notas["fuente en la tabla de indicadores"] = [
+            "Fuente sin forma corta en catalog.FUENTE_CORTA (la tabla la muestra completa): %s" % x
+            for x in _sin_corta]
     todas_notas["clase de los indicadores"] = [
         "%d de %d indicadores están clasificados como «De oferta o proceso»; los demás, como "
         "«De resultados» (`tipo` en el spec, ver catalog.py)." % (len(_oferta), n_ind)
@@ -468,6 +475,7 @@ def main():
                                  asset_ver=asset_ver, tabla=tabla_ind, n_indicadores=n_ind,
                                  mostrar_metas=catalog.MOSTRAR_METAS,
                                  mostrar_meta_2030=catalog.MOSTRAR_META_2030,
+                                 mostrar_ciiu=catalog.MOSTRAR_CIIU,
                                  meta_2030_titulo=catalog.META_2030_TITULO,
                                  semaforo=sem))
 

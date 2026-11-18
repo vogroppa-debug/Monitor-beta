@@ -195,6 +195,11 @@ GEO_NIVELES = [
 ]
 
 
+# Forma corta del nivel territorial para la columna «Apertura» de la tabla; el nombre completo
+# queda en el texto del mouse.
+_GEO_CORTO = {"Departamento": "Depto."}
+
+
 def _desagregacion(payload, ix, spec):
     """Nivel territorial en el que se publica ESTE indicador.
 
@@ -773,8 +778,23 @@ def _orden_subejes(tags_meta, subeje_orden):
     return orden
 
 
+def _fuente(payload, chart_id, cortas):
+    """Fuente del indicador: la del gráfico que lo publica si tiene una propia, si no la del tema.
+
+    `construir_tema` ya dejó en cada gráfico su fuente efectiva (propia o heredada), así que basta
+    con buscar el gráfico. Devuelve (texto completo, forma corta, texto del mouse); sin forma
+    corta, las tres iguales.
+    """
+    ch = next((c for c in payload["charts"] if c["id"] == chart_id), None)
+    completa = (ch or {}).get("fuente") or payload["fuente"]
+    corta = (cortas or {}).get(completa, completa)
+    if isinstance(corta, (tuple, list)):
+        return completa, corta[0], corta[1]
+    return completa, corta, completa
+
+
 def tabla(payloads, catalogo, ejes_pdes_meta, tags_meta, subeje_orden, ciiu_secciones=None,
-          umbrales=None):
+          umbrales=None, fuentes_cortas=None):
     """payloads: {tema_id: payload}; catalogo: temas livianos YA ORDENADOS;
     ejes_pdes_meta: catalog.EJES_PDES; tags_meta: catalog.TAGS;
     subeje_orden: catalog.SUBEJE_ORDEN; ciiu_secciones: catalog.CIIU_SECCIONES (letra→nombre).
@@ -813,6 +833,8 @@ def tabla(payloads, catalogo, ejes_pdes_meta, tags_meta, subeje_orden, ciiu_secc
 
             _unidad = payload["metricas"].get(s["metrica"], {}).get("unidad", "")
             sem = _avance(s, res.get("valor"), umbrales)
+            _chart = s.get("grafico") or _grafico(payload, s["metrica"])
+            _fte, _fte_corta, _fte_title = _fuente(payload, _chart, fuentes_cortas)
             filas.append({
                 "eje": t.get("eje_pdes"),
                 "subeje": _subeje(s, t, tags_meta),
@@ -823,7 +845,9 @@ def tabla(payloads, catalogo, ejes_pdes_meta, tags_meta, subeje_orden, ciiu_secc
                 "ficha": s.get("ficha", ""),
                 "nota": s.get("tabla_nota", ""),
                 "tema_id": t["id"], "tema_title": t["title"],
-                "chart_id": s.get("grafico") or _grafico(payload, s["metrica"]),
+                "chart_id": _chart,
+                "fuente": _fte, "fuente_corta": _fte_corta, "fuente_title": _fte_title,
+                "geo_corto": _GEO_CORTO.get(desag, desag),
                 "geo": desag, "geo_nota": desag_nota,
                 "valor_txt": _medida(res["valor"], _unidad),
                 "dato_txt": _dato(res["valor"], _unidad),
