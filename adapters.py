@@ -2609,8 +2609,338 @@ def transparencia():
     }
 
 
+# Etiqueta del agregado nacional en los datasets que abren por jurisdicción (INDEC, AFCP).
+TOTAL_PAIS = "Total del país"
+
+
+# ==========================================================================
+# TEMA — Movimiento aeroportuario de Salta (ANAC)
+# ==========================================================================
+# Dos productos distintos de la ANAC, que NO se suman ni se empalman:
+#   · aterrizajes (microdatos, 2019-): abiertos por clasificación, clase de vuelo y aerolínea;
+#   · series históricas (2001-): sin esas aperturas, pero con 18 años más y las rutas.
+# Las cuatro aperturas NO van como cuatro dimensiones paralelas con margen "Total": un gráfico que
+# se olvidara de fijar una de ellas sumaría los márgenes y el número se inflaría en silencio. Van
+# como DOS columnas, `apertura` + `categoria`, de modo que cada gráfico fija una sola dimensión.
+AERO_METRICAS = {
+    "pax_arribos":    {"label": "Pasajeros arribados",       "unidad": "pasajeros",    "agg": "sum"},
+    "vuelos_arribos": {"label": "Vuelos arribados",          "unidad": "vuelos",       "agg": "sum"},
+    "pax_serie":      {"label": "Pasajeros (serie ANAC)",    "unidad": "pasajeros",    "agg": "sum"},
+    "mov_serie":      {"label": "Movimientos (serie ANAC)",  "unidad": "movimientos",  "agg": "sum"},
+    "pax_ruta":       {"label": "Pasajeros por ruta",        "unidad": "pasajeros",    "agg": "sum"},
+}
+
+# El dataset trae 239 explotadores: casi todos son aviación general con un vuelo suelto. El
+# ranking publica los primeros por pasajeros y agrupa el resto en "Otras".
+AERO_TOP_AEROLINEAS = 10
+
+
+def aeropuerto():
+    notas = []
+    rows = []
+
+    def emitir(df, cat_col, apertura, granos=("mensual", "trimestral", "anual")):
+        """Agrega `df` (mensual, con columnas anio/n_mes/met/valor) por categoría y emite los
+        granos pedidos. `apertura` nombra la lectura; `categoria`, el valor dentro de ella."""
+        g = df.groupby(["anio", "n_mes", "met", cat_col], as_index=False)["valor"].sum()
+        g["trimestre"] = [_trim_label(a, m) for a, m in zip(g["anio"], g["n_mes"])]
+        if "mensual" in granos:
+            for r in g.itertuples(index=False):
+                d = r._asdict()
+                a, m = int(d["anio"]), int(d["n_mes"])
+                rows.append(["mensual", a, "%d-%02d" % (a, m), d["trimestre"],
+                             apertura, d[cat_col], d["met"], int(round(float(d["valor"])))])
+        if "trimestral" in granos:
+            gq = g.groupby(["anio", "trimestre", "met", cat_col], as_index=False)["valor"].sum()
+            for r in gq.itertuples(index=False):
+                d = r._asdict()
+                rows.append(["trimestral", int(d["anio"]), "", d["trimestre"],
+                             apertura, d[cat_col], d["met"], int(round(float(d["valor"])))])
+        if "anual" in granos:
+            ga = g.groupby(["anio", "met", cat_col], as_index=False)["valor"].sum()
+            for r in ga.itertuples(index=False):
+                d = r._asdict()
+                rows.append(["anual", int(d["anio"]), "", "",
+                             apertura, d[cat_col], d["met"], int(round(float(d["valor"])))])
+
+    def _num(df):
+        df["valor"] = pd.to_numeric(df["valor"], errors="coerce")
+        df = df.dropna(subset=["valor"]).copy()
+        df["anio"] = df["anio"].astype(int)
+        df["n_mes"] = df["n_mes"].astype(int)
+        return df
+
+    # --- A. Aterrizajes (2019-), con las tres aperturas -----------------------------------
+    at = _num(pd.read_csv(_drv("Salta_aeropuerto_ANAC_aterrizajes_mensual.csv"), encoding="utf-8-sig"))
+    MET_AT = {"pasajeros": "pax_arribos", "vuelos": "vuelos_arribos"}
+    at = at[at["metrica"].isin(MET_AT)].copy()
+    at["met"] = at["metrica"].map(MET_AT)
+    pax = (at[at["met"] == "pax_arribos"].groupby("aerolinea")["valor"].sum()
+           .sort_values(ascending=False))
+    top = set(pax.head(AERO_TOP_AEROLINEAS).index)
+    at["aerolinea_lbl"] = [a if a in top else "Otras" for a in at["aerolinea"]]
+    at["todo"] = "Total"
+    emitir(at, "todo", "total")
+    emitir(at, "clasificacion", "clasificacion")
+    emitir(at, "clase_vuelo", "clase")
+    emitir(at, "aerolinea_lbl", "aerolinea")
+
+    # --- B. Series históricas (2001-) -----------------------------------------------------
+    se = _num(pd.read_csv(_drv("Salta_aeropuerto_ANAC_series_mensual.csv"), encoding="utf-8-sig"))
+    MET_SE = {"pasajeros": "pax_serie", "movimientos": "mov_serie"}
+    aero = se[(se["serie"] == "aeropuerto") & (se["metrica"].isin(MET_SE))].copy()
+    aero["met"] = aero["metrica"].map(MET_SE)
+    # La fuente ya trae la fila "Total": NO se suman las tres clasificaciones, que la duplicaría.
+    emitir(aero, "clasificacion", "clasificacion")
+    tot = aero[aero["clasificacion"] == "Total"].copy()
+    tot["todo"] = "Total"
+    emitir(tot, "todo", "total")
+
+    # Rutas: sólo en trimestral y anual. El gráfico es un ranking por año, y emitir 309 meses ×
+    # 16 rutas engorda el JSON sin que nadie mire ese detalle.
+    ruta = se[(se["serie"] == "ruta") & (se["metrica"] == "pasajeros")].copy()
+    ruta["met"] = "pax_ruta"
+    emitir(ruta, "aeropuerto", "ruta", granos=("trimestral", "anual"))
+
+    # Períodos incompletos: la completitud se calcula sobre la UNIÓN de los dos datasets, porque
+    # el de aterrizajes arranca en 2019 y descartaría los trimestres y años anteriores de la
+    # serie larga.
+    meses = pd.concat([at[["anio", "n_mes"]], se[["anio", "n_mes"]]]).drop_duplicates()
+    meses["trimestre"] = [_trim_label(a, m) for a, m in zip(meses["anio"], meses["n_mes"])]
+    trims_ok, anios_ok, _tl = _completos(meses, mes_col="n_mes")
+    rows = _keep_completos(rows, trims_ok, anios_ok, gi=0, ai=1, ti=3)
+
+    orden_cat = {"Total": 0, "Doméstico": 1, "Cabotaje": 1, "Internacional": 2, "Otras": 99}
+    cats = sorted({r[5] for r in rows}, key=lambda c: (orden_cat.get(c, 50), c))
+    notas.append(
+        "aeropuerto: dos productos de la ANAC en un mismo tablero. Los aterrizajes (2019-) son "
+        "sólo los arribos a Salta, abiertos por clasificación, clase de vuelo y aerolínea; la "
+        "serie histórica (2001-) cuenta movimientos y pasajeros con otra definición y otro corte "
+        "horario. No cierran entre sí y no se suman ni se empalman: ver "
+        "`datos/metodologia/Metodologia_Salta_aeropuerto_ANAC.md`.")
+    notas.append(
+        "aeropuerto: el ranking publica las %d aerolíneas con más pasajeros y agrupa el resto en "
+        "«Otras» (el dataset trae 239 explotadores, casi todos de aviación general). Las rutas se "
+        "emiten en grano trimestral y anual." % AERO_TOP_AEROLINEAS)
+    notas.append(
+        "aeropuerto: el control automático de saltos de magnitud marca valores a >1000× de la "
+        "mediana. NO es un artefacto de parseo: una misma métrica convive en varias aperturas, y "
+        "la mediana cae sobre las categorías chicas (un vuelo escuela sin pasajeros, una ruta con "
+        "doce pasajeros al año) mientras el total anual supera los 760.000. Verificado contra el "
+        "CSV: el total coincide con la suma de cada apertura, al pasajero.")
+    return {
+        "fields": ["grano", "anio", "mes", "trimestre", "apertura", "categoria", "metrica", "valor"],
+        "rows": rows,
+        "dims": {
+            "anio": sorted({int(r[1]) for r in rows}),
+            "mes": sorted({r[2] for r in rows if r[2]}),
+            "trimestre": sorted({r[3] for r in rows if r[3]}, key=_trim_key),
+            "apertura": ["total", "clasificacion", "clase", "aerolinea", "ruta"],
+            "categoria": cats,
+        },
+        "metricas": AERO_METRICAS,
+        "notas": notas,
+    }
+
+
+# ==========================================================================
+# TEMA — Ventas de supermercados (Encuesta de Supermercados, INDEC)
+# ==========================================================================
+SUP_METRICAS = {
+    "ventas_corr":    {"label": "Ventas (pesos corrientes)",  "unidad": "pesos",        "agg": "sum"},
+    "ventas_real":    {"label": "Ventas (pesos constantes)",  "unidad": "pesos",        "agg": "sum"},
+    "operaciones":    {"label": "Operaciones de compra",      "unidad": "operaciones",  "agg": "sum"},
+    "share_pais_pct": {"label": "Participación en el país",   "unidad": "%",            "agg": "mean"},
+}
+
+
+def supermercados():
+    notas = []
+    ipcm = _ipc_noa_map()
+    _, base = _ipc_base()
+    df = pd.read_csv(_drv("Supermercados_INDEC_jurisdiccion_mensual.csv"), encoding="utf-8-sig")
+    df["valor"] = pd.to_numeric(df["valor"], errors="coerce")
+    df = df.dropna(subset=["valor"])
+    df["anio"] = df["anio"].astype(int)
+    df["n_mes"] = df["n_mes"].astype(int)
+    # CABA, nunca "Capital Federal" ni el nombre largo: así coincide con el tablero de cemento.
+    df["jurisdiccion"] = df["jurisdiccion"].replace(
+        {"Ciudad Autónoma de Buenos Aires": "CABA"})
+
+    # La serie constante del CSV se IGNORA a propósito: lleva la base del día en que se generó el
+    # archivo, mientras que `_ipc_base()` se recalcula en cada build. Deflactar acá deja una sola
+    # base para todo el sitio (ver Metodologia_Supermercados_INDEC.md §8.3).
+    piv = (df[df["metrica"].isin(["ventas_corrientes_pesos", "cantidad_operaciones"])]
+           .pivot_table(index=["anio", "n_mes", "jurisdiccion"], columns="metrica",
+                        values="valor", aggfunc="sum").reset_index()
+           .rename(columns={"ventas_corrientes_pesos": "ventas",
+                            "cantidad_operaciones": "operaciones"}))
+    piv["ipc"] = (piv["anio"] * 100 + piv["n_mes"]).map(ipcm)
+    # Un mes sin IPC se descarta ENTERO, no sólo de la serie real: los agregados usan .sum(), que
+    # saltea los NaN, así que el trimestre publicaría meses en corrientes y meses en constantes
+    # bajo la misma etiqueta.
+    faltan = sorted({"%d-%02d" % (a, m) for a, m, v
+                     in zip(piv["anio"], piv["n_mes"], piv["ipc"]) if pd.isna(v)})
+    if faltan:
+        notas.append("supermercados: %s sin IPC NOA publicado; el mes se descarta entero (%s)."
+                     % ("1 mes" if len(faltan) == 1 else "%d meses" % len(faltan),
+                        ", ".join(faltan)))
+    piv = piv[piv["ipc"].notna()].copy()
+    piv["real"] = piv["ventas"] * base / piv["ipc"]
+    piv["trimestre"] = [_trim_label(a, m) for a, m in zip(piv["anio"], piv["n_mes"])]
+
+    rows = []
+    VAL = ["ventas", "real", "operaciones"]
+
+    def emitir(g, grano):
+        """La participación se recalcula EN CADA GRANO como cociente de los agregados del período,
+        no promediando las participaciones mensuales."""
+        pais = {}
+        for r in g.itertuples(index=False):
+            d = r._asdict()
+            if d["jurisdiccion"] == TOTAL_PAIS:
+                pais[(int(d["anio"]), d["trimestre"], int(d["n_mes"]))] = float(d["ventas"])
+        for r in g.itertuples(index=False):
+            d = r._asdict()
+            a, m = int(d["anio"]), int(d["n_mes"])
+            com = [grano, a, "%d-%02d" % (a, m) if grano == "mensual" else "",
+                   d["trimestre"] if grano != "anual" else "", d["jurisdiccion"]]
+            rows.append(com + ["ventas_corr", round(float(d["ventas"]), 1)])
+            rows.append(com + ["ventas_real", round(float(d["real"]), 1)])
+            rows.append(com + ["operaciones", int(round(float(d["operaciones"])))])
+            tp = pais.get((a, d["trimestre"], m))
+            if tp:
+                rows.append(com + ["share_pais_pct", round(100.0 * float(d["ventas"]) / tp, 2)])
+
+    emitir(piv, "mensual")
+    gq = piv.groupby(["jurisdiccion", "anio", "trimestre"], as_index=False)[VAL].sum()
+    gq["n_mes"] = 0
+    emitir(gq, "trimestral")
+    ga = piv.groupby(["jurisdiccion", "anio"], as_index=False)[VAL].sum()
+    ga["n_mes"] = 0
+    ga["trimestre"] = ""
+    emitir(ga, "anual")
+
+    mens = piv.groupby(["anio", "n_mes", "trimestre"], as_index=False)["ventas"].sum()
+    trims_ok, anios_ok, _tl = _completos(mens, mes_col="n_mes")
+    rows = _keep_completos(rows, trims_ok, anios_ok, gi=0, ai=1, ti=3)
+
+    jurs = sorted({r[4] for r in rows})
+    notas.append(
+        "supermercados: Encuesta de Supermercados del INDEC, panel NO probabilístico de empresas "
+        "con alguna boca de al menos 200 m² de salón de ventas. El propio INDEC advierte que las "
+        "ventas «no se deben considerar aisladamente como un indicador macroeconómico del "
+        "consumo». La cantidad de bocas no se publica: es el tamaño del panel, no el universo.")
+    notas.append(
+        "supermercados: mensual desde 2017, sumado por trimestre/año; cada mes se deflacta con el "
+        "IPC NOA de ese mes y queda en pesos de %s (la base es el último mes publicado del IPC y "
+        "se mueve con él). La participación en el país se recalcula en cada grano como cociente "
+        "de los agregados, no promediando los meses." % _base_txt(True))
+    notas.append(
+        "supermercados: el control automático de saltos de magnitud marca valores a >1000× de la "
+        "mediana en las ventas corrientes. NO es un artefacto de parseo: la fuente es XLSX, con "
+        "valores numéricos nativos, y la serie convive con 86× de inflación entre 2017 y 2026 y "
+        "con el total del país al lado de Tierra del Fuego. Verificado contra el CSV: la suma de "
+        "las jurisdicciones da el total del país.")
+    return {
+        "fields": ["grano", "anio", "mes", "trimestre", "jurisdiccion", "metrica", "valor"],
+        "rows": rows,
+        "dims": {
+            "anio": sorted({int(r[1]) for r in rows}),
+            "mes": sorted({r[2] for r in rows if r[2]}),
+            "trimestre": sorted({r[3] for r in rows if r[3]}, key=_trim_key),
+            "jurisdiccion": jurs,
+        },
+        "metricas": _con_base(SUP_METRICAS, "ventas_real"),
+        "notas": notas,
+    }
+
+
+# ==========================================================================
+# TEMA — Despachos de cemento por provincia y envase (AFCP)
+# ==========================================================================
+CEM_METRICAS = {
+    "despachos_t":    {"label": "Despachos de cemento",     "unidad": "toneladas", "agg": "sum"},
+    "share_pais_pct": {"label": "Participación en el país", "unidad": "%",         "agg": "mean"},
+}
+
+
+def cemento():
+    notas = []
+    df = pd.read_csv(_drv("Despachos_cemento_AFCP_provincia_mensual.csv"), encoding="utf-8-sig")
+    df["valor"] = pd.to_numeric(df["valor"], errors="coerce")
+    df = df.dropna(subset=["valor"])
+    df["anio"] = df["anio"].astype(int)
+    df["n_mes"] = df["n_mes"].astype(int)
+    ENVASE = {"despachos_bolsa_t": "Bolsa", "despachos_granel_t": "Granel",
+              "despachos_total_t": "Total"}
+    df["envase"] = df["metrica"].map(ENVASE)
+    df = df.dropna(subset=["envase"]).copy()
+    df["trimestre"] = [_trim_label(a, m) for a, m in zip(df["anio"], df["n_mes"])]
+
+    rows = []
+
+    def emitir(g, grano):
+        """El total es el que publica la AFCP, no `bolsa + granel`: la fuente redondea cada celda
+        por separado y los dos difieren en hasta una tonelada."""
+        pais = {}
+        for r in g.itertuples(index=False):
+            d = r._asdict()
+            if d["provincia"] == TOTAL_PAIS and d["envase"] == "Total":
+                pais[(int(d["anio"]), d["trimestre"], int(d["n_mes"]))] = float(d["valor"])
+        for r in g.itertuples(index=False):
+            d = r._asdict()
+            a, m = int(d["anio"]), int(d["n_mes"])
+            com = [grano, a, "%d-%02d" % (a, m) if grano == "mensual" else "",
+                   d["trimestre"] if grano != "anual" else "", d["provincia"], d["envase"]]
+            rows.append(com + ["despachos_t", int(round(float(d["valor"])))])
+            tp = pais.get((a, d["trimestre"], m))
+            if tp and d["envase"] == "Total":
+                rows.append(com + ["share_pais_pct", round(100.0 * float(d["valor"]) / tp, 2)])
+
+    emitir(df, "mensual")
+    gq = df.groupby(["provincia", "envase", "anio", "trimestre"], as_index=False)["valor"].sum()
+    gq["n_mes"] = 0
+    emitir(gq, "trimestral")
+    ga = df.groupby(["provincia", "envase", "anio"], as_index=False)["valor"].sum()
+    ga["n_mes"] = 0
+    ga["trimestre"] = ""
+    emitir(ga, "anual")
+
+    mens = df.groupby(["anio", "n_mes", "trimestre"], as_index=False)["valor"].sum()
+    trims_ok, anios_ok, _tl = _completos(mens, mes_col="n_mes")
+    rows = _keep_completos(rows, trims_ok, anios_ok, gi=0, ai=1, ti=3)
+
+    provs = sorted({r[4] for r in rows})
+    notas.append(
+        "cemento: despachos de la AFCP con DESTINO a cada jurisdicción; no es producción "
+        "provincial. Bolsa y granel son envases, no usos: en el sector el granel se lee como obra "
+        "grande y la bolsa como obra chica, pero esa lectura no es una definición de la fuente.")
+    notas.append(
+        "cemento: la apertura por provincia está congelada en septiembre de 2025 (la AFCP publica "
+        "despachos nacionales hasta octubre de 2026, sin detalle provincial). El total es el "
+        "publicado, no «bolsa + granel»: la fuente redondea cada celda por separado y los dos "
+        "difieren en hasta una tonelada.")
+    return {
+        "fields": ["grano", "anio", "mes", "trimestre", "provincia", "envase", "metrica", "valor"],
+        "rows": rows,
+        "dims": {
+            "anio": sorted({int(r[1]) for r in rows}),
+            "mes": sorted({r[2] for r in rows if r[2]}),
+            "trimestre": sorted({r[3] for r in rows if r[3]}, key=_trim_key),
+            "provincia": provs,
+            "envase": ["Total", "Bolsa", "Granel"],
+        },
+        "metricas": CEM_METRICAS,
+        "notas": notas,
+    }
+
+
 # Registro id_tema -> función adapter
 ADAPTERS = {
+    "aeropuerto": aeropuerto,
+    "supermercados": supermercados,
+    "cemento": cemento,
     "educacion": educacion,
     "vitivinicultura": inv,
     "produccion-energia": produccion_energia,

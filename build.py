@@ -433,7 +433,8 @@ def main():
     tabla_ind = indicadores.tabla(payloads, catalogo, catalog.EJES_PDES,
                                   catalog.TAGS, catalog.SUBEJE_ORDEN, catalog.CIIU_SECCIONES,
                                   umbrales=catalog.SEMAFORO_UMBRALES,
-                                  fuentes_cortas=catalog.FUENTE_CORTA)
+                                  fuentes_cortas=catalog.FUENTE_CORTA,
+                                  base_anio=catalog.BASE_ANIO if catalog.MOSTRAR_LINEA_BASE else None)
     sem = (indicadores.semaforo(tabla_ind, catalog.SEMAFORO_UMBRALES, catalog.SEMAFORO_TOP)
            if catalog.MOSTRAR_SEMAFORO else None)
     n_ind = sum(len(g["filas"]) for g in tabla_ind)
@@ -476,6 +477,8 @@ def main():
                                  mostrar_metas=catalog.MOSTRAR_METAS,
                                  mostrar_meta_2030=catalog.MOSTRAR_META_2030,
                                  mostrar_ciiu=catalog.MOSTRAR_CIIU,
+                                 mostrar_linea_base=catalog.MOSTRAR_LINEA_BASE,
+                                 base_anio=catalog.BASE_ANIO,
                                  meta_2030_titulo=catalog.META_2030_TITULO,
                                  semaforo=sem))
 

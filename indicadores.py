@@ -315,7 +315,7 @@ def _calcular(payload, ix, spec, freq):
     pct = (ahora / prev - 1) * 100 if (ahora is not None and prev not in (None, 0)) else None
     dif = (ahora - prev) if (ahora is not None and prev is not None) else None
     return {"x": x, "grano": grano, "ultimo": ult, "prev": prevk,
-            "pct": pct, "dif": dif, "valor": ahora}
+            "pct": pct, "dif": dif, "valor": ahora, "mapa": mapa}
 
 
 # ------------------------------------------------------------------ formato
@@ -793,8 +793,21 @@ def _fuente(payload, chart_id, cortas):
     return completa, corta, completa
 
 
+def _base_anio(res, anio):
+    """Valor del mismo período del año `anio` que el último dato (2T2026 -> 2T2024).
+
+    Devuelve (valor, período) o (None, None) si la serie no tiene dato en ese período.
+    """
+    ult = res.get("ultimo")
+    if ult is None or anio is None:
+        return None, None
+    clave = str(anio) + str(ult)[4:]
+    v = res.get("mapa", {}).get(clave)
+    return (v, clave) if v is not None else (None, None)
+
+
 def tabla(payloads, catalogo, ejes_pdes_meta, tags_meta, subeje_orden, ciiu_secciones=None,
-          umbrales=None, fuentes_cortas=None):
+          umbrales=None, fuentes_cortas=None, base_anio=None):
     """payloads: {tema_id: payload}; catalogo: temas livianos YA ORDENADOS;
     ejes_pdes_meta: catalog.EJES_PDES; tags_meta: catalog.TAGS;
     subeje_orden: catalog.SUBEJE_ORDEN; ciiu_secciones: catalog.CIIU_SECCIONES (letra→nombre).
@@ -832,7 +845,13 @@ def tabla(payloads, catalogo, ejes_pdes_meta, tags_meta, subeje_orden, ciiu_secc
             ciiu = s.get("ciiu") or t.get("ciiu") or ""
 
             _unidad = payload["metricas"].get(s["metrica"], {}).get("unidad", "")
-            sem = _avance(s, res.get("valor"), umbrales)
+            # Línea de base: la escrita a mano en el spec manda; si no, el dato de `base_anio`.
+            if _num(s.get("base_valor")) is not None:
+                b_val, b_per, b_origen = _num(s.get("base_valor")), s.get("base_periodo", ""), "spec"
+            else:
+                b_val, b_clave = _base_anio(res, base_anio)
+                b_per, b_origen = _periodo_corto(b_clave) if b_clave else "", "serie"
+            sem = _avance(dict(s, base_valor=b_val), res.get("valor"), umbrales)
             _chart = s.get("grafico") or _grafico(payload, s["metrica"])
             _fte, _fte_corta, _fte_title = _fuente(payload, _chart, fuentes_cortas)
             filas.append({
@@ -855,6 +874,8 @@ def tabla(payloads, catalogo, ejes_pdes_meta, tags_meta, subeje_orden, ciiu_secc
                 "ultimo": _periodo_corto(res["ultimo"]),
                 "base_valor": _celda(s.get("base_valor")),
                 "base_periodo": s.get("base_periodo", ""),
+                "base_txt": _dato(b_val, _unidad) if b_val is not None else "",
+                "base_per": b_per, "base_origen": b_origen,
                 "meta_2030": _meta(s.get("meta_2030")),
                 "meta_2030_nota": s.get("meta_2030_nota", ""),
                 "meta_2040": _meta(s.get("meta_2040")),

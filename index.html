@@ -4,12 +4,12 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Monitor de Indicadores (versión Beta)</title>
-  <meta name="description" content="Seguimiento del Plan de Desarrollo Estratégico de Salta (PDES 2050)">
+  <meta name="description" content="Seguimiento del Plan de Desarrollo Estratégico de Salta (PDES 2030)">
   <script>
     /* fija el tema antes de pintar para evitar flash */
     (function(){try{var t=localStorage.getItem('cess-theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
   </script>
-  <link rel="stylesheet" href="./assets/css/styles.css?v=1795024021">
+  <link rel="stylesheet" href="./assets/css/styles.css?v=1795026736">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%232a78d6'/><text x='50' y='68' font-size='52' text-anchor='middle' fill='white' font-family='sans-serif' font-weight='700'>C</text></svg>">
 </head>
 <body>
@@ -20,7 +20,7 @@
     <a class="brand" href="./index.html">
       <img class="brand-logo" src="./assets/img/logo-cess.png"
            alt="CESS — Consejo Económico y Social, Provincia de Salta">
-      <span class="brand-text">Monitor de Indicadores <span class="brand-beta">Beta</span><small>Seguimiento del Plan de Desarrollo Estratégico de Salta (PDES 2050)</small></span>
+      <span class="brand-text">Monitor de Indicadores <span class="brand-beta">Beta</span><small>Seguimiento del Plan de Desarrollo Estratégico de Salta (PDES 2030)</small></span>
     </a>
 
     <button class="nav-toggle" aria-expanded="false" aria-controls="mainnav" aria-label="Abrir menú">
@@ -53,9 +53,13 @@
           <div class="navgroup-col">
             <p class="navgroup-heading">Económico-productivo</p>
             
+            <a role="menuitem" href="./tema/cemento.html">Despachos de cemento</a>
+            
             <a role="menuitem" href="./tema/empleo.html">Empleo registrado y remuneraciones</a>
             
             <a role="menuitem" href="./tema/exportaciones.html">Exportaciones</a>
+            
+            <a role="menuitem" href="./tema/supermercados.html">Ventas de supermercados</a>
             
             <a role="menuitem" href="./tema/vitivinicultura.html">Vitivinicultura (INV)</a>
             
@@ -90,6 +94,8 @@
           <div class="navgroup-col">
             <p class="navgroup-heading">Territorio, ambiente y turismo</p>
             
+            <a role="menuitem" href="./tema/aeropuerto.html">Movimiento aeroportuario</a>
+            
             <a role="menuitem" href="./tema/turismo.html">Turismo (ocupación hotelera)</a>
             
             <a role="menuitem" href="./tema/bosques.html">Bosque nativo y uso del suelo</a>
@@ -117,7 +123,7 @@
   <div class="wrap">
     <p class="hero-eyebrow">Consejo Económico y Social de Salta (CESS)</p>
     <h1 class="hero-title">Monitor de Indicadores (versión Beta)</h1>
-    <p class="hero-lead">Seguimiento del Plan de Desarrollo Estratégico de Salta (PDES 2050)</p>
+    <p class="hero-lead">Seguimiento del Plan de Desarrollo Estratégico de Salta (PDES 2030)</p>
 
     <div class="search" id="buscador">
       <label for="search-input" class="search-label">Buscar un tema, un indicador o un departamento</label>
@@ -164,13 +170,13 @@
     
     <div class="sem-tile">
       <p class="sem-tile-label"><span class="sem-ico sem-rojo" aria-hidden="true"></span>Rezago</p>
-      <p class="sem-tile-valor">0</p>
+      <p class="sem-tile-valor">1</p>
       <p class="sem-tile-regla">menos de 70 %</p>
     </div>
     
     <div class="sem-tile">
       <p class="sem-tile-label"><span class="sem-ico sem-gris" aria-hidden="true"></span>Sin información</p>
-      <p class="sem-tile-valor">120</p>
+      <p class="sem-tile-valor">125</p>
       <p class="sem-tile-regla">falta la meta, la línea de base o el dato</p>
     </div>
     
@@ -178,7 +184,7 @@
 
   <p class="sem-nota muted">
     El avance mide cuánto recorrió cada indicador desde su línea de base hacia la meta 2030 del PDES, y sólo se calcula cuando tiene las tres cosas: línea de base, meta y dato.
-    Hoy eso ocurre en <strong>1 de 121</strong> indicadores; de los 120 restantes, 114 sin meta cuantificada y 6 con meta, pero sin línea de base.
+    Hoy eso ocurre en <strong>2 de 127</strong> indicadores; de los 125 restantes, 120 sin meta cuantificada y 5 con meta, pero sin línea de base.
   </p>
 
   <div class="sem-ejes">
@@ -191,14 +197,14 @@
     
     <div class="sem-eje">
       <span class="sem-eje-label">Económico-productivo</span>
-      <span class="sem-bar" role="img" aria-label="Económico-productivo: 0 en camino, 0 atención, 0 rezago, 44 sin información" title="En camino: 0 · Atención: 0 · Rezago: 0 · Sin información: 44"><i class="sem-seg sem-gris" style="flex-grow: 44"></i></span>
-      <span class="sem-eje-num">0 de 44 con avance</span>
+      <span class="sem-bar" role="img" aria-label="Económico-productivo: 0 en camino, 0 atención, 1 rezago, 47 sin información" title="En camino: 0 · Atención: 0 · Rezago: 1 · Sin información: 47"><i class="sem-seg sem-rojo" style="flex-grow: 1"></i><i class="sem-seg sem-gris" style="flex-grow: 47"></i></span>
+      <span class="sem-eje-num">1 de 48 con avance</span>
     </div>
     
     <div class="sem-eje">
       <span class="sem-eje-label">Territorio, ambiente y turismo</span>
-      <span class="sem-bar" role="img" aria-label="Territorio, ambiente y turismo: 0 en camino, 0 atención, 0 rezago, 11 sin información" title="En camino: 0 · Atención: 0 · Rezago: 0 · Sin información: 11"><i class="sem-seg sem-gris" style="flex-grow: 11"></i></span>
-      <span class="sem-eje-num">0 de 11 con avance</span>
+      <span class="sem-bar" role="img" aria-label="Territorio, ambiente y turismo: 0 en camino, 0 atención, 0 rezago, 13 sin información" title="En camino: 0 · Atención: 0 · Rezago: 0 · Sin información: 13"><i class="sem-seg sem-gris" style="flex-grow: 13"></i></span>
+      <span class="sem-eje-num">0 de 13 con avance</span>
     </div>
     
   </div>
@@ -220,7 +226,14 @@
     <div class="sem-lista">
       <h3 class="sem-lista-title">Mayores rezagos</h3>
       
-      <p class="sem-vacio muted">Todavía no hay indicadores en rezago: para calcularlo hacen falta la línea de base y la meta.</p>
+      <ul>
+        
+        <li>
+          <span class="sem-lista-nombre"><a href="./tema/ganaderia.html#grafico-gan-stock">Stock bovino total (cabezas)</a><small>Económico-productivo · Actividad y productividad</small></span>
+          <span class="sem-chip" title="Recorrió el −1 % del camino entre la línea de base y la meta 2030."><span class="sem-ico sem-rojo" aria-hidden="true"></span>−1 %</span>
+        </li>
+        
+      </ul>
       
     </div>
   </div>
@@ -247,15 +260,16 @@
             <th scope="col">Último dato</th>
             <th scope="col">Período</th>
             <th scope="col">Var. interanual</th>
-            <th scope="col" class="tabla-ind-meta-ini">Meta 2030 (PDES 2024)</th>
+            <th scope="col" class="tabla-ind-meta-ini"><abbr title="Dato de 2024, en el mismo período del año que el último dato (si el último es 2T2026, la base es 2T2024). Vacía cuando la serie no tiene dato en ese período.">Línea de base 2024</abbr></th>
+            <th scope="col">Meta 2030 (PDES 2024)</th>
             
           </tr>
         </thead>
         
         <tbody>
-          <tr class="subeje-row"><th class="subeje-row-head" colspan="8" scope="colgroup">Condiciones de vida</th></tr>
+          <tr class="subeje-row"><th class="subeje-row-head" colspan="9" scope="colgroup">Condiciones de vida</th></tr>
           
-          <tr class="tipo-row tipo-resultado"><th class="tipo-row-head" colspan="8" scope="colgroup">De resultados</th></tr>
+          <tr class="tipo-row tipo-resultado"><th class="tipo-row-head" colspan="9" scope="colgroup">De resultados</th></tr>
           
           <tr>
             <th scope="row">
@@ -268,7 +282,8 @@
             <td class="num tabla-ind-dato">14,2</td>
             <td class="num">2022</td>
             <td class="num"><span class="tabla-ind-var none">sin base</span></td>
-            <td class="num tabla-ind-meta-ini"><span class="sem-ico sem-gris" role="img" aria-label="Sin información" title="Sin información. No se puede calcular el avance: el indicador está con meta, pero sin línea de base."></span><abbr title="El PDES fija la meta al Censo 2030.">10</abbr></td>
+            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="La serie no tiene dato en 2024 para este período">—</span></td>
+            <td class="num"><span class="sem-ico sem-gris" role="img" aria-label="Sin información" title="Sin información. No se puede calcular el avance: el indicador está con meta, pero sin línea de base."></span><abbr title="El PDES fija la meta al Censo 2030.">10</abbr></td>
             
           </tr>
           
@@ -283,7 +298,8 @@
             <td class="num tabla-ind-dato">4,68</td>
             <td class="num">2022</td>
             <td class="num"><span class="tabla-ind-var none">sin base</span></td>
-            <td class="num tabla-ind-meta-ini"><span class="sem-ico sem-gris" role="img" aria-label="Sin información" title="Sin información. No se puede calcular el avance: el indicador está con meta, pero sin línea de base."></span><abbr title="El PDES fija la meta al Censo 2030.">4</abbr></td>
+            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="La serie no tiene dato en 2024 para este período">—</span></td>
+            <td class="num"><span class="sem-ico sem-gris" role="img" aria-label="Sin información" title="Sin información. No se puede calcular el avance: el indicador está con meta, pero sin línea de base."></span><abbr title="El PDES fija la meta al Censo 2030.">4</abbr></td>
             
           </tr>
           
@@ -298,7 +314,8 @@
             <td class="num tabla-ind-dato">2,42</td>
             <td class="num">2022</td>
             <td class="num"><span class="tabla-ind-var none">sin base</span></td>
-            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
+            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="La serie no tiene dato en 2024 para este período">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
             
           </tr>
           
@@ -313,7 +330,8 @@
             <td class="num tabla-ind-dato">0,96</td>
             <td class="num">2022</td>
             <td class="num"><span class="tabla-ind-var none">sin base</span></td>
-            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
+            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="La serie no tiene dato en 2024 para este período">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
             
           </tr>
           
@@ -328,7 +346,8 @@
             <td class="num tabla-ind-dato">46,4</td>
             <td class="num">2022</td>
             <td class="num"><span class="tabla-ind-var none">sin base</span></td>
-            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
+            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="La serie no tiene dato en 2024 para este período">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
             
           </tr>
           
@@ -343,7 +362,8 @@
             <td class="num tabla-ind-dato">15,1</td>
             <td class="num">2022</td>
             <td class="num"><span class="tabla-ind-var none">sin base</span></td>
-            <td class="num tabla-ind-meta-ini"><span class="sem-ico sem-gris" role="img" aria-label="Sin información" title="Sin información. No se puede calcular el avance: el indicador está con meta, pero sin línea de base."></span><abbr title="El PDES fija una cobertura de agua de red del 93 % al Censo 2030; acá se expresa como su complemento, porque el Monitor mide la carencia y no la cobertura.">7</abbr></td>
+            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="La serie no tiene dato en 2024 para este período">—</span></td>
+            <td class="num"><span class="sem-ico sem-gris" role="img" aria-label="Sin información" title="Sin información. No se puede calcular el avance: el indicador está con meta, pero sin línea de base."></span><abbr title="El PDES fija una cobertura de agua de red del 93 % al Censo 2030; acá se expresa como su complemento, porque el Monitor mide la carencia y no la cobertura.">7</abbr></td>
             
           </tr>
           
@@ -358,7 +378,8 @@
             <td class="num tabla-ind-dato">16,6</td>
             <td class="num">2022</td>
             <td class="num"><span class="tabla-ind-var none">sin base</span></td>
-            <td class="num tabla-ind-meta-ini"><span class="sem-ico sem-verde" role="img" aria-label="En camino" title="En camino. El último dato ya cumple la meta 2030. No tiene línea de base cargada, pero no hace falta para afirmarlo."></span><abbr title="El PDES fija una cobertura de desagüe a red del 80 % al Censo 2030; acá se expresa como su complemento, porque el Monitor mide la carencia y no la cobertura.">20</abbr></td>
+            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="La serie no tiene dato en 2024 para este período">—</span></td>
+            <td class="num"><span class="sem-ico sem-verde" role="img" aria-label="En camino" title="En camino. El último dato ya cumple la meta 2030. No tiene línea de base cargada, pero no hace falta para afirmarlo."></span><abbr title="El PDES fija una cobertura de desagüe a red del 80 % al Censo 2030; acá se expresa como su complemento, porque el Monitor mide la carencia y no la cobertura.">20</abbr></td>
             
           </tr>
           
@@ -373,7 +394,8 @@
             <td class="num tabla-ind-dato">29,6</td>
             <td class="num">2022</td>
             <td class="num"><span class="tabla-ind-var none">sin base</span></td>
-            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
+            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="La serie no tiene dato en 2024 para este período">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
             
           </tr>
           
@@ -388,7 +410,8 @@
             <td class="num tabla-ind-dato">53,1</td>
             <td class="num">2022</td>
             <td class="num"><span class="tabla-ind-var none">sin base</span></td>
-            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
+            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="La serie no tiene dato en 2024 para este período">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
             
           </tr>
           
@@ -403,7 +426,8 @@
             <td class="num tabla-ind-dato">37,3</td>
             <td class="num">2022</td>
             <td class="num"><span class="tabla-ind-var none">sin base</span></td>
-            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
+            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="La serie no tiene dato en 2024 para este período">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
             
           </tr>
           
@@ -418,7 +442,8 @@
             <td class="num tabla-ind-dato">17,9</td>
             <td class="num">2022</td>
             <td class="num"><span class="tabla-ind-var none">sin base</span></td>
-            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
+            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="La serie no tiene dato en 2024 para este período">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
             
           </tr>
           
@@ -426,9 +451,9 @@
         </tbody>
         
         <tbody>
-          <tr class="subeje-row"><th class="subeje-row-head" colspan="8" scope="colgroup">Salud</th></tr>
+          <tr class="subeje-row"><th class="subeje-row-head" colspan="9" scope="colgroup">Salud</th></tr>
           
-          <tr class="tipo-row tipo-resultado"><th class="tipo-row-head" colspan="8" scope="colgroup">De resultados</th></tr>
+          <tr class="tipo-row tipo-resultado"><th class="tipo-row-head" colspan="9" scope="colgroup">De resultados</th></tr>
           
           <tr>
             <th scope="row">
@@ -441,7 +466,8 @@
             <td class="num tabla-ind-dato">76</td>
             <td class="num">2023</td>
             <td class="num"><span class="tabla-ind-var none">sin base</span></td>
-            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
+            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="La serie no tiene dato en 2024 para este período">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
             
           </tr>
           
@@ -456,7 +482,8 @@
             <td class="num tabla-ind-dato">6,55</td>
             <td class="num">2023</td>
             <td class="num"><span class="tabla-ind-var none">sin base</span></td>
-            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
+            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="La serie no tiene dato en 2024 para este período">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
             
           </tr>
           
@@ -471,7 +498,8 @@
             <td class="num tabla-ind-dato">6,55</td>
             <td class="num">2023</td>
             <td class="num"><span class="tabla-ind-var none">sin base</span></td>
-            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
+            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="La serie no tiene dato en 2024 para este período">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
             
           </tr>
           
@@ -486,7 +514,8 @@
             <td class="num tabla-ind-dato">17,3</td>
             <td class="num">2023</td>
             <td class="num"><span class="tabla-ind-var none">sin base</span></td>
-            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
+            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="La serie no tiene dato en 2024 para este período">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
             
           </tr>
           
@@ -501,7 +530,8 @@
             <td class="num tabla-ind-dato">557,2</td>
             <td class="num">2023</td>
             <td class="num"><span class="tabla-ind-var none">sin base</span></td>
-            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
+            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="La serie no tiene dato en 2024 para este período">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
             
           </tr>
           
@@ -516,7 +546,8 @@
             <td class="num tabla-ind-dato">5.586</td>
             <td class="num">2023</td>
             <td class="num"><span class="tabla-ind-var none">sin base</span></td>
-            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
+            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="La serie no tiene dato en 2024 para este período">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
             
           </tr>
           
@@ -531,7 +562,8 @@
             <td class="num tabla-ind-dato">82,1</td>
             <td class="num">2023</td>
             <td class="num"><span class="tabla-ind-var none">sin base</span></td>
-            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
+            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="La serie no tiene dato en 2024 para este período">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
             
           </tr>
           
@@ -546,7 +578,8 @@
             <td class="num tabla-ind-dato">9,12</td>
             <td class="num">2023</td>
             <td class="num"><span class="tabla-ind-var none">sin base</span></td>
-            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
+            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="La serie no tiene dato en 2024 para este período">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
             
           </tr>
           
@@ -561,7 +594,8 @@
             <td class="num tabla-ind-dato">11,7</td>
             <td class="num">2023</td>
             <td class="num"><span class="tabla-ind-var none">sin base</span></td>
-            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
+            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="La serie no tiene dato en 2024 para este período">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
             
           </tr>
           
@@ -576,7 +610,8 @@
             <td class="num tabla-ind-dato">7,61</td>
             <td class="num">2023</td>
             <td class="num"><span class="tabla-ind-var none">sin base</span></td>
-            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
+            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="La serie no tiene dato en 2024 para este período">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
             
           </tr>
           
@@ -591,7 +626,8 @@
             <td class="num tabla-ind-dato">136,8</td>
             <td class="num">2023</td>
             <td class="num"><span class="tabla-ind-var none">sin base</span></td>
-            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
+            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="La serie no tiene dato en 2024 para este período">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
             
           </tr>
           
@@ -606,7 +642,8 @@
             <td class="num tabla-ind-dato">97,2</td>
             <td class="num">2023</td>
             <td class="num"><span class="tabla-ind-var none">sin base</span></td>
-            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
+            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="La serie no tiene dato en 2024 para este período">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
             
           </tr>
           
@@ -621,7 +658,8 @@
             <td class="num tabla-ind-dato">24,9</td>
             <td class="num">2023</td>
             <td class="num"><span class="tabla-ind-var none">sin base</span></td>
-            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
+            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="La serie no tiene dato en 2024 para este período">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
             
           </tr>
           
@@ -636,7 +674,8 @@
             <td class="num tabla-ind-dato">1,59</td>
             <td class="num">2023</td>
             <td class="num"><span class="tabla-ind-var none">sin base</span></td>
-            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
+            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="La serie no tiene dato en 2024 para este período">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
             
           </tr>
           
@@ -651,7 +690,8 @@
             <td class="num tabla-ind-dato">48,0</td>
             <td class="num">2023</td>
             <td class="num"><span class="tabla-ind-var none">sin base</span></td>
-            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
+            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="La serie no tiene dato en 2024 para este período">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
             
           </tr>
           
@@ -666,7 +706,8 @@
             <td class="num tabla-ind-dato">78,2</td>
             <td class="num">2023</td>
             <td class="num"><span class="tabla-ind-var none">sin base</span></td>
-            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
+            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="La serie no tiene dato en 2024 para este período">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
             
           </tr>
           
@@ -681,7 +722,8 @@
             <td class="num tabla-ind-dato">1,38</td>
             <td class="num">2023</td>
             <td class="num"><span class="tabla-ind-var none">sin base</span></td>
-            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
+            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="La serie no tiene dato en 2024 para este período">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
             
           </tr>
           
@@ -696,7 +738,8 @@
             <td class="num tabla-ind-dato">34,6</td>
             <td class="num">2023</td>
             <td class="num"><span class="tabla-ind-var none">sin base</span></td>
-            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
+            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="La serie no tiene dato en 2024 para este período">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
             
           </tr>
           
@@ -711,7 +754,8 @@
             <td class="num tabla-ind-dato">11,8</td>
             <td class="num">2023</td>
             <td class="num"><span class="tabla-ind-var none">sin base</span></td>
-            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
+            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="La serie no tiene dato en 2024 para este período">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
             
           </tr>
           
@@ -726,7 +770,8 @@
             <td class="num tabla-ind-dato">28,4</td>
             <td class="num">2023</td>
             <td class="num"><span class="tabla-ind-var none">sin base</span></td>
-            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
+            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="La serie no tiene dato en 2024 para este período">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
             
           </tr>
           
@@ -741,7 +786,8 @@
             <td class="num tabla-ind-dato">13.941</td>
             <td class="num">2025</td>
             <td class="num"><span class="tabla-ind-var down neutro">▼ 2,6 %</span></td>
-            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
+            <td class="num tabla-ind-meta-ini"><abbr title="Dato de 2024">14.316</abbr></td>
+            <td class="num"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
             
           </tr>
           
@@ -756,7 +802,8 @@
             <td class="num tabla-ind-dato">8.204</td>
             <td class="num">2025</td>
             <td class="num"><span class="tabla-ind-var down invertido">▼ 6,1 %</span></td>
-            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
+            <td class="num tabla-ind-meta-ini"><abbr title="Dato de 2024">8.734</abbr></td>
+            <td class="num"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
             
           </tr>
           
@@ -771,7 +818,8 @@
             <td class="num tabla-ind-dato">9,61</td>
             <td class="num">2025</td>
             <td class="num"><span class="tabla-ind-var up invertido">▲ 4,2 %</span></td>
-            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
+            <td class="num tabla-ind-meta-ini"><abbr title="Dato de 2024">9,22</abbr></td>
+            <td class="num"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
             
           </tr>
           
@@ -786,7 +834,8 @@
             <td class="num tabla-ind-dato">9,38</td>
             <td class="num">2025</td>
             <td class="num"><span class="tabla-ind-var down neutro">▼ 3,0 %</span></td>
-            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
+            <td class="num tabla-ind-meta-ini"><abbr title="Dato de 2024">9,67</abbr></td>
+            <td class="num"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
             
           </tr>
           
@@ -801,7 +850,8 @@
             <td class="num tabla-ind-dato">5,52</td>
             <td class="num">2025</td>
             <td class="num"><span class="tabla-ind-var down invertido">▼ 6,4 %</span></td>
-            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
+            <td class="num tabla-ind-meta-ini"><abbr title="Dato de 2024">5,90</abbr></td>
+            <td class="num"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
             
           </tr>
           
@@ -816,7 +866,8 @@
             <td class="num tabla-ind-dato">5,02</td>
             <td class="num">2025</td>
             <td class="num"><span class="tabla-ind-var up invertido">▲ 2,7 %</span></td>
-            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
+            <td class="num tabla-ind-meta-ini"><abbr title="Dato de 2024">4,89</abbr></td>
+            <td class="num"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
             
           </tr>
           
@@ -831,7 +882,8 @@
             <td class="num tabla-ind-dato">78,8</td>
             <td class="num">2023</td>
             <td class="num"><span class="tabla-ind-var none">sin base</span></td>
-            <td class="num tabla-ind-meta-ini"><span class="sem-ico sem-gris" role="img" aria-label="Sin información" title="Sin información. No se puede calcular el avance: el indicador está con meta, pero sin línea de base."></span>84,14</td>
+            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="La serie no tiene dato en 2024 para este período">—</span></td>
+            <td class="num"><span class="sem-ico sem-gris" role="img" aria-label="Sin información" title="Sin información. No se puede calcular el avance: el indicador está con meta, pero sin línea de base."></span>84,14</td>
             
           </tr>
           
@@ -846,12 +898,13 @@
             <td class="num tabla-ind-dato">73,1</td>
             <td class="num">2023</td>
             <td class="num"><span class="tabla-ind-var none">sin base</span></td>
-            <td class="num tabla-ind-meta-ini"><span class="sem-ico sem-gris" role="img" aria-label="Sin información" title="Sin información. No se puede calcular el avance: el indicador está con meta, pero sin línea de base."></span>77,96</td>
+            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="La serie no tiene dato en 2024 para este período">—</span></td>
+            <td class="num"><span class="sem-ico sem-gris" role="img" aria-label="Sin información" title="Sin información. No se puede calcular el avance: el indicador está con meta, pero sin línea de base."></span>77,96</td>
             
           </tr>
           
           
-          <tr class="tipo-row tipo-oferta"><th class="tipo-row-head" colspan="8" scope="colgroup">De oferta o proceso</th></tr>
+          <tr class="tipo-row tipo-oferta"><th class="tipo-row-head" colspan="9" scope="colgroup">De oferta o proceso</th></tr>
           
           <tr>
             <th scope="row">
@@ -864,7 +917,8 @@
             <td class="num tabla-ind-dato">2,21</td>
             <td class="num">2025</td>
             <td class="num"><span class="tabla-ind-var down neutro">▼ 5,6 %</span></td>
-            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
+            <td class="num tabla-ind-meta-ini"><abbr title="Dato de 2024">2,34</abbr></td>
+            <td class="num"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
             
           </tr>
           
@@ -879,7 +933,8 @@
             <td class="num tabla-ind-dato">63,8</td>
             <td class="num">2025</td>
             <td class="num"><span class="tabla-ind-var up neutro">▲ 0,8 p.p.</span></td>
-            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
+            <td class="num tabla-ind-meta-ini"><abbr title="Dato de 2024">63,0</abbr></td>
+            <td class="num"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
             
           </tr>
           
@@ -894,7 +949,8 @@
             <td class="num tabla-ind-dato">130.649</td>
             <td class="num">2025</td>
             <td class="num"><span class="tabla-ind-var up">▲ 5,1 %</span></td>
-            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
+            <td class="num tabla-ind-meta-ini"><abbr title="Dato de 2024">124.262</abbr></td>
+            <td class="num"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
             
           </tr>
           
@@ -909,7 +965,8 @@
             <td class="num tabla-ind-dato">2.451</td>
             <td class="num">2025</td>
             <td class="num"><span class="tabla-ind-var up">▲ 4,1 %</span></td>
-            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
+            <td class="num tabla-ind-meta-ini"><abbr title="Dato de 2024">2.354</abbr></td>
+            <td class="num"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
             
           </tr>
           
@@ -917,9 +974,9 @@
         </tbody>
         
         <tbody>
-          <tr class="subeje-row"><th class="subeje-row-head" colspan="8" scope="colgroup">Educación</th></tr>
+          <tr class="subeje-row"><th class="subeje-row-head" colspan="9" scope="colgroup">Educación</th></tr>
           
-          <tr class="tipo-row tipo-resultado"><th class="tipo-row-head" colspan="8" scope="colgroup">De resultados</th></tr>
+          <tr class="tipo-row tipo-resultado"><th class="tipo-row-head" colspan="9" scope="colgroup">De resultados</th></tr>
           
           <tr>
             <th scope="row">
@@ -932,7 +989,8 @@
             <td class="num tabla-ind-dato">308.566</td>
             <td class="num">2025</td>
             <td class="num"><span class="tabla-ind-var none">sin base</span></td>
-            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
+            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="La serie no tiene dato en 2024 para este período">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
             
           </tr>
           
@@ -947,7 +1005,8 @@
             <td class="num tabla-ind-dato">11,4</td>
             <td class="num">2025</td>
             <td class="num"><span class="tabla-ind-var none">sin base</span></td>
-            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
+            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="La serie no tiene dato en 2024 para este período">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
             
           </tr>
           
@@ -962,7 +1021,8 @@
             <td class="num tabla-ind-dato">10,3</td>
             <td class="num">2025</td>
             <td class="num"><span class="tabla-ind-var none">sin base</span></td>
-            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
+            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="La serie no tiene dato en 2024 para este período">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
             
           </tr>
           
@@ -977,7 +1037,8 @@
             <td class="num tabla-ind-dato">0,23</td>
             <td class="num">2025</td>
             <td class="num"><span class="tabla-ind-var none">sin base</span></td>
-            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
+            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="La serie no tiene dato en 2024 para este período">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
             
           </tr>
           
@@ -992,7 +1053,8 @@
             <td class="num tabla-ind-dato">74,5</td>
             <td class="num">2025</td>
             <td class="num"><span class="tabla-ind-var none">sin base</span></td>
-            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
+            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="La serie no tiene dato en 2024 para este período">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
             
           </tr>
           
@@ -1007,7 +1069,8 @@
             <td class="num tabla-ind-dato">51,0</td>
             <td class="num">2025</td>
             <td class="num"><span class="tabla-ind-var none">sin base</span></td>
-            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
+            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="La serie no tiene dato en 2024 para este período">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
             
           </tr>
           
@@ -1022,7 +1085,8 @@
             <td class="num tabla-ind-dato">88,6</td>
             <td class="num">2025</td>
             <td class="num"><span class="tabla-ind-var none">sin base</span></td>
-            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
+            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="La serie no tiene dato en 2024 para este período">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
             
           </tr>
           
@@ -1037,7 +1101,8 @@
             <td class="num tabla-ind-dato">23,6</td>
             <td class="num">2025</td>
             <td class="num"><span class="tabla-ind-var none">sin base</span></td>
-            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
+            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="La serie no tiene dato en 2024 para este período">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
             
           </tr>
           
@@ -1052,7 +1117,8 @@
             <td class="num tabla-ind-dato">360.078</td>
             <td class="num">2024</td>
             <td class="num"><span class="tabla-ind-var down">▼ 1,4 %</span></td>
-            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
+            <td class="num tabla-ind-meta-ini"><abbr title="Dato de 2024">360.078</abbr></td>
+            <td class="num"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
             
           </tr>
           
@@ -1067,12 +1133,13 @@
             <td class="num tabla-ind-dato">13.075</td>
             <td class="num">2024</td>
             <td class="num"><span class="tabla-ind-var down">▼ 9,7 %</span></td>
-            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
+            <td class="num tabla-ind-meta-ini"><abbr title="Dato de 2024">13.075</abbr></td>
+            <td class="num"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
             
           </tr>
           
           
-          <tr class="tipo-row tipo-oferta"><th class="tipo-row-head" colspan="8" scope="colgroup">De oferta o proceso</th></tr>
+          <tr class="tipo-row tipo-oferta"><th class="tipo-row-head" colspan="9" scope="colgroup">De oferta o proceso</th></tr>
           
           <tr>
             <th scope="row">
@@ -1085,7 +1152,8 @@
             <td class="num tabla-ind-dato">362,0</td>
             <td class="num">2025</td>
             <td class="num"><span class="tabla-ind-var none">sin base</span></td>
-            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
+            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="La serie no tiene dato en 2024 para este período">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
             
           </tr>
           
@@ -1100,7 +1168,8 @@
             <td class="num tabla-ind-dato">23,3</td>
             <td class="num">2025</td>
             <td class="num"><span class="tabla-ind-var none">sin base</span></td>
-            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
+            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="La serie no tiene dato en 2024 para este período">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
             
           </tr>
           
@@ -1115,7 +1184,8 @@
             <td class="num tabla-ind-dato">39.547</td>
             <td class="num">2024</td>
             <td class="num"><span class="tabla-ind-var up">▲ 23,3 %</span></td>
-            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
+            <td class="num tabla-ind-meta-ini"><abbr title="Dato de 2024">39.547</abbr></td>
+            <td class="num"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
             
           </tr>
           
@@ -1123,9 +1193,9 @@
         </tbody>
         
         <tbody>
-          <tr class="subeje-row"><th class="subeje-row-head" colspan="8" scope="colgroup">Seguridad</th></tr>
+          <tr class="subeje-row"><th class="subeje-row-head" colspan="9" scope="colgroup">Seguridad</th></tr>
           
-          <tr class="tipo-row tipo-resultado"><th class="tipo-row-head" colspan="8" scope="colgroup">De resultados</th></tr>
+          <tr class="tipo-row tipo-resultado"><th class="tipo-row-head" colspan="9" scope="colgroup">De resultados</th></tr>
           
           <tr>
             <th scope="row">
@@ -1138,7 +1208,8 @@
             <td class="num tabla-ind-dato">13,5</td>
             <td class="num">2023</td>
             <td class="num"><span class="tabla-ind-var none">sin base</span></td>
-            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
+            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="La serie no tiene dato en 2024 para este período">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
             
           </tr>
           
@@ -1153,7 +1224,8 @@
             <td class="num tabla-ind-dato">12,8</td>
             <td class="num">2024</td>
             <td class="num"><span class="tabla-ind-var none">sin base</span></td>
-            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
+            <td class="num tabla-ind-meta-ini"><abbr title="Dato de 2024">12,8</abbr></td>
+            <td class="num"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
             
           </tr>
           
@@ -1168,7 +1240,8 @@
             <td class="num tabla-ind-dato">20,8</td>
             <td class="num">2024</td>
             <td class="num"><span class="tabla-ind-var none">sin base</span></td>
-            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
+            <td class="num tabla-ind-meta-ini"><abbr title="Dato de 2024">20,8</abbr></td>
+            <td class="num"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
             
           </tr>
           
@@ -1183,7 +1256,8 @@
             <td class="num tabla-ind-dato">3,98</td>
             <td class="num">2024</td>
             <td class="num"><span class="tabla-ind-var none">sin base</span></td>
-            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
+            <td class="num tabla-ind-meta-ini"><abbr title="Dato de 2024">3,98</abbr></td>
+            <td class="num"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
             
           </tr>
           
@@ -1198,7 +1272,8 @@
             <td class="num tabla-ind-dato">16,2</td>
             <td class="num">2024</td>
             <td class="num"><span class="tabla-ind-var none">sin base</span></td>
-            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
+            <td class="num tabla-ind-meta-ini"><abbr title="Dato de 2024">16,2</abbr></td>
+            <td class="num"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
             
           </tr>
           
@@ -1213,7 +1288,8 @@
             <td class="num tabla-ind-dato">22,3</td>
             <td class="num">2024</td>
             <td class="num"><span class="tabla-ind-var none">sin base</span></td>
-            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
+            <td class="num tabla-ind-meta-ini"><abbr title="Dato de 2024">22,3</abbr></td>
+            <td class="num"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
             
           </tr>
           
@@ -1228,7 +1304,8 @@
             <td class="num tabla-ind-dato">89,8</td>
             <td class="num">2024</td>
             <td class="num"><span class="tabla-ind-var none">sin base</span></td>
-            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
+            <td class="num tabla-ind-meta-ini"><abbr title="Dato de 2024">89,8</abbr></td>
+            <td class="num"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
             
           </tr>
           
@@ -1243,7 +1320,8 @@
             <td class="num tabla-ind-dato">79,2</td>
             <td class="num">2024</td>
             <td class="num"><span class="tabla-ind-var none">sin base</span></td>
-            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
+            <td class="num tabla-ind-meta-ini"><abbr title="Dato de 2024">79,2</abbr></td>
+            <td class="num"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
             
           </tr>
           
@@ -1258,7 +1336,8 @@
             <td class="num tabla-ind-dato">12,5</td>
             <td class="num">2024</td>
             <td class="num"><span class="tabla-ind-var down invertido">▼ 2,7 %</span></td>
-            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
+            <td class="num tabla-ind-meta-ini"><abbr title="Dato de 2024">12,5</abbr></td>
+            <td class="num"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
             
           </tr>
           
@@ -1273,7 +1352,8 @@
             <td class="num tabla-ind-dato">11,1</td>
             <td class="num">2023</td>
             <td class="num"><span class="tabla-ind-var none">sin base</span></td>
-            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
+            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="La serie no tiene dato en 2024 para este período">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
             
           </tr>
           
@@ -1285,7 +1365,7 @@
   </div>
   
   <div class="tabla-ind-block">
-    <h3 class="eje-title">Económico-productivo <span class="eje-count">44</span></h3>
+    <h3 class="eje-title">Económico-productivo <span class="eje-count">48</span></h3>
     <div class="tabla-ind-scroll">
       
       
@@ -1300,15 +1380,16 @@
             <th scope="col">Último dato</th>
             <th scope="col">Período</th>
             <th scope="col">Var. interanual</th>
-            <th scope="col" class="tabla-ind-meta-ini">Meta 2030 (PDES 2024)</th>
+            <th scope="col" class="tabla-ind-meta-ini"><abbr title="Dato de 2024, en el mismo período del año que el último dato (si el último es 2T2026, la base es 2T2024). Vacía cuando la serie no tiene dato en ese período.">Línea de base 2024</abbr></th>
+            <th scope="col">Meta 2030 (PDES 2024)</th>
             
           </tr>
         </thead>
         
         <tbody>
-          <tr class="subeje-row"><th class="subeje-row-head" colspan="8" scope="colgroup">Actividad y productividad</th></tr>
+          <tr class="subeje-row"><th class="subeje-row-head" colspan="9" scope="colgroup">Actividad y productividad</th></tr>
           
-          <tr class="tipo-row tipo-resultado"><th class="tipo-row-head" colspan="8" scope="colgroup">De resultados</th></tr>
+          <tr class="tipo-row tipo-resultado"><th class="tipo-row-head" colspan="9" scope="colgroup">De resultados</th></tr>
           
           <tr>
             <th scope="row">
@@ -1321,7 +1402,8 @@
             <td class="num tabla-ind-dato">3.103.824</td>
             <td class="num">2024</td>
             <td class="num"><span class="tabla-ind-var up">▲ 9,1 %</span></td>
-            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
+            <td class="num tabla-ind-meta-ini"><abbr title="Dato de 2024">3.103.824</abbr></td>
+            <td class="num"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
             
           </tr>
           
@@ -1336,7 +1418,8 @@
             <td class="num tabla-ind-dato">2.405</td>
             <td class="num">2024</td>
             <td class="num"><span class="tabla-ind-var up">▲ 6,3 %</span></td>
-            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
+            <td class="num tabla-ind-meta-ini"><abbr title="Dato de 2024">2.405</abbr></td>
+            <td class="num"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
             
           </tr>
           
@@ -1351,7 +1434,8 @@
             <td class="num tabla-ind-dato">1.073.532</td>
             <td class="num">2025</td>
             <td class="num"><span class="tabla-ind-var down">▼ 0,9 %</span></td>
-            <td class="num tabla-ind-meta-ini"><span class="sem-ico sem-gris" role="img" aria-label="Sin información" title="Sin información. No se puede calcular el avance: el indicador está con meta, pero sin línea de base."></span>2.000.000</td>
+            <td class="num tabla-ind-meta-ini"><abbr title="Dato de 2024">1.083.617</abbr></td>
+            <td class="num"><span class="sem-ico sem-rojo" role="img" aria-label="Rezago" title="Rezago. Recorrió el −1 % del camino entre la línea de base y la meta 2030."></span>2.000.000</td>
             
           </tr>
           
@@ -1366,7 +1450,8 @@
             <td class="num tabla-ind-dato">423.850</td>
             <td class="num">2025</td>
             <td class="num"><span class="tabla-ind-var down">▼ 2,8 %</span></td>
-            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
+            <td class="num tabla-ind-meta-ini"><abbr title="Dato de 2024">436.229</abbr></td>
+            <td class="num"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
             
           </tr>
           
@@ -1381,7 +1466,8 @@
             <td class="num tabla-ind-dato">277.153</td>
             <td class="num">2025</td>
             <td class="num"><span class="tabla-ind-var up">▲ 20,1 %</span></td>
-            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
+            <td class="num tabla-ind-meta-ini"><abbr title="Dato de 2024">230.818</abbr></td>
+            <td class="num"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
             
           </tr>
           
@@ -1396,7 +1482,8 @@
             <td class="num tabla-ind-dato">219.983</td>
             <td class="num">2025</td>
             <td class="num"><span class="tabla-ind-var up">▲ 23,5 %</span></td>
-            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
+            <td class="num tabla-ind-meta-ini"><abbr title="Dato de 2024">178.130</abbr></td>
+            <td class="num"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
             
           </tr>
           
@@ -1411,7 +1498,8 @@
             <td class="num tabla-ind-dato">13.811</td>
             <td class="num">2024</td>
             <td class="num"><span class="tabla-ind-var down">▼ 13,3 %</span></td>
-            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
+            <td class="num tabla-ind-meta-ini"><abbr title="Dato de 2024">13.811</abbr></td>
+            <td class="num"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
             
           </tr>
           
@@ -1426,7 +1514,8 @@
             <td class="num tabla-ind-dato">31.174</td>
             <td class="num">2024</td>
             <td class="num"><span class="tabla-ind-var down">▼ 9,7 %</span></td>
-            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
+            <td class="num tabla-ind-meta-ini"><abbr title="Dato de 2024">31.174</abbr></td>
+            <td class="num"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
             
           </tr>
           
@@ -1441,7 +1530,8 @@
             <td class="num tabla-ind-dato">241.645</td>
             <td class="num">2T2026</td>
             <td class="num"><span class="tabla-ind-var down">▼ 16,9 %</span></td>
-            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
+            <td class="num tabla-ind-meta-ini"><abbr title="Dato de 2T2024">304.604</abbr></td>
+            <td class="num"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
             
           </tr>
           
@@ -1456,7 +1546,8 @@
             <td class="num tabla-ind-dato">27.394</td>
             <td class="num">2T2026</td>
             <td class="num"><span class="tabla-ind-var down">▼ 20,6 %</span></td>
-            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
+            <td class="num tabla-ind-meta-ini"><abbr title="Dato de 2T2024">42.715</abbr></td>
+            <td class="num"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
             
           </tr>
           
@@ -1471,7 +1562,8 @@
             <td class="num tabla-ind-dato">66.610</td>
             <td class="num">1T2026</td>
             <td class="num"><span class="tabla-ind-var up">▲ 39,8 %</span></td>
-            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
+            <td class="num tabla-ind-meta-ini"><abbr title="Dato de 1T2024">46.441</abbr></td>
+            <td class="num"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
             
           </tr>
           
@@ -1486,7 +1578,8 @@
             <td class="num tabla-ind-dato">171</td>
             <td class="num">1T2026</td>
             <td class="num"><span class="tabla-ind-var down">▼ 9,0 %</span></td>
-            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
+            <td class="num tabla-ind-meta-ini"><abbr title="Dato de 1T2024">175</abbr></td>
+            <td class="num"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
             
           </tr>
           
@@ -1501,12 +1594,77 @@
             <td class="num tabla-ind-dato">1,82</td>
             <td class="num">1T2026</td>
             <td class="num"><span class="tabla-ind-var up">▲ 35,8 %</span></td>
-            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
+            <td class="num tabla-ind-meta-ini"><abbr title="Dato de 1T2024">1,36</abbr></td>
+            <td class="num"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
+            
+          </tr>
+          
+          <tr>
+            <th scope="row">
+              <a href="./tema/cemento.html" title="Ver el tablero: Despachos de cemento"><span class="tabla-ind-ficha tabla-ind-vacio" title="Todavía sin ficha en las notas técnicas">—</span>Cemento despachado a Salta (toneladas)</a>
+            </th>
+            
+            <td class="tabla-ind-frec">Trimestral</td>
+            <td class="tabla-ind-fuente">Asociación de Fabricantes de Cemento Portland (AFCP)</td>
+            <td class="tabla-ind-geo">Provincia</td>
+            <td class="num tabla-ind-dato">65.717</td>
+            <td class="num">3T2025</td>
+            <td class="num"><span class="tabla-ind-var down">▼ 15,4 %</span></td>
+            <td class="num tabla-ind-meta-ini"><abbr title="Dato de 3T2024">77.689</abbr></td>
+            <td class="num"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
+            
+          </tr>
+          
+          <tr>
+            <th scope="row">
+              <a href="./tema/cemento.html" title="Ver el tablero: Despachos de cemento"><span class="tabla-ind-ficha tabla-ind-vacio" title="Todavía sin ficha en las notas técnicas">—</span>Cemento despachado a granel (toneladas)</a><abbr class="tabla-ind-nota" title="El granel abastece sobre todo a hormigoneras y obra grande; la bolsa, a obra chica y autoconstrucción. Es una lectura del sector, no una definición de la AFCP.">ⓘ</abbr>
+            </th>
+            
+            <td class="tabla-ind-frec">Trimestral</td>
+            <td class="tabla-ind-fuente">Asociación de Fabricantes de Cemento Portland (AFCP)</td>
+            <td class="tabla-ind-geo">Provincia</td>
+            <td class="num tabla-ind-dato">22.373</td>
+            <td class="num">3T2025</td>
+            <td class="num"><span class="tabla-ind-var down">▼ 13,7 %</span></td>
+            <td class="num tabla-ind-meta-ini"><abbr title="Dato de 3T2024">25.918</abbr></td>
+            <td class="num"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
+            
+          </tr>
+          
+          <tr>
+            <th scope="row">
+              <a href="./tema/supermercados.html" title="Ver el tablero: Ventas de supermercados"><span class="tabla-ind-ficha tabla-ind-vacio" title="Todavía sin ficha en las notas técnicas">—</span>Ventas de supermercados (pesos constantes)</a>
+            </th>
+            
+            <td class="tabla-ind-frec">Trimestral</td>
+            <td class="tabla-ind-fuente">Encuesta de Supermercados — INDEC</td>
+            <td class="tabla-ind-geo">Provincia</td>
+            <td class="num tabla-ind-dato">132,2 mil M</td>
+            <td class="num">2T2026</td>
+            <td class="num"><span class="tabla-ind-var down">▼ 8,8 %</span></td>
+            <td class="num tabla-ind-meta-ini"><abbr title="Dato de 2T2024">155,0 mil M</abbr></td>
+            <td class="num"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
+            
+          </tr>
+          
+          <tr>
+            <th scope="row">
+              <a href="./tema/supermercados.html" title="Ver el tablero: Ventas de supermercados"><span class="tabla-ind-ficha tabla-ind-vacio" title="Todavía sin ficha en las notas técnicas">—</span>Operaciones de compra en supermercados</a>
+            </th>
+            
+            <td class="tabla-ind-frec">Trimestral</td>
+            <td class="tabla-ind-fuente">Encuesta de Supermercados — INDEC</td>
+            <td class="tabla-ind-geo">Provincia</td>
+            <td class="num tabla-ind-dato">3.357.586</td>
+            <td class="num">2T2026</td>
+            <td class="num"><span class="tabla-ind-var down">▼ 3,4 %</span></td>
+            <td class="num tabla-ind-meta-ini"><abbr title="Dato de 2T2024">4.101.752</abbr></td>
+            <td class="num"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
             
           </tr>
           
           
-          <tr class="tipo-row tipo-oferta"><th class="tipo-row-head" colspan="8" scope="colgroup">De oferta o proceso</th></tr>
+          <tr class="tipo-row tipo-oferta"><th class="tipo-row-head" colspan="9" scope="colgroup">De oferta o proceso</th></tr>
           
           <tr>
             <th scope="row">
@@ -1519,7 +1677,8 @@
             <td class="num tabla-ind-dato">1.253.058</td>
             <td class="num">2024</td>
             <td class="num"><span class="tabla-ind-var down">▼ 3,0 %</span></td>
-            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
+            <td class="num tabla-ind-meta-ini"><abbr title="Dato de 2024">1.253.058</abbr></td>
+            <td class="num"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
             
           </tr>
           
@@ -1534,7 +1693,8 @@
             <td class="num tabla-ind-dato">2.238</td>
             <td class="num">2T2026</td>
             <td class="num"><span class="tabla-ind-var down">▼ 16,7 %</span></td>
-            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
+            <td class="num tabla-ind-meta-ini"><abbr title="Dato de 2T2024">2.684</abbr></td>
+            <td class="num"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
             
           </tr>
           
@@ -1542,9 +1702,9 @@
         </tbody>
         
         <tbody>
-          <tr class="subeje-row"><th class="subeje-row-head" colspan="8" scope="colgroup">Empleo y capacidades</th></tr>
+          <tr class="subeje-row"><th class="subeje-row-head" colspan="9" scope="colgroup">Empleo y capacidades</th></tr>
           
-          <tr class="tipo-row tipo-resultado"><th class="tipo-row-head" colspan="8" scope="colgroup">De resultados</th></tr>
+          <tr class="tipo-row tipo-resultado"><th class="tipo-row-head" colspan="9" scope="colgroup">De resultados</th></tr>
           
           <tr>
             <th scope="row">
@@ -1557,7 +1717,8 @@
             <td class="num tabla-ind-dato">119.731</td>
             <td class="num">2T2025</td>
             <td class="num"><span class="tabla-ind-var down">▼ 3,8 %</span></td>
-            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
+            <td class="num tabla-ind-meta-ini"><abbr title="Dato de 2T2024">124.437</abbr></td>
+            <td class="num"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
             
           </tr>
           
@@ -1572,7 +1733,8 @@
             <td class="num tabla-ind-dato">98,2</td>
             <td class="num">2T2025</td>
             <td class="num"><span class="tabla-ind-var up">▲ 6,7 %</span></td>
-            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
+            <td class="num tabla-ind-meta-ini"><abbr title="Dato de 2T2024">92</abbr></td>
+            <td class="num"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
             
           </tr>
           
@@ -1587,7 +1749,8 @@
             <td class="num tabla-ind-dato">5.548</td>
             <td class="num">1T2026</td>
             <td class="num"><span class="tabla-ind-var down">▼ 7,0 %</span></td>
-            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
+            <td class="num tabla-ind-meta-ini"><abbr title="Dato de 1T2024">6.015</abbr></td>
+            <td class="num"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
             
           </tr>
           
@@ -1595,9 +1758,9 @@
         </tbody>
         
         <tbody>
-          <tr class="subeje-row"><th class="subeje-row-head" colspan="8" scope="colgroup">Inversión y financiamiento</th></tr>
+          <tr class="subeje-row"><th class="subeje-row-head" colspan="9" scope="colgroup">Inversión y financiamiento</th></tr>
           
-          <tr class="tipo-row tipo-resultado"><th class="tipo-row-head" colspan="8" scope="colgroup">De resultados</th></tr>
+          <tr class="tipo-row tipo-resultado"><th class="tipo-row-head" colspan="9" scope="colgroup">De resultados</th></tr>
           
           <tr>
             <th scope="row">
@@ -1610,7 +1773,8 @@
             <td class="num tabla-ind-dato">956,5 mil M</td>
             <td class="num">mar-2026</td>
             <td class="num"><span class="tabla-ind-var down">▼ 3,0 %</span></td>
-            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
+            <td class="num tabla-ind-meta-ini"><abbr title="Dato de mar-2024">881,7 mil M</abbr></td>
+            <td class="num"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
             
           </tr>
           
@@ -1625,7 +1789,8 @@
             <td class="num tabla-ind-dato">7,69</td>
             <td class="num">mar-2026</td>
             <td class="num"><span class="tabla-ind-var up">▲ 1,8 p.p.</span></td>
-            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
+            <td class="num tabla-ind-meta-ini"><abbr title="Dato de mar-2024">15,6</abbr></td>
+            <td class="num"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
             
           </tr>
           
@@ -1640,7 +1805,8 @@
             <td class="num tabla-ind-dato">9,28</td>
             <td class="num">mar-2026</td>
             <td class="num"><span class="tabla-ind-var up">▲ 2,0 p.p.</span></td>
-            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
+            <td class="num tabla-ind-meta-ini"><abbr title="Dato de mar-2024">16,5</abbr></td>
+            <td class="num"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
             
           </tr>
           
@@ -1655,7 +1821,8 @@
             <td class="num tabla-ind-dato">119,7 mil M</td>
             <td class="num">1T2026</td>
             <td class="num"><span class="tabla-ind-var down">▼ 9,9 %</span></td>
-            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
+            <td class="num tabla-ind-meta-ini"><abbr title="Dato de 1T2024">155,8 mil M</abbr></td>
+            <td class="num"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
             
           </tr>
           
@@ -1670,7 +1837,8 @@
             <td class="num tabla-ind-dato">36,3 mil M</td>
             <td class="num">1T2026</td>
             <td class="num"><span class="tabla-ind-var down">▼ 14,7 %</span></td>
-            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
+            <td class="num tabla-ind-meta-ini"><abbr title="Dato de 1T2024">43,7 mil M</abbr></td>
+            <td class="num"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
             
           </tr>
           
@@ -1685,7 +1853,8 @@
             <td class="num tabla-ind-dato">637,7</td>
             <td class="num">2023</td>
             <td class="num"><span class="tabla-ind-var up">▲ 9,8 %</span></td>
-            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
+            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="La serie no tiene dato en 2024 para este período">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
             
           </tr>
           
@@ -1700,7 +1869,8 @@
             <td class="num tabla-ind-dato">2,1 B</td>
             <td class="num">2T2026</td>
             <td class="num"><span class="tabla-ind-var up">▲ 0,1 %</span></td>
-            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
+            <td class="num tabla-ind-meta-ini"><abbr title="Dato de 2T2024">903,3 mil M</abbr></td>
+            <td class="num"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
             
           </tr>
           
@@ -1715,7 +1885,8 @@
             <td class="num tabla-ind-dato">1,5 B</td>
             <td class="num">2T2026</td>
             <td class="num"><span class="tabla-ind-var up">▲ 0,6 %</span></td>
-            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
+            <td class="num tabla-ind-meta-ini"><abbr title="Dato de 2T2024">1,2 B</abbr></td>
+            <td class="num"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
             
           </tr>
           
@@ -1730,12 +1901,13 @@
             <td class="num tabla-ind-dato">23,2</td>
             <td class="num">2025</td>
             <td class="num"><span class="tabla-ind-var down">▼ 1,8 p.p.</span></td>
-            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
+            <td class="num tabla-ind-meta-ini"><abbr title="Dato de 2024">25</abbr></td>
+            <td class="num"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
             
           </tr>
           
           
-          <tr class="tipo-row tipo-oferta"><th class="tipo-row-head" colspan="8" scope="colgroup">De oferta o proceso</th></tr>
+          <tr class="tipo-row tipo-oferta"><th class="tipo-row-head" colspan="9" scope="colgroup">De oferta o proceso</th></tr>
           
           <tr>
             <th scope="row">
@@ -1748,7 +1920,8 @@
             <td class="num tabla-ind-dato">889,2 mil M</td>
             <td class="num">mar-2026</td>
             <td class="num"><span class="tabla-ind-var down">▼ 4,6 %</span></td>
-            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
+            <td class="num tabla-ind-meta-ini"><abbr title="Dato de mar-2024">763,7 mil M</abbr></td>
+            <td class="num"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
             
           </tr>
           
@@ -1763,7 +1936,8 @@
             <td class="num tabla-ind-dato">4,6 B</td>
             <td class="num">2025</td>
             <td class="num"><span class="tabla-ind-var down">▼ 2,7 %</span></td>
-            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
+            <td class="num tabla-ind-meta-ini"><abbr title="Dato de 2024">4,8 B</abbr></td>
+            <td class="num"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
             
           </tr>
           
@@ -1778,7 +1952,8 @@
             <td class="num tabla-ind-dato">2,5 B</td>
             <td class="num">2025</td>
             <td class="num"><span class="tabla-ind-var up">▲ 0,5 %</span></td>
-            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
+            <td class="num tabla-ind-meta-ini"><abbr title="Dato de 2024">2,5 B</abbr></td>
+            <td class="num"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
             
           </tr>
           
@@ -1793,7 +1968,8 @@
             <td class="num tabla-ind-dato">106,7 mil M</td>
             <td class="num">2T2026</td>
             <td class="num"><span class="tabla-ind-var down">▼ 1,9 %</span></td>
-            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
+            <td class="num tabla-ind-meta-ini"><abbr title="Dato de 2T2024">114,1 mil M</abbr></td>
+            <td class="num"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
             
           </tr>
           
@@ -1808,7 +1984,8 @@
             <td class="num tabla-ind-dato">92,9 mil M</td>
             <td class="num">2T2026</td>
             <td class="num"><span class="tabla-ind-var down">▼ 4,1 %</span></td>
-            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
+            <td class="num tabla-ind-meta-ini"><abbr title="Dato de 2T2024">107,7 mil M</abbr></td>
+            <td class="num"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
             
           </tr>
           
@@ -1823,7 +2000,8 @@
             <td class="num tabla-ind-dato">46,3</td>
             <td class="num">2025</td>
             <td class="num"><span class="tabla-ind-var up">▲ 3,6 %</span></td>
-            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
+            <td class="num tabla-ind-meta-ini"><abbr title="Dato de 2024">44,7</abbr></td>
+            <td class="num"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
             
           </tr>
           
@@ -1838,7 +2016,8 @@
             <td class="num tabla-ind-dato">57,9</td>
             <td class="num">2025</td>
             <td class="num"><span class="tabla-ind-var up invertido">▲ 0,6 p.p.</span></td>
-            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
+            <td class="num tabla-ind-meta-ini"><abbr title="Dato de 2024">57,3</abbr></td>
+            <td class="num"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
             
           </tr>
           
@@ -1853,7 +2032,8 @@
             <td class="num tabla-ind-dato">5</td>
             <td class="num">2025</td>
             <td class="num"><span class="tabla-ind-var down">▼ 0,4 p.p.</span></td>
-            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
+            <td class="num tabla-ind-meta-ini"><abbr title="Dato de 2024">5,40</abbr></td>
+            <td class="num"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
             
           </tr>
           
@@ -1861,9 +2041,9 @@
         </tbody>
         
         <tbody>
-          <tr class="subeje-row"><th class="subeje-row-head" colspan="8" scope="colgroup">Infraestructura y logística</th></tr>
+          <tr class="subeje-row"><th class="subeje-row-head" colspan="9" scope="colgroup">Infraestructura y logística</th></tr>
           
-          <tr class="tipo-row tipo-resultado"><th class="tipo-row-head" colspan="8" scope="colgroup">De resultados</th></tr>
+          <tr class="tipo-row tipo-resultado"><th class="tipo-row-head" colspan="9" scope="colgroup">De resultados</th></tr>
           
           <tr>
             <th scope="row">
@@ -1876,7 +2056,8 @@
             <td class="num tabla-ind-dato">768</td>
             <td class="num">2T2026</td>
             <td class="num"><span class="tabla-ind-var down">▼ 14,4 %</span></td>
-            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
+            <td class="num tabla-ind-meta-ini"><abbr title="Dato de 2T2024">586,4</abbr></td>
+            <td class="num"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
             
           </tr>
           
@@ -1891,7 +2072,8 @@
             <td class="num tabla-ind-dato">73,8</td>
             <td class="num">2T2026</td>
             <td class="num"><span class="tabla-ind-var up">▲ 59,9 %</span></td>
-            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
+            <td class="num tabla-ind-meta-ini"><abbr title="Dato de 2T2024">46,9</abbr></td>
+            <td class="num"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
             
           </tr>
           
@@ -1906,12 +2088,13 @@
             <td class="num tabla-ind-dato">319.688</td>
             <td class="num">2T2026</td>
             <td class="num"><span class="tabla-ind-var up">▲ 60,5 %</span></td>
-            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
+            <td class="num tabla-ind-meta-ini"><abbr title="Dato de 2T2024">201.341</abbr></td>
+            <td class="num"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
             
           </tr>
           
           
-          <tr class="tipo-row tipo-oferta"><th class="tipo-row-head" colspan="8" scope="colgroup">De oferta o proceso</th></tr>
+          <tr class="tipo-row tipo-oferta"><th class="tipo-row-head" colspan="9" scope="colgroup">De oferta o proceso</th></tr>
           
           <tr>
             <th scope="row">
@@ -1924,7 +2107,8 @@
             <td class="num tabla-ind-dato">1.455</td>
             <td class="num">2026</td>
             <td class="num"><span class="tabla-ind-var none">sin base</span></td>
-            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
+            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="La serie no tiene dato en 2024 para este período">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
             
           </tr>
           
@@ -1939,7 +2123,8 @@
             <td class="num tabla-ind-dato">176,2</td>
             <td class="num">2T2026</td>
             <td class="num"><span class="tabla-ind-var up">▲ 23,2 %</span></td>
-            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
+            <td class="num tabla-ind-meta-ini"><abbr title="Dato de 2T2024">87,0</abbr></td>
+            <td class="num"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
             
           </tr>
           
@@ -1947,9 +2132,9 @@
         </tbody>
         
         <tbody>
-          <tr class="subeje-row"><th class="subeje-row-head" colspan="8" scope="colgroup">Innovación y mercados</th></tr>
+          <tr class="subeje-row"><th class="subeje-row-head" colspan="9" scope="colgroup">Innovación y mercados</th></tr>
           
-          <tr class="tipo-row tipo-resultado"><th class="tipo-row-head" colspan="8" scope="colgroup">De resultados</th></tr>
+          <tr class="tipo-row tipo-resultado"><th class="tipo-row-head" colspan="9" scope="colgroup">De resultados</th></tr>
           
           <tr>
             <th scope="row">
@@ -1962,7 +2147,8 @@
             <td class="num tabla-ind-dato">1,4 mil M</td>
             <td class="num">2025</td>
             <td class="num"><span class="tabla-ind-var up">▲ 28,8 %</span></td>
-            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
+            <td class="num tabla-ind-meta-ini"><abbr title="Dato de 2024">1,1 mil M</abbr></td>
+            <td class="num"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
             
           </tr>
           
@@ -1977,12 +2163,13 @@
             <td class="num tabla-ind-dato">1.990.906</td>
             <td class="num">2025</td>
             <td class="num"><span class="tabla-ind-var up">▲ 13,7 %</span></td>
-            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
+            <td class="num tabla-ind-meta-ini"><abbr title="Dato de 2024">1.751.637</abbr></td>
+            <td class="num"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
             
           </tr>
           
           
-          <tr class="tipo-row tipo-oferta"><th class="tipo-row-head" colspan="8" scope="colgroup">De oferta o proceso</th></tr>
+          <tr class="tipo-row tipo-oferta"><th class="tipo-row-head" colspan="9" scope="colgroup">De oferta o proceso</th></tr>
           
           <tr>
             <th scope="row">
@@ -1995,7 +2182,8 @@
             <td class="num tabla-ind-dato">408</td>
             <td class="num">2024</td>
             <td class="num"><span class="tabla-ind-var down">▼ 14,6 %</span></td>
-            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
+            <td class="num tabla-ind-meta-ini"><abbr title="Dato de 2024">408</abbr></td>
+            <td class="num"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
             
           </tr>
           
@@ -2010,7 +2198,8 @@
             <td class="num tabla-ind-dato">925</td>
             <td class="num">2024</td>
             <td class="num"><span class="tabla-ind-var down">▼ 1,0 %</span></td>
-            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
+            <td class="num tabla-ind-meta-ini"><abbr title="Dato de 2024">925</abbr></td>
+            <td class="num"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
             
           </tr>
           
@@ -2022,7 +2211,7 @@
   </div>
   
   <div class="tabla-ind-block">
-    <h3 class="eje-title">Territorio, ambiente y turismo <span class="eje-count">11</span></h3>
+    <h3 class="eje-title">Territorio, ambiente y turismo <span class="eje-count">13</span></h3>
     <div class="tabla-ind-scroll">
       
       
@@ -2037,15 +2226,16 @@
             <th scope="col">Último dato</th>
             <th scope="col">Período</th>
             <th scope="col">Var. interanual</th>
-            <th scope="col" class="tabla-ind-meta-ini">Meta 2030 (PDES 2024)</th>
+            <th scope="col" class="tabla-ind-meta-ini"><abbr title="Dato de 2024, en el mismo período del año que el último dato (si el último es 2T2026, la base es 2T2024). Vacía cuando la serie no tiene dato en ese período.">Línea de base 2024</abbr></th>
+            <th scope="col">Meta 2030 (PDES 2024)</th>
             
           </tr>
         </thead>
         
         <tbody>
-          <tr class="subeje-row"><th class="subeje-row-head" colspan="8" scope="colgroup">Territorio</th></tr>
+          <tr class="subeje-row"><th class="subeje-row-head" colspan="9" scope="colgroup">Territorio</th></tr>
           
-          <tr class="tipo-row tipo-resultado"><th class="tipo-row-head" colspan="8" scope="colgroup">De resultados</th></tr>
+          <tr class="tipo-row tipo-resultado"><th class="tipo-row-head" colspan="9" scope="colgroup">De resultados</th></tr>
           
           <tr>
             <th scope="row">
@@ -2058,12 +2248,13 @@
             <td class="num tabla-ind-dato">70</td>
             <td class="num">2026</td>
             <td class="num"><span class="tabla-ind-var none">sin base</span></td>
-            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
+            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="La serie no tiene dato en 2024 para este período">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
             
           </tr>
           
           
-          <tr class="tipo-row tipo-oferta"><th class="tipo-row-head" colspan="8" scope="colgroup">De oferta o proceso</th></tr>
+          <tr class="tipo-row tipo-oferta"><th class="tipo-row-head" colspan="9" scope="colgroup">De oferta o proceso</th></tr>
           
           <tr>
             <th scope="row">
@@ -2076,7 +2267,8 @@
             <td class="num tabla-ind-dato">17</td>
             <td class="num">2026</td>
             <td class="num"><span class="tabla-ind-var none">sin base</span></td>
-            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
+            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="La serie no tiene dato en 2024 para este período">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
             
           </tr>
           
@@ -2084,9 +2276,9 @@
         </tbody>
         
         <tbody>
-          <tr class="subeje-row"><th class="subeje-row-head" colspan="8" scope="colgroup">Ambiente</th></tr>
+          <tr class="subeje-row"><th class="subeje-row-head" colspan="9" scope="colgroup">Ambiente</th></tr>
           
-          <tr class="tipo-row tipo-resultado"><th class="tipo-row-head" colspan="8" scope="colgroup">De resultados</th></tr>
+          <tr class="tipo-row tipo-resultado"><th class="tipo-row-head" colspan="9" scope="colgroup">De resultados</th></tr>
           
           <tr>
             <th scope="row">
@@ -2099,7 +2291,8 @@
             <td class="num tabla-ind-dato">7.436.194</td>
             <td class="num">2021</td>
             <td class="num"><span class="tabla-ind-var down">▼ 0,6 %</span></td>
-            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
+            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="La serie no tiene dato en 2024 para este período">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
             
           </tr>
           
@@ -2114,7 +2307,8 @@
             <td class="num tabla-ind-dato">33.638</td>
             <td class="num">2021</td>
             <td class="num"><span class="tabla-ind-var up invertido">▲ 24,4 %</span></td>
-            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
+            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="La serie no tiene dato en 2024 para este período">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
             
           </tr>
           
@@ -2129,7 +2323,8 @@
             <td class="num tabla-ind-dato">17.504</td>
             <td class="num">2021</td>
             <td class="num"><span class="tabla-ind-var down">▼ 35,3 %</span></td>
-            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
+            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="La serie no tiene dato en 2024 para este período">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
             
           </tr>
           
@@ -2144,7 +2339,8 @@
             <td class="num tabla-ind-dato">47,9</td>
             <td class="num">2021</td>
             <td class="num"><span class="tabla-ind-var down">▼ 0,6 %</span></td>
-            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
+            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="La serie no tiene dato en 2024 para este período">—</span></td>
+            <td class="num"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
             
           </tr>
           
@@ -2159,7 +2355,8 @@
             <td class="num tabla-ind-dato">36,3</td>
             <td class="num">2T2026</td>
             <td class="num"><span class="tabla-ind-var up">▲ 33,9 %</span></td>
-            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
+            <td class="num tabla-ind-meta-ini"><abbr title="Dato de 2T2024">45,1</abbr></td>
+            <td class="num"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
             
           </tr>
           
@@ -2167,9 +2364,41 @@
         </tbody>
         
         <tbody>
-          <tr class="subeje-row"><th class="subeje-row-head" colspan="8" scope="colgroup">Turismo</th></tr>
+          <tr class="subeje-row"><th class="subeje-row-head" colspan="9" scope="colgroup">Turismo</th></tr>
           
-          <tr class="tipo-row tipo-resultado"><th class="tipo-row-head" colspan="8" scope="colgroup">De resultados</th></tr>
+          <tr class="tipo-row tipo-resultado"><th class="tipo-row-head" colspan="9" scope="colgroup">De resultados</th></tr>
+          
+          <tr>
+            <th scope="row">
+              <a href="./tema/aeropuerto.html" title="Ver el tablero: Movimiento aeroportuario"><span class="tabla-ind-ficha tabla-ind-vacio" title="Todavía sin ficha en las notas técnicas">—</span>Pasajeros arribados</a>
+            </th>
+            
+            <td class="tabla-ind-frec">Trimestral</td>
+            <td class="tabla-ind-fuente">Administración Nacional de Aviación Civil (ANAC)</td>
+            <td class="tabla-ind-geo">Provincia</td>
+            <td class="num tabla-ind-dato">198.631</td>
+            <td class="num">3T2026</td>
+            <td class="num"><span class="tabla-ind-var up">▲ 3,5 %</span></td>
+            <td class="num tabla-ind-meta-ini"><abbr title="Dato de 3T2024">175.931</abbr></td>
+            <td class="num"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
+            
+          </tr>
+          
+          <tr>
+            <th scope="row">
+              <a href="./tema/aeropuerto.html" title="Ver el tablero: Movimiento aeroportuario"><span class="tabla-ind-ficha tabla-ind-vacio" title="Todavía sin ficha en las notas técnicas">—</span>Vuelos arribados</a>
+            </th>
+            
+            <td class="tabla-ind-frec">Trimestral</td>
+            <td class="tabla-ind-fuente">Administración Nacional de Aviación Civil (ANAC)</td>
+            <td class="tabla-ind-geo">Provincia</td>
+            <td class="num tabla-ind-dato">2.622</td>
+            <td class="num">3T2026</td>
+            <td class="num"><span class="tabla-ind-var down">▼ 11,7 %</span></td>
+            <td class="num tabla-ind-meta-ini"><abbr title="Dato de 3T2024">2.709</abbr></td>
+            <td class="num"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
+            
+          </tr>
           
           <tr>
             <th scope="row">
@@ -2182,7 +2411,8 @@
             <td class="num tabla-ind-dato">39,3</td>
             <td class="num">3T2025</td>
             <td class="num"><span class="tabla-ind-var down">▼ 3,0 %</span></td>
-            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
+            <td class="num tabla-ind-meta-ini"><abbr title="Dato de 3T2024">40,5</abbr></td>
+            <td class="num"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
             
           </tr>
           
@@ -2197,7 +2427,8 @@
             <td class="num tabla-ind-dato">168.320</td>
             <td class="num">3T2025</td>
             <td class="num"><span class="tabla-ind-var down">▼ 2,3 %</span></td>
-            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
+            <td class="num tabla-ind-meta-ini"><abbr title="Dato de 3T2024">172.356</abbr></td>
+            <td class="num"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
             
           </tr>
           
@@ -2212,7 +2443,8 @@
             <td class="num tabla-ind-dato">333.274</td>
             <td class="num">3T2025</td>
             <td class="num"><span class="tabla-ind-var down">▼ 3,0 %</span></td>
-            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
+            <td class="num tabla-ind-meta-ini"><abbr title="Dato de 3T2024">343.688</abbr></td>
+            <td class="num"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
             
           </tr>
           
@@ -2227,7 +2459,8 @@
             <td class="num tabla-ind-dato">1,98</td>
             <td class="num">3T2025</td>
             <td class="num"><span class="tabla-ind-var down">▼ 0,5 %</span></td>
-            <td class="num tabla-ind-meta-ini"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
+            <td class="num tabla-ind-meta-ini"><abbr title="Dato de 3T2024">1,99</abbr></td>
+            <td class="num"><span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span></td>
             
           </tr>
           
@@ -2245,13 +2478,13 @@
   <p class="section-lead muted">El Plan de Desarrollo Estratégico organiza los indicadores en tres ejes y, dentro de cada uno, en subejes. Cada tarjeta resume un indicador —último valor y variación interanual— y lleva al gráfico que lo publica.</p>
 
   <div class="eje-pills" role="tablist" aria-label="Ejes del PDES">
-    <button class="eje-pill is-active" data-eje="all" role="tab" aria-selected="true">Todos <span class="eje-count">121</span></button>
+    <button class="eje-pill is-active" data-eje="all" role="tab" aria-selected="true">Todos <span class="eje-count">127</span></button>
     
     <button class="eje-pill" data-eje="sociocultural" role="tab" aria-selected="false">Sociocultural <span class="eje-count">66</span></button>
     
-    <button class="eje-pill" data-eje="economico-productivo" role="tab" aria-selected="false">Económico-productivo <span class="eje-count">44</span></button>
+    <button class="eje-pill" data-eje="economico-productivo" role="tab" aria-selected="false">Económico-productivo <span class="eje-count">48</span></button>
     
-    <button class="eje-pill" data-eje="territorio-ambiente-turismo" role="tab" aria-selected="false">Territorio, ambiente y turismo <span class="eje-count">11</span></button>
+    <button class="eje-pill" data-eje="territorio-ambiente-turismo" role="tab" aria-selected="false">Territorio, ambiente y turismo <span class="eje-count">13</span></button>
     
   </div>
 
@@ -3039,11 +3272,11 @@
   </div>
   
   <div class="eje-block" data-eje="economico-productivo" id="eje-economico-productivo">
-    <h3 class="eje-title">Económico-productivo <span class="eje-count">44</span></h3>
+    <h3 class="eje-title">Económico-productivo <span class="eje-count">48</span></h3>
     <p class="eje-descr muted">Producción, empleo, inversión y financiamiento de la economía salteña.</p>
     
     <div class="subeje-block">
-      <h4 class="subeje-title">Actividad y productividad <span class="eje-count">15</span></h4>
+      <h4 class="subeje-title">Actividad y productividad <span class="eje-count">19</span></h4>
       
       <p class="tipo-title tipo-resultado">De resultados</p>
       <div class="cards">
@@ -3189,6 +3422,50 @@
             <span class="card-ind-ref">1T2025</span>
           </p>
           <span class="card-meta">Trimestral · último dato 1T2026</span>
+        </a>
+        
+        <a class="card card-ind" href="./tema/cemento.html#grafico-cem-envase">
+          <span class="card-area">Despachos de cemento</span>
+          <h5 class="card-title">Cemento despachado a Salta (toneladas)</h5>
+          <p class="card-ind-valor">65.717 toneladas</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var down">▼ 15,4 %</span>
+            <span class="card-ind-ref">3T2024</span>
+          </p>
+          <span class="card-meta">Trimestral · último dato 3T2025</span>
+        </a>
+        
+        <a class="card card-ind" href="./tema/cemento.html#grafico-cem-envase">
+          <span class="card-area">Despachos de cemento</span>
+          <h5 class="card-title">Cemento despachado a granel (toneladas)</h5>
+          <p class="card-ind-valor">22.373 toneladas</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var down">▼ 13,7 %</span>
+            <span class="card-ind-ref">3T2024</span>
+          </p>
+          <span class="card-meta">Trimestral · último dato 3T2025</span>
+        </a>
+        
+        <a class="card card-ind" href="./tema/supermercados.html#grafico-sup-ventas">
+          <span class="card-area">Ventas de supermercados</span>
+          <h5 class="card-title">Ventas de supermercados (pesos constantes)</h5>
+          <p class="card-ind-valor">132.247.601.012 pesos</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var down">▼ 8,8 %</span>
+            <span class="card-ind-ref">2T2025</span>
+          </p>
+          <span class="card-meta">Trimestral · último dato 2T2026</span>
+        </a>
+        
+        <a class="card card-ind" href="./tema/supermercados.html#grafico-sup-operaciones">
+          <span class="card-area">Ventas de supermercados</span>
+          <h5 class="card-title">Operaciones de compra en supermercados</h5>
+          <p class="card-ind-valor">3.357.586 operaciones</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var down">▼ 3,4 %</span>
+            <span class="card-ind-ref">2T2025</span>
+          </p>
+          <span class="card-meta">Trimestral · último dato 2T2026</span>
         </a>
         
       </div>
@@ -3599,7 +3876,7 @@
   </div>
   
   <div class="eje-block" data-eje="territorio-ambiente-turismo" id="eje-territorio-ambiente-turismo">
-    <h3 class="eje-title">Territorio, ambiente y turismo <span class="eje-count">11</span></h3>
+    <h3 class="eje-title">Territorio, ambiente y turismo <span class="eje-count">13</span></h3>
     <p class="eje-descr muted">Uso del territorio, energía y ambiente, y actividad turística.</p>
     
     <div class="subeje-block">
@@ -3705,10 +3982,32 @@
     </div>
     
     <div class="subeje-block">
-      <h4 class="subeje-title">Turismo <span class="eje-count">4</span></h4>
+      <h4 class="subeje-title">Turismo <span class="eje-count">6</span></h4>
       
       <p class="tipo-title tipo-resultado">De resultados</p>
       <div class="cards">
+        
+        <a class="card card-ind" href="./tema/aeropuerto.html#grafico-aero-pax">
+          <span class="card-area">Movimiento aeroportuario</span>
+          <h5 class="card-title">Pasajeros arribados</h5>
+          <p class="card-ind-valor">198.631 pasajeros</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var up">▲ 3,5 %</span>
+            <span class="card-ind-ref">3T2025</span>
+          </p>
+          <span class="card-meta">Trimestral · último dato 3T2026</span>
+        </a>
+        
+        <a class="card card-ind" href="./tema/aeropuerto.html#grafico-aero-vuelos">
+          <span class="card-area">Movimiento aeroportuario</span>
+          <h5 class="card-title">Vuelos arribados</h5>
+          <p class="card-ind-valor">2.622 vuelos</p>
+          <p class="card-ind-var">
+            <span class="tabla-ind-var down">▼ 11,7 %</span>
+            <span class="card-ind-ref">3T2025</span>
+          </p>
+          <span class="card-meta">Trimestral · último dato 3T2026</span>
+        </a>
         
         <a class="card card-ind" href="./tema/turismo.html#grafico-tur-ocupacion">
           <span class="card-area">Turismo (ocupación hotelera)</span>
@@ -3768,16 +4067,16 @@
 <footer class="site-footer">
   <div class="wrap">
     <p><strong>Monitor de Indicadores (versión Beta)</strong> — Consejo Económico y Social de Salta (CESS)</p>
-    <p class="muted">Herramienta de seguimiento del Seguimiento del Plan de Desarrollo Estratégico de Salta (PDES 2050). Los datos provienen de fuentes oficiales; ver la fuente y la fecha de cobertura en cada tablero.</p>
+    <p class="muted">Herramienta de seguimiento del Seguimiento del Plan de Desarrollo Estratégico de Salta (PDES 2030). Los datos provienen de fuentes oficiales; ver la fuente y la fecha de cobertura en cada tablero.</p>
   </div>
 </footer>
 
 <script src="./assets/vendor/echarts.min.js"></script>
 <script src="./assets/vendor/minisearch.min.js"></script>
-<script>window.CESS_BASE = "."; window.CESS_VER = "1795024021";</script>
-<script src="./assets/js/app.js?v=1795024021"></script>
+<script>window.CESS_BASE = "."; window.CESS_VER = "1795026736";</script>
+<script src="./assets/js/app.js?v=1795026736"></script>
 
-<script src="./assets/js/search.js?v=1795024021"></script>
+<script src="./assets/js/search.js?v=1795026736"></script>
 
 </body>
 </html>

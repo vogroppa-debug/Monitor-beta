@@ -122,10 +122,30 @@ Los códigos `I.1`…`V.4` de la Tabla de indicadores son los de las **notas té
 ### seguridad
 - seguridad: suicidios del SATSSBU (2017-2024; tasas medias anuales, publicadas con anio=2024) y del trienio 2021-2023 (DEIS, anio=2023), sobre población del Censo 2022. La serie anual es sólo provincial: por departamento los casos por año son muy pocos.
 - seguridad: mortalidad por lesiones de tránsito, tasa media anual 2021-2023 (DEIS), no ajustada por edad.
+### aeropuerto
+- aeropuerto: dos productos de la ANAC en un mismo tablero. Los aterrizajes (2019-) son sólo los arribos a Salta, abiertos por clasificación, clase de vuelo y aerolínea; la serie histórica (2001-) cuenta movimientos y pasajeros con otra definición y otro corte horario. No cierran entre sí y no se suman ni se empalman: ver `datos/metodologia/Metodologia_Salta_aeropuerto_ANAC.md`.
+- aeropuerto: el ranking publica las 10 aerolíneas con más pasajeros y agrupa el resto en «Otras» (el dataset trae 239 explotadores, casi todos de aviación general). Las rutas se emiten en grano trimestral y anual.
+- aeropuerto: el control automático de saltos de magnitud marca valores a >1000× de la mediana. NO es un artefacto de parseo: una misma métrica convive en varias aperturas, y la mediana cae sobre las categorías chicas (un vuelo escuela sin pasajeros, una ruta con doce pasajeros al año) mientras el total anual supera los 760.000. Verificado contra el CSV: el total coincide con la suma de cada apertura, al pasajero.
+- pax_arribos: 32 valor(es) a >1000× de la mediana (mediana=2841.5); revisar posible artefacto de parseo.
+- pax_serie: 32 valor(es) a >1000× de la mediana (mediana=49680); revisar posible artefacto de parseo.
+- pax_ruta: 38 valor(es) a >1000× de la mediana (mediana=4267); revisar posible artefacto de parseo.
+### supermercados
+- supermercados: 1 mes sin IPC NOA publicado; el mes se descarta entero (2026-08).
+- supermercados: Encuesta de Supermercados del INDEC, panel NO probabilístico de empresas con alguna boca de al menos 200 m² de salón de ventas. El propio INDEC advierte que las ventas «no se deben considerar aisladamente como un indicador macroeconómico del consumo». La cantidad de bocas no se publica: es el tamaño del panel, no el universo.
+- supermercados: mensual desde 2017, sumado por trimestre/año; cada mes se deflacta con el IPC NOA de ese mes y queda en pesos de julio de 2026 (la base es el último mes publicado del IPC y se mueve con él). La participación en el país se recalcula en cada grano como cociente de los agregados, no promediando los meses.
+- supermercados: el control automático de saltos de magnitud marca valores a >1000× de la mediana en las ventas corrientes. NO es un artefacto de parseo: la fuente es XLSX, con valores numéricos nativos, y la serie convive con 86× de inflación entre 2017 y 2026 y con el total del país al lado de Tierra del Fuego. Verificado contra el CSV: la suma de las jurisdicciones da el total del país.
+- ventas_corr: 5 valor(es) a >1000× de la mediana (mediana=6.80686e+09); revisar posible artefacto de parseo.
+### cemento
+- cemento: despachos de la AFCP con DESTINO a cada jurisdicción; no es producción provincial. Bolsa y granel son envases, no usos: en el sector el granel se lee como obra grande y la bolsa como obra chica, pero esa lectura no es una definición de la fuente.
+- cemento: la apertura por provincia está congelada en septiembre de 2025 (la AFCP publica despachos nacionales hasta octubre de 2026, sin detalle provincial). El total es el publicado, no «bolsa + granel»: la fuente redondea cada celda por separado y los dos difieren en hasta una tonelada.
 ### tabla de indicadores
-- 32 indicadores todavía sin ficha en las notas técnicas (muestran «—» y van al final de su subeje): Nacidos vivos, Defunciones, Tasa de mortalidad infantil (c/ mil nacidos vivos), Tasa de natalidad (c/ mil hab.), Tasa de mortalidad general (c/ mil hab.), Tasa de mortalidad materna (c/ 10 mil nacidos vivos), Esperanza de vida al nacer (años). Mujeres, Esperanza de vida al nacer (años). Varones, Consultas médicas por habitante, Ocupación de camas en establecimientos públicos (%), Egresos hospitalarios, Camas disponibles (promedio), Matrícula total (alumnos), Egresados de secundaria (alumnos), Cargos docentes, Recursos tributarios propios (% de ingresos totales), Gasto en personal (% del gasto primario), Inversión real directa (% del gasto primario), Accesos a internet fijo cada 100 hogares, Accesos a internet fijo, Velocidad media de bajada (Mbps), Transparencia del Ejecutivo provincial (índice 0-100), Municipios con sitio web oficial (de 60), Superficie de bosque nativo (ha), Desmonte anual de bosque (ha), Regeneración de bosque (ha), Bosque sobre la superficie provincial (%), Participación renovable en la generación (%), Ocupación de habitaciones (%), Viajeros, Pernoctaciones (noches), Estadía media (noches).
+- 38 indicadores todavía sin ficha en las notas técnicas (muestran «—» y van al final de su subeje): Nacidos vivos, Defunciones, Tasa de mortalidad infantil (c/ mil nacidos vivos), Tasa de natalidad (c/ mil hab.), Tasa de mortalidad general (c/ mil hab.), Tasa de mortalidad materna (c/ 10 mil nacidos vivos), Esperanza de vida al nacer (años). Mujeres, Esperanza de vida al nacer (años). Varones, Consultas médicas por habitante, Ocupación de camas en establecimientos públicos (%), Egresos hospitalarios, Camas disponibles (promedio), Matrícula total (alumnos), Egresados de secundaria (alumnos), Cargos docentes, Cemento despachado a Salta (toneladas), Cemento despachado a granel (toneladas), Ventas de supermercados (pesos constantes), Operaciones de compra en supermercados, Recursos tributarios propios (% de ingresos totales), Gasto en personal (% del gasto primario), Inversión real directa (% del gasto primario), Accesos a internet fijo cada 100 hogares, Accesos a internet fijo, Velocidad media de bajada (Mbps), Transparencia del Ejecutivo provincial (índice 0-100), Municipios con sitio web oficial (de 60), Superficie de bosque nativo (ha), Desmonte anual de bosque (ha), Regeneración de bosque (ha), Bosque sobre la superficie provincial (%), Participación renovable en la generación (%), Pasajeros arribados, Vuelos arribados, Ocupación de habitaciones (%), Viajeros, Pernoctaciones (noches), Estadía media (noches).
+### fuente en la tabla de indicadores
+- Fuente sin forma corta en catalog.FUENTE_CORTA (la tabla la muestra completa): Administración Nacional de Aviación Civil (ANAC)
+- Fuente sin forma corta en catalog.FUENTE_CORTA (la tabla la muestra completa): Asociación de Fabricantes de Cemento Portland (AFCP)
+- Fuente sin forma corta en catalog.FUENTE_CORTA (la tabla la muestra completa): Encuesta de Supermercados — INDEC
 ### clase de los indicadores
-- 22 de 121 indicadores están clasificados como «De oferta o proceso»; los demás, como «De resultados» (`tipo` en el spec, ver catalog.py).
+- 22 de 127 indicadores están clasificados como «De oferta o proceso»; los demás, como «De resultados» (`tipo` en el spec, ver catalog.py).
 - De oferta o proceso — Sociocultural / Salud: Consultas médicas por habitante
 - De oferta o proceso — Sociocultural / Salud: Ocupación de camas en establecimientos públicos (%)
 - De oferta o proceso — Sociocultural / Salud: Egresos hospitalarios
@@ -176,3 +196,6 @@ Los códigos `I.1`…`V.4` de la Tabla de indicadores son los de las **notas té
 - `salud-reproduccion`: 770 filas, cobertura 2021–2023 (trienio).
 - `educacion-aprendizajes`: 748 filas, cobertura 2025.
 - `seguridad`: 361 filas, cobertura 2017–2024.
+- `aeropuerto`: 9170 filas, cobertura 2001–2026.
+- `supermercados`: 16848 filas, cobertura 2017–2026.
+- `cemento`: 15392 filas, cobertura 2017–2025.

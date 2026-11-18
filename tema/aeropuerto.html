@@ -1,0 +1,429 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Movimiento aeroportuario — Monitor de Indicadores (versión Beta)</title>
+  <meta name="description" content="Seguimiento del Plan de Desarrollo Estratégico de Salta (PDES 2030)">
+  <script>
+    /* fija el tema antes de pintar para evitar flash */
+    (function(){try{var t=localStorage.getItem('cess-theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
+  </script>
+  <link rel="stylesheet" href="../assets/css/styles.css?v=1795026736">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%232a78d6'/><text x='50' y='68' font-size='52' text-anchor='middle' fill='white' font-family='sans-serif' font-weight='700'>C</text></svg>">
+</head>
+<body>
+<a class="skip-link" href="#main">Saltar al contenido</a>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="../index.html">
+      <img class="brand-logo" src="../assets/img/logo-cess.png"
+           alt="CESS — Consejo Económico y Social, Provincia de Salta">
+      <span class="brand-text">Monitor de Indicadores <span class="brand-beta">Beta</span><small>Seguimiento del Plan de Desarrollo Estratégico de Salta (PDES 2030)</small></span>
+    </a>
+
+    <button class="nav-toggle" aria-expanded="false" aria-controls="mainnav" aria-label="Abrir menú">
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav class="mainnav" id="mainnav" aria-label="Navegación principal">
+      <a href="../index.html" class="nav-link">Inicio</a>
+      <div class="navgroup">
+        <button class="nav-link navgroup-btn" aria-expanded="false">Temas</button>
+        <div class="navgroup-menu" role="menu">
+          
+          <div class="navgroup-col">
+            <p class="navgroup-heading">Sociocultural</p>
+            
+            <a role="menuitem" href="../tema/condiciones-vida.html">Condiciones de vida de los hogares</a>
+            
+            <a role="menuitem" href="../tema/educacion.html">Educación por departamento</a>
+            
+            <a role="menuitem" href="../tema/salud.html">Salud</a>
+            
+            <a role="menuitem" href="../tema/salud-reproduccion.html">Salud y reproducción por departamento</a>
+            
+            <a role="menuitem" href="../tema/seguridad.html">Seguridad: suicidios y siniestros viales</a>
+            
+            <a role="menuitem" href="../tema/educacion-aprendizajes.html">Trayectorias y aprendizajes por departamento</a>
+            
+          </div>
+          
+          <div class="navgroup-col">
+            <p class="navgroup-heading">Económico-productivo</p>
+            
+            <a role="menuitem" href="../tema/cemento.html">Despachos de cemento</a>
+            
+            <a role="menuitem" href="../tema/empleo.html">Empleo registrado y remuneraciones</a>
+            
+            <a role="menuitem" href="../tema/exportaciones.html">Exportaciones</a>
+            
+            <a role="menuitem" href="../tema/supermercados.html">Ventas de supermercados</a>
+            
+            <a role="menuitem" href="../tema/vitivinicultura.html">Vitivinicultura (INV)</a>
+            
+            <a role="menuitem" href="../tema/energia-electrica.html">Energía eléctrica</a>
+            
+            <a role="menuitem" href="../tema/produccion-energia.html">Producción de petróleo y gas</a>
+            
+            <a role="menuitem" href="../tema/agricultura.html">Agricultura por departamento</a>
+            
+            <a role="menuitem" href="../tema/ganaderia.html">Ganadería bovina</a>
+            
+            <a role="menuitem" href="../tema/mineria.html">Minería</a>
+            
+            <a role="menuitem" href="../tema/gobierno.html">Finanzas públicas provinciales</a>
+            
+            <a role="menuitem" href="../tema/recaudacion.html">Recaudación de Ingresos Brutos (Convenio Multilateral)</a>
+            
+            <a role="menuitem" href="../tema/recursos-municipios.html">Recursos de los municipios</a>
+            
+            <a role="menuitem" href="../tema/resultado-fiscal.html">Resultado fiscal provincial</a>
+            
+            <a role="menuitem" href="../tema/financiero.html">Crédito y depósitos (BCRA)</a>
+            
+            <a role="menuitem" href="../tema/construccion.html">Construcción (permisos de edificación)</a>
+            
+            <a role="menuitem" href="../tema/conectividad.html">Conectividad: internet fijo (ENACOM)</a>
+            
+            <a role="menuitem" href="../tema/id-innovacion.html">Inversión en I+D</a>
+            
+          </div>
+          
+          <div class="navgroup-col">
+            <p class="navgroup-heading">Territorio, ambiente y turismo</p>
+            
+            <a role="menuitem" href="../tema/aeropuerto.html">Movimiento aeroportuario</a>
+            
+            <a role="menuitem" href="../tema/turismo.html">Turismo (ocupación hotelera)</a>
+            
+            <a role="menuitem" href="../tema/bosques.html">Bosque nativo y uso del suelo</a>
+            
+            <a role="menuitem" href="../tema/energia-renovable.html">Energías renovables</a>
+            
+            <a role="menuitem" href="../tema/transparencia.html">Transparencia del sector público</a>
+            
+          </div>
+          
+        </div>
+      </div>
+      <a href="../index.html#buscador" class="nav-link">Buscar</a>
+      <button class="theme-toggle" aria-label="Cambiar tema claro/oscuro" title="Cambiar tema">
+        <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36A5.5 5.5 0 0 1 12.4 3.1c-.13-.06-.27-.1-.4-.1Z"/></svg>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  
+<div class="tema-page" data-tema="aeropuerto" data-base="..">
+
+  <nav class="breadcrumb wrap" aria-label="Ruta">
+    <a href="../index.html">Inicio</a>
+    <span aria-hidden="true">/</span>
+    <span>Turismo</span>
+    <span aria-hidden="true">/</span>
+    <span aria-current="page">Movimiento aeroportuario</span>
+  </nav>
+
+  <header class="tema-header wrap">
+    <span class="card-area">Turismo</span>
+    <h1>Movimiento aeroportuario</h1>
+    
+    <div class="tag-chips" aria-label="Ejes de desarrollo productivo">
+      <span class="tag-chip">Actividad, estructura productiva y productividad</span>
+    </div>
+    
+    <p class="tema-resumen">Pasajeros y vuelos que llegan al aeropuerto de Salta.</p>
+    
+    <p class="tema-aviso" role="note">No todos los pasajeros que aterrizan en Salta son turistas: esto mide movimiento aeroportuario, no turismo receptivo. Hay residentes que vuelven, viajes de trabajo y tránsitos. Además, los dos productos de la ANAC que alimentan este tablero —los aterrizajes desde 2019 y la serie histórica desde 2001— miden cosas distintas, con otra definición y otro corte horario: no se suman ni se empalman.</p>
+    
+    <p class="tema-meta muted">
+      <strong>Fuente:</strong> Administración Nacional de Aviación Civil (ANAC) ·
+      <strong>Cobertura:</strong> 2001–2026
+    </p>
+  </header>
+
+  <section class="wrap">
+    <div class="kpis" id="kpis" aria-label="Indicadores destacados"></div>
+  </section>
+
+  <section class="wrap section charts-grid" id="charts">
+    
+    <article class="chart-card" id="grafico-aero-pax" data-chart-id="aero-pax">
+      <div class="chart-card-head">
+        <h2 class="chart-title">Pasajeros que aterrizan en Salta</h2>
+        <p class="chart-descr">Pasajeros desembarcados en el aeropuerto de Salta, según el vuelo sea doméstico o internacional. Sólo arribos: no incluye a los que despegan.</p>
+      </div>
+      <div class="chart-controls" role="group" aria-label="Filtros del gráfico"></div>
+      <div class="chart-plot" role="img" aria-label="Pasajeros que aterrizan en Salta"></div>
+      <details class="chart-table">
+        <summary>Ver datos en tabla</summary>
+        <div class="chart-table-body"></div>
+      </details>
+      <p class="chart-source muted">Fuente: Administración Nacional de Aviación Civil (ANAC) · <a href="https://datos.gob.ar/dataset/aterrizajes-y-despegues-procesados-por-la-administracion-nacional-de-aviacion-civil-anac" target="_blank" rel="noopener">ir a la fuente ↗</a></p>
+    </article>
+    
+    <article class="chart-card" id="grafico-aero-vuelos" data-chart-id="aero-vuelos">
+      <div class="chart-card-head">
+        <h2 class="chart-title">Vuelos que aterrizan, por clase</h2>
+        <p class="chart-descr">Aterrizajes según la clase de vuelo que declara la ANAC. Los regulares son las frecuencias de línea; el resto incluye chárter, aviación privada, vuelos escuela y vuelos oficiales.</p>
+      </div>
+      <div class="chart-controls" role="group" aria-label="Filtros del gráfico"></div>
+      <div class="chart-plot" role="img" aria-label="Vuelos que aterrizan, por clase"></div>
+      <details class="chart-table">
+        <summary>Ver datos en tabla</summary>
+        <div class="chart-table-body"></div>
+      </details>
+      <p class="chart-source muted">Fuente: Administración Nacional de Aviación Civil (ANAC) · <a href="https://datos.gob.ar/dataset/aterrizajes-y-despegues-procesados-por-la-administracion-nacional-de-aviacion-civil-anac" target="_blank" rel="noopener">ir a la fuente ↗</a></p>
+    </article>
+    
+    <article class="chart-card" id="grafico-aero-aerolineas" data-chart-id="aero-aerolineas">
+      <div class="chart-card-head">
+        <h2 class="chart-title">Pasajeros por aerolínea</h2>
+        <p class="chart-descr">Aerolíneas ordenadas por pasajeros desembarcados en el año seleccionado. Se publican las diez primeras de toda la serie; el resto se agrupa en «Otras», y «Sin informar» es aviación general sin explotador declarado.</p>
+      </div>
+      <div class="chart-controls" role="group" aria-label="Filtros del gráfico"></div>
+      <div class="chart-plot" role="img" aria-label="Pasajeros por aerolínea"></div>
+      <details class="chart-table">
+        <summary>Ver datos en tabla</summary>
+        <div class="chart-table-body"></div>
+      </details>
+      <p class="chart-source muted">Fuente: Administración Nacional de Aviación Civil (ANAC) · <a href="https://datos.gob.ar/dataset/aterrizajes-y-despegues-procesados-por-la-administracion-nacional-de-aviacion-civil-anac" target="_blank" rel="noopener">ir a la fuente ↗</a></p>
+    </article>
+    
+    <article class="chart-card" id="grafico-aero-serie-larga" data-chart-id="aero-serie-larga">
+      <div class="chart-card-head">
+        <h2 class="chart-title">Pasajeros desde 2001 (serie histórica)</h2>
+        <p class="chart-descr">Serie larga de la ANAC, que cuenta pasajeros comerciales de cabotaje e internacionales con otra definición y otro corte horario que el tablero de aterrizajes: no cierra con él y no se empalman.</p>
+      </div>
+      <div class="chart-controls" role="group" aria-label="Filtros del gráfico"></div>
+      <div class="chart-plot" role="img" aria-label="Pasajeros desde 2001 (serie histórica)"></div>
+      <details class="chart-table">
+        <summary>Ver datos en tabla</summary>
+        <div class="chart-table-body"></div>
+      </details>
+      <p class="chart-source muted">Fuente: Administración Nacional de Aviación Civil (ANAC) · <a href="https://datos.gob.ar/dataset/aterrizajes-y-despegues-procesados-por-la-administracion-nacional-de-aviacion-civil-anac" target="_blank" rel="noopener">ir a la fuente ↗</a></p>
+    </article>
+    
+    <article class="chart-card" id="grafico-aero-rutas" data-chart-id="aero-rutas">
+      <div class="chart-card-head">
+        <h2 class="chart-title">Pasajeros por ruta</h2>
+        <p class="chart-descr">Rutas que conectan a Salta, ordenadas por pasajeros transportados en el año seleccionado. Cuenta los dos sentidos del trayecto.</p>
+      </div>
+      <div class="chart-controls" role="group" aria-label="Filtros del gráfico"></div>
+      <div class="chart-plot" role="img" aria-label="Pasajeros por ruta"></div>
+      <details class="chart-table">
+        <summary>Ver datos en tabla</summary>
+        <div class="chart-table-body"></div>
+      </details>
+      <p class="chart-source muted">Fuente: Administración Nacional de Aviación Civil (ANAC) · <a href="https://datos.gob.ar/dataset/aterrizajes-y-despegues-procesados-por-la-administracion-nacional-de-aviacion-civil-anac" target="_blank" rel="noopener">ir a la fuente ↗</a></p>
+    </article>
+    
+  </section>
+
+  <section class="wrap section">
+    <p class="tema-source-note muted">
+      Datos oficiales de <strong>Administración Nacional de Aviación Civil (ANAC)</strong>.
+      <a href="https://datos.gob.ar/dataset/aterrizajes-y-despegues-procesados-por-la-administracion-nacional-de-aviacion-civil-anac" target="_blank" rel="noopener">Ir a la fuente ↗</a>
+    </p>
+  </section>
+
+  <section class="wrap section related">
+    <h2 class="section-title">Otros temas</h2>
+    <div class="cards">
+      
+      
+      
+      <a class="card card-sm" href="../tema/condiciones-vida.html">
+        <span class="card-area">Sociocultural · Social</span>
+        <h4 class="card-title">Condiciones de vida de los hogares</h4>
+      </a>
+      
+      
+      <a class="card card-sm" href="../tema/educacion.html">
+        <span class="card-area">Sociocultural · Social</span>
+        <h4 class="card-title">Educación por departamento</h4>
+      </a>
+      
+      
+      <a class="card card-sm" href="../tema/salud.html">
+        <span class="card-area">Sociocultural · Social</span>
+        <h4 class="card-title">Salud</h4>
+      </a>
+      
+      
+      <a class="card card-sm" href="../tema/salud-reproduccion.html">
+        <span class="card-area">Sociocultural · Social</span>
+        <h4 class="card-title">Salud y reproducción por departamento</h4>
+      </a>
+      
+      
+      <a class="card card-sm" href="../tema/seguridad.html">
+        <span class="card-area">Sociocultural · Social</span>
+        <h4 class="card-title">Seguridad: suicidios y siniestros viales</h4>
+      </a>
+      
+      
+      <a class="card card-sm" href="../tema/educacion-aprendizajes.html">
+        <span class="card-area">Sociocultural · Social</span>
+        <h4 class="card-title">Trayectorias y aprendizajes por departamento</h4>
+      </a>
+      
+      
+      <a class="card card-sm" href="../tema/cemento.html">
+        <span class="card-area">Económico-productivo</span>
+        <h4 class="card-title">Despachos de cemento</h4>
+      </a>
+      
+      
+      <a class="card card-sm" href="../tema/empleo.html">
+        <span class="card-area">Económico-productivo</span>
+        <h4 class="card-title">Empleo registrado y remuneraciones</h4>
+      </a>
+      
+      
+      <a class="card card-sm" href="../tema/exportaciones.html">
+        <span class="card-area">Económico-productivo</span>
+        <h4 class="card-title">Exportaciones</h4>
+      </a>
+      
+      
+      <a class="card card-sm" href="../tema/supermercados.html">
+        <span class="card-area">Económico-productivo</span>
+        <h4 class="card-title">Ventas de supermercados</h4>
+      </a>
+      
+      
+      <a class="card card-sm" href="../tema/vitivinicultura.html">
+        <span class="card-area">Económico-productivo</span>
+        <h4 class="card-title">Vitivinicultura (INV)</h4>
+      </a>
+      
+      
+      <a class="card card-sm" href="../tema/energia-electrica.html">
+        <span class="card-area">Económico-productivo · Energía</span>
+        <h4 class="card-title">Energía eléctrica</h4>
+      </a>
+      
+      
+      <a class="card card-sm" href="../tema/produccion-energia.html">
+        <span class="card-area">Económico-productivo · Energía</span>
+        <h4 class="card-title">Producción de petróleo y gas</h4>
+      </a>
+      
+      
+      <a class="card card-sm" href="../tema/agricultura.html">
+        <span class="card-area">Económico-productivo · Agropecuario</span>
+        <h4 class="card-title">Agricultura por departamento</h4>
+      </a>
+      
+      
+      <a class="card card-sm" href="../tema/ganaderia.html">
+        <span class="card-area">Económico-productivo · Agropecuario</span>
+        <h4 class="card-title">Ganadería bovina</h4>
+      </a>
+      
+      
+      <a class="card card-sm" href="../tema/mineria.html">
+        <span class="card-area">Económico-productivo · Minería</span>
+        <h4 class="card-title">Minería</h4>
+      </a>
+      
+      
+      <a class="card card-sm" href="../tema/gobierno.html">
+        <span class="card-area">Económico-productivo · Finanzas públicas</span>
+        <h4 class="card-title">Finanzas públicas provinciales</h4>
+      </a>
+      
+      
+      <a class="card card-sm" href="../tema/recaudacion.html">
+        <span class="card-area">Económico-productivo · Finanzas públicas</span>
+        <h4 class="card-title">Recaudación de Ingresos Brutos (Convenio Multilateral)</h4>
+      </a>
+      
+      
+      <a class="card card-sm" href="../tema/recursos-municipios.html">
+        <span class="card-area">Económico-productivo · Finanzas públicas</span>
+        <h4 class="card-title">Recursos de los municipios</h4>
+      </a>
+      
+      
+      <a class="card card-sm" href="../tema/resultado-fiscal.html">
+        <span class="card-area">Económico-productivo · Finanzas públicas</span>
+        <h4 class="card-title">Resultado fiscal provincial</h4>
+      </a>
+      
+      
+      <a class="card card-sm" href="../tema/financiero.html">
+        <span class="card-area">Económico-productivo · Financiero</span>
+        <h4 class="card-title">Crédito y depósitos (BCRA)</h4>
+      </a>
+      
+      
+      <a class="card card-sm" href="../tema/construccion.html">
+        <span class="card-area">Económico-productivo · Construcción</span>
+        <h4 class="card-title">Construcción (permisos de edificación)</h4>
+      </a>
+      
+      
+      <a class="card card-sm" href="../tema/conectividad.html">
+        <span class="card-area">Económico-productivo · Ciencia y tecnología</span>
+        <h4 class="card-title">Conectividad: internet fijo (ENACOM)</h4>
+      </a>
+      
+      
+      <a class="card card-sm" href="../tema/id-innovacion.html">
+        <span class="card-area">Económico-productivo · Ciencia y tecnología</span>
+        <h4 class="card-title">Inversión en I+D</h4>
+      </a>
+      
+      
+      <a class="card card-sm" href="../tema/turismo.html">
+        <span class="card-area">Territorio, ambiente y turismo · Turismo</span>
+        <h4 class="card-title">Turismo (ocupación hotelera)</h4>
+      </a>
+      
+      
+      <a class="card card-sm" href="../tema/bosques.html">
+        <span class="card-area">Territorio, ambiente y turismo · Ambiente y energía</span>
+        <h4 class="card-title">Bosque nativo y uso del suelo</h4>
+      </a>
+      
+      
+      <a class="card card-sm" href="../tema/energia-renovable.html">
+        <span class="card-area">Territorio, ambiente y turismo · Ambiente y energía</span>
+        <h4 class="card-title">Energías renovables</h4>
+      </a>
+      
+      
+      <a class="card card-sm" href="../tema/transparencia.html">
+        <span class="card-area">Territorio, ambiente y turismo · Gestión pública</span>
+        <h4 class="card-title">Transparencia del sector público</h4>
+      </a>
+      
+    </div>
+  </section>
+
+</div>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p><strong>Monitor de Indicadores (versión Beta)</strong> — Consejo Económico y Social de Salta (CESS)</p>
+    <p class="muted">Herramienta de seguimiento del Seguimiento del Plan de Desarrollo Estratégico de Salta (PDES 2030). Los datos provienen de fuentes oficiales; ver la fuente y la fecha de cobertura en cada tablero.</p>
+  </div>
+</footer>
+
+<script src="../assets/vendor/echarts.min.js"></script>
+<script src="../assets/vendor/minisearch.min.js"></script>
+<script>window.CESS_BASE = ".."; window.CESS_VER = "1795026736";</script>
+<script src="../assets/js/app.js?v=1795026736"></script>
+
+<script src="../assets/js/charts.js?v=1795026736"></script>
+
+</body>
+</html>

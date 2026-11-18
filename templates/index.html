@@ -105,7 +105,7 @@
     <h3 class="eje-title">{{ g.label }} <span class="eje-count">{{ g.filas|length }}</span></h3>
     <div class="tabla-ind-scroll">
       {% set con_ciiu = g.has_ciiu and mostrar_ciiu %}
-      {% set ncols = (8 if con_ciiu else 7) + (6 if mostrar_metas else 0) + (1 if mostrar_meta_2030 else 0) %}
+      {% set ncols = (8 if con_ciiu else 7) + (6 if mostrar_metas else 0) + (1 if mostrar_meta_2030 else 0) + (1 if mostrar_linea_base else 0) %}
       <table class="tabla-ind">
         <thead>
           <tr>
@@ -117,7 +117,8 @@
             <th scope="col">Último dato</th>
             <th scope="col">Período</th>
             <th scope="col">Var. interanual</th>
-            {% if mostrar_meta_2030 %}<th scope="col" class="tabla-ind-meta-ini">{{ meta_2030_titulo }}</th>{% endif %}
+            {% if mostrar_linea_base %}<th scope="col" class="tabla-ind-meta-ini"><abbr title="Dato de {{ base_anio }}, en el mismo período del año que el último dato (si el último es 2T2026, la base es 2T2024). Vacía cuando la serie no tiene dato en ese período.">Línea de base {{ base_anio }}</abbr></th>{% endif %}
+            {% if mostrar_meta_2030 %}<th scope="col"{% if not mostrar_linea_base %} class="tabla-ind-meta-ini"{% endif %}>{{ meta_2030_titulo }}</th>{% endif %}
             {% if mostrar_metas %}
             <th scope="col" class="tabla-ind-meta-ini">Línea de base</th>
             <th scope="col">Período de la base</th>
@@ -145,7 +146,8 @@
             <td class="num tabla-ind-dato">{% if f.dato_txt %}{{ f.dato_txt }}{% else %}<span class="tabla-ind-vacio" title="Sin dato">—</span>{% endif %}</td>
             <td class="num">{{ f.ultimo }}</td>
             <td class="num"><span class="tabla-ind-var {{ f.var_cls }}">{{ f.var_txt }}</span></td>
-            {% if mostrar_meta_2030 %}<td class="num tabla-ind-meta-ini">{% if f.meta_2030 %}{% if semaforo %}<span class="sem-ico sem-{{ f.sem_estado }}" role="img" aria-label="{{ f.sem_label }}" title="{{ f.sem_label }}. {{ f.sem_motivo }}"></span>{% endif %}{% if f.meta_2030_nota %}<abbr title="{{ f.meta_2030_nota }}">{{ f.meta_2030 }}</abbr>{% else %}{{ f.meta_2030 }}{% endif %}{% else %}<span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span>{% endif %}</td>{% endif %}
+            {% if mostrar_linea_base %}<td class="num tabla-ind-meta-ini">{% if f.base_txt %}<abbr title="{% if f.base_origen == 'spec' %}Línea de base cargada a mano{% if f.base_per %} ({{ f.base_per }}){% endif %}{% else %}Dato de {{ f.base_per }}{% endif %}">{{ f.base_txt }}</abbr>{% else %}<span class="tabla-ind-vacio" title="La serie no tiene dato en {{ base_anio }} para este período">—</span>{% endif %}</td>{% endif %}
+            {% if mostrar_meta_2030 %}<td class="num{% if not mostrar_linea_base %} tabla-ind-meta-ini{% endif %}">{% if f.meta_2030 %}{% if semaforo %}<span class="sem-ico sem-{{ f.sem_estado }}" role="img" aria-label="{{ f.sem_label }}" title="{{ f.sem_label }}. {{ f.sem_motivo }}"></span>{% endif %}{% if f.meta_2030_nota %}<abbr title="{{ f.meta_2030_nota }}">{{ f.meta_2030 }}</abbr>{% else %}{{ f.meta_2030 }}{% endif %}{% else %}<span class="tabla-ind-vacio" title="El PDES 2024 no fija una meta cuantificada para este indicador">—</span>{% endif %}</td>{% endif %}
             {% if mostrar_metas %}
             <td class="num tabla-ind-meta-ini">{% if f.base_valor %}{{ f.base_valor }}{% else %}<span class="tabla-ind-vacio" title="A definir">—</span>{% endif %}</td>
             <td class="num">{% if f.base_periodo %}{{ f.base_periodo }}{% else %}<span class="tabla-ind-vacio" title="A definir">—</span>{% endif %}</td>

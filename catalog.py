@@ -165,6 +165,17 @@ MOSTRAR_METAS = False
 # mide cosas que el Monitor no publica.
 MOSTRAR_META_2030 = True
 
+# Columna «Línea de base» de la tabla de la portada, antes de la meta 2030. La base es el dato del
+# año BASE_ANIO, en el MISMO período del año que el último dato: si el último es 2T2026 la base es
+# 2T2024; si es mar-2026, mar-2024; si es anual, el año entero. Así base y último dato son
+# comparables (un total anual contra un trimestre sería cuatro veces más grande). Sin dato en ese
+# período —series que terminan antes, o la serie consolidada de bosques, que se para en 2021—
+# queda vacía. Un `base_valor` escrito a mano en el spec manda sobre el cálculo. Es también la
+# base que usa el semáforo. (El bloque de MOSTRAR_METAS trae su propia columna de base: no
+# prender los dos a la vez.)
+MOSTRAR_LINEA_BASE = True
+BASE_ANIO = 2024
+
 # Columna CIIU (sección de actividad) en la tabla del eje económico-productivo. Oculta por pedido;
 # la letra se sigue cargando y se sigue usando para ORDENAR los indicadores dentro de cada subeje,
 # así que volver a mostrarla es cambiar esto a True y reconstruir.
@@ -276,7 +287,7 @@ CIIU_SECCIONES = {
 
 SITE = {
     "nombre": "Monitor de Indicadores (versión Beta)",
-    "subtitulo": "Seguimiento del Plan de Desarrollo Estratégico de Salta (PDES 2050)",
+    "subtitulo": "Seguimiento del Plan de Desarrollo Estratégico de Salta (PDES 2030)",
     "institucion": "Consejo Económico y Social de Salta (CESS)",
 }
 
@@ -2429,6 +2440,305 @@ TEMAS = [
              "controls": [{"kind": "metric", "label": "Valores",
                            "options": ["tasa_mort_transito", "def_transito"]}],
              "sort": "desc", "unidad": "por cien mil hab."},
+        ],
+    },
+
+    # ======================================================================
+    {
+        "id": "aeropuerto",
+        "subeje": "Turismo",
+        "area": "turismo",
+        "eje_pdes": "territorio-ambiente-turismo",
+        "title": "Movimiento aeroportuario",
+        "resumen": (
+            "Movimiento del aeropuerto Martín Miguel de Güemes según la Administración Nacional de "
+            "Aviación Civil: pasajeros y vuelos que aterrizan en Salta desde 2019, abiertos por "
+            "clasificación, clase de vuelo y aerolínea, y la serie histórica de pasajeros y "
+            "movimientos desde 2001, con las rutas que conectan a la provincia."
+        ),
+        "resumen_corto": "Pasajeros y vuelos que llegan al aeropuerto de Salta.",
+        "advertencia": (
+            "No todos los pasajeros que aterrizan en Salta son turistas: esto mide movimiento "
+            "aeroportuario, no turismo receptivo. Hay residentes que vuelven, viajes de trabajo y "
+            "tránsitos. Además, los dos productos de la ANAC que alimentan este tablero —los "
+            "aterrizajes desde 2019 y la serie histórica desde 2001— miden cosas distintas, con "
+            "otra definición y otro corte horario: no se suman ni se empalman."
+        ),
+        "fuente": "Administración Nacional de Aviación Civil (ANAC)",
+        "fuente_url": "https://datos.gob.ar/dataset/aterrizajes-y-despegues-procesados-por-la-administracion-nacional-de-aviacion-civil-anac",
+        "cobertura": "2001–2026",
+        "keywords": [
+            "aeropuerto", "aviación", "vuelos", "pasajeros", "aterrizajes", "ANAC", "aéreo",
+            "Martín Miguel de Güemes", "aerolíneas", "Aerolíneas Argentinas", "JetSmart",
+            "Flybondi", "cabotaje", "internacional", "rutas", "conectividad aérea", "turismo",
+        ],
+        "tags": ["actividad-productividad"],
+        "kpis": [
+            {"label": "Pasajeros arribados", "metrica": "pax_arribos",
+             "fixed": {"grano": "trimestral", "apertura": "total", "categoria": "Total"},
+             "cmp": "quarter", "year": "latest", "unidad": "pasajeros", "format": "int",
+             "geo": "Provincia"},
+            {"label": "Vuelos arribados", "metrica": "vuelos_arribos",
+             "fixed": {"grano": "trimestral", "apertura": "total", "categoria": "Total"},
+             "cmp": "quarter", "year": "latest", "unidad": "vuelos", "format": "int",
+             "geo": "Provincia"},
+        ],
+        "charts": [
+            {"id": "aero-pax", "type": "line",
+             "title": "Pasajeros que aterrizan en Salta",
+             "descr": "Pasajeros desembarcados en el aeropuerto de Salta, según el vuelo sea "
+                      "doméstico o internacional. Sólo arribos: no incluye a los que despegan.",
+             "x": "trimestre", "seriesBy": "categoria", "metrica": "pax_arribos",
+             "fixed": {"grano": "trimestral", "apertura": "clasificacion"},
+             "seriesExclude": ["Total"],
+             "controls": [
+                 {"kind": "freq", "label": "Frecuencia", "default": "trimestral", "options": [
+                     {"value": "trimestral", "label": "Trimestral", "x": "trimestre", "grano": "trimestral"},
+                     {"value": "mensual", "label": "Mensual", "x": "mes", "grano": "mensual"},
+                     {"value": "anual", "label": "Anual", "x": "anio", "grano": "anual"}]},
+             ],
+             "unidad": "pasajeros"},
+            {"id": "aero-vuelos", "type": "stacked-area",
+             "title": "Vuelos que aterrizan, por clase",
+             "descr": "Aterrizajes según la clase de vuelo que declara la ANAC. Los regulares son "
+                      "las frecuencias de línea; el resto incluye chárter, aviación privada, "
+                      "vuelos escuela y vuelos oficiales.",
+             "x": "trimestre", "seriesBy": "categoria", "metrica": "vuelos_arribos",
+             "fixed": {"grano": "trimestral", "apertura": "clase"},
+             "seriesExclude": ["Total"], "stack": True,
+             "controls": [
+                 {"kind": "freq", "label": "Frecuencia", "default": "trimestral", "options": [
+                     {"value": "trimestral", "label": "Trimestral", "x": "trimestre", "grano": "trimestral"},
+                     {"value": "mensual", "label": "Mensual", "x": "mes", "grano": "mensual"},
+                     {"value": "anual", "label": "Anual", "x": "anio", "grano": "anual"}]},
+             ],
+             "unidad": "vuelos"},
+            {"id": "aero-aerolineas", "type": "barh",
+             "title": "Pasajeros por aerolínea",
+             "descr": "Aerolíneas ordenadas por pasajeros desembarcados en el año seleccionado. "
+                      "Se publican las diez primeras de toda la serie; el resto se agrupa en "
+                      "«Otras», y «Sin informar» es aviación general sin explotador declarado.",
+             "x": "categoria", "seriesBy": None, "metrica": "pax_arribos",
+             "fixed": {"grano": "anual", "apertura": "aerolinea"}, "exclude": ["Total"],
+             "controls": [{"dim": "anio", "label": "Año", "kind": "year"}],
+             "sort": "desc", "topN": 10, "unidad": "pasajeros"},
+            {"id": "aero-serie-larga", "type": "line",
+             "title": "Pasajeros desde 2001 (serie histórica)",
+             "descr": "Serie larga de la ANAC, que cuenta pasajeros comerciales de cabotaje e "
+                      "internacionales con otra definición y otro corte horario que el tablero de "
+                      "aterrizajes: no cierra con él y no se empalman.",
+             "x": "trimestre", "seriesBy": "categoria", "metrica": "pax_serie",
+             "fixed": {"grano": "trimestral", "apertura": "clasificacion"},
+             "seriesExclude": ["Total"],
+             "controls": [
+                 {"kind": "freq", "label": "Frecuencia", "default": "trimestral", "options": [
+                     {"value": "trimestral", "label": "Trimestral", "x": "trimestre", "grano": "trimestral"},
+                     {"value": "mensual", "label": "Mensual", "x": "mes", "grano": "mensual"},
+                     {"value": "anual", "label": "Anual", "x": "anio", "grano": "anual"}]},
+                 {"kind": "metric", "label": "Medida", "options": ["pax_serie", "mov_serie"]},
+             ],
+             "unidad": "pasajeros"},
+            {"id": "aero-rutas", "type": "barh",
+             "title": "Pasajeros por ruta",
+             "descr": "Rutas que conectan a Salta, ordenadas por pasajeros transportados en el "
+                      "año seleccionado. Cuenta los dos sentidos del trayecto.",
+             "x": "categoria", "seriesBy": None, "metrica": "pax_ruta",
+             "fixed": {"grano": "anual", "apertura": "ruta"}, "exclude": ["Total"],
+             "controls": [{"dim": "anio", "label": "Año", "kind": "year"}],
+             "sort": "desc", "unidad": "pasajeros"},
+        ],
+    },
+
+    # ======================================================================
+    {
+        "id": "supermercados",
+        "ciiu": "G",
+        "area": "economico",
+        "eje_pdes": "economico-productivo",
+        "title": "Ventas de supermercados",
+        "resumen": (
+            "Ventas y cantidad de operaciones de los supermercados de Salta según la Encuesta de "
+            "Supermercados del INDEC, mensual desde 2017, en pesos corrientes y constantes de "
+            "{base_largo}, con la participación de la provincia en el total del país y la "
+            "comparación con las demás jurisdicciones."
+        ),
+        "resumen_corto": "Cuánto y cuántas veces se compra en los supermercados de Salta.",
+        "advertencia": (
+            "El propio INDEC advierte que las ventas de supermercados «no se deben considerar "
+            "aisladamente como un indicador macroeconómico del consumo»: miden un canal "
+            "comercial, no el gasto de los hogares. Además es un panel no probabilístico de "
+            "empresas con alguna boca de al menos 200 m² de salón de ventas, así que deja afuera "
+            "almacenes, autoservicios chicos y mayoristas."
+        ),
+        "fuente": "Encuesta de Supermercados — INDEC",
+        "fuente_url": "https://www.indec.gob.ar/indec/web/Nivel4-Tema-3-1-34",
+        "cobertura": "2017–2026",
+        "keywords": [
+            "supermercados", "ventas", "consumo", "comercio", "minorista", "canasta",
+            "operaciones", "tickets", "INDEC", "EMAS", "góndola", "precios corrientes",
+            "precios constantes", "poder de compra", "hipermercado", "autoservicio",
+        ],
+        "tags": ["actividad-productividad"],
+        "kpis": [
+            {"label": "Ventas de supermercados (pesos constantes, {base})", "metrica": "ventas_real",
+             "tabla_label": "Ventas de supermercados (pesos constantes)",
+             "fixed": {"grano": "trimestral", "jurisdiccion": "Salta"},
+             "cmp": "quarter", "year": "latest", "unidad": "pesos", "format": "int",
+             "geo": "Provincia"},
+            {"label": "Operaciones de compra", "metrica": "operaciones",
+             "tabla_label": "Operaciones de compra en supermercados",
+             "fixed": {"grano": "trimestral", "jurisdiccion": "Salta"},
+             "cmp": "quarter", "year": "latest", "unidad": "operaciones", "format": "int",
+             "geo": "Provincia"},
+        ],
+        "charts": [
+            {"id": "sup-ventas", "type": "line",
+             "title": "Ventas de supermercados en Salta",
+             "descr": "Ventas totales a precios corrientes y a precios constantes, deflactadas "
+                      "por el IPC Nivel General de la región NOA.",
+             "x": "trimestre", "seriesBy": None, "metrica": "ventas_real",
+             "fixed": {"grano": "trimestral", "jurisdiccion": "Salta"},
+             "controls": [
+                 {"kind": "freq", "label": "Frecuencia", "default": "trimestral", "options": [
+                     {"value": "trimestral", "label": "Trimestral", "x": "trimestre", "grano": "trimestral"},
+                     {"value": "mensual", "label": "Mensual", "x": "mes", "grano": "mensual"},
+                     {"value": "anual", "label": "Anual", "x": "anio", "grano": "anual"}]},
+                 {"kind": "mode", "label": "Valores", "default": "real", "options": [
+                     {"value": "corriente", "label": "Corrientes", "metric": "ventas_corr"},
+                     {"value": "real", "label": "Constantes ({base})", "metric": "ventas_real"}]},
+             ],
+             "unidad": "pesos"},
+            {"id": "sup-operaciones", "type": "line",
+             "title": "Cantidad de operaciones",
+             "descr": "Operaciones de compra registradas en las cajas de los supermercados de "
+                      "Salta. A diferencia de las ventas, no la afecta la inflación.",
+             "x": "trimestre", "seriesBy": None, "metrica": "operaciones",
+             "fixed": {"grano": "trimestral", "jurisdiccion": "Salta"},
+             "controls": [
+                 {"kind": "freq", "label": "Frecuencia", "default": "trimestral", "options": [
+                     {"value": "trimestral", "label": "Trimestral", "x": "trimestre", "grano": "trimestral"},
+                     {"value": "mensual", "label": "Mensual", "x": "mes", "grano": "mensual"},
+                     {"value": "anual", "label": "Anual", "x": "anio", "grano": "anual"}]},
+             ],
+             "unidad": "operaciones"},
+            {"id": "sup-share", "type": "line",
+             "title": "Participación de Salta en el país",
+             "descr": "Porcentaje de las ventas de supermercados del país que corresponde a Salta.",
+             "x": "trimestre", "seriesBy": None, "metrica": "share_pais_pct",
+             "fixed": {"grano": "trimestral", "jurisdiccion": "Salta"},
+             "controls": [
+                 {"kind": "freq", "label": "Frecuencia", "default": "trimestral", "options": [
+                     {"value": "trimestral", "label": "Trimestral", "x": "trimestre", "grano": "trimestral"},
+                     {"value": "mensual", "label": "Mensual", "x": "mes", "grano": "mensual"},
+                     {"value": "anual", "label": "Anual", "x": "anio", "grano": "anual"}]},
+             ],
+             "unidad": "%"},
+            {"id": "sup-ranking", "type": "barh",
+             "title": "Ventas por jurisdicción (ranking)",
+             "descr": "Jurisdicciones ordenadas por ventas de supermercados en el año "
+                      "seleccionado. El INDEC publica Buenos Aires partida en dos.",
+             "x": "jurisdiccion", "seriesBy": None, "metrica": "ventas_real",
+             "fixed": {"grano": "anual"}, "exclude": ["Total del país"],
+             "controls": [
+                 {"dim": "anio", "label": "Año", "kind": "year"},
+                 {"kind": "mode", "label": "Valores", "default": "real", "options": [
+                     {"value": "corriente", "label": "Corrientes", "metric": "ventas_corr"},
+                     {"value": "real", "label": "Constantes ({base})", "metric": "ventas_real"}]},
+             ],
+             "sort": "desc", "unidad": "pesos"},
+        ],
+    },
+
+    # ======================================================================
+    {
+        "id": "cemento",
+        "ciiu": "F",
+        "area": "economico",
+        "eje_pdes": "economico-productivo",
+        "title": "Despachos de cemento",
+        "resumen": (
+            "Cemento despachado con destino a Salta según la Asociación de Fabricantes de Cemento "
+            "Portland, mensual desde 2017, abierto en bolsa y granel, con la participación de la "
+            "provincia en el total del país y la comparación con las demás jurisdicciones."
+        ),
+        "resumen_corto": "Cemento despachado a Salta, en bolsa y a granel.",
+        "advertencia": (
+            "La apertura por provincia está congelada en septiembre de 2025: la AFCP sigue "
+            "publicando despachos nacionales, pero dejó de abrirlos por jurisdicción. Y son "
+            "despachos con destino a Salta, no producción de Salta."
+        ),
+        "fuente": "Asociación de Fabricantes de Cemento Portland (AFCP)",
+        "fuente_url": "https://www.afcp.org.ar/copia-de-despacho-total-de-cemento",
+        "cobertura": "2017–2025",
+        "keywords": [
+            "cemento", "despachos", "construcción", "obra", "bolsa", "granel", "AFCP",
+            "portland", "hormigón", "actividad de la construcción", "insumos", "toneladas",
+            "obra privada", "obra pública", "autoconstrucción",
+        ],
+        "tags": ["actividad-productividad", "infraestructura-logistica"],
+        "kpis": [
+            {"label": "Despachos de cemento", "tabla_label": "Cemento despachado a Salta",
+             "metrica": "despachos_t",
+             "fixed": {"grano": "trimestral", "provincia": "Salta", "envase": "Total"},
+             "cmp": "quarter", "year": "latest", "unidad": "toneladas", "format": "int",
+             "geo": "Provincia"},
+            {"label": "Despachos a granel", "tabla_label": "Cemento despachado a granel",
+             "tabla_nota": "El granel abastece sobre todo a hormigoneras y obra grande; la bolsa, "
+                           "a obra chica y autoconstrucción. Es una lectura del sector, no una "
+                           "definición de la AFCP.",
+             "metrica": "despachos_t",
+             "fixed": {"grano": "trimestral", "provincia": "Salta", "envase": "Granel"},
+             "cmp": "quarter", "year": "latest", "unidad": "toneladas", "format": "int",
+             "geo": "Provincia", "grafico": "cem-envase"},
+        ],
+        "charts": [
+            {"id": "cem-envase", "type": "stacked-area",
+             "title": "Despachos a Salta por envase",
+             "descr": "Cemento despachado a la provincia, apilando bolsa y granel. El granel va "
+                      "sobre todo a hormigoneras y obra grande; la bolsa, a obra chica.",
+             "x": "trimestre", "seriesBy": "envase", "metrica": "despachos_t",
+             "fixed": {"grano": "trimestral", "provincia": "Salta"},
+             "seriesExclude": ["Total"], "stack": True,
+             "controls": [
+                 {"kind": "freq", "label": "Frecuencia", "default": "trimestral", "options": [
+                     {"value": "trimestral", "label": "Trimestral", "x": "trimestre", "grano": "trimestral"},
+                     {"value": "mensual", "label": "Mensual", "x": "mes", "grano": "mensual"},
+                     {"value": "anual", "label": "Anual", "x": "anio", "grano": "anual"}]},
+             ],
+             "unidad": "toneladas"},
+            {"id": "cem-total", "type": "line",
+             "title": "Despachos totales a Salta",
+             "descr": "Total de cemento despachado a la provincia, tal como lo publica la AFCP.",
+             "x": "trimestre", "seriesBy": None, "metrica": "despachos_t",
+             "fixed": {"grano": "trimestral", "provincia": "Salta", "envase": "Total"},
+             "controls": [
+                 {"kind": "freq", "label": "Frecuencia", "default": "trimestral", "options": [
+                     {"value": "trimestral", "label": "Trimestral", "x": "trimestre", "grano": "trimestral"},
+                     {"value": "mensual", "label": "Mensual", "x": "mes", "grano": "mensual"},
+                     {"value": "anual", "label": "Anual", "x": "anio", "grano": "anual"}]},
+             ],
+             "unidad": "toneladas"},
+            {"id": "cem-share", "type": "line",
+             "title": "Participación de Salta en el país",
+             "descr": "Porcentaje del cemento despachado en el país que tiene destino en Salta.",
+             "x": "trimestre", "seriesBy": None, "metrica": "share_pais_pct",
+             "fixed": {"grano": "trimestral", "provincia": "Salta", "envase": "Total"},
+             "controls": [
+                 {"kind": "freq", "label": "Frecuencia", "default": "trimestral", "options": [
+                     {"value": "trimestral", "label": "Trimestral", "x": "trimestre", "grano": "trimestral"},
+                     {"value": "mensual", "label": "Mensual", "x": "mes", "grano": "mensual"},
+                     {"value": "anual", "label": "Anual", "x": "anio", "grano": "anual"}]},
+             ],
+             "unidad": "%"},
+            {"id": "cem-ranking", "type": "barh",
+             "title": "Despachos por jurisdicción (ranking)",
+             "descr": "Jurisdicciones ordenadas por cemento recibido en el año seleccionado. La "
+                      "AFCP publica Buenos Aires partida en tres: CABA, Gran Buenos Aires y el "
+                      "resto de la provincia.",
+             "x": "provincia", "seriesBy": None, "metrica": "despachos_t",
+             "fixed": {"grano": "anual", "envase": "Total"}, "exclude": ["Total del país"],
+             "controls": [{"dim": "anio", "label": "Año", "kind": "year"}],
+             "sort": "desc", "unidad": "toneladas"},
         ],
     },
 ]
