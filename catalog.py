@@ -234,6 +234,9 @@ FUENTE_CORTA = {
     "MapBiomas Argentina — Colección 3 (cobertura y uso; desmonte y vegetación secundaria)":
         "MapBiomas",
     "Encuesta de Ocupación Hotelera (EOH) — INDEC": "INDEC, EOH",
+    "Administración Nacional de Aviación Civil (ANAC)": "ANAC",
+    "Asociación de Fabricantes de Cemento Portland (AFCP)": "Asoc. Fab. Cemento",
+    "Encuesta de Supermercados — INDEC": "INDEC",
 }
 
 # Semáforo de avance hacia la meta 2030 (sección de la portada + marca en la columna de la meta).
