@@ -137,7 +137,7 @@
           {% for f in tp.filas %}
           <tr>
             <th scope="row">
-              <a href="{{ base }}/tema/{{ f.tema_id }}.html" title="Ver el tablero: {{ f.tema_title }}">{% if f.ficha %}<span class="tabla-ind-ficha">{{ f.ficha }}</span>{% else %}<span class="tabla-ind-ficha tabla-ind-vacio" title="Todavía sin ficha en las notas técnicas">—</span>{% endif %}{{ f.indicador }}</a>{% if f.nota %}<abbr class="tabla-ind-nota" title="{{ f.nota }}">ⓘ</abbr>{% endif %}
+              <a href="{{ base }}/tema/{{ f.tema_id }}.html" title="Ver el tablero: {{ f.tema_title }}">{% if f.ficha %}<span class="tabla-ind-ficha">{{ f.ficha }}</span>{% else %}<span class="tabla-ind-ficha tabla-ind-vacio" title="Todavía sin ficha en las notas técnicas">—</span>{% endif %}{{ f.indicador_cuerpo }}{% if f.indicador_par %} <span class="tabla-ind-par">{{ f.indicador_par }}</span>{% endif %}</a>{% if f.nota %}<abbr class="tabla-ind-nota" title="{{ f.nota }}">ⓘ</abbr>{% endif %}
             </th>
             {% if con_ciiu %}<td class="tabla-ind-ciiu">{% if f.ciiu %}<abbr title="{{ f.ciiu }} — {{ f.ciiu_label }}">{{ f.ciiu }}</abbr>{% else %}<span class="tabla-ind-vacio" title="Sin sección de actividad asignable">—</span>{% endif %}</td>{% endif %}
             <td class="tabla-ind-frec">{{ f.frecuencia }}</td>

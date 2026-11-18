@@ -344,6 +344,8 @@ p { margin: 0 0 1em; }
 /* Fuente: forma corta en una sola línea; el texto completo aparece al pasar el mouse. Partida
    en dos, alargaba casi todas las filas de la tabla. */
 .tabla-ind-fuente { color: var(--ink-2); white-space: nowrap; }
+/* Paréntesis final del nombre del indicador: no se corta, así baja entero de renglón. */
+.tabla-ind-par { white-space: nowrap; }
 .tabla-ind-fuente abbr { text-decoration: none; border-bottom: 1px dotted var(--muted); cursor: help; }
 /* El subeje ya no es columna: es un SUBTÍTULO que abre cada grupo de indicadores. */
 .tabla-ind .subeje-row-head {

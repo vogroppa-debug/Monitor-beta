@@ -200,6 +200,17 @@ GEO_NIVELES = [
 _GEO_CORTO = {"Departamento": "Depto."}
 
 
+# Paréntesis final del nombre («(índice 0-100)», «(c/ 100 mil hab.)»). La tabla lo imprime como
+# un bloque que no se corta, para que cuando el nombre no entra en una línea pase ENTERO al
+# renglón de abajo en vez de partirse por la mitad («(índice» arriba y «0-100)» abajo).
+_RE_PAR_FINAL = re.compile(r"^(.*\S)\s+(\([^()]*\))$")
+
+
+def _partir_nombre(nombre):
+    m = _RE_PAR_FINAL.match(nombre)
+    return (m.group(1), m.group(2)) if m else (nombre, "")
+
+
 def _desagregacion(payload, ix, spec):
     """Nivel territorial en el que se publica ESTE indicador.
 
@@ -854,13 +865,15 @@ def tabla(payloads, catalogo, ejes_pdes_meta, tags_meta, subeje_orden, ciiu_secc
             sem = _avance(dict(s, base_valor=b_val), res.get("valor"), umbrales)
             _chart = s.get("grafico") or _grafico(payload, s["metrica"])
             _fte, _fte_corta, _fte_title = _fuente(payload, _chart, fuentes_cortas)
+            _nombre = _nombre_con_unidad(s.get("tabla_label") or s["label"], _unidad)
+            _cuerpo, _par = _partir_nombre(_nombre)
             filas.append({
                 "eje": t.get("eje_pdes"),
                 "subeje": _subeje(s, t, tags_meta),
                 "tipo": _tipo(s), "tipo_label": _TIPO_LABEL[_tipo(s)],
                 "ciiu": ciiu, "ciiu_label": ciiu_secciones.get(ciiu, ""),
-                "indicador": _nombre_con_unidad(
-                    s.get("tabla_label") or s["label"], _unidad),
+                "indicador": _nombre,
+                "indicador_cuerpo": _cuerpo, "indicador_par": _par,
                 "ficha": s.get("ficha", ""),
                 "nota": s.get("tabla_nota", ""),
                 "tema_id": t["id"], "tema_title": t["title"],
