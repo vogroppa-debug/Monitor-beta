@@ -1,0 +1,2720 @@
+﻿anio,jurisdiccion,tipo_usuario,metrica,valor,calidad,fuente_doc
+2016,Buenos Aires,Total,victimas_fatales,1540,definitivo,a2018 p14; a2019 p77
+2016,Buenos Aires,Total,tasa_mortalidad_100mil,9.1,definitivo,a2018 p16
+2016,Buenos Aires,Total,tasa_fatalidad_10mil_veh,2.1,definitivo,a2018 p18
+2017,Buenos Aires,Total,victimas_fatales,1369,definitivo,a2017 p18; a2017 p7; a2018 p14; a2019 p77; a2022 p43
+2017,Buenos Aires,Motociclista,victimas_fatales,428,definitivo,a2017 p18
+2017,Buenos Aires,Automóvil,victimas_fatales,383,definitivo,a2017 p18
+2017,Buenos Aires,Peatón,victimas_fatales,167,definitivo,a2017 p18
+2017,Buenos Aires,Ciclista,victimas_fatales,44,definitivo,a2017 p18
+2017,Buenos Aires,Otros vehículos,victimas_fatales,106,definitivo,a2017 p18
+2017,Buenos Aires,Sin dato,victimas_fatales,241,definitivo,a2017 p18
+2017,Buenos Aires,Total,siniestros_fatales,1125,definitivo,a2017 p25; a2022 p23
+2017,Buenos Aires,Total,siniestros_con_lesionados,37776,definitivo,a2017 p25
+2017,Buenos Aires,Total,personas_heridas,41029,definitivo,a2017 p23
+2017,Buenos Aires,Total,tasa_mortalidad_100mil,8,definitivo,a2017 p7; a2018 p16
+2017,Buenos Aires,Total,tasa_fatalidad_10mil_veh,1.7,definitivo,a2017 p7; a2018 p18
+2017,Buenos Aires,Total,poblacion,17020012,definitivo,a2017 p7
+2017,Buenos Aires,Total,parque_vehicular,7967336,definitivo,a2017 p7
+2018,Buenos Aires,Total,victimas_fatales,1344,definitivo,a2018 p14; a2018 p24; a2019 p77; a2022 p43
+2018,Buenos Aires,Motociclista,victimas_fatales,528,definitivo,a2018 p24
+2018,Buenos Aires,Automóvil,victimas_fatales,343,definitivo,a2018 p24
+2018,Buenos Aires,Peatón,victimas_fatales,183,definitivo,a2018 p24
+2018,Buenos Aires,Ciclista,victimas_fatales,57,definitivo,a2018 p24
+2018,Buenos Aires,Otros vehículos,victimas_fatales,116,definitivo,a2018 p24
+2018,Buenos Aires,Sin dato,victimas_fatales,117,definitivo,a2018 p24
+2018,Buenos Aires,Total,siniestros_fatales,1228,definitivo,a2018 p36; a2022 p23
+2018,Buenos Aires,Total,siniestros_con_lesionados,38466,definitivo,a2018 p36
+2018,Buenos Aires,Total,personas_heridas,44268,definitivo,a2018 p30
+2018,Buenos Aires,Total,tasa_mortalidad_100mil,7.8,definitivo,a2018 p16
+2018,Buenos Aires,Total,tasa_fatalidad_10mil_veh,1.6,definitivo,a2018 p18
+2019,Buenos Aires,Total,victimas_fatales,1459,definitivo,a2019 p74; a2019 p77; a2019 p99; a2022 p43
+2019,Buenos Aires,Motociclista,victimas_fatales,413,definitivo,a2019 p99
+2019,Buenos Aires,Automóvil,victimas_fatales,458,definitivo,a2019 p99
+2019,Buenos Aires,Peatón,victimas_fatales,182,definitivo,a2019 p99
+2019,Buenos Aires,Ciclista,victimas_fatales,42,definitivo,a2019 p99
+2019,Buenos Aires,Otros vehículos,victimas_fatales,132,definitivo,a2019 p99
+2019,Buenos Aires,Sin dato,victimas_fatales,232,definitivo,a2019 p99
+2019,Buenos Aires,Total,siniestros_fatales,1007,definitivo,a2022 p23
+2019,Buenos Aires,Total,siniestros_con_victimas,41593,definitivo,a2019 p44
+2019,Buenos Aires,Total,personas_heridas,44215,definitivo,a2019 p116
+2019,Buenos Aires,Total,tasa_mortalidad_100mil,8.4,definitivo,a2019 p74
+2019,Buenos Aires,Total,tasa_fatalidad_10mil_veh,1.7,definitivo,a2019 p74
+2019,Buenos Aires,Total,poblacion,17370144,definitivo,a2019 p74
+2019,Buenos Aires,Total,parque_vehicular,8422983,definitivo,a2019 p74
+2020,Buenos Aires,Total,victimas_fatales,995,definitivo,a2020 p29; a2020 p35; a2022 p43
+2020,Buenos Aires,Motociclista,victimas_fatales,337,definitivo,a2020 p35
+2020,Buenos Aires,Automóvil,victimas_fatales,261,definitivo,a2020 p35
+2020,Buenos Aires,Peatón,victimas_fatales,96,definitivo,a2020 p35
+2020,Buenos Aires,Ciclista,victimas_fatales,31,definitivo,a2020 p35
+2020,Buenos Aires,Otros vehículos,victimas_fatales,108,definitivo,a2020 p35
+2020,Buenos Aires,Sin dato,victimas_fatales,162,definitivo,a2020 p35
+2020,Buenos Aires,Total,siniestros_fatales,717,definitivo,a2020 p19; a2020 p26; a2022 p23
+2020,Buenos Aires,Total,siniestros_con_victimas,26125,definitivo,a2020 p26
+2020,Buenos Aires,Total,siniestros_con_lesionados,25408,definitivo,a2020 p26
+2020,Buenos Aires,Total,personas_heridas,27479,definitivo,a2020 p39
+2020,Buenos Aires,Total,tasa_mortalidad_100mil,5.7,definitivo,a2020 p29
+2020,Buenos Aires,Total,tasa_fatalidad_10mil_veh,1.1,definitivo,a2020 p29
+2020,Buenos Aires,Total,tasa_siniestralidad_fatal_100mil,4.1,definitivo,a2020 p19
+2020,Buenos Aires,Total,tasa_siniestralidad_fatal_10mil_veh,0.8,definitivo,a2020 p19
+2020,Buenos Aires,Total,poblacion,17541141,definitivo,a2020 p14
+2020,Buenos Aires,Total,parque_vehicular,9002061,definitivo,a2020 p15
+2021,Buenos Aires,Total,victimas_fatales,1290,definitivo,a2021 p24; a2021 p30; a2022 p43
+2021,Buenos Aires,Motociclista,victimas_fatales,328,definitivo,a2021 p30
+2021,Buenos Aires,Automóvil,victimas_fatales,259,definitivo,a2021 p30
+2021,Buenos Aires,Peatón,victimas_fatales,117,definitivo,a2021 p30
+2021,Buenos Aires,Ciclista,victimas_fatales,39,definitivo,a2021 p30
+2021,Buenos Aires,Otros vehículos,victimas_fatales,57,definitivo,a2021 p30
+2021,Buenos Aires,Sin dato,victimas_fatales,490,definitivo,a2021 p30
+2021,Buenos Aires,Total,siniestros_fatales,857,definitivo,a2021 p15; a2022 p23
+2021,Buenos Aires,Total,personas_heridas,38554,definitivo,a2021 p33
+2021,Buenos Aires,Total,tasa_mortalidad_100mil,7.3,definitivo,a2021 p24
+2021,Buenos Aires,Total,tasa_fatalidad_10mil_veh,1.4,definitivo,a2021 p24
+2021,Buenos Aires,Total,tasa_siniestralidad_fatal_100mil,4.8,definitivo,a2021 p15
+2021,Buenos Aires,Total,tasa_siniestralidad_fatal_10mil_veh,1,definitivo,a2021 p15
+2021,Buenos Aires,Total,poblacion,17709598,definitivo,a2021 p12
+2022,Buenos Aires,Total,victimas_fatales,1386,definitivo,a2022 p40; a2022 p43; a2022 p47
+2022,Buenos Aires,Motociclista,victimas_fatales,415,definitivo,a2022 p47
+2022,Buenos Aires,Automóvil,victimas_fatales,290,definitivo,a2022 p47
+2022,Buenos Aires,Peatón,victimas_fatales,204,definitivo,a2022 p47
+2022,Buenos Aires,Ciclista,victimas_fatales,29,definitivo,a2022 p47
+2022,Buenos Aires,Otros vehículos,victimas_fatales,120,definitivo,a2022 p47
+2022,Buenos Aires,Sin dato,victimas_fatales,328,definitivo,a2022 p47
+2022,Buenos Aires,Total,siniestros_fatales,999,definitivo,a2022 p14; a2022 p20; a2022 p23
+2022,Buenos Aires,Total,siniestros_con_victimas,36809,preliminar,a2022 p14
+2022,Buenos Aires,Total,siniestros_con_lesionados,35810,preliminar,a2022 p14
+2022,Buenos Aires,Total,personas_heridas,41510,preliminar,a2022 p58
+2022,Buenos Aires,Total,tasa_mortalidad_100mil,7.8,definitivo,a2022 p40
+2022,Buenos Aires,Total,tasa_fatalidad_10mil_veh,1.5,definitivo,a2022 p40
+2022,Buenos Aires,Total,tasa_siniestralidad_fatal_100mil,5.6,definitivo,a2022 p20
+2022,Buenos Aires,Total,tasa_siniestralidad_fatal_10mil_veh,1.1,definitivo,a2022 p20
+2022,Buenos Aires,Total,poblacion,17875743,definitivo,a2022 p77
+2022,Buenos Aires,Total,parque_vehicular,9255249,definitivo,a2022 p79
+2023,Buenos Aires,Total,victimas_fatales,1304,preliminar,p2023 p11
+2023,Buenos Aires,Total,siniestros_fatales,917,preliminar,p2023 p10
+2023,Buenos Aires,Total,tasa_mortalidad_100mil,7.5,preliminar,p2023 p11
+2023,Buenos Aires,Total,tasa_fatalidad_10mil_veh,1.4,preliminar,p2023 p11
+2023,Buenos Aires,Total,tasa_siniestralidad_fatal_100mil,5.3,preliminar,p2023 p10
+2023,Buenos Aires,Total,tasa_siniestralidad_fatal_10mil_veh,1,preliminar,p2023 p10
+2024,Buenos Aires,Total,victimas_fatales,1183,preliminar,p2024 p10
+2024,Buenos Aires,Total,siniestros_fatales,833,preliminar,p2024 p9
+2024,Buenos Aires,Total,tasa_mortalidad_100mil,6.8,preliminar,p2024 p10
+2024,Buenos Aires,Total,tasa_siniestralidad_fatal_100mil,4.8,preliminar,p2024 p9
+2025,Buenos Aires,Total,victimas_fatales,1281,preliminar,p2025
+2025,Buenos Aires,Total,tasa_mortalidad_100mil,7.3,preliminar,p2025
+2026,Buenos Aires,Total,victimas_fatales,875,parcial,p2026 p9
+2026,Buenos Aires,Total,siniestros_fatales,610,parcial,p2026 p8
+2016,CABA,Total,victimas_fatales,149,definitivo,a2018 p14; a2019 p77
+2016,CABA,Total,tasa_mortalidad_100mil,4.9,definitivo,a2018 p16
+2016,CABA,Total,tasa_fatalidad_10mil_veh,0.9,definitivo,a2018 p18
+2017,CABA,Total,victimas_fatales,151,definitivo,a2017 p18; a2017 p7; a2018 p14; a2019 p77; a2022 p43
+2017,CABA,Motociclista,victimas_fatales,60,definitivo,a2017 p18
+2017,CABA,Automóvil,victimas_fatales,29,definitivo,a2017 p18
+2017,CABA,Peatón,victimas_fatales,52,definitivo,a2017 p18
+2017,CABA,Ciclista,victimas_fatales,4,definitivo,a2017 p18
+2017,CABA,Otros vehículos,victimas_fatales,0,definitivo,a2017 p18
+2017,CABA,Sin dato,victimas_fatales,5,definitivo,a2017 p18
+2017,CABA,Total,siniestros_fatales,131,definitivo,a2017 p25; a2022 p23
+2017,CABA,Total,siniestros_con_lesionados,9808,definitivo,a2017 p25
+2017,CABA,Total,personas_heridas,11404,definitivo,a2017 p23
+2017,CABA,Total,tasa_mortalidad_100mil,4.9,definitivo,a2017 p7; a2018 p16
+2017,CABA,Total,tasa_fatalidad_10mil_veh,0.9,definitivo,a2017 p7; a2018 p18
+2017,CABA,Total,poblacion,3063728,definitivo,a2017 p7
+2017,CABA,Total,parque_vehicular,1755276,definitivo,a2017 p7
+2018,CABA,Total,victimas_fatales,159,definitivo,a2018 p14; a2018 p24; a2019 p77; a2022 p43
+2018,CABA,Motociclista,victimas_fatales,60,definitivo,a2018 p24
+2018,CABA,Automóvil,victimas_fatales,17,definitivo,a2018 p24
+2018,CABA,Peatón,victimas_fatales,70,definitivo,a2018 p24
+2018,CABA,Ciclista,victimas_fatales,3,definitivo,a2018 p24
+2018,CABA,Otros vehículos,victimas_fatales,8,definitivo,a2018 p24
+2018,CABA,Sin dato,victimas_fatales,0,definitivo,a2018 p24
+2018,CABA,Total,siniestros_fatales,141,definitivo,a2018 p36; a2022 p23
+2018,CABA,Total,siniestros_con_lesionados,10061,definitivo,a2018 p36
+2018,CABA,Total,personas_heridas,11750,definitivo,a2018 p30
+2018,CABA,Total,tasa_mortalidad_100mil,5.2,definitivo,a2018 p16
+2018,CABA,Total,tasa_fatalidad_10mil_veh,0.9,definitivo,a2018 p18
+2019,CABA,Total,victimas_fatales,111,definitivo,a2019 p74; a2019 p77; a2019 p99; a2022 p43
+2019,CABA,Motociclista,victimas_fatales,53,definitivo,a2019 p99
+2019,CABA,Automóvil,victimas_fatales,13,definitivo,a2019 p99
+2019,CABA,Peatón,victimas_fatales,37,definitivo,a2019 p99
+2019,CABA,Ciclista,victimas_fatales,8,definitivo,a2019 p99
+2019,CABA,Otros vehículos,victimas_fatales,1,definitivo,a2019 p99
+2019,CABA,Sin dato,victimas_fatales,0,definitivo,a2019 p99
+2019,CABA,Total,siniestros_fatales,102,definitivo,a2022 p23
+2019,CABA,Total,siniestros_con_victimas,10208,definitivo,a2019 p44
+2019,CABA,Total,personas_heridas,11825,definitivo,a2019 p116
+2019,CABA,Total,tasa_mortalidad_100mil,3.6,definitivo,a2019 p74
+2019,CABA,Total,tasa_fatalidad_10mil_veh,0.6,definitivo,a2019 p74
+2019,CABA,Total,poblacion,3072029,definitivo,a2019 p74
+2019,CABA,Total,parque_vehicular,1817781,definitivo,a2019 p74
+2020,CABA,Total,victimas_fatales,87,definitivo,a2020 p29; a2020 p35; a2022 p43
+2020,CABA,Motociclista,victimas_fatales,31,definitivo,a2020 p35
+2020,CABA,Automóvil,victimas_fatales,13,definitivo,a2020 p35
+2020,CABA,Peatón,victimas_fatales,38,definitivo,a2020 p35
+2020,CABA,Ciclista,victimas_fatales,5,definitivo,a2020 p35
+2020,CABA,Otros vehículos,victimas_fatales,0,definitivo,a2020 p35
+2020,CABA,Sin dato,victimas_fatales,0,definitivo,a2020 p35
+2020,CABA,Total,siniestros_fatales,78,definitivo,a2020 p19; a2020 p26; a2022 p23
+2020,CABA,Total,siniestros_con_victimas,6438,definitivo,a2020 p26
+2020,CABA,Total,siniestros_con_lesionados,6360,definitivo,a2020 p26
+2020,CABA,Total,personas_heridas,8278,definitivo,a2020 p39
+2020,CABA,Total,tasa_mortalidad_100mil,2.8,definitivo,a2020 p29
+2020,CABA,Total,tasa_fatalidad_10mil_veh,0.5,definitivo,a2020 p29
+2020,CABA,Total,tasa_siniestralidad_fatal_100mil,2.5,definitivo,a2020 p19
+2020,CABA,Total,tasa_siniestralidad_fatal_10mil_veh,0.4,definitivo,a2020 p19
+2020,CABA,Total,poblacion,3075646,definitivo,a2020 p14
+2020,CABA,Total,parque_vehicular,1874149,definitivo,a2020 p15
+2021,CABA,Total,victimas_fatales,105,definitivo,a2021 p24; a2021 p30; a2022 p43
+2021,CABA,Motociclista,victimas_fatales,50,definitivo,a2021 p30
+2021,CABA,Automóvil,victimas_fatales,12,definitivo,a2021 p30
+2021,CABA,Peatón,victimas_fatales,36,definitivo,a2021 p30
+2021,CABA,Ciclista,victimas_fatales,6,definitivo,a2021 p30
+2021,CABA,Otros vehículos,victimas_fatales,1,definitivo,a2021 p30
+2021,CABA,Sin dato,victimas_fatales,0,definitivo,a2021 p30
+2021,CABA,Total,siniestros_fatales,97,definitivo,a2021 p15; a2022 p23
+2021,CABA,Total,personas_heridas,8957,definitivo,a2021 p33
+2021,CABA,Total,tasa_mortalidad_100mil,3.4,definitivo,a2021 p24
+2021,CABA,Total,tasa_fatalidad_10mil_veh,0.6,definitivo,a2021 p24
+2021,CABA,Total,tasa_siniestralidad_fatal_100mil,3.2,definitivo,a2021 p15
+2021,CABA,Total,tasa_siniestralidad_fatal_10mil_veh,0.5,definitivo,a2021 p15
+2021,CABA,Total,poblacion,3078836,definitivo,a2021 p12
+2022,CABA,Total,victimas_fatales,111,definitivo,a2022 p40; a2022 p43; a2022 p47
+2022,CABA,Motociclista,victimas_fatales,53,definitivo,a2022 p47
+2022,CABA,Automóvil,victimas_fatales,7,definitivo,a2022 p47
+2022,CABA,Peatón,victimas_fatales,42,definitivo,a2022 p47
+2022,CABA,Ciclista,victimas_fatales,7,definitivo,a2022 p47
+2022,CABA,Otros vehículos,victimas_fatales,2,definitivo,a2022 p47
+2022,CABA,Sin dato,victimas_fatales,0,definitivo,a2022 p47
+2022,CABA,Total,siniestros_fatales,107,definitivo,a2022 p14; a2022 p20; a2022 p23
+2022,CABA,Total,siniestros_con_victimas,9536,preliminar,a2022 p14
+2022,CABA,Total,siniestros_con_lesionados,9429,preliminar,a2022 p14
+2022,CABA,Total,personas_heridas,10536,preliminar,a2022 p58
+2022,CABA,Total,tasa_mortalidad_100mil,3.6,definitivo,a2022 p40
+2022,CABA,Total,tasa_fatalidad_10mil_veh,0.6,definitivo,a2022 p40
+2022,CABA,Total,tasa_siniestralidad_fatal_100mil,3.5,definitivo,a2022 p20
+2022,CABA,Total,tasa_siniestralidad_fatal_10mil_veh,0.6,definitivo,a2022 p20
+2022,CABA,Total,poblacion,3081550,definitivo,a2022 p77
+2022,CABA,Total,parque_vehicular,1906562,definitivo,a2022 p79
+2023,CABA,Total,victimas_fatales,104,preliminar,p2023 p11
+2023,CABA,Total,siniestros_fatales,102,preliminar,p2023 p10
+2023,CABA,Total,tasa_mortalidad_100mil,3.3,preliminar,p2023 p11
+2023,CABA,Total,tasa_fatalidad_10mil_veh,0.5,preliminar,p2023 p11
+2023,CABA,Total,tasa_siniestralidad_fatal_100mil,3.3,preliminar,p2023 p10
+2023,CABA,Total,tasa_siniestralidad_fatal_10mil_veh,0.5,preliminar,p2023 p10
+2024,CABA,Total,victimas_fatales,113,preliminar,p2024 p10
+2024,CABA,Total,siniestros_fatales,110,preliminar,p2024 p9
+2024,CABA,Total,tasa_mortalidad_100mil,3.7,preliminar,p2024 p10
+2024,CABA,Total,tasa_siniestralidad_fatal_100mil,3.6,preliminar,p2024 p9
+2025,CABA,Total,victimas_fatales,84,preliminar,p2025
+2025,CABA,Total,tasa_mortalidad_100mil,2.7,preliminar,p2025
+2016,Catamarca,Total,victimas_fatales,92,definitivo,a2018 p14; a2019 p77
+2016,Catamarca,Total,tasa_mortalidad_100mil,23,definitivo,a2018 p16
+2016,Catamarca,Total,tasa_fatalidad_10mil_veh,5.5,definitivo,a2018 p18
+2017,Catamarca,Total,victimas_fatales,115,definitivo,a2017 p18; a2017 p7; a2018 p14; a2019 p77; a2022 p43
+2017,Catamarca,Motociclista,victimas_fatales,58,definitivo,a2017 p18
+2017,Catamarca,Automóvil,victimas_fatales,45,definitivo,a2017 p18
+2017,Catamarca,Peatón,victimas_fatales,7,definitivo,a2017 p18
+2017,Catamarca,Ciclista,victimas_fatales,5,definitivo,a2017 p18
+2017,Catamarca,Otros vehículos,victimas_fatales,0,definitivo,a2017 p18
+2017,Catamarca,Sin dato,victimas_fatales,0,definitivo,a2017 p18
+2017,Catamarca,Total,siniestros_fatales,101,definitivo,a2017 p25; a2022 p23
+2017,Catamarca,Total,siniestros_con_lesionados,1807,definitivo,a2017 p25
+2017,Catamarca,Total,personas_heridas,2579,definitivo,a2017 p23
+2017,Catamarca,Total,tasa_mortalidad_100mil,28.4,definitivo,a2017 p7; a2018 p16
+2017,Catamarca,Total,tasa_fatalidad_10mil_veh,6.2,definitivo,a2017 p7; a2018 p18
+2017,Catamarca,Total,poblacion,404433,definitivo,a2017 p7
+2017,Catamarca,Total,parque_vehicular,184416,definitivo,a2017 p7
+2018,Catamarca,Total,victimas_fatales,99,definitivo,a2018 p14; a2018 p24; a2019 p77; a2022 p43
+2018,Catamarca,Motociclista,victimas_fatales,62,definitivo,a2018 p24
+2018,Catamarca,Automóvil,victimas_fatales,26,definitivo,a2018 p24
+2018,Catamarca,Peatón,victimas_fatales,9,definitivo,a2018 p24
+2018,Catamarca,Ciclista,victimas_fatales,2,definitivo,a2018 p24
+2018,Catamarca,Otros vehículos,victimas_fatales,0,definitivo,a2018 p24
+2018,Catamarca,Sin dato,victimas_fatales,0,definitivo,a2018 p24
+2018,Catamarca,Total,siniestros_fatales,90,definitivo,a2018 p36; a2022 p23
+2018,Catamarca,Total,siniestros_con_lesionados,1948,definitivo,a2018 p36
+2018,Catamarca,Total,personas_heridas,2575,definitivo,a2018 p30
+2018,Catamarca,Total,tasa_mortalidad_100mil,24.3,definitivo,a2018 p16
+2018,Catamarca,Total,tasa_fatalidad_10mil_veh,5,definitivo,a2018 p18
+2019,Catamarca,Total,victimas_fatales,70,definitivo,a2019 p74; a2019 p77; a2019 p99; a2022 p43
+2019,Catamarca,Motociclista,victimas_fatales,38,definitivo,a2019 p99
+2019,Catamarca,Automóvil,victimas_fatales,19,definitivo,a2019 p99
+2019,Catamarca,Peatón,victimas_fatales,2,definitivo,a2019 p99
+2019,Catamarca,Ciclista,victimas_fatales,4,definitivo,a2019 p99
+2019,Catamarca,Otros vehículos,victimas_fatales,7,definitivo,a2019 p99
+2019,Catamarca,Sin dato,victimas_fatales,0,definitivo,a2019 p99
+2019,Catamarca,Total,siniestros_fatales,66,definitivo,a2022 p23
+2019,Catamarca,Total,siniestros_con_victimas,2017,definitivo,a2019 p44
+2019,Catamarca,Total,personas_heridas,2846,definitivo,a2019 p116
+2019,Catamarca,Total,tasa_mortalidad_100mil,17,definitivo,a2019 p74
+2019,Catamarca,Total,tasa_fatalidad_10mil_veh,3.5,definitivo,a2019 p74
+2019,Catamarca,Total,poblacion,411824,definitivo,a2019 p74
+2019,Catamarca,Total,parque_vehicular,200953,definitivo,a2019 p74
+2020,Catamarca,Total,victimas_fatales,51,definitivo,a2020 p29; a2020 p35; a2022 p43
+2020,Catamarca,Motociclista,victimas_fatales,32,definitivo,a2020 p35
+2020,Catamarca,Automóvil,victimas_fatales,11,definitivo,a2020 p35
+2020,Catamarca,Peatón,victimas_fatales,4,definitivo,a2020 p35
+2020,Catamarca,Ciclista,victimas_fatales,0,definitivo,a2020 p35
+2020,Catamarca,Otros vehículos,victimas_fatales,4,definitivo,a2020 p35
+2020,Catamarca,Sin dato,victimas_fatales,0,definitivo,a2020 p35
+2020,Catamarca,Total,siniestros_fatales,46,definitivo,a2020 p19; a2020 p26; a2022 p23
+2020,Catamarca,Total,siniestros_con_victimas,1306,definitivo,a2020 p26
+2020,Catamarca,Total,siniestros_con_lesionados,1260,definitivo,a2020 p26
+2020,Catamarca,Total,personas_heridas,1603,definitivo,a2020 p39
+2020,Catamarca,Total,tasa_mortalidad_100mil,12.3,definitivo,a2020 p29
+2020,Catamarca,Total,tasa_fatalidad_10mil_veh,2.4,definitivo,a2020 p29
+2020,Catamarca,Total,tasa_siniestralidad_fatal_100mil,11.1,definitivo,a2020 p19
+2020,Catamarca,Total,tasa_siniestralidad_fatal_10mil_veh,2.2,definitivo,a2020 p19
+2020,Catamarca,Total,poblacion,415438,definitivo,a2020 p14
+2020,Catamarca,Total,parque_vehicular,219312,definitivo,a2020 p15
+2021,Catamarca,Total,victimas_fatales,54,definitivo,a2021 p24; a2021 p30; a2022 p43
+2021,Catamarca,Motociclista,victimas_fatales,33,definitivo,a2021 p30
+2021,Catamarca,Automóvil,victimas_fatales,6,definitivo,a2021 p30
+2021,Catamarca,Peatón,victimas_fatales,4,definitivo,a2021 p30
+2021,Catamarca,Ciclista,victimas_fatales,4,definitivo,a2021 p30
+2021,Catamarca,Otros vehículos,victimas_fatales,7,definitivo,a2021 p30
+2021,Catamarca,Sin dato,victimas_fatales,0,definitivo,a2021 p30
+2021,Catamarca,Total,siniestros_fatales,49,definitivo,a2021 p15; a2022 p23
+2021,Catamarca,Total,personas_heridas,1730,definitivo,a2021 p33
+2021,Catamarca,Total,tasa_mortalidad_100mil,12.9,definitivo,a2021 p24
+2021,Catamarca,Total,tasa_fatalidad_10mil_veh,2.5,definitivo,a2021 p24
+2021,Catamarca,Total,tasa_siniestralidad_fatal_100mil,11.7,definitivo,a2021 p15
+2021,Catamarca,Total,tasa_siniestralidad_fatal_10mil_veh,2.2,definitivo,a2021 p15
+2021,Catamarca,Total,poblacion,418991,definitivo,a2021 p12
+2022,Catamarca,Total,victimas_fatales,69,definitivo,a2022 p40; a2022 p43; a2022 p47
+2022,Catamarca,Motociclista,victimas_fatales,33,definitivo,a2022 p47
+2022,Catamarca,Automóvil,victimas_fatales,17,definitivo,a2022 p47
+2022,Catamarca,Peatón,victimas_fatales,2,definitivo,a2022 p47
+2022,Catamarca,Ciclista,victimas_fatales,2,definitivo,a2022 p47
+2022,Catamarca,Otros vehículos,victimas_fatales,15,definitivo,a2022 p47
+2022,Catamarca,Sin dato,victimas_fatales,0,definitivo,a2022 p47
+2022,Catamarca,Total,siniestros_fatales,62,definitivo,a2022 p14; a2022 p20; a2022 p23
+2022,Catamarca,Total,siniestros_con_victimas,518,preliminar,a2022 p14
+2022,Catamarca,Total,siniestros_con_lesionados,456,preliminar,a2022 p14
+2022,Catamarca,Total,personas_heridas,635,preliminar,a2022 p58
+2022,Catamarca,Total,tasa_mortalidad_100mil,16.3,definitivo,a2022 p40
+2022,Catamarca,Total,tasa_fatalidad_10mil_veh,3,definitivo,a2022 p40
+2022,Catamarca,Total,tasa_siniestralidad_fatal_100mil,14.7,definitivo,a2022 p20
+2022,Catamarca,Total,tasa_siniestralidad_fatal_10mil_veh,2.7,definitivo,a2022 p20
+2022,Catamarca,Total,poblacion,422476,definitivo,a2022 p77
+2022,Catamarca,Total,parque_vehicular,227692,definitivo,a2022 p79
+2023,Catamarca,Total,victimas_fatales,61,preliminar,p2023 p11
+2023,Catamarca,Total,siniestros_fatales,58,preliminar,p2023 p10
+2023,Catamarca,Total,tasa_mortalidad_100mil,14,preliminar,p2023 p11
+2023,Catamarca,Total,tasa_fatalidad_10mil_veh,2.6,preliminar,p2023 p11
+2023,Catamarca,Total,tasa_siniestralidad_fatal_100mil,13.3,preliminar,p2023 p10
+2023,Catamarca,Total,tasa_siniestralidad_fatal_10mil_veh,2.4,preliminar,p2023 p10
+2024,Catamarca,Total,victimas_fatales,58,preliminar,p2024 p10
+2024,Catamarca,Total,siniestros_fatales,53,preliminar,p2024 p9
+2024,Catamarca,Total,tasa_mortalidad_100mil,13.3,preliminar,p2024 p10
+2024,Catamarca,Total,tasa_siniestralidad_fatal_100mil,12.1,preliminar,p2024 p9
+2025,Catamarca,Total,victimas_fatales,61,preliminar,p2025
+2025,Catamarca,Total,tasa_mortalidad_100mil,13.9,preliminar,p2025
+2026,Catamarca,Total,victimas_fatales,35,parcial,p2026 p9
+2026,Catamarca,Total,siniestros_fatales,35,parcial,p2026 p8
+2016,Chaco,Total,victimas_fatales,150,definitivo,a2018 p14; a2019 p77
+2016,Chaco,Total,tasa_mortalidad_100mil,13,definitivo,a2018 p16
+2016,Chaco,Total,tasa_fatalidad_10mil_veh,2.6,definitivo,a2018 p18
+2017,Chaco,Total,victimas_fatales,184,definitivo,a2017 p18; a2017 p7; a2018 p14; a2019 p77; a2022 p43
+2017,Chaco,Motociclista,victimas_fatales,116,definitivo,a2017 p18
+2017,Chaco,Automóvil,victimas_fatales,31,definitivo,a2017 p18
+2017,Chaco,Peatón,victimas_fatales,13,definitivo,a2017 p18
+2017,Chaco,Ciclista,victimas_fatales,15,definitivo,a2017 p18
+2017,Chaco,Otros vehículos,victimas_fatales,9,definitivo,a2017 p18
+2017,Chaco,Sin dato,victimas_fatales,0,definitivo,a2017 p18
+2017,Chaco,Total,siniestros_fatales,166,definitivo,a2017 p25; a2022 p23
+2017,Chaco,Total,siniestros_con_lesionados,8017,definitivo,a2017 p25
+2017,Chaco,Total,personas_heridas,9012,definitivo,a2017 p23
+2017,Chaco,Total,tasa_mortalidad_100mil,15.8,definitivo,a2017 p7; a2018 p16
+2017,Chaco,Total,tasa_fatalidad_10mil_veh,2.8,definitivo,a2017 p7; a2018 p18
+2017,Chaco,Total,poblacion,1168165,definitivo,a2017 p7
+2017,Chaco,Total,parque_vehicular,657526,definitivo,a2017 p7
+2018,Chaco,Total,victimas_fatales,193,definitivo,a2018 p14; a2018 p24; a2019 p77; a2022 p43
+2018,Chaco,Motociclista,victimas_fatales,140,definitivo,a2018 p24
+2018,Chaco,Automóvil,victimas_fatales,21,definitivo,a2018 p24
+2018,Chaco,Peatón,victimas_fatales,10,definitivo,a2018 p24
+2018,Chaco,Ciclista,victimas_fatales,7,definitivo,a2018 p24
+2018,Chaco,Otros vehículos,victimas_fatales,15,definitivo,a2018 p24
+2018,Chaco,Sin dato,victimas_fatales,0,definitivo,a2018 p24
+2018,Chaco,Total,siniestros_fatales,159,definitivo,a2018 p36; a2022 p23
+2018,Chaco,Total,siniestros_con_lesionados,885,definitivo,a2018 p36
+2018,Chaco,Total,personas_heridas,1472,definitivo,a2018 p30
+2018,Chaco,Total,tasa_mortalidad_100mil,16.3,definitivo,a2018 p16
+2018,Chaco,Total,tasa_fatalidad_10mil_veh,2.7,definitivo,a2018 p18
+2019,Chaco,Total,victimas_fatales,163,definitivo,a2019 p74; a2019 p77; a2019 p99; a2022 p43
+2019,Chaco,Motociclista,victimas_fatales,113,definitivo,a2019 p99
+2019,Chaco,Automóvil,victimas_fatales,22,definitivo,a2019 p99
+2019,Chaco,Peatón,victimas_fatales,8,definitivo,a2019 p99
+2019,Chaco,Ciclista,victimas_fatales,8,definitivo,a2019 p99
+2019,Chaco,Otros vehículos,victimas_fatales,12,definitivo,a2019 p99
+2019,Chaco,Sin dato,victimas_fatales,0,definitivo,a2019 p99
+2019,Chaco,Total,siniestros_fatales,145,definitivo,a2022 p23
+2019,Chaco,Total,siniestros_con_victimas,950,definitivo,a2019 p44
+2019,Chaco,Total,personas_heridas,1245,definitivo,a2019 p116
+2019,Chaco,Total,tasa_mortalidad_100mil,13.7,definitivo,a2019 p74
+2019,Chaco,Total,tasa_fatalidad_10mil_veh,2.2,definitivo,a2019 p74
+2019,Chaco,Total,poblacion,1192616,definitivo,a2019 p74
+2019,Chaco,Total,parque_vehicular,727971,definitivo,a2019 p74
+2020,Chaco,Total,victimas_fatales,145,definitivo,a2020 p29; a2020 p35; a2022 p43
+2020,Chaco,Motociclista,victimas_fatales,106,definitivo,a2020 p35
+2020,Chaco,Automóvil,victimas_fatales,17,definitivo,a2020 p35
+2020,Chaco,Peatón,victimas_fatales,9,definitivo,a2020 p35
+2020,Chaco,Ciclista,victimas_fatales,4,definitivo,a2020 p35
+2020,Chaco,Otros vehículos,victimas_fatales,9,definitivo,a2020 p35
+2020,Chaco,Sin dato,victimas_fatales,0,definitivo,a2020 p35
+2020,Chaco,Total,siniestros_fatales,134,definitivo,a2020 p19; a2020 p26; a2022 p23
+2020,Chaco,Total,siniestros_con_victimas,812,definitivo,a2020 p26
+2020,Chaco,Total,siniestros_con_lesionados,678,definitivo,a2020 p26
+2020,Chaco,Total,personas_heridas,1018,definitivo,a2020 p39
+2020,Chaco,Total,tasa_mortalidad_100mil,12,definitivo,a2020 p29
+2020,Chaco,Total,tasa_fatalidad_10mil_veh,1.9,definitivo,a2020 p29
+2020,Chaco,Total,tasa_siniestralidad_fatal_100mil,11.1,definitivo,a2020 p19
+2020,Chaco,Total,tasa_siniestralidad_fatal_10mil_veh,1.7,definitivo,a2020 p19
+2020,Chaco,Total,poblacion,1204541,definitivo,a2020 p14
+2020,Chaco,Total,parque_vehicular,801798,definitivo,a2020 p15
+2021,Chaco,Total,victimas_fatales,189,definitivo,a2021 p24; a2021 p30; a2022 p43
+2021,Chaco,Motociclista,victimas_fatales,140,definitivo,a2021 p30
+2021,Chaco,Automóvil,victimas_fatales,20,definitivo,a2021 p30
+2021,Chaco,Peatón,victimas_fatales,11,definitivo,a2021 p30
+2021,Chaco,Ciclista,victimas_fatales,6,definitivo,a2021 p30
+2021,Chaco,Otros vehículos,victimas_fatales,12,definitivo,a2021 p30
+2021,Chaco,Sin dato,victimas_fatales,0,definitivo,a2021 p30
+2021,Chaco,Total,siniestros_fatales,171,definitivo,a2021 p15; a2022 p23
+2021,Chaco,Total,personas_heridas,1348,definitivo,a2021 p33
+2021,Chaco,Total,tasa_mortalidad_100mil,15.5,definitivo,a2021 p24
+2021,Chaco,Total,tasa_fatalidad_10mil_veh,2.4,definitivo,a2021 p24
+2021,Chaco,Total,tasa_siniestralidad_fatal_100mil,14.1,definitivo,a2021 p15
+2021,Chaco,Total,tasa_siniestralidad_fatal_10mil_veh,2.1,definitivo,a2021 p15
+2021,Chaco,Total,poblacion,1216247,definitivo,a2021 p12
+2022,Chaco,Total,victimas_fatales,186,definitivo,a2022 p40; a2022 p43; a2022 p47
+2022,Chaco,Motociclista,victimas_fatales,125,definitivo,a2022 p47
+2022,Chaco,Automóvil,victimas_fatales,21,definitivo,a2022 p47
+2022,Chaco,Peatón,victimas_fatales,15,definitivo,a2022 p47
+2022,Chaco,Ciclista,victimas_fatales,6,definitivo,a2022 p47
+2022,Chaco,Otros vehículos,victimas_fatales,19,definitivo,a2022 p47
+2022,Chaco,Sin dato,victimas_fatales,0,definitivo,a2022 p47
+2022,Chaco,Total,siniestros_fatales,172,definitivo,a2022 p14; a2022 p20; a2022 p23
+2022,Chaco,Total,siniestros_con_victimas,987,preliminar,a2022 p14
+2022,Chaco,Total,siniestros_con_lesionados,815,preliminar,a2022 p14
+2022,Chaco,Total,personas_heridas,1283,preliminar,a2022 p58
+2022,Chaco,Total,tasa_mortalidad_100mil,15.1,definitivo,a2022 p40
+2022,Chaco,Total,tasa_fatalidad_10mil_veh,2.2,definitivo,a2022 p40
+2022,Chaco,Total,tasa_siniestralidad_fatal_100mil,14,definitivo,a2022 p20
+2022,Chaco,Total,tasa_siniestralidad_fatal_10mil_veh,2.1,definitivo,a2022 p20
+2022,Chaco,Total,poblacion,1227736,definitivo,a2022 p77
+2022,Chaco,Total,parque_vehicular,834873,definitivo,a2022 p79
+2023,Chaco,Total,victimas_fatales,201,preliminar,p2023 p11
+2023,Chaco,Total,siniestros_fatales,183,preliminar,p2023 p10
+2023,Chaco,Total,tasa_mortalidad_100mil,16.8,preliminar,p2023 p11
+2023,Chaco,Total,tasa_fatalidad_10mil_veh,2.3,preliminar,p2023 p11
+2023,Chaco,Total,tasa_siniestralidad_fatal_100mil,15.3,preliminar,p2023 p10
+2023,Chaco,Total,tasa_siniestralidad_fatal_10mil_veh,2.1,preliminar,p2023 p10
+2024,Chaco,Total,victimas_fatales,158,preliminar,p2024 p10
+2024,Chaco,Total,siniestros_fatales,152,preliminar,p2024 p9
+2024,Chaco,Total,tasa_mortalidad_100mil,13.2,preliminar,p2024 p10
+2024,Chaco,Total,tasa_siniestralidad_fatal_100mil,12.7,preliminar,p2024 p9
+2025,Chaco,Total,victimas_fatales,167,preliminar,p2025
+2025,Chaco,Total,tasa_mortalidad_100mil,13.8,preliminar,p2025
+2026,Chaco,Total,victimas_fatales,99,parcial,p2026 p9
+2026,Chaco,Total,siniestros_fatales,93,parcial,p2026 p8
+2016,Chubut,Total,victimas_fatales,79,definitivo,a2018 p14; a2019 p77
+2016,Chubut,Total,tasa_mortalidad_100mil,13.7,definitivo,a2018 p16
+2016,Chubut,Total,tasa_fatalidad_10mil_veh,2.4,definitivo,a2018 p18
+2017,Chubut,Total,victimas_fatales,64,definitivo,a2017 p18; a2017 p7; a2018 p14; a2019 p77; a2022 p43
+2017,Chubut,Motociclista,victimas_fatales,7,definitivo,a2017 p18
+2017,Chubut,Automóvil,victimas_fatales,51,definitivo,a2017 p18
+2017,Chubut,Peatón,victimas_fatales,5,definitivo,a2017 p18
+2017,Chubut,Ciclista,victimas_fatales,1,definitivo,a2017 p18
+2017,Chubut,Otros vehículos,victimas_fatales,0,definitivo,a2017 p18
+2017,Chubut,Sin dato,victimas_fatales,0,definitivo,a2017 p18
+2017,Chubut,Total,siniestros_fatales,54,definitivo,a2017 p25; a2022 p23
+2017,Chubut,Total,siniestros_con_lesionados,694,definitivo,a2017 p25
+2017,Chubut,Total,personas_heridas,969,definitivo,a2017 p23
+2017,Chubut,Total,tasa_mortalidad_100mil,10.9,definitivo,a2017 p7; a2018 p16
+2017,Chubut,Total,tasa_fatalidad_10mil_veh,1.9,definitivo,a2017 p7; a2018 p18
+2017,Chubut,Total,poblacion,587956,definitivo,a2017 p7
+2017,Chubut,Total,parque_vehicular,345452,definitivo,a2017 p7
+2018,Chubut,Total,victimas_fatales,64,definitivo,a2018 p14; a2018 p24; a2019 p77; a2022 p43
+2018,Chubut,Motociclista,victimas_fatales,8,definitivo,a2018 p24
+2018,Chubut,Automóvil,victimas_fatales,42,definitivo,a2018 p24
+2018,Chubut,Peatón,victimas_fatales,13,definitivo,a2018 p24
+2018,Chubut,Ciclista,victimas_fatales,1,definitivo,a2018 p24
+2018,Chubut,Otros vehículos,victimas_fatales,0,definitivo,a2018 p24
+2018,Chubut,Sin dato,victimas_fatales,0,definitivo,a2018 p24
+2018,Chubut,Total,siniestros_fatales,58,definitivo,a2018 p36; a2022 p23
+2018,Chubut,Total,siniestros_con_lesionados,720,definitivo,a2018 p36
+2018,Chubut,Total,personas_heridas,931,definitivo,a2018 p30
+2018,Chubut,Total,tasa_mortalidad_100mil,10.7,definitivo,a2018 p16
+2018,Chubut,Total,tasa_fatalidad_10mil_veh,1.8,definitivo,a2018 p18
+2019,Chubut,Total,victimas_fatales,52,definitivo,a2019 p74; a2019 p77; a2019 p99; a2022 p43
+2019,Chubut,Motociclista,victimas_fatales,5,definitivo,a2019 p99
+2019,Chubut,Automóvil,victimas_fatales,41,definitivo,a2019 p99
+2019,Chubut,Peatón,victimas_fatales,2,definitivo,a2019 p99
+2019,Chubut,Ciclista,victimas_fatales,1,definitivo,a2019 p99
+2019,Chubut,Otros vehículos,victimas_fatales,3,definitivo,a2019 p99
+2019,Chubut,Sin dato,victimas_fatales,0,definitivo,a2019 p99
+2019,Chubut,Total,siniestros_fatales,44,definitivo,a2022 p23
+2019,Chubut,Total,siniestros_con_victimas,659,definitivo,a2019 p44
+2019,Chubut,Total,personas_heridas,875,definitivo,a2019 p116
+2019,Chubut,Total,tasa_mortalidad_100mil,8.5,definitivo,a2019 p74
+2019,Chubut,Total,tasa_fatalidad_10mil_veh,1.4,definitivo,a2019 p74
+2019,Chubut,Total,poblacion,608729,definitivo,a2019 p74
+2019,Chubut,Total,parque_vehicular,365543,definitivo,a2019 p74
+2020,Chubut,Total,victimas_fatales,21,definitivo,a2020 p29; a2020 p35; a2022 p43
+2020,Chubut,Motociclista,victimas_fatales,2,definitivo,a2020 p35
+2020,Chubut,Automóvil,victimas_fatales,7,definitivo,a2020 p35
+2020,Chubut,Peatón,victimas_fatales,5,definitivo,a2020 p35
+2020,Chubut,Ciclista,victimas_fatales,2,definitivo,a2020 p35
+2020,Chubut,Otros vehículos,victimas_fatales,5,definitivo,a2020 p35
+2020,Chubut,Sin dato,victimas_fatales,0,definitivo,a2020 p35
+2020,Chubut,Total,siniestros_fatales,20,definitivo,a2020 p19; a2020 p26; a2022 p23
+2020,Chubut,Total,siniestros_con_victimas,345,definitivo,a2020 p26
+2020,Chubut,Total,siniestros_con_lesionados,325,definitivo,a2020 p26
+2020,Chubut,Total,personas_heridas,441,definitivo,a2020 p39
+2020,Chubut,Total,tasa_mortalidad_100mil,3.4,definitivo,a2020 p29
+2020,Chubut,Total,tasa_fatalidad_10mil_veh,0.6,definitivo,a2020 p29
+2020,Chubut,Total,tasa_siniestralidad_fatal_100mil,3.2,definitivo,a2020 p19
+2020,Chubut,Total,tasa_siniestralidad_fatal_10mil_veh,0.5,definitivo,a2020 p19
+2020,Chubut,Total,poblacion,618994,definitivo,a2020 p14
+2020,Chubut,Total,parque_vehicular,388489,definitivo,a2020 p15
+2021,Chubut,Total,victimas_fatales,35,definitivo,a2021 p24; a2021 p30; a2022 p43
+2021,Chubut,Motociclista,victimas_fatales,6,definitivo,a2021 p30
+2021,Chubut,Automóvil,victimas_fatales,15,definitivo,a2021 p30
+2021,Chubut,Peatón,victimas_fatales,4,definitivo,a2021 p30
+2021,Chubut,Ciclista,victimas_fatales,1,definitivo,a2021 p30
+2021,Chubut,Otros vehículos,victimas_fatales,9,definitivo,a2021 p30
+2021,Chubut,Sin dato,victimas_fatales,0,definitivo,a2021 p30
+2021,Chubut,Total,siniestros_fatales,34,definitivo,a2021 p15; a2022 p23
+2021,Chubut,Total,personas_heridas,505,definitivo,a2021 p33
+2021,Chubut,Total,tasa_mortalidad_100mil,5.6,definitivo,a2021 p24
+2021,Chubut,Total,tasa_fatalidad_10mil_veh,0.9,definitivo,a2021 p24
+2021,Chubut,Total,tasa_siniestralidad_fatal_100mil,5.4,definitivo,a2021 p15
+2021,Chubut,Total,tasa_siniestralidad_fatal_10mil_veh,0.9,definitivo,a2021 p15
+2021,Chubut,Total,poblacion,629181,definitivo,a2021 p12
+2022,Chubut,Total,victimas_fatales,33,definitivo,a2022 p40; a2022 p43; a2022 p47
+2022,Chubut,Motociclista,victimas_fatales,5,definitivo,a2022 p47
+2022,Chubut,Automóvil,victimas_fatales,22,definitivo,a2022 p47
+2022,Chubut,Peatón,victimas_fatales,1,definitivo,a2022 p47
+2022,Chubut,Ciclista,victimas_fatales,0,definitivo,a2022 p47
+2022,Chubut,Otros vehículos,victimas_fatales,5,definitivo,a2022 p47
+2022,Chubut,Sin dato,victimas_fatales,0,definitivo,a2022 p47
+2022,Chubut,Total,siniestros_fatales,30,definitivo,a2022 p14; a2022 p20; a2022 p23
+2022,Chubut,Total,siniestros_con_victimas,411,preliminar,a2022 p14
+2022,Chubut,Total,siniestros_con_lesionados,381,preliminar,a2022 p14
+2022,Chubut,Total,personas_heridas,515,preliminar,a2022 p58
+2022,Chubut,Total,tasa_mortalidad_100mil,5.2,definitivo,a2022 p40
+2022,Chubut,Total,tasa_fatalidad_10mil_veh,0.8,definitivo,a2022 p40
+2022,Chubut,Total,tasa_siniestralidad_fatal_100mil,4.7,definitivo,a2022 p20
+2022,Chubut,Total,tasa_siniestralidad_fatal_10mil_veh,0.8,definitivo,a2022 p20
+2022,Chubut,Total,poblacion,639294,definitivo,a2022 p77
+2022,Chubut,Total,parque_vehicular,395329,definitivo,a2022 p79
+2023,Chubut,Total,victimas_fatales,25,preliminar,p2023 p11
+2023,Chubut,Total,siniestros_fatales,23,preliminar,p2023 p10
+2023,Chubut,Total,tasa_mortalidad_100mil,4.2,preliminar,p2023 p11
+2023,Chubut,Total,tasa_fatalidad_10mil_veh,0.6,preliminar,p2023 p11
+2023,Chubut,Total,tasa_siniestralidad_fatal_100mil,3.8,preliminar,p2023 p10
+2023,Chubut,Total,tasa_siniestralidad_fatal_10mil_veh,0.6,preliminar,p2023 p10
+2024,Chubut,Total,victimas_fatales,35,preliminar,p2024 p10
+2024,Chubut,Total,siniestros_fatales,29,preliminar,p2024 p9
+2024,Chubut,Total,tasa_mortalidad_100mil,5.8,preliminar,p2024 p10
+2024,Chubut,Total,tasa_siniestralidad_fatal_100mil,4.8,preliminar,p2024 p9
+2025,Chubut,Total,victimas_fatales,28,preliminar,p2025
+2025,Chubut,Total,tasa_mortalidad_100mil,4.6,preliminar,p2025
+2026,Chubut,Total,victimas_fatales,31,parcial,p2026 p9
+2026,Chubut,Total,siniestros_fatales,28,parcial,p2026 p8
+2016,Corrientes,Total,victimas_fatales,172,definitivo,a2018 p14; a2019 p77
+2016,Corrientes,Total,tasa_mortalidad_100mil,15.9,definitivo,a2018 p16
+2016,Corrientes,Total,tasa_fatalidad_10mil_veh,3.3,definitivo,a2018 p18
+2017,Corrientes,Total,victimas_fatales,191,definitivo,a2017 p18; a2017 p7; a2018 p14; a2019 p77; a2022 p43
+2017,Corrientes,Motociclista,victimas_fatales,92,definitivo,a2017 p18
+2017,Corrientes,Automóvil,victimas_fatales,78,definitivo,a2017 p18
+2017,Corrientes,Peatón,victimas_fatales,16,definitivo,a2017 p18
+2017,Corrientes,Ciclista,victimas_fatales,5,definitivo,a2017 p18
+2017,Corrientes,Otros vehículos,victimas_fatales,0,definitivo,a2017 p18
+2017,Corrientes,Sin dato,victimas_fatales,0,definitivo,a2017 p18
+2017,Corrientes,Total,siniestros_fatales,167,definitivo,a2017 p25; a2022 p23
+2017,Corrientes,Total,siniestros_con_lesionados,538,definitivo,a2017 p25
+2017,Corrientes,Total,personas_heridas,983,definitivo,a2017 p23
+2017,Corrientes,Total,tasa_mortalidad_100mil,17.5,definitivo,a2017 p7; a2018 p16
+2017,Corrientes,Total,tasa_fatalidad_10mil_veh,3.4,definitivo,a2017 p7; a2018 p18
+2017,Corrientes,Total,poblacion,1090938,definitivo,a2017 p7
+2017,Corrientes,Total,parque_vehicular,564346,definitivo,a2017 p7
+2018,Corrientes,Total,victimas_fatales,190,definitivo,a2018 p14; a2018 p24; a2019 p77; a2022 p43
+2018,Corrientes,Motociclista,victimas_fatales,87,definitivo,a2018 p24
+2018,Corrientes,Automóvil,victimas_fatales,46,definitivo,a2018 p24
+2018,Corrientes,Peatón,victimas_fatales,23,definitivo,a2018 p24
+2018,Corrientes,Ciclista,victimas_fatales,4,definitivo,a2018 p24
+2018,Corrientes,Otros vehículos,victimas_fatales,30,definitivo,a2018 p24
+2018,Corrientes,Sin dato,victimas_fatales,0,definitivo,a2018 p24
+2018,Corrientes,Total,siniestros_fatales,165,definitivo,a2018 p36; a2022 p23
+2018,Corrientes,Total,siniestros_con_lesionados,972,definitivo,a2018 p36
+2018,Corrientes,Total,personas_heridas,1612,definitivo,a2018 p30
+2018,Corrientes,Total,tasa_mortalidad_100mil,17.3,definitivo,a2018 p16
+2018,Corrientes,Total,tasa_fatalidad_10mil_veh,3.1,definitivo,a2018 p18
+2019,Corrientes,Total,victimas_fatales,165,definitivo,a2019 p74; a2019 p77; a2019 p99; a2022 p43
+2019,Corrientes,Motociclista,victimas_fatales,97,definitivo,a2019 p99
+2019,Corrientes,Automóvil,victimas_fatales,36,definitivo,a2019 p99
+2019,Corrientes,Peatón,victimas_fatales,15,definitivo,a2019 p99
+2019,Corrientes,Ciclista,victimas_fatales,4,definitivo,a2019 p99
+2019,Corrientes,Otros vehículos,victimas_fatales,13,definitivo,a2019 p99
+2019,Corrientes,Sin dato,victimas_fatales,0,definitivo,a2019 p99
+2019,Corrientes,Total,siniestros_fatales,146,definitivo,a2022 p23
+2019,Corrientes,Total,siniestros_con_victimas,1296,definitivo,a2019 p44
+2019,Corrientes,Total,personas_heridas,1763,definitivo,a2019 p116
+2019,Corrientes,Total,tasa_mortalidad_100mil,14.9,definitivo,a2019 p74
+2019,Corrientes,Total,tasa_fatalidad_10mil_veh,2.7,definitivo,a2019 p74
+2019,Corrientes,Total,poblacion,1111052,definitivo,a2019 p74
+2019,Corrientes,Total,parque_vehicular,614915,definitivo,a2019 p74
+2020,Corrientes,Total,victimas_fatales,129,definitivo,a2020 p29; a2020 p35; a2022 p43
+2020,Corrientes,Motociclista,victimas_fatales,76,definitivo,a2020 p35
+2020,Corrientes,Automóvil,victimas_fatales,22,definitivo,a2020 p35
+2020,Corrientes,Peatón,victimas_fatales,14,definitivo,a2020 p35
+2020,Corrientes,Ciclista,victimas_fatales,6,definitivo,a2020 p35
+2020,Corrientes,Otros vehículos,victimas_fatales,11,definitivo,a2020 p35
+2020,Corrientes,Sin dato,victimas_fatales,0,definitivo,a2020 p35
+2020,Corrientes,Total,siniestros_fatales,118,definitivo,a2020 p19; a2020 p26; a2022 p23
+2020,Corrientes,Total,siniestros_con_victimas,883,definitivo,a2020 p26
+2020,Corrientes,Total,siniestros_con_lesionados,765,definitivo,a2020 p26
+2020,Corrientes,Total,personas_heridas,1136,definitivo,a2020 p39
+2020,Corrientes,Total,tasa_mortalidad_100mil,11.5,definitivo,a2020 p29
+2020,Corrientes,Total,tasa_fatalidad_10mil_veh,2,definitivo,a2020 p29
+2020,Corrientes,Total,tasa_siniestralidad_fatal_100mil,10.5,definitivo,a2020 p19
+2020,Corrientes,Total,tasa_siniestralidad_fatal_10mil_veh,1.8,definitivo,a2020 p19
+2020,Corrientes,Total,poblacion,1120801,definitivo,a2020 p14
+2020,Corrientes,Total,parque_vehicular,673036,definitivo,a2020 p15
+2021,Corrientes,Total,victimas_fatales,148,definitivo,a2021 p24; a2021 p30; a2022 p43
+2021,Corrientes,Motociclista,victimas_fatales,94,definitivo,a2021 p30
+2021,Corrientes,Automóvil,victimas_fatales,18,definitivo,a2021 p30
+2021,Corrientes,Peatón,victimas_fatales,12,definitivo,a2021 p30
+2021,Corrientes,Ciclista,victimas_fatales,7,definitivo,a2021 p30
+2021,Corrientes,Otros vehículos,victimas_fatales,17,definitivo,a2021 p30
+2021,Corrientes,Sin dato,victimas_fatales,0,definitivo,a2021 p30
+2021,Corrientes,Total,siniestros_fatales,135,definitivo,a2021 p15; a2022 p23
+2021,Corrientes,Total,personas_heridas,1193,definitivo,a2021 p33
+2021,Corrientes,Total,tasa_mortalidad_100mil,13.1,definitivo,a2021 p24
+2021,Corrientes,Total,tasa_fatalidad_10mil_veh,2.2,definitivo,a2021 p24
+2021,Corrientes,Total,tasa_siniestralidad_fatal_100mil,11.9,definitivo,a2021 p15
+2021,Corrientes,Total,tasa_siniestralidad_fatal_10mil_veh,2,definitivo,a2021 p15
+2021,Corrientes,Total,poblacion,1130320,definitivo,a2021 p12
+2022,Corrientes,Total,victimas_fatales,183,definitivo,a2022 p40; a2022 p43; a2022 p47
+2022,Corrientes,Motociclista,victimas_fatales,84,definitivo,a2022 p47
+2022,Corrientes,Automóvil,victimas_fatales,51,definitivo,a2022 p47
+2022,Corrientes,Peatón,victimas_fatales,14,definitivo,a2022 p47
+2022,Corrientes,Ciclista,victimas_fatales,5,definitivo,a2022 p47
+2022,Corrientes,Otros vehículos,victimas_fatales,29,definitivo,a2022 p47
+2022,Corrientes,Sin dato,victimas_fatales,0,definitivo,a2022 p47
+2022,Corrientes,Total,siniestros_fatales,159,definitivo,a2022 p14; a2022 p20; a2022 p23
+2022,Corrientes,Total,siniestros_con_victimas,991,preliminar,a2022 p14
+2022,Corrientes,Total,siniestros_con_lesionados,832,preliminar,a2022 p14
+2022,Corrientes,Total,personas_heridas,1289,preliminar,a2022 p58
+2022,Corrientes,Total,tasa_mortalidad_100mil,16.1,definitivo,a2022 p40
+2022,Corrientes,Total,tasa_fatalidad_10mil_veh,2.6,definitivo,a2022 p40
+2022,Corrientes,Total,tasa_siniestralidad_fatal_100mil,14,definitivo,a2022 p20
+2022,Corrientes,Total,tasa_siniestralidad_fatal_10mil_veh,2.3,definitivo,a2022 p20
+2022,Corrientes,Total,poblacion,1139604,definitivo,a2022 p77
+2022,Corrientes,Total,parque_vehicular,697273,definitivo,a2022 p79
+2023,Corrientes,Total,victimas_fatales,151,preliminar,p2023 p11
+2023,Corrientes,Total,siniestros_fatales,134,preliminar,p2023 p10
+2023,Corrientes,Total,tasa_mortalidad_100mil,12.6,preliminar,p2023 p11
+2023,Corrientes,Total,tasa_fatalidad_10mil_veh,2.1,preliminar,p2023 p11
+2023,Corrientes,Total,tasa_siniestralidad_fatal_100mil,11.2,preliminar,p2023 p10
+2023,Corrientes,Total,tasa_siniestralidad_fatal_10mil_veh,1.9,preliminar,p2023 p10
+2024,Corrientes,Total,victimas_fatales,159,preliminar,p2024 p10
+2024,Corrientes,Total,siniestros_fatales,131,preliminar,p2024 p9
+2024,Corrientes,Total,tasa_mortalidad_100mil,13.3,preliminar,p2024 p10
+2024,Corrientes,Total,tasa_siniestralidad_fatal_100mil,10.9,preliminar,p2024 p9
+2025,Corrientes,Total,victimas_fatales,155,preliminar,p2025
+2025,Corrientes,Total,tasa_mortalidad_100mil,12.9,preliminar,p2025
+2026,Corrientes,Total,victimas_fatales,98,parcial,p2026 p9
+2026,Corrientes,Total,siniestros_fatales,82,parcial,p2026 p8
+2016,Córdoba,Total,victimas_fatales,490,definitivo,a2018 p14; a2019 p77
+2016,Córdoba,Total,tasa_mortalidad_100mil,13.6,definitivo,a2018 p16
+2016,Córdoba,Total,tasa_fatalidad_10mil_veh,2.2,definitivo,a2018 p18
+2017,Córdoba,Total,victimas_fatales,504,definitivo,a2017 p18; a2017 p7; a2018 p14; a2019 p77; a2022 p43
+2017,Córdoba,Motociclista,victimas_fatales,0,definitivo,a2017 p18
+2017,Córdoba,Automóvil,victimas_fatales,0,definitivo,a2017 p18
+2017,Córdoba,Peatón,victimas_fatales,0,definitivo,a2017 p18
+2017,Córdoba,Ciclista,victimas_fatales,0,definitivo,a2017 p18
+2017,Córdoba,Otros vehículos,victimas_fatales,0,definitivo,a2017 p18
+2017,Córdoba,Sin dato,victimas_fatales,504,definitivo,a2017 p18
+2017,Córdoba,Total,siniestros_fatales,349,definitivo,a2017 p25; a2022 p23
+2017,Córdoba,Total,siniestros_con_lesionados,1123,definitivo,a2017 p25
+2017,Córdoba,Total,personas_heridas,1788,definitivo,a2017 p23
+2017,Córdoba,Total,tasa_mortalidad_100mil,13.8,definitivo,a2017 p7; a2018 p16
+2017,Córdoba,Total,tasa_fatalidad_10mil_veh,2.1,definitivo,a2017 p7; a2018 p18
+2017,Córdoba,Total,poblacion,3645321,definitivo,a2017 p7
+2017,Córdoba,Total,parque_vehicular,2418210,definitivo,a2017 p7
+2018,Córdoba,Total,victimas_fatales,564,definitivo,a2018 p14; a2018 p24; a2019 p77; a2022 p43
+2018,Córdoba,Motociclista,victimas_fatales,251,definitivo,a2018 p24
+2018,Córdoba,Automóvil,victimas_fatales,186,definitivo,a2018 p24
+2018,Córdoba,Peatón,victimas_fatales,53,definitivo,a2018 p24
+2018,Córdoba,Ciclista,victimas_fatales,16,definitivo,a2018 p24
+2018,Córdoba,Otros vehículos,victimas_fatales,53,definitivo,a2018 p24
+2018,Córdoba,Sin dato,victimas_fatales,5,definitivo,a2018 p24
+2018,Córdoba,Total,siniestros_fatales,395,definitivo,a2018 p36; a2022 p23
+2018,Córdoba,Total,tasa_mortalidad_100mil,15.3,definitivo,a2018 p16
+2018,Córdoba,Total,tasa_fatalidad_10mil_veh,2.2,definitivo,a2018 p18
+2019,Córdoba,Total,victimas_fatales,367,definitivo,a2019 p74; a2019 p77; a2019 p99; a2022 p43
+2019,Córdoba,Motociclista,victimas_fatales,158,definitivo,a2019 p99
+2019,Córdoba,Automóvil,victimas_fatales,120,definitivo,a2019 p99
+2019,Córdoba,Peatón,victimas_fatales,29,definitivo,a2019 p99
+2019,Córdoba,Ciclista,victimas_fatales,17,definitivo,a2019 p99
+2019,Córdoba,Otros vehículos,victimas_fatales,38,definitivo,a2019 p99
+2019,Córdoba,Sin dato,victimas_fatales,5,definitivo,a2019 p99
+2019,Córdoba,Total,siniestros_fatales,329,definitivo,a2022 p23
+2019,Córdoba,Total,siniestros_con_victimas,329,definitivo,a2019 p44
+2019,Córdoba,Total,tasa_mortalidad_100mil,9.9,definitivo,a2019 p74
+2019,Córdoba,Total,tasa_fatalidad_10mil_veh,1.4,definitivo,a2019 p74
+2019,Córdoba,Total,poblacion,3722332,definitivo,a2019 p74
+2019,Córdoba,Total,parque_vehicular,2558311,definitivo,a2019 p74
+2020,Córdoba,Total,victimas_fatales,329,definitivo,a2020 p29; a2020 p35; a2022 p43
+2020,Córdoba,Motociclista,victimas_fatales,166,definitivo,a2020 p35
+2020,Córdoba,Automóvil,victimas_fatales,98,definitivo,a2020 p35
+2020,Córdoba,Peatón,victimas_fatales,19,definitivo,a2020 p35
+2020,Córdoba,Ciclista,victimas_fatales,17,definitivo,a2020 p35
+2020,Córdoba,Otros vehículos,victimas_fatales,25,definitivo,a2020 p35
+2020,Córdoba,Sin dato,victimas_fatales,4,definitivo,a2020 p35
+2020,Córdoba,Total,siniestros_fatales,297,definitivo,a2020 p19; a2020 p26; a2022 p23
+2020,Córdoba,Total,siniestros_con_victimas,5579,definitivo,a2020 p26
+2020,Córdoba,Total,siniestros_con_lesionados,5282,definitivo,a2020 p26
+2020,Córdoba,Total,personas_heridas,5925,definitivo,a2020 p39
+2020,Córdoba,Total,tasa_mortalidad_100mil,8.7,definitivo,a2020 p29
+2020,Córdoba,Total,tasa_fatalidad_10mil_veh,1.2,definitivo,a2020 p29
+2020,Córdoba,Total,tasa_siniestralidad_fatal_100mil,7.9,definitivo,a2020 p19
+2020,Córdoba,Total,tasa_siniestralidad_fatal_10mil_veh,1.1,definitivo,a2020 p19
+2020,Córdoba,Total,poblacion,3760450,definitivo,a2020 p14
+2020,Córdoba,Total,parque_vehicular,2742958,definitivo,a2020 p15
+2021,Córdoba,Total,victimas_fatales,382,definitivo,a2021 p24; a2021 p30; a2022 p43
+2021,Córdoba,Motociclista,victimas_fatales,185,definitivo,a2021 p30
+2021,Córdoba,Automóvil,victimas_fatales,125,definitivo,a2021 p30
+2021,Córdoba,Peatón,victimas_fatales,27,definitivo,a2021 p30
+2021,Córdoba,Ciclista,victimas_fatales,16,definitivo,a2021 p30
+2021,Córdoba,Otros vehículos,victimas_fatales,29,definitivo,a2021 p30
+2021,Córdoba,Sin dato,victimas_fatales,0,definitivo,a2021 p30
+2021,Córdoba,Total,siniestros_fatales,351,definitivo,a2021 p15; a2022 p23
+2021,Córdoba,Total,personas_heridas,7429,definitivo,a2021 p33
+2021,Córdoba,Total,tasa_mortalidad_100mil,10.1,definitivo,a2021 p24
+2021,Córdoba,Total,tasa_fatalidad_10mil_veh,1.4,definitivo,a2021 p24
+2021,Córdoba,Total,tasa_siniestralidad_fatal_100mil,9.2,definitivo,a2021 p15
+2021,Córdoba,Total,tasa_siniestralidad_fatal_10mil_veh,1.3,definitivo,a2021 p15
+2021,Córdoba,Total,poblacion,3798261,definitivo,a2021 p12
+2022,Córdoba,Total,victimas_fatales,377,definitivo,a2022 p40; a2022 p43; a2022 p47
+2022,Córdoba,Motociclista,victimas_fatales,166,definitivo,a2022 p47
+2022,Córdoba,Automóvil,victimas_fatales,127,definitivo,a2022 p47
+2022,Córdoba,Peatón,victimas_fatales,26,definitivo,a2022 p47
+2022,Córdoba,Ciclista,victimas_fatales,19,definitivo,a2022 p47
+2022,Córdoba,Otros vehículos,victimas_fatales,37,definitivo,a2022 p47
+2022,Córdoba,Sin dato,victimas_fatales,2,definitivo,a2022 p47
+2022,Córdoba,Total,siniestros_fatales,345,definitivo,a2022 p14; a2022 p20; a2022 p23
+2022,Córdoba,Total,siniestros_con_victimas,4163,preliminar,a2022 p14
+2022,Córdoba,Total,siniestros_con_lesionados,3818,preliminar,a2022 p14
+2022,Córdoba,Total,personas_heridas,4943,preliminar,a2022 p58
+2022,Córdoba,Total,tasa_mortalidad_100mil,9.8,definitivo,a2022 p40
+2022,Córdoba,Total,tasa_fatalidad_10mil_veh,1.3,definitivo,a2022 p40
+2022,Córdoba,Total,tasa_siniestralidad_fatal_100mil,9,definitivo,a2022 p20
+2022,Córdoba,Total,tasa_siniestralidad_fatal_10mil_veh,1.2,definitivo,a2022 p20
+2022,Córdoba,Total,poblacion,3835738,definitivo,a2022 p77
+2022,Córdoba,Total,parque_vehicular,2820567,definitivo,a2022 p79
+2023,Córdoba,Total,victimas_fatales,413,preliminar,p2023 p11
+2023,Córdoba,Total,siniestros_fatales,372,preliminar,p2023 p10
+2023,Córdoba,Total,tasa_mortalidad_100mil,10.5,preliminar,p2023 p11
+2023,Córdoba,Total,tasa_fatalidad_10mil_veh,1.4,preliminar,p2023 p11
+2023,Córdoba,Total,tasa_siniestralidad_fatal_100mil,9.5,preliminar,p2023 p10
+2023,Córdoba,Total,tasa_siniestralidad_fatal_10mil_veh,1.3,preliminar,p2023 p10
+2024,Córdoba,Total,victimas_fatales,394,preliminar,p2024 p10
+2024,Córdoba,Total,siniestros_fatales,360,preliminar,p2024 p9
+2024,Córdoba,Total,tasa_mortalidad_100mil,10,preliminar,p2024 p10
+2024,Córdoba,Total,tasa_siniestralidad_fatal_100mil,9.1,preliminar,p2024 p9
+2025,Córdoba,Total,victimas_fatales,355,preliminar,p2025
+2025,Córdoba,Total,tasa_mortalidad_100mil,9,preliminar,p2025
+2026,Córdoba,Total,victimas_fatales,268,parcial,p2026 p9
+2026,Córdoba,Total,siniestros_fatales,244,parcial,p2026 p8
+2016,Entre Ríos,Total,victimas_fatales,167,definitivo,a2018 p14; a2019 p77
+2016,Entre Ríos,Total,tasa_mortalidad_100mil,12.5,definitivo,a2018 p16
+2016,Entre Ríos,Total,tasa_fatalidad_10mil_veh,2.1,definitivo,a2018 p18
+2017,Entre Ríos,Total,victimas_fatales,160,definitivo,a2017 p18; a2017 p7; a2018 p14; a2019 p77; a2022 p43
+2017,Entre Ríos,Motociclista,victimas_fatales,42,definitivo,a2017 p18
+2017,Entre Ríos,Automóvil,victimas_fatales,69,definitivo,a2017 p18
+2017,Entre Ríos,Peatón,victimas_fatales,8,definitivo,a2017 p18
+2017,Entre Ríos,Ciclista,victimas_fatales,3,definitivo,a2017 p18
+2017,Entre Ríos,Otros vehículos,victimas_fatales,38,definitivo,a2017 p18
+2017,Entre Ríos,Sin dato,victimas_fatales,0,definitivo,a2017 p18
+2017,Entre Ríos,Total,siniestros_fatales,115,definitivo,a2017 p25; a2022 p23
+2017,Entre Ríos,Total,siniestros_con_lesionados,690,definitivo,a2017 p25
+2017,Entre Ríos,Total,personas_heridas,1077,definitivo,a2017 p23
+2017,Entre Ríos,Total,tasa_mortalidad_100mil,11.9,definitivo,a2017 p7; a2018 p16
+2017,Entre Ríos,Total,tasa_fatalidad_10mil_veh,1.9,definitivo,a2017 p7; a2018 p18
+2017,Entre Ríos,Total,poblacion,1347508,definitivo,a2017 p7
+2017,Entre Ríos,Total,parque_vehicular,829228,definitivo,a2017 p7
+2018,Entre Ríos,Total,victimas_fatales,192,definitivo,a2018 p14; a2018 p24; a2019 p77; a2022 p43
+2018,Entre Ríos,Motociclista,victimas_fatales,63,definitivo,a2018 p24
+2018,Entre Ríos,Automóvil,victimas_fatales,74,definitivo,a2018 p24
+2018,Entre Ríos,Peatón,victimas_fatales,15,definitivo,a2018 p24
+2018,Entre Ríos,Ciclista,victimas_fatales,6,definitivo,a2018 p24
+2018,Entre Ríos,Otros vehículos,victimas_fatales,34,definitivo,a2018 p24
+2018,Entre Ríos,Sin dato,victimas_fatales,0,definitivo,a2018 p24
+2018,Entre Ríos,Total,siniestros_fatales,125,definitivo,a2018 p36; a2022 p23
+2018,Entre Ríos,Total,siniestros_con_lesionados,695,definitivo,a2018 p36
+2018,Entre Ríos,Total,personas_heridas,1097,definitivo,a2018 p30
+2018,Entre Ríos,Total,tasa_mortalidad_100mil,14.1,definitivo,a2018 p16
+2018,Entre Ríos,Total,tasa_fatalidad_10mil_veh,2.2,definitivo,a2018 p18
+2019,Entre Ríos,Total,victimas_fatales,139,definitivo,a2019 p74; a2019 p77; a2019 p99; a2022 p43
+2019,Entre Ríos,Motociclista,victimas_fatales,43,definitivo,a2019 p99
+2019,Entre Ríos,Automóvil,victimas_fatales,56,definitivo,a2019 p99
+2019,Entre Ríos,Peatón,victimas_fatales,13,definitivo,a2019 p99
+2019,Entre Ríos,Ciclista,victimas_fatales,4,definitivo,a2019 p99
+2019,Entre Ríos,Otros vehículos,victimas_fatales,23,definitivo,a2019 p99
+2019,Entre Ríos,Sin dato,victimas_fatales,0,definitivo,a2019 p99
+2019,Entre Ríos,Total,siniestros_fatales,114,definitivo,a2022 p23
+2019,Entre Ríos,Total,siniestros_con_victimas,757,definitivo,a2019 p44
+2019,Entre Ríos,Total,personas_heridas,1057,definitivo,a2019 p116
+2019,Entre Ríos,Total,tasa_mortalidad_100mil,10.1,definitivo,a2019 p74
+2019,Entre Ríos,Total,tasa_fatalidad_10mil_veh,1.6,definitivo,a2019 p74
+2019,Entre Ríos,Total,poblacion,1373270,definitivo,a2019 p74
+2019,Entre Ríos,Total,parque_vehicular,873374,definitivo,a2019 p74
+2020,Entre Ríos,Total,victimas_fatales,71,definitivo,a2020 p29; a2020 p35; a2022 p43
+2020,Entre Ríos,Motociclista,victimas_fatales,35,definitivo,a2020 p35
+2020,Entre Ríos,Automóvil,victimas_fatales,18,definitivo,a2020 p35
+2020,Entre Ríos,Peatón,victimas_fatales,7,definitivo,a2020 p35
+2020,Entre Ríos,Ciclista,victimas_fatales,2,definitivo,a2020 p35
+2020,Entre Ríos,Otros vehículos,victimas_fatales,9,definitivo,a2020 p35
+2020,Entre Ríos,Sin dato,victimas_fatales,0,definitivo,a2020 p35
+2020,Entre Ríos,Total,siniestros_fatales,63,definitivo,a2020 p19; a2020 p26; a2022 p23
+2020,Entre Ríos,Total,siniestros_con_victimas,501,definitivo,a2020 p26
+2020,Entre Ríos,Total,siniestros_con_lesionados,438,definitivo,a2020 p26
+2020,Entre Ríos,Total,personas_heridas,666,definitivo,a2020 p39
+2020,Entre Ríos,Total,tasa_mortalidad_100mil,5.1,definitivo,a2020 p29
+2020,Entre Ríos,Total,tasa_fatalidad_10mil_veh,0.8,definitivo,a2020 p29
+2020,Entre Ríos,Total,tasa_siniestralidad_fatal_100mil,4.5,definitivo,a2020 p19
+2020,Entre Ríos,Total,tasa_siniestralidad_fatal_10mil_veh,0.7,definitivo,a2020 p19
+2020,Entre Ríos,Total,poblacion,1385961,definitivo,a2020 p14
+2020,Entre Ríos,Total,parque_vehicular,937390,definitivo,a2020 p15
+2021,Entre Ríos,Total,victimas_fatales,147,definitivo,a2021 p24; a2021 p30; a2022 p43
+2021,Entre Ríos,Motociclista,victimas_fatales,47,definitivo,a2021 p30
+2021,Entre Ríos,Automóvil,victimas_fatales,60,definitivo,a2021 p30
+2021,Entre Ríos,Peatón,victimas_fatales,17,definitivo,a2021 p30
+2021,Entre Ríos,Ciclista,victimas_fatales,2,definitivo,a2021 p30
+2021,Entre Ríos,Otros vehículos,victimas_fatales,21,definitivo,a2021 p30
+2021,Entre Ríos,Sin dato,victimas_fatales,0,definitivo,a2021 p30
+2021,Entre Ríos,Total,siniestros_fatales,130,definitivo,a2021 p15; a2022 p23
+2021,Entre Ríos,Total,personas_heridas,810,definitivo,a2021 p33
+2021,Entre Ríos,Total,tasa_mortalidad_100mil,10.5,definitivo,a2021 p24
+2021,Entre Ríos,Total,tasa_fatalidad_10mil_veh,1.6,definitivo,a2021 p24
+2021,Entre Ríos,Total,tasa_siniestralidad_fatal_100mil,9.3,definitivo,a2021 p15
+2021,Entre Ríos,Total,tasa_siniestralidad_fatal_10mil_veh,1.4,definitivo,a2021 p15
+2021,Entre Ríos,Total,poblacion,1398510,definitivo,a2021 p12
+2022,Entre Ríos,Total,victimas_fatales,145,definitivo,a2022 p40; a2022 p43; a2022 p47
+2022,Entre Ríos,Motociclista,victimas_fatales,50,definitivo,a2022 p47
+2022,Entre Ríos,Automóvil,victimas_fatales,53,definitivo,a2022 p47
+2022,Entre Ríos,Peatón,victimas_fatales,11,definitivo,a2022 p47
+2022,Entre Ríos,Ciclista,victimas_fatales,8,definitivo,a2022 p47
+2022,Entre Ríos,Otros vehículos,victimas_fatales,23,definitivo,a2022 p47
+2022,Entre Ríos,Sin dato,victimas_fatales,0,definitivo,a2022 p47
+2022,Entre Ríos,Total,siniestros_fatales,119,definitivo,a2022 p14; a2022 p20; a2022 p23
+2022,Entre Ríos,Total,siniestros_con_victimas,679,preliminar,a2022 p14
+2022,Entre Ríos,Total,siniestros_con_lesionados,560,preliminar,a2022 p14
+2022,Entre Ríos,Total,personas_heridas,912,preliminar,a2022 p58
+2022,Entre Ríos,Total,tasa_mortalidad_100mil,10.3,definitivo,a2022 p40
+2022,Entre Ríos,Total,tasa_fatalidad_10mil_veh,1.5,definitivo,a2022 p40
+2022,Entre Ríos,Total,tasa_siniestralidad_fatal_100mil,8.4,definitivo,a2022 p20
+2022,Entre Ríos,Total,tasa_siniestralidad_fatal_10mil_veh,1.2,definitivo,a2022 p20
+2022,Entre Ríos,Total,poblacion,1410908,definitivo,a2022 p77
+2022,Entre Ríos,Total,parque_vehicular,964573,definitivo,a2022 p79
+2023,Entre Ríos,Total,victimas_fatales,139,preliminar,p2023 p11
+2023,Entre Ríos,Total,siniestros_fatales,128,preliminar,p2023 p10
+2023,Entre Ríos,Total,tasa_mortalidad_100mil,9.6,preliminar,p2023 p11
+2023,Entre Ríos,Total,tasa_fatalidad_10mil_veh,1.4,preliminar,p2023 p11
+2023,Entre Ríos,Total,tasa_siniestralidad_fatal_100mil,8.8,preliminar,p2023 p10
+2023,Entre Ríos,Total,tasa_siniestralidad_fatal_10mil_veh,1.3,preliminar,p2023 p10
+2024,Entre Ríos,Total,victimas_fatales,112,preliminar,p2024 p10
+2024,Entre Ríos,Total,siniestros_fatales,92,preliminar,p2024 p9
+2024,Entre Ríos,Total,tasa_mortalidad_100mil,7.7,preliminar,p2024 p10
+2024,Entre Ríos,Total,tasa_siniestralidad_fatal_100mil,6.3,preliminar,p2024 p9
+2025,Entre Ríos,Total,victimas_fatales,133,preliminar,p2025
+2025,Entre Ríos,Total,tasa_mortalidad_100mil,9.1,preliminar,p2025
+2026,Entre Ríos,Total,victimas_fatales,90,parcial,p2026 p9
+2026,Entre Ríos,Total,siniestros_fatales,72,parcial,p2026 p8
+2016,Formosa,Total,victimas_fatales,108,definitivo,a2018 p14; a2019 p77
+2016,Formosa,Total,tasa_mortalidad_100mil,18.5,definitivo,a2018 p16
+2016,Formosa,Total,tasa_fatalidad_10mil_veh,4.2,definitivo,a2018 p18
+2017,Formosa,Total,victimas_fatales,124,definitivo,a2017 p18; a2017 p7; a2018 p14; a2019 p77; a2022 p43
+2017,Formosa,Motociclista,victimas_fatales,77,definitivo,a2017 p18
+2017,Formosa,Automóvil,victimas_fatales,32,definitivo,a2017 p18
+2017,Formosa,Peatón,victimas_fatales,11,definitivo,a2017 p18
+2017,Formosa,Ciclista,victimas_fatales,3,definitivo,a2017 p18
+2017,Formosa,Otros vehículos,victimas_fatales,0,definitivo,a2017 p18
+2017,Formosa,Sin dato,victimas_fatales,1,definitivo,a2017 p18
+2017,Formosa,Total,siniestros_fatales,107,definitivo,a2017 p25; a2022 p23
+2017,Formosa,Total,siniestros_con_lesionados,2707,definitivo,a2017 p25
+2017,Formosa,Total,personas_heridas,3590,definitivo,a2017 p23
+2017,Formosa,Total,tasa_mortalidad_100mil,21,definitivo,a2017 p7; a2018 p16
+2017,Formosa,Total,tasa_fatalidad_10mil_veh,4.3,definitivo,a2017 p7; a2018 p18
+2017,Formosa,Total,poblacion,589916,definitivo,a2017 p7
+2017,Formosa,Total,parque_vehicular,287194,definitivo,a2017 p7
+2018,Formosa,Total,victimas_fatales,124,definitivo,a2018 p14; a2018 p24; a2019 p77; a2022 p43
+2018,Formosa,Motociclista,victimas_fatales,91,definitivo,a2018 p24
+2018,Formosa,Automóvil,victimas_fatales,16,definitivo,a2018 p24
+2018,Formosa,Peatón,victimas_fatales,11,definitivo,a2018 p24
+2018,Formosa,Ciclista,victimas_fatales,1,definitivo,a2018 p24
+2018,Formosa,Otros vehículos,victimas_fatales,5,definitivo,a2018 p24
+2018,Formosa,Sin dato,victimas_fatales,0,definitivo,a2018 p24
+2018,Formosa,Total,siniestros_fatales,115,definitivo,a2018 p36; a2022 p23
+2018,Formosa,Total,siniestros_con_lesionados,1269,definitivo,a2018 p36
+2018,Formosa,Total,personas_heridas,1839,definitivo,a2018 p30
+2018,Formosa,Total,tasa_mortalidad_100mil,20.8,definitivo,a2018 p16
+2018,Formosa,Total,tasa_fatalidad_10mil_veh,4,definitivo,a2018 p18
+2019,Formosa,Total,victimas_fatales,88,definitivo,a2019 p74; a2019 p77; a2019 p99; a2022 p43
+2019,Formosa,Motociclista,victimas_fatales,59,definitivo,a2019 p99
+2019,Formosa,Automóvil,victimas_fatales,15,definitivo,a2019 p99
+2019,Formosa,Peatón,victimas_fatales,6,definitivo,a2019 p99
+2019,Formosa,Ciclista,victimas_fatales,3,definitivo,a2019 p99
+2019,Formosa,Otros vehículos,victimas_fatales,5,definitivo,a2019 p99
+2019,Formosa,Sin dato,victimas_fatales,0,definitivo,a2019 p99
+2019,Formosa,Total,siniestros_fatales,82,definitivo,a2022 p23
+2019,Formosa,Total,siniestros_con_victimas,1602,definitivo,a2019 p44
+2019,Formosa,Total,personas_heridas,2272,definitivo,a2019 p116
+2019,Formosa,Total,tasa_mortalidad_100mil,14.7,definitivo,a2019 p74
+2019,Formosa,Total,tasa_fatalidad_10mil_veh,2.8,definitivo,a2019 p74
+2019,Formosa,Total,poblacion,600229,definitivo,a2019 p74
+2019,Formosa,Total,parque_vehicular,316185,definitivo,a2019 p74
+2020,Formosa,Total,victimas_fatales,76,definitivo,a2020 p29; a2020 p35; a2022 p43
+2020,Formosa,Motociclista,victimas_fatales,52,definitivo,a2020 p35
+2020,Formosa,Automóvil,victimas_fatales,12,definitivo,a2020 p35
+2020,Formosa,Peatón,victimas_fatales,2,definitivo,a2020 p35
+2020,Formosa,Ciclista,victimas_fatales,2,definitivo,a2020 p35
+2020,Formosa,Otros vehículos,victimas_fatales,8,definitivo,a2020 p35
+2020,Formosa,Sin dato,victimas_fatales,0,definitivo,a2020 p35
+2020,Formosa,Total,siniestros_fatales,73,definitivo,a2020 p19; a2020 p26; a2022 p23
+2020,Formosa,Total,siniestros_con_victimas,1212,definitivo,a2020 p26
+2020,Formosa,Total,siniestros_con_lesionados,1139,definitivo,a2020 p26
+2020,Formosa,Total,personas_heridas,1696,definitivo,a2020 p39
+2020,Formosa,Total,tasa_mortalidad_100mil,12.6,definitivo,a2020 p29
+2020,Formosa,Total,tasa_fatalidad_10mil_veh,2.3,definitivo,a2020 p29
+2020,Formosa,Total,tasa_siniestralidad_fatal_100mil,12.1,definitivo,a2020 p19
+2020,Formosa,Total,tasa_siniestralidad_fatal_10mil_veh,2.2,definitivo,a2020 p19
+2020,Formosa,Total,poblacion,605193,definitivo,a2020 p14
+2020,Formosa,Total,parque_vehicular,346836,definitivo,a2020 p15
+2021,Formosa,Total,victimas_fatales,67,definitivo,a2021 p24; a2021 p30; a2022 p43
+2021,Formosa,Motociclista,victimas_fatales,39,definitivo,a2021 p30
+2021,Formosa,Automóvil,victimas_fatales,7,definitivo,a2021 p30
+2021,Formosa,Peatón,victimas_fatales,5,definitivo,a2021 p30
+2021,Formosa,Ciclista,victimas_fatales,3,definitivo,a2021 p30
+2021,Formosa,Otros vehículos,victimas_fatales,13,definitivo,a2021 p30
+2021,Formosa,Sin dato,victimas_fatales,0,definitivo,a2021 p30
+2021,Formosa,Total,siniestros_fatales,63,definitivo,a2021 p15; a2022 p23
+2021,Formosa,Total,personas_heridas,1941,definitivo,a2021 p33
+2021,Formosa,Total,tasa_mortalidad_100mil,11,definitivo,a2021 p24
+2021,Formosa,Total,tasa_fatalidad_10mil_veh,1.9,definitivo,a2021 p24
+2021,Formosa,Total,tasa_siniestralidad_fatal_100mil,10.3,definitivo,a2021 p15
+2021,Formosa,Total,tasa_siniestralidad_fatal_10mil_veh,1.8,definitivo,a2021 p15
+2021,Formosa,Total,poblacion,610019,definitivo,a2021 p12
+2022,Formosa,Total,victimas_fatales,110,definitivo,a2022 p40; a2022 p43; a2022 p47
+2022,Formosa,Motociclista,victimas_fatales,75,definitivo,a2022 p47
+2022,Formosa,Automóvil,victimas_fatales,13,definitivo,a2022 p47
+2022,Formosa,Peatón,victimas_fatales,9,definitivo,a2022 p47
+2022,Formosa,Ciclista,victimas_fatales,3,definitivo,a2022 p47
+2022,Formosa,Otros vehículos,victimas_fatales,10,definitivo,a2022 p47
+2022,Formosa,Sin dato,victimas_fatales,0,definitivo,a2022 p47
+2022,Formosa,Total,siniestros_fatales,102,definitivo,a2022 p14; a2022 p20; a2022 p23
+2022,Formosa,Total,siniestros_con_victimas,1709,preliminar,a2022 p14
+2022,Formosa,Total,siniestros_con_lesionados,1607,preliminar,a2022 p14
+2022,Formosa,Total,personas_heridas,2394,preliminar,a2022 p58
+2022,Formosa,Total,tasa_mortalidad_100mil,17.9,definitivo,a2022 p40
+2022,Formosa,Total,tasa_fatalidad_10mil_veh,3,definitivo,a2022 p40
+2022,Formosa,Total,tasa_siniestralidad_fatal_100mil,16.6,definitivo,a2022 p20
+2022,Formosa,Total,tasa_siniestralidad_fatal_10mil_veh,2.8,definitivo,a2022 p20
+2022,Formosa,Total,poblacion,614706,definitivo,a2022 p77
+2022,Formosa,Total,parque_vehicular,360864,definitivo,a2022 p79
+2023,Formosa,Total,victimas_fatales,87,preliminar,p2023 p11
+2023,Formosa,Total,siniestros_fatales,71,preliminar,p2023 p10
+2023,Formosa,Total,tasa_mortalidad_100mil,14,preliminar,p2023 p11
+2023,Formosa,Total,tasa_fatalidad_10mil_veh,2.3,preliminar,p2023 p11
+2023,Formosa,Total,tasa_siniestralidad_fatal_100mil,11.4,preliminar,p2023 p10
+2023,Formosa,Total,tasa_siniestralidad_fatal_10mil_veh,1.9,preliminar,p2023 p10
+2024,Formosa,Total,victimas_fatales,64,preliminar,p2024 p10
+2024,Formosa,Total,siniestros_fatales,58,preliminar,p2024 p9
+2024,Formosa,Total,tasa_mortalidad_100mil,10.2,preliminar,p2024 p10
+2024,Formosa,Total,tasa_siniestralidad_fatal_100mil,9.3,preliminar,p2024 p9
+2025,Formosa,Total,victimas_fatales,72,preliminar,p2025
+2025,Formosa,Total,tasa_mortalidad_100mil,11.5,preliminar,p2025
+2026,Formosa,Total,victimas_fatales,58,parcial,p2026 p9
+2026,Formosa,Total,siniestros_fatales,53,parcial,p2026 p8
+2016,Jujuy,Total,victimas_fatales,161,definitivo,a2018 p14; a2019 p77
+2016,Jujuy,Total,tasa_mortalidad_100mil,21.9,definitivo,a2018 p16
+2016,Jujuy,Total,tasa_fatalidad_10mil_veh,6.1,definitivo,a2018 p18
+2017,Jujuy,Total,victimas_fatales,161,definitivo,a2017 p18; a2017 p7; a2018 p14; a2019 p77; a2022 p43
+2017,Jujuy,Motociclista,victimas_fatales,67,definitivo,a2017 p18
+2017,Jujuy,Automóvil,victimas_fatales,45,definitivo,a2017 p18
+2017,Jujuy,Peatón,victimas_fatales,23,definitivo,a2017 p18
+2017,Jujuy,Ciclista,victimas_fatales,3,definitivo,a2017 p18
+2017,Jujuy,Otros vehículos,victimas_fatales,23,definitivo,a2017 p18
+2017,Jujuy,Sin dato,victimas_fatales,0,definitivo,a2017 p18
+2017,Jujuy,Total,siniestros_fatales,133,definitivo,a2017 p25; a2022 p23
+2017,Jujuy,Total,siniestros_con_lesionados,1636,definitivo,a2017 p25
+2017,Jujuy,Total,personas_heridas,2617,definitivo,a2017 p23
+2017,Jujuy,Total,tasa_mortalidad_100mil,21.6,definitivo,a2017 p7; a2018 p16
+2017,Jujuy,Total,tasa_fatalidad_10mil_veh,5.5,definitivo,a2017 p7; a2018 p18
+2017,Jujuy,Total,poblacion,745252,definitivo,a2017 p7
+2017,Jujuy,Total,parque_vehicular,291485,definitivo,a2017 p7
+2018,Jujuy,Total,victimas_fatales,147,definitivo,a2018 p14; a2018 p24; a2019 p77; a2022 p43
+2018,Jujuy,Motociclista,victimas_fatales,61,definitivo,a2018 p24
+2018,Jujuy,Automóvil,victimas_fatales,33,definitivo,a2018 p24
+2018,Jujuy,Peatón,victimas_fatales,18,definitivo,a2018 p24
+2018,Jujuy,Ciclista,victimas_fatales,7,definitivo,a2018 p24
+2018,Jujuy,Otros vehículos,victimas_fatales,0,definitivo,a2018 p24
+2018,Jujuy,Sin dato,victimas_fatales,28,definitivo,a2018 p24
+2018,Jujuy,Total,siniestros_fatales,128,definitivo,a2018 p36; a2022 p23
+2018,Jujuy,Total,siniestros_con_lesionados,1725,definitivo,a2018 p36
+2018,Jujuy,Total,personas_heridas,2544,definitivo,a2018 p30
+2018,Jujuy,Total,tasa_mortalidad_100mil,19.5,definitivo,a2018 p16
+2018,Jujuy,Total,tasa_fatalidad_10mil_veh,4.7,definitivo,a2018 p18
+2019,Jujuy,Total,victimas_fatales,107,definitivo,a2019 p74; a2019 p77; a2019 p99; a2022 p43
+2019,Jujuy,Motociclista,victimas_fatales,45,definitivo,a2019 p99
+2019,Jujuy,Automóvil,victimas_fatales,10,definitivo,a2019 p99
+2019,Jujuy,Peatón,victimas_fatales,17,definitivo,a2019 p99
+2019,Jujuy,Ciclista,victimas_fatales,6,definitivo,a2019 p99
+2019,Jujuy,Otros vehículos,victimas_fatales,15,definitivo,a2019 p99
+2019,Jujuy,Sin dato,victimas_fatales,14,definitivo,a2019 p99
+2019,Jujuy,Total,siniestros_fatales,97,definitivo,a2022 p23
+2019,Jujuy,Total,siniestros_con_victimas,1789,definitivo,a2019 p44
+2019,Jujuy,Total,personas_heridas,2499,definitivo,a2019 p116
+2019,Jujuy,Total,tasa_mortalidad_100mil,14,definitivo,a2019 p74
+2019,Jujuy,Total,tasa_fatalidad_10mil_veh,3.4,definitivo,a2019 p74
+2019,Jujuy,Total,poblacion,762440,definitivo,a2019 p74
+2019,Jujuy,Total,parque_vehicular,317543,definitivo,a2019 p74
+2020,Jujuy,Total,victimas_fatales,92,definitivo,a2020 p29; a2020 p35; a2022 p43
+2020,Jujuy,Motociclista,victimas_fatales,32,definitivo,a2020 p35
+2020,Jujuy,Automóvil,victimas_fatales,16,definitivo,a2020 p35
+2020,Jujuy,Peatón,victimas_fatales,13,definitivo,a2020 p35
+2020,Jujuy,Ciclista,victimas_fatales,1,definitivo,a2020 p35
+2020,Jujuy,Otros vehículos,victimas_fatales,13,definitivo,a2020 p35
+2020,Jujuy,Sin dato,victimas_fatales,17,definitivo,a2020 p35
+2020,Jujuy,Total,siniestros_fatales,81,definitivo,a2020 p19; a2020 p26; a2022 p23
+2020,Jujuy,Total,siniestros_con_victimas,1312,definitivo,a2020 p26
+2020,Jujuy,Total,siniestros_con_lesionados,1231,definitivo,a2020 p26
+2020,Jujuy,Total,personas_heridas,1697,definitivo,a2020 p39
+2020,Jujuy,Total,tasa_mortalidad_100mil,11.9,definitivo,a2020 p29
+2020,Jujuy,Total,tasa_fatalidad_10mil_veh,2.7,definitivo,a2020 p29
+2020,Jujuy,Total,tasa_siniestralidad_fatal_100mil,10.5,definitivo,a2020 p19
+2020,Jujuy,Total,tasa_siniestralidad_fatal_10mil_veh,2.4,definitivo,a2020 p19
+2020,Jujuy,Total,poblacion,770881,definitivo,a2020 p14
+2020,Jujuy,Total,parque_vehicular,346526,definitivo,a2020 p15
+2021,Jujuy,Total,victimas_fatales,122,definitivo,a2021 p24; a2021 p30; a2022 p43
+2021,Jujuy,Motociclista,victimas_fatales,42,definitivo,a2021 p30
+2021,Jujuy,Automóvil,victimas_fatales,31,definitivo,a2021 p30
+2021,Jujuy,Peatón,victimas_fatales,21,definitivo,a2021 p30
+2021,Jujuy,Ciclista,victimas_fatales,3,definitivo,a2021 p30
+2021,Jujuy,Otros vehículos,victimas_fatales,25,definitivo,a2021 p30
+2021,Jujuy,Sin dato,victimas_fatales,0,definitivo,a2021 p30
+2021,Jujuy,Total,siniestros_fatales,95,definitivo,a2021 p15; a2022 p23
+2021,Jujuy,Total,personas_heridas,2468,definitivo,a2021 p33
+2021,Jujuy,Total,tasa_mortalidad_100mil,15.7,definitivo,a2021 p24
+2021,Jujuy,Total,tasa_fatalidad_10mil_veh,3.5,definitivo,a2021 p24
+2021,Jujuy,Total,tasa_siniestralidad_fatal_100mil,12.2,definitivo,a2021 p15
+2021,Jujuy,Total,tasa_siniestralidad_fatal_10mil_veh,2.7,definitivo,a2021 p15
+2021,Jujuy,Total,poblacion,779212,definitivo,a2021 p12
+2022,Jujuy,Total,victimas_fatales,159,definitivo,a2022 p40; a2022 p43; a2022 p47
+2022,Jujuy,Motociclista,victimas_fatales,74,definitivo,a2022 p47
+2022,Jujuy,Automóvil,victimas_fatales,35,definitivo,a2022 p47
+2022,Jujuy,Peatón,victimas_fatales,25,definitivo,a2022 p47
+2022,Jujuy,Ciclista,victimas_fatales,3,definitivo,a2022 p47
+2022,Jujuy,Otros vehículos,victimas_fatales,22,definitivo,a2022 p47
+2022,Jujuy,Sin dato,victimas_fatales,0,definitivo,a2022 p47
+2022,Jujuy,Total,siniestros_fatales,138,definitivo,a2022 p14; a2022 p20; a2022 p23
+2022,Jujuy,Total,siniestros_con_victimas,1937,preliminar,a2022 p14
+2022,Jujuy,Total,siniestros_con_lesionados,1799,preliminar,a2022 p14
+2022,Jujuy,Total,personas_heridas,2502,preliminar,a2022 p58
+2022,Jujuy,Total,tasa_mortalidad_100mil,20.2,definitivo,a2022 p40
+2022,Jujuy,Total,tasa_fatalidad_10mil_veh,4.4,definitivo,a2022 p40
+2022,Jujuy,Total,tasa_siniestralidad_fatal_100mil,17.5,definitivo,a2022 p20
+2022,Jujuy,Total,tasa_siniestralidad_fatal_10mil_veh,3.8,definitivo,a2022 p20
+2022,Jujuy,Total,poblacion,787436,definitivo,a2022 p77
+2022,Jujuy,Total,parque_vehicular,358444,definitivo,a2022 p79
+2023,Jujuy,Total,victimas_fatales,124,preliminar,p2023 p11
+2023,Jujuy,Total,siniestros_fatales,103,preliminar,p2023 p10
+2023,Jujuy,Total,tasa_mortalidad_100mil,15.6,preliminar,p2023 p11
+2023,Jujuy,Total,tasa_fatalidad_10mil_veh,3.3,preliminar,p2023 p11
+2023,Jujuy,Total,tasa_siniestralidad_fatal_100mil,12.9,preliminar,p2023 p10
+2023,Jujuy,Total,tasa_siniestralidad_fatal_10mil_veh,2.8,preliminar,p2023 p10
+2024,Jujuy,Total,victimas_fatales,113,preliminar,p2024 p10
+2024,Jujuy,Total,siniestros_fatales,102,preliminar,p2024 p9
+2024,Jujuy,Total,tasa_mortalidad_100mil,14.1,preliminar,p2024 p10
+2024,Jujuy,Total,tasa_siniestralidad_fatal_100mil,12.8,preliminar,p2024 p9
+2025,Jujuy,Total,victimas_fatales,98,preliminar,p2025
+2025,Jujuy,Total,tasa_mortalidad_100mil,12.2,preliminar,p2025
+2026,Jujuy,Total,victimas_fatales,75,parcial,p2026 p9
+2026,Jujuy,Total,siniestros_fatales,70,parcial,p2026 p8
+2016,La Pampa,Total,victimas_fatales,73,definitivo,a2018 p14; a2019 p77
+2016,La Pampa,Total,tasa_mortalidad_100mil,21.1,definitivo,a2018 p16
+2016,La Pampa,Total,tasa_fatalidad_10mil_veh,2.9,definitivo,a2018 p18
+2017,La Pampa,Total,victimas_fatales,73,definitivo,a2017 p18; a2017 p7; a2018 p14; a2019 p77; a2022 p43
+2017,La Pampa,Motociclista,victimas_fatales,7,definitivo,a2017 p18
+2017,La Pampa,Automóvil,victimas_fatales,65,definitivo,a2017 p18
+2017,La Pampa,Peatón,victimas_fatales,1,definitivo,a2017 p18
+2017,La Pampa,Ciclista,victimas_fatales,0,definitivo,a2017 p18
+2017,La Pampa,Otros vehículos,victimas_fatales,0,definitivo,a2017 p18
+2017,La Pampa,Sin dato,victimas_fatales,0,definitivo,a2017 p18
+2017,La Pampa,Total,siniestros_fatales,49,definitivo,a2017 p25; a2022 p23
+2017,La Pampa,Total,siniestros_con_lesionados,1056,definitivo,a2017 p25
+2017,La Pampa,Total,personas_heridas,1336,definitivo,a2017 p23
+2017,La Pampa,Total,tasa_mortalidad_100mil,20.9,definitivo,a2017 p7; a2018 p16
+2017,La Pampa,Total,tasa_fatalidad_10mil_veh,2.7,definitivo,a2017 p7; a2018 p18
+2017,La Pampa,Total,poblacion,349299,definitivo,a2017 p7
+2017,La Pampa,Total,parque_vehicular,266360,definitivo,a2017 p7
+2018,La Pampa,Total,victimas_fatales,69,definitivo,a2018 p14; a2018 p24; a2019 p77; a2022 p43
+2018,La Pampa,Motociclista,victimas_fatales,8,definitivo,a2018 p24
+2018,La Pampa,Automóvil,victimas_fatales,57,definitivo,a2018 p24
+2018,La Pampa,Peatón,victimas_fatales,3,definitivo,a2018 p24
+2018,La Pampa,Ciclista,victimas_fatales,1,definitivo,a2018 p24
+2018,La Pampa,Otros vehículos,victimas_fatales,0,definitivo,a2018 p24
+2018,La Pampa,Sin dato,victimas_fatales,0,definitivo,a2018 p24
+2018,La Pampa,Total,siniestros_fatales,52,definitivo,a2018 p36; a2022 p23
+2018,La Pampa,Total,siniestros_con_lesionados,1265,definitivo,a2018 p36
+2018,La Pampa,Total,personas_heridas,1569,definitivo,a2018 p30
+2018,La Pampa,Total,tasa_mortalidad_100mil,19.6,definitivo,a2018 p16
+2018,La Pampa,Total,tasa_fatalidad_10mil_veh,2.5,definitivo,a2018 p18
+2019,La Pampa,Total,victimas_fatales,41,definitivo,a2019 p74; a2019 p77; a2019 p99; a2022 p43
+2019,La Pampa,Motociclista,victimas_fatales,10,definitivo,a2019 p99
+2019,La Pampa,Automóvil,victimas_fatales,24,definitivo,a2019 p99
+2019,La Pampa,Peatón,victimas_fatales,0,definitivo,a2019 p99
+2019,La Pampa,Ciclista,victimas_fatales,0,definitivo,a2019 p99
+2019,La Pampa,Otros vehículos,victimas_fatales,7,definitivo,a2019 p99
+2019,La Pampa,Sin dato,victimas_fatales,0,definitivo,a2019 p99
+2019,La Pampa,Total,siniestros_fatales,34,definitivo,a2022 p23
+2019,La Pampa,Total,siniestros_con_victimas,1378,definitivo,a2019 p44
+2019,La Pampa,Total,personas_heridas,1673,definitivo,a2019 p116
+2019,La Pampa,Total,tasa_mortalidad_100mil,11.5,definitivo,a2019 p74
+2019,La Pampa,Total,tasa_fatalidad_10mil_veh,1.5,definitivo,a2019 p74
+2019,La Pampa,Total,poblacion,355422,definitivo,a2019 p74
+2019,La Pampa,Total,parque_vehicular,281337,definitivo,a2019 p74
+2020,La Pampa,Total,victimas_fatales,36,definitivo,a2020 p29; a2020 p35; a2022 p43
+2020,La Pampa,Motociclista,victimas_fatales,11,definitivo,a2020 p35
+2020,La Pampa,Automóvil,victimas_fatales,15,definitivo,a2020 p35
+2020,La Pampa,Peatón,victimas_fatales,0,definitivo,a2020 p35
+2020,La Pampa,Ciclista,victimas_fatales,0,definitivo,a2020 p35
+2020,La Pampa,Otros vehículos,victimas_fatales,8,definitivo,a2020 p35
+2020,La Pampa,Sin dato,victimas_fatales,2,definitivo,a2020 p35
+2020,La Pampa,Total,siniestros_fatales,33,definitivo,a2020 p19; a2020 p26; a2022 p23
+2020,La Pampa,Total,siniestros_con_victimas,741,definitivo,a2020 p26
+2020,La Pampa,Total,siniestros_con_lesionados,708,definitivo,a2020 p26
+2020,La Pampa,Total,personas_heridas,820,definitivo,a2020 p39
+2020,La Pampa,Total,tasa_mortalidad_100mil,10,definitivo,a2020 p29
+2020,La Pampa,Total,tasa_fatalidad_10mil_veh,1.2,definitivo,a2020 p29
+2020,La Pampa,Total,tasa_siniestralidad_fatal_100mil,9.2,definitivo,a2020 p19
+2020,La Pampa,Total,tasa_siniestralidad_fatal_10mil_veh,1.1,definitivo,a2020 p19
+2020,La Pampa,Total,poblacion,358428,definitivo,a2020 p14
+2020,La Pampa,Total,parque_vehicular,303445,definitivo,a2020 p15
+2021,La Pampa,Total,victimas_fatales,46,definitivo,a2021 p24; a2021 p30; a2022 p43
+2021,La Pampa,Motociclista,victimas_fatales,11,definitivo,a2021 p30
+2021,La Pampa,Automóvil,victimas_fatales,22,definitivo,a2021 p30
+2021,La Pampa,Peatón,victimas_fatales,1,definitivo,a2021 p30
+2021,La Pampa,Ciclista,victimas_fatales,1,definitivo,a2021 p30
+2021,La Pampa,Otros vehículos,victimas_fatales,11,definitivo,a2021 p30
+2021,La Pampa,Sin dato,victimas_fatales,0,definitivo,a2021 p30
+2021,La Pampa,Total,siniestros_fatales,35,definitivo,a2021 p15; a2022 p23
+2021,La Pampa,Total,personas_heridas,1008,definitivo,a2021 p33
+2021,La Pampa,Total,tasa_mortalidad_100mil,12.7,definitivo,a2021 p24
+2021,La Pampa,Total,tasa_fatalidad_10mil_veh,1.5,definitivo,a2021 p24
+2021,La Pampa,Total,tasa_siniestralidad_fatal_100mil,9.7,definitivo,a2021 p15
+2021,La Pampa,Total,tasa_siniestralidad_fatal_10mil_veh,1.2,definitivo,a2021 p15
+2021,La Pampa,Total,poblacion,361394,definitivo,a2021 p12
+2022,La Pampa,Total,victimas_fatales,68,definitivo,a2022 p40; a2022 p43; a2022 p47
+2022,La Pampa,Motociclista,victimas_fatales,13,definitivo,a2022 p47
+2022,La Pampa,Automóvil,victimas_fatales,35,definitivo,a2022 p47
+2022,La Pampa,Peatón,victimas_fatales,2,definitivo,a2022 p47
+2022,La Pampa,Ciclista,victimas_fatales,0,definitivo,a2022 p47
+2022,La Pampa,Otros vehículos,victimas_fatales,18,definitivo,a2022 p47
+2022,La Pampa,Sin dato,victimas_fatales,0,definitivo,a2022 p47
+2022,La Pampa,Total,siniestros_fatales,55,definitivo,a2022 p14; a2022 p20; a2022 p23
+2022,La Pampa,Total,siniestros_con_victimas,1016,preliminar,a2022 p14
+2022,La Pampa,Total,siniestros_con_lesionados,961,preliminar,a2022 p14
+2022,La Pampa,Total,personas_heridas,1239,preliminar,a2022 p58
+2022,La Pampa,Total,tasa_mortalidad_100mil,18.7,definitivo,a2022 p40
+2022,La Pampa,Total,tasa_fatalidad_10mil_veh,2.2,definitivo,a2022 p40
+2022,La Pampa,Total,tasa_siniestralidad_fatal_100mil,15.1,definitivo,a2022 p20
+2022,La Pampa,Total,tasa_siniestralidad_fatal_10mil_veh,1.8,definitivo,a2022 p20
+2022,La Pampa,Total,poblacion,364322,definitivo,a2022 p77
+2022,La Pampa,Total,parque_vehicular,312780,definitivo,a2022 p79
+2023,La Pampa,Total,victimas_fatales,51,preliminar,p2023 p11
+2023,La Pampa,Total,siniestros_fatales,39,preliminar,p2023 p10
+2023,La Pampa,Total,tasa_mortalidad_100mil,13.6,preliminar,p2023 p11
+2023,La Pampa,Total,tasa_fatalidad_10mil_veh,1.6,preliminar,p2023 p11
+2023,La Pampa,Total,tasa_siniestralidad_fatal_100mil,10.4,preliminar,p2023 p10
+2023,La Pampa,Total,tasa_siniestralidad_fatal_10mil_veh,1.2,preliminar,p2023 p10
+2024,La Pampa,Total,victimas_fatales,42,preliminar,p2024 p10
+2024,La Pampa,Total,siniestros_fatales,35,preliminar,p2024 p9
+2024,La Pampa,Total,tasa_mortalidad_100mil,11.2,preliminar,p2024 p10
+2024,La Pampa,Total,tasa_siniestralidad_fatal_100mil,9.3,preliminar,p2024 p9
+2025,La Pampa,Total,victimas_fatales,49,preliminar,p2025
+2025,La Pampa,Total,tasa_mortalidad_100mil,13,preliminar,p2025
+2026,La Pampa,Total,victimas_fatales,38,parcial,p2026 p9
+2026,La Pampa,Total,siniestros_fatales,32,parcial,p2026 p8
+2016,La Rioja,Total,victimas_fatales,69,definitivo,a2018 p14; a2019 p77
+2016,La Rioja,Total,tasa_mortalidad_100mil,18.5,definitivo,a2018 p16
+2016,La Rioja,Total,tasa_fatalidad_10mil_veh,3.6,definitivo,a2018 p18
+2017,La Rioja,Total,victimas_fatales,77,definitivo,a2017 p18; a2017 p7; a2018 p14; a2019 p77; a2022 p43
+2017,La Rioja,Motociclista,victimas_fatales,38,definitivo,a2017 p18
+2017,La Rioja,Automóvil,victimas_fatales,29,definitivo,a2017 p18
+2017,La Rioja,Peatón,victimas_fatales,6,definitivo,a2017 p18
+2017,La Rioja,Ciclista,victimas_fatales,4,definitivo,a2017 p18
+2017,La Rioja,Otros vehículos,victimas_fatales,0,definitivo,a2017 p18
+2017,La Rioja,Sin dato,victimas_fatales,0,definitivo,a2017 p18
+2017,La Rioja,Total,siniestros_fatales,77,definitivo,a2017 p25; a2022 p23
+2017,La Rioja,Total,siniestros_con_lesionados,2425,definitivo,a2017 p25
+2017,La Rioja,Total,personas_heridas,2425,definitivo,a2017 p23
+2017,La Rioja,Total,tasa_mortalidad_100mil,20.4,definitivo,a2017 p7; a2018 p16
+2017,La Rioja,Total,tasa_fatalidad_10mil_veh,3.6,definitivo,a2017 p7; a2018 p18
+2017,La Rioja,Total,poblacion,378047,definitivo,a2017 p7
+2017,La Rioja,Total,parque_vehicular,213597,definitivo,a2017 p7
+2018,La Rioja,Total,victimas_fatales,84,definitivo,a2018 p14; a2018 p24; a2019 p77; a2022 p43
+2018,La Rioja,Motociclista,victimas_fatales,50,definitivo,a2018 p24
+2018,La Rioja,Automóvil,victimas_fatales,22,definitivo,a2018 p24
+2018,La Rioja,Peatón,victimas_fatales,4,definitivo,a2018 p24
+2018,La Rioja,Ciclista,victimas_fatales,8,definitivo,a2018 p24
+2018,La Rioja,Otros vehículos,victimas_fatales,0,definitivo,a2018 p24
+2018,La Rioja,Sin dato,victimas_fatales,0,definitivo,a2018 p24
+2018,La Rioja,Total,tasa_mortalidad_100mil,21.9,definitivo,a2018 p16
+2018,La Rioja,Total,tasa_fatalidad_10mil_veh,3.7,definitivo,a2018 p18
+2019,La Rioja,Total,victimas_fatales,67,definitivo,a2019 p74; a2019 p77; a2019 p99; a2022 p43
+2019,La Rioja,Motociclista,victimas_fatales,33,definitivo,a2019 p99
+2019,La Rioja,Automóvil,victimas_fatales,15,definitivo,a2019 p99
+2019,La Rioja,Peatón,victimas_fatales,1,definitivo,a2019 p99
+2019,La Rioja,Ciclista,victimas_fatales,6,definitivo,a2019 p99
+2019,La Rioja,Otros vehículos,victimas_fatales,12,definitivo,a2019 p99
+2019,La Rioja,Sin dato,victimas_fatales,0,definitivo,a2019 p99
+2019,La Rioja,Total,siniestros_fatales,59,definitivo,a2022 p23
+2019,La Rioja,Total,siniestros_con_victimas,1825,definitivo,a2019 p44
+2019,La Rioja,Total,personas_heridas,2280,definitivo,a2019 p116
+2019,La Rioja,Total,tasa_mortalidad_100mil,17.3,definitivo,a2019 p74
+2019,La Rioja,Total,tasa_fatalidad_10mil_veh,2.9,definitivo,a2019 p74
+2019,La Rioja,Total,poblacion,388386,definitivo,a2019 p74
+2019,La Rioja,Total,parque_vehicular,231019,definitivo,a2019 p74
+2020,La Rioja,Total,victimas_fatales,51,definitivo,a2020 p29; a2020 p35; a2022 p43
+2020,La Rioja,Motociclista,victimas_fatales,34,definitivo,a2020 p35
+2020,La Rioja,Automóvil,victimas_fatales,8,definitivo,a2020 p35
+2020,La Rioja,Peatón,victimas_fatales,4,definitivo,a2020 p35
+2020,La Rioja,Ciclista,victimas_fatales,2,definitivo,a2020 p35
+2020,La Rioja,Otros vehículos,victimas_fatales,3,definitivo,a2020 p35
+2020,La Rioja,Sin dato,victimas_fatales,0,definitivo,a2020 p35
+2020,La Rioja,Total,siniestros_fatales,47,definitivo,a2020 p19; a2020 p26; a2022 p23
+2020,La Rioja,Total,siniestros_con_victimas,923,definitivo,a2020 p26
+2020,La Rioja,Total,siniestros_con_lesionados,876,definitivo,a2020 p26
+2020,La Rioja,Total,personas_heridas,1099,definitivo,a2020 p39
+2020,La Rioja,Total,tasa_mortalidad_100mil,13,definitivo,a2020 p29
+2020,La Rioja,Total,tasa_fatalidad_10mil_veh,2.1,definitivo,a2020 p29
+2020,La Rioja,Total,tasa_siniestralidad_fatal_100mil,11.9,definitivo,a2020 p19
+2020,La Rioja,Total,tasa_siniestralidad_fatal_10mil_veh,1.9,definitivo,a2020 p19
+2020,La Rioja,Total,poblacion,393531,definitivo,a2020 p14
+2020,La Rioja,Total,parque_vehicular,249511,definitivo,a2020 p15
+2021,La Rioja,Total,victimas_fatales,65,definitivo,a2021 p24; a2021 p30; a2022 p43
+2021,La Rioja,Motociclista,victimas_fatales,29,definitivo,a2021 p30
+2021,La Rioja,Automóvil,victimas_fatales,11,definitivo,a2021 p30
+2021,La Rioja,Peatón,victimas_fatales,6,definitivo,a2021 p30
+2021,La Rioja,Ciclista,victimas_fatales,2,definitivo,a2021 p30
+2021,La Rioja,Otros vehículos,victimas_fatales,17,definitivo,a2021 p30
+2021,La Rioja,Sin dato,victimas_fatales,0,definitivo,a2021 p30
+2021,La Rioja,Total,siniestros_fatales,51,definitivo,a2021 p15; a2022 p23
+2021,La Rioja,Total,personas_heridas,1700,definitivo,a2021 p33
+2021,La Rioja,Total,tasa_mortalidad_100mil,16.3,definitivo,a2021 p24
+2021,La Rioja,Total,tasa_fatalidad_10mil_veh,2.6,definitivo,a2021 p24
+2021,La Rioja,Total,tasa_siniestralidad_fatal_100mil,12.8,definitivo,a2021 p15
+2021,La Rioja,Total,tasa_siniestralidad_fatal_10mil_veh,2,definitivo,a2021 p15
+2021,La Rioja,Total,poblacion,398648,definitivo,a2021 p12
+2022,La Rioja,Total,victimas_fatales,46,definitivo,a2022 p40; a2022 p43; a2022 p47
+2022,La Rioja,Motociclista,victimas_fatales,28,definitivo,a2022 p47
+2022,La Rioja,Automóvil,victimas_fatales,5,definitivo,a2022 p47
+2022,La Rioja,Peatón,victimas_fatales,3,definitivo,a2022 p47
+2022,La Rioja,Ciclista,victimas_fatales,1,definitivo,a2022 p47
+2022,La Rioja,Otros vehículos,victimas_fatales,9,definitivo,a2022 p47
+2022,La Rioja,Sin dato,victimas_fatales,0,definitivo,a2022 p47
+2022,La Rioja,Total,siniestros_fatales,44,definitivo,a2022 p14; a2022 p20; a2022 p23
+2022,La Rioja,Total,siniestros_con_victimas,1607,preliminar,a2022 p14
+2022,La Rioja,Total,siniestros_con_lesionados,1563,preliminar,a2022 p14
+2022,La Rioja,Total,personas_heridas,1911,preliminar,a2022 p58
+2022,La Rioja,Total,tasa_mortalidad_100mil,11.4,definitivo,a2022 p40
+2022,La Rioja,Total,tasa_fatalidad_10mil_veh,1.8,definitivo,a2022 p40
+2022,La Rioja,Total,tasa_siniestralidad_fatal_100mil,10.9,definitivo,a2022 p20
+2022,La Rioja,Total,tasa_siniestralidad_fatal_10mil_veh,1.7,definitivo,a2022 p20
+2022,La Rioja,Total,poblacion,403727,definitivo,a2022 p77
+2022,La Rioja,Total,parque_vehicular,258197,definitivo,a2022 p79
+2023,La Rioja,Total,victimas_fatales,53,preliminar,p2023 p11
+2023,La Rioja,Total,siniestros_fatales,52,preliminar,p2023 p10
+2023,La Rioja,Total,tasa_mortalidad_100mil,13.2,preliminar,p2023 p11
+2023,La Rioja,Total,tasa_fatalidad_10mil_veh,2,preliminar,p2023 p11
+2023,La Rioja,Total,tasa_siniestralidad_fatal_100mil,13,preliminar,p2023 p10
+2023,La Rioja,Total,tasa_siniestralidad_fatal_10mil_veh,2,preliminar,p2023 p10
+2024,La Rioja,Total,victimas_fatales,60,preliminar,p2024 p10
+2024,La Rioja,Total,siniestros_fatales,55,preliminar,p2024 p9
+2024,La Rioja,Total,tasa_mortalidad_100mil,14.9,preliminar,p2024 p10
+2024,La Rioja,Total,tasa_siniestralidad_fatal_100mil,13.7,preliminar,p2024 p9
+2025,La Rioja,Total,victimas_fatales,50,preliminar,p2025
+2025,La Rioja,Total,tasa_mortalidad_100mil,12.4,preliminar,p2025
+2026,La Rioja,Total,victimas_fatales,40,parcial,p2026 p9
+2026,La Rioja,Total,siniestros_fatales,37,parcial,p2026 p8
+2016,Mendoza,Total,victimas_fatales,275,definitivo,a2018 p14; a2019 p77
+2016,Mendoza,Total,tasa_mortalidad_100mil,14.4,definitivo,a2018 p16
+2016,Mendoza,Total,tasa_fatalidad_10mil_veh,2.6,definitivo,a2018 p18
+2017,Mendoza,Total,victimas_fatales,333,definitivo,a2017 p18; a2017 p7; a2018 p14; a2019 p77; a2022 p43
+2017,Mendoza,Motociclista,victimas_fatales,84,definitivo,a2017 p18
+2017,Mendoza,Automóvil,victimas_fatales,147,definitivo,a2017 p18
+2017,Mendoza,Peatón,victimas_fatales,41,definitivo,a2017 p18
+2017,Mendoza,Ciclista,victimas_fatales,14,definitivo,a2017 p18
+2017,Mendoza,Otros vehículos,victimas_fatales,47,definitivo,a2017 p18
+2017,Mendoza,Sin dato,victimas_fatales,0,definitivo,a2017 p18
+2017,Mendoza,Total,siniestros_fatales,141,definitivo,a2017 p25; a2022 p23
+2017,Mendoza,Total,siniestros_con_lesionados,0,definitivo,a2017 p25
+2017,Mendoza,Total,personas_heridas,0,definitivo,a2017 p23
+2017,Mendoza,Total,tasa_mortalidad_100mil,17.3,definitivo,a2017 p7; a2018 p16
+2017,Mendoza,Total,tasa_fatalidad_10mil_veh,3,definitivo,a2017 p7; a2018 p18
+2017,Mendoza,Total,poblacion,1928304,definitivo,a2017 p7
+2017,Mendoza,Total,parque_vehicular,1104658,definitivo,a2017 p7
+2018,Mendoza,Total,victimas_fatales,262,definitivo,a2018 p14; a2018 p24; a2019 p77; a2022 p43
+2018,Mendoza,Motociclista,victimas_fatales,94,definitivo,a2018 p24
+2018,Mendoza,Automóvil,victimas_fatales,83,definitivo,a2018 p24
+2018,Mendoza,Peatón,victimas_fatales,28,definitivo,a2018 p24
+2018,Mendoza,Ciclista,victimas_fatales,20,definitivo,a2018 p24
+2018,Mendoza,Otros vehículos,victimas_fatales,4,definitivo,a2018 p24
+2018,Mendoza,Sin dato,victimas_fatales,33,definitivo,a2018 p24
+2018,Mendoza,Total,siniestros_fatales,152,definitivo,a2018 p36; a2022 p23
+2018,Mendoza,Total,tasa_mortalidad_100mil,13.4,definitivo,a2018 p16
+2018,Mendoza,Total,tasa_fatalidad_10mil_veh,2.3,definitivo,a2018 p18
+2019,Mendoza,Total,victimas_fatales,250,definitivo,a2019 p74; a2019 p77; a2019 p99; a2022 p43
+2019,Mendoza,Motociclista,victimas_fatales,65,definitivo,a2019 p99
+2019,Mendoza,Automóvil,victimas_fatales,79,definitivo,a2019 p99
+2019,Mendoza,Peatón,victimas_fatales,37,definitivo,a2019 p99
+2019,Mendoza,Ciclista,victimas_fatales,10,definitivo,a2019 p99
+2019,Mendoza,Otros vehículos,victimas_fatales,15,definitivo,a2019 p99
+2019,Mendoza,Sin dato,victimas_fatales,44,definitivo,a2019 p99
+2019,Mendoza,Total,tasa_mortalidad_100mil,12.7,definitivo,a2019 p74
+2019,Mendoza,Total,tasa_fatalidad_10mil_veh,2.1,definitivo,a2019 p74
+2019,Mendoza,Total,poblacion,1969982,definitivo,a2019 p74
+2019,Mendoza,Total,parque_vehicular,1165732,definitivo,a2019 p74
+2020,Mendoza,Total,victimas_fatales,136,definitivo,a2020 p29; a2020 p35; a2022 p43
+2020,Mendoza,Motociclista,victimas_fatales,44,definitivo,a2020 p35
+2020,Mendoza,Automóvil,victimas_fatales,40,definitivo,a2020 p35
+2020,Mendoza,Peatón,victimas_fatales,10,definitivo,a2020 p35
+2020,Mendoza,Ciclista,victimas_fatales,9,definitivo,a2020 p35
+2020,Mendoza,Otros vehículos,victimas_fatales,15,definitivo,a2020 p35
+2020,Mendoza,Sin dato,victimas_fatales,18,definitivo,a2020 p35
+2020,Mendoza,Total,siniestros_fatales,87,definitivo,a2020 p19; a2020 p26; a2022 p23
+2020,Mendoza,Total,siniestros_con_victimas,175,definitivo,a2020 p26
+2020,Mendoza,Total,siniestros_con_lesionados,88,definitivo,a2020 p26
+2020,Mendoza,Total,personas_heridas,88,definitivo,a2020 p39
+2020,Mendoza,Total,tasa_mortalidad_100mil,6.8,definitivo,a2020 p29
+2020,Mendoza,Total,tasa_fatalidad_10mil_veh,1.1,definitivo,a2020 p29
+2020,Mendoza,Total,tasa_siniestralidad_fatal_100mil,4.4,definitivo,a2020 p19
+2020,Mendoza,Total,tasa_siniestralidad_fatal_10mil_veh,0.7,definitivo,a2020 p19
+2020,Mendoza,Total,poblacion,1990338,definitivo,a2020 p14
+2020,Mendoza,Total,parque_vehicular,1232832,definitivo,a2020 p15
+2021,Mendoza,Total,victimas_fatales,234,definitivo,a2021 p24; a2021 p30; a2022 p43
+2021,Mendoza,Motociclista,victimas_fatales,85,definitivo,a2021 p30
+2021,Mendoza,Automóvil,victimas_fatales,56,definitivo,a2021 p30
+2021,Mendoza,Peatón,victimas_fatales,23,definitivo,a2021 p30
+2021,Mendoza,Ciclista,victimas_fatales,12,definitivo,a2021 p30
+2021,Mendoza,Otros vehículos,victimas_fatales,13,definitivo,a2021 p30
+2021,Mendoza,Sin dato,victimas_fatales,45,definitivo,a2021 p30
+2021,Mendoza,Total,siniestros_fatales,104,definitivo,a2021 p15; a2022 p23
+2021,Mendoza,Total,personas_heridas,110,definitivo,a2021 p33
+2021,Mendoza,Total,tasa_mortalidad_100mil,11.6,definitivo,a2021 p24
+2021,Mendoza,Total,tasa_fatalidad_10mil_veh,1.9,definitivo,a2021 p24
+2021,Mendoza,Total,tasa_siniestralidad_fatal_100mil,5.2,definitivo,a2021 p15
+2021,Mendoza,Total,tasa_siniestralidad_fatal_10mil_veh,0.8,definitivo,a2021 p15
+2021,Mendoza,Total,poblacion,2010363,definitivo,a2021 p12
+2022,Mendoza,Total,victimas_fatales,172,definitivo,a2022 p40; a2022 p43; a2022 p47
+2022,Mendoza,Motociclista,victimas_fatales,48,definitivo,a2022 p47
+2022,Mendoza,Automóvil,victimas_fatales,56,definitivo,a2022 p47
+2022,Mendoza,Peatón,victimas_fatales,16,definitivo,a2022 p47
+2022,Mendoza,Ciclista,victimas_fatales,9,definitivo,a2022 p47
+2022,Mendoza,Otros vehículos,victimas_fatales,20,definitivo,a2022 p47
+2022,Mendoza,Sin dato,victimas_fatales,23,definitivo,a2022 p47
+2022,Mendoza,Total,siniestros_fatales,160,definitivo,a2022 p14; a2022 p20; a2022 p23
+2022,Mendoza,Total,siniestros_con_victimas,160,preliminar,a2022 p14
+2022,Mendoza,Total,personas_heridas,1419,preliminar,a2022 p58
+2022,Mendoza,Total,tasa_mortalidad_100mil,8.5,definitivo,a2022 p40
+2022,Mendoza,Total,tasa_fatalidad_10mil_veh,1.4,definitivo,a2022 p40
+2022,Mendoza,Total,tasa_siniestralidad_fatal_100mil,7.9,definitivo,a2022 p20
+2022,Mendoza,Total,tasa_siniestralidad_fatal_10mil_veh,1.3,definitivo,a2022 p20
+2022,Mendoza,Total,poblacion,2030061,definitivo,a2022 p77
+2022,Mendoza,Total,parque_vehicular,1256488,definitivo,a2022 p79
+2023,Mendoza,Total,victimas_fatales,193,preliminar,p2023 p11
+2023,Mendoza,Total,siniestros_fatales,181,preliminar,p2023 p10
+2023,Mendoza,Total,tasa_mortalidad_100mil,9.5,preliminar,p2023 p11
+2023,Mendoza,Total,tasa_fatalidad_10mil_veh,1.5,preliminar,p2023 p11
+2023,Mendoza,Total,tasa_siniestralidad_fatal_100mil,8.9,preliminar,p2023 p10
+2023,Mendoza,Total,tasa_siniestralidad_fatal_10mil_veh,1.4,preliminar,p2023 p10
+2024,Mendoza,Total,victimas_fatales,171,preliminar,p2024 p10
+2024,Mendoza,Total,siniestros_fatales,116,preliminar,p2024 p9
+2024,Mendoza,Total,tasa_mortalidad_100mil,8.4,preliminar,p2024 p10
+2024,Mendoza,Total,tasa_siniestralidad_fatal_100mil,5.7,preliminar,p2024 p9
+2025,Mendoza,Total,victimas_fatales,178,preliminar,p2025
+2025,Mendoza,Total,tasa_mortalidad_100mil,8.7,preliminar,p2025
+2026,Mendoza,Total,victimas_fatales,106,parcial,p2026 p9
+2026,Mendoza,Total,siniestros_fatales,78,parcial,p2026 p8
+2016,Misiones,Total,victimas_fatales,265,definitivo,a2018 p14; a2019 p77
+2016,Misiones,Total,tasa_mortalidad_100mil,22,definitivo,a2018 p16
+2016,Misiones,Total,tasa_fatalidad_10mil_veh,5.7,definitivo,a2018 p18
+2017,Misiones,Total,victimas_fatales,256,definitivo,a2017 p18; a2017 p7; a2018 p14; a2019 p77; a2022 p43
+2017,Misiones,Motociclista,victimas_fatales,116,definitivo,a2017 p18
+2017,Misiones,Automóvil,victimas_fatales,90,definitivo,a2017 p18
+2017,Misiones,Peatón,victimas_fatales,35,definitivo,a2017 p18
+2017,Misiones,Ciclista,victimas_fatales,8,definitivo,a2017 p18
+2017,Misiones,Otros vehículos,victimas_fatales,7,definitivo,a2017 p18
+2017,Misiones,Sin dato,victimas_fatales,0,definitivo,a2017 p18
+2017,Misiones,Total,siniestros_fatales,214,definitivo,a2017 p25; a2022 p23
+2017,Misiones,Total,siniestros_con_lesionados,2395,definitivo,a2017 p25
+2017,Misiones,Total,personas_heridas,0,definitivo,a2017 p23
+2017,Misiones,Total,tasa_mortalidad_100mil,21,definitivo,a2017 p7; a2018 p16
+2017,Misiones,Total,tasa_fatalidad_10mil_veh,5.1,definitivo,a2017 p7; a2018 p18
+2017,Misiones,Total,poblacion,1218771,definitivo,a2017 p7
+2017,Misiones,Total,parque_vehicular,501106,definitivo,a2017 p7
+2018,Misiones,Total,victimas_fatales,259,definitivo,a2018 p14; a2018 p24; a2019 p77; a2022 p43
+2018,Misiones,Motociclista,victimas_fatales,144,definitivo,a2018 p24
+2018,Misiones,Automóvil,victimas_fatales,56,definitivo,a2018 p24
+2018,Misiones,Peatón,victimas_fatales,33,definitivo,a2018 p24
+2018,Misiones,Ciclista,victimas_fatales,6,definitivo,a2018 p24
+2018,Misiones,Otros vehículos,victimas_fatales,12,definitivo,a2018 p24
+2018,Misiones,Sin dato,victimas_fatales,8,definitivo,a2018 p24
+2018,Misiones,Total,siniestros_fatales,223,definitivo,a2018 p36; a2022 p23
+2018,Misiones,Total,siniestros_con_lesionados,2197,definitivo,a2018 p36
+2018,Misiones,Total,personas_heridas,3235,definitivo,a2018 p30
+2018,Misiones,Total,tasa_mortalidad_100mil,21,definitivo,a2018 p16
+2018,Misiones,Total,tasa_fatalidad_10mil_veh,4.8,definitivo,a2018 p18
+2019,Misiones,Total,victimas_fatales,199,definitivo,a2019 p74; a2019 p77; a2019 p99; a2022 p43
+2019,Misiones,Motociclista,victimas_fatales,91,definitivo,a2019 p99
+2019,Misiones,Automóvil,victimas_fatales,55,definitivo,a2019 p99
+2019,Misiones,Peatón,victimas_fatales,31,definitivo,a2019 p99
+2019,Misiones,Ciclista,victimas_fatales,5,definitivo,a2019 p99
+2019,Misiones,Otros vehículos,victimas_fatales,17,definitivo,a2019 p99
+2019,Misiones,Sin dato,victimas_fatales,0,definitivo,a2019 p99
+2019,Misiones,Total,siniestros_fatales,172,definitivo,a2022 p23
+2019,Misiones,Total,siniestros_con_victimas,2324,definitivo,a2019 p44
+2019,Misiones,Total,personas_heridas,3139,definitivo,a2019 p116
+2019,Misiones,Total,tasa_mortalidad_100mil,16,definitivo,a2019 p74
+2019,Misiones,Total,tasa_fatalidad_10mil_veh,3.7,definitivo,a2019 p74
+2019,Misiones,Total,poblacion,1247362,definitivo,a2019 p74
+2019,Misiones,Total,parque_vehicular,538269,definitivo,a2019 p74
+2020,Misiones,Total,victimas_fatales,145,definitivo,a2020 p29; a2020 p35; a2022 p43
+2020,Misiones,Motociclista,victimas_fatales,84,definitivo,a2020 p35
+2020,Misiones,Automóvil,victimas_fatales,17,definitivo,a2020 p35
+2020,Misiones,Peatón,victimas_fatales,20,definitivo,a2020 p35
+2020,Misiones,Ciclista,victimas_fatales,5,definitivo,a2020 p35
+2020,Misiones,Otros vehículos,victimas_fatales,10,definitivo,a2020 p35
+2020,Misiones,Sin dato,victimas_fatales,9,definitivo,a2020 p35
+2020,Misiones,Total,siniestros_fatales,134,definitivo,a2020 p19; a2020 p26; a2022 p23
+2020,Misiones,Total,siniestros_con_victimas,1323,definitivo,a2020 p26
+2020,Misiones,Total,siniestros_con_lesionados,1189,definitivo,a2020 p26
+2020,Misiones,Total,personas_heridas,1798,definitivo,a2020 p39
+2020,Misiones,Total,tasa_mortalidad_100mil,11.5,definitivo,a2020 p29
+2020,Misiones,Total,tasa_fatalidad_10mil_veh,2.6,definitivo,a2020 p29
+2020,Misiones,Total,tasa_siniestralidad_fatal_100mil,10.6,definitivo,a2020 p19
+2020,Misiones,Total,tasa_siniestralidad_fatal_10mil_veh,2.4,definitivo,a2020 p19
+2020,Misiones,Total,poblacion,1261294,definitivo,a2020 p14
+2020,Misiones,Total,parque_vehicular,592493,definitivo,a2020 p15
+2021,Misiones,Total,victimas_fatales,216,definitivo,a2021 p24; a2021 p30; a2022 p43
+2021,Misiones,Motociclista,victimas_fatales,115,definitivo,a2021 p30
+2021,Misiones,Automóvil,victimas_fatales,52,definitivo,a2021 p30
+2021,Misiones,Peatón,victimas_fatales,30,definitivo,a2021 p30
+2021,Misiones,Ciclista,victimas_fatales,3,definitivo,a2021 p30
+2021,Misiones,Otros vehículos,victimas_fatales,16,definitivo,a2021 p30
+2021,Misiones,Sin dato,victimas_fatales,0,definitivo,a2021 p30
+2021,Misiones,Total,siniestros_fatales,194,definitivo,a2021 p15; a2022 p23
+2021,Misiones,Total,personas_heridas,2196,definitivo,a2021 p33
+2021,Misiones,Total,tasa_mortalidad_100mil,16.9,definitivo,a2021 p24
+2021,Misiones,Total,tasa_fatalidad_10mil_veh,3.6,definitivo,a2021 p24
+2021,Misiones,Total,tasa_siniestralidad_fatal_100mil,15.2,definitivo,a2021 p15
+2021,Misiones,Total,tasa_siniestralidad_fatal_10mil_veh,3.3,definitivo,a2021 p15
+2021,Misiones,Total,poblacion,1274992,definitivo,a2021 p12
+2022,Misiones,Total,victimas_fatales,216,definitivo,a2022 p40; a2022 p43; a2022 p47
+2022,Misiones,Motociclista,victimas_fatales,97,definitivo,a2022 p47
+2022,Misiones,Automóvil,victimas_fatales,56,definitivo,a2022 p47
+2022,Misiones,Peatón,victimas_fatales,33,definitivo,a2022 p47
+2022,Misiones,Ciclista,victimas_fatales,3,definitivo,a2022 p47
+2022,Misiones,Otros vehículos,victimas_fatales,27,definitivo,a2022 p47
+2022,Misiones,Sin dato,victimas_fatales,0,definitivo,a2022 p47
+2022,Misiones,Total,siniestros_fatales,188,definitivo,a2022 p14; a2022 p20; a2022 p23
+2022,Misiones,Total,siniestros_con_victimas,617,preliminar,a2022 p14
+2022,Misiones,Total,siniestros_con_lesionados,429,preliminar,a2022 p14
+2022,Misiones,Total,personas_heridas,746,preliminar,a2022 p58
+2022,Misiones,Total,tasa_mortalidad_100mil,16.8,definitivo,a2022 p40
+2022,Misiones,Total,tasa_fatalidad_10mil_veh,3.5,definitivo,a2022 p40
+2022,Misiones,Total,tasa_siniestralidad_fatal_100mil,14.6,definitivo,a2022 p20
+2022,Misiones,Total,tasa_siniestralidad_fatal_10mil_veh,3.1,definitivo,a2022 p20
+2022,Misiones,Total,poblacion,1288476,definitivo,a2022 p77
+2022,Misiones,Total,parque_vehicular,614916,definitivo,a2022 p79
+2023,Misiones,Total,victimas_fatales,216,preliminar,p2023 p11
+2023,Misiones,Total,siniestros_fatales,197,preliminar,p2023 p10
+2023,Misiones,Total,tasa_mortalidad_100mil,16.3,preliminar,p2023 p11
+2023,Misiones,Total,tasa_fatalidad_10mil_veh,3.4,preliminar,p2023 p11
+2023,Misiones,Total,tasa_siniestralidad_fatal_100mil,14.9,preliminar,p2023 p10
+2023,Misiones,Total,tasa_siniestralidad_fatal_10mil_veh,3.1,preliminar,p2023 p10
+2024,Misiones,Total,victimas_fatales,191,preliminar,p2024 p10
+2024,Misiones,Total,siniestros_fatales,170,preliminar,p2024 p9
+2024,Misiones,Total,tasa_mortalidad_100mil,14.3,preliminar,p2024 p10
+2024,Misiones,Total,tasa_siniestralidad_fatal_100mil,12.7,preliminar,p2024 p9
+2025,Misiones,Total,victimas_fatales,240,preliminar,p2025
+2025,Misiones,Total,tasa_mortalidad_100mil,17.9,preliminar,p2025
+2026,Misiones,Total,victimas_fatales,140,parcial,p2026 p9
+2026,Misiones,Total,siniestros_fatales,124,parcial,p2026 p8
+2016,Neuquén,Total,victimas_fatales,93,definitivo,a2018 p14; a2019 p77
+2016,Neuquén,Total,tasa_mortalidad_100mil,14.8,definitivo,a2018 p16
+2016,Neuquén,Total,tasa_fatalidad_10mil_veh,2.6,definitivo,a2018 p18
+2017,Neuquén,Total,victimas_fatales,85,definitivo,a2017 p18; a2017 p7; a2018 p14; a2019 p77; a2022 p43
+2017,Neuquén,Motociclista,victimas_fatales,18,definitivo,a2017 p18
+2017,Neuquén,Automóvil,victimas_fatales,32,definitivo,a2017 p18
+2017,Neuquén,Peatón,victimas_fatales,14,definitivo,a2017 p18
+2017,Neuquén,Ciclista,victimas_fatales,2,definitivo,a2017 p18
+2017,Neuquén,Otros vehículos,victimas_fatales,18,definitivo,a2017 p18
+2017,Neuquén,Sin dato,victimas_fatales,1,definitivo,a2017 p18
+2017,Neuquén,Total,siniestros_fatales,78,definitivo,a2017 p25; a2022 p23
+2017,Neuquén,Total,siniestros_con_lesionados,2257,definitivo,a2017 p25
+2017,Neuquén,Total,personas_heridas,2779,definitivo,a2017 p23
+2017,Neuquén,Total,tasa_mortalidad_100mil,13.3,definitivo,a2017 p7; a2018 p16
+2017,Neuquén,Total,tasa_fatalidad_10mil_veh,2.2,definitivo,a2017 p7; a2018 p18
+2017,Neuquén,Total,poblacion,637913,definitivo,a2017 p7
+2017,Neuquén,Total,parque_vehicular,391187,definitivo,a2017 p7
+2018,Neuquén,Total,victimas_fatales,80,definitivo,a2018 p14; a2018 p24; a2019 p77; a2022 p43
+2018,Neuquén,Motociclista,victimas_fatales,18,definitivo,a2018 p24
+2018,Neuquén,Automóvil,victimas_fatales,45,definitivo,a2018 p24
+2018,Neuquén,Peatón,victimas_fatales,6,definitivo,a2018 p24
+2018,Neuquén,Ciclista,victimas_fatales,1,definitivo,a2018 p24
+2018,Neuquén,Otros vehículos,victimas_fatales,10,definitivo,a2018 p24
+2018,Neuquén,Sin dato,victimas_fatales,0,definitivo,a2018 p24
+2018,Neuquén,Total,siniestros_fatales,68,definitivo,a2018 p36; a2022 p23
+2018,Neuquén,Total,siniestros_con_lesionados,2198,definitivo,a2018 p36
+2018,Neuquén,Total,personas_heridas,2830,definitivo,a2018 p30
+2018,Neuquén,Total,tasa_mortalidad_100mil,12.4,definitivo,a2018 p16
+2018,Neuquén,Total,tasa_fatalidad_10mil_veh,1.9,definitivo,a2018 p18
+2019,Neuquén,Total,victimas_fatales,84,definitivo,a2019 p74; a2019 p77; a2019 p99; a2022 p43
+2019,Neuquén,Motociclista,victimas_fatales,18,definitivo,a2019 p99
+2019,Neuquén,Automóvil,victimas_fatales,40,definitivo,a2019 p99
+2019,Neuquén,Peatón,victimas_fatales,4,definitivo,a2019 p99
+2019,Neuquén,Ciclista,victimas_fatales,2,definitivo,a2019 p99
+2019,Neuquén,Otros vehículos,victimas_fatales,20,definitivo,a2019 p99
+2019,Neuquén,Sin dato,victimas_fatales,0,definitivo,a2019 p99
+2019,Neuquén,Total,siniestros_fatales,65,definitivo,a2022 p23
+2019,Neuquén,Total,siniestros_con_victimas,2236,definitivo,a2019 p44
+2019,Neuquén,Total,personas_heridas,2818,definitivo,a2019 p116
+2019,Neuquén,Total,tasa_mortalidad_100mil,12.8,definitivo,a2019 p74
+2019,Neuquén,Total,tasa_fatalidad_10mil_veh,2,definitivo,a2019 p74
+2019,Neuquén,Total,poblacion,655501,definitivo,a2019 p74
+2019,Neuquén,Total,parque_vehicular,420067,definitivo,a2019 p74
+2020,Neuquén,Total,victimas_fatales,51,definitivo,a2020 p29; a2020 p35; a2022 p43
+2020,Neuquén,Motociclista,victimas_fatales,17,definitivo,a2020 p35
+2020,Neuquén,Automóvil,victimas_fatales,13,definitivo,a2020 p35
+2020,Neuquén,Peatón,victimas_fatales,3,definitivo,a2020 p35
+2020,Neuquén,Ciclista,victimas_fatales,5,definitivo,a2020 p35
+2020,Neuquén,Otros vehículos,victimas_fatales,13,definitivo,a2020 p35
+2020,Neuquén,Sin dato,victimas_fatales,0,definitivo,a2020 p35
+2020,Neuquén,Total,siniestros_fatales,45,definitivo,a2020 p19; a2020 p26; a2022 p23
+2020,Neuquén,Total,siniestros_con_victimas,1121,definitivo,a2020 p26
+2020,Neuquén,Total,siniestros_con_lesionados,1076,definitivo,a2020 p26
+2020,Neuquén,Total,personas_heridas,1378,definitivo,a2020 p39
+2020,Neuquén,Total,tasa_mortalidad_100mil,7.7,definitivo,a2020 p29
+2020,Neuquén,Total,tasa_fatalidad_10mil_veh,1.2,definitivo,a2020 p29
+2020,Neuquén,Total,tasa_siniestralidad_fatal_100mil,6.8,definitivo,a2020 p19
+2020,Neuquén,Total,tasa_siniestralidad_fatal_10mil_veh,1,definitivo,a2020 p19
+2020,Neuquén,Total,poblacion,664057,definitivo,a2020 p14
+2020,Neuquén,Total,parque_vehicular,456137,definitivo,a2020 p15
+2021,Neuquén,Total,victimas_fatales,70,definitivo,a2021 p24; a2021 p30; a2022 p43
+2021,Neuquén,Motociclista,victimas_fatales,18,definitivo,a2021 p30
+2021,Neuquén,Automóvil,victimas_fatales,34,definitivo,a2021 p30
+2021,Neuquén,Peatón,victimas_fatales,5,definitivo,a2021 p30
+2021,Neuquén,Ciclista,victimas_fatales,3,definitivo,a2021 p30
+2021,Neuquén,Otros vehículos,victimas_fatales,10,definitivo,a2021 p30
+2021,Neuquén,Sin dato,victimas_fatales,0,definitivo,a2021 p30
+2021,Neuquén,Total,siniestros_fatales,61,definitivo,a2021 p15; a2022 p23
+2021,Neuquén,Total,personas_heridas,1945,definitivo,a2021 p33
+2021,Neuquén,Total,tasa_mortalidad_100mil,10.4,definitivo,a2021 p24
+2021,Neuquén,Total,tasa_fatalidad_10mil_veh,1.5,definitivo,a2021 p24
+2021,Neuquén,Total,tasa_siniestralidad_fatal_100mil,9.1,definitivo,a2021 p15
+2021,Neuquén,Total,tasa_siniestralidad_fatal_10mil_veh,1.3,definitivo,a2021 p15
+2021,Neuquén,Total,poblacion,672461,definitivo,a2021 p12
+2022,Neuquén,Total,victimas_fatales,72,definitivo,a2022 p40; a2022 p43; a2022 p47
+2022,Neuquén,Motociclista,victimas_fatales,17,definitivo,a2022 p47
+2022,Neuquén,Automóvil,victimas_fatales,34,definitivo,a2022 p47
+2022,Neuquén,Peatón,victimas_fatales,5,definitivo,a2022 p47
+2022,Neuquén,Ciclista,victimas_fatales,1,definitivo,a2022 p47
+2022,Neuquén,Otros vehículos,victimas_fatales,15,definitivo,a2022 p47
+2022,Neuquén,Sin dato,victimas_fatales,0,definitivo,a2022 p47
+2022,Neuquén,Total,siniestros_fatales,59,definitivo,a2022 p14; a2022 p20; a2022 p23
+2022,Neuquén,Total,siniestros_con_victimas,1345,preliminar,a2022 p14
+2022,Neuquén,Total,siniestros_con_lesionados,1286,preliminar,a2022 p14
+2022,Neuquén,Total,personas_heridas,1654,preliminar,a2022 p58
+2022,Neuquén,Total,tasa_mortalidad_100mil,10.6,definitivo,a2022 p40
+2022,Neuquén,Total,tasa_fatalidad_10mil_veh,1.5,definitivo,a2022 p40
+2022,Neuquén,Total,tasa_siniestralidad_fatal_100mil,8.7,definitivo,a2022 p20
+2022,Neuquén,Total,tasa_siniestralidad_fatal_10mil_veh,1.3,definitivo,a2022 p20
+2022,Neuquén,Total,poblacion,680726,definitivo,a2022 p77
+2022,Neuquén,Total,parque_vehicular,469830,definitivo,a2022 p79
+2023,Neuquén,Total,victimas_fatales,62,preliminar,p2023 p11
+2023,Neuquén,Total,siniestros_fatales,48,preliminar,p2023 p10
+2023,Neuquén,Total,tasa_mortalidad_100mil,8.9,preliminar,p2023 p11
+2023,Neuquén,Total,tasa_fatalidad_10mil_veh,1.3,preliminar,p2023 p11
+2023,Neuquén,Total,tasa_siniestralidad_fatal_100mil,6.9,preliminar,p2023 p10
+2023,Neuquén,Total,tasa_siniestralidad_fatal_10mil_veh,1,preliminar,p2023 p10
+2024,Neuquén,Total,victimas_fatales,67,preliminar,p2024 p10
+2024,Neuquén,Total,siniestros_fatales,59,preliminar,p2024 p9
+2024,Neuquén,Total,tasa_mortalidad_100mil,9.6,preliminar,p2024 p10
+2024,Neuquén,Total,tasa_siniestralidad_fatal_100mil,8.4,preliminar,p2024 p9
+2025,Neuquén,Total,victimas_fatales,51,preliminar,p2025
+2025,Neuquén,Total,tasa_mortalidad_100mil,7.3,preliminar,p2025
+2026,Neuquén,Total,victimas_fatales,42,parcial,p2026 p9
+2026,Neuquén,Total,siniestros_fatales,39,parcial,p2026 p8
+2016,Río Negro,Total,victimas_fatales,80,definitivo,a2018 p14; a2019 p77
+2016,Río Negro,Total,tasa_mortalidad_100mil,11.3,definitivo,a2018 p16
+2016,Río Negro,Total,tasa_fatalidad_10mil_veh,2.2,definitivo,a2018 p18
+2017,Río Negro,Total,victimas_fatales,122,definitivo,a2017 p18; a2017 p7; a2018 p14; a2019 p77; a2022 p43
+2017,Río Negro,Motociclista,victimas_fatales,33,definitivo,a2017 p18
+2017,Río Negro,Peatón,victimas_fatales,9,definitivo,a2017 p18
+2017,Río Negro,Ciclista,victimas_fatales,1,definitivo,a2017 p18
+2017,Río Negro,Otros vehículos,victimas_fatales,15,definitivo,a2017 p18
+2017,Río Negro,Sin dato,victimas_fatales,64,definitivo,a2017 p18
+2017,Río Negro,Total,siniestros_fatales,103,definitivo,a2017 p25; a2022 p23
+2017,Río Negro,Total,siniestros_con_lesionados,510,definitivo,a2017 p25
+2017,Río Negro,Total,personas_heridas,859,definitivo,a2017 p23
+2017,Río Negro,Total,tasa_mortalidad_100mil,17,definitivo,a2017 p7; a2018 p16
+2017,Río Negro,Total,tasa_fatalidad_10mil_veh,3,definitivo,a2017 p7; a2018 p18
+2017,Río Negro,Total,poblacion,718646,definitivo,a2017 p7
+2017,Río Negro,Total,parque_vehicular,401124,definitivo,a2017 p7
+2018,Río Negro,Total,victimas_fatales,106,definitivo,a2018 p14; a2018 p24; a2019 p77; a2022 p43
+2018,Río Negro,Motociclista,victimas_fatales,24,definitivo,a2018 p24
+2018,Río Negro,Automóvil,victimas_fatales,73,definitivo,a2018 p24
+2018,Río Negro,Peatón,victimas_fatales,8,definitivo,a2018 p24
+2018,Río Negro,Ciclista,victimas_fatales,0,definitivo,a2018 p24
+2018,Río Negro,Otros vehículos,victimas_fatales,1,definitivo,a2018 p24
+2018,Río Negro,Sin dato,victimas_fatales,0,definitivo,a2018 p24
+2018,Río Negro,Total,siniestros_fatales,89,definitivo,a2018 p36; a2022 p23
+2018,Río Negro,Total,siniestros_con_lesionados,322,definitivo,a2018 p36
+2018,Río Negro,Total,personas_heridas,548,definitivo,a2018 p30
+2018,Río Negro,Total,tasa_mortalidad_100mil,14.6,definitivo,a2018 p16
+2018,Río Negro,Total,tasa_fatalidad_10mil_veh,2.5,definitivo,a2018 p18
+2019,Río Negro,Total,victimas_fatales,85,definitivo,a2019 p74; a2019 p77; a2019 p99; a2022 p43
+2019,Río Negro,Motociclista,victimas_fatales,24,definitivo,a2019 p99
+2019,Río Negro,Automóvil,victimas_fatales,48,definitivo,a2019 p99
+2019,Río Negro,Peatón,victimas_fatales,7,definitivo,a2019 p99
+2019,Río Negro,Ciclista,victimas_fatales,1,definitivo,a2019 p99
+2019,Río Negro,Otros vehículos,victimas_fatales,5,definitivo,a2019 p99
+2019,Río Negro,Sin dato,victimas_fatales,0,definitivo,a2019 p99
+2019,Río Negro,Total,siniestros_fatales,70,definitivo,a2022 p23
+2019,Río Negro,Total,siniestros_con_victimas,297,definitivo,a2019 p44
+2019,Río Negro,Total,personas_heridas,407,definitivo,a2019 p116
+2019,Río Negro,Total,tasa_mortalidad_100mil,11.5,definitivo,a2019 p74
+2019,Río Negro,Total,tasa_fatalidad_10mil_veh,2,definitivo,a2019 p74
+2019,Río Negro,Total,poblacion,738060,definitivo,a2019 p74
+2019,Río Negro,Total,parque_vehicular,433037,definitivo,a2019 p74
+2020,Río Negro,Total,victimas_fatales,53,definitivo,a2020 p29; a2020 p35; a2022 p43
+2020,Río Negro,Motociclista,victimas_fatales,17,definitivo,a2020 p35
+2020,Río Negro,Automóvil,victimas_fatales,24,definitivo,a2020 p35
+2020,Río Negro,Peatón,victimas_fatales,6,definitivo,a2020 p35
+2020,Río Negro,Ciclista,victimas_fatales,3,definitivo,a2020 p35
+2020,Río Negro,Otros vehículos,victimas_fatales,3,definitivo,a2020 p35
+2020,Río Negro,Sin dato,victimas_fatales,0,definitivo,a2020 p35
+2020,Río Negro,Total,siniestros_fatales,44,definitivo,a2020 p19; a2020 p26; a2022 p23
+2020,Río Negro,Total,siniestros_con_victimas,137,definitivo,a2020 p26
+2020,Río Negro,Total,siniestros_con_lesionados,93,definitivo,a2020 p26
+2020,Río Negro,Total,personas_heridas,149,definitivo,a2020 p39
+2020,Río Negro,Total,tasa_mortalidad_100mil,7.1,definitivo,a2020 p29
+2020,Río Negro,Total,tasa_fatalidad_10mil_veh,1.2,definitivo,a2020 p29
+2020,Río Negro,Total,tasa_siniestralidad_fatal_100mil,5.9,definitivo,a2020 p19
+2020,Río Negro,Total,tasa_siniestralidad_fatal_10mil_veh,1,definitivo,a2020 p19
+2020,Río Negro,Total,poblacion,747610,definitivo,a2020 p14
+2020,Río Negro,Total,parque_vehicular,475206,definitivo,a2020 p15
+2021,Río Negro,Total,victimas_fatales,73,definitivo,a2021 p24; a2021 p30; a2022 p43
+2021,Río Negro,Motociclista,victimas_fatales,13,definitivo,a2021 p30
+2021,Río Negro,Automóvil,victimas_fatales,37,definitivo,a2021 p30
+2021,Río Negro,Peatón,victimas_fatales,7,definitivo,a2021 p30
+2021,Río Negro,Ciclista,victimas_fatales,6,definitivo,a2021 p30
+2021,Río Negro,Otros vehículos,victimas_fatales,10,definitivo,a2021 p30
+2021,Río Negro,Sin dato,victimas_fatales,0,definitivo,a2021 p30
+2021,Río Negro,Total,siniestros_fatales,64,definitivo,a2021 p15; a2022 p23
+2021,Río Negro,Total,personas_heridas,306,definitivo,a2021 p33
+2021,Río Negro,Total,tasa_mortalidad_100mil,9.6,definitivo,a2021 p24
+2021,Río Negro,Total,tasa_fatalidad_10mil_veh,1.5,definitivo,a2021 p24
+2021,Río Negro,Total,tasa_siniestralidad_fatal_100mil,8.5,definitivo,a2021 p15
+2021,Río Negro,Total,tasa_siniestralidad_fatal_10mil_veh,1.3,definitivo,a2021 p15
+2021,Río Negro,Total,poblacion,757052,definitivo,a2021 p12
+2022,Río Negro,Total,victimas_fatales,80,definitivo,a2022 p40; a2022 p43; a2022 p47
+2022,Río Negro,Motociclista,victimas_fatales,17,definitivo,a2022 p47
+2022,Río Negro,Automóvil,victimas_fatales,42,definitivo,a2022 p47
+2022,Río Negro,Peatón,victimas_fatales,7,definitivo,a2022 p47
+2022,Río Negro,Ciclista,victimas_fatales,0,definitivo,a2022 p47
+2022,Río Negro,Otros vehículos,victimas_fatales,14,definitivo,a2022 p47
+2022,Río Negro,Sin dato,victimas_fatales,0,definitivo,a2022 p47
+2022,Río Negro,Total,siniestros_fatales,64,definitivo,a2022 p14; a2022 p20; a2022 p23
+2022,Río Negro,Total,siniestros_con_victimas,218,preliminar,a2022 p14
+2022,Río Negro,Total,siniestros_con_lesionados,154,preliminar,a2022 p14
+2022,Río Negro,Total,personas_heridas,263,preliminar,a2022 p58
+2022,Río Negro,Total,tasa_mortalidad_100mil,10.4,definitivo,a2022 p40
+2022,Río Negro,Total,tasa_fatalidad_10mil_veh,1.6,definitivo,a2022 p40
+2022,Río Negro,Total,tasa_siniestralidad_fatal_100mil,8.4,definitivo,a2022 p20
+2022,Río Negro,Total,tasa_siniestralidad_fatal_10mil_veh,1.3,definitivo,a2022 p20
+2022,Río Negro,Total,poblacion,766387,definitivo,a2022 p77
+2022,Río Negro,Total,parque_vehicular,489754,definitivo,a2022 p79
+2023,Río Negro,Total,victimas_fatales,83,preliminar,p2023 p11
+2023,Río Negro,Total,siniestros_fatales,68,preliminar,p2023 p10
+2023,Río Negro,Total,tasa_mortalidad_100mil,10.6,preliminar,p2023 p11
+2023,Río Negro,Total,tasa_fatalidad_10mil_veh,1.6,preliminar,p2023 p11
+2023,Río Negro,Total,tasa_siniestralidad_fatal_100mil,8.7,preliminar,p2023 p10
+2023,Río Negro,Total,tasa_siniestralidad_fatal_10mil_veh,1.3,preliminar,p2023 p10
+2024,Río Negro,Total,victimas_fatales,71,preliminar,p2024 p10
+2024,Río Negro,Total,siniestros_fatales,55,preliminar,p2024 p9
+2024,Río Negro,Total,tasa_mortalidad_100mil,9,preliminar,p2024 p10
+2024,Río Negro,Total,tasa_siniestralidad_fatal_100mil,7,preliminar,p2024 p9
+2025,Río Negro,Total,victimas_fatales,62,preliminar,p2025
+2025,Río Negro,Total,tasa_mortalidad_100mil,7.9,preliminar,p2025
+2026,Río Negro,Total,victimas_fatales,50,parcial,p2026 p9
+2026,Río Negro,Total,siniestros_fatales,44,parcial,p2026 p8
+2016,Salta,Total,victimas_fatales,212,definitivo,a2018 p14; a2019 p77
+2016,Salta,Total,tasa_mortalidad_100mil,15.7,definitivo,a2018 p16
+2016,Salta,Total,tasa_fatalidad_10mil_veh,4.6,definitivo,a2018 p18
+2017,Salta,Total,victimas_fatales,203,definitivo,a2017 p18; a2017 p7; a2018 p14; a2019 p77; a2022 p43
+2017,Salta,Motociclista,victimas_fatales,94,definitivo,a2017 p18
+2017,Salta,Automóvil,victimas_fatales,53,definitivo,a2017 p18
+2017,Salta,Peatón,victimas_fatales,27,definitivo,a2017 p18
+2017,Salta,Ciclista,victimas_fatales,7,definitivo,a2017 p18
+2017,Salta,Otros vehículos,victimas_fatales,22,definitivo,a2017 p18
+2017,Salta,Sin dato,victimas_fatales,0,definitivo,a2017 p18
+2017,Salta,Total,siniestros_fatales,184,definitivo,a2017 p25; a2022 p23
+2017,Salta,Total,siniestros_con_lesionados,4077,definitivo,a2017 p25
+2017,Salta,Total,personas_heridas,5723,definitivo,a2017 p23
+2017,Salta,Total,tasa_mortalidad_100mil,14.8,definitivo,a2017 p7; a2018 p16
+2017,Salta,Total,tasa_fatalidad_10mil_veh,3.9,definitivo,a2017 p7; a2018 p18
+2017,Salta,Total,poblacion,1370283,definitivo,a2017 p7
+2017,Salta,Total,parque_vehicular,520198,definitivo,a2017 p7
+2018,Salta,Total,victimas_fatales,219,definitivo,a2018 p14; a2018 p24; a2019 p77; a2022 p43
+2018,Salta,Motociclista,victimas_fatales,97,definitivo,a2018 p24
+2018,Salta,Automóvil,victimas_fatales,38,definitivo,a2018 p24
+2018,Salta,Peatón,victimas_fatales,33,definitivo,a2018 p24
+2018,Salta,Ciclista,victimas_fatales,11,definitivo,a2018 p24
+2018,Salta,Otros vehículos,victimas_fatales,40,definitivo,a2018 p24
+2018,Salta,Sin dato,victimas_fatales,0,definitivo,a2018 p24
+2018,Salta,Total,siniestros_fatales,190,definitivo,a2018 p36; a2022 p23
+2018,Salta,Total,siniestros_con_lesionados,3822,definitivo,a2018 p36
+2018,Salta,Total,personas_heridas,5266,definitivo,a2018 p30
+2018,Salta,Total,tasa_mortalidad_100mil,15.8,definitivo,a2018 p16
+2018,Salta,Total,tasa_fatalidad_10mil_veh,3.9,definitivo,a2018 p18
+2019,Salta,Total,victimas_fatales,165,definitivo,a2019 p74; a2019 p77; a2019 p99; a2022 p43
+2019,Salta,Motociclista,victimas_fatales,95,definitivo,a2019 p99
+2019,Salta,Automóvil,victimas_fatales,27,definitivo,a2019 p99
+2019,Salta,Peatón,victimas_fatales,19,definitivo,a2019 p99
+2019,Salta,Ciclista,victimas_fatales,6,definitivo,a2019 p99
+2019,Salta,Otros vehículos,victimas_fatales,18,definitivo,a2019 p99
+2019,Salta,Sin dato,victimas_fatales,0,definitivo,a2019 p99
+2019,Salta,Total,siniestros_fatales,150,definitivo,a2022 p23
+2019,Salta,Total,siniestros_con_victimas,4006,definitivo,a2019 p44
+2019,Salta,Total,personas_heridas,5143,definitivo,a2019 p116
+2019,Salta,Total,tasa_mortalidad_100mil,11.7,definitivo,a2019 p74
+2019,Salta,Total,tasa_fatalidad_10mil_veh,2.9,definitivo,a2019 p74
+2019,Salta,Total,poblacion,1406584,definitivo,a2019 p74
+2019,Salta,Total,parque_vehicular,570026,definitivo,a2019 p74
+2020,Salta,Total,victimas_fatales,137,definitivo,a2020 p29; a2020 p35; a2022 p43
+2020,Salta,Motociclista,victimas_fatales,79,definitivo,a2020 p35
+2020,Salta,Automóvil,victimas_fatales,19,definitivo,a2020 p35
+2020,Salta,Peatón,victimas_fatales,16,definitivo,a2020 p35
+2020,Salta,Ciclista,victimas_fatales,7,definitivo,a2020 p35
+2020,Salta,Otros vehículos,victimas_fatales,16,definitivo,a2020 p35
+2020,Salta,Sin dato,victimas_fatales,0,definitivo,a2020 p35
+2020,Salta,Total,siniestros_fatales,128,definitivo,a2020 p19; a2020 p26; a2022 p23
+2020,Salta,Total,siniestros_con_victimas,2962,definitivo,a2020 p26
+2020,Salta,Total,siniestros_con_lesionados,2834,definitivo,a2020 p26
+2020,Salta,Total,personas_heridas,3652,definitivo,a2020 p39
+2020,Salta,Total,tasa_mortalidad_100mil,9.6,definitivo,a2020 p29
+2020,Salta,Total,tasa_fatalidad_10mil_veh,2.3,definitivo,a2020 p29
+2020,Salta,Total,tasa_siniestralidad_fatal_100mil,9,definitivo,a2020 p19
+2020,Salta,Total,tasa_siniestralidad_fatal_10mil_veh,2.1,definitivo,a2020 p19
+2020,Salta,Total,poblacion,1424397,definitivo,a2020 p14
+2020,Salta,Total,parque_vehicular,628999,definitivo,a2020 p15
+2021,Salta,Total,victimas_fatales,187,definitivo,a2021 p24; a2021 p30; a2022 p43
+2021,Salta,Motociclista,victimas_fatales,103,definitivo,a2021 p30
+2021,Salta,Automóvil,victimas_fatales,32,definitivo,a2021 p30
+2021,Salta,Peatón,victimas_fatales,17,definitivo,a2021 p30
+2021,Salta,Ciclista,victimas_fatales,9,definitivo,a2021 p30
+2021,Salta,Otros vehículos,victimas_fatales,26,definitivo,a2021 p30
+2021,Salta,Sin dato,victimas_fatales,0,definitivo,a2021 p30
+2021,Salta,Total,siniestros_fatales,164,definitivo,a2021 p15; a2022 p23
+2021,Salta,Total,personas_heridas,4934,definitivo,a2021 p33
+2021,Salta,Total,tasa_mortalidad_100mil,13,definitivo,a2021 p24
+2021,Salta,Total,tasa_fatalidad_10mil_veh,3,definitivo,a2021 p24
+2021,Salta,Total,tasa_siniestralidad_fatal_100mil,11.4,definitivo,a2021 p15
+2021,Salta,Total,tasa_siniestralidad_fatal_10mil_veh,2.6,definitivo,a2021 p15
+2021,Salta,Total,poblacion,1441988,definitivo,a2021 p12
+2022,Salta,Total,victimas_fatales,151,definitivo,a2022 p40; a2022 p43; a2022 p47
+2022,Salta,Motociclista,victimas_fatales,63,definitivo,a2022 p47
+2022,Salta,Automóvil,victimas_fatales,36,definitivo,a2022 p47
+2022,Salta,Peatón,victimas_fatales,19,definitivo,a2022 p47
+2022,Salta,Ciclista,victimas_fatales,13,definitivo,a2022 p47
+2022,Salta,Otros vehículos,victimas_fatales,20,definitivo,a2022 p47
+2022,Salta,Sin dato,victimas_fatales,0,definitivo,a2022 p47
+2022,Salta,Total,siniestros_fatales,136,definitivo,a2022 p14; a2022 p20; a2022 p23
+2022,Salta,Total,siniestros_con_victimas,4222,preliminar,a2022 p14
+2022,Salta,Total,siniestros_con_lesionados,4086,preliminar,a2022 p14
+2022,Salta,Total,personas_heridas,5339,preliminar,a2022 p58
+2022,Salta,Total,tasa_mortalidad_100mil,10.3,definitivo,a2022 p40
+2022,Salta,Total,tasa_fatalidad_10mil_veh,2.3,definitivo,a2022 p40
+2022,Salta,Total,tasa_siniestralidad_fatal_100mil,9.3,definitivo,a2022 p20
+2022,Salta,Total,tasa_siniestralidad_fatal_10mil_veh,2.1,definitivo,a2022 p20
+2022,Salta,Total,poblacion,1459378,definitivo,a2022 p77
+2022,Salta,Total,parque_vehicular,654998,definitivo,a2022 p79
+2023,Salta,Total,victimas_fatales,173,preliminar,p2023 p11
+2023,Salta,Total,siniestros_fatales,154,preliminar,p2023 p10
+2023,Salta,Total,tasa_mortalidad_100mil,11.7,preliminar,p2023 p11
+2023,Salta,Total,tasa_fatalidad_10mil_veh,2.5,preliminar,p2023 p11
+2023,Salta,Total,tasa_siniestralidad_fatal_100mil,10.4,preliminar,p2023 p10
+2023,Salta,Total,tasa_siniestralidad_fatal_10mil_veh,2.2,preliminar,p2023 p10
+2024,Salta,Total,victimas_fatales,140,preliminar,p2024 p10
+2024,Salta,Total,siniestros_fatales,126,preliminar,p2024 p9
+2024,Salta,Total,tasa_mortalidad_100mil,9.5,preliminar,p2024 p10
+2024,Salta,Total,tasa_siniestralidad_fatal_100mil,8.5,preliminar,p2024 p9
+2025,Salta,Total,victimas_fatales,130,preliminar,p2025
+2025,Salta,Total,tasa_mortalidad_100mil,8.7,preliminar,p2025
+2026,Salta,Total,victimas_fatales,93,parcial,p2026 p9
+2026,Salta,Total,siniestros_fatales,89,parcial,p2026 p8
+2016,San Juan,Total,victimas_fatales,106,definitivo,a2018 p14; a2019 p77
+2016,San Juan,Total,tasa_mortalidad_100mil,14.2,definitivo,a2018 p16
+2016,San Juan,Total,tasa_fatalidad_10mil_veh,2.9,definitivo,a2018 p18
+2017,San Juan,Total,victimas_fatales,122,definitivo,a2017 p18; a2017 p7; a2018 p14; a2019 p77; a2022 p43
+2017,San Juan,Motociclista,victimas_fatales,51,definitivo,a2017 p18
+2017,San Juan,Automóvil,victimas_fatales,15,definitivo,a2017 p18
+2017,San Juan,Peatón,victimas_fatales,9,definitivo,a2017 p18
+2017,San Juan,Ciclista,victimas_fatales,11,definitivo,a2017 p18
+2017,San Juan,Otros vehículos,victimas_fatales,9,definitivo,a2017 p18
+2017,San Juan,Sin dato,victimas_fatales,27,definitivo,a2017 p18
+2017,San Juan,Total,siniestros_fatales,122,definitivo,a2017 p25; a2022 p23
+2017,San Juan,Total,siniestros_con_lesionados,4071,definitivo,a2017 p25
+2017,San Juan,Total,personas_heridas,4890,definitivo,a2017 p23
+2017,San Juan,Total,tasa_mortalidad_100mil,16.1,definitivo,a2017 p7; a2018 p16
+2017,San Juan,Total,tasa_fatalidad_10mil_veh,3.1,definitivo,a2017 p7; a2018 p18
+2017,San Juan,Total,poblacion,755994,definitivo,a2017 p7
+2017,San Juan,Total,parque_vehicular,397006,definitivo,a2017 p7
+2018,San Juan,Total,victimas_fatales,112,definitivo,a2018 p14; a2018 p24; a2019 p77; a2022 p43
+2018,San Juan,Motociclista,victimas_fatales,46,definitivo,a2018 p24
+2018,San Juan,Automóvil,victimas_fatales,50,definitivo,a2018 p24
+2018,San Juan,Peatón,victimas_fatales,7,definitivo,a2018 p24
+2018,San Juan,Ciclista,victimas_fatales,9,definitivo,a2018 p24
+2018,San Juan,Otros vehículos,victimas_fatales,0,definitivo,a2018 p24
+2018,San Juan,Sin dato,victimas_fatales,0,definitivo,a2018 p24
+2018,San Juan,Total,siniestros_fatales,98,definitivo,a2018 p36; a2022 p23
+2018,San Juan,Total,siniestros_con_lesionados,3812,definitivo,a2018 p36
+2018,San Juan,Total,personas_heridas,4567,definitivo,a2018 p30
+2018,San Juan,Total,tasa_mortalidad_100mil,14.7,definitivo,a2018 p16
+2018,San Juan,Total,tasa_fatalidad_10mil_veh,2.7,definitivo,a2018 p18
+2019,San Juan,Total,victimas_fatales,102,definitivo,a2019 p74; a2019 p77; a2019 p99; a2022 p43
+2019,San Juan,Motociclista,victimas_fatales,45,definitivo,a2019 p99
+2019,San Juan,Automóvil,victimas_fatales,24,definitivo,a2019 p99
+2019,San Juan,Peatón,victimas_fatales,8,definitivo,a2019 p99
+2019,San Juan,Ciclista,victimas_fatales,12,definitivo,a2019 p99
+2019,San Juan,Otros vehículos,victimas_fatales,13,definitivo,a2019 p99
+2019,San Juan,Sin dato,victimas_fatales,0,definitivo,a2019 p99
+2019,San Juan,Total,siniestros_fatales,92,definitivo,a2022 p23
+2019,San Juan,Total,siniestros_con_victimas,4124,definitivo,a2019 p44
+2019,San Juan,Total,personas_heridas,4944,definitivo,a2019 p116
+2019,San Juan,Total,tasa_mortalidad_100mil,13.2,definitivo,a2019 p74
+2019,San Juan,Total,tasa_fatalidad_10mil_veh,2.4,definitivo,a2019 p74
+2019,San Juan,Total,poblacion,772876,definitivo,a2019 p74
+2019,San Juan,Total,parque_vehicular,423745,definitivo,a2019 p74
+2020,San Juan,Total,victimas_fatales,69,definitivo,a2020 p29; a2020 p35; a2022 p43
+2020,San Juan,Motociclista,victimas_fatales,39,definitivo,a2020 p35
+2020,San Juan,Automóvil,victimas_fatales,10,definitivo,a2020 p35
+2020,San Juan,Peatón,victimas_fatales,8,definitivo,a2020 p35
+2020,San Juan,Ciclista,victimas_fatales,7,definitivo,a2020 p35
+2020,San Juan,Otros vehículos,victimas_fatales,5,definitivo,a2020 p35
+2020,San Juan,Sin dato,victimas_fatales,0,definitivo,a2020 p35
+2020,San Juan,Total,siniestros_fatales,67,definitivo,a2020 p19; a2020 p26; a2022 p23
+2020,San Juan,Total,siniestros_con_victimas,3000,definitivo,a2020 p26
+2020,San Juan,Total,siniestros_con_lesionados,2933,definitivo,a2020 p26
+2020,San Juan,Total,personas_heridas,3364,definitivo,a2020 p39
+2020,San Juan,Total,tasa_mortalidad_100mil,8.8,definitivo,a2020 p29
+2020,San Juan,Total,tasa_fatalidad_10mil_veh,1.6,definitivo,a2020 p29
+2020,San Juan,Total,tasa_siniestralidad_fatal_100mil,8.6,definitivo,a2020 p19
+2020,San Juan,Total,tasa_siniestralidad_fatal_10mil_veh,1.5,definitivo,a2020 p19
+2020,San Juan,Total,poblacion,781217,definitivo,a2020 p14
+2020,San Juan,Total,parque_vehicular,456582,definitivo,a2020 p15
+2021,San Juan,Total,victimas_fatales,80,definitivo,a2021 p24; a2021 p30; a2022 p43
+2021,San Juan,Motociclista,victimas_fatales,44,definitivo,a2021 p30
+2021,San Juan,Automóvil,victimas_fatales,18,definitivo,a2021 p30
+2021,San Juan,Peatón,victimas_fatales,5,definitivo,a2021 p30
+2021,San Juan,Ciclista,victimas_fatales,7,definitivo,a2021 p30
+2021,San Juan,Otros vehículos,victimas_fatales,6,definitivo,a2021 p30
+2021,San Juan,Sin dato,victimas_fatales,0,definitivo,a2021 p30
+2021,San Juan,Total,siniestros_fatales,70,definitivo,a2021 p15; a2022 p23
+2021,San Juan,Total,personas_heridas,4349,definitivo,a2021 p33
+2021,San Juan,Total,tasa_mortalidad_100mil,10.1,definitivo,a2021 p24
+2021,San Juan,Total,tasa_fatalidad_10mil_veh,1.8,definitivo,a2021 p24
+2021,San Juan,Total,tasa_siniestralidad_fatal_100mil,8.9,definitivo,a2021 p15
+2021,San Juan,Total,tasa_siniestralidad_fatal_10mil_veh,1.5,definitivo,a2021 p15
+2021,San Juan,Total,poblacion,789489,definitivo,a2021 p12
+2022,San Juan,Total,victimas_fatales,105,definitivo,a2022 p40; a2022 p43; a2022 p47
+2022,San Juan,Motociclista,victimas_fatales,54,definitivo,a2022 p47
+2022,San Juan,Automóvil,victimas_fatales,23,definitivo,a2022 p47
+2022,San Juan,Peatón,victimas_fatales,5,definitivo,a2022 p47
+2022,San Juan,Ciclista,victimas_fatales,11,definitivo,a2022 p47
+2022,San Juan,Otros vehículos,victimas_fatales,12,definitivo,a2022 p47
+2022,San Juan,Sin dato,victimas_fatales,0,definitivo,a2022 p47
+2022,San Juan,Total,siniestros_fatales,98,definitivo,a2022 p14; a2022 p20; a2022 p23
+2022,San Juan,Total,siniestros_con_victimas,4046,preliminar,a2022 p14
+2022,San Juan,Total,siniestros_con_lesionados,3948,preliminar,a2022 p14
+2022,San Juan,Total,personas_heridas,4601,preliminar,a2022 p58
+2022,San Juan,Total,tasa_mortalidad_100mil,13.2,definitivo,a2022 p40
+2022,San Juan,Total,tasa_fatalidad_10mil_veh,2.2,definitivo,a2022 p40
+2022,San Juan,Total,tasa_siniestralidad_fatal_100mil,12.3,definitivo,a2022 p20
+2022,San Juan,Total,tasa_siniestralidad_fatal_10mil_veh,2.1,definitivo,a2022 p20
+2022,San Juan,Total,poblacion,797697,definitivo,a2022 p77
+2022,San Juan,Total,parque_vehicular,469648,definitivo,a2022 p79
+2023,San Juan,Total,victimas_fatales,101,preliminar,p2023 p11
+2023,San Juan,Total,siniestros_fatales,97,preliminar,p2023 p10
+2023,San Juan,Total,tasa_mortalidad_100mil,12,preliminar,p2023 p11
+2023,San Juan,Total,tasa_fatalidad_10mil_veh,2.1,preliminar,p2023 p11
+2023,San Juan,Total,tasa_siniestralidad_fatal_100mil,11.5,preliminar,p2023 p10
+2023,San Juan,Total,tasa_siniestralidad_fatal_10mil_veh,2,preliminar,p2023 p10
+2024,San Juan,Total,victimas_fatales,77,preliminar,p2024 p10
+2024,San Juan,Total,siniestros_fatales,75,preliminar,p2024 p9
+2024,San Juan,Total,tasa_mortalidad_100mil,9.1,preliminar,p2024 p10
+2024,San Juan,Total,tasa_siniestralidad_fatal_100mil,8.9,preliminar,p2024 p9
+2025,San Juan,Total,victimas_fatales,62,preliminar,p2025
+2025,San Juan,Total,tasa_mortalidad_100mil,7.3,preliminar,p2025
+2026,San Juan,Total,victimas_fatales,65,parcial,p2026 p9
+2026,San Juan,Total,siniestros_fatales,62,parcial,p2026 p8
+2016,San Luis,Total,victimas_fatales,120,definitivo,a2018 p14; a2019 p77
+2016,San Luis,Total,tasa_mortalidad_100mil,24.9,definitivo,a2018 p16
+2016,San Luis,Total,tasa_fatalidad_10mil_veh,4.9,definitivo,a2018 p18
+2017,San Luis,Total,victimas_fatales,107,definitivo,a2017 p18; a2017 p7; a2018 p14; a2019 p77; a2022 p43
+2017,San Luis,Motociclista,victimas_fatales,47,definitivo,a2017 p18
+2017,San Luis,Automóvil,victimas_fatales,27,definitivo,a2017 p18
+2017,San Luis,Peatón,victimas_fatales,5,definitivo,a2017 p18
+2017,San Luis,Ciclista,victimas_fatales,1,definitivo,a2017 p18
+2017,San Luis,Otros vehículos,victimas_fatales,22,definitivo,a2017 p18
+2017,San Luis,Sin dato,victimas_fatales,4,definitivo,a2017 p18
+2017,San Luis,Total,siniestros_fatales,75,definitivo,a2017 p25; a2022 p23
+2017,San Luis,Total,siniestros_con_lesionados,0,definitivo,a2017 p25
+2017,San Luis,Total,personas_heridas,0,definitivo,a2017 p23
+2017,San Luis,Total,tasa_mortalidad_100mil,21.8,definitivo,a2017 p7; a2018 p16
+2017,San Luis,Total,tasa_fatalidad_10mil_veh,4,definitivo,a2017 p7; a2018 p18
+2017,San Luis,Total,poblacion,489225,definitivo,a2017 p7
+2017,San Luis,Total,parque_vehicular,268117,definitivo,a2017 p7
+2018,San Luis,Total,victimas_fatales,106,definitivo,a2018 p14; a2018 p24; a2019 p77; a2022 p43
+2018,San Luis,Sin dato,victimas_fatales,106,definitivo,a2018 p24
+2018,San Luis,Total,siniestros_fatales,92,definitivo,a2018 p36; a2022 p23
+2018,San Luis,Total,siniestros_con_lesionados,1186,definitivo,a2018 p36
+2018,San Luis,Total,personas_heridas,1629,definitivo,a2018 p30
+2018,San Luis,Total,tasa_mortalidad_100mil,21.4,definitivo,a2018 p16
+2018,San Luis,Total,tasa_fatalidad_10mil_veh,3.6,definitivo,a2018 p18
+2019,San Luis,Total,victimas_fatales,107,definitivo,a2019 p74; a2019 p77; a2019 p99; a2022 p43
+2019,San Luis,Motociclista,victimas_fatales,0,definitivo,a2019 p99
+2019,San Luis,Automóvil,victimas_fatales,0,definitivo,a2019 p99
+2019,San Luis,Peatón,victimas_fatales,7,definitivo,a2019 p99
+2019,San Luis,Ciclista,victimas_fatales,0,definitivo,a2019 p99
+2019,San Luis,Otros vehículos,victimas_fatales,0,definitivo,a2019 p99
+2019,San Luis,Sin dato,victimas_fatales,100,definitivo,a2019 p99
+2019,San Luis,Total,siniestros_fatales,76,definitivo,a2022 p23
+2019,San Luis,Total,siniestros_con_victimas,1035,definitivo,a2019 p44
+2019,San Luis,Total,personas_heridas,1510,definitivo,a2019 p116
+2019,San Luis,Total,tasa_mortalidad_100mil,21.2,definitivo,a2019 p74
+2019,San Luis,Total,tasa_fatalidad_10mil_veh,3.6,definitivo,a2019 p74
+2019,San Luis,Total,poblacion,502000,definitivo,a2019 p74
+2019,San Luis,Total,parque_vehicular,295531,definitivo,a2019 p74
+2020,San Luis,Total,victimas_fatales,77,definitivo,a2020 p29; a2020 p35; a2022 p43
+2020,San Luis,Motociclista,victimas_fatales,21,definitivo,a2020 p35
+2020,San Luis,Automóvil,victimas_fatales,38,definitivo,a2020 p35
+2020,San Luis,Peatón,victimas_fatales,2,definitivo,a2020 p35
+2020,San Luis,Ciclista,victimas_fatales,6,definitivo,a2020 p35
+2020,San Luis,Otros vehículos,victimas_fatales,10,definitivo,a2020 p35
+2020,San Luis,Sin dato,victimas_fatales,0,definitivo,a2020 p35
+2020,San Luis,Total,siniestros_fatales,58,definitivo,a2020 p19; a2020 p26; a2022 p23
+2020,San Luis,Total,siniestros_con_victimas,1190,definitivo,a2020 p26
+2020,San Luis,Total,siniestros_con_lesionados,1132,definitivo,a2020 p26
+2020,San Luis,Total,personas_heridas,1467,definitivo,a2020 p39
+2020,San Luis,Total,tasa_mortalidad_100mil,15.1,definitivo,a2020 p29
+2020,San Luis,Total,tasa_fatalidad_10mil_veh,2.4,definitivo,a2020 p29
+2020,San Luis,Total,tasa_siniestralidad_fatal_100mil,11.4,definitivo,a2020 p19
+2020,San Luis,Total,tasa_siniestralidad_fatal_10mil_veh,1.8,definitivo,a2020 p19
+2020,San Luis,Total,poblacion,508328,definitivo,a2020 p14
+2020,San Luis,Total,parque_vehicular,326263,definitivo,a2020 p15
+2021,San Luis,Total,victimas_fatales,69,definitivo,a2021 p24; a2021 p30; a2022 p43
+2021,San Luis,Motociclista,victimas_fatales,30,definitivo,a2021 p30
+2021,San Luis,Automóvil,victimas_fatales,24,definitivo,a2021 p30
+2021,San Luis,Peatón,victimas_fatales,4,definitivo,a2021 p30
+2021,San Luis,Ciclista,victimas_fatales,2,definitivo,a2021 p30
+2021,San Luis,Otros vehículos,victimas_fatales,9,definitivo,a2021 p30
+2021,San Luis,Sin dato,victimas_fatales,0,definitivo,a2021 p30
+2021,San Luis,Total,siniestros_fatales,64,definitivo,a2021 p15; a2022 p23
+2021,San Luis,Total,personas_heridas,1949,definitivo,a2021 p33
+2021,San Luis,Total,tasa_mortalidad_100mil,13.4,definitivo,a2021 p24
+2021,San Luis,Total,tasa_fatalidad_10mil_veh,2.1,definitivo,a2021 p24
+2021,San Luis,Total,tasa_siniestralidad_fatal_100mil,12.4,definitivo,a2021 p15
+2021,San Luis,Total,tasa_siniestralidad_fatal_10mil_veh,2,definitivo,a2021 p15
+2021,San Luis,Total,poblacion,514610,definitivo,a2021 p12
+2022,San Luis,Total,victimas_fatales,79,definitivo,a2022 p40; a2022 p43; a2022 p47
+2022,San Luis,Motociclista,victimas_fatales,28,definitivo,a2022 p47
+2022,San Luis,Automóvil,victimas_fatales,28,definitivo,a2022 p47
+2022,San Luis,Peatón,victimas_fatales,5,definitivo,a2022 p47
+2022,San Luis,Ciclista,victimas_fatales,2,definitivo,a2022 p47
+2022,San Luis,Otros vehículos,victimas_fatales,16,definitivo,a2022 p47
+2022,San Luis,Sin dato,victimas_fatales,0,definitivo,a2022 p47
+2022,San Luis,Total,siniestros_fatales,70,definitivo,a2022 p14; a2022 p20; a2022 p23
+2022,San Luis,Total,siniestros_con_victimas,1426,preliminar,a2022 p14
+2022,San Luis,Total,siniestros_con_lesionados,1356,preliminar,a2022 p14
+2022,San Luis,Total,personas_heridas,1750,preliminar,a2022 p58
+2022,San Luis,Total,tasa_mortalidad_100mil,15.2,definitivo,a2022 p40
+2022,San Luis,Total,tasa_fatalidad_10mil_veh,2.3,definitivo,a2022 p40
+2022,San Luis,Total,tasa_siniestralidad_fatal_100mil,13.4,definitivo,a2022 p20
+2022,San Luis,Total,tasa_siniestralidad_fatal_10mil_veh,2.1,definitivo,a2022 p20
+2022,San Luis,Total,poblacion,520845,definitivo,a2022 p77
+2022,San Luis,Total,parque_vehicular,338594,definitivo,a2022 p79
+2023,San Luis,Total,victimas_fatales,64,preliminar,p2023 p11
+2023,San Luis,Total,siniestros_fatales,57,preliminar,p2023 p10
+2023,San Luis,Total,tasa_mortalidad_100mil,12.1,preliminar,p2023 p11
+2023,San Luis,Total,tasa_fatalidad_10mil_veh,1.8,preliminar,p2023 p11
+2023,San Luis,Total,tasa_siniestralidad_fatal_100mil,10.7,preliminar,p2023 p10
+2023,San Luis,Total,tasa_siniestralidad_fatal_10mil_veh,1.6,preliminar,p2023 p10
+2024,San Luis,Total,victimas_fatales,59,preliminar,p2024 p10
+2024,San Luis,Total,siniestros_fatales,52,preliminar,p2024 p9
+2024,San Luis,Total,tasa_mortalidad_100mil,11.1,preliminar,p2024 p10
+2024,San Luis,Total,tasa_siniestralidad_fatal_100mil,9.7,preliminar,p2024 p9
+2025,San Luis,Total,victimas_fatales,58,preliminar,p2025
+2025,San Luis,Total,tasa_mortalidad_100mil,10.8,preliminar,p2025
+2026,San Luis,Total,victimas_fatales,30,parcial,p2026 p9
+2026,San Luis,Total,siniestros_fatales,26,parcial,p2026 p8
+2016,Santa Cruz,Total,victimas_fatales,47,definitivo,a2018 p14; a2019 p77
+2016,Santa Cruz,Total,tasa_mortalidad_100mil,14.3,definitivo,a2018 p16
+2016,Santa Cruz,Total,tasa_fatalidad_10mil_veh,2.4,definitivo,a2018 p18
+2017,Santa Cruz,Total,victimas_fatales,46,definitivo,a2017 p18; a2017 p7; a2018 p14; a2019 p77; a2022 p43
+2017,Santa Cruz,Motociclista,victimas_fatales,2,definitivo,a2017 p18
+2017,Santa Cruz,Automóvil,victimas_fatales,39,definitivo,a2017 p18
+2017,Santa Cruz,Peatón,victimas_fatales,3,definitivo,a2017 p18
+2017,Santa Cruz,Ciclista,victimas_fatales,1,definitivo,a2017 p18
+2017,Santa Cruz,Otros vehículos,victimas_fatales,1,definitivo,a2017 p18
+2017,Santa Cruz,Sin dato,victimas_fatales,0,definitivo,a2017 p18
+2017,Santa Cruz,Total,siniestros_fatales,39,definitivo,a2017 p25; a2022 p23
+2017,Santa Cruz,Total,siniestros_con_lesionados,0,definitivo,a2017 p25
+2017,Santa Cruz,Total,personas_heridas,44,definitivo,a2017 p23
+2017,Santa Cruz,Total,tasa_mortalidad_100mil,13.6,definitivo,a2017 p7; a2018 p16
+2017,Santa Cruz,Total,tasa_fatalidad_10mil_veh,2.2,definitivo,a2017 p7; a2018 p18
+2017,Santa Cruz,Total,poblacion,338542,definitivo,a2017 p7
+2017,Santa Cruz,Total,parque_vehicular,205322,definitivo,a2017 p7
+2018,Santa Cruz,Total,victimas_fatales,32,definitivo,a2018 p14; a2018 p24; a2019 p77; a2022 p43
+2018,Santa Cruz,Motociclista,victimas_fatales,3,definitivo,a2018 p24
+2018,Santa Cruz,Automóvil,victimas_fatales,28,definitivo,a2018 p24
+2018,Santa Cruz,Peatón,victimas_fatales,0,definitivo,a2018 p24
+2018,Santa Cruz,Ciclista,victimas_fatales,1,definitivo,a2018 p24
+2018,Santa Cruz,Otros vehículos,victimas_fatales,0,definitivo,a2018 p24
+2018,Santa Cruz,Sin dato,victimas_fatales,0,definitivo,a2018 p24
+2018,Santa Cruz,Total,siniestros_fatales,28,definitivo,a2018 p36; a2022 p23
+2018,Santa Cruz,Total,siniestros_con_lesionados,288,definitivo,a2018 p36
+2018,Santa Cruz,Total,personas_heridas,496,definitivo,a2018 p30
+2018,Santa Cruz,Total,tasa_mortalidad_100mil,9.2,definitivo,a2018 p16
+2018,Santa Cruz,Total,tasa_fatalidad_10mil_veh,1.5,definitivo,a2018 p18
+2019,Santa Cruz,Total,victimas_fatales,30,definitivo,a2019 p74; a2019 p77; a2019 p99; a2022 p43
+2019,Santa Cruz,Motociclista,victimas_fatales,2,definitivo,a2019 p99
+2019,Santa Cruz,Automóvil,victimas_fatales,10,definitivo,a2019 p99
+2019,Santa Cruz,Peatón,victimas_fatales,1,definitivo,a2019 p99
+2019,Santa Cruz,Ciclista,victimas_fatales,0,definitivo,a2019 p99
+2019,Santa Cruz,Otros vehículos,victimas_fatales,8,definitivo,a2019 p99
+2019,Santa Cruz,Sin dato,victimas_fatales,9,definitivo,a2019 p99
+2019,Santa Cruz,Total,siniestros_fatales,22,definitivo,a2022 p23
+2019,Santa Cruz,Total,siniestros_con_victimas,324,definitivo,a2019 p44
+2019,Santa Cruz,Total,personas_heridas,423,definitivo,a2019 p116
+2019,Santa Cruz,Total,tasa_mortalidad_100mil,8.4,definitivo,a2019 p74
+2019,Santa Cruz,Total,tasa_fatalidad_10mil_veh,1.4,definitivo,a2019 p74
+2019,Santa Cruz,Total,poblacion,356647,definitivo,a2019 p74
+2019,Santa Cruz,Total,parque_vehicular,214090,definitivo,a2019 p74
+2020,Santa Cruz,Total,victimas_fatales,12,definitivo,a2020 p29; a2020 p35; a2022 p43
+2020,Santa Cruz,Motociclista,victimas_fatales,2,definitivo,a2020 p35
+2020,Santa Cruz,Automóvil,victimas_fatales,5,definitivo,a2020 p35
+2020,Santa Cruz,Peatón,victimas_fatales,1,definitivo,a2020 p35
+2020,Santa Cruz,Ciclista,victimas_fatales,0,definitivo,a2020 p35
+2020,Santa Cruz,Otros vehículos,victimas_fatales,4,definitivo,a2020 p35
+2020,Santa Cruz,Sin dato,victimas_fatales,0,definitivo,a2020 p35
+2020,Santa Cruz,Total,siniestros_fatales,11,definitivo,a2020 p19; a2020 p26; a2022 p23
+2020,Santa Cruz,Total,siniestros_con_victimas,138,definitivo,a2020 p26
+2020,Santa Cruz,Total,siniestros_con_lesionados,127,definitivo,a2020 p26
+2020,Santa Cruz,Total,personas_heridas,186,definitivo,a2020 p39
+2020,Santa Cruz,Total,tasa_mortalidad_100mil,3.3,definitivo,a2020 p29
+2020,Santa Cruz,Total,tasa_fatalidad_10mil_veh,0.5,definitivo,a2020 p29
+2020,Santa Cruz,Total,tasa_siniestralidad_fatal_100mil,3,definitivo,a2020 p19
+2020,Santa Cruz,Total,tasa_siniestralidad_fatal_10mil_veh,0.5,definitivo,a2020 p19
+2020,Santa Cruz,Total,poblacion,365698,definitivo,a2020 p14
+2020,Santa Cruz,Total,parque_vehicular,221112,definitivo,a2020 p15
+2021,Santa Cruz,Total,victimas_fatales,24,definitivo,a2021 p24; a2021 p30; a2022 p43
+2021,Santa Cruz,Motociclista,victimas_fatales,3,definitivo,a2021 p30
+2021,Santa Cruz,Automóvil,victimas_fatales,12,definitivo,a2021 p30
+2021,Santa Cruz,Peatón,victimas_fatales,3,definitivo,a2021 p30
+2021,Santa Cruz,Ciclista,victimas_fatales,0,definitivo,a2021 p30
+2021,Santa Cruz,Otros vehículos,victimas_fatales,6,definitivo,a2021 p30
+2021,Santa Cruz,Sin dato,victimas_fatales,0,definitivo,a2021 p30
+2021,Santa Cruz,Total,siniestros_fatales,23,definitivo,a2021 p15; a2022 p23
+2021,Santa Cruz,Total,personas_heridas,221,definitivo,a2021 p33
+2021,Santa Cruz,Total,tasa_mortalidad_100mil,6.4,definitivo,a2021 p24
+2021,Santa Cruz,Total,tasa_fatalidad_10mil_veh,1.1,definitivo,a2021 p24
+2021,Santa Cruz,Total,tasa_siniestralidad_fatal_100mil,6.1,definitivo,a2021 p15
+2021,Santa Cruz,Total,tasa_siniestralidad_fatal_10mil_veh,1,definitivo,a2021 p15
+2021,Santa Cruz,Total,poblacion,374756,definitivo,a2021 p12
+2022,Santa Cruz,Total,victimas_fatales,29,definitivo,a2022 p40; a2022 p43; a2022 p47
+2022,Santa Cruz,Motociclista,victimas_fatales,2,definitivo,a2022 p47
+2022,Santa Cruz,Automóvil,victimas_fatales,8,definitivo,a2022 p47
+2022,Santa Cruz,Peatón,victimas_fatales,4,definitivo,a2022 p47
+2022,Santa Cruz,Ciclista,victimas_fatales,0,definitivo,a2022 p47
+2022,Santa Cruz,Otros vehículos,victimas_fatales,15,definitivo,a2022 p47
+2022,Santa Cruz,Sin dato,victimas_fatales,0,definitivo,a2022 p47
+2022,Santa Cruz,Total,siniestros_fatales,27,definitivo,a2022 p14; a2022 p20; a2022 p23
+2022,Santa Cruz,Total,siniestros_con_victimas,216,preliminar,a2022 p14
+2022,Santa Cruz,Total,siniestros_con_lesionados,189,preliminar,a2022 p14
+2022,Santa Cruz,Total,personas_heridas,311,preliminar,a2022 p58
+2022,Santa Cruz,Total,tasa_mortalidad_100mil,7.6,definitivo,a2022 p40
+2022,Santa Cruz,Total,tasa_fatalidad_10mil_veh,1.3,definitivo,a2022 p40
+2022,Santa Cruz,Total,tasa_siniestralidad_fatal_100mil,7,definitivo,a2022 p20
+2022,Santa Cruz,Total,tasa_siniestralidad_fatal_10mil_veh,1.2,definitivo,a2022 p20
+2022,Santa Cruz,Total,poblacion,383827,definitivo,a2022 p77
+2022,Santa Cruz,Total,parque_vehicular,224338,definitivo,a2022 p79
+2023,Santa Cruz,Total,victimas_fatales,25,preliminar,p2023 p11
+2023,Santa Cruz,Total,siniestros_fatales,21,preliminar,p2023 p10
+2023,Santa Cruz,Total,tasa_mortalidad_100mil,7.5,preliminar,p2023 p11
+2023,Santa Cruz,Total,tasa_fatalidad_10mil_veh,1.1,preliminar,p2023 p11
+2023,Santa Cruz,Total,tasa_siniestralidad_fatal_100mil,6.3,preliminar,p2023 p10
+2023,Santa Cruz,Total,tasa_siniestralidad_fatal_10mil_veh,0.9,preliminar,p2023 p10
+2024,Santa Cruz,Total,victimas_fatales,26,preliminar,p2024 p10
+2024,Santa Cruz,Total,siniestros_fatales,22,preliminar,p2024 p9
+2024,Santa Cruz,Total,tasa_mortalidad_100mil,7.8,preliminar,p2024 p10
+2024,Santa Cruz,Total,tasa_siniestralidad_fatal_100mil,6.6,preliminar,p2024 p9
+2025,Santa Cruz,Total,victimas_fatales,20,preliminar,p2025
+2025,Santa Cruz,Total,tasa_mortalidad_100mil,6,preliminar,p2025
+2026,Santa Cruz,Total,victimas_fatales,15,parcial,p2026 p9
+2026,Santa Cruz,Total,siniestros_fatales,14,parcial,p2026 p8
+2016,Santa Fe,Total,victimas_fatales,491,definitivo,a2018 p14; a2019 p77
+2016,Santa Fe,Total,tasa_mortalidad_100mil,14.3,definitivo,a2018 p16
+2016,Santa Fe,Total,tasa_fatalidad_10mil_veh,2.3,definitivo,a2018 p18
+2017,Santa Fe,Total,victimas_fatales,528,definitivo,a2017 p18; a2017 p7; a2018 p14; a2019 p77; a2022 p43
+2017,Santa Fe,Motociclista,victimas_fatales,207,definitivo,a2017 p18
+2017,Santa Fe,Automóvil,victimas_fatales,141,definitivo,a2017 p18
+2017,Santa Fe,Peatón,victimas_fatales,43,definitivo,a2017 p18
+2017,Santa Fe,Ciclista,victimas_fatales,30,definitivo,a2017 p18
+2017,Santa Fe,Otros vehículos,victimas_fatales,107,definitivo,a2017 p18
+2017,Santa Fe,Sin dato,victimas_fatales,0,definitivo,a2017 p18
+2017,Santa Fe,Total,siniestros_fatales,482,definitivo,a2017 p25; a2022 p23
+2017,Santa Fe,Total,siniestros_con_lesionados,10074,definitivo,a2017 p25
+2017,Santa Fe,Total,personas_heridas,13811,definitivo,a2017 p23
+2017,Santa Fe,Total,tasa_mortalidad_100mil,15.3,definitivo,a2017 p7; a2018 p16
+2017,Santa Fe,Total,tasa_fatalidad_10mil_veh,2.3,definitivo,a2017 p7; a2018 p18
+2017,Santa Fe,Total,poblacion,3453674,definitivo,a2017 p7
+2017,Santa Fe,Total,parque_vehicular,2262931,definitivo,a2017 p7
+2018,Santa Fe,Total,victimas_fatales,510,definitivo,a2018 p14; a2018 p24; a2019 p77; a2022 p43
+2018,Santa Fe,Motociclista,victimas_fatales,239,definitivo,a2018 p24
+2018,Santa Fe,Automóvil,victimas_fatales,129,definitivo,a2018 p24
+2018,Santa Fe,Peatón,victimas_fatales,51,definitivo,a2018 p24
+2018,Santa Fe,Ciclista,victimas_fatales,30,definitivo,a2018 p24
+2018,Santa Fe,Otros vehículos,victimas_fatales,61,definitivo,a2018 p24
+2018,Santa Fe,Sin dato,victimas_fatales,0,definitivo,a2018 p24
+2018,Santa Fe,Total,siniestros_fatales,464,definitivo,a2018 p36; a2022 p23
+2018,Santa Fe,Total,siniestros_con_lesionados,10730,definitivo,a2018 p36
+2018,Santa Fe,Total,personas_heridas,14660,definitivo,a2018 p30
+2018,Santa Fe,Total,tasa_mortalidad_100mil,14.6,definitivo,a2018 p16
+2018,Santa Fe,Total,tasa_fatalidad_10mil_veh,2.1,definitivo,a2018 p18
+2019,Santa Fe,Total,victimas_fatales,512,definitivo,a2019 p74; a2019 p77; a2019 p99; a2022 p43
+2019,Santa Fe,Motociclista,victimas_fatales,227,definitivo,a2019 p99
+2019,Santa Fe,Automóvil,victimas_fatales,146,definitivo,a2019 p99
+2019,Santa Fe,Peatón,victimas_fatales,33,definitivo,a2019 p99
+2019,Santa Fe,Ciclista,victimas_fatales,28,definitivo,a2019 p99
+2019,Santa Fe,Otros vehículos,victimas_fatales,78,definitivo,a2019 p99
+2019,Santa Fe,Sin dato,victimas_fatales,0,definitivo,a2019 p99
+2019,Santa Fe,Total,siniestros_fatales,451,definitivo,a2022 p23
+2019,Santa Fe,Total,siniestros_con_victimas,12177,definitivo,a2019 p44
+2019,Santa Fe,Total,personas_heridas,15579,definitivo,a2019 p116
+2019,Santa Fe,Total,tasa_mortalidad_100mil,14.6,definitivo,a2019 p74
+2019,Santa Fe,Total,tasa_fatalidad_10mil_veh,2.1,definitivo,a2019 p74
+2019,Santa Fe,Total,poblacion,3509113,definitivo,a2019 p74
+2019,Santa Fe,Total,parque_vehicular,2388412,definitivo,a2019 p74
+2020,Santa Fe,Total,victimas_fatales,362,definitivo,a2020 p29; a2020 p35; a2022 p43
+2020,Santa Fe,Motociclista,victimas_fatales,172,definitivo,a2020 p35
+2020,Santa Fe,Automóvil,victimas_fatales,86,definitivo,a2020 p35
+2020,Santa Fe,Peatón,victimas_fatales,30,definitivo,a2020 p35
+2020,Santa Fe,Ciclista,victimas_fatales,19,definitivo,a2020 p35
+2020,Santa Fe,Otros vehículos,victimas_fatales,55,definitivo,a2020 p35
+2020,Santa Fe,Sin dato,victimas_fatales,0,definitivo,a2020 p35
+2020,Santa Fe,Total,siniestros_fatales,324,definitivo,a2020 p19; a2020 p26; a2022 p23
+2020,Santa Fe,Total,siniestros_con_victimas,8779,definitivo,a2020 p26
+2020,Santa Fe,Total,siniestros_con_lesionados,8455,definitivo,a2020 p26
+2020,Santa Fe,Total,personas_heridas,11005,definitivo,a2020 p39
+2020,Santa Fe,Total,tasa_mortalidad_100mil,10.2,definitivo,a2020 p29
+2020,Santa Fe,Total,tasa_fatalidad_10mil_veh,1.5,definitivo,a2020 p29
+2020,Santa Fe,Total,tasa_siniestralidad_fatal_100mil,9.2,definitivo,a2020 p19
+2020,Santa Fe,Total,tasa_siniestralidad_fatal_10mil_veh,1.3,definitivo,a2020 p19
+2020,Santa Fe,Total,poblacion,3536418,definitivo,a2020 p14
+2020,Santa Fe,Total,parque_vehicular,2567812,definitivo,a2020 p15
+2021,Santa Fe,Total,victimas_fatales,448,definitivo,a2021 p24; a2021 p30; a2022 p43
+2021,Santa Fe,Motociclista,victimas_fatales,201,definitivo,a2021 p30
+2021,Santa Fe,Automóvil,victimas_fatales,117,definitivo,a2021 p30
+2021,Santa Fe,Peatón,victimas_fatales,27,definitivo,a2021 p30
+2021,Santa Fe,Ciclista,victimas_fatales,32,definitivo,a2021 p30
+2021,Santa Fe,Otros vehículos,victimas_fatales,71,definitivo,a2021 p30
+2021,Santa Fe,Sin dato,victimas_fatales,0,definitivo,a2021 p30
+2021,Santa Fe,Total,siniestros_fatales,405,definitivo,a2021 p15; a2022 p23
+2021,Santa Fe,Total,personas_heridas,13343,definitivo,a2021 p33
+2021,Santa Fe,Total,tasa_mortalidad_100mil,12.6,definitivo,a2021 p24
+2021,Santa Fe,Total,tasa_fatalidad_10mil_veh,1.7,definitivo,a2021 p24
+2021,Santa Fe,Total,tasa_siniestralidad_fatal_100mil,11.4,definitivo,a2021 p15
+2021,Santa Fe,Total,tasa_siniestralidad_fatal_10mil_veh,1.6,definitivo,a2021 p15
+2021,Santa Fe,Total,poblacion,3563390,definitivo,a2021 p12
+2022,Santa Fe,Total,victimas_fatales,467,definitivo,a2022 p40; a2022 p43; a2022 p47
+2022,Santa Fe,Motociclista,victimas_fatales,181,definitivo,a2022 p47
+2022,Santa Fe,Automóvil,victimas_fatales,140,definitivo,a2022 p47
+2022,Santa Fe,Peatón,victimas_fatales,36,definitivo,a2022 p47
+2022,Santa Fe,Ciclista,victimas_fatales,32,definitivo,a2022 p47
+2022,Santa Fe,Otros vehículos,victimas_fatales,78,definitivo,a2022 p47
+2022,Santa Fe,Sin dato,victimas_fatales,0,definitivo,a2022 p47
+2022,Santa Fe,Total,siniestros_fatales,406,definitivo,a2022 p14; a2022 p20; a2022 p23
+2022,Santa Fe,Total,siniestros_con_victimas,406,preliminar,a2022 p14
+2022,Santa Fe,Total,personas_heridas,10284,preliminar,a2022 p58
+2022,Santa Fe,Total,tasa_mortalidad_100mil,13,definitivo,a2022 p40
+2022,Santa Fe,Total,tasa_fatalidad_10mil_veh,1.8,definitivo,a2022 p40
+2022,Santa Fe,Total,tasa_siniestralidad_fatal_100mil,11.3,definitivo,a2022 p20
+2022,Santa Fe,Total,tasa_siniestralidad_fatal_10mil_veh,1.5,definitivo,a2022 p20
+2022,Santa Fe,Total,poblacion,3589999,definitivo,a2022 p77
+2022,Santa Fe,Total,parque_vehicular,2642963,definitivo,a2022 p79
+2023,Santa Fe,Total,victimas_fatales,427,preliminar,p2023 p11
+2023,Santa Fe,Total,siniestros_fatales,393,preliminar,p2023 p10
+2023,Santa Fe,Total,tasa_mortalidad_100mil,11.6,preliminar,p2023 p11
+2023,Santa Fe,Total,tasa_fatalidad_10mil_veh,1.6,preliminar,p2023 p11
+2023,Santa Fe,Total,tasa_siniestralidad_fatal_100mil,10.7,preliminar,p2023 p10
+2023,Santa Fe,Total,tasa_siniestralidad_fatal_10mil_veh,1.5,preliminar,p2023 p10
+2024,Santa Fe,Total,victimas_fatales,366,preliminar,p2024 p10
+2024,Santa Fe,Total,siniestros_fatales,338,preliminar,p2024 p9
+2024,Santa Fe,Total,tasa_mortalidad_100mil,9.9,preliminar,p2024 p10
+2024,Santa Fe,Total,tasa_siniestralidad_fatal_100mil,9.2,preliminar,p2024 p9
+2025,Santa Fe,Total,victimas_fatales,306,preliminar,p2025
+2025,Santa Fe,Total,tasa_mortalidad_100mil,8.3,preliminar,p2025
+2026,Santa Fe,Total,victimas_fatales,254,parcial,p2026 p9
+2026,Santa Fe,Total,siniestros_fatales,224,parcial,p2026 p8
+2016,Santiago del Estero,Total,victimas_fatales,296,definitivo,a2018 p14; a2019 p77
+2016,Santiago del Estero,Total,tasa_mortalidad_100mil,31.6,definitivo,a2018 p16
+2016,Santiago del Estero,Total,tasa_fatalidad_10mil_veh,8.2,definitivo,a2018 p18
+2017,Santiago del Estero,Total,victimas_fatales,300,definitivo,a2017 p18; a2017 p7; a2018 p14; a2019 p77; a2022 p43
+2017,Santiago del Estero,Motociclista,victimas_fatales,181,definitivo,a2017 p18
+2017,Santiago del Estero,Automóvil,victimas_fatales,48,definitivo,a2017 p18
+2017,Santiago del Estero,Peatón,victimas_fatales,24,definitivo,a2017 p18
+2017,Santiago del Estero,Ciclista,victimas_fatales,13,definitivo,a2017 p18
+2017,Santiago del Estero,Otros vehículos,victimas_fatales,34,definitivo,a2017 p18
+2017,Santiago del Estero,Sin dato,victimas_fatales,0,definitivo,a2017 p18
+2017,Santiago del Estero,Total,siniestros_fatales,255,definitivo,a2017 p25; a2022 p23
+2017,Santiago del Estero,Total,siniestros_con_lesionados,4494,definitivo,a2017 p25
+2017,Santiago del Estero,Total,personas_heridas,6261,definitivo,a2017 p23
+2017,Santiago del Estero,Total,tasa_mortalidad_100mil,31.6,definitivo,a2017 p7; a2018 p16
+2017,Santiago del Estero,Total,tasa_fatalidad_10mil_veh,7.5,definitivo,a2017 p7; a2018 p18
+2017,Santiago del Estero,Total,poblacion,948172,definitivo,a2017 p7
+2017,Santiago del Estero,Total,parque_vehicular,402278,definitivo,a2017 p7
+2018,Santiago del Estero,Total,victimas_fatales,274,definitivo,a2018 p14; a2018 p24; a2019 p77; a2022 p43
+2018,Santiago del Estero,Motociclista,victimas_fatales,121,definitivo,a2018 p24
+2018,Santiago del Estero,Automóvil,victimas_fatales,32,definitivo,a2018 p24
+2018,Santiago del Estero,Peatón,victimas_fatales,8,definitivo,a2018 p24
+2018,Santiago del Estero,Ciclista,victimas_fatales,8,definitivo,a2018 p24
+2018,Santiago del Estero,Otros vehículos,victimas_fatales,39,definitivo,a2018 p24
+2018,Santiago del Estero,Sin dato,victimas_fatales,66,definitivo,a2018 p24
+2018,Santiago del Estero,Total,siniestros_fatales,239,definitivo,a2018 p36; a2022 p23
+2018,Santiago del Estero,Total,siniestros_con_lesionados,4407,definitivo,a2018 p36
+2018,Santiago del Estero,Total,personas_heridas,6064,definitivo,a2018 p30
+2018,Santiago del Estero,Total,tasa_mortalidad_100mil,28.6,definitivo,a2018 p16
+2018,Santiago del Estero,Total,tasa_fatalidad_10mil_veh,6.2,definitivo,a2018 p18
+2019,Santiago del Estero,Total,victimas_fatales,203,definitivo,a2019 p74; a2019 p77; a2019 p99; a2022 p43
+2019,Santiago del Estero,Motociclista,victimas_fatales,140,definitivo,a2019 p99
+2019,Santiago del Estero,Automóvil,victimas_fatales,26,definitivo,a2019 p99
+2019,Santiago del Estero,Peatón,victimas_fatales,12,definitivo,a2019 p99
+2019,Santiago del Estero,Ciclista,victimas_fatales,4,definitivo,a2019 p99
+2019,Santiago del Estero,Otros vehículos,victimas_fatales,17,definitivo,a2019 p99
+2019,Santiago del Estero,Sin dato,victimas_fatales,4,definitivo,a2019 p99
+2019,Santiago del Estero,Total,siniestros_fatales,183,definitivo,a2022 p23
+2019,Santiago del Estero,Total,siniestros_con_victimas,4523,definitivo,a2019 p44
+2019,Santiago del Estero,Total,personas_heridas,5998,definitivo,a2019 p116
+2019,Santiago del Estero,Total,tasa_mortalidad_100mil,21,definitivo,a2019 p74
+2019,Santiago del Estero,Total,tasa_fatalidad_10mil_veh,4.5,definitivo,a2019 p74
+2019,Santiago del Estero,Total,poblacion,968309,definitivo,a2019 p74
+2019,Santiago del Estero,Total,parque_vehicular,447936,definitivo,a2019 p74
+2020,Santiago del Estero,Total,victimas_fatales,152,definitivo,a2020 p29; a2020 p35; a2022 p43
+2020,Santiago del Estero,Motociclista,victimas_fatales,100,definitivo,a2020 p35
+2020,Santiago del Estero,Automóvil,victimas_fatales,11,definitivo,a2020 p35
+2020,Santiago del Estero,Peatón,victimas_fatales,15,definitivo,a2020 p35
+2020,Santiago del Estero,Ciclista,victimas_fatales,7,definitivo,a2020 p35
+2020,Santiago del Estero,Otros vehículos,victimas_fatales,19,definitivo,a2020 p35
+2020,Santiago del Estero,Sin dato,victimas_fatales,0,definitivo,a2020 p35
+2020,Santiago del Estero,Total,siniestros_fatales,149,definitivo,a2020 p19; a2020 p26; a2022 p23
+2020,Santiago del Estero,Total,siniestros_con_victimas,1943,definitivo,a2020 p26
+2020,Santiago del Estero,Total,siniestros_con_lesionados,1794,definitivo,a2020 p26
+2020,Santiago del Estero,Total,personas_heridas,2460,definitivo,a2020 p39
+2020,Santiago del Estero,Total,tasa_mortalidad_100mil,15.5,definitivo,a2020 p29
+2020,Santiago del Estero,Total,tasa_fatalidad_10mil_veh,3.2,definitivo,a2020 p29
+2020,Santiago del Estero,Total,tasa_siniestralidad_fatal_100mil,15.2,definitivo,a2020 p19
+2020,Santiago del Estero,Total,tasa_siniestralidad_fatal_10mil_veh,3.1,definitivo,a2020 p19
+2020,Santiago del Estero,Total,poblacion,978313,definitivo,a2020 p14
+2020,Santiago del Estero,Total,parque_vehicular,497045,definitivo,a2020 p15
+2021,Santiago del Estero,Total,victimas_fatales,179,definitivo,a2021 p24; a2021 p30; a2022 p43
+2021,Santiago del Estero,Motociclista,victimas_fatales,115,definitivo,a2021 p30
+2021,Santiago del Estero,Automóvil,victimas_fatales,17,definitivo,a2021 p30
+2021,Santiago del Estero,Peatón,victimas_fatales,13,definitivo,a2021 p30
+2021,Santiago del Estero,Ciclista,victimas_fatales,7,definitivo,a2021 p30
+2021,Santiago del Estero,Otros vehículos,victimas_fatales,27,definitivo,a2021 p30
+2021,Santiago del Estero,Sin dato,victimas_fatales,0,definitivo,a2021 p30
+2021,Santiago del Estero,Total,siniestros_fatales,160,definitivo,a2021 p15; a2022 p23
+2021,Santiago del Estero,Total,personas_heridas,5715,definitivo,a2021 p33
+2021,Santiago del Estero,Total,tasa_mortalidad_100mil,18.1,definitivo,a2021 p24
+2021,Santiago del Estero,Total,tasa_fatalidad_10mil_veh,3.6,definitivo,a2021 p24
+2021,Santiago del Estero,Total,tasa_siniestralidad_fatal_100mil,16.2,definitivo,a2021 p15
+2021,Santiago del Estero,Total,tasa_siniestralidad_fatal_10mil_veh,3.2,definitivo,a2021 p15
+2021,Santiago del Estero,Total,poblacion,988245,definitivo,a2021 p12
+2022,Santiago del Estero,Total,victimas_fatales,232,definitivo,a2022 p40; a2022 p43; a2022 p47
+2022,Santiago del Estero,Motociclista,victimas_fatales,161,definitivo,a2022 p47
+2022,Santiago del Estero,Automóvil,victimas_fatales,26,definitivo,a2022 p47
+2022,Santiago del Estero,Peatón,victimas_fatales,14,definitivo,a2022 p47
+2022,Santiago del Estero,Ciclista,victimas_fatales,5,definitivo,a2022 p47
+2022,Santiago del Estero,Otros vehículos,victimas_fatales,26,definitivo,a2022 p47
+2022,Santiago del Estero,Sin dato,victimas_fatales,0,definitivo,a2022 p47
+2022,Santiago del Estero,Total,siniestros_fatales,208,definitivo,a2022 p14; a2022 p20; a2022 p23
+2022,Santiago del Estero,Total,siniestros_con_victimas,5436,preliminar,a2022 p14
+2022,Santiago del Estero,Total,siniestros_con_lesionados,5228,preliminar,a2022 p14
+2022,Santiago del Estero,Total,personas_heridas,7549,preliminar,a2022 p58
+2022,Santiago del Estero,Total,tasa_mortalidad_100mil,23.2,definitivo,a2022 p40
+2022,Santiago del Estero,Total,tasa_fatalidad_10mil_veh,4.5,definitivo,a2022 p40
+2022,Santiago del Estero,Total,tasa_siniestralidad_fatal_100mil,20.8,definitivo,a2022 p20
+2022,Santiago del Estero,Total,tasa_siniestralidad_fatal_10mil_veh,4,definitivo,a2022 p20
+2022,Santiago del Estero,Total,poblacion,998093,definitivo,a2022 p77
+2022,Santiago del Estero,Total,parque_vehicular,517207,definitivo,a2022 p79
+2023,Santiago del Estero,Total,victimas_fatales,203,preliminar,p2023 p11
+2023,Santiago del Estero,Total,siniestros_fatales,185,preliminar,p2023 p10
+2023,Santiago del Estero,Total,tasa_mortalidad_100mil,19.3,preliminar,p2023 p11
+2023,Santiago del Estero,Total,tasa_fatalidad_10mil_veh,3.8,preliminar,p2023 p11
+2023,Santiago del Estero,Total,tasa_siniestralidad_fatal_100mil,17.6,preliminar,p2023 p10
+2023,Santiago del Estero,Total,tasa_siniestralidad_fatal_10mil_veh,3.4,preliminar,p2023 p10
+2024,Santiago del Estero,Total,victimas_fatales,152,preliminar,p2024 p10
+2024,Santiago del Estero,Total,siniestros_fatales,144,preliminar,p2024 p9
+2024,Santiago del Estero,Total,tasa_mortalidad_100mil,14.4,preliminar,p2024 p10
+2024,Santiago del Estero,Total,tasa_siniestralidad_fatal_100mil,13.7,preliminar,p2024 p9
+2025,Santiago del Estero,Total,victimas_fatales,170,preliminar,p2025
+2025,Santiago del Estero,Total,tasa_mortalidad_100mil,16.1,preliminar,p2025
+2026,Santiago del Estero,Total,victimas_fatales,121,parcial,p2026 p9
+2026,Santiago del Estero,Total,siniestros_fatales,106,parcial,p2026 p8
+2016,Tierra del Fuego,Total,victimas_fatales,8,definitivo,a2018 p14; a2019 p77
+2016,Tierra del Fuego,Total,tasa_mortalidad_100mil,5.1,definitivo,a2018 p16
+2016,Tierra del Fuego,Total,tasa_fatalidad_10mil_veh,0.8,definitivo,a2018 p18
+2017,Tierra del Fuego,Total,victimas_fatales,10,definitivo,a2017 p18; a2017 p7; a2018 p14; a2019 p77; a2022 p43
+2017,Tierra del Fuego,Motociclista,victimas_fatales,2,definitivo,a2017 p18
+2017,Tierra del Fuego,Automóvil,victimas_fatales,8,definitivo,a2017 p18
+2017,Tierra del Fuego,Peatón,victimas_fatales,0,definitivo,a2017 p18
+2017,Tierra del Fuego,Ciclista,victimas_fatales,0,definitivo,a2017 p18
+2017,Tierra del Fuego,Otros vehículos,victimas_fatales,0,definitivo,a2017 p18
+2017,Tierra del Fuego,Sin dato,victimas_fatales,0,definitivo,a2017 p18
+2017,Tierra del Fuego,Total,siniestros_fatales,10,definitivo,a2017 p25; a2022 p23
+2017,Tierra del Fuego,Total,siniestros_con_lesionados,389,definitivo,a2017 p25
+2017,Tierra del Fuego,Total,personas_heridas,800,definitivo,a2017 p23
+2017,Tierra del Fuego,Total,tasa_mortalidad_100mil,6.2,definitivo,a2017 p7; a2018 p16
+2017,Tierra del Fuego,Total,tasa_fatalidad_10mil_veh,0.9,definitivo,a2017 p7; a2018 p18
+2017,Tierra del Fuego,Total,poblacion,160720,definitivo,a2017 p7
+2017,Tierra del Fuego,Total,parque_vehicular,110705,definitivo,a2017 p7
+2018,Tierra del Fuego,Total,victimas_fatales,4,definitivo,a2018 p14; a2018 p24; a2019 p77; a2022 p43
+2018,Tierra del Fuego,Motociclista,victimas_fatales,1,definitivo,a2018 p24
+2018,Tierra del Fuego,Automóvil,victimas_fatales,1,definitivo,a2018 p24
+2018,Tierra del Fuego,Peatón,victimas_fatales,1,definitivo,a2018 p24
+2018,Tierra del Fuego,Ciclista,victimas_fatales,0,definitivo,a2018 p24
+2018,Tierra del Fuego,Otros vehículos,victimas_fatales,1,definitivo,a2018 p24
+2018,Tierra del Fuego,Sin dato,victimas_fatales,0,definitivo,a2018 p24
+2018,Tierra del Fuego,Total,siniestros_fatales,4,definitivo,a2018 p36; a2022 p23
+2018,Tierra del Fuego,Total,siniestros_con_lesionados,228,definitivo,a2018 p36
+2018,Tierra del Fuego,Total,personas_heridas,330,definitivo,a2018 p30
+2018,Tierra del Fuego,Total,tasa_mortalidad_100mil,2.4,definitivo,a2018 p16
+2018,Tierra del Fuego,Total,tasa_fatalidad_10mil_veh,0.3,definitivo,a2018 p18
+2019,Tierra del Fuego,Total,victimas_fatales,9,definitivo,a2019 p74; a2019 p77; a2019 p99; a2022 p43
+2019,Tierra del Fuego,Motociclista,victimas_fatales,1,definitivo,a2019 p99
+2019,Tierra del Fuego,Automóvil,victimas_fatales,4,definitivo,a2019 p99
+2019,Tierra del Fuego,Peatón,victimas_fatales,2,definitivo,a2019 p99
+2019,Tierra del Fuego,Ciclista,victimas_fatales,1,definitivo,a2019 p99
+2019,Tierra del Fuego,Otros vehículos,victimas_fatales,1,definitivo,a2019 p99
+2019,Tierra del Fuego,Sin dato,victimas_fatales,0,definitivo,a2019 p99
+2019,Tierra del Fuego,Total,siniestros_fatales,9,definitivo,a2022 p23
+2019,Tierra del Fuego,Total,siniestros_con_victimas,215,definitivo,a2019 p44
+2019,Tierra del Fuego,Total,personas_heridas,311,definitivo,a2019 p116
+2019,Tierra del Fuego,Total,tasa_mortalidad_100mil,5.3,definitivo,a2019 p74
+2019,Tierra del Fuego,Total,tasa_fatalidad_10mil_veh,0.8,definitivo,a2019 p74
+2019,Tierra del Fuego,Total,poblacion,169183,definitivo,a2019 p74
+2019,Tierra del Fuego,Total,parque_vehicular,115133,definitivo,a2019 p74
+2020,Tierra del Fuego,Total,victimas_fatales,9,definitivo,a2020 p29; a2020 p35; a2022 p43
+2020,Tierra del Fuego,Motociclista,victimas_fatales,1,definitivo,a2020 p35
+2020,Tierra del Fuego,Automóvil,victimas_fatales,5,definitivo,a2020 p35
+2020,Tierra del Fuego,Peatón,victimas_fatales,3,definitivo,a2020 p35
+2020,Tierra del Fuego,Ciclista,victimas_fatales,0,definitivo,a2020 p35
+2020,Tierra del Fuego,Otros vehículos,victimas_fatales,0,definitivo,a2020 p35
+2020,Tierra del Fuego,Sin dato,victimas_fatales,0,definitivo,a2020 p35
+2020,Tierra del Fuego,Total,siniestros_fatales,7,definitivo,a2020 p19; a2020 p26; a2022 p23
+2020,Tierra del Fuego,Total,siniestros_con_victimas,171,definitivo,a2020 p26
+2020,Tierra del Fuego,Total,siniestros_con_lesionados,164,definitivo,a2020 p26
+2020,Tierra del Fuego,Total,personas_heridas,250,definitivo,a2020 p39
+2020,Tierra del Fuego,Total,tasa_mortalidad_100mil,5.2,definitivo,a2020 p29
+2020,Tierra del Fuego,Total,tasa_fatalidad_10mil_veh,0.8,definitivo,a2020 p29
+2020,Tierra del Fuego,Total,tasa_siniestralidad_fatal_100mil,4,definitivo,a2020 p19
+2020,Tierra del Fuego,Total,tasa_siniestralidad_fatal_10mil_veh,0.6,definitivo,a2020 p19
+2020,Tierra del Fuego,Total,poblacion,173432,definitivo,a2020 p14
+2020,Tierra del Fuego,Total,parque_vehicular,114901,definitivo,a2020 p15
+2021,Tierra del Fuego,Total,victimas_fatales,10,definitivo,a2021 p24; a2021 p30; a2022 p43
+2021,Tierra del Fuego,Motociclista,victimas_fatales,2,definitivo,a2021 p30
+2021,Tierra del Fuego,Automóvil,victimas_fatales,7,definitivo,a2021 p30
+2021,Tierra del Fuego,Peatón,victimas_fatales,1,definitivo,a2021 p30
+2021,Tierra del Fuego,Ciclista,victimas_fatales,0,definitivo,a2021 p30
+2021,Tierra del Fuego,Otros vehículos,victimas_fatales,0,definitivo,a2021 p30
+2021,Tierra del Fuego,Sin dato,victimas_fatales,0,definitivo,a2021 p30
+2021,Tierra del Fuego,Total,siniestros_fatales,8,definitivo,a2021 p15; a2022 p23
+2021,Tierra del Fuego,Total,personas_heridas,450,definitivo,a2021 p33
+2021,Tierra del Fuego,Total,tasa_mortalidad_100mil,5.6,definitivo,a2021 p24
+2021,Tierra del Fuego,Total,tasa_fatalidad_10mil_veh,0.9,definitivo,a2021 p24
+2021,Tierra del Fuego,Total,tasa_siniestralidad_fatal_100mil,4.5,definitivo,a2021 p15
+2021,Tierra del Fuego,Total,tasa_siniestralidad_fatal_10mil_veh,0.7,definitivo,a2021 p15
+2021,Tierra del Fuego,Total,poblacion,177697,definitivo,a2021 p12
+2022,Tierra del Fuego,Total,victimas_fatales,5,definitivo,a2022 p40; a2022 p43; a2022 p47
+2022,Tierra del Fuego,Motociclista,victimas_fatales,1,definitivo,a2022 p47
+2022,Tierra del Fuego,Automóvil,victimas_fatales,1,definitivo,a2022 p47
+2022,Tierra del Fuego,Peatón,victimas_fatales,1,definitivo,a2022 p47
+2022,Tierra del Fuego,Ciclista,victimas_fatales,0,definitivo,a2022 p47
+2022,Tierra del Fuego,Otros vehículos,victimas_fatales,2,definitivo,a2022 p47
+2022,Tierra del Fuego,Sin dato,victimas_fatales,0,definitivo,a2022 p47
+2022,Tierra del Fuego,Total,siniestros_fatales,4,definitivo,a2022 p14; a2022 p20; a2022 p23
+2022,Tierra del Fuego,Total,siniestros_con_victimas,199,preliminar,a2022 p14
+2022,Tierra del Fuego,Total,siniestros_con_lesionados,195,preliminar,a2022 p14
+2022,Tierra del Fuego,Total,personas_heridas,280,preliminar,a2022 p58
+2022,Tierra del Fuego,Total,tasa_mortalidad_100mil,2.7,definitivo,a2022 p40
+2022,Tierra del Fuego,Total,tasa_fatalidad_10mil_veh,0.4,definitivo,a2022 p40
+2022,Tierra del Fuego,Total,tasa_siniestralidad_fatal_100mil,2.2,definitivo,a2022 p20
+2022,Tierra del Fuego,Total,tasa_siniestralidad_fatal_10mil_veh,0.3,definitivo,a2022 p20
+2022,Tierra del Fuego,Total,poblacion,181983,definitivo,a2022 p77
+2022,Tierra del Fuego,Total,parque_vehicular,116313,definitivo,a2022 p79
+2023,Tierra del Fuego,Total,victimas_fatales,6,preliminar,p2023 p11
+2023,Tierra del Fuego,Total,siniestros_fatales,5,preliminar,p2023 p10
+2023,Tierra del Fuego,Total,tasa_mortalidad_100mil,3.3,preliminar,p2023 p11
+2023,Tierra del Fuego,Total,tasa_fatalidad_10mil_veh,0.5,preliminar,p2023 p11
+2023,Tierra del Fuego,Total,tasa_siniestralidad_fatal_100mil,2.8,preliminar,p2023 p10
+2023,Tierra del Fuego,Total,tasa_siniestralidad_fatal_10mil_veh,0.4,preliminar,p2023 p10
+2024,Tierra del Fuego,Total,victimas_fatales,5,preliminar,p2024 p10
+2024,Tierra del Fuego,Total,siniestros_fatales,4,preliminar,p2024 p9
+2024,Tierra del Fuego,Total,tasa_mortalidad_100mil,2.8,preliminar,p2024 p10
+2024,Tierra del Fuego,Total,tasa_siniestralidad_fatal_100mil,2.2,preliminar,p2024 p9
+2025,Tierra del Fuego,Total,victimas_fatales,15,preliminar,p2025
+2025,Tierra del Fuego,Total,tasa_mortalidad_100mil,8.2,preliminar,p2025
+2026,Tierra del Fuego,Total,victimas_fatales,7,parcial,p2026 p9
+2026,Tierra del Fuego,Total,siniestros_fatales,7,parcial,p2026 p8
+2016,Tucumán,Total,victimas_fatales,339,definitivo,a2018 p14; a2019 p77
+2016,Tucumán,Total,tasa_mortalidad_100mil,21,definitivo,a2018 p16
+2016,Tucumán,Total,tasa_fatalidad_10mil_veh,4.6,definitivo,a2018 p18
+2017,Tucumán,Total,victimas_fatales,326,definitivo,a2017 p18; a2017 p7; a2018 p14; a2019 p77; a2022 p43
+2017,Tucumán,Motociclista,victimas_fatales,210,definitivo,a2017 p18
+2017,Tucumán,Automóvil,victimas_fatales,71,definitivo,a2017 p18
+2017,Tucumán,Peatón,victimas_fatales,34,definitivo,a2017 p18
+2017,Tucumán,Ciclista,victimas_fatales,11,definitivo,a2017 p18
+2017,Tucumán,Otros vehículos,victimas_fatales,0,definitivo,a2017 p18
+2017,Tucumán,Sin dato,victimas_fatales,0,definitivo,a2017 p18
+2017,Tucumán,Total,siniestros_fatales,305,definitivo,a2017 p25; a2022 p23
+2017,Tucumán,Total,siniestros_con_lesionados,3498,definitivo,a2017 p25
+2017,Tucumán,Total,personas_heridas,4574,definitivo,a2017 p23
+2017,Tucumán,Total,tasa_mortalidad_100mil,20,definitivo,a2017 p7; a2018 p16
+2017,Tucumán,Total,tasa_fatalidad_10mil_veh,4,definitivo,a2017 p7; a2018 p18
+2017,Tucumán,Total,poblacion,1633992,definitivo,a2017 p7
+2017,Tucumán,Total,parque_vehicular,807834,definitivo,a2017 p7
+2018,Tucumán,Total,victimas_fatales,300,definitivo,a2018 p14; a2018 p24; a2019 p77; a2022 p43
+2018,Tucumán,Motociclista,victimas_fatales,201,definitivo,a2018 p24
+2018,Tucumán,Automóvil,victimas_fatales,51,definitivo,a2018 p24
+2018,Tucumán,Peatón,victimas_fatales,30,definitivo,a2018 p24
+2018,Tucumán,Ciclista,victimas_fatales,11,definitivo,a2018 p24
+2018,Tucumán,Otros vehículos,victimas_fatales,7,definitivo,a2018 p24
+2018,Tucumán,Sin dato,victimas_fatales,0,definitivo,a2018 p24
+2018,Tucumán,Total,siniestros_fatales,274,definitivo,a2018 p36; a2022 p23
+2018,Tucumán,Total,siniestros_con_lesionados,3408,definitivo,a2018 p36
+2018,Tucumán,Total,personas_heridas,4523,definitivo,a2018 p30
+2018,Tucumán,Total,tasa_mortalidad_100mil,18.1,definitivo,a2018 p16
+2018,Tucumán,Total,tasa_fatalidad_10mil_veh,3.4,definitivo,a2018 p18
+2019,Tucumán,Total,victimas_fatales,323,definitivo,a2019 p74; a2019 p77; a2019 p99; a2022 p43
+2019,Tucumán,Motociclista,victimas_fatales,195,definitivo,a2019 p99
+2019,Tucumán,Automóvil,victimas_fatales,48,definitivo,a2019 p99
+2019,Tucumán,Peatón,victimas_fatales,33,definitivo,a2019 p99
+2019,Tucumán,Ciclista,victimas_fatales,5,definitivo,a2019 p99
+2019,Tucumán,Otros vehículos,victimas_fatales,42,definitivo,a2019 p99
+2019,Tucumán,Sin dato,victimas_fatales,0,definitivo,a2019 p99
+2019,Tucumán,Total,siniestros_fatales,283,definitivo,a2022 p23
+2019,Tucumán,Total,siniestros_con_victimas,3507,definitivo,a2019 p44
+2019,Tucumán,Total,personas_heridas,4331,definitivo,a2019 p116
+2019,Tucumán,Total,tasa_mortalidad_100mil,19.3,definitivo,a2019 p74
+2019,Tucumán,Total,tasa_fatalidad_10mil_veh,3.7,definitivo,a2019 p74
+2019,Tucumán,Total,poblacion,1674622,definitivo,a2019 p74
+2019,Tucumán,Total,parque_vehicular,879903,definitivo,a2019 p74
+2020,Tucumán,Total,victimas_fatales,227,definitivo,a2020 p29; a2020 p35; a2022 p43
+2020,Tucumán,Motociclista,victimas_fatales,144,definitivo,a2020 p35
+2020,Tucumán,Automóvil,victimas_fatales,42,definitivo,a2020 p35
+2020,Tucumán,Peatón,victimas_fatales,23,definitivo,a2020 p35
+2020,Tucumán,Ciclista,victimas_fatales,2,definitivo,a2020 p35
+2020,Tucumán,Otros vehículos,victimas_fatales,13,definitivo,a2020 p35
+2020,Tucumán,Sin dato,victimas_fatales,3,definitivo,a2020 p35
+2020,Tucumán,Total,siniestros_fatales,208,definitivo,a2020 p19; a2020 p26; a2022 p23
+2020,Tucumán,Total,siniestros_con_victimas,2428,definitivo,a2020 p26
+2020,Tucumán,Total,siniestros_con_lesionados,2220,definitivo,a2020 p26
+2020,Tucumán,Total,personas_heridas,2868,definitivo,a2020 p39
+2020,Tucumán,Total,tasa_mortalidad_100mil,13.4,definitivo,a2020 p29
+2020,Tucumán,Total,tasa_fatalidad_10mil_veh,2.4,definitivo,a2020 p29
+2020,Tucumán,Total,tasa_siniestralidad_fatal_100mil,12.3,definitivo,a2020 p19
+2020,Tucumán,Total,tasa_siniestralidad_fatal_10mil_veh,2.2,definitivo,a2020 p19
+2020,Tucumán,Total,poblacion,1694656,definitivo,a2020 p14
+2020,Tucumán,Total,parque_vehicular,958192,definitivo,a2020 p15
+2021,Tucumán,Total,victimas_fatales,243,definitivo,a2021 p24; a2021 p30; a2022 p43
+2021,Tucumán,Motociclista,victimas_fatales,151,definitivo,a2021 p30
+2021,Tucumán,Automóvil,victimas_fatales,38,definitivo,a2021 p30
+2021,Tucumán,Peatón,victimas_fatales,19,definitivo,a2021 p30
+2021,Tucumán,Ciclista,victimas_fatales,10,definitivo,a2021 p30
+2021,Tucumán,Otros vehículos,victimas_fatales,25,definitivo,a2021 p30
+2021,Tucumán,Sin dato,victimas_fatales,0,definitivo,a2021 p30
+2021,Tucumán,Total,siniestros_fatales,216,definitivo,a2021 p15; a2022 p23
+2021,Tucumán,Total,personas_heridas,4125,definitivo,a2021 p33
+2021,Tucumán,Total,tasa_mortalidad_100mil,14.2,definitivo,a2021 p24
+2021,Tucumán,Total,tasa_fatalidad_10mil_veh,2.5,definitivo,a2021 p24
+2021,Tucumán,Total,tasa_siniestralidad_fatal_100mil,12.6,definitivo,a2021 p15
+2021,Tucumán,Total,tasa_siniestralidad_fatal_10mil_veh,2.3,definitivo,a2021 p15
+2021,Tucumán,Total,poblacion,1714487,definitivo,a2021 p12
+2022,Tucumán,Total,victimas_fatales,230,definitivo,a2022 p40; a2022 p43; a2022 p47
+2022,Tucumán,Motociclista,victimas_fatales,142,definitivo,a2022 p47
+2022,Tucumán,Automóvil,victimas_fatales,39,definitivo,a2022 p47
+2022,Tucumán,Peatón,victimas_fatales,24,definitivo,a2022 p47
+2022,Tucumán,Ciclista,victimas_fatales,15,definitivo,a2022 p47
+2022,Tucumán,Otros vehículos,victimas_fatales,10,definitivo,a2022 p47
+2022,Tucumán,Sin dato,victimas_fatales,0,definitivo,a2022 p47
+2022,Tucumán,Total,siniestros_fatales,214,definitivo,a2022 p14; a2022 p20; a2022 p23
+2022,Tucumán,Total,siniestros_con_victimas,4021,preliminar,a2022 p14
+2022,Tucumán,Total,siniestros_con_lesionados,3807,preliminar,a2022 p14
+2022,Tucumán,Total,personas_heridas,5295,preliminar,a2022 p58
+2022,Tucumán,Total,tasa_mortalidad_100mil,13.3,definitivo,a2022 p40
+2022,Tucumán,Total,tasa_fatalidad_10mil_veh,2.3,definitivo,a2022 p40
+2022,Tucumán,Total,tasa_siniestralidad_fatal_100mil,12.3,definitivo,a2022 p20
+2022,Tucumán,Total,tasa_siniestralidad_fatal_10mil_veh,2.2,definitivo,a2022 p20
+2022,Tucumán,Total,poblacion,1734118,definitivo,a2022 p77
+2022,Tucumán,Total,parque_vehicular,987561,definitivo,a2022 p79
+2023,Tucumán,Total,victimas_fatales,211,preliminar,p2023 p11
+2023,Tucumán,Total,siniestros_fatales,200,preliminar,p2023 p10
+2023,Tucumán,Total,tasa_mortalidad_100mil,12,preliminar,p2023 p11
+2023,Tucumán,Total,tasa_fatalidad_10mil_veh,2.1,preliminar,p2023 p11
+2023,Tucumán,Total,tasa_siniestralidad_fatal_100mil,11.3,preliminar,p2023 p10
+2023,Tucumán,Total,tasa_siniestralidad_fatal_10mil_veh,2,preliminar,p2023 p10
+2024,Tucumán,Total,victimas_fatales,227,preliminar,p2024 p10
+2024,Tucumán,Total,siniestros_fatales,205,preliminar,p2024 p9
+2024,Tucumán,Total,tasa_mortalidad_100mil,12.8,preliminar,p2024 p10
+2024,Tucumán,Total,tasa_siniestralidad_fatal_100mil,11.6,preliminar,p2024 p9
+2025,Tucumán,Total,victimas_fatales,235,preliminar,p2025
+2025,Tucumán,Total,tasa_mortalidad_100mil,13.3,preliminar,p2025
+2026,Tucumán,Total,victimas_fatales,181,parcial,p2026 p9
+2026,Tucumán,Total,siniestros_fatales,162,parcial,p2026 p8
+2016,Total del país,Total,victimas_fatales,5582,definitivo,a2018 p14; a2019 p77
+2016,Total del país,Total,tasa_mortalidad_100mil,12.8,definitivo,a2018 p16
+2016,Total del país,Total,tasa_fatalidad_10mil_veh,2.6,definitivo,a2018 p18
+2017,Total del país,Total,victimas_fatales,5611,definitivo,a2017 p18; a2017 p7; a2018 p14; a2019 p77; a2022 p43
+2017,Total del país,Motociclista,victimas_fatales,2037,definitivo,a2017 p18
+2017,Total del país,Automóvil,victimas_fatales,1528,definitivo,a2017 p18
+2017,Total del país,Peatón,victimas_fatales,553,definitivo,a2017 p18
+2017,Total del país,Ciclista,victimas_fatales,187,definitivo,a2017 p18
+2017,Total del país,Otros vehículos,victimas_fatales,458,definitivo,a2017 p18
+2017,Total del país,Sin dato,victimas_fatales,848,definitivo,a2017 p18
+2017,Total del país,Total,siniestros_fatales,4582,definitivo,a2017 p25; a2022 p23
+2017,Total del país,Total,siniestros_con_lesionados,100042,definitivo,a2017 p25
+2017,Total del país,Total,personas_heridas,118550,definitivo,a2017 p23
+2017,Total del país,Total,tasa_mortalidad_100mil,12.7,definitivo,a2017 p7; a2018 p16
+2017,Total del país,Total,tasa_fatalidad_10mil_veh,2.4,definitivo,a2017 p7; a2018 p18
+2017,Total del país,Total,poblacion,44044811,definitivo,a2017 p7
+2017,Total del país,Total,parque_vehicular,23152892,definitivo,a2017 p7
+2018,Total del país,Total,victimas_fatales,5493,definitivo,a2018 p14; a2018 p24; a2019 p77; a2022 p43
+2018,Total del país,Motociclista,victimas_fatales,2397,definitivo,a2018 p24
+2018,Total del país,Automóvil,victimas_fatales,1469,definitivo,a2018 p24
+2018,Total del país,Peatón,victimas_fatales,618,definitivo,a2018 p24
+2018,Total del país,Ciclista,victimas_fatales,210,definitivo,a2018 p24
+2018,Total del país,Otros vehículos,victimas_fatales,436,definitivo,a2018 p24
+2018,Total del país,Sin dato,victimas_fatales,363,definitivo,a2018 p24
+2018,Total del país,Total,siniestros_fatales,4577,definitivo,a2018 p36; a2022 p23
+2018,Total del país,Total,siniestros_con_lesionados,90604,definitivo,a2018 p36
+2018,Total del país,Total,personas_heridas,113805,definitivo,a2018 p30
+2018,Total del país,Total,tasa_mortalidad_100mil,12.3,definitivo,a2018 p16
+2018,Total del país,Total,tasa_fatalidad_10mil_veh,2.2,definitivo,a2018 p18
+2019,Total del país,Total,victimas_fatales,4898,definitivo,a2019 p74; a2019 p77; a2019 p99; a2022 p43
+2019,Total del país,Motociclista,victimas_fatales,1970,definitivo,a2019 p99
+2019,Total del país,Automóvil,victimas_fatales,1336,definitivo,a2019 p99
+2019,Total del país,Peatón,victimas_fatales,505,definitivo,a2019 p99
+2019,Total del país,Ciclista,victimas_fatales,177,definitivo,a2019 p99
+2019,Total del país,Otros vehículos,victimas_fatales,502,definitivo,a2019 p99
+2019,Total del país,Sin dato,victimas_fatales,408,definitivo,a2019 p99
+2019,Total del país,Total,siniestros_fatales,3798,definitivo,a2022 p23
+2019,Total del país,Total,siniestros_con_victimas,99171,definitivo,a2019 p44
+2019,Total del país,Total,personas_heridas,117153,definitivo,a2019 p116
+2019,Total del país,Total,tasa_mortalidad_100mil,10.9,definitivo,a2019 p74
+2019,Total del país,Total,tasa_fatalidad_10mil_veh,2,definitivo,a2019 p74
+2019,Total del país,Total,poblacion,44938712,definitivo,a2019 p74
+2019,Total del país,Total,parque_vehicular,24619796,definitivo,a2019 p74
+2020,Total del país,Total,victimas_fatales,3513,definitivo,a2020 p29; a2020 p35; a2022 p43
+2020,Total del país,Motociclista,victimas_fatales,1634,definitivo,a2020 p35
+2020,Total del país,Automóvil,victimas_fatales,808,definitivo,a2020 p35
+2020,Total del país,Peatón,victimas_fatales,348,definitivo,a2020 p35
+2020,Total del país,Ciclista,victimas_fatales,143,definitivo,a2020 p35
+2020,Total del país,Otros vehículos,victimas_fatales,366,definitivo,a2020 p35
+2020,Total del país,Sin dato,victimas_fatales,215,definitivo,a2020 p35
+2020,Total del país,Total,siniestros_fatales,2969,definitivo,a2020 p19; a2020 p26; a2022 p23
+2020,Total del país,Total,siniestros_con_victimas,69544,definitivo,a2020 p26
+2020,Total del país,Total,siniestros_con_lesionados,66575,definitivo,a2020 p26
+2020,Total del país,Total,personas_heridas,80523,definitivo,a2020 p39
+2020,Total del país,Total,tasa_mortalidad_100mil,7.7,definitivo,a2020 p29
+2020,Total del país,Total,tasa_fatalidad_10mil_veh,1.4,definitivo,a2020 p29
+2020,Total del país,Total,tasa_siniestralidad_fatal_100mil,6.5,definitivo,a2020 p19
+2020,Total del país,Total,tasa_siniestralidad_fatal_10mil_veh,1.2,definitivo,a2020 p19
+2020,Total del país,Total,poblacion,45376763,definitivo,a2020 p14
+2020,Total del país,Total,parque_vehicular,26413085,definitivo,a2020 p15
+2021,Total del país,Total,victimas_fatales,4483,definitivo,a2021 p24; a2021 p30; a2022 p43
+2021,Total del país,Motociclista,victimas_fatales,1884,definitivo,a2021 p30
+2021,Total del país,Automóvil,victimas_fatales,1030,definitivo,a2021 p30
+2021,Total del país,Peatón,victimas_fatales,415,definitivo,a2021 p30
+2021,Total del país,Ciclista,victimas_fatales,181,definitivo,a2021 p30
+2021,Total del país,Otros vehículos,victimas_fatales,438,definitivo,a2021 p30
+2021,Total del país,Sin dato,victimas_fatales,535,definitivo,a2021 p30
+2021,Total del país,Total,siniestros_fatales,3601,definitivo,a2021 p15; a2022 p23
+2021,Total del país,Total,personas_heridas,107286,definitivo,a2021 p33
+2021,Total del país,Total,tasa_mortalidad_100mil,9.8,definitivo,a2021 p24
+2021,Total del país,Total,tasa_fatalidad_10mil_veh,1.7,definitivo,a2021 p24
+2021,Total del país,Total,tasa_siniestralidad_fatal_100mil,7.9,definitivo,a2021 p15
+2021,Total del país,Total,tasa_siniestralidad_fatal_10mil_veh,1.4,definitivo,a2021 p15
+2021,Total del país,Total,poblacion,45808747,definitivo,a2021 p12
+2022,Total del país,Total,victimas_fatales,4711,definitivo,a2022 p40; a2022 p43; a2022 p47
+2022,Total del país,Motociclista,victimas_fatales,1932,definitivo,a2022 p47
+2022,Total del país,Automóvil,victimas_fatales,1175,definitivo,a2022 p47
+2022,Total del país,Peatón,victimas_fatales,523,definitivo,a2022 p47
+2022,Total del país,Ciclista,victimas_fatales,174,definitivo,a2022 p47
+2022,Total del país,Otros vehículos,victimas_fatales,554,definitivo,a2022 p47
+2022,Total del país,Sin dato,victimas_fatales,353,definitivo,a2022 p47
+2022,Total del país,Total,siniestros_fatales,3966,definitivo,a2022 p14; a2022 p20; a2022 p23
+2022,Total del país,Total,siniestros_con_victimas,82675,preliminar,a2022 p14
+2022,Total del país,Total,siniestros_con_lesionados,78709,preliminar,a2022 p14
+2022,Total del país,Total,personas_heridas,109160,preliminar,a2022 p58
+2022,Total del país,Total,tasa_mortalidad_100mil,10.2,definitivo,a2022 p40
+2022,Total del país,Total,tasa_fatalidad_10mil_veh,1.7,definitivo,a2022 p40
+2022,Total del país,Total,tasa_siniestralidad_fatal_100mil,8.6,definitivo,a2022 p20
+2022,Total del país,Total,tasa_siniestralidad_fatal_10mil_veh,1.5,definitivo,a2022 p20
+2022,Total del país,Total,poblacion,46234830,definitivo,a2022 p77
+2022,Total del país,Total,parque_vehicular,27175013,definitivo,a2022 p79
+2023,Total del país,Total,victimas_fatales,4477,preliminar,p2023 p11
+2023,Total del país,Total,siniestros_fatales,3788,preliminar,p2023 p10
+2023,Total del país,Total,tasa_mortalidad_100mil,9.7,preliminar,p2023 p11
+2023,Total del país,Total,tasa_fatalidad_10mil_veh,1.6,preliminar,p2023 p11
+2023,Total del país,Total,tasa_siniestralidad_fatal_100mil,8.2,preliminar,p2023 p10
+2023,Total del país,Total,tasa_siniestralidad_fatal_10mil_veh,1.4,preliminar,p2023 p10
+2024,Total del país,Total,victimas_fatales,4043,preliminar,p2024 p10
+2024,Total del país,Total,siniestros_fatales,3376,preliminar,p2024 p9
+2024,Total del país,Total,tasa_mortalidad_100mil,8.7,preliminar,p2024 p10
+2024,Total del país,Total,tasa_siniestralidad_fatal_100mil,7.3,preliminar,p2024 p9
+2025,Total del país,Total,victimas_fatales,4060,preliminar,p2025
+2025,Total del país,Total,tasa_mortalidad_100mil,8.8,preliminar,p2025
+2026,Total del país,Total,victimas_fatales,2811,parcial,p2026 p9
+2026,Total del país,Total,siniestros_fatales,2331,parcial,p2026 p8
+2016,NOA,Total,victimas_fatales,1169,derivado,calculado
+2016,NOA,Total,tasa_mortalidad_100mil,21.6,derivado,calculado
+2016,NOA,Total,tasa_fatalidad_10mil_veh,5.4,derivado,calculado
+2016,NOA,Total,poblacion,5409446,derivado,calculado
+2016,NOA,Total,parque_vehicular,2181676,derivado,calculado
+2017,NOA,Total,victimas_fatales,1182,derivado,calculado
+2017,NOA,Motociclista,victimas_fatales,648,derivado,calculado
+2017,NOA,Automóvil,victimas_fatales,291,derivado,calculado
+2017,NOA,Peatón,victimas_fatales,121,derivado,calculado
+2017,NOA,Ciclista,victimas_fatales,43,derivado,calculado
+2017,NOA,Otros vehículos,victimas_fatales,79,derivado,calculado
+2017,NOA,Sin dato,victimas_fatales,0,derivado,calculado
+2017,NOA,Total,siniestros_fatales,1055,derivado,calculado
+2017,NOA,Total,siniestros_con_lesionados,17937,derivado,calculado
+2017,NOA,Total,personas_heridas,24179,derivado,calculado
+2017,NOA,Total,tasa_mortalidad_100mil,21.6,derivado,calculado
+2017,NOA,Total,tasa_fatalidad_10mil_veh,4.9,derivado,calculado
+2017,NOA,Total,tasa_siniestralidad_fatal_100mil,19.3,derivado,calculado
+2017,NOA,Total,tasa_siniestralidad_fatal_10mil_veh,4.3,derivado,calculado
+2017,NOA,Total,poblacion,5478740,derivado,calculado
+2017,NOA,Total,parque_vehicular,2427613,derivado,calculado
+2018,NOA,Total,victimas_fatales,1123,derivado,calculado
+2018,NOA,Motociclista,victimas_fatales,592,derivado,calculado
+2018,NOA,Automóvil,victimas_fatales,202,derivado,calculado
+2018,NOA,Peatón,victimas_fatales,102,derivado,calculado
+2018,NOA,Ciclista,victimas_fatales,47,derivado,calculado
+2018,NOA,Otros vehículos,victimas_fatales,86,derivado,calculado
+2018,NOA,Sin dato,victimas_fatales,94,derivado,calculado
+2018,NOA,Total,tasa_mortalidad_100mil,20.2,derivado,calculado
+2018,NOA,Total,tasa_fatalidad_10mil_veh,4.3,derivado,calculado
+2018,NOA,Total,poblacion,5546392,derivado,calculado
+2018,NOA,Total,parque_vehicular,2623620,derivado,calculado
+2019,NOA,Total,victimas_fatales,935,derivado,calculado
+2019,NOA,Motociclista,victimas_fatales,546,derivado,calculado
+2019,NOA,Automóvil,victimas_fatales,145,derivado,calculado
+2019,NOA,Peatón,victimas_fatales,84,derivado,calculado
+2019,NOA,Ciclista,victimas_fatales,31,derivado,calculado
+2019,NOA,Otros vehículos,victimas_fatales,111,derivado,calculado
+2019,NOA,Sin dato,victimas_fatales,18,derivado,calculado
+2019,NOA,Total,siniestros_fatales,838,derivado,calculado
+2019,NOA,Total,siniestros_con_victimas,17667,derivado,calculado
+2019,NOA,Total,personas_heridas,23097,derivado,calculado
+2019,NOA,Total,tasa_mortalidad_100mil,16.7,derivado,calculado
+2019,NOA,Total,tasa_fatalidad_10mil_veh,3.5,derivado,calculado
+2019,NOA,Total,tasa_siniestralidad_fatal_100mil,14.9,derivado,calculado
+2019,NOA,Total,tasa_siniestralidad_fatal_10mil_veh,3.2,derivado,calculado
+2019,NOA,Total,poblacion,5613832,derivado,calculado
+2019,NOA,Total,parque_vehicular,2638790,derivado,calculado
+2020,NOA,Total,victimas_fatales,710,derivado,calculado
+2020,NOA,Motociclista,victimas_fatales,421,derivado,calculado
+2020,NOA,Automóvil,victimas_fatales,107,derivado,calculado
+2020,NOA,Peatón,victimas_fatales,75,derivado,calculado
+2020,NOA,Ciclista,victimas_fatales,19,derivado,calculado
+2020,NOA,Otros vehículos,victimas_fatales,68,derivado,calculado
+2020,NOA,Sin dato,victimas_fatales,20,derivado,calculado
+2020,NOA,Total,siniestros_fatales,659,derivado,calculado
+2020,NOA,Total,siniestros_con_victimas,10874,derivado,calculado
+2020,NOA,Total,siniestros_con_lesionados,10215,derivado,calculado
+2020,NOA,Total,personas_heridas,13379,derivado,calculado
+2020,NOA,Total,tasa_mortalidad_100mil,12.5,derivado,calculado
+2020,NOA,Total,tasa_fatalidad_10mil_veh,2.5,derivado,calculado
+2020,NOA,Total,tasa_siniestralidad_fatal_100mil,11.6,derivado,calculado
+2020,NOA,Total,tasa_siniestralidad_fatal_10mil_veh,2.3,derivado,calculado
+2020,NOA,Total,poblacion,5681809,derivado,calculado
+2020,NOA,Total,parque_vehicular,2812583,derivado,calculado
+2021,NOA,Total,victimas_fatales,850,derivado,calculado
+2021,NOA,Motociclista,victimas_fatales,473,derivado,calculado
+2021,NOA,Automóvil,victimas_fatales,135,derivado,calculado
+2021,NOA,Peatón,victimas_fatales,80,derivado,calculado
+2021,NOA,Ciclista,victimas_fatales,35,derivado,calculado
+2021,NOA,Otros vehículos,victimas_fatales,127,derivado,calculado
+2021,NOA,Sin dato,victimas_fatales,0,derivado,calculado
+2021,NOA,Total,siniestros_fatales,735,derivado,calculado
+2021,NOA,Total,personas_heridas,20672,derivado,calculado
+2021,NOA,Total,tasa_mortalidad_100mil,14.8,derivado,calculado
+2021,NOA,Total,tasa_fatalidad_10mil_veh,2.9,derivado,calculado
+2021,NOA,Total,tasa_siniestralidad_fatal_100mil,12.8,derivado,calculado
+2021,NOA,Total,tasa_siniestralidad_fatal_10mil_veh,2.5,derivado,calculado
+2021,NOA,Total,poblacion,5733127,derivado,calculado
+2021,NOA,Total,parque_vehicular,2907127,derivado,calculado
+2022,NOA,Total,victimas_fatales,887,derivado,calculado
+2022,NOA,Motociclista,victimas_fatales,501,derivado,calculado
+2022,NOA,Automóvil,victimas_fatales,158,derivado,calculado
+2022,NOA,Peatón,victimas_fatales,87,derivado,calculado
+2022,NOA,Ciclista,victimas_fatales,39,derivado,calculado
+2022,NOA,Otros vehículos,victimas_fatales,102,derivado,calculado
+2022,NOA,Sin dato,victimas_fatales,0,derivado,calculado
+2022,NOA,Total,siniestros_fatales,802,derivado,calculado
+2022,NOA,Total,siniestros_con_victimas,17741,derivado,calculado
+2022,NOA,Total,siniestros_con_lesionados,16939,derivado,calculado
+2022,NOA,Total,personas_heridas,23231,derivado,calculado
+2022,NOA,Total,tasa_mortalidad_100mil,15.3,derivado,calculado
+2022,NOA,Total,tasa_fatalidad_10mil_veh,2.9,derivado,calculado
+2022,NOA,Total,tasa_siniestralidad_fatal_100mil,13.8,derivado,calculado
+2022,NOA,Total,tasa_siniestralidad_fatal_10mil_veh,2.7,derivado,calculado
+2022,NOA,Total,poblacion,5809293,derivado,calculado
+2022,NOA,Total,parque_vehicular,3018996,derivado,calculado
+2023,NOA,Total,victimas_fatales,825,derivado,calculado
+2023,NOA,Total,siniestros_fatales,752,derivado,calculado
+2023,NOA,Total,tasa_mortalidad_100mil,13.9,derivado,calculado
+2023,NOA,Total,tasa_fatalidad_10mil_veh,2.7,derivado,calculado
+2023,NOA,Total,tasa_siniestralidad_fatal_100mil,12.7,derivado,calculado
+2023,NOA,Total,tasa_siniestralidad_fatal_10mil_veh,2.4,derivado,calculado
+2023,NOA,Total,poblacion,5920881,derivado,calculado
+2023,NOA,Total,parque_vehicular,3106345,derivado,calculado
+2024,NOA,Total,victimas_fatales,750,derivado,calculado
+2024,NOA,Total,siniestros_fatales,685,derivado,calculado
+2024,NOA,Total,tasa_mortalidad_100mil,12.6,derivado,calculado
+2024,NOA,Total,tasa_siniestralidad_fatal_100mil,11.5,derivado,calculado
+2024,NOA,Total,poblacion,5942870,derivado,calculado
+2025,NOA,Total,victimas_fatales,744,derivado,calculado
+2025,NOA,Total,tasa_mortalidad_100mil,12.5,derivado,calculado
+2025,NOA,Total,poblacion,5962424,derivado,calculado
+2026,NOA,Total,victimas_fatales,545,derivado,calculado
+2026,NOA,Total,siniestros_fatales,499,derivado,calculado

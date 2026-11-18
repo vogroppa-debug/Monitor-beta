@@ -260,6 +260,7 @@ FUENTE_CORTA = {
     PDES_FUENTE_SNIC: "SNIC",
     "Administración Nacional de Aviación Civil (ANAC)": "ANAC",
     "Asociación de Fabricantes de Cemento Portland (AFCP)": "Asoc. Fab. Cemento",
+    "Agencia Nacional de Seguridad Vial (ANSV)": "ANSV",
     "Encuesta de Supermercados — INDEC": "INDEC",
 }
 
@@ -2459,6 +2460,130 @@ TEMAS = [
              "controls": [{"kind": "metric", "label": "Valores",
                            "options": ["tasa_mort_transito", "def_transito"]}],
              "sort": "desc", "unidad": "por cien mil hab."},
+        ],
+    },
+
+    # ======================================================================
+    {
+        "id": "seguridad-vial",
+        "subeje": "Seguridad",
+        "area": "social",
+        "eje_pdes": "sociocultural",
+        "title": "Seguridad vial",
+        "resumen": (
+            "Muertos y heridos en siniestros viales en Salta según la Agencia Nacional de "
+            "Seguridad Vial, de 2016 a 2025, con las tasas cada 100 mil habitantes y cada 10 mil "
+            "vehículos, la comparación con el NOA y con el total del país, y el perfil de las "
+            "víctimas fatales según cómo se movían: en moto, en bicicleta, a pie o en auto."
+        ),
+        "resumen_corto": "Cuántos mueren en las rutas y las calles de Salta, y cómo se movían.",
+        "advertencia": (
+            "No es lo mismo que la mortalidad por lesiones de tránsito del tema «Seguridad»: esa "
+            "sale de la DEIS, que cuenta por causa de muerte en el certificado de defunción, y "
+            "esta de la ANSV, que cuenta siniestros reportados por cada provincia. Dan números "
+            "distintos para lo que se lee como lo mismo. Además, el tipo de usuario de la vía se "
+            "corta en 2022 —los informes posteriores sólo lo publican por región— y los datos "
+            "desde 2023 son preliminares: la ANSV los sigue actualizando."
+        ),
+        "fuente": "Agencia Nacional de Seguridad Vial (ANSV)",
+        "fuente_url": "https://www.argentina.gob.ar/seguridadvial/observatoriovialnacional/anuarios",
+        "cobertura": "2016–2025",
+        "keywords": [
+            "seguridad vial", "siniestros viales", "accidentes de tránsito", "víctimas fatales",
+            "muertos en accidentes", "motociclistas", "moto", "ciclistas", "bicicleta",
+            "peatones", "tasa de mortalidad vial", "siniestralidad", "ANSV", "observatorio vial",
+            "heridos", "lesionados", "parque automotor", "tránsito", "rutas", "casco",
+        ],
+        "kpis": [
+            {"label": "Víctimas fatales en siniestros viales",
+             "tabla_label": "Víctimas fatales en siniestros viales",
+             "metrica": "victimas_fatales",
+             "fixed": {"jurisdiccion": "Salta", "tipo_usuario": "Total"},
+             "year": "latest", "unidad": "personas", "format": "int",
+             "display": "nivel", "sentido": "menor_mejor", "geo": "Provincia"},
+            {"label": "Tasa de mortalidad vial",
+             "tabla_label": "Tasa de mortalidad vial (por cien mil habitantes)",
+             "metrica": "tasa_mortalidad_100mil",
+             "fixed": {"jurisdiccion": "Salta", "tipo_usuario": "Total"},
+             "year": "latest", "unidad": "por cien mil hab.", "format": "dec1",
+             "display": "nivel", "sentido": "menor_mejor", "geo": "Provincia",
+             "grafico": "sv-tasa-comparada"},
+            {"label": "Víctimas fatales motociclistas",
+             "tabla_label": "Víctimas fatales motociclistas",
+             "tabla_nota": "La ANSV dejó de abrir el tipo de usuario de la vía por jurisdicción "
+                           "después de 2022, así que este indicador se detiene ahí mientras los "
+                           "demás llegan a 2025.",
+             "metrica": "victimas_fatales",
+             "fixed": {"jurisdiccion": "Salta", "tipo_usuario": "Motociclista"},
+             "year": "latest", "unidad": "personas", "format": "int",
+             "display": "nivel", "sentido": "menor_mejor", "geo": "Provincia",
+             "grafico": "sv-usuario"},
+        ],
+        "charts": [
+            {"id": "sv-tasa-comparada", "type": "line",
+             "title": "Mortalidad vial: Salta, el NOA y el país",
+             "descr": "Víctimas fatales cada 100 mil habitantes. El NOA son las seis provincias "
+                      "que agrupa la propia ANSV, y su tasa es cociente de agregados: víctimas "
+                      "fatales del NOA sobre población del NOA, no promedio de las seis tasas.",
+             "x": "anio", "seriesBy": "ambito", "metrica": "tasa_mortalidad_100mil",
+             "fixed": {"tipo_usuario": "Total"},
+             "seriesExclude": ["Otra jurisdicción"],
+             "controls": [], "unidad": "por cien mil hab."},
+            {"id": "sv-salta", "type": "line",
+             "title": "Víctimas y siniestros fatales en Salta",
+             "descr": "Siempre hay más víctimas que siniestros, porque en un mismo hecho puede "
+                      "morir más de una persona. La ANSV no abrió los siniestros fatales por "
+                      "jurisdicción en 2025.",
+             "x": "anio", "seriesBy": None, "metrica": "victimas_fatales",
+             "fixed": {"jurisdiccion": "Salta", "tipo_usuario": "Total"},
+             "controls": [{"kind": "metric", "label": "Valores",
+                           "options": ["victimas_fatales", "siniestros_fatales"]}],
+             "unidad": "personas"},
+            {"id": "sv-usuario", "type": "stacked-area",
+             "title": "Víctimas fatales según cómo se movían",
+             "descr": "Cuatro de cada diez muertos en las calles y rutas de Salta iban en moto. "
+                      "«Otros vehículos» incluye camioneta, utilitario, transporte de carga y de "
+                      "pasajeros. Se corta en 2022, que es hasta donde la ANSV lo abre por "
+                      "provincia.",
+             "x": "anio", "seriesBy": "tipo_usuario", "metrica": "victimas_fatales",
+             "fixed": {"jurisdiccion": "Salta"},
+             "seriesExclude": ["Total"], "stack": True,
+             "controls": [], "unidad": "personas"},
+            {"id": "sv-vehiculos", "type": "line",
+             "title": "Mortalidad vial por vehículo registrado",
+             "descr": "Víctimas fatales cada 10 mil vehículos, que es la base que publica la "
+                      "ANSV. Mirado así el cuadro cambia: pesa el tamaño del parque, no el de la "
+                      "población. El informe preliminar dejó de publicar esta tasa después de 2023.",
+             "x": "anio", "seriesBy": "ambito", "metrica": "tasa_fatalidad_10mil_veh",
+             "fixed": {"tipo_usuario": "Total"},
+             "seriesExclude": ["Otra jurisdicción"],
+             "controls": [], "unidad": "por diez mil vehículos"},
+            {"id": "sv-ranking", "type": "barh",
+             "title": "Jurisdicciones (ranking)",
+             "descr": "Las 24 jurisdicciones ordenadas en el año elegido. El total del país y el "
+                      "NOA quedan fuera del ranking porque son agregados.",
+             "x": "jurisdiccion", "seriesBy": None, "metrica": "tasa_mortalidad_100mil",
+             "fixed": {"tipo_usuario": "Total"},
+             "exclude": ["Total del país", "NOA"],
+             "controls": [
+                 {"dim": "anio", "label": "Año", "kind": "year"},
+                 {"kind": "metric", "label": "Indicador",
+                  "options": ["tasa_mortalidad_100mil", "tasa_siniestralidad_fatal_100mil",
+                              "tasa_fatalidad_10mil_veh", "victimas_fatales",
+                              "siniestros_fatales"]},
+             ],
+             "sort": "desc", "unidad": "por cien mil hab."},
+            {"id": "sv-lesionados", "type": "line",
+             "title": "Siniestros y personas heridas en Salta",
+             "descr": "Lo que no termina en muerte. Es la parte más despareja de la fuente: "
+                      "depende de que cada provincia registre los siniestros con lesionados, y "
+                      "varias dejaron de hacerlo. Corta en 2022.",
+             "x": "anio", "seriesBy": None, "metrica": "personas_heridas",
+             "fixed": {"jurisdiccion": "Salta", "tipo_usuario": "Total"},
+             "controls": [{"kind": "metric", "label": "Valores",
+                           "options": ["personas_heridas", "siniestros_con_lesionados",
+                                       "siniestros_con_victimas"]}],
+             "unidad": "personas"},
         ],
     },
 

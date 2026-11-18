@@ -2936,6 +2936,123 @@ def cemento():
     }
 
 
+SV_METRICAS = {
+    "victimas_fatales":        {"label": "Víctimas fatales",          "unidad": "personas",
+                                "agg": "sum"},
+    "siniestros_fatales":      {"label": "Siniestros fatales",        "unidad": "siniestros",
+                                "agg": "sum"},
+    "siniestros_con_victimas": {"label": "Siniestros con víctimas",   "unidad": "siniestros",
+                                "agg": "sum"},
+    "siniestros_con_lesionados": {"label": "Siniestros con lesionados", "unidad": "siniestros",
+                                  "agg": "sum"},
+    "personas_heridas":        {"label": "Personas heridas",          "unidad": "personas",
+                                "agg": "sum"},
+    "tasa_mortalidad_100mil":  {"label": "Tasa de mortalidad vial",   "unidad": "por cien mil hab.",
+                                "agg": "mean"},
+    "tasa_fatalidad_10mil_veh": {"label": "Tasa de fatalidad vial",
+                                 "unidad": "por diez mil vehículos", "agg": "mean"},
+    "tasa_siniestralidad_fatal_100mil": {"label": "Tasa de siniestralidad fatal",
+                                         "unidad": "por cien mil hab.", "agg": "mean"},
+    "tasa_siniestralidad_fatal_10mil_veh": {"label": "Tasa de siniestralidad fatal",
+                                            "unidad": "por diez mil vehículos", "agg": "mean"},
+    "poblacion":               {"label": "Población proyectada",      "unidad": "habitantes",
+                                "agg": "mean"},
+    "parque_vehicular":        {"label": "Parque vehicular registrado", "unidad": "vehículos",
+                                "agg": "mean"},
+}
+
+SV_USUARIOS = ["Total", "Motociclista", "Automóvil", "Peatón", "Ciclista", "Otros vehículos",
+               "Sin dato"]
+SV_OTRAS = "Otra jurisdicción"
+SV_ANIO_MAX = 2025          # 2026 es un parcial enero-septiembre: ver nota
+
+
+def seguridad_vial():
+    """Siniestralidad vial por jurisdicción (ANSV), anual.
+
+    Serie anual pura: el dataset no tiene meses, así que no se emiten `grano`, `mes` ni
+    `trimestre` y ningún gráfico declara el control de frecuencia. Tampoco corre `_completos`:
+    no hay períodos parciales que recortar porque no hay períodos dentro del año.
+    """
+    notas = []
+    df = pd.read_csv(_drv("Siniestralidad_vial_ANSV_jurisdiccion_anual.csv"),
+                     encoding="utf-8-sig")
+    df["valor"] = pd.to_numeric(df["valor"], errors="coerce")
+    df = df.dropna(subset=["valor"])
+    df["anio"] = df["anio"].astype(int)
+
+    # El último año que publica la ANSV es un acumulado enero-septiembre y además le falta CABA.
+    # Queda en el CSV marcado `calidad=parcial` pero no entra al tablero: puesto al lado de años
+    # completos dibuja una caída que no existe. Es el mismo criterio que `_completos` aplica a los
+    # trimestres en las series mensuales.
+    parcial = df[df["anio"] > SV_ANIO_MAX]
+    df = df[df["anio"] <= SV_ANIO_MAX]
+
+    # `ambito` no es una dimensión nueva: es una etiqueta derivada de `jurisdiccion`, uno a uno,
+    # para que el gráfico de comparación pida tres series en vez de excluir veintitrés.
+    def ambito(j):
+        return j if j in ("Salta", "NOA", TOTAL_PAIS) else SV_OTRAS
+
+    rows = []
+    for r in df.itertuples(index=False):
+        d = r._asdict()
+        v = float(d["valor"])
+        rows.append([int(d["anio"]), d["jurisdiccion"], ambito(d["jurisdiccion"]),
+                     d["tipo_usuario"], d["metrica"],
+                     round(v, 2) if d["metrica"].startswith("tasa_") else int(round(v))])
+
+    jurs = sorted({r[1] for r in rows} - {"NOA", TOTAL_PAIS}) + ["NOA", TOTAL_PAIS]
+    anios = sorted({r[0] for r in rows})
+
+    notas.append(
+        "seguridad-vial: siniestralidad vial de la ANSV (Observatorio Vial Nacional), que consolida "
+        "lo que le reporta cada jurisdicción; en Salta, la Subsecretaría de Seguridad Vial. Víctima "
+        "fatal es la persona que fallece en el lugar o hasta 30 días después del siniestro. Los "
+        "datos de %d en adelante son preliminares y la ANSV los sigue actualizando; las víctimas "
+        "fatales de Buenos Aires y Mendoza llevan un factor de ajuste de 1,3."
+        % 2023)
+    notas.append(
+        "seguridad-vial: NO es lo mismo que la mortalidad por lesiones de tránsito del tema "
+        "«Seguridad», que sale de la DEIS. La DEIS cuenta por causa de muerte en el certificado de "
+        "defunción y la ANSV por siniestro reportado por la jurisdicción: dan números distintos "
+        "para lo que se lee como lo mismo, y ninguno de los dos corrige al otro.")
+    notas.append(
+        "seguridad-vial: la cobertura es desigual. La única serie sin huecos es víctimas fatales "
+        "con su tasa de mortalidad (2016-%d). Los siniestros fatales no están abiertos por "
+        "jurisdicción en 2025 y el tipo de usuario de la vía se corta en 2022: los informes "
+        "preliminares posteriores sólo lo publican por región y en porcentaje. La tasa por "
+        "vehículos es la que publica la ANSV, cada 10 mil vehículos registrados."
+        % SV_ANIO_MAX)
+    if len(parcial):
+        notas.append(
+            "seguridad-vial: el dato más reciente de la ANSV (enero-septiembre de %d, sin CABA) "
+            "está en el dataset pero fuera de los gráficos, porque es un acumulado parcial. En ese "
+            "tramo Salta registra %d víctimas fatales en %d siniestros fatales."
+            % (int(parcial["anio"].max()),
+               int(parcial[(parcial["jurisdiccion"] == "Salta") &
+                           (parcial["metrica"] == "victimas_fatales")]["valor"].sum()),
+               int(parcial[(parcial["jurisdiccion"] == "Salta") &
+                           (parcial["metrica"] == "siniestros_fatales")]["valor"].sum())))
+    notas.append(
+        "seguridad-vial: el total del país es el publicado por la ANSV, no la suma de las "
+        "jurisdicciones. El NOA lo calcula el Monitor sumando Catamarca, Jujuy, La Rioja, Salta, "
+        "Santiago del Estero y Tucumán —la agrupación de la propia ANSV—; sus tasas son cociente "
+        "de agregados, no promedio de las tasas provinciales.")
+
+    return {
+        "fields": ["anio", "jurisdiccion", "ambito", "tipo_usuario", "metrica", "valor"],
+        "rows": rows,
+        "dims": {
+            "anio": anios,
+            "jurisdiccion": jurs,
+            "ambito": ["Salta", "NOA", TOTAL_PAIS, SV_OTRAS],
+            "tipo_usuario": [u for u in SV_USUARIOS if u in {r[3] for r in rows}],
+        },
+        "metricas": SV_METRICAS,
+        "notas": notas,
+    }
+
+
 # ==========================================================================
 # TEMAS SOCIALES DEL PDES 2030 — planillas que acompañan el informe «Área Sociocultural del
 # PDES 2030. Objetivos, indicadores y brechas territoriales» (J. Paz, 2026). Cada una trae DOS
@@ -3313,6 +3430,7 @@ ADAPTERS = {
     "aeropuerto": aeropuerto,
     "supermercados": supermercados,
     "cemento": cemento,
+    "seguridad-vial": seguridad_vial,
     "educacion": educacion,
     "vitivinicultura": inv,
     "produccion-energia": produccion_energia,
