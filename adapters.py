@@ -3232,6 +3232,121 @@ def azucar_alcohol():
     }
 
 
+# ==========================================================================
+# TEMA — Obras públicas: padrón georreferenciado de la Jefatura de Gabinete,
+# reclasificado por tipo de obra y por acción (`actualizar_obras_publicas_salta.py`).
+# --------------------------------------------------------------------------
+OBR_METRICAS = {
+    "obras_n":          {"label": "Obras finalizadas", "unidad": "obras", "agg": "sum"},
+    "monto_mill":       {"label": "Monto contratado",
+                         "unidad": "millones de pesos corrientes", "agg": "sum"},
+    "monto_medio_mill": {"label": "Monto medio por obra",
+                         "unidad": "millones de pesos corrientes", "agg": "mean"},
+}
+# El padrón es un CORTE, no una serie: el único año que trae es el de finalización PREVISTA, que
+# no es la fecha real de la obra ni la del precio del contrato. Así que el tema se publica con un
+# solo `anio` —el del padrón— como `condiciones-vida` con el Censo 2022, y el año de fin previsto
+# entra como una apertura más. Los gráficos sin control de año agregan el padrón completo.
+OBR_ANIO = 2026
+OBR_JUR = "Salta"              # agregado provincial (está en PROVINCIAL_TOKENS)
+OBR_MUNI_TOTAL = "Total Salta"  # agregado municipal (ídem; "Salta" acá es un municipio real)
+OBR_TOTAL = "Total"
+OBR_APERTURAS = ["total", "departamento", "municipio", "categoria", "accion", "anio_fin",
+                 "area", "financiamiento", "tipo_fuente", "otras"]
+
+
+def obras_publicas():
+    df = pd.read_csv(_src("Obras_Publicas_Salta_padron_clasificado.csv"), encoding="utf-8-sig")
+    # Sólo las obras con avance 100 %. El padrón trae además las que están en ejecución o en
+    # licitación, que el CSV conserva pero el tablero no mezcla con las terminadas.
+    fin = df[df["finalizada"] == 1].copy()
+    fin["departamento"] = fin["departamento"].map(norm_dept)
+    # "Salta" a secas es el token provincial (PROVINCIAL_TOKENS), asi que la ciudad
+    # capital va como "Salta (ciudad)": es la convencion que ya usan construccion,
+    # recursos-municipios y transparencia. El CSV conserva "Salta", que es la grafia del
+    # crosswalk municipal del repo.
+    fin["municipio"] = fin["municipio"].map(
+        lambda x: "Salta (ciudad)" if str(x).strip() == "Salta" else str(x).strip())
+    fin["monto_contrato"] = pd.to_numeric(fin["monto_contrato"], errors="coerce").fillna(0.0)
+
+    rows = []
+
+    def emitir(dep, mun, apertura, cat, sub):
+        n = len(sub)
+        if not n:
+            return
+        monto = float(sub["monto_contrato"].sum()) / 1e6
+        rows.append([OBR_ANIO, dep, mun, apertura, cat, "obras_n", n])
+        rows.append([OBR_ANIO, dep, mun, apertura, cat, "monto_mill", round(monto, 3)])
+        rows.append([OBR_ANIO, dep, mun, apertura, cat, "monto_medio_mill", round(monto / n, 3)])
+
+    # Total provincial.
+    emitir(OBR_JUR, OBR_MUNI_TOTAL, "total", OBR_TOTAL, fin)
+
+    # Geografía: departamento y municipio son columnas reales (no valores de `apertura`) para que
+    # `build.py` las reconozca en GEO_DIMS y entren al buscador geográfico del sitio.
+    for dep, sub in fin.groupby("departamento"):
+        emitir(dep, OBR_MUNI_TOTAL, "departamento", OBR_TOTAL, sub)
+    for (dep, mun), sub in fin.groupby(["departamento", "municipio"]):
+        emitir(dep, mun, "municipio", OBR_TOTAL, sub)
+
+    # Las dos clasificaciones propias y los cortes que ya trae la fuente.
+    cortes = [("categoria", "categoria"), ("accion", "accion"),
+              ("anio_fin", "anio_fin_previsto"), ("area", "area_responsable"),
+              ("financiamiento", "financiamiento"), ("tipo_fuente", "tipo_fuente")]
+    for apertura, col in cortes:
+        for val, sub in fin.groupby(col):
+            emitir(OBR_JUR, OBR_MUNI_TOTAL, apertura, str(val), sub)
+
+    # La categoría también por departamento, para el selector del gráfico principal.
+    for (dep, cat), sub in fin.groupby(["departamento", "categoria"]):
+        emitir(dep, OBR_MUNI_TOTAL, "categoria", cat, sub)
+
+    # Qué había adentro de «OTRAS»: la bolsa que la fuente no abre, repartida en etiquetas.
+    otras = fin[fin["tipo_fuente"] == "OTRAS"]
+    for cat, sub in otras.groupby("categoria"):
+        emitir(OBR_JUR, OBR_MUNI_TOTAL, "otras", cat, sub)
+
+    sin_regla = int((fin["regla"] == "sin regla").sum())
+    notas = [
+        "obras públicas: el tema cubre las %d obras del padrón con avance 100 %%. El padrón trae "
+        "%d más, en ejecución o en licitación, que quedan en el CSV pero no en el tablero."
+        % (len(fin), len(df) - len(fin)),
+        "obras públicas: `categoria` y `accion` son una clasificación propia del CESS sobre el "
+        "texto de cada obra, no un campo de la fuente. La fuente publica un campo `tipo` de nueve "
+        "valores en el que «OTRAS» se lleva el 35 %% del padrón. %d obras finalizadas (%.1f %%) no "
+        "las alcanza ninguna regla y quedan en «Otras obras»."
+        % (sin_regla, 100.0 * sin_regla / max(len(fin), 1)),
+        "obras públicas: el monto es el de contrato en pesos corrientes y la fuente no informa la "
+        "fecha del precio —`licitacion_anio` viene en cero en el 82 % de las filas—, así que no se "
+        "deflacta ni se compara entre años. La medida comparable del padrón es la cantidad de "
+        "obras.",
+        "obras públicas: el año que trae la fuente es el de finalización PREVISTA, no el de "
+        "finalización real: hay obras con avance 100 % y fin previsto en 2026. Por eso el tema es "
+        "un corte del padrón y no una serie anual.",
+        "obras públicas: la ubicación es la declarada por la fuente. Tres registros traen la "
+        "longitud repetida de la latitud y quedan marcados en el CSV con `coord_valida = 0`.",
+    ]
+
+    deps = sorted({r[1] for r in rows})
+    munis = sorted({r[2] for r in rows})
+    cats = sorted({r[4] for r in rows})
+    return {
+        "fields": ["anio", "departamento", "municipio", "apertura", "categoria",
+                   "metrica", "valor"],
+        "rows": rows,
+        "dims": {
+            "anio": [OBR_ANIO],
+            "departamento": deps,
+            "municipio": munis,
+            "apertura": OBR_APERTURAS,
+            "categoria": cats,
+        },
+        "metricas": OBR_METRICAS,
+        "notas": notas,
+    }
+
+
 SV_METRICAS = {
     "victimas_fatales":        {"label": "Víctimas fatales",          "unidad": "personas",
                                 "agg": "sum"},
@@ -3772,6 +3887,7 @@ ADAPTERS = {
     "seguridad-vial": seguridad_vial,
     "patentamiento": patentamiento,
     "azucar-alcohol": azucar_alcohol,
+    "obras-publicas": obras_publicas,
     "educacion": educacion,
     "vitivinicultura": inv,
     "produccion-energia": produccion_energia,

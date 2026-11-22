@@ -264,6 +264,7 @@ FUENTE_CORTA = {
     "Dirección Nacional de los Registros Nacionales de la Propiedad del Automotor (DNRPA)": "DNRPA",
     "Encuesta de Supermercados — INDEC": "INDEC",
     "Centro Azucarero Argentino (CAA)": "CAA",
+    "Jefatura de Gabinete de Ministros de Salta": "Jefatura de Gabinete",
 }
 
 # Semáforo de avance hacia la meta 2030 (sección de la portada + marca en la columna de la meta).
@@ -2855,6 +2856,190 @@ TEMAS = [
              "sort": "desc", "unidad": "toneladas"},
         ],
     },
+    # ======================================================================
+    {
+        "id": "obras-publicas",
+        "ciiu": "F",
+        "area": "construccion",
+        "eje_pdes": "economico-productivo",
+        "title": "Obras públicas finalizadas",
+        "resumen": (
+            "Las 2.389 obras públicas terminadas del padrón georreferenciado de la Jefatura de "
+            "Gabinete, reclasificadas por el CESS en 31 tipos de obra —cordón cuneta, red de agua, "
+            "escuelas, luminarias, defensas de río— y en qué se hizo con cada una: construir, "
+            "ampliar, refaccionar o mantener. Abierto por departamento y por municipio."
+        ),
+        "resumen_corto": "Qué se construyó con obra pública en Salta, y en qué departamento.",
+        "advertencia": (
+            "Es un padrón al 17 de noviembre de 2026, no una serie: cubre las obras con avance "
+            "100 % y el padrón trae 558 más en ejecución o licitación. Las categorías son una "
+            "clasificación propia del CESS sobre el texto de cada obra, no un campo de la fuente, "
+            "que publica un «tipo» de nueve valores donde «OTRAS» se lleva el 35 %. El monto es el "
+            "de contrato en pesos corrientes y la fuente no informa la fecha del precio, así que "
+            "no se deflacta ni se compara entre años: la medida comparable es la cantidad de obras."
+        ),
+        "frecuencia": "Toma única",
+        "fuente": "Jefatura de Gabinete de Ministros de Salta",
+        "fuente_url": ("https://datospublicos.salta.gob.ar/dataset/"
+                       "a3ac6004-0430-42e3-ac16-50c9c5956083"),
+        "cobertura": "Padrón 2020–2026",
+        "keywords": [
+            "obra pública", "obras públicas", "padrón de obras", "infraestructura",
+            "cordón cuneta", "adoquinado", "bacheo", "pavimento", "veredas", "luminarias",
+            "alumbrado público", "agua potable", "cloacas", "saneamiento", "núcleos húmedos",
+            "conexiones domiciliarias", "canales", "desagües", "defensas", "encauzamiento",
+            "viviendas", "escuelas", "hospitales", "plazas", "espacio público", "puentes",
+            "caminos", "electrificación", "gas", "refacción", "ampliación", "inversión pública",
+            "Jefatura de Gabinete", "datos abiertos",
+        ],
+        "tags": ["infraestructura-logistica"],
+        "kpis": [
+            {"label": "Obras finalizadas", "tabla_label": "Obras públicas finalizadas",
+             "tabla_nota": "Padrón al 17 de noviembre de 2026, obras con avance 100 %. El padrón "
+                           "incluye además 558 obras en ejecución o en licitación.",
+             "metrica": "obras_n",
+             "fixed": {"apertura": "total", "categoria": "Total",
+                       "departamento": "Salta", "municipio": "Total Salta"},
+             "year": "latest", "unidad": "obras", "format": "int", "geo": "Departamento"},
+            {"label": "Monto contratado",
+             "tabla_label": "Monto contratado de las obras públicas finalizadas",
+             "tabla_nota": "Pesos corrientes del contrato, sumados sin deflactar porque la fuente "
+                           "no informa la fecha del precio. Sirve para la composición del padrón, "
+                           "no para comparar entre años.",
+             "metrica": "monto_mill",
+             "fixed": {"apertura": "total", "categoria": "Total",
+                       "departamento": "Salta", "municipio": "Total Salta"},
+             "year": "latest", "unidad": "millones de pesos corrientes", "format": "int",
+             "geo": "Departamento"},
+            {"label": "Obras en establecimientos educativos",
+             "tabla_label": "Obras públicas finalizadas en establecimientos educativos",
+             "tabla_nota": "Es el número que el padrón original no permitía calcular: 222 de "
+                           "estas obras venían rotuladas «OTRAS» por la fuente.",
+             "metrica": "obras_n",
+             "fixed": {"apertura": "categoria", "categoria": "Establecimientos educativos",
+                       "departamento": "Salta", "municipio": "Total Salta"},
+             "year": "latest", "unidad": "obras", "format": "int", "geo": "Departamento",
+             "grafico": "obr-categoria"},
+        ],
+        "charts": [
+            {"id": "obr-categoria", "type": "barh",
+             "title": "Qué se construyó",
+             "descr": "Las obras terminadas por tipo de obra, según la clasificación que el CESS "
+                      "arma leyendo el nombre y la descripción de cada una. La fuente publica un "
+                      "campo «tipo» de nueve valores que no permite este corte. El selector abre "
+                      "el mismo ranking para un departamento.",
+             "x": "categoria", "seriesBy": None, "metrica": "obras_n",
+             "fixed": {"apertura": "categoria", "departamento": "Salta",
+                       "municipio": "Total Salta"},
+             "controls": [
+                 {"dim": "departamento", "label": "Departamento", "kind": "select",
+                  "default": "Salta"},
+                 {"kind": "mode", "label": "Valores", "default": "obras", "options": [
+                     {"value": "obras", "label": "Obras", "metric": "obras_n",
+                      "unidad": "obras"},
+                     {"value": "monto", "label": "Monto", "metric": "monto_mill",
+                      "unidad": "millones de pesos corrientes"},
+                     {"value": "medio", "label": "Monto medio",
+                      "metric": "monto_medio_mill",
+                      "unidad": "millones de pesos corrientes"}]},
+             ],
+             "sort": "desc", "unidad": "obras"},
+            {"id": "obr-otras", "type": "barh",
+             "title": "Qué había adentro de «OTRAS»",
+             "descr": "De las 2.389 obras terminadas, 841 vienen rotuladas «OTRAS» por la fuente, "
+                      "que es su bolsa de residuo y el 35 % del padrón. Repartidas por tipo de "
+                      "obra quedan así: un cuarto son escuelas. Las que ninguna regla alcanza "
+                      "—98, el 4,1 %— quedan en «Otras obras».",
+             "x": "categoria", "seriesBy": None, "metrica": "obras_n",
+             "fixed": {"apertura": "otras", "departamento": "Salta",
+                       "municipio": "Total Salta"},
+             "sort": "desc", "unidad": "obras"},
+            {"id": "obr-accion", "type": "barh",
+             "title": "Construir, ampliar o refaccionar",
+             "descr": "El segundo eje de la clasificación: qué se hizo con lo que se intervino. "
+                      "«Sin especificar» no es un error del clasificador —un tercio de los "
+                      "nombres del padrón dicen sólo el objeto, como «Cordón cuneta en barrio La "
+                      "Esperanza», sin decir el verbo—.",
+             "x": "categoria", "seriesBy": None, "metrica": "obras_n",
+             "fixed": {"apertura": "accion", "departamento": "Salta",
+                       "municipio": "Total Salta"},
+             "controls": [
+                 {"kind": "mode", "label": "Valores", "default": "obras", "options": [
+                     {"value": "obras", "label": "Obras", "metric": "obras_n",
+                      "unidad": "obras"},
+                     {"value": "monto", "label": "Monto", "metric": "monto_mill",
+                      "unidad": "millones de pesos corrientes"},
+                     {"value": "medio", "label": "Monto medio",
+                      "metric": "monto_medio_mill",
+                      "unidad": "millones de pesos corrientes"}]},
+             ],
+             "sort": "desc", "unidad": "obras"},
+            {"id": "obr-depto", "type": "barh",
+             "title": "Obras por departamento",
+             "descr": "Dónde están las obras terminadas. Es la ubicación declarada por la fuente; "
+                      "los 23 departamentos tienen al menos una. El monto medio por obra separa "
+                      "los departamentos con muchas obras chicas de los que tienen pocas y "
+                      "grandes.",
+             "x": "departamento", "seriesBy": None, "metrica": "obras_n",
+             "fixed": {"apertura": "departamento", "municipio": "Total Salta"},
+             "controls": [
+                 {"kind": "mode", "label": "Valores", "default": "obras", "options": [
+                     {"value": "obras", "label": "Obras", "metric": "obras_n",
+                      "unidad": "obras"},
+                     {"value": "monto", "label": "Monto", "metric": "monto_mill",
+                      "unidad": "millones de pesos corrientes"},
+                     {"value": "medio", "label": "Monto medio", "metric": "monto_medio_mill",
+                      "unidad": "millones de pesos corrientes"}]},
+             ],
+             "sort": "desc", "unidad": "obras"},
+            {"id": "obr-municipio", "type": "barh",
+             "title": "Obras por municipio",
+             "descr": "El corte más fino que permite el padrón: los 60 municipios de la "
+                      "provincia. La capital figura como «Salta (ciudad)».",
+             "x": "municipio", "seriesBy": None, "metrica": "obras_n",
+             "fixed": {"apertura": "municipio"},
+             "controls": [
+                 {"kind": "mode", "label": "Valores", "default": "obras", "options": [
+                     {"value": "obras", "label": "Obras", "metric": "obras_n",
+                      "unidad": "obras"},
+                     {"value": "monto", "label": "Monto", "metric": "monto_mill",
+                      "unidad": "millones de pesos corrientes"},
+                     {"value": "medio", "label": "Monto medio", "metric": "monto_medio_mill",
+                      "unidad": "millones de pesos corrientes"}]},
+             ],
+             "sort": "desc", "unidad": "obras"},
+            {"id": "obr-anio", "type": "bar",
+             "title": "Cuándo terminaban",
+             "descr": "El único año que trae la fuente es el de finalización prevista, no el de "
+                      "finalización real: por eso hay obras ya terminadas con fin previsto en "
+                      "2026. Sirve para ver el perfil del padrón, no para medir cuánto se terminó "
+                      "cada año.",
+             "x": "categoria", "seriesBy": None, "metrica": "obras_n",
+             "fixed": {"apertura": "anio_fin", "departamento": "Salta",
+                       "municipio": "Total Salta"},
+             "unidad": "obras"},
+            {"id": "obr-gestion", "type": "barh",
+             "title": "Qué área ejecutó",
+             "descr": "El área responsable que declara la fuente. Infraestructura concentra la "
+                      "mayor parte; Educación aparece separada porque el padrón le imputa las "
+                      "obras en escuelas.",
+             "x": "categoria", "seriesBy": None, "metrica": "obras_n",
+             "fixed": {"apertura": "area", "departamento": "Salta",
+                       "municipio": "Total Salta"},
+             "controls": [
+                 {"kind": "mode", "label": "Valores", "default": "obras", "options": [
+                     {"value": "obras", "label": "Obras", "metric": "obras_n",
+                      "unidad": "obras"},
+                     {"value": "monto", "label": "Monto", "metric": "monto_mill",
+                      "unidad": "millones de pesos corrientes"},
+                     {"value": "medio", "label": "Monto medio",
+                      "metric": "monto_medio_mill",
+                      "unidad": "millones de pesos corrientes"}]},
+             ],
+             "sort": "desc", "unidad": "obras"},
+        ],
+    },
+
 
     # ======================================================================
     {
