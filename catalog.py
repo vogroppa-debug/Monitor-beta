@@ -263,6 +263,7 @@ FUENTE_CORTA = {
     "Agencia Nacional de Seguridad Vial (ANSV)": "ANSV",
     "Dirección Nacional de los Registros Nacionales de la Propiedad del Automotor (DNRPA)": "DNRPA",
     "Encuesta de Supermercados — INDEC": "INDEC",
+    "Centro Azucarero Argentino (CAA)": "CAA",
 }
 
 # Semáforo de avance hacia la meta 2030 (sección de la portada + marca en la columna de la meta).
@@ -2720,6 +2721,138 @@ TEMAS = [
                      {"value": "trimestral", "label": "Trimestral", "x": "trimestre", "grano": "trimestral"}]},
              ],
              "unidad": "por mil automotores"},
+        ],
+    },
+
+    # ======================================================================
+    {
+        "id": "azucar-alcohol",
+        "ciiu": "C",
+        "area": "economico",
+        "eje_pdes": "economico-productivo",
+        "title": "Producción de azúcar y alcohol",
+        "resumen": (
+            "Producción de los ingenios azucareros de Salta según el Centro Azucarero Argentino, "
+            "anual desde 1990: caña molida, azúcar por tipo y alcohol, abierta por ingenio desde "
+            "2010 —San Isidro en General Güemes y Tabacal en Orán— y comparada con Jujuy, "
+            "Tucumán, el NOA y el total del país."
+        ),
+        "resumen_corto": "Cuánta caña muele Salta, y cuánta termina en azúcar y cuánta en alcohol.",
+        "advertencia": (
+            "El dato es por zafra, que va de mayo a mediados de noviembre. Desde 2016 la fuente "
+            "informa caña molida bruta, y eso solo ya baja el azúcar por tonelada de caña cerca de "
+            "un cuarto en todas las provincias. La apertura por ingenio empieza en 2010: entre "
+            "1990 y 2002 la fuente intercambia los dos ingenios de Salta, aunque el total "
+            "provincial sea correcto."
+        ),
+        "fuente": "Centro Azucarero Argentino (CAA)",
+        "fuente_url": "https://centroazucarero.com.ar/produccion-de-azucar-2020-2029/",
+        "cobertura": "1990–2025",
+        "keywords": [
+            "azúcar", "azucar", "alcohol", "bioetanol", "etanol", "caña", "caña de azúcar",
+            "zafra", "ingenio", "ingenios", "sucroalcoholero", "agroindustria", "San Isidro",
+            "Tabacal", "San Martín del Tabacal", "Campo Santo", "Orán", "General Güemes",
+            "melaza", "azúcar orgánico", "azúcar refinado", "biocombustibles", "CAA", "molienda",
+        ],
+        "tags": ["actividad-productividad"],
+        "kpis": [
+            {"label": "Azúcar producido", "tabla_label": "Azúcar producido en Salta",
+             "tabla_nota": "Zafra completa. San Isidro produce hoy más azúcar que Tabacal, que "
+                           "destina casi toda su caña a alcohol.",
+             "metrica": "azucar_total_t",
+             "fixed": {"apertura": "provincia", "categoria": "Salta"},
+             "year": "latest", "unidad": "toneladas", "format": "int", "geo": "Provincia"},
+            {"label": "Alcohol producido", "tabla_label": "Alcohol producido en Salta",
+             "tabla_nota": "Tabacal aporta más del 90 % del alcohol de la provincia. Una parte se "
+                           "deshidrata como bioetanol para cortar las naftas.",
+             "metrica": "alcohol_m3",
+             "fixed": {"apertura": "provincia", "categoria": "Salta"},
+             "year": "latest", "unidad": "m³", "format": "int", "geo": "Provincia",
+             "grafico": "azu-ingenio"},
+            {"label": "Caña molida", "tabla_label": "Caña de azúcar molida en Salta",
+             "tabla_nota": "Caña bruta entrada a fábrica. Es la materia prima de las dos cadenas, "
+                           "la del azúcar y la del alcohol.",
+             "metrica": "cana_molida_t",
+             "fixed": {"apertura": "provincia", "categoria": "Salta"},
+             "year": "latest", "unidad": "toneladas", "format": "int", "geo": "Provincia"},
+        ],
+        "charts": [
+            {"id": "azu-salta", "type": "line",
+             "title": "Producción sucroalcoholera de Salta",
+             "descr": "Caña molida, azúcar producido y alcohol producido en la provincia, por "
+                      "zafra. La participación compara el azúcar de Salta con el del NOA (Jujuy, "
+                      "Salta y Tucumán) y con el del país; desde que los ingenios del Litoral "
+                      "dejan de moler, las dos medidas coinciden.",
+             "x": "anio", "seriesBy": None, "metrica": "azucar_total_t",
+             "fixed": {"apertura": "provincia", "categoria": "Salta"},
+             "controls": [
+                 {"kind": "metric", "label": "Medida",
+                  "options": ["azucar_total_t", "cana_molida_t", "alcohol_m3",
+                              "share_pais_pct", "share_noa_pct"]},
+             ],
+             "unidad": "toneladas"},
+            {"id": "azu-ingenio", "type": "stacked-area",
+             "title": "Los dos ingenios de Salta",
+             "descr": "San Isidro, en Campo Santo (departamento General Güemes), y San Martín del "
+                      "Tabacal, en Hipólito Yrigoyen (Orán). Es la ubicación de la fábrica, no la "
+                      "del cañaveral. La serie empieza en 2010 porque antes la fuente intercambia "
+                      "los dos ingenios.",
+             "x": "anio", "seriesBy": "categoria", "metrica": "azucar_total_t",
+             "fixed": {"apertura": "ingenio"},
+             "seriesExclude": ["Total"], "stack": True,
+             "controls": [
+                 {"kind": "metric", "label": "Medida",
+                  "options": ["azucar_total_t", "alcohol_m3", "cana_molida_t"]},
+             ],
+             "unidad": "toneladas"},
+            {"id": "azu-destino", "type": "line",
+             "title": "Qué sale de cada tonelada de caña",
+             "descr": "Azúcar obtenido por tonelada de caña molida y litros de alcohol por esa "
+                      "misma tonelada. El escalón de 2016 es de definición —la fuente pasa a "
+                      "informar caña bruta y el cociente baja en todas las provincias—; lo que "
+                      "distingue a Salta es que sigue bajando después, porque su caña va a "
+                      "alcohol.",
+             "x": "anio", "seriesBy": "categoria", "metrica": "azucar_por_cana_pct",
+             "fixed": {"apertura": "provincia"},
+             "seriesExclude": ["Litoral", "NOA"],
+             "controls": [
+                 {"kind": "metric", "label": "Medida",
+                  "options": ["azucar_por_cana_pct", "alcohol_por_cana_l_t"]},
+             ],
+             "unidad": "%"},
+            {"id": "azu-tipo", "type": "stacked-area",
+             "title": "Azúcar de Salta por tipo",
+             "descr": "El refinado y el orgánico recién se publican por separado desde 2023: antes "
+                      "estaban dentro de «blanco», así que el quiebre de ese año es de cobertura y "
+                      "no de producción. San Isidro es hoy uno de los mayores productores de "
+                      "azúcar orgánico del país.",
+             "x": "anio", "seriesBy": "categoria", "metrica": "azucar_total_t",
+             "fixed": {"apertura": "tipo"}, "stack": True,
+             "unidad": "toneladas"},
+            {"id": "azu-provincias", "type": "stacked-area",
+             "title": "Producción por provincia",
+             "descr": "Tucumán, Jujuy, Salta y el Litoral —así llama el CAA a los tres ingenios de "
+                      "Santa Fe, que dejan de moler en el tramo final de la serie—.",
+             "x": "anio", "seriesBy": "categoria", "metrica": "azucar_total_t",
+             "fixed": {"apertura": "provincia"},
+             "seriesExclude": ["Total del país", "NOA"], "stack": True,
+             "controls": [
+                 {"kind": "metric", "label": "Medida",
+                  "options": ["azucar_total_t", "cana_molida_t", "alcohol_m3"]},
+             ],
+             "unidad": "toneladas"},
+            {"id": "azu-ranking", "type": "barh",
+             "title": "Ingenios del país (ranking)",
+             "descr": "Los ingenios del país ordenados por producción en la zafra seleccionada, "
+                      "para ubicar a San Isidro y a Tabacal entre sus pares.",
+             "x": "categoria", "seriesBy": None, "metrica": "azucar_total_t",
+             "fixed": {"apertura": "ranking"},
+             "controls": [
+                 {"dim": "anio", "label": "Zafra", "kind": "year"},
+                 {"kind": "metric", "label": "Medida",
+                  "options": ["azucar_total_t", "alcohol_m3", "cana_molida_t"]},
+             ],
+             "sort": "desc", "unidad": "toneladas"},
         ],
     },
 

@@ -3083,6 +3083,155 @@ def patentamiento():
     }
 
 
+# ==========================================================================
+# TEMA — Producción de azúcar y alcohol por ingenio (Centro Azucarero Argentino)
+# ==========================================================================
+AZU_METRICAS = {
+    "azucar_total_t":      {"label": "Azúcar producido",       "unidad": "toneladas",
+                            "agg": "sum"},
+    "cana_molida_t":       {"label": "Caña de azúcar molida",  "unidad": "toneladas",
+                            "agg": "sum"},
+    "alcohol_m3":          {"label": "Alcohol producido",      "unidad": "m³", "agg": "sum"},
+    "azucar_por_cana_pct": {"label": "Azúcar obtenido de la caña", "unidad": "%", "agg": "mean"},
+    "alcohol_por_cana_l_t": {"label": "Alcohol obtenido de la caña",
+                             "unidad": "litros por tonelada", "agg": "mean"},
+    "share_pais_pct":      {"label": "Participación en el azúcar del país", "unidad": "%",
+                            "agg": "mean"},
+    "share_noa_pct":       {"label": "Participación en el azúcar del NOA", "unidad": "%",
+                            "agg": "mean"},
+}
+
+AZU_JUR = "Salta"
+AZU_PAIS = "Total del país"
+AZU_NOA = "NOA"
+AZU_PROVINCIAS = [AZU_JUR, "Jujuy", "Tucumán", "Litoral", AZU_NOA, AZU_PAIS]
+AZU_INGENIOS = ["Total", "San Isidro", "Tabacal"]
+AZU_TIPOS = [("Blanco", "azucar_blanco_t"), ("Crudo", "azucar_crudo_t"),
+             ("Refinado", "azucar_refinado_t"), ("Orgánico", "azucar_organico_t")]
+# La apertura por ingenio arranca acá y no en 1990: entre 1990 y 2002 la fuente intercambia los
+# dos ingenios de Salta (ver la metodología y la columna `calidad` del CSV). El total provincial
+# no está afectado y va desde 1990.
+AZU_INGENIO_DESDE = 2010
+# El alcohol por ingenio no existe entre 1995 y 2006. El eje de los gráficos es categórico: si se
+# emitieran los cinco años anteriores, 1994 quedaría pegado a 2007 y el hueco de trece años se
+# cerraría sin que se vea. El CSV conserva 1990-1994.
+AZU_ALCOHOL_DESDE = 2007
+
+
+def azucar_alcohol():
+    """Producción de azúcar y alcohol del Centro Azucarero Argentino, anual, por ingenio.
+
+    Serie anual pura: `fields` arranca en `anio`, sin grano/mes/trimestre. Las desagregaciones son
+    heterogéneas (provincia, ingenio, tipo de azúcar, ranking de ingenios del país), así que van
+    con el par `apertura` + `categoria` de `aeropuerto()` en vez de una columna por corte.
+    """
+    notas = []
+    df = pd.read_csv(_drv("Produccion_sucroalcoholera_CAA_ingenio_anual.csv"),
+                     encoding="utf-8-sig")
+    df["valor"] = pd.to_numeric(df["valor"], errors="coerce")
+    df = df.dropna(subset=["valor"])
+    df["anio"] = df["anio"].astype(int)
+
+    base = {}
+    for r in df.itertuples(index=False):
+        if r.metrica == "alcohol_m3" and int(r.anio) < AZU_ALCOHOL_DESDE:
+            continue
+        base.setdefault((int(r.anio), r.provincia, r.ingenio), {})[r.metrica] = float(r.valor)
+
+    rows = []
+
+    def emitir(anio, apertura, categoria, reg):
+        """Los tres absolutos de la fuente y los dos cocientes, recalculados sobre los agregados
+        de este nivel (no promediando cocientes de ingenios)."""
+        for met in ("azucar_total_t", "cana_molida_t", "alcohol_m3"):
+            if reg.get(met) is not None:
+                rows.append([anio, apertura, categoria, met, int(round(reg[met]))])
+        cana = reg.get("cana_molida_t")
+        if not cana:
+            return
+        if reg.get("azucar_total_t") is not None:
+            rows.append([anio, apertura, categoria, "azucar_por_cana_pct",
+                         round(100.0 * reg["azucar_total_t"] / cana, 2)])
+        if reg.get("alcohol_m3") is not None:
+            rows.append([anio, apertura, categoria, "alcohol_por_cana_l_t",
+                         round(1000.0 * reg["alcohol_m3"] / cana, 1)])
+
+    for (anio, prov, ing), reg in base.items():
+        if ing == "Total" and prov in AZU_PROVINCIAS:
+            emitir(anio, "provincia", prov, reg)
+            if prov == AZU_JUR:
+                for etq, met in AZU_TIPOS:
+                    if reg.get(met) is not None:
+                        rows.append([anio, "tipo", etq, "azucar_total_t", int(round(reg[met]))])
+        if ing != "Total":
+            if prov == AZU_JUR and anio >= AZU_INGENIO_DESDE:
+                emitir(anio, "ingenio", ing, reg)
+            etq = "%s (%s)" % (ing, prov)
+            for met in ("azucar_total_t", "cana_molida_t", "alcohol_m3"):
+                if reg.get(met) is not None:
+                    rows.append([anio, "ranking", etq, met, int(round(reg[met]))])
+        if prov == AZU_JUR and ing == "Total" and anio >= AZU_INGENIO_DESDE:
+            emitir(anio, "ingenio", "Total", reg)
+
+    # Participación de Salta, sobre azúcar producido.
+    for anio in sorted({a for (a, _p, _i) in base}):
+        sal = base.get((anio, AZU_JUR, "Total"), {})
+        for ref_prov, met_out in ((AZU_PAIS, "share_pais_pct"), (AZU_NOA, "share_noa_pct")):
+            ref = base.get((anio, ref_prov, "Total"), {})
+            if sal.get("azucar_total_t") and ref.get("azucar_total_t"):
+                rows.append([anio, "provincia", AZU_JUR, met_out,
+                             round(100.0 * sal["azucar_total_t"] / ref["azucar_total_t"], 2)])
+
+    ranking = sorted({r[2] for r in rows if r[1] == "ranking"})
+    cats = AZU_PROVINCIAS + [c for c in AZU_INGENIOS if c not in AZU_PROVINCIAS] + \
+        [e for e, _m in AZU_TIPOS] + ranking
+    anios = sorted({int(r[0]) for r in rows})
+
+    notas.append(
+        "azúcar y alcohol: producción de los ingenios azucareros que releva el Centro Azucarero "
+        "Argentino, por zafra. La zafra ocupa de mayo a mediados de noviembre, así que el dato "
+        "anual es una campaña completa y no un año calendario de actividad.")
+    notas.append(
+        "azúcar y alcohol: el CAA publica por ingenio, no por departamento. Para Salta coinciden: "
+        "San Isidro está en Campo Santo (General Güemes) y San Martín del Tabacal en Hipólito "
+        "Yrigoyen (Orán). Es la ubicación de la fábrica, no la del cañaveral: la caña de Tabacal "
+        "viene de Orán y San Martín, y la de San Isidro de Güemes y Anta.")
+    notas.append(
+        "azúcar y alcohol: la apertura por ingenio empieza en %d. Entre 1990 y 2002 la fuente "
+        "intercambia los dos ingenios de Salta —lo que rotula «San Isidro» es Tabacal y al revés—, "
+        "y el dataset conserva ese tramo tal como se publica, marcado con calidad «rotulo_dudoso». "
+        "El total provincial no está afectado y va desde 1990." % AZU_INGENIO_DESDE)
+    notas.append(
+        "azúcar y alcohol: desde 2016 la fuente informa caña molida BRUTA, y el azúcar obtenido "
+        "por tonelada de caña baja cerca de un cuarto en todas las provincias por ese solo cambio "
+        "de definición. Lo que distingue a Salta es que después sigue bajando, y eso sí es real: "
+        "es caña que va a alcohol en vez de a azúcar.")
+    notas.append(
+        "azúcar y alcohol: el azúcar refinado y el orgánico recién se publican por separado desde "
+        "2023; antes estaban dentro de «blanco». El quiebre de ese año en la composición es de "
+        "cobertura, no de producción.")
+    notas.append(
+        "azúcar y alcohol: la fuente no publica alcohol por ingenio entre 1995 y 2006, así que la "
+        "serie del tablero arranca en %d y no en 1990: empalmar los dos tramos cerraría un hueco "
+        "de trece años sin que se note. El dataset conserva 1990-1994." % AZU_ALCOHOL_DESDE)
+    notas.append(
+        "azúcar y alcohol: NOA son las tres provincias azucareras, Jujuy, Salta y Tucumán. "
+        "«Litoral» es como el CAA rotula a los tres ingenios de Santa Fe, que dejan de moler en el "
+        "tramo final de la serie.")
+
+    return {
+        "fields": ["anio", "apertura", "categoria", "metrica", "valor"],
+        "rows": rows,
+        "dims": {
+            "anio": anios,
+            "apertura": ["provincia", "ingenio", "tipo", "ranking"],
+            "categoria": cats,
+        },
+        "metricas": AZU_METRICAS,
+        "notas": notas,
+    }
+
+
 SV_METRICAS = {
     "victimas_fatales":        {"label": "Víctimas fatales",          "unidad": "personas",
                                 "agg": "sum"},
@@ -3622,6 +3771,7 @@ ADAPTERS = {
     "cemento": cemento,
     "seguridad-vial": seguridad_vial,
     "patentamiento": patentamiento,
+    "azucar-alcohol": azucar_alcohol,
     "educacion": educacion,
     "vitivinicultura": inv,
     "produccion-energia": produccion_energia,
