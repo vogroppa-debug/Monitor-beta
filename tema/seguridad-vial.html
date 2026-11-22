@@ -9,7 +9,7 @@
     /* fija el tema antes de pintar para evitar flash */
     (function(){try{var t=localStorage.getItem('cess-theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
   </script>
-  <link rel="stylesheet" href="../assets/css/styles.css?v=1795035052">
+  <link rel="stylesheet" href="../assets/css/styles.css?v=1795307944">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%232a78d6'/><text x='50' y='68' font-size='52' text-anchor='middle' fill='white' font-family='sans-serif' font-weight='700'>C</text></svg>">
 </head>
 <body>
@@ -70,6 +70,8 @@
             <a role="menuitem" href="../tema/empleo.html">Empleo registrado y remuneraciones</a>
             
             <a role="menuitem" href="../tema/exportaciones.html">Exportaciones</a>
+            
+            <a role="menuitem" href="../tema/patentamiento.html">Patentamiento de vehículos</a>
             
             <a role="menuitem" href="../tema/supermercados.html">Ventas de supermercados</a>
             
@@ -146,7 +148,7 @@
     
     <p class="tema-resumen">Cuántos mueren en las rutas y las calles de Salta, y cómo se movían.</p>
     
-    <p class="tema-aviso" role="note">No es lo mismo que la mortalidad por lesiones de tránsito del tema «Seguridad»: esa sale de la DEIS, que cuenta por causa de muerte en el certificado de defunción, y esta de la ANSV, que cuenta siniestros reportados por cada provincia. Dan números distintos para lo que se lee como lo mismo. Además, el tipo de usuario de la vía se corta en 2022 —los informes posteriores sólo lo publican por región— y los datos desde 2023 son preliminares: la ANSV los sigue actualizando.</p>
+    <p class="tema-aviso" role="note">Siniestros reportados por provincia. Agencia Nacional de Seguridad Vial (ANSV).</p>
     
     <p class="tema-meta muted">
       <strong>Fuente:</strong> Agencia Nacional de Seguridad Vial (ANSV) ·
@@ -205,7 +207,7 @@
     <article class="chart-card" id="grafico-sv-vehiculos" data-chart-id="sv-vehiculos">
       <div class="chart-card-head">
         <h2 class="chart-title">Mortalidad vial por vehículo registrado</h2>
-        <p class="chart-descr">Víctimas fatales cada 10 mil vehículos, que es la base que publica la ANSV. Mirado así el cuadro cambia: pesa el tamaño del parque, no el de la población. El informe preliminar dejó de publicar esta tasa después de 2023.</p>
+        <p class="chart-descr">Mirado por vehículo y no por habitante, el cuadro cambia: pesa el tamaño del parque. Las dos tasas no son intercambiables. La de la ANSV usa el parque total —autos, motos, acoplados y maquinarias— y se corta en 2023, que es cuando dejó de publicarla. La otra la calcula el Monitor sobre el parque automotor de la DNRPA, que no incluye motos: da más alta porque el denominador es menor, pero llega hasta 2025 y su denominador está publicado para las tres jurisdicciones.</p>
       </div>
       <div class="chart-controls" role="group" aria-label="Filtros del gráfico"></div>
       <div class="chart-plot" role="img" aria-label="Mortalidad vial por vehículo registrado"></div>
@@ -340,6 +342,12 @@
       <a class="card card-sm" href="../tema/exportaciones.html">
         <span class="card-area">Económico-productivo</span>
         <h4 class="card-title">Exportaciones</h4>
+      </a>
+      
+      
+      <a class="card card-sm" href="../tema/patentamiento.html">
+        <span class="card-area">Económico-productivo</span>
+        <h4 class="card-title">Patentamiento de vehículos</h4>
       </a>
       
       
@@ -478,10 +486,10 @@
 
 <script src="../assets/vendor/echarts.min.js"></script>
 <script src="../assets/vendor/minisearch.min.js"></script>
-<script>window.CESS_BASE = ".."; window.CESS_VER = "1795035052";</script>
-<script src="../assets/js/app.js?v=1795035052"></script>
+<script>window.CESS_BASE = ".."; window.CESS_VER = "1795307944";</script>
+<script src="../assets/js/app.js?v=1795307944"></script>
 
-<script src="../assets/js/charts.js?v=1795035052"></script>
+<script src="../assets/js/charts.js?v=1795307944"></script>
 
 </body>
 </html>

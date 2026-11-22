@@ -2936,6 +2936,153 @@ def cemento():
     }
 
 
+PAT_METRICAS = {
+    "inscripciones_iniciales": {"label": "Vehículos patentados (0 km)", "unidad": "vehículos",
+                                "agg": "sum"},
+    "transferencias":          {"label": "Transferencias (usados)",     "unidad": "vehículos",
+                                "agg": "sum"},
+    "parque_automotor":        {"label": "Parque automotor",            "unidad": "automotores",
+                                "agg": "mean"},
+    "pct_motos":               {"label": "Motos sobre el total patentado", "unidad": "%",
+                                "agg": "mean"},
+    "transf_por_inscripcion":  {"label": "Transferencias por cada 0 km", "unidad": "veces",
+                                "agg": "mean"},
+    "renovacion_1000":         {"label": "Autos 0 km cada mil del parque",
+                                "unidad": "por mil automotores", "agg": "mean"},
+}
+
+PAT_CATEGORIAS = ["Total", "Autos", "Motos", "Maquinarias"]
+PAT_JUR = "Salta"
+
+
+def patentamiento():
+    """Patentamiento, transferencias y parque automotor de Salta (DNRPA), mensual.
+
+    Los dos CSV traen las 24 jurisdicciones; este tema muestra Salta. Abrirlo al país o al NOA
+    después es agregar gráficos, no rehacer el dataset.
+    """
+    notas = []
+    pat = pd.read_csv(_drv("Vehiculos_DNRPA_patentamiento_jurisdiccion_mensual.csv"),
+                      encoding="utf-8-sig")
+    par = pd.read_csv(_drv("Vehiculos_DNRPA_parque_automotor_jurisdiccion_mensual.csv"),
+                      encoding="utf-8-sig")
+    pat = pat[pat["jurisdiccion"] == PAT_JUR].copy()
+    par = par[par["jurisdiccion"] == PAT_JUR].copy()
+    for df in (pat, par):
+        df["valor"] = pd.to_numeric(df["valor"], errors="coerce")
+        df["anio"] = df["anio"].astype(int)
+        df["n_mes"] = df["n_mes"].astype(int)
+    pat = pat.dropna(subset=["valor"])
+    par = par.dropna(subset=["valor"])
+    par["categoria"] = "Autos"          # el parque de la DNRPA es automotor, no incluye motos
+
+    df = pd.concat([pat[["anio", "n_mes", "categoria", "metrica", "valor"]],
+                    par[["anio", "n_mes", "categoria", "metrica", "valor"]]], ignore_index=True)
+    df["trimestre"] = [_trim_label(a, m) for a, m in zip(df["anio"], df["n_mes"])]
+
+    # Base mensual: (anio, n_mes, categoria) -> {metrica: valor}
+    base = {}
+    for r in df.itertuples(index=False):
+        base.setdefault((int(r.anio), int(r.n_mes), r.categoria), {})[r.metrica] = float(r.valor)
+
+    def periodos(grano):
+        if grano == "mensual":
+            return {(a, m, c): [(a, m, c)] for (a, m, c) in base}
+        out = {}
+        for (a, m, c) in base:
+            k = (a, _trim_label(a, m), c) if grano == "trimestral" else (a, "", c)
+            out.setdefault(k, []).append((a, m, c))
+        return out
+
+    # Cuántos meses tiene que tener un período para que se emita. No alcanza con el helper global
+    # `_completos`: cada serie arranca en un año distinto (autos en 2000, motos en 2007,
+    # maquinarias en septiembre de 2013, el parque en 2010), así que la completitud se mide POR
+    # SERIE. Si no, el primer año de cada una se dibujaría como una caída.
+    MINIMO = {"mensual": 1, "trimestral": 3, "anual": 12}
+
+    rows = []
+    for grano in ("mensual", "trimestral", "anual"):
+        for clave, miembros in periodos(grano).items():
+            anio, etiqueta, cat = clave
+            agreg = {}
+            for met in PAT_METRICAS:
+                vals = [base[k][met] for k in miembros if met in base[k]]
+                if len(vals) < MINIMO[grano]:
+                    continue
+                info = PAT_METRICAS[met]
+                if info["agg"] == "sum":
+                    agreg[met] = sum(vals)
+                else:
+                    agreg[met] = sum(vals) / len(vals)
+            com = [grano, anio,
+                   "%d-%02d" % (anio, miembros[0][1]) if grano == "mensual" else "",
+                   etiqueta if grano == "trimestral" else "", cat]
+            for met in ("inscripciones_iniciales", "transferencias"):
+                if met in agreg:
+                    rows.append(com + [met, int(round(agreg[met]))])
+            if "parque_automotor" in agreg:
+                rows.append(com + ["parque_automotor", int(round(agreg["parque_automotor"]))])
+
+            # Los cocientes se recalculan en cada grano sobre los agregados, nunca promediando
+            # los cocientes mensuales: el promedio de razones no es la razón de los promedios.
+            ins, tra = agreg.get("inscripciones_iniciales"), agreg.get("transferencias")
+            if ins and tra is not None:
+                rows.append(com + ["transf_por_inscripcion", round(tra / ins, 2)])
+            if cat == "Total" and ins:
+                motos = {}
+                for k in miembros:
+                    km = (k[0], k[1], "Motos")
+                    if km in base and "inscripciones_iniciales" in base[km]:
+                        motos[km] = base[km]["inscripciones_iniciales"]
+                if len(motos) >= MINIMO[grano]:
+                    rows.append(com + ["pct_motos", round(100.0 * sum(motos.values()) / ins, 2)])
+            if cat == "Autos" and ins and agreg.get("parque_automotor"):
+                rows.append(com + ["renovacion_1000",
+                                   round(1000.0 * ins / agreg["parque_automotor"], 2)])
+
+    cats = [c for c in PAT_CATEGORIAS if c in {r[4] for r in rows}]
+    ultimo = max((r[1], r[2]) for r in rows if r[0] == "mensual")
+
+    notas.append(
+        "patentamiento: inscripciones iniciales (0 km) y transferencias (usados) de la DNRPA, "
+        "agregadas por año, mes y provincia. Cada categoría arranca cuando la DNRPA empieza a "
+        "publicarla: automotores en 2000, motovehículos en 2007 y maquinarias en septiembre de "
+        "2013. La categoría «Total» sólo se emite desde que están las tres, para que no se lea "
+        "como crecimiento lo que es un cambio de cobertura.")
+    notas.append(
+        "patentamiento: el patentamiento se desploma en diciembre y se dispara en enero, en toda "
+        "la Argentina y todos los años, porque inscribir en enero da el año modelo nuevo y eso "
+        "vale en la reventa. Es estacionalidad de la fuente, no un salto del dato: para leer "
+        "tendencia conviene el grano trimestral o anual.")
+    notas.append(
+        "patentamiento: el parque automotor de la DNRPA NO incluye motos (son 358.452 automotores "
+        "en Salta a diciembre de 2024, contra un parque total de 654.998 vehículos que publica la "
+        "ANSV para 2022). Por eso la tasa de renovación se calcula sólo sobre autos: numerador y "
+        "denominador son los dos automotor.")
+    notas.append(
+        "patentamiento: NO se usa el archivo del portal de datos abiertos de Salta, que copia "
+        "estas mismas series. Está mal: todo 2018 tiene los meses permutados en las seis series, "
+        "y en autos además está corrido un año (su «2017» es el 2018 real, su «2018» es el 2019 "
+        "real ordenado de mayor a menor, y el 2017 real —24.227 autos, el año récord— no figura). "
+        "El cotejo celda por celda está en la metodología.")
+    notas.append(
+        "patentamiento: el dataset trae las 24 jurisdicciones; este tema muestra Salta. Último "
+        "dato: %s." % ultimo[1])
+
+    return {
+        "fields": ["grano", "anio", "mes", "trimestre", "categoria", "metrica", "valor"],
+        "rows": rows,
+        "dims": {
+            "anio": sorted({int(r[1]) for r in rows}),
+            "mes": sorted({r[2] for r in rows if r[2]}),
+            "trimestre": sorted({r[3] for r in rows if r[3]}, key=_trim_key),
+            "categoria": cats,
+        },
+        "metricas": PAT_METRICAS,
+        "notas": notas,
+    }
+
+
 SV_METRICAS = {
     "victimas_fatales":        {"label": "Víctimas fatales",          "unidad": "personas",
                                 "agg": "sum"},
@@ -2951,6 +3098,8 @@ SV_METRICAS = {
                                 "agg": "mean"},
     "tasa_fatalidad_10mil_veh": {"label": "Tasa de fatalidad vial",
                                  "unidad": "por diez mil vehículos", "agg": "mean"},
+    "tasa_fatalidad_10mil_automotor": {"label": "Tasa de fatalidad cada 10 mil automotores",
+                                       "unidad": "por diez mil automotores", "agg": "mean"},
     "tasa_siniestralidad_fatal_100mil": {"label": "Tasa de siniestralidad fatal",
                                          "unidad": "por cien mil hab.", "agg": "mean"},
     "tasa_siniestralidad_fatal_10mil_veh": {"label": "Tasa de siniestralidad fatal",
@@ -2961,8 +3110,9 @@ SV_METRICAS = {
                                 "agg": "mean"},
 }
 
-SV_USUARIOS = ["Total", "Motociclista", "Automóvil", "Peatón", "Ciclista", "Otros vehículos",
-               "Sin dato"]
+SV_TOTAL_USUARIO = "Total"
+SV_USUARIOS = [SV_TOTAL_USUARIO, "Motociclista", "Automóvil", "Peatón", "Ciclista",
+               "Otros vehículos", "Sin dato"]
 SV_OTRAS = "Otra jurisdicción"
 SV_ANIO_MAX = 2025          # 2026 es un parcial enero-septiembre: ver nota
 
@@ -3001,6 +3151,39 @@ def seguridad_vial():
                      d["tipo_usuario"], d["metrica"],
                      round(v, 2) if d["metrica"].startswith("tasa_") else int(round(v))])
 
+    # --- una tasa por vehículo con denominador publicado ---------------------------------
+    # La ANSV publica su propia tasa de fatalidad cada 10 mil vehículos, pero se corta en 2023 y
+    # su denominador es el parque TOTAL, que para el NOA hay que despejar de las propias tasas
+    # porque la tabla de parque de la ANSV no las reproduce. Esta métrica es otra cosa, y mejor
+    # fundada: víctimas fatales sobre el PARQUE AUTOMOTOR que publica la DNRPA, mismo criterio
+    # para las tres jurisdicciones y para todos los años, y llega hasta donde llegan las víctimas
+    # fatales. No reemplaza a la de la ANSV: conviven en el mismo gráfico y miden cosas distintas
+    # (el parque automotor no incluye motos).
+    par = pd.read_csv(_drv("Vehiculos_DNRPA_parque_automotor_jurisdiccion_mensual.csv"),
+                      encoding="utf-8-sig")
+    par["valor"] = pd.to_numeric(par["valor"], errors="coerce")
+    par = par.dropna(subset=["valor"])
+    par["anio"] = par["anio"].astype(int)
+    # Promedio de los doce meses, no el stock de diciembre: lo que se quiere medir es la
+    # exposición a lo largo del año. Un año incompleto no se usa.
+    cuenta = par.groupby(["anio", "jurisdiccion"])["valor"].agg(["mean", "count"])
+    parque = {(int(k[0]), k[1]): float(v["mean"])
+              for k, v in cuenta.iterrows() if v["count"] >= 12}
+    parque.update({(a, "NOA"): sum(parque[(a, j)] for j in _AIF_NOA)
+                   for a in {k[0] for k in parque}
+                   if all((a, j) in parque for j in _AIF_NOA)})
+
+    vf = {(r[0], r[1]): r[5] for r in rows
+          if r[4] == "victimas_fatales" and r[3] == SV_TOTAL_USUARIO}
+    nuevas = 0
+    for (a, j), v in sorted(vf.items()):
+        p = parque.get((a, j))
+        if not p:
+            continue
+        rows.append([a, j, ambito(j), SV_TOTAL_USUARIO, "tasa_fatalidad_10mil_automotor",
+                     round(float(1e4 * v / p), 2)])
+        nuevas += 1
+
     jurs = sorted({r[1] for r in rows} - {"NOA", TOTAL_PAIS}) + ["NOA", TOTAL_PAIS]
     anios = sorted({r[0] for r in rows})
 
@@ -3033,6 +3216,13 @@ def seguridad_vial():
                            (parcial["metrica"] == "victimas_fatales")]["valor"].sum()),
                int(parcial[(parcial["jurisdiccion"] == "Salta") &
                            (parcial["metrica"] == "siniestros_fatales")]["valor"].sum())))
+    notas.append(
+        "seguridad-vial: la tasa de fatalidad cada 10 mil AUTOMOTORES la calcula el Monitor sobre "
+        "el parque automotor que publica la DNRPA (promedio de los doce meses del año). No "
+        "reemplaza a la tasa cada 10 mil vehículos de la ANSV, que usa el parque total: el parque "
+        "automotor no incluye motos, así que las dos no dan lo mismo y no son intercambiables. Se "
+        "agrega porque la de la ANSV se corta en 2023 y porque su denominador para el NOA hay que "
+        "despejarlo, mientras que este está publicado.")
     notas.append(
         "seguridad-vial: el total del país es el publicado por la ANSV, no la suma de las "
         "jurisdicciones. El NOA lo calcula el Monitor sumando Catamarca, Jujuy, La Rioja, Salta, "
@@ -3431,6 +3621,7 @@ ADAPTERS = {
     "supermercados": supermercados,
     "cemento": cemento,
     "seguridad-vial": seguridad_vial,
+    "patentamiento": patentamiento,
     "educacion": educacion,
     "vitivinicultura": inv,
     "produccion-energia": produccion_energia,

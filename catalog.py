@@ -261,6 +261,7 @@ FUENTE_CORTA = {
     "Administración Nacional de Aviación Civil (ANAC)": "ANAC",
     "Asociación de Fabricantes de Cemento Portland (AFCP)": "Asoc. Fab. Cemento",
     "Agencia Nacional de Seguridad Vial (ANSV)": "ANSV",
+    "Dirección Nacional de los Registros Nacionales de la Propiedad del Automotor (DNRPA)": "DNRPA",
     "Encuesta de Supermercados — INDEC": "INDEC",
 }
 
@@ -1594,11 +1595,10 @@ TEMAS = [
              "unidad": "ha"},
             {"id": "bos-flujos", "type": "line",
              "title": "Desmonte y regeneración",
-             "descr": ("Hectáreas que cambian de estado cada año. El desmonte exige conversión "
-                       "a uso antrópico; el bosque que pasa a arbustal o pastizal va aparte, "
-                       "porque ahí se mezclan degradación, incendios y oscilación de la "
-                       "clasificación. La regeneración de los últimos años está subestimada "
-                       "por construcción, y 2022-2025 son provisorios."),
+             "descr": ("Hectáreas que cambian de estado cada año. El desmonte exige conversión a uso antrópico;"
+                       "el bosque que pasa a arbustal o pastizal va aparte. Ahí se mezclan degradación, incendios y oscilación"
+                       "de la clasificación. La regeneración de los últimos años está subestimada por construcción. "
+                       "Datos 2022-2025 son provisorios."),
              "x": "anio", "seriesBy": None, "metrica": "desmonte_bosque_ha",
              "fixed": {"departamento": "Salta", "clase": "Total"}, "geoDim": "departamento",
              "provisorio_desde": 2022,
@@ -1663,24 +1663,15 @@ TEMAS = [
             "Qué información pública publican en sus canales oficiales los 60 municipios de "
             "Salta y el Poder Ejecutivo provincial, medidos con la misma vara: 10 criterios "
             "—presupuesto, ejecución, planta y sueldos, compras, adjudicaciones, declaraciones "
-            "juradas, boletín, acceso a la información y datos abiertos— con un puntaje de 0 a "
-            "100. Tres advertencias para leerlo: mide publicación en línea y no cumplimiento de "
-            "la ley, así que un municipio que entrega información a pedido o en papel puntúa 0; "
-            "no hay serie, porque es la primera toma; y el relevamiento propio lo hizo un "
-            "asistente de IA sobre canales oficiales, con cada puntaje respaldado por una URL "
-            "pero sin un segundo codificador humano, de modo que las evidencias de los 11 "
-            "municipios con puntaje están pendientes de verificación por el CESS."
+            "juradas, boletín, acceso a la información y datos abiertos— con un puntaje de 0 a 100"
+            "Mide publicación en línea, no cumplimiento de la ley, que puede serlo por otro medio."
         ),
         "resumen_corto": ("Qué publican los 60 municipios y el Ejecutivo provincial, "
                           "en 10 criterios."),
         "advertencia": (
-            "Para leer estos números: el índice mide publicación activa en canales oficiales "
-            "en línea, no cumplimiento de la ley —un municipio que entrega información a "
-            "pedido, en papel o en el Concejo puntúa 0—; es la primera toma, así que no hay "
-            "variación con que compararla; y el relevamiento propio lo hizo un asistente de IA "
-            "sobre canales oficiales, con cada puntaje respaldado por una URL pero sin un "
-            "segundo codificador humano, de modo que las evidencias de los 11 municipios con "
-            "puntaje están pendientes de verificación por el CESS."
+            "El índice mide publicación activa en canales oficiales en línea, no cumplimiento de la ley "
+            "(e.d., un municipio que entrega información a pedido, en papel o en el Concejo puntúa 0)."
+            
         ),
         "fuente": ("Relevamiento propio del CESS sobre canales oficiales (municipios y "
                    "Ejecutivo provincial)"),
@@ -2545,13 +2536,20 @@ TEMAS = [
              "controls": [], "unidad": "personas"},
             {"id": "sv-vehiculos", "type": "line",
              "title": "Mortalidad vial por vehículo registrado",
-             "descr": "Víctimas fatales cada 10 mil vehículos, que es la base que publica la "
-                      "ANSV. Mirado así el cuadro cambia: pesa el tamaño del parque, no el de la "
-                      "población. El informe preliminar dejó de publicar esta tasa después de 2023.",
-             "x": "anio", "seriesBy": "ambito", "metrica": "tasa_fatalidad_10mil_veh",
+             "descr": "Mirado por vehículo y no por habitante, el cuadro cambia: pesa el tamaño "
+                      "del parque. Las dos tasas no son intercambiables. La de la ANSV usa el "
+                      "parque total —autos, motos, acoplados y maquinarias— y se corta en 2023, "
+                      "que es cuando dejó de publicarla. La otra la calcula el Monitor sobre el "
+                      "parque automotor de la DNRPA, que no incluye motos: da más alta porque el "
+                      "denominador es menor, pero llega hasta 2025 y su denominador está "
+                      "publicado para las tres jurisdicciones.",
+             "x": "anio", "seriesBy": "ambito", "metrica": "tasa_fatalidad_10mil_automotor",
              "fixed": {"tipo_usuario": "Total"},
              "seriesExclude": ["Otra jurisdicción"],
-             "controls": [], "unidad": "por diez mil vehículos"},
+             "controls": [{"kind": "metric", "label": "Denominador",
+                           "options": ["tasa_fatalidad_10mil_automotor",
+                                       "tasa_fatalidad_10mil_veh"]}],
+             "unidad": "por diez mil automotores"},
             {"id": "sv-ranking", "type": "barh",
              "title": "Jurisdicciones (ranking)",
              "descr": "Las 24 jurisdicciones ordenadas en el año elegido. El total del país y el "
@@ -2578,6 +2576,150 @@ TEMAS = [
                            "options": ["personas_heridas", "siniestros_con_lesionados",
                                        "siniestros_con_victimas"]}],
              "unidad": "personas"},
+        ],
+    },
+
+    # ======================================================================
+    {
+        "id": "patentamiento",
+        "ciiu": "G",
+        "area": "economico",
+        "eje_pdes": "economico-productivo",
+        "title": "Patentamiento de vehículos",
+        "resumen": (
+            "Vehículos 0 km inscriptos y vehículos usados transferidos en Salta según los "
+            "registros de la propiedad del automotor, mensual, abierto en autos, motos y "
+            "maquinarias, con el parque automotor de la provincia y la tasa con que se renueva."
+        ),
+        "resumen_corto": "Cuántos vehículos se patentan en Salta, y cuántos de esos son motos.",
+        "advertencia": (
+            "El patentamiento se desploma en diciembre y se dispara en enero, todos los años y en "
+            "todo el país: inscribir en enero da el año modelo nuevo y eso vale en la reventa. Es "
+            "estacionalidad de la fuente, no un salto del dato, y por eso conviene mirarlo "
+            "trimestral o anual. Además el parque automotor no incluye motos, así que la tasa de "
+            "renovación se calcula sólo sobre autos."
+        ),
+        "fuente": "Dirección Nacional de los Registros Nacionales de la Propiedad del Automotor (DNRPA)",
+        "fuente_url": "https://datos.jus.gob.ar/dataset/estadistica-de-tramites-de-automotores",
+        "cobertura": "2000–2026",
+        "keywords": [
+            "patentamiento", "patentamientos", "inscripciones iniciales", "0 km", "cero kilómetro",
+            "transferencias", "usados", "autos", "automóviles", "motos", "motovehículos",
+            "maquinarias", "parque automotor", "DNRPA", "registro automotor", "vehículos",
+            "consumo durable", "concesionarias", "venta de autos", "renovación de la flota",
+        ],
+        "tags": ["actividad-productividad"],
+        "kpis": [
+            {"label": "Vehículos patentados", "tabla_label": "Vehículos patentados (0 km)",
+             "metrica": "inscripciones_iniciales",
+             "fixed": {"grano": "trimestral", "categoria": "Total"},
+             "cmp": "quarter", "year": "latest", "unidad": "vehículos", "format": "int",
+             "geo": "Provincia"},
+            {"label": "Motos patentadas", "tabla_label": "Motos patentadas (0 km)",
+             "tabla_nota": "Dos de cada tres vehículos que se patentan en Salta son motos. Es el "
+                           "mismo parque que explica que el 42 % de las víctimas fatales de "
+                           "siniestros viales de la provincia sean motociclistas.",
+             "metrica": "inscripciones_iniciales",
+             "fixed": {"grano": "trimestral", "categoria": "Motos"},
+             "cmp": "quarter", "year": "latest", "unidad": "vehículos", "format": "int",
+             "geo": "Provincia", "grafico": "pat-categoria"},
+            {"label": "Parque automotor", "tabla_label": "Parque automotor (automotores)",
+             "tabla_nota": "Automotores en condiciones registrales de circular. No incluye motos: "
+                           "la DNRPA no publica el parque de motovehículos.",
+             "metrica": "parque_automotor",
+             "fixed": {"grano": "trimestral", "categoria": "Autos"},
+             "cmp": "quarter", "year": "latest", "unidad": "automotores", "format": "int",
+             "geo": "Provincia", "grafico": "pat-parque"},
+        ],
+        "charts": [
+            {"id": "pat-total", "type": "line",
+             "title": "Vehículos patentados y transferidos en Salta",
+             "descr": "Inscripciones iniciales son vehículos 0 km; transferencias son cambios de "
+                      "titular de usados. La serie del total arranca en septiembre de 2013, que "
+                      "es desde cuándo la DNRPA publica las tres categorías.",
+             "x": "trimestre", "seriesBy": None, "metrica": "inscripciones_iniciales",
+             "fixed": {"grano": "trimestral", "categoria": "Total"},
+             "controls": [
+                 {"kind": "freq", "label": "Frecuencia", "default": "trimestral", "options": [
+                     {"value": "trimestral", "label": "Trimestral", "x": "trimestre", "grano": "trimestral"},
+                     {"value": "mensual", "label": "Mensual", "x": "mes", "grano": "mensual"},
+                     {"value": "anual", "label": "Anual", "x": "anio", "grano": "anual"}]},
+                 {"kind": "metric", "label": "Operación",
+                  "options": ["inscripciones_iniciales", "transferencias"]},
+             ],
+             "unidad": "vehículos"},
+            {"id": "pat-categoria", "type": "stacked-area",
+             "title": "Patentamiento por tipo de vehículo",
+             "descr": "Autos, motos y maquinarias, apilados. Las motos entran a la serie en 2007 "
+                      "y las maquinarias en septiembre de 2013, que es cuando la DNRPA empieza a "
+                      "publicarlas: antes de esas fechas la categoría no existe, no vale cero.",
+             "x": "trimestre", "seriesBy": "categoria", "metrica": "inscripciones_iniciales",
+             "fixed": {"grano": "trimestral"},
+             "seriesExclude": ["Total"], "stack": True,
+             "controls": [
+                 {"kind": "freq", "label": "Frecuencia", "default": "trimestral", "options": [
+                     {"value": "trimestral", "label": "Trimestral", "x": "trimestre", "grano": "trimestral"},
+                     {"value": "mensual", "label": "Mensual", "x": "mes", "grano": "mensual"},
+                     {"value": "anual", "label": "Anual", "x": "anio", "grano": "anual"}]},
+                 {"kind": "metric", "label": "Operación",
+                  "options": ["inscripciones_iniciales", "transferencias"]},
+             ],
+             "unidad": "vehículos"},
+            {"id": "pat-motos-pct", "type": "line",
+             "title": "Peso de las motos en el patentamiento",
+             "descr": "Porcentaje de los vehículos 0 km patentados en Salta que son motos. Es el "
+                      "dato que conecta con la seguridad vial: el parque de motos es el que "
+                      "explica que cuatro de cada diez muertos en siniestros viales de la "
+                      "provincia sean motociclistas.",
+             "x": "trimestre", "seriesBy": None, "metrica": "pct_motos",
+             "fixed": {"grano": "trimestral", "categoria": "Total"},
+             "controls": [
+                 {"kind": "freq", "label": "Frecuencia", "default": "trimestral", "options": [
+                     {"value": "trimestral", "label": "Trimestral", "x": "trimestre", "grano": "trimestral"},
+                     {"value": "mensual", "label": "Mensual", "x": "mes", "grano": "mensual"},
+                     {"value": "anual", "label": "Anual", "x": "anio", "grano": "anual"}]},
+             ],
+             "unidad": "%"},
+            {"id": "pat-usados", "type": "line",
+             "title": "Usados por cada 0 km",
+             "descr": "Transferencias de usados por cada vehículo nuevo patentado. Sube cuando el "
+                      "0 km se vuelve inalcanzable y el mercado se mueve al usado.",
+             "x": "trimestre", "seriesBy": None, "metrica": "transf_por_inscripcion",
+             "fixed": {"grano": "trimestral", "categoria": "Total"},
+             "controls": [
+                 {"kind": "freq", "label": "Frecuencia", "default": "trimestral", "options": [
+                     {"value": "trimestral", "label": "Trimestral", "x": "trimestre", "grano": "trimestral"},
+                     {"value": "mensual", "label": "Mensual", "x": "mes", "grano": "mensual"},
+                     {"value": "anual", "label": "Anual", "x": "anio", "grano": "anual"}]},
+             ],
+             "unidad": "veces"},
+            {"id": "pat-parque", "type": "line",
+             "title": "Parque automotor de Salta",
+             "descr": "Automotores en condiciones registrales de circular a fin de cada mes. Es "
+                      "un stock, así que al cambiar de frecuencia se promedia, no se suma. No "
+                      "incluye motos: la DNRPA no publica el parque de motovehículos.",
+             "x": "trimestre", "seriesBy": None, "metrica": "parque_automotor",
+             "fixed": {"grano": "trimestral", "categoria": "Autos"},
+             "controls": [
+                 {"kind": "freq", "label": "Frecuencia", "default": "trimestral", "options": [
+                     {"value": "trimestral", "label": "Trimestral", "x": "trimestre", "grano": "trimestral"},
+                     {"value": "mensual", "label": "Mensual", "x": "mes", "grano": "mensual"},
+                     {"value": "anual", "label": "Anual", "x": "anio", "grano": "anual"}]},
+             ],
+             "unidad": "automotores"},
+            {"id": "pat-renovacion", "type": "line",
+             "title": "Renovación de la flota",
+             "descr": "Autos 0 km patentados cada mil automotores del parque. Numerador y "
+                      "denominador son los dos automotor, así que la tasa cierra. Cuanto más "
+                      "baja, más vieja se vuelve la flota que circula.",
+             "x": "anio", "seriesBy": None, "metrica": "renovacion_1000",
+             "fixed": {"grano": "anual", "categoria": "Autos"},
+             "controls": [
+                 {"kind": "freq", "label": "Frecuencia", "default": "anual", "options": [
+                     {"value": "anual", "label": "Anual", "x": "anio", "grano": "anual"},
+                     {"value": "trimestral", "label": "Trimestral", "x": "trimestre", "grano": "trimestral"}]},
+             ],
+             "unidad": "por mil automotores"},
         ],
     },
 
@@ -2797,8 +2939,8 @@ TEMAS = [
         "resumen_corto": "Cemento despachado a Salta, en bolsa y a granel.",
         "advertencia": (
             "La apertura por provincia está congelada en septiembre de 2025: la AFCP sigue "
-            "publicando despachos nacionales, pero dejó de abrirlos por jurisdicción. Y son "
-            "despachos con destino a Salta, no producción de Salta."
+            "publicando despachos nacionales, pero dejó de abrirlos por jurisdicción."
+            "Despachos con destino a Salta, no producción de Salta."
         ),
         "fuente": "Asociación de Fabricantes de Cemento Portland (AFCP)",
         "fuente_url": "https://www.afcp.org.ar/copia-de-despacho-total-de-cemento",
