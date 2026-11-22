@@ -265,6 +265,7 @@ FUENTE_CORTA = {
     "Encuesta de Supermercados — INDEC": "INDEC",
     "Centro Azucarero Argentino (CAA)": "CAA",
     "Jefatura de Gabinete de Ministros de Salta": "Jefatura de Gabinete",
+    "Ente Regulador de los Servicios Públicos de Salta (ENRESP)": "ENRESP",
 }
 
 # Semáforo de avance hacia la meta 2030 (sección de la portada + marca en la columna de la meta).
@@ -3039,6 +3040,135 @@ TEMAS = [
              "sort": "desc", "unidad": "obras"},
         ],
     },
+    # ======================================================================
+    {
+        "id": "consumo-electrico",
+        "ciiu": "D",
+        "area": "energia",
+        "eje_pdes": "economico-productivo",
+        "title": "Consumo eléctrico no residencial",
+        "resumen": (
+            "Usuarios no residenciales del servicio eléctrico y consumo estimado por "
+            "departamento, mes a mes desde enero de 2024, según el Ente Regulador de los "
+            "Servicios Públicos. Es el primer dato de demanda del Monitor: el tablero de Energía "
+            "eléctrica mide la generación, éste mide el consumo."
+        ),
+        "resumen_corto": "Cuántos usuarios no residenciales hay y cuánta electricidad consumen.",
+        "advertencia": (
+            "Cubre sólo el segmento no residencial —comercio, industria y alumbrado público en "
+            "una misma bolsa, porque la fuente no los separa—, así que no es la demanda eléctrica "
+            "total de la provincia ni se compara con la generación. El consumo total es una "
+            "estimación: la fuente lo construye como usuarios por consumo medio, no como la suma "
+            "de los medidores. Y la serie de usuarios termina en junio de 2026, porque desde "
+            "julio la fuente repite el último padrón conocido en los 23 departamentos a la vez."
+        ),
+        "frecuencia": "Mensual",
+        "fuente": "Ente Regulador de los Servicios Públicos de Salta (ENRESP)",
+        "fuente_url": ("https://datospublicos.salta.gob.ar/dataset/"
+                       "02134503-89a3-49e6-8ceb-4a74d3d50b5f"),
+        "cobertura": "2024–2026",
+        "keywords": [
+            "electricidad", "energía eléctrica", "consumo eléctrico", "demanda eléctrica",
+            "usuarios", "clientes", "no residencial", "comercial", "industrial",
+            "alumbrado público", "kWh", "MWh", "tarifa", "ENRESP", "Ente Regulador",
+            "servicios públicos", "EDESA", "distribución eléctrica", "datos abiertos",
+        ],
+        "tags": ["infraestructura-logistica"],
+        "kpis": [
+            {"label": "Consumo eléctrico no residencial",
+             "tabla_label": "Consumo eléctrico no residencial",
+             "tabla_nota": "Dato del mes, comparado contra el mismo mes del año anterior "
+                           "para neutralizar la estacionalidad, que en esta serie es "
+                           "fuerte. Es una estimación de la fuente —usuarios por consumo "
+                           "medio—, no la suma de los medidores, y cubre sólo el segmento "
+                           "no residencial.",
+             "metrica": "consumo_mwh",
+             "fixed": {"grano": "mensual", "departamento": "Salta"},
+             "year": "latest", "unidad": "MWh", "format": "int",
+             "geo": "Departamento"},
+            {"label": "Usuarios no residenciales",
+             "tabla_label": "Usuarios no residenciales del servicio eléctrico",
+             "tabla_nota": "Padrón a fin de mes. El último dato es junio de 2026: desde "
+                           "julio la fuente repite el padrón anterior. Es un stock, así "
+                           "que al agregar meses se promedia y no se suma.",
+             "metrica": "usuarios",
+             "fixed": {"grano": "mensual", "departamento": "Salta"},
+             "year": "latest", "unidad": "usuarios", "format": "int",
+             "geo": "Departamento", "grafico": "elec-usuarios"},
+        ],
+        "charts": [
+            {"id": "elec-consumo", "type": "line",
+             "title": "Consumo eléctrico no residencial de Salta",
+             "descr": "Consumo estimado del segmento no residencial, mes a mes. La estacionalidad "
+                      "es el rasgo dominante: el pico de enero y febrero casi duplica el piso de "
+                      "mayo y junio. El dato anual sólo aparece con los doce meses cerrados.",
+             "x": "mes", "seriesBy": None, "metrica": "consumo_mwh",
+             "fixed": {"grano": "mensual", "departamento": "Salta"},
+             "controls": [
+                 {"kind": "freq", "label": "Frecuencia", "default": "mensual", "options": [
+                     {"value": "mensual", "label": "Mensual", "x": "mes", "grano": "mensual"},
+                     {"value": "trimestral", "label": "Trimestral", "x": "trimestre",
+                      "grano": "trimestral"},
+                     {"value": "anual", "label": "Anual", "x": "anio", "grano": "anual"}]},
+             ],
+             "unidad": "MWh"},
+            {"id": "elec-consumo-depto", "type": "barh",
+             "title": "Consumo por departamento",
+             "descr": "Consumo anual del segmento no residencial. Capital explica cerca de la "
+                      "mitad del total provincial; General Güemes aparece segundo con muchos "
+                      "menos usuarios, que es la huella de su industria.",
+             "x": "departamento", "seriesBy": None, "metrica": "consumo_mwh",
+             "fixed": {"grano": "anual"},
+             "controls": [{"dim": "anio", "label": "Año", "kind": "year"}],
+             "sort": "desc", "unidad": "MWh"},
+            {"id": "elec-usuarios", "type": "line",
+             "title": "Usuarios no residenciales de Salta",
+             "descr": "Cantidad de usuarios no residenciales con servicio. La serie termina en "
+                      "junio de 2026: desde julio la fuente repite el último padrón conocido en "
+                      "los 23 departamentos a la vez, así que esos meses no son altas y bajas "
+                      "reales. Es un stock, de modo que al cambiar de frecuencia los meses se "
+                      "promedian, no se suman.",
+             "x": "mes", "seriesBy": None, "metrica": "usuarios",
+             "fixed": {"grano": "mensual", "departamento": "Salta"},
+             "controls": [
+                 {"kind": "freq", "label": "Frecuencia", "default": "mensual", "options": [
+                     {"value": "mensual", "label": "Mensual", "x": "mes", "grano": "mensual"},
+                     {"value": "trimestral", "label": "Trimestral", "x": "trimestre",
+                      "grano": "trimestral"},
+                     {"value": "anual", "label": "Anual", "x": "anio", "grano": "anual"}]},
+             ],
+             "unidad": "usuarios"},
+            {"id": "elec-usuarios-depto", "type": "barh",
+             "title": "Usuarios por departamento",
+             "descr": "Promedio mensual de usuarios no residenciales en el año. El contraste con "
+                      "el ranking de consumo muestra qué departamentos consumen mucho con pocos "
+                      "usuarios.",
+             "x": "departamento", "seriesBy": None, "metrica": "usuarios",
+             "fixed": {"grano": "anual"},
+             "controls": [{"dim": "anio", "label": "Año", "kind": "year"}],
+             "sort": "desc", "unidad": "usuarios"},
+            {"id": "elec-depto", "type": "line",
+             "title": "Un departamento en particular",
+             "descr": "La misma serie para el departamento que se elija, en consumo o en "
+                      "usuarios. Sirve para ver si un departamento sigue el patrón estacional de "
+                      "la provincia o tiene el suyo.",
+             "x": "mes", "seriesBy": None, "metrica": "consumo_mwh",
+             "fixed": {"grano": "mensual", "departamento": "Capital"},
+             "controls": [
+                 {"dim": "departamento", "label": "Departamento", "kind": "select",
+                  "default": "Capital"},
+                 {"kind": "metric", "label": "Medida",
+                  "options": ["consumo_mwh", "usuarios"]},
+                 {"kind": "freq", "label": "Frecuencia", "default": "mensual", "options": [
+                     {"value": "mensual", "label": "Mensual", "x": "mes", "grano": "mensual"},
+                     {"value": "trimestral", "label": "Trimestral", "x": "trimestre",
+                      "grano": "trimestral"},
+                     {"value": "anual", "label": "Anual", "x": "anio", "grano": "anual"}]},
+             ],
+             "unidad": "MWh"},
+        ],
+    },
+
 
 
     # ======================================================================

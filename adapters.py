@@ -3347,6 +3347,133 @@ def obras_publicas():
     }
 
 
+# ==========================================================================
+# TEMA — Consumo eléctrico NO RESIDENCIAL por departamento (ENRESP Salta),
+# a partir de `actualizar_electricidad_no_residencial_salta.py`.
+# --------------------------------------------------------------------------
+ELEC_METRICAS = {
+    "consumo_mwh": {"label": "Consumo eléctrico no residencial", "unidad": "MWh", "agg": "sum"},
+    # Es un STOCK: al cambiar de frecuencia se promedia, no se suma. Declararlo acá es todo lo que
+    # hace falta —`build.py` lo copia al KPI y `charts.js` divide por el contador—, igual que
+    # `parque_automotor` en patentamiento.
+    "usuarios":    {"label": "Usuarios no residenciales", "unidad": "usuarios", "agg": "mean"},
+}
+ELEC_JUR = "Salta"          # total provincial (está en PROVINCIAL_TOKENS)
+# Último mes con padrón propio: la fuente arrastra el de junio de 2026 en julio, agosto y
+# septiembre. El corte NO se escribe acá, se lee de la columna `usuarios_arrastrados` del CSV,
+# así se mueve solo cuando la fuente retome la actualización.
+
+
+def consumo_electrico():
+    """Usuarios no residenciales y consumo eléctrico por departamento, mensual desde 2024.
+
+    Dos métricas de naturaleza distinta y por eso con dos reglas de agregación:
+
+      · `consumo_mwh` es un flujo: se suma entre departamentos y entre meses.
+      · `usuarios` es un stock: se SUMA entre departamentos (el total provincial son los usuarios
+        de los 23) pero se PROMEDIA entre meses (el padrón de un trimestre no son los usuarios de
+        sus tres meses sumados).
+
+    Las dos cosas se resuelven acá, no en el front: el `agg` de `ELEC_METRICAS` sólo cubre la
+    dirección temporal.
+    """
+    df = pd.read_csv(_src("Electricidad_No_Residencial_Salta_departamento_mensual.csv"),
+                     encoding="utf-8-sig")
+    df["departamento"] = df["departamento"].map(norm_dept)
+    df["anio"] = df["anio"].astype(int)
+    df["trimestre"] = [_trim_label(a, m) for a, m in zip(df["anio"], df["mes"])]
+    df["consumo_mwh"] = pd.to_numeric(df["consumo_total_kwh"], errors="coerce") / 1000.0
+    # Los meses en que la fuente repite el padrón anterior en los 23 departamentos a la vez no son
+    # un dato de usuarios: se dejan fuera de la serie (el CSV los conserva, marcados).
+    df["usuarios_real"] = pd.to_numeric(df["usuarios"], errors="coerce").where(
+        df["usuarios_arrastrados"] == 0)
+
+    rows = []
+    notas = []
+    incompletos = set()
+
+    for met, col in (("consumo_mwh", "consumo_mwh"), ("usuarios", "usuarios_real")):
+        sub = df[df[col].notna()].copy()
+        if sub.empty:
+            continue
+        stock = ELEC_METRICAS[met]["agg"] == "mean"
+
+        # --- mensual: por departamento y el total provincial (suma de los 23 en los dos casos)
+        mens = sub.groupby(["departamento", "anio", "periodo", "trimestre"],
+                           as_index=False)[col].sum()
+        prov = sub.groupby(["anio", "periodo", "trimestre"], as_index=False)[col].sum()
+        prov["departamento"] = ELEC_JUR
+        mens = pd.concat([mens, prov[mens.columns]], ignore_index=True)
+        for d in mens.itertuples():
+            rows.append(["mensual", int(d.anio), d.periodo, d.trimestre,
+                         d.departamento, met, round(float(getattr(d, col)), 2)])
+
+        # --- trimestral y anual: suma de meses si es flujo, promedio de meses si es stock
+        for grano, claves in (("trimestral", ["departamento", "anio", "trimestre"]),
+                              ("anual", ["departamento", "anio"])):
+            g = mens.groupby(claves, as_index=False).agg(
+                valor=(col, "mean" if stock else "sum"))
+            for d in g.itertuples():
+                tri = d.trimestre if grano == "trimestral" else ""
+                rows.append([grano, int(d.anio), "", tri, d.departamento, met,
+                             round(float(d.valor), 2)])
+
+        # --- completitud, por métrica: las dos no tienen la misma cobertura.
+        trims_ok, anios_ok, trims_c = _completos(sub, mes_col="periodo")
+        antes = len(rows)
+        rows = [r for r in rows if r[5] != met] + _keep_completos(
+            [r for r in rows if r[5] == met], trims_ok, anios_ok, gi=0, ai=1, ti=3)
+        if len(rows) < antes:
+            incompletos.add(ELEC_METRICAS[met]["label"])
+
+    if incompletos:
+        notas.append(
+            "consumo eléctrico: el año en curso queda fuera de la vista anual en %s, porque la "
+            "fuente todavía no publicó los doce meses y un año parcial dibujaría una caída "
+            "ficticia. La vista mensual sí llega hasta el último mes publicado."
+            % " y ".join(sorted(incompletos)))
+
+    arrastrados = sorted(set(df.loc[df["usuarios_arrastrados"] == 1, "periodo"]))
+    ult_real = max(df.loc[df["usuarios_arrastrados"] == 0, "periodo"])
+    notas.append(
+        "consumo eléctrico: el tema cubre SÓLO el segmento no residencial. No es la demanda "
+        "eléctrica total de la provincia y no se compara con la generación de CAMMESA del tema "
+        "«Energía eléctrica». La fuente tampoco abre por categoría tarifaria: comercial, "
+        "industrial y alumbrado público van en la misma bolsa.")
+    notas.append(
+        "consumo eléctrico: el consumo total es una ESTIMACIÓN, no una medición. La fuente lo "
+        "construye como usuarios × consumo medio por usuario, y el script lo verifica fila por "
+        "fila: no es la suma de los medidores.")
+    if arrastrados:
+        notas.append(
+            "consumo eléctrico: la serie de usuarios termina en %s. Desde %s la fuente repite el "
+            "último padrón conocido en los 23 departamentos a la vez (%s), así que esos meses no "
+            "son altas y bajas reales y quedan fuera del tablero. El consumo sí se publica "
+            "completo: el padrón se mueve en torno al 1 %% mensual, de modo que el error que "
+            "arrastra la estimación es chico."
+            % (ult_real, arrastrados[0], ", ".join(arrastrados)))
+    notas.append(
+        "consumo eléctrico: los usuarios son un stock. Al pasar de mensual a trimestral o anual "
+        "se promedian los meses; entre departamentos, en cambio, se suman.")
+
+    trimestres = sorted({r[3] for r in rows if r[3]}, key=_trim_key)
+    deps = [d for d in sorted({r[4] for r in rows})
+            if d not in NON_GEO and d not in PROVINCIAL_TOKENS]
+    return {
+        "fields": ["grano", "anio", "mes", "trimestre", "departamento", "metrica", "valor"],
+        "rows": rows,
+        "dims": {
+            "anio": sorted({int(r[1]) for r in rows}),
+            "mes": sorted({r[2] for r in rows if r[2]}),
+            "trimestre": trimestres,
+            "departamento": deps,
+        },
+        "metricas": ELEC_METRICAS,
+        "trims_completos": trimestres,
+        "notas": notas,
+    }
+
+
 SV_METRICAS = {
     "victimas_fatales":        {"label": "Víctimas fatales",          "unidad": "personas",
                                 "agg": "sum"},
@@ -3888,6 +4015,7 @@ ADAPTERS = {
     "patentamiento": patentamiento,
     "azucar-alcohol": azucar_alcohol,
     "obras-publicas": obras_publicas,
+    "consumo-electrico": consumo_electrico,
     "educacion": educacion,
     "vitivinicultura": inv,
     "produccion-energia": produccion_energia,
