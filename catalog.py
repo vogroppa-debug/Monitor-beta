@@ -2471,19 +2471,13 @@ TEMAS = [
         "eje_pdes": "sociocultural",
         "title": "Seguridad vial",
         "resumen": (
-            "Muertos y heridos en siniestros viales en Salta según la Agencia Nacional de "
-            "Seguridad Vial, de 2016 a 2025, con las tasas cada 100 mil habitantes y cada 10 mil "
-            "vehículos, la comparación con el NOA y con el total del país, y el perfil de las "
-            "víctimas fatales según cómo se movían: en moto, en bicicleta, a pie o en auto."
+            "Muertos y heridos en siniestros viales en Salta según la Agencia Nacional de Seguridad Vial."
+            " Tasas cada 100 mil habitantes y cada 10 mil vehículos"
+            "Perfil de las víctimas fatales según movilidad."
         ),
         "resumen_corto": "Cuántos mueren en las rutas y las calles de Salta, y cómo se movían.",
         "advertencia": (
-            "No es lo mismo que la mortalidad por lesiones de tránsito del tema «Seguridad»: esa "
-            "sale de la DEIS, que cuenta por causa de muerte en el certificado de defunción, y "
-            "esta de la ANSV, que cuenta siniestros reportados por cada provincia. Dan números "
-            "distintos para lo que se lee como lo mismo. Además, el tipo de usuario de la vía se "
-            "corta en 2022 —los informes posteriores sólo lo publican por región— y los datos "
-            "desde 2023 son preliminares: la ANSV los sigue actualizando."
+            "Siniestros reportados por provincia. Agencia Nacional de Seguridad Vial (ANSV)."
         ),
         "fuente": "Agencia Nacional de Seguridad Vial (ANSV)",
         "fuente_url": "https://www.argentina.gob.ar/seguridadvial/observatoriovialnacional/anuarios",
@@ -2602,11 +2596,7 @@ TEMAS = [
         ),
         "resumen_corto": "Pasajeros y vuelos que llegan al aeropuerto de Salta.",
         "advertencia": (
-            "No todos los pasajeros que aterrizan en Salta son turistas: esto mide movimiento "
-            "aeroportuario, no turismo receptivo. Hay residentes que vuelven, viajes de trabajo y "
-            "tránsitos. Además, los dos productos de la ANAC que alimentan este tablero —los "
-            "aterrizajes desde 2019 y la serie histórica desde 2001— miden cosas distintas, con "
-            "otra definición y otro corte horario: no se suman ni se empalman."
+            "Movimiento aeroportuario (no turismo receptivo)."
         ),
         "fuente": "Administración Nacional de Aviación Civil (ANAC)",
         "fuente_url": "https://datos.gob.ar/dataset/aterrizajes-y-despegues-procesados-por-la-administracion-nacional-de-aviacion-civil-anac",
@@ -2708,11 +2698,10 @@ TEMAS = [
         ),
         "resumen_corto": "Cuánto y cuántas veces se compra en los supermercados de Salta.",
         "advertencia": (
-            "El propio INDEC advierte que las ventas de supermercados «no se deben considerar "
-            "aisladamente como un indicador macroeconómico del consumo»: miden un canal "
-            "comercial, no el gasto de los hogares. Además es un panel no probabilístico de "
-            "empresas con alguna boca de al menos 200 m² de salón de ventas, así que deja afuera "
-            "almacenes, autoservicios chicos y mayoristas."
+            "Las ventas de supermercados «no se deben considerar aisladamente como un indicador macroeconómico del consumo"
+            "Se mide un canal comercial, no el gasto de los hogares.  Panel no probabilístico de empresas con alguna boca "
+            "de al menos 200 m² de salón de ventas. No incluye almacenes, autoservicios chicos y mayoristas."
+            
         ),
         "fuente": "Encuesta de Supermercados — INDEC",
         "fuente_url": "https://www.indec.gob.ar/indec/web/Nivel4-Tema-3-1-34",
