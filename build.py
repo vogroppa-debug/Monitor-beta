@@ -24,6 +24,7 @@ from jinja2 import Environment, FileSystemLoader, select_autoescape
 
 import catalog
 import indicadores
+import indice_sintetico
 import adapters
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -438,6 +439,20 @@ def main():
                                   base_anio=catalog.BASE_ANIO if catalog.MOSTRAR_LINEA_BASE else None)
     sem = (indicadores.semaforo(tabla_ind, catalog.SEMAFORO_UMBRALES, catalog.SEMAFORO_TOP)
            if catalog.MOSTRAR_SEMAFORO else None)
+    # Índice sintético «¿Cómo estamos?». Sin la planilla de selección la sección no se muestra: no es
+    # motivo para frenar el build del resto del sitio.
+    indice = None
+    sel_indice = os.path.join(HERE, "datos", catalog.INDICE_SELECCION)
+    if catalog.MOSTRAR_INDICE_SINTETICO and os.path.exists(sel_indice):
+        indice = indice_sintetico.resumen_portada(payloads, tabla_ind, sel_indice)
+        todas_notas["índice sintético"] = (
+            ["%d indicadores en el índice provincial." % indice["n_indicadores"],
+             "%d indicadores en el departamental; %d departamentos en el tablero, %s." % (
+                 indice["n_indicadores_dept"], len(indice["tablero"]["departamental"]),
+                 ", ".join("%s con %d ejes" % (d["depto"], d["n_ejes"])
+                           for d in indice["tablero"]["departamental"] if d["n_ejes"] < 3)
+                 or "todos con los 3 ejes")]
+            + ["Fuera del índice — %s" % x for x in indice["excluidos"]])
     n_ind = sum(len(g["filas"]) for g in tabla_ind)
     todas_notas["tabla de indicadores"] = qc_fichas(tabla_ind, catalog.TAGS, catalog.SUBEJE_NUM)
     # La clase de cada indicador se declara sólo en los de oferta (el resto es de resultado por
@@ -481,7 +496,7 @@ def main():
                                  mostrar_linea_base=catalog.MOSTRAR_LINEA_BASE,
                                  base_anio=catalog.BASE_ANIO,
                                  meta_2030_titulo=catalog.META_2030_TITULO,
-                                 semaforo=sem))
+                                 semaforo=sem, indice=indice))
 
     # tema/<id>.html
     tpl_tema = env.get_template("tema.html")
@@ -497,6 +512,9 @@ def main():
         print(f"  {tid:22s} {n:6d} filas  {cob}")
     print(f"  {len(catalogo)} temas | {n_ind} indicadores en la tabla maestra"
           f" | index.html + {len(catalogo)} páginas de tema")
+    if indice:
+        print("  índice sintético: general %s (base 2022: %s), %d indicadores" % (
+            indice["tarjetas"][0]["actual"], indice["tarjetas"][0]["base"], indice["n_indicadores"]))
     if sem:
         print("  semáforo: avance calculado en %d de %d indicadores (%s)" % (
             sem["calculados"], sem["n"],

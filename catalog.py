@@ -270,6 +270,13 @@ FUENTE_CORTA = {
         "Inventario GEI",
 }
 
+# Índice sintético por ejes («¿Cómo estamos?», portada, antes del semáforo). Método B: postes
+# fijos 0-100, pesos iguales por eje y por subeje, base 2022. Cálculo en `indice_sintetico.py`; la
+# selección de indicadores es la planilla de `datos/`. El detalle (subejes, indicadores, departamentos)
+# lo escribe a Excel `Indicadores/indice_sintetico/calcular_indice.py`.
+MOSTRAR_INDICE_SINTETICO = True
+INDICE_SELECCION = "Seleccion_indicadores_indice_sintetico.xlsx"
+
 # Semáforo de avance hacia la meta 2030 (sección de la portada + marca en la columna de la meta).
 # El avance es la parte recorrida del camino entre la línea de base y la meta:
 #     avance = (último dato − línea de base) / (meta 2030 − línea de base)

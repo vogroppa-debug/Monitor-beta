@@ -9,7 +9,7 @@
     /* fija el tema antes de pintar para evitar flash */
     (function(){try{var t=localStorage.getItem('cess-theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
   </script>
-  <link rel="stylesheet" href="./assets/css/styles.css?v=1795393242">
+  <link rel="stylesheet" href="./assets/css/styles.css?v=1795403266">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%232a78d6'/><text x='50' y='68' font-size='52' text-anchor='middle' fill='white' font-family='sans-serif' font-weight='700'>C</text></svg>">
 </head>
 <body>
@@ -171,6 +171,72 @@
   <h2 class="section-title">Resultados</h2>
   <div class="cards" id="resultados"></div>
 </section>
+
+
+<section class="wrap section" id="como-estamos">
+  <h2 class="section-title">¿Cómo estamos?</h2>
+  <p class="section-lead">Índice sintético por ejes del PDES.</p>
+
+  <div class="ind-tiles">
+    
+    <div class="ind-tile ind-tile-general">
+      <p class="ind-tile-label">Índice general</p>
+      <p class="ind-tile-valor">62,3<span class="ind-tile-escala">/100</span></p>
+      <p class="ind-tile-cambio"><span class="tabla-ind-var down">▼ 2,7 puntos</span> desde la base (65,0)</p>
+      <p class="ind-tile-meta">55 indicadores</p>
+    </div>
+    
+    <div class="ind-tile">
+      <p class="ind-tile-label">Sociocultural</p>
+      <p class="ind-tile-valor">64,4<span class="ind-tile-escala">/100</span></p>
+      <p class="ind-tile-cambio"><span class="tabla-ind-var up">▲ 0,4 puntos</span> desde la base (64,0)</p>
+      <p class="ind-tile-meta">25 indicadores en 5 subejes</p>
+    </div>
+    
+    <div class="ind-tile">
+      <p class="ind-tile-label">Económico-productivo</p>
+      <p class="ind-tile-valor">55,7<span class="ind-tile-escala">/100</span></p>
+      <p class="ind-tile-cambio"><span class="tabla-ind-var down">▼ 1,8 puntos</span> desde la base (57,5)</p>
+      <p class="ind-tile-meta">22 indicadores en 5 subejes</p>
+    </div>
+    
+    <div class="ind-tile">
+      <p class="ind-tile-label">Territorio, ambiente y turismo</p>
+      <p class="ind-tile-valor">66,8<span class="ind-tile-escala">/100</span></p>
+      <p class="ind-tile-cambio"><span class="tabla-ind-var down">▼ 6,7 puntos</span> desde la base (73,5)</p>
+      <p class="ind-tile-meta">8 indicadores en 2 subejes</p>
+    </div>
+    
+  </div>
+
+  <div class="ind-metodo">
+    <p><strong>Metodología:</strong> Los indicadores seleccionados fueron normalizados tomando el valor mínimo y máximo, y se los llevó a escala 0-100, donde 100 es el mejor valor histórico observado y 0 el peor, y se promedia.</p>
+    <p><strong>Ponderación:</strong> Los tres ejes pesan lo mismo (1/3). Dentro de cada eje, los subejes pesan lo mismo; dentro de cada subeje, los indicadores pesan lo mismo.</p>
+    <h3 class="ind-metodo-title">Período base y último dato</h3>
+    <p><strong>Base:</strong> 2022 (censo); si la serie no lo tiene, se toma 2021; un trienio que contiene el año cuenta (2021-23 vale como 2022). Si no hay ninguno, el período más cercano anterior a 2022 (educación: 2018); y si la serie empieza después, su primer dato. El último dato es el último año completo: las series trimestrales y mensuales se llevan a año calendario, como en la frecuencia anual del sitio.</p>
+  </div>
+
+  
+  <!-- Tablero del índice: lo dibuja assets/js/indice.js; sin JavaScript queda oculto. -->
+  <div class="ind-tablero" id="indice-tablero" hidden>
+    <div class="ind-tablero-controles">
+      <div class="seg" role="group" aria-label="Nivel del índice" data-ind-nivel>
+        <button type="button" data-v="prov" aria-pressed="true">Provincial</button>
+        <button type="button" data-v="dept" aria-pressed="false">Departamental</button>
+      </div>
+      <div class="seg" role="group" aria-label="Índice a comparar" data-ind-eje hidden>
+        <button type="button" data-v="general" aria-pressed="true">General</button>
+        <button type="button" data-v="sociocultural" aria-pressed="false">Sociocultural</button><button type="button" data-v="economico-productivo" aria-pressed="false">Económico-productivo</button><button type="button" data-v="territorio-ambiente-turismo" aria-pressed="false">Territorio, ambiente y turismo</button>
+      </div>
+    </div>
+    <h3 class="ind-tablero-titulo" data-ind-titulo></h3>
+    <div class="ind-chart" data-ind-chart role="img"></div>
+    <p class="ind-tablero-nota" data-ind-nota></p>
+  </div>
+  <script type="application/json" id="indice-data">{"anio_base": 2022, "departamental": [{"depto": "Anta", "ejes": {"economico-productivo": {"b": 67.2, "u": 48.7}, "sociocultural": {"b": 52.6, "u": 53.8}, "territorio-ambiente-turismo": {"b": 59.9, "u": 59.9}}, "general": {"b": 59.9, "u": 54.1}, "n_ejes": 3, "n_ind": 29}, {"depto": "Cachi", "ejes": {"economico-productivo": {"b": 52.1, "u": 44.1}, "sociocultural": {"b": 58.7, "u": 59.7}, "territorio-ambiente-turismo": {"b": 43.4, "u": 43.4}}, "general": {"b": 51.4, "u": 49.1}, "n_ejes": 3, "n_ind": 30}, {"depto": "Cafayate", "ejes": {"economico-productivo": {"b": 73.1, "u": 57.3}, "sociocultural": {"b": 65.4, "u": 66.9}, "territorio-ambiente-turismo": {"b": 47.9, "u": 47.9}}, "general": {"b": 62.1, "u": 57.4}, "n_ejes": 3, "n_ind": 28}, {"depto": "Capital", "ejes": {"economico-productivo": {"b": 53.6, "u": 44.8}, "sociocultural": {"b": 71.8, "u": 72.9}, "territorio-ambiente-turismo": {"b": 70.7, "u": 70.7}}, "general": {"b": 65.4, "u": 62.8}, "n_ejes": 3, "n_ind": 29}, {"depto": "Cerrillos", "ejes": {"economico-productivo": {"b": 39.8, "u": 22.4}, "sociocultural": {"b": 64.8, "u": 66.5}, "territorio-ambiente-turismo": {"b": 54.6, "u": 54.6}}, "general": {"b": 53.1, "u": 47.8}, "n_ejes": 3, "n_ind": 28}, {"depto": "Chicoana", "ejes": {"economico-productivo": {"b": 39.3, "u": 67.7}, "sociocultural": {"b": 61.1, "u": 61.2}, "territorio-ambiente-turismo": {"b": 59.9, "u": 59.9}}, "general": {"b": 53.4, "u": 62.9}, "n_ejes": 3, "n_ind": 28}, {"depto": "General G\u00fcemes", "ejes": {"economico-productivo": {"b": 50.3, "u": 54.6}, "sociocultural": {"b": 61.1, "u": 61.4}, "territorio-ambiente-turismo": {"b": 63.6, "u": 63.6}}, "general": {"b": 58.3, "u": 59.9}, "n_ejes": 3, "n_ind": 27}, {"depto": "General Jos\u00e9 de San Mart\u00edn", "ejes": {"economico-productivo": {"b": 65.8, "u": 12.2}, "sociocultural": {"b": 50.9, "u": 50.3}, "territorio-ambiente-turismo": {"b": 60.1, "u": 60.1}}, "general": {"b": 59.0, "u": 40.9}, "n_ejes": 3, "n_ind": 31}, {"depto": "Guachipas", "ejes": {"economico-productivo": {"b": 32.9, "u": 68.5}, "sociocultural": {"b": 48.8, "u": 51.8}, "territorio-ambiente-turismo": {"b": 57.3, "u": 57.3}}, "general": {"b": 46.3, "u": 59.2}, "n_ejes": 3, "n_ind": 24}, {"depto": "Iruya", "ejes": {"economico-productivo": {"b": 64.3, "u": 38.3}, "sociocultural": {"b": 58.0, "u": 58.9}, "territorio-ambiente-turismo": {"b": 53.6, "u": 53.6}}, "general": {"b": 58.6, "u": 50.3}, "n_ejes": 3, "n_ind": 26}, {"depto": "La Caldera", "ejes": {"economico-productivo": {"b": 72.4, "u": 48.3}, "sociocultural": {"b": 61.5, "u": 64.7}, "territorio-ambiente-turismo": {"b": 62.8, "u": 62.8}}, "general": {"b": 65.5, "u": 58.6}, "n_ejes": 3, "n_ind": 27}, {"depto": "La Candelaria", "ejes": {"economico-productivo": {"b": 18.6, "u": 54.0}, "sociocultural": {"b": 64.6, "u": 66.7}, "territorio-ambiente-turismo": {"b": 58.9, "u": 58.9}}, "general": {"b": 47.4, "u": 59.9}, "n_ejes": 3, "n_ind": 28}, {"depto": "La Poma", "ejes": {"economico-productivo": {"b": 88.1, "u": 47.6}, "sociocultural": {"b": 58.4, "u": 63.4}, "territorio-ambiente-turismo": {"b": 41.3, "u": 41.3}}, "general": {"b": 62.6, "u": 50.8}, "n_ejes": 3, "n_ind": 23}, {"depto": "La Vi\u00f1a", "ejes": {"economico-productivo": {"b": 37.8, "u": 39.5}, "sociocultural": {"b": 49.1, "u": 49.9}, "territorio-ambiente-turismo": {"b": 56.7, "u": 56.7}}, "general": {"b": 47.9, "u": 48.7}, "n_ejes": 3, "n_ind": 30}, {"depto": "Los Andes", "ejes": {"economico-productivo": {"b": 37.3, "u": 97.5}, "sociocultural": {"b": 52.7, "u": 55.6}, "territorio-ambiente-turismo": {"b": null, "u": null}}, "general": {"b": 45.0, "u": 76.6}, "n_ejes": 2, "n_ind": 23}, {"depto": "Met\u00e1n", "ejes": {"economico-productivo": {"b": 51.1, "u": 20.3}, "sociocultural": {"b": 63.3, "u": 64.4}, "territorio-ambiente-turismo": {"b": 53.8, "u": 53.8}}, "general": {"b": 56.1, "u": 46.2}, "n_ejes": 3, "n_ind": 28}, {"depto": "Molinos", "ejes": {"economico-productivo": {"b": 71.2, "u": 33.3}, "sociocultural": {"b": 62.1, "u": 63.1}, "territorio-ambiente-turismo": {"b": 66.8, "u": 66.8}}, "general": {"b": 66.7, "u": 54.4}, "n_ejes": 3, "n_ind": 27}, {"depto": "Or\u00e1n", "ejes": {"economico-productivo": {"b": 36.2, "u": 42.3}, "sociocultural": {"b": 46.6, "u": 47.9}, "territorio-ambiente-turismo": {"b": 60.1, "u": 60.1}}, "general": {"b": 47.6, "u": 50.1}, "n_ejes": 3, "n_ind": 31}, {"depto": "Rivadavia", "ejes": {"economico-productivo": {"b": 67.6, "u": 13.7}, "sociocultural": {"b": 35.8, "u": 35.0}, "territorio-ambiente-turismo": {"b": 74.6, "u": 74.6}}, "general": {"b": 59.3, "u": 41.1}, "n_ejes": 3, "n_ind": 30}, {"depto": "Rosario de Lerma", "ejes": {"economico-productivo": {"b": 54.1, "u": 31.6}, "sociocultural": {"b": 65.7, "u": 68.4}, "territorio-ambiente-turismo": {"b": 44.0, "u": 44.0}}, "general": {"b": 54.6, "u": 48.0}, "n_ejes": 3, "n_ind": 28}, {"depto": "Rosario de la Frontera", "ejes": {"economico-productivo": {"b": 44.8, "u": 68.8}, "sociocultural": {"b": 51.8, "u": 52.5}, "territorio-ambiente-turismo": {"b": 52.9, "u": 52.9}}, "general": {"b": 49.8, "u": 58.0}, "n_ejes": 3, "n_ind": 28}, {"depto": "San Carlos", "ejes": {"economico-productivo": {"b": 58.7, "u": 27.5}, "sociocultural": {"b": 61.8, "u": 61.1}, "territorio-ambiente-turismo": {"b": 42.4, "u": 42.4}}, "general": {"b": 54.3, "u": 43.7}, "n_ejes": 3, "n_ind": 27}, {"depto": "Santa Victoria", "ejes": {"economico-productivo": {"b": 51.8, "u": 38.0}, "sociocultural": {"b": 58.0, "u": 58.7}, "territorio-ambiente-turismo": {"b": 50.3, "u": 50.3}}, "general": {"b": 53.3, "u": 49.0}, "n_ejes": 3, "n_ind": 26}], "ejes": [{"id": "sociocultural", "label": "Sociocultural"}, {"id": "economico-productivo", "label": "Econ\u00f3mico-productivo"}, {"id": "territorio-ambiente-turismo", "label": "Territorio, ambiente y turismo"}], "prov_ref": {"economico-productivo": {"b": 57.5, "u": 55.7}, "general": {"b": 65.0, "u": 62.3}, "sociocultural": {"b": 64.0, "u": 64.4}, "territorio-ambiente-turismo": {"b": 73.5, "u": 66.8}}, "provincial": [{"b": 64.0, "eje": "sociocultural", "label": "Sociocultural", "subejes": [{"b": 77.1, "label": "Condiciones de vida", "n": 2, "u": 77.1}, {"b": 71.3, "label": "Salud", "n": 6, "u": 51.2}, {"b": 61.9, "label": "Educaci\u00f3n", "n": 9, "u": 66.0}, {"b": 50.9, "label": "Trabajo", "n": 2, "u": 50.9}, {"b": 58.7, "label": "Seguridad", "n": 6, "u": 76.6}], "u": 64.4}, {"b": 57.5, "eje": "economico-productivo", "label": "Econ\u00f3mico-productivo", "subejes": [{"b": 56.4, "label": "Actividad y productividad", "n": 12, "u": 27.0}, {"b": 42.1, "label": "Empleo y capacidades", "n": 1, "u": 100.0}, {"b": 62.5, "label": "Inversi\u00f3n y financiamiento", "n": 4, "u": 68.5}, {"b": 83.5, "label": "Infraestructura y log\u00edstica", "n": 3, "u": 32.8}, {"b": 43.0, "label": "Innovaci\u00f3n y mercados", "n": 2, "u": 50.0}], "u": 55.7}, {"b": 73.5, "eje": "territorio-ambiente-turismo", "label": "Territorio, ambiente y turismo", "subejes": [{"b": 66.3, "label": "Ambiente", "n": 5, "u": 68.7}, {"b": 80.8, "label": "Turismo", "n": 3, "u": 64.9}], "u": 66.8}]}</script>
+  
+</section>
+
 
 
 <section class="wrap section" id="semaforo">
@@ -5036,10 +5102,11 @@
 
 <script src="./assets/vendor/echarts.min.js"></script>
 <script src="./assets/vendor/minisearch.min.js"></script>
-<script>window.CESS_BASE = "."; window.CESS_VER = "1795393242";</script>
-<script src="./assets/js/app.js?v=1795393242"></script>
+<script>window.CESS_BASE = "."; window.CESS_VER = "1795403266";</script>
+<script src="./assets/js/app.js?v=1795403266"></script>
 
-<script src="./assets/js/search.js?v=1795393242"></script>
+<script src="./assets/js/search.js?v=1795403266"></script>
+<script src="./assets/js/indice.js?v=1795403266"></script>
 
 </body>
 </html>

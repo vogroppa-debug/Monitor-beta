@@ -508,3 +508,45 @@ p { margin: 0 0 1em; }
   .tabla-ind tbody.sub-cerrado tr:not(.subeje-row) { display: table-row; }
   .tabla-ind-acciones, .subeje-chev { display: none; }
 }
+
+/* =========================================================================
+   ¿Cómo estamos? — índice sintético por ejes (portada)
+   El general va destacado con el borde de acento; los tres ejes, como tarjetas comunes.
+   ========================================================================= */
+.ind-tiles { display: grid; grid-template-columns: 1.2fr 1fr 1fr 1fr; gap: 16px; margin-top: 4px; }
+.ind-tile {
+  background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 18px 20px; box-shadow: var(--shadow);
+}
+.ind-tile p { margin: 0; }
+.ind-tile-general { border: 2px solid var(--accent); }
+.ind-tile-label { font-size: .95rem; font-weight: 600; color: var(--ink); }
+.ind-tile-valor { font-size: 2.1rem; font-weight: 800; letter-spacing: -0.02em; color: var(--ink); margin-top: 6px !important; }
+.ind-tile-general .ind-tile-valor { font-size: 2.6rem; }
+.ind-tile-escala { font-size: .9rem; font-weight: 600; color: var(--muted); margin-left: 3px; }
+.ind-tile-cambio { font-size: .82rem; color: var(--ink-2); margin-top: 4px !important; }
+.ind-tile-meta { font-size: .78rem; color: var(--muted); margin-top: 6px !important; }
+.ind-metodo { max-width: 86ch; margin-top: 22px; font-size: .9rem; color: var(--ink-2); }
+.ind-metodo p { margin: 0 0 10px; }
+.ind-metodo strong { color: var(--ink); }
+.ind-metodo-title { font-size: .95rem; margin: 16px 0 6px; color: var(--ink); }
+@media (max-width: 760px) {
+  .ind-tiles { grid-template-columns: 1fr 1fr; }
+  .ind-tile-general { grid-column: 1 / -1; }
+}
+
+/* Tablero del índice (debajo de la metodología). Lo dibuja assets/js/indice.js. */
+.ind-tablero {
+  margin-top: 26px; background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 18px 20px; box-shadow: var(--shadow);
+}
+.ind-tablero-controles { display: flex; flex-wrap: wrap; gap: 10px 16px; align-items: center; }
+.ind-tablero-controles .seg[hidden] { display: none; }
+.ind-tablero-titulo { font-size: .95rem; margin: 16px 0 4px; color: var(--ink); }
+.ind-chart { width: 100%; min-height: 260px; }
+.ind-tablero-nota { font-size: .8rem; color: var(--muted); margin: 10px 0 0; max-width: 100ch; }
+@media (max-width: 760px) {
+  .ind-tablero { padding: 14px 12px; }
+  .ind-tablero-controles .seg { width: 100%; flex-wrap: wrap; }
+  .ind-tablero-controles .seg button { flex: 1 1 40%; padding: 8px 10px; border-bottom: 1px solid var(--border); margin-bottom: -1px; }
+}

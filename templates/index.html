@@ -33,6 +33,51 @@
   <div class="cards" id="resultados"></div>
 </section>
 
+{% if indice %}
+<section class="wrap section" id="como-estamos">
+  <h2 class="section-title">¿Cómo estamos?</h2>
+  <p class="section-lead">Índice sintético por ejes del PDES.</p>
+
+  <div class="ind-tiles">
+    {% for t in indice.tarjetas %}
+    <div class="ind-tile{% if t.general %} ind-tile-general{% endif %}">
+      <p class="ind-tile-label">{{ t.label }}</p>
+      <p class="ind-tile-valor">{{ t.actual }}<span class="ind-tile-escala">/100</span></p>
+      <p class="ind-tile-cambio"><span class="tabla-ind-var {{ t.cls }}">{% if t.cls == 'up' %}▲{% elif t.cls == 'down' %}▼{% else %}≈{% endif %} {{ t.cambio }} puntos</span> desde la base ({{ t.base }})</p>
+      <p class="ind-tile-meta">{{ t.n_ind }} indicadores{% if t.n_sub %} en {{ t.n_sub }} subejes{% endif %}</p>
+    </div>
+    {% endfor %}
+  </div>
+
+  <div class="ind-metodo">
+    <p><strong>Metodología:</strong> Los indicadores seleccionados fueron normalizados tomando el valor mínimo y máximo, y se los llevó a escala 0-100, donde 100 es el mejor valor histórico observado y 0 el peor, y se promedia.</p>
+    <p><strong>Ponderación:</strong> Los tres ejes pesan lo mismo (1/3). Dentro de cada eje, los subejes pesan lo mismo; dentro de cada subeje, los indicadores pesan lo mismo.</p>
+    <h3 class="ind-metodo-title">Período base y último dato</h3>
+    <p><strong>Base:</strong> 2022 (censo); si la serie no lo tiene, se toma 2021; un trienio que contiene el año cuenta (2021-23 vale como 2022). Si no hay ninguno, el período más cercano anterior a 2022 (educación: 2018); y si la serie empieza después, su primer dato. El último dato es el último año completo: las series trimestrales y mensuales se llevan a año calendario, como en la frecuencia anual del sitio.</p>
+  </div>
+
+  {% if indice.tablero %}
+  <!-- Tablero del índice: lo dibuja assets/js/indice.js; sin JavaScript queda oculto. -->
+  <div class="ind-tablero" id="indice-tablero" hidden>
+    <div class="ind-tablero-controles">
+      <div class="seg" role="group" aria-label="Nivel del índice" data-ind-nivel>
+        <button type="button" data-v="prov" aria-pressed="true">Provincial</button>
+        <button type="button" data-v="dept" aria-pressed="false">Departamental</button>
+      </div>
+      <div class="seg" role="group" aria-label="Índice a comparar" data-ind-eje hidden>
+        <button type="button" data-v="general" aria-pressed="true">General</button>
+        {% for e in indice.tablero.ejes %}<button type="button" data-v="{{ e.id }}" aria-pressed="false">{{ e.label }}</button>{% endfor %}
+      </div>
+    </div>
+    <h3 class="ind-tablero-titulo" data-ind-titulo></h3>
+    <div class="ind-chart" data-ind-chart role="img"></div>
+    <p class="ind-tablero-nota" data-ind-nota></p>
+  </div>
+  <script type="application/json" id="indice-data">{{ indice.tablero|tojson }}</script>
+  {% endif %}
+</section>
+{% endif %}
+
 {% if semaforo %}
 <section class="wrap section" id="semaforo">
   <h2 class="section-title">Semáforo de metas 2030</h2>
@@ -216,4 +261,5 @@
 {% endblock %}
 {% block scripts %}
 <script src="{{ base }}/assets/js/search.js{% if asset_ver %}?v={{ asset_ver }}{% endif %}"></script>
+{% if indice and indice.tablero %}<script src="{{ base }}/assets/js/indice.js{% if asset_ver %}?v={{ asset_ver }}{% endif %}"></script>{% endif %}
 {% endblock %}
