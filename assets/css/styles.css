@@ -482,3 +482,29 @@ p { margin: 0 0 1em; }
   font-size: .74rem; font-weight: 700; letter-spacing: .05em; text-transform: uppercase;
   color: var(--ink-2); background: var(--tipo-bg);
 }
+
+/* =========================================================================
+   Subejes desplegables (Tabla de indicadores). El subeje es un botón que oculta o muestra sus
+   filas; app.js los cierra al cargar. Sin JavaScript no hay clase `sub-cerrado` y se ve todo.
+   ========================================================================= */
+.tabla-ind-acciones { display: flex; gap: 8px; flex-wrap: wrap; margin: -6px 0 18px; }
+.tabla-ind tbody.sub-cerrado tr:not(.subeje-row) { display: none; }
+/* Entre subejes cerrados alcanza un respiro corto: los 36px están pensados para separar
+   bloques de filas, y con la tabla contraída dejaban una escalera de franjas sueltas. */
+.tabla-ind tbody.sub-cerrado + tbody .subeje-row-head { border-top-width: 8px; }
+.subeje-toggle {
+  all: unset; box-sizing: border-box; display: flex; align-items: center; gap: 10px;
+  width: 100%; cursor: pointer; font: inherit; color: inherit;
+  letter-spacing: inherit; text-transform: inherit;
+}
+.subeje-toggle:focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; border-radius: 4px; }
+.subeje-chev::before {
+  content: ""; display: inline-block; width: 0; height: 0;
+  border-left: 5px solid transparent; border-right: 5px solid transparent;
+  border-top: 6px solid currentColor; transition: transform .15s ease;
+}
+.subeje-toggle[aria-expanded="false"] .subeje-chev::before { transform: rotate(-90deg); }
+@media print {
+  .tabla-ind tbody.sub-cerrado tr:not(.subeje-row) { display: table-row; }
+  .tabla-ind-acciones, .subeje-chev { display: none; }
+}

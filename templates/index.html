@@ -99,6 +99,11 @@
 
 <section class="wrap section" id="tabla-indicadores">
   <h2 class="section-title">Tabla de indicadores</h2>
+  <!-- Visibles sólo con JavaScript: sin él, la tabla se muestra entera y no hay nada que abrir. -->
+  <div class="tabla-ind-acciones" hidden>
+    <button type="button" class="chip" data-tabla-accion="abrir">Desplegar todos los subejes</button>
+    <button type="button" class="chip" data-tabla-accion="cerrar">Contraer todos</button>
+  </div>
 
   {% for g in tabla %}
   <div class="tabla-ind-block">
@@ -131,7 +136,7 @@
         </thead>
         {% for sg in g.subgrupos %}
         <tbody>
-          <tr class="subeje-row"><th class="subeje-row-head" colspan="{{ ncols }}" scope="colgroup">{{ sg.label }}</th></tr>
+          <tr class="subeje-row"><th class="subeje-row-head" colspan="{{ ncols }}" scope="colgroup"><button type="button" class="subeje-toggle" aria-expanded="true"><span class="subeje-chev" aria-hidden="true"></span>{{ sg.label }}</button></th></tr>
           {% for tp in sg.tipos %}
           <tr class="tipo-row tipo-{{ tp.id }}"><th class="tipo-row-head" colspan="{{ ncols }}" scope="colgroup">{{ tp.label }}</th></tr>
           {% for f in tp.filas %}

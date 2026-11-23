@@ -264,7 +264,7 @@ FUENTE_CORTA = {
     "Dirección Nacional de los Registros Nacionales de la Propiedad del Automotor (DNRPA)": "DNRPA",
     "Encuesta de Supermercados — INDEC": "INDEC",
     "Centro Azucarero Argentino (CAA)": "CAA",
-    "Jefatura de Gabinete de Ministros de Salta": "Jefatura de Gabinete",
+    "Jefatura de Gabinete de Ministros de Salta": "Jefat. de gabinete",
     "Ente Regulador de los Servicios Públicos de Salta (ENRESP)": "ENRESP",
     "Inventario nacional de GEI (CMNUCC) — Subsecretaría de Ambiente":
         "Inventario GEI",

@@ -57,6 +57,41 @@
     });
   });
 
+  /* ---- Tabla de indicadores: subejes desplegables (portada) ---- */
+  var tbodies = Array.prototype.filter.call(document.querySelectorAll(".tabla-ind tbody"),
+    function (tb) { return tb.querySelector(".subeje-toggle"); });
+  if (tbodies.length) {
+    // Los anchos se fijan con la tabla ENTERA, antes de cerrar nada. Si no, el navegador los
+    // calcula con las filas visibles y cada subeje que se abre corre todas las columnas.
+    document.querySelectorAll(".tabla-ind").forEach(function (t) {
+      var total = t.getBoundingClientRect().width;
+      if (!total) return;
+      t.querySelectorAll("thead th").forEach(function (th) {
+        th.style.width = (th.getBoundingClientRect().width / total * 100).toFixed(3) + "%";
+      });
+      t.style.minWidth = Math.round(total) + "px";
+      t.style.tableLayout = "fixed";
+    });
+    var poner = function (tb, abierto) {
+      tb.classList.toggle("sub-cerrado", !abierto);
+      tb.querySelector(".subeje-toggle").setAttribute("aria-expanded", String(abierto));
+    };
+    tbodies.forEach(function (tb) {
+      poner(tb, false);
+      tb.querySelector(".subeje-toggle").addEventListener("click", function () {
+        poner(tb, tb.classList.contains("sub-cerrado"));
+      });
+    });
+    var acciones = document.querySelector(".tabla-ind-acciones");
+    if (acciones) acciones.hidden = false;
+    document.querySelectorAll("[data-tabla-accion]").forEach(function (b) {
+      b.addEventListener("click", function () {
+        var abrir = b.getAttribute("data-tabla-accion") === "abrir";
+        tbodies.forEach(function (tb) { poner(tb, abrir); });
+      });
+    });
+  }
+
   /* ---- Filtro por eje del PDES (portada) ---- */
   var pills = document.querySelectorAll(".eje-pill");
   if (pills.length) {

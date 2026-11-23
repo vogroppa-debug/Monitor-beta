@@ -9,7 +9,7 @@
     /* fija el tema antes de pintar para evitar flash */
     (function(){try{var t=localStorage.getItem('cess-theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
   </script>
-  <link rel="stylesheet" href="./assets/css/styles.css?v=1795391410">
+  <link rel="stylesheet" href="./assets/css/styles.css?v=1795393242">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%232a78d6'/><text x='50' y='68' font-size='52' text-anchor='middle' fill='white' font-family='sans-serif' font-weight='700'>C</text></svg>">
 </head>
 <body>
@@ -264,6 +264,11 @@
 
 <section class="wrap section" id="tabla-indicadores">
   <h2 class="section-title">Tabla de indicadores</h2>
+  <!-- Visibles sólo con JavaScript: sin él, la tabla se muestra entera y no hay nada que abrir. -->
+  <div class="tabla-ind-acciones" hidden>
+    <button type="button" class="chip" data-tabla-accion="abrir">Desplegar todos los subejes</button>
+    <button type="button" class="chip" data-tabla-accion="cerrar">Contraer todos</button>
+  </div>
 
   
   <div class="tabla-ind-block">
@@ -289,7 +294,7 @@
         </thead>
         
         <tbody>
-          <tr class="subeje-row"><th class="subeje-row-head" colspan="9" scope="colgroup">Condiciones de vida</th></tr>
+          <tr class="subeje-row"><th class="subeje-row-head" colspan="9" scope="colgroup"><button type="button" class="subeje-toggle" aria-expanded="true"><span class="subeje-chev" aria-hidden="true"></span>Condiciones de vida</button></th></tr>
           
           <tr class="tipo-row tipo-resultado"><th class="tipo-row-head" colspan="9" scope="colgroup">De resultados</th></tr>
           
@@ -521,7 +526,7 @@
         </tbody>
         
         <tbody>
-          <tr class="subeje-row"><th class="subeje-row-head" colspan="9" scope="colgroup">Salud</th></tr>
+          <tr class="subeje-row"><th class="subeje-row-head" colspan="9" scope="colgroup"><button type="button" class="subeje-toggle" aria-expanded="true"><span class="subeje-chev" aria-hidden="true"></span>Salud</button></th></tr>
           
           <tr class="tipo-row tipo-resultado"><th class="tipo-row-head" colspan="9" scope="colgroup">De resultados</th></tr>
           
@@ -1044,7 +1049,7 @@
         </tbody>
         
         <tbody>
-          <tr class="subeje-row"><th class="subeje-row-head" colspan="9" scope="colgroup">Educación</th></tr>
+          <tr class="subeje-row"><th class="subeje-row-head" colspan="9" scope="colgroup"><button type="button" class="subeje-toggle" aria-expanded="true"><span class="subeje-chev" aria-hidden="true"></span>Educación</button></th></tr>
           
           <tr class="tipo-row tipo-resultado"><th class="tipo-row-head" colspan="9" scope="colgroup">De resultados</th></tr>
           
@@ -1343,7 +1348,7 @@
         </tbody>
         
         <tbody>
-          <tr class="subeje-row"><th class="subeje-row-head" colspan="9" scope="colgroup">Trabajo</th></tr>
+          <tr class="subeje-row"><th class="subeje-row-head" colspan="9" scope="colgroup"><button type="button" class="subeje-toggle" aria-expanded="true"><span class="subeje-chev" aria-hidden="true"></span>Trabajo</button></th></tr>
           
           <tr class="tipo-row tipo-resultado"><th class="tipo-row-head" colspan="9" scope="colgroup">De resultados</th></tr>
           
@@ -1431,7 +1436,7 @@
         </tbody>
         
         <tbody>
-          <tr class="subeje-row"><th class="subeje-row-head" colspan="9" scope="colgroup">Seguridad</th></tr>
+          <tr class="subeje-row"><th class="subeje-row-head" colspan="9" scope="colgroup"><button type="button" class="subeje-toggle" aria-expanded="true"><span class="subeje-chev" aria-hidden="true"></span>Seguridad</button></th></tr>
           
           <tr class="tipo-row tipo-resultado"><th class="tipo-row-head" colspan="9" scope="colgroup">De resultados</th></tr>
           
@@ -1737,7 +1742,7 @@
         </thead>
         
         <tbody>
-          <tr class="subeje-row"><th class="subeje-row-head" colspan="9" scope="colgroup">Actividad y productividad</th></tr>
+          <tr class="subeje-row"><th class="subeje-row-head" colspan="9" scope="colgroup"><button type="button" class="subeje-toggle" aria-expanded="true"><span class="subeje-chev" aria-hidden="true"></span>Actividad y productividad</button></th></tr>
           
           <tr class="tipo-row tipo-resultado"><th class="tipo-row-head" colspan="9" scope="colgroup">De resultados</th></tr>
           
@@ -2148,7 +2153,7 @@
         </tbody>
         
         <tbody>
-          <tr class="subeje-row"><th class="subeje-row-head" colspan="9" scope="colgroup">Empleo y capacidades</th></tr>
+          <tr class="subeje-row"><th class="subeje-row-head" colspan="9" scope="colgroup"><button type="button" class="subeje-toggle" aria-expanded="true"><span class="subeje-chev" aria-hidden="true"></span>Empleo y capacidades</button></th></tr>
           
           <tr class="tipo-row tipo-resultado"><th class="tipo-row-head" colspan="9" scope="colgroup">De resultados</th></tr>
           
@@ -2204,7 +2209,7 @@
         </tbody>
         
         <tbody>
-          <tr class="subeje-row"><th class="subeje-row-head" colspan="9" scope="colgroup">Inversión y financiamiento</th></tr>
+          <tr class="subeje-row"><th class="subeje-row-head" colspan="9" scope="colgroup"><button type="button" class="subeje-toggle" aria-expanded="true"><span class="subeje-chev" aria-hidden="true"></span>Inversión y financiamiento</button></th></tr>
           
           <tr class="tipo-row tipo-resultado"><th class="tipo-row-head" colspan="9" scope="colgroup">De resultados</th></tr>
           
@@ -2487,7 +2492,7 @@
         </tbody>
         
         <tbody>
-          <tr class="subeje-row"><th class="subeje-row-head" colspan="9" scope="colgroup">Infraestructura y logística</th></tr>
+          <tr class="subeje-row"><th class="subeje-row-head" colspan="9" scope="colgroup"><button type="button" class="subeje-toggle" aria-expanded="true"><span class="subeje-chev" aria-hidden="true"></span>Infraestructura y logística</button></th></tr>
           
           <tr class="tipo-row tipo-resultado"><th class="tipo-row-head" colspan="9" scope="colgroup">De resultados</th></tr>
           
@@ -2545,7 +2550,7 @@
             </th>
             
             <td class="tabla-ind-frec">Toma única</td>
-            <td class="tabla-ind-fuente"><abbr title="Jefatura de Gabinete de Ministros de Salta">Jefatura de Gabinete</abbr></td>
+            <td class="tabla-ind-fuente"><abbr title="Jefatura de Gabinete de Ministros de Salta">Jefat. de gabinete</abbr></td>
             <td class="tabla-ind-geo"><abbr title="Departamento">Depto.</abbr></td>
             <td class="num tabla-ind-dato">2.389</td>
             <td class="num">2026</td>
@@ -2561,7 +2566,7 @@
             </th>
             
             <td class="tabla-ind-frec">Toma única</td>
-            <td class="tabla-ind-fuente"><abbr title="Jefatura de Gabinete de Ministros de Salta">Jefatura de Gabinete</abbr></td>
+            <td class="tabla-ind-fuente"><abbr title="Jefatura de Gabinete de Ministros de Salta">Jefat. de gabinete</abbr></td>
             <td class="tabla-ind-geo"><abbr title="Departamento">Depto.</abbr></td>
             <td class="num tabla-ind-dato">150.566</td>
             <td class="num">2026</td>
@@ -2577,7 +2582,7 @@
             </th>
             
             <td class="tabla-ind-frec">Toma única</td>
-            <td class="tabla-ind-fuente"><abbr title="Jefatura de Gabinete de Ministros de Salta">Jefatura de Gabinete</abbr></td>
+            <td class="tabla-ind-fuente"><abbr title="Jefatura de Gabinete de Ministros de Salta">Jefat. de gabinete</abbr></td>
             <td class="tabla-ind-geo"><abbr title="Departamento">Depto.</abbr></td>
             <td class="num tabla-ind-dato">314</td>
             <td class="num">2026</td>
@@ -2658,7 +2663,7 @@
         </tbody>
         
         <tbody>
-          <tr class="subeje-row"><th class="subeje-row-head" colspan="9" scope="colgroup">Innovación y mercados</th></tr>
+          <tr class="subeje-row"><th class="subeje-row-head" colspan="9" scope="colgroup"><button type="button" class="subeje-toggle" aria-expanded="true"><span class="subeje-chev" aria-hidden="true"></span>Innovación y mercados</button></th></tr>
           
           <tr class="tipo-row tipo-resultado"><th class="tipo-row-head" colspan="9" scope="colgroup">De resultados</th></tr>
           
@@ -2759,7 +2764,7 @@
         </thead>
         
         <tbody>
-          <tr class="subeje-row"><th class="subeje-row-head" colspan="9" scope="colgroup">Territorio</th></tr>
+          <tr class="subeje-row"><th class="subeje-row-head" colspan="9" scope="colgroup"><button type="button" class="subeje-toggle" aria-expanded="true"><span class="subeje-chev" aria-hidden="true"></span>Territorio</button></th></tr>
           
           <tr class="tipo-row tipo-resultado"><th class="tipo-row-head" colspan="9" scope="colgroup">De resultados</th></tr>
           
@@ -2802,7 +2807,7 @@
         </tbody>
         
         <tbody>
-          <tr class="subeje-row"><th class="subeje-row-head" colspan="9" scope="colgroup">Ambiente</th></tr>
+          <tr class="subeje-row"><th class="subeje-row-head" colspan="9" scope="colgroup"><button type="button" class="subeje-toggle" aria-expanded="true"><span class="subeje-chev" aria-hidden="true"></span>Ambiente</button></th></tr>
           
           <tr class="tipo-row tipo-resultado"><th class="tipo-row-head" colspan="9" scope="colgroup">De resultados</th></tr>
           
@@ -2938,7 +2943,7 @@
         </tbody>
         
         <tbody>
-          <tr class="subeje-row"><th class="subeje-row-head" colspan="9" scope="colgroup">Turismo</th></tr>
+          <tr class="subeje-row"><th class="subeje-row-head" colspan="9" scope="colgroup"><button type="button" class="subeje-toggle" aria-expanded="true"><span class="subeje-chev" aria-hidden="true"></span>Turismo</button></th></tr>
           
           <tr class="tipo-row tipo-resultado"><th class="tipo-row-head" colspan="9" scope="colgroup">De resultados</th></tr>
           
@@ -5031,10 +5036,10 @@
 
 <script src="./assets/vendor/echarts.min.js"></script>
 <script src="./assets/vendor/minisearch.min.js"></script>
-<script>window.CESS_BASE = "."; window.CESS_VER = "1795391410";</script>
-<script src="./assets/js/app.js?v=1795391410"></script>
+<script>window.CESS_BASE = "."; window.CESS_VER = "1795393242";</script>
+<script src="./assets/js/app.js?v=1795393242"></script>
 
-<script src="./assets/js/search.js?v=1795391410"></script>
+<script src="./assets/js/search.js?v=1795393242"></script>
 
 </body>
 </html>
