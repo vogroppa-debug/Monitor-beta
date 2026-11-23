@@ -171,7 +171,11 @@ MOSTRAR_METAS = False
 # coinciden con esta —en stock bovino, por ejemplo, fija 3.000.000 en vez de 2.000.000—.
 # Fuente: `sectores, objetivos y metas 2024.xlsx`. De sus 64 filas, 27 traen meta 2030 y sólo
 # 7 tienen un indicador equivalente en el Monitor: el resto del PDES no quedó cuantificado, o
-# mide cosas que el Monitor no publica.
+# mide cosas que el Monitor no publica. Se suman dos metas del capítulo económico de la
+# actualización 2024 que vienen como TASA ANUAL (empleo minero ≥ 5 %, generación eléctrica 5 %):
+# se llevan a 2030 desde el dato de 2024 (BASE_ANIO), la misma base de la columna «Línea de base».
+# Las otras metas porcentuales no se pueden completar: no hay serie en el Monitor o su «línea de
+# base 2018» nunca se calculó (el informe 2018 la deja «a establecer»).
 MOSTRAR_META_2030 = True
 
 # Columna «Línea de base» de la tabla de la portada, antes de la meta 2030. La base es el dato del
@@ -1134,7 +1138,15 @@ TEMAS = [
         "kpis": [
             {"ficha": "II.3", "label": "Empleo minero (Salta)", "tabla_label": "Empleo minero", "metrica": "empleo_min",
              "fixed": {"grano": "trimestral", "genero": "Total", "rubro": "Total"},
-             "cmp": "quarter", "year": "latest", "unidad": "puestos", "format": "int"},
+             "cmp": "quarter", "year": "latest", "unidad": "puestos", "format": "int",
+             # Actualización 2024 del PDES (cuadro 125): «incremento mínimo de 5 % anual en los puestos
+             # de trabajo de la actividad minera». La tasa se lleva a 2030 desde el promedio de 2024
+             # (6.004,75 puestos × 1,05^6). El PDES 2018 partía de 735 puestos (2016) y sólo contaba
+             # extracción; esta serie suma servicios mineros, pero la tasa se aplica a la misma serie.
+             "meta_2030": 8047,
+             "meta_2030_nota": "La actualización 2024 del PDES fija un crecimiento mínimo del 5 % "
+                               "anual; la meta lleva esa tasa a 2030 desde el promedio de 2024 "
+                               "(6.005 puestos)."},
             {"ficha": "III.9", "label": "Recaudación del sector (USD, nacional)",
              "tabla_label": "Recaudación del sector minero", "subeje": "Inversión y financiamiento",
              "tabla_nota": "Dato nacional del sector, no atribuible a Salta.",
@@ -1788,9 +1800,18 @@ TEMAS = [
         ],
         "tags": ["infraestructura-logistica", "actividad-productividad"],
         "kpis": [
+            # Anual (no trimestral) para que el dato se compare con la meta, que es un total anual.
+            # Lo que fija la frecuencia de la tabla y de las tarjetas es el control `freq` del primer
+            # gráfico del tablero (`indicadores._driver_freq`), por eso ese control arranca en anual.
+            # Actualización 2024 del PDES (cuadro 126): «incrementar la generación de energía
+            # eléctrica en un 5 % anual», llevado a 2030 desde 2024 (3.765,1 GWh × 1,05^6).
             {"ficha": "IV.1", "label": "Generación eléctrica total", "metrica": "generacion_gwh",
-             "fixed": {"grano": "trimestral"}, "cmp": "quarter", "year": "latest",
-             "unidad": "GWh", "format": "int"},
+             "fixed": {"grano": "anual"}, "year": "latest",
+             "unidad": "GWh", "format": "int",
+             "meta_2030": 5046,
+             "meta_2030_nota": "La actualización 2024 del PDES fija un crecimiento del 5 % anual; "
+                               "la meta lleva esa tasa a 2030 desde la generación de 2024 "
+                               "(3.765 GWh)."},
             {"tipo": "oferta", "ficha": "IV.2", "label": "Potencia instalada", "tabla_nota": "Es un stock (fotografía), no un flujo: no corresponde variación interanual.",
              "metrica": "potencia_mw",
              "fixed": {"grano": "anual"}, "year": "latest", "unidad": "MW", "format": "int"},
@@ -1802,7 +1823,7 @@ TEMAS = [
              "x": "trimestre", "seriesBy": "fuente", "metrica": "generacion_gwh",
              "fixed": {"grano": "trimestral"}, "stack": True,
              "controls": [
-                 {"kind": "freq", "label": "Frecuencia", "default": "trimestral", "options": [
+                 {"kind": "freq", "label": "Frecuencia", "default": "anual", "options": [
                      {"value": "trimestral", "label": "Trimestral", "x": "trimestre", "grano": "trimestral"},
                      {"value": "anual", "label": "Anual", "x": "anio", "grano": "anual"}]},
              ],
