@@ -266,6 +266,8 @@ FUENTE_CORTA = {
     "Centro Azucarero Argentino (CAA)": "CAA",
     "Jefatura de Gabinete de Ministros de Salta": "Jefatura de Gabinete",
     "Ente Regulador de los Servicios Públicos de Salta (ENRESP)": "ENRESP",
+    "Inventario nacional de GEI (CMNUCC) — Subsecretaría de Ambiente":
+        "Inventario GEI",
 }
 
 # Semáforo de avance hacia la meta 2030 (sección de la portada + marca en la columna de la meta).
@@ -3168,6 +3170,142 @@ TEMAS = [
              "unidad": "MWh"},
         ],
     },
+    # ======================================================================
+    {
+        "id": "emisiones-gei",
+        "ciiu": "",
+        "area": "ambiente",
+        "subeje": "Ambiente",
+        "eje_pdes": "territorio-ambiente-turismo",
+        "title": "Emisiones de gases de efecto invernadero",
+        "resumen": (
+            "Emisiones de GEI de Salta según el inventario nacional que Argentina reporta a la "
+            "Convención Marco de Naciones Unidas sobre el Cambio Climático, abiertas por sector, "
+            "subsector y tipo de gas entre 2010 y 2022, con el total publicado con y sin el "
+            "sector de uso de la tierra y el ranking de las 24 jurisdicciones."
+        ),
+        "resumen_corto": "Cuánto emite Salta, de dónde sale y cuánto pesa en el total del país.",
+        "advertencia": (
+            "Es el inventario nacional territorializado, no una medición hecha en la provincia: "
+            "las emisiones se asignan según los datos de actividad que usó el inventario del "
+            "país, y lo que no se puede asignar queda en una bolsa nacional que en 2022 es el "
+            "12 % del total. El total se publica con y sin el sector de uso de la tierra, porque "
+            "en Salta ese sector gobierna la serie. Los valores negativos son absorciones. El "
+            "CO2 equivalente usa los potenciales del Quinto Informe del IPCC, y la serie llega "
+            "hasta 2022, que es lo último reportado a la CMNUCC."
+        ),
+        "frecuencia": "Anual",
+        "fuente": "Inventario nacional de GEI (CMNUCC) — Subsecretaría de Ambiente",
+        "fuente_url": "https://ciam.ambiente.gob.ar/repositorio.php?tid=9&stid=36&did=422",
+        "cobertura": "2010–2022",
+        "keywords": [
+            "emisiones", "gases de efecto invernadero", "GEI", "CO2", "dióxido de carbono",
+            "metano", "CH4", "óxido nitroso", "N2O", "carbono", "huella de carbono",
+            "cambio climático", "clima", "inventario de emisiones", "CMNUCC", "Acuerdo de París",
+            "IPCC", "descarbonización", "ambiente", "desmonte", "uso de la tierra", "UTCUTS",
+            "CIAM", "Subsecretaría de Ambiente", "mitigación",
+        ],
+        "tags": ["actividad-productividad"],
+        "kpis": [
+            {"label": "Emisiones de GEI", "tabla_label": "Emisiones de gases de efecto invernadero",
+             "tabla_nota": "Inventario completo, incluido el uso de la tierra. En Salta ese "
+                           "sector domina el total y explica casi toda su variación entre años.",
+             "metrica": "emisiones_tco2e",
+             "fixed": {"apertura": "total", "categoria": "Total"},
+             "year": "latest", "unidad": "toneladas de CO2e", "format": "int",
+             "geo": "Provincia", "sentido": "menor_mejor"},
+            {"label": "Emisiones sin uso de la tierra",
+             "tabla_label": "Emisiones de GEI sin el sector de uso de la tierra",
+             "tabla_nota": "Energía, agricultura y ganadería, procesos industriales y residuos. "
+                           "Es la parte de la serie que no depende del desmonte.",
+             "metrica": "emisiones_sin_uso_tierra_tco2e",
+             "fixed": {"apertura": "total", "categoria": "Total"},
+             "year": "latest", "unidad": "toneladas de CO2e", "format": "int",
+             "geo": "Provincia", "sentido": "menor_mejor",
+             "grafico": "gei-total"},
+            {"label": "Participación en las emisiones del país",
+             "tabla_label": "Participación de Salta en las emisiones de GEI del país",
+             "tabla_nota": "Sobre el total nacional, que incluye la bolsa de emisiones no "
+                           "asignables a una jurisdicción. Llegó al 9,2 % en 2012, con el pico "
+                           "de desmonte.",
+             "metrica": "share_pais_pct",
+             "fixed": {"apertura": "total", "categoria": "Total"},
+             "year": "latest", "unidad": "%", "format": "dec1",
+             "geo": "Provincia", "sentido": "menor_mejor"},
+        ],
+        "charts": [
+            {"id": "gei-total", "type": "line",
+             "title": "Emisiones de Salta",
+             "descr": "La misma provincia admite dos lecturas opuestas según se cuente o no el "
+                      "uso de la tierra: con él las emisiones bajan un 35 % entre 2010 y 2022; "
+                      "sin él, un 17 %. El pico de 2012 y 2013 y el de 2020 son años de "
+                      "desmonte alto. «Absorciones» es el carbono que los sumideros "
+                      "capturan cada año —entre 300 mil y 840 mil toneladas—, que "
+                      "adentro del inventario queda restado y no se ve.",
+             "x": "anio", "seriesBy": None, "metrica": "emisiones_tco2e",
+             "fixed": {"apertura": "total", "categoria": "Total"},
+             "controls": [
+                 {"kind": "metric", "label": "Medida",
+                  "options": ["emisiones_tco2e", "emisiones_sin_uso_tierra_tco2e",
+                              "absorciones_tco2e", "share_pais_pct"]},
+             ],
+             "unidad": "toneladas de CO2e"},
+            {"id": "gei-sector", "type": "stacked-area",
+             "title": "Emisiones por sector",
+             "descr": "Los cinco sectores del IPCC. El uso de la tierra —desmonte y cambio de "
+                      "uso del suelo— es casi todo lo que se mueve: es lo mismo que el tablero "
+                      "de Bosque nativo muestra en hectáreas.",
+             "x": "anio", "seriesBy": "categoria", "metrica": "emisiones_tco2e",
+             "fixed": {"apertura": "sector"}, "stack": True,
+             "unidad": "toneladas de CO2e"},
+            {"id": "gei-sector-sin", "type": "stacked-area",
+             "title": "Emisiones por sector, sin uso de la tierra",
+             "descr": "El mismo apilado sin el sector que lo tapa todo. Acá se ve lo otro: "
+                      "energía baja sostenidamente desde 2011, agricultura y ganadería sube "
+                      "hasta 2019, y los procesos industriales aparecen recién en 2021, cuando "
+                      "entra al inventario un establecimiento de industria química que antes no "
+                      "estaba.",
+             "x": "anio", "seriesBy": "categoria", "metrica": "emisiones_tco2e",
+             "fixed": {"apertura": "sector"},
+             "seriesExclude": ["4. Uso de la tierra"], "stack": True,
+             "unidad": "toneladas de CO2e"},
+            {"id": "gei-subsector", "type": "barh",
+             "title": "Emisiones por subsector",
+             "descr": "El corte más fino del inventario para el año elegido. El ranking "
+                      "ordena las categorías que emiten: una que termine el año "
+                      "capturando más carbono del que emite —«4A. Tierras forestales» "
+                      "en varios años— no aparece acá, aunque sí está restada en el "
+                      "total y en el gráfico por sector. El volumen capturado se mira "
+                      "con la medida «Absorciones» del primer gráfico.",
+             "x": "categoria", "seriesBy": None, "metrica": "emisiones_tco2e",
+             "fixed": {"apertura": "subsector"},
+             "controls": [{"dim": "anio", "label": "Año", "kind": "year"}],
+             "sort": "desc", "unidad": "toneladas de CO2e"},
+            {"id": "gei-gas", "type": "stacked-area",
+             "title": "Emisiones por gas",
+             "descr": "En CO2 equivalente, que es lo único sumable entre gases. El dióxido de "
+                      "carbono viene del desmonte y de la quema de combustible; el metano, "
+                      "sobre todo de la fermentación entérica del ganado.",
+             "x": "anio", "seriesBy": "categoria", "metrica": "emisiones_tco2e",
+             "fixed": {"apertura": "gas"}, "stack": True,
+             "unidad": "toneladas de CO2e"},
+            {"id": "gei-ranking", "type": "barh",
+             "title": "Jurisdicciones del país (ranking)",
+             "descr": "Las 24 jurisdicciones más «Jurisdicción sin determinar», que son las "
+                      "emisiones del estado nacional y las que no pudieron asignarse a una "
+                      "provincia: en 2022 son el 12 % del total del país y por eso aparece "
+                      "segunda. Salta queda 9.ª contando el uso de la tierra y 12.ª sin él.",
+             "x": "categoria", "seriesBy": None, "metrica": "emisiones_tco2e",
+             "fixed": {"apertura": "ranking"},
+             "controls": [
+                 {"dim": "anio", "label": "Año", "kind": "year"},
+                 {"kind": "metric", "label": "Medida",
+                  "options": ["emisiones_tco2e", "emisiones_sin_uso_tierra_tco2e"]},
+             ],
+             "sort": "desc", "unidad": "toneladas de CO2e"},
+        ],
+    },
+
 
 
 

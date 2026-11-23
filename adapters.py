@@ -3474,6 +3474,125 @@ def consumo_electrico():
     }
 
 
+# ==========================================================================
+# TEMA — Emisiones de gases de efecto invernadero (inventario nacional de la
+# CMNUCC territorializado, vía CIAM), a partir de `actualizar_emisiones_gei_ciam.py`.
+# --------------------------------------------------------------------------
+GEI_METRICAS = {
+    "emisiones_tco2e": {"label": "Emisiones de GEI", "unidad": "toneladas de CO2e", "agg": "sum"},
+    "emisiones_sin_uso_tierra_tco2e": {"label": "Emisiones sin uso de la tierra",
+                                       "unidad": "toneladas de CO2e", "agg": "sum"},
+    "share_pais_pct": {"label": "Participación en las emisiones del país", "unidad": "%",
+                       "agg": "mean"},
+    # Las absorciones viven dentro del neto de su subsector y ahí no se ven. Se publican
+    # aparte, en positivo, porque son entre 300 mil y 840 mil toneladas por año.
+    "absorciones_tco2e": {"label": "Absorciones (sumideros)", "unidad": "toneladas de CO2e",
+                          "agg": "sum"},
+}
+GEI_JUR = "Salta"
+GEI_SECTOR_USO_TIERRA = "4. Uso de la tierra"
+# Los gases traza se agrupan: en Salta no aparecen, pero el adaptador no tiene por qué romperse
+# si la fuente agrega un HFC el año que viene.
+GEI_GAS_OTROS = "HFC y PFC"
+
+
+def emisiones_gei():
+    """Emisiones de GEI de Salta por sector, subsector y gas, con el ranking de jurisdicciones.
+
+    Dos cortes del mismo inventario conviven en el par `apertura` + `categoria`: los de Salta
+    salen del CSV detallado y el ranking, del CSV por jurisdicción y sector.
+
+    El total se publica DOS VECES, con y sin el sector de uso de la tierra, porque en Salta ese
+    sector va de 4,5 a 31,3 millones de toneladas entre un año y otro y se lleva puesta la
+    lectura del resto: con él, las emisiones de la provincia bajan 35 % entre 2010 y 2022; sin
+    él, 17 %.
+    """
+    sal = pd.read_csv(_src("Emisiones_GEI_Salta_sector_subsector_gas_anual.csv"),
+                      encoding="utf-8-sig")
+    jur = pd.read_csv(_src("Emisiones_GEI_jurisdiccion_sector_anual.csv"), encoding="utf-8-sig")
+    for df in (sal, jur):
+        df["anio"] = df["anio"].astype(int)
+        df["toneladas_co2e"] = pd.to_numeric(df["toneladas_co2e"], errors="coerce").fillna(0.0)
+
+    rows = []
+
+    def add(anio, apertura, categoria, metrica, valor):
+        rows.append([int(anio), apertura, categoria, metrica, round(float(valor), 2)])
+
+    # --- Salta: total, con y sin uso de la tierra, y participación en el país
+    sin_ut = sal[sal["sector"] != GEI_SECTOR_USO_TIERRA]
+    pais = jur.groupby("anio")["toneladas_co2e"].sum()
+    for anio, con in sal.groupby("anio")["toneladas_co2e"].sum().items():
+        add(anio, "total", "Total", "emisiones_tco2e", con)
+        s = sin_ut[sin_ut["anio"] == anio]["toneladas_co2e"].sum()
+        add(anio, "total", "Total", "emisiones_sin_uso_tierra_tco2e", s)
+        if pais.get(anio):
+            # Cociente de agregados, nunca promedio de participaciones.
+            add(anio, "total", "Total", "share_pais_pct", 100.0 * con / pais[anio])
+        # Suma de las filas negativas, con el signo dado vuelta: es carbono capturado.
+        abso = sal[(sal["anio"] == anio) & (sal["toneladas_co2e"] < 0)]
+        add(anio, "total", "Total", "absorciones_tco2e",
+            -abso["toneladas_co2e"].sum())
+
+    # --- Salta: los tres cortes que pidió el usuario, más el de gas
+    for apertura, col in (("sector", "sector"), ("subsector", "subsector"), ("gas", "gas")):
+        base = sal.copy()
+        if apertura == "gas":
+            base["gas"] = [g if g in ("CO2", "CH4", "N2O") else GEI_GAS_OTROS
+                           for g in base["tipo_de_gas"]]
+        for (anio, cat), v in base.groupby(["anio", col])["toneladas_co2e"].sum().items():
+            add(anio, apertura, str(cat), "emisiones_tco2e", v)
+
+    # --- Ranking: las 24 jurisdicciones más la bolsa nacional, con y sin uso de la tierra
+    jur_sin = jur[jur["sector"] != GEI_SECTOR_USO_TIERRA]
+    for (anio, j), v in jur.groupby(["anio", "jurisdiccion"])["toneladas_co2e"].sum().items():
+        add(anio, "ranking", str(j), "emisiones_tco2e", v)
+    for (anio, j), v in jur_sin.groupby(["anio", "jurisdiccion"])["toneladas_co2e"].sum().items():
+        add(anio, "ranking", str(j), "emisiones_sin_uso_tierra_tco2e", v)
+
+    anios = sorted({r[0] for r in rows})
+    negativos = int((sal["toneladas_co2e"] < 0).sum())
+    notas = [
+        "emisiones GEI: es el inventario NACIONAL territorializado, no una medición hecha en la "
+        "provincia. Las emisiones se asignan a cada jurisdicción según los datos de actividad que "
+        "usó el inventario del país, y lo que no se puede asignar queda en «Jurisdicción sin "
+        "determinar», que en 2022 son 48,9 millones de toneladas: el 12 % del total nacional y la "
+        "segunda posición del ranking.",
+        "emisiones GEI: el total se publica con y sin el sector de uso de la tierra. En Salta ese "
+        "sector —desmonte y cambio de uso del suelo— va de 4,5 millones de toneladas en 2021 a "
+        "31,3 en 2013 y gobierna el total de la provincia; sin él se ve lo que pasa con energía, "
+        "agro, residuos e industria.",
+        "emisiones GEI: los valores negativos son absorciones, no errores. En Salta hay %d filas "
+        "negativas, casi todas de «4A. Tierras forestales», y la suma es correcta porque da "
+        "emisiones netas. Como dentro de cada subsector quedan compensadas contra sus propias "
+        "emisiones, se publican además sumadas aparte, en la métrica «Absorciones»: entre "
+        "300 mil y 840 mil toneladas de CO2e por año." % negativos,
+        "emisiones GEI: el CO2 equivalente usa los potenciales de calentamiento a 100 años del "
+        "Quinto Informe del IPCC (AR5). El metadato oficial se contradice —dice AR5 en un campo y "
+        "Segundo Informe en otro—, y el cociente entre las dos columnas del dataset confirma AR5 "
+        "en los quince gases.",
+        "emisiones GEI: la serie llega hasta 2022, que es lo último que Argentina reportó a la "
+        "CMNUCC en su Primer Informe Bienal de Transparencia.",
+    ]
+
+    orden_sector = sorted({r[2] for r in rows if r[1] == "sector"})
+    orden_sub = sorted({r[2] for r in rows if r[1] == "subsector"})
+    orden_gas = [g for g in ("CO2", "CH4", "N2O", GEI_GAS_OTROS)
+                 if g in {r[2] for r in rows if r[1] == "gas"}]
+    ranking = sorted({r[2] for r in rows if r[1] == "ranking"})
+    return {
+        "fields": ["anio", "apertura", "categoria", "metrica", "valor"],
+        "rows": rows,
+        "dims": {
+            "anio": anios,
+            "apertura": ["total", "sector", "subsector", "gas", "ranking"],
+            "categoria": ["Total"] + orden_sector + orden_sub + orden_gas + ranking,
+        },
+        "metricas": GEI_METRICAS,
+        "notas": notas,
+    }
+
+
 SV_METRICAS = {
     "victimas_fatales":        {"label": "Víctimas fatales",          "unidad": "personas",
                                 "agg": "sum"},
@@ -4016,6 +4135,7 @@ ADAPTERS = {
     "azucar-alcohol": azucar_alcohol,
     "obras-publicas": obras_publicas,
     "consumo-electrico": consumo_electrico,
+    "emisiones-gei": emisiones_gei,
     "educacion": educacion,
     "vitivinicultura": inv,
     "produccion-energia": produccion_energia,

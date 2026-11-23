@@ -1,0 +1,1626 @@
+﻿anio,jurisdiccion,sector,toneladas_co2e
+2010,Buenos Aires,1. Energía,57172891.19
+2010,Buenos Aires,2. Procesos industriales,813012.7
+2010,Buenos Aires,3. Agricultura y ganadería,24973280.32
+2010,Buenos Aires,4. Uso de la tierra,-267694.97
+2010,Buenos Aires,5. Residuos,6916253.65
+2010,CABA,1. Energía,18139789.87
+2010,CABA,2. Procesos industriales,10874.83
+2010,CABA,3. Agricultura y ganadería,1556.54
+2010,CABA,4. Uso de la tierra,0.09
+2010,CABA,5. Residuos,875220.42
+2010,Catamarca,1. Energía,646224.55
+2010,Catamarca,2. Procesos industriales,782.8
+2010,Catamarca,3. Agricultura y ganadería,394571.61
+2010,Catamarca,4. Uso de la tierra,194576.03
+2010,Catamarca,5. Residuos,95479.15
+2010,Chaco,1. Energía,1397718.08
+2010,Chaco,2. Procesos industriales,2832.09
+2010,Chaco,3. Agricultura y ganadería,4465067.35
+2010,Chaco,4. Uso de la tierra,19856156.29
+2010,Chaco,5. Residuos,366300.26
+2010,Chubut,1. Energía,8701132.95
+2010,Chubut,2. Procesos industriales,677964.26
+2010,Chubut,3. Agricultura y ganadería,1128767.37
+2010,Chubut,4. Uso de la tierra,-48512.96
+2010,Chubut,5. Residuos,146341.77
+2010,Corrientes,1. Energía,1006026.05
+2010,Corrientes,2. Procesos industriales,1389.62
+2010,Corrientes,3. Agricultura y ganadería,9307455.69
+2010,Corrientes,4. Uso de la tierra,-11107701.15
+2010,Corrientes,5. Residuos,375988.28
+2010,Córdoba,1. Energía,10347846.1
+2010,Córdoba,2. Procesos industriales,94858.09
+2010,Córdoba,3. Agricultura y ganadería,10083609.61
+2010,Córdoba,4. Uso de la tierra,7582136.19
+2010,Córdoba,5. Residuos,1160813.25
+2010,Entre Ríos,1. Energía,2426560.32
+2010,Entre Ríos,2. Procesos industriales,3899.57
+2010,Entre Ríos,3. Agricultura y ganadería,7654384.21
+2010,Entre Ríos,4. Uso de la tierra,4578826.43
+2010,Entre Ríos,5. Residuos,353564.91
+2010,Formosa,1. Energía,509357.2
+2010,Formosa,2. Procesos industriales,646.56
+2010,Formosa,3. Agricultura y ganadería,3117910.18
+2010,Formosa,4. Uso de la tierra,13310644.67
+2010,Formosa,5. Residuos,139084.81
+2010,Jujuy,1. Energía,1202844.06
+2010,Jujuy,2. Procesos industriales,1439.24
+2010,Jujuy,3. Agricultura y ganadería,333647.51
+2010,Jujuy,4. Uso de la tierra,1618854.01
+2010,Jujuy,5. Residuos,216238.5
+2010,Jurisdicción sin determinar,1. Energía,20031992.52
+2010,Jurisdicción sin determinar,2. Procesos industriales,15013098.83
+2010,Jurisdicción sin determinar,3. Agricultura y ganadería,5595888.27
+2010,Jurisdicción sin determinar,4. Uso de la tierra,-1942846.95
+2010,Jurisdicción sin determinar,5. Residuos,3058063.31
+2010,La Pampa,1. Energía,1652721.07
+2010,La Pampa,2. Procesos industriales,1323.77
+2010,La Pampa,3. Agricultura y ganadería,3924964.1
+2010,La Pampa,4. Uso de la tierra,725585.16
+2010,La Pampa,5. Residuos,115345.85
+2010,La Rioja,1. Energía,362110.94
+2010,La Rioja,2. Procesos industriales,503.24
+2010,La Rioja,3. Agricultura y ganadería,249323.94
+2010,La Rioja,4. Uso de la tierra,1242468.58
+2010,La Rioja,5. Residuos,101352.86
+2010,Mendoza,1. Energía,8054721.82
+2010,Mendoza,2. Procesos industriales,6086.0
+2010,Mendoza,3. Agricultura y ganadería,949429.83
+2010,Mendoza,4. Uso de la tierra,96313.53
+2010,Mendoza,5. Residuos,628152.27
+2010,Misiones,1. Energía,1288800.83
+2010,Misiones,2. Procesos industriales,2717.69
+2010,Misiones,3. Agricultura y ganadería,748363.32
+2010,Misiones,4. Uso de la tierra,-2807326.59
+2010,Misiones,5. Residuos,255734.11
+2010,Neuquén,1. Energía,17237295.81
+2010,Neuquén,2. Procesos industriales,270283.46
+2010,Neuquén,3. Agricultura y ganadería,521347.88
+2010,Neuquén,4. Uso de la tierra,-1196.83
+2010,Neuquén,5. Residuos,167057.08
+2010,Río Negro,1. Energía,3657277.65
+2010,Río Negro,2. Procesos industriales,58615.23
+2010,Río Negro,3. Agricultura y ganadería,1138331.57
+2010,Río Negro,4. Uso de la tierra,-239077.28
+2010,Río Negro,5. Residuos,191386.07
+2010,Salta,1. Energía,6294476.31
+2010,Salta,2. Procesos industriales,2635.36
+2010,Salta,3. Agricultura y ganadería,1736891.87
+2010,Salta,4. Uso de la tierra,11655654.26
+2010,Salta,5. Residuos,341976.16
+2010,San Juan,1. Energía,1355518.62
+2010,San Juan,2. Procesos industriales,120622.31
+2010,San Juan,3. Agricultura y ganadería,58442.5
+2010,San Juan,4. Uso de la tierra,-72816.45
+2010,San Juan,5. Residuos,224305.21
+2010,San Luis,1. Energía,1029275.3
+2010,San Luis,2. Procesos industriales,58684.46
+2010,San Luis,3. Agricultura y ganadería,2424345.87
+2010,San Luis,4. Uso de la tierra,3222012.45
+2010,San Luis,5. Residuos,150995.94
+2010,Santa Cruz,1. Energía,7477378.5
+2010,Santa Cruz,2. Procesos industriales,1573.37
+2010,Santa Cruz,3. Agricultura y ganadería,670989.08
+2010,Santa Cruz,4. Uso de la tierra,17366.19
+2010,Santa Cruz,5. Residuos,72919.84
+2010,Santa Fe,1. Energía,11949466.15
+2010,Santa Fe,2. Procesos industriales,49933.92
+2010,Santa Fe,3. Agricultura y ganadería,12483046.98
+2010,Santa Fe,4. Uso de la tierra,1151287.85
+2010,Santa Fe,5. Residuos,1432297.49
+2010,Santiago del Estero,1. Energía,1117333.1
+2010,Santiago del Estero,2. Procesos industriales,1241.77
+2010,Santiago del Estero,3. Agricultura y ganadería,2263594.35
+2010,Santiago del Estero,4. Uso de la tierra,27422930.03
+2010,Santiago del Estero,5. Residuos,219042.03
+2010,Tierra del Fuego,1. Energía,3418905.32
+2010,Tierra del Fuego,2. Procesos industriales,747.16
+2010,Tierra del Fuego,3. Agricultura y ganadería,151361.33
+2010,Tierra del Fuego,4. Uso de la tierra,2075964.75
+2010,Tierra del Fuego,5. Residuos,34118.91
+2010,Tucumán,1. Energía,4183028.51
+2010,Tucumán,2. Procesos industriales,4923.87
+2010,Tucumán,3. Agricultura y ganadería,619071.39
+2010,Tucumán,4. Uso de la tierra,1068023.43
+2010,Tucumán,5. Residuos,549069.13
+2011,Buenos Aires,1. Energía,59507708.71
+2011,Buenos Aires,2. Procesos industriales,989056.59
+2011,Buenos Aires,3. Agricultura y ganadería,25196506.43
+2011,Buenos Aires,4. Uso de la tierra,-9756015.22
+2011,Buenos Aires,5. Residuos,6951055.71
+2011,CABA,1. Energía,20317976.05
+2011,CABA,2. Procesos industriales,10782.51
+2011,CABA,3. Agricultura y ganadería,1534.64
+2011,CABA,4. Uso de la tierra,11.94
+2011,CABA,5. Residuos,901570.42
+2011,Catamarca,1. Energía,703938.6
+2011,Catamarca,2. Procesos industriales,1385.99
+2011,Catamarca,3. Agricultura y ganadería,386330.84
+2011,Catamarca,4. Uso de la tierra,779399.96
+2011,Catamarca,5. Residuos,100046.9
+2011,Chaco,1. Energía,1452609.84
+2011,Chaco,2. Procesos industriales,2842.36
+2011,Chaco,3. Agricultura y ganadería,4326566.01
+2011,Chaco,4. Uso de la tierra,20202243.25
+2011,Chaco,5. Residuos,365385.73
+2011,Chubut,1. Energía,9470143.2
+2011,Chubut,2. Procesos industriales,685912.8
+2011,Chubut,3. Agricultura y ganadería,1096945.92
+2011,Chubut,4. Uso de la tierra,-84313.64
+2011,Chubut,5. Residuos,153814.33
+2011,Corrientes,1. Energía,1050135.22
+2011,Corrientes,2. Procesos industriales,1383.89
+2011,Corrientes,3. Agricultura y ganadería,8634563.51
+2011,Corrientes,4. Uso de la tierra,-10882921.76
+2011,Corrientes,5. Residuos,381806.03
+2011,Córdoba,1. Energía,11284388.82
+2011,Córdoba,2. Procesos industriales,104292.98
+2011,Córdoba,3. Agricultura y ganadería,9480123.29
+2011,Córdoba,4. Uso de la tierra,3895492.15
+2011,Córdoba,5. Residuos,1215107.54
+2011,Entre Ríos,1. Energía,2570753.89
+2011,Entre Ríos,2. Procesos industriales,3835.94
+2011,Entre Ríos,3. Agricultura y ganadería,7610204.1
+2011,Entre Ríos,4. Uso de la tierra,4191680.91
+2011,Entre Ríos,5. Residuos,366739.53
+2011,Formosa,1. Energía,445487.3
+2011,Formosa,2. Procesos industriales,718.67
+2011,Formosa,3. Agricultura y ganadería,2974821.59
+2011,Formosa,4. Uso de la tierra,7179508.48
+2011,Formosa,5. Residuos,145241.18
+2011,Jujuy,1. Energía,1188504.39
+2011,Jujuy,2. Procesos industriales,1457.84
+2011,Jujuy,3. Agricultura y ganadería,340081.65
+2011,Jujuy,4. Uso de la tierra,1292002.76
+2011,Jujuy,5. Residuos,221775.43
+2011,Jurisdicción sin determinar,1. Energía,18909984.23
+2011,Jurisdicción sin determinar,2. Procesos industriales,16244645.31
+2011,Jurisdicción sin determinar,3. Agricultura y ganadería,6195676.7
+2011,Jurisdicción sin determinar,4. Uso de la tierra,-1814575.59
+2011,Jurisdicción sin determinar,5. Residuos,3211793.12
+2011,La Pampa,1. Energía,1772064.39
+2011,La Pampa,2. Procesos industriales,1284.26
+2011,La Pampa,3. Agricultura y ganadería,3817293.4
+2011,La Pampa,4. Uso de la tierra,-1910639.63
+2011,La Pampa,5. Residuos,118397.15
+2011,La Rioja,1. Energía,400302.45
+2011,La Rioja,2. Procesos industriales,392.26
+2011,La Rioja,3. Agricultura y ganadería,263685.75
+2011,La Rioja,4. Uso de la tierra,1206485.57
+2011,La Rioja,5. Residuos,105922.85
+2011,Mendoza,1. Energía,8244082.72
+2011,Mendoza,2. Procesos industriales,6227.65
+2011,Mendoza,3. Agricultura y ganadería,852837.69
+2011,Mendoza,4. Uso de la tierra,-38960.69
+2011,Mendoza,5. Residuos,643317.46
+2011,Misiones,1. Energía,1413323.19
+2011,Misiones,2. Procesos industriales,2625.36
+2011,Misiones,3. Agricultura y ganadería,738834.44
+2011,Misiones,4. Uso de la tierra,-2588809.95
+2011,Misiones,5. Residuos,267694.13
+2011,Neuquén,1. Energía,17556068.26
+2011,Neuquén,2. Procesos industriales,265882.61
+2011,Neuquén,3. Agricultura y ganadería,546283.4
+2011,Neuquén,4. Uso de la tierra,-43749.38
+2011,Neuquén,5. Residuos,173191.22
+2011,Río Negro,1. Energía,3877006.4
+2011,Río Negro,2. Procesos industriales,56598.96
+2011,Río Negro,3. Agricultura y ganadería,1073504.72
+2011,Río Negro,4. Uso de la tierra,-197627.27
+2011,Río Negro,5. Residuos,196460.0
+2011,Salta,1. Energía,6335632.56
+2011,Salta,2. Procesos industriales,2877.16
+2011,Salta,3. Agricultura y ganadería,1747591.32
+2011,Salta,4. Uso de la tierra,11981336.47
+2011,Salta,5. Residuos,354345.93
+2011,San Juan,1. Energía,1594746.93
+2011,San Juan,2. Procesos industriales,121312.76
+2011,San Juan,3. Agricultura y ganadería,63540.16
+2011,San Juan,4. Uso de la tierra,36485.76
+2011,San Juan,5. Residuos,229709.04
+2011,San Luis,1. Energía,1072182.86
+2011,San Luis,2. Procesos industriales,4422.75
+2011,San Luis,3. Agricultura y ganadería,2236191.23
+2011,San Luis,4. Uso de la tierra,2096586.0
+2011,San Luis,5. Residuos,154989.65
+2011,Santa Cruz,1. Energía,7079060.28
+2011,Santa Cruz,2. Procesos industriales,1672.43
+2011,Santa Cruz,3. Agricultura y ganadería,632200.49
+2011,Santa Cruz,4. Uso de la tierra,18490.35
+2011,Santa Cruz,5. Residuos,75589.0
+2011,Santa Fe,1. Energía,13564123.71
+2011,Santa Fe,2. Procesos industriales,50121.57
+2011,Santa Fe,3. Agricultura y ganadería,11879069.3
+2011,Santa Fe,4. Uso de la tierra,1880253.08
+2011,Santa Fe,5. Residuos,1427187.99
+2011,Santiago del Estero,1. Energía,1106420.84
+2011,Santiago del Estero,2. Procesos industriales,1340.32
+2011,Santiago del Estero,3. Agricultura y ganadería,2426133.09
+2011,Santiago del Estero,4. Uso de la tierra,26873931.28
+2011,Santiago del Estero,5. Residuos,223161.77
+2011,Tierra del Fuego,1. Energía,3322350.39
+2011,Tierra del Fuego,2. Procesos industriales,704.24
+2011,Tierra del Fuego,3. Agricultura y ganadería,140821.4
+2011,Tierra del Fuego,4. Uso de la tierra,2048185.3
+2011,Tierra del Fuego,5. Residuos,35834.23
+2011,Tucumán,1. Energía,4607569.95
+2011,Tucumán,2. Procesos industriales,4824.65
+2011,Tucumán,3. Agricultura y ganadería,641650.67
+2011,Tucumán,4. Uso de la tierra,489667.59
+2011,Tucumán,5. Residuos,574723.06
+2012,Buenos Aires,1. Energía,59697103.0
+2012,Buenos Aires,2. Procesos industriales,956760.7
+2012,Buenos Aires,3. Agricultura y ganadería,25629751.77
+2012,Buenos Aires,4. Uso de la tierra,-1308341.49
+2012,Buenos Aires,5. Residuos,7282237.71
+2012,CABA,1. Energía,19839675.94
+2012,CABA,2. Procesos industriales,11030.31
+2012,CABA,3. Agricultura y ganadería,10719.69
+2012,CABA,4. Uso de la tierra,0.13
+2012,CABA,5. Residuos,980220.22
+2012,Catamarca,1. Energía,695066.19
+2012,Catamarca,2. Procesos industriales,896.24
+2012,Catamarca,3. Agricultura y ganadería,395992.71
+2012,Catamarca,4. Uso de la tierra,836860.39
+2012,Catamarca,5. Residuos,103459.63
+2012,Chaco,1. Energía,1400152.27
+2012,Chaco,2. Procesos industriales,2861.35
+2012,Chaco,3. Agricultura y ganadería,4622324.44
+2012,Chaco,4. Uso de la tierra,25616609.13
+2012,Chaco,5. Residuos,360313.97
+2012,Chubut,1. Energía,9037633.03
+2012,Chubut,2. Procesos industriales,671317.94
+2012,Chubut,3. Agricultura y ganadería,1059216.57
+2012,Chubut,4. Uso de la tierra,-149012.97
+2012,Chubut,5. Residuos,160924.55
+2012,Corrientes,1. Energía,1046786.19
+2012,Corrientes,2. Procesos industriales,1279.2
+2012,Corrientes,3. Agricultura y ganadería,9074013.06
+2012,Corrientes,4. Uso de la tierra,-7030070.92
+2012,Corrientes,5. Residuos,386839.07
+2012,Córdoba,1. Energía,11093887.26
+2012,Córdoba,2. Procesos industriales,109886.06
+2012,Córdoba,3. Agricultura y ganadería,9083096.52
+2012,Córdoba,4. Uso de la tierra,1964212.98
+2012,Córdoba,5. Residuos,1263996.87
+2012,Entre Ríos,1. Energía,2541111.69
+2012,Entre Ríos,2. Procesos industriales,3830.11
+2012,Entre Ríos,3. Agricultura y ganadería,7725273.58
+2012,Entre Ríos,4. Uso de la tierra,4068811.69
+2012,Entre Ríos,5. Residuos,378406.39
+2012,Formosa,1. Energía,474476.21
+2012,Formosa,2. Procesos industriales,872.17
+2012,Formosa,3. Agricultura y ganadería,3055689.82
+2012,Formosa,4. Uso de la tierra,12390508.6
+2012,Formosa,5. Residuos,149059.54
+2012,Jujuy,1. Energía,1145733.45
+2012,Jujuy,2. Procesos industriales,1607.4
+2012,Jujuy,3. Agricultura y ganadería,349652.55
+2012,Jujuy,4. Uso de la tierra,1178497.85
+2012,Jujuy,5. Residuos,226348.71
+2012,Jurisdicción sin determinar,1. Energía,20569217.11
+2012,Jurisdicción sin determinar,2. Procesos industriales,15377254.34
+2012,Jurisdicción sin determinar,3. Agricultura y ganadería,5265224.39
+2012,Jurisdicción sin determinar,4. Uso de la tierra,-2711368.23
+2012,Jurisdicción sin determinar,5. Residuos,3167065.14
+2012,La Pampa,1. Energía,1802440.17
+2012,La Pampa,2. Procesos industriales,1308.52
+2012,La Pampa,3. Agricultura y ganadería,3919707.58
+2012,La Pampa,4. Uso de la tierra,-1224500.08
+2012,La Pampa,5. Residuos,120833.44
+2012,La Rioja,1. Energía,417012.36
+2012,La Rioja,2. Procesos industriales,1194.62
+2012,La Rioja,3. Agricultura y ganadería,264739.84
+2012,La Rioja,4. Uso de la tierra,2505422.77
+2012,La Rioja,5. Residuos,109648.39
+2012,Mendoza,1. Energía,8383097.82
+2012,Mendoza,2. Procesos industriales,5529.25
+2012,Mendoza,3. Agricultura y ganadería,799154.8
+2012,Mendoza,4. Uso de la tierra,-71928.07
+2012,Mendoza,5. Residuos,656012.87
+2012,Misiones,1. Energía,1420553.23
+2012,Misiones,2. Procesos industriales,2955.06
+2012,Misiones,3. Agricultura y ganadería,751431.0
+2012,Misiones,4. Uso de la tierra,-4718558.12
+2012,Misiones,5. Residuos,276065.75
+2012,Neuquén,1. Energía,16753561.43
+2012,Neuquén,2. Procesos industriales,272842.23
+2012,Neuquén,3. Agricultura y ganadería,519641.84
+2012,Neuquén,4. Uso de la tierra,-174819.09
+2012,Neuquén,5. Residuos,177409.54
+2012,Río Negro,1. Energía,4051484.02
+2012,Río Negro,2. Procesos industriales,60213.68
+2012,Río Negro,3. Agricultura y ganadería,1082427.94
+2012,Río Negro,4. Uso de la tierra,-262257.79
+2012,Río Negro,5. Residuos,200703.57
+2012,Salta,1. Energía,6095177.88
+2012,Salta,2. Procesos industriales,5721.36
+2012,Salta,3. Agricultura y ganadería,1818434.24
+2012,Salta,4. Uso de la tierra,31142525.87
+2012,Salta,5. Residuos,365035.42
+2012,San Juan,1. Energía,1621470.17
+2012,San Juan,2. Procesos industriales,121486.89
+2012,San Juan,3. Agricultura y ganadería,72943.08
+2012,San Juan,4. Uso de la tierra,-85988.73
+2012,San Juan,5. Residuos,233876.81
+2012,San Luis,1. Energía,1110531.74
+2012,San Luis,2. Procesos industriales,1140.66
+2012,San Luis,3. Agricultura y ganadería,2205716.17
+2012,San Luis,4. Uso de la tierra,2416909.13
+2012,San Luis,5. Residuos,158011.52
+2012,Santa Cruz,1. Energía,7409947.69
+2012,Santa Cruz,2. Procesos industriales,1378.77
+2012,Santa Cruz,3. Agricultura y ganadería,635033.15
+2012,Santa Cruz,4. Uso de la tierra,109973.09
+2012,Santa Cruz,5. Residuos,78085.82
+2012,Santa Fe,1. Energía,13298323.31
+2012,Santa Fe,2. Procesos industriales,50212.24
+2012,Santa Fe,3. Agricultura y ganadería,12806984.49
+2012,Santa Fe,4. Uso de la tierra,964555.78
+2012,Santa Fe,5. Residuos,1464282.15
+2012,Santiago del Estero,1. Energía,1075674.91
+2012,Santiago del Estero,2. Procesos industriales,1696.67
+2012,Santiago del Estero,3. Agricultura y ganadería,2282770.37
+2012,Santiago del Estero,4. Uso de la tierra,27689138.31
+2012,Santiago del Estero,5. Residuos,226822.04
+2012,Tierra del Fuego,1. Energía,3401549.8
+2012,Tierra del Fuego,2. Procesos industriales,1164.67
+2012,Tierra del Fuego,3. Agricultura y ganadería,139722.63
+2012,Tierra del Fuego,4. Uso de la tierra,2049150.69
+2012,Tierra del Fuego,5. Residuos,37230.26
+2012,Tucumán,1. Energía,4735449.01
+2012,Tucumán,2. Procesos industriales,4496.41
+2012,Tucumán,3. Agricultura y ganadería,668224.8
+2012,Tucumán,4. Uso de la tierra,1122868.31
+2012,Tucumán,5. Residuos,597637.58
+2013,Buenos Aires,1. Energía,60951338.92
+2013,Buenos Aires,2. Procesos industriales,979088.52
+2013,Buenos Aires,3. Agricultura y ganadería,25690413.08
+2013,Buenos Aires,4. Uso de la tierra,1902177.29
+2013,Buenos Aires,5. Residuos,7521606.83
+2013,CABA,1. Energía,18598921.44
+2013,CABA,2. Procesos industriales,10798.58
+2013,CABA,3. Agricultura y ganadería,2174.68
+2013,CABA,4. Uso de la tierra,6.04
+2013,CABA,5. Residuos,1042280.39
+2013,Catamarca,1. Energía,748077.32
+2013,Catamarca,2. Procesos industriales,1770.61
+2013,Catamarca,3. Agricultura y ganadería,392572.5
+2013,Catamarca,4. Uso de la tierra,965078.61
+2013,Catamarca,5. Residuos,105218.16
+2013,Chaco,1. Energía,1469669.1
+2013,Chaco,2. Procesos industriales,2485.55
+2013,Chaco,3. Agricultura y ganadería,4669958.38
+2013,Chaco,4. Uso de la tierra,26339439.74
+2013,Chaco,5. Residuos,347724.1
+2013,Chubut,1. Energía,9190502.69
+2013,Chubut,2. Procesos industriales,719724.56
+2013,Chubut,3. Agricultura y ganadería,1015273.49
+2013,Chubut,4. Uso de la tierra,-217967.18
+2013,Chubut,5. Residuos,165807.23
+2013,Corrientes,1. Energía,884186.87
+2013,Corrientes,2. Procesos industriales,1194.38
+2013,Corrientes,3. Agricultura y ganadería,9292018.8
+2013,Corrientes,4. Uso de la tierra,-7309677.47
+2013,Corrientes,5. Residuos,386969.19
+2013,Córdoba,1. Energía,11166841.28
+2013,Córdoba,2. Procesos industriales,100811.23
+2013,Córdoba,3. Agricultura y ganadería,9528725.89
+2013,Córdoba,4. Uso de la tierra,-4720102.55
+2013,Córdoba,5. Residuos,1299534.99
+2013,Entre Ríos,1. Energía,2558801.66
+2013,Entre Ríos,2. Procesos industriales,3636.07
+2013,Entre Ríos,3. Agricultura y ganadería,7892935.44
+2013,Entre Ríos,4. Uso de la tierra,4109065.61
+2013,Entre Ríos,5. Residuos,384428.69
+2013,Formosa,1. Energía,459258.52
+2013,Formosa,2. Procesos industriales,754.34
+2013,Formosa,3. Agricultura y ganadería,3075503.38
+2013,Formosa,4. Uso de la tierra,12371323.23
+2013,Formosa,5. Residuos,149888.43
+2013,Jujuy,1. Energía,1222090.83
+2013,Jujuy,2. Procesos industriales,1452.19
+2013,Jujuy,3. Agricultura y ganadería,382109.13
+2013,Jujuy,4. Uso de la tierra,1453294.19
+2013,Jujuy,5. Residuos,225421.8
+2013,Jurisdicción sin determinar,1. Energía,23087305.6
+2013,Jurisdicción sin determinar,2. Procesos industriales,16743580.93
+2013,Jurisdicción sin determinar,3. Agricultura y ganadería,5621670.2
+2013,Jurisdicción sin determinar,4. Uso de la tierra,-2793046.85
+2013,Jurisdicción sin determinar,5. Residuos,3171780.52
+2013,La Pampa,1. Energía,1725022.59
+2013,La Pampa,2. Procesos industriales,1298.75
+2013,La Pampa,3. Agricultura y ganadería,4218611.64
+2013,La Pampa,4. Uso de la tierra,-557242.69
+2013,La Pampa,5. Residuos,122075.53
+2013,La Rioja,1. Energía,443843.99
+2013,La Rioja,2. Procesos industriales,460.06
+2013,La Rioja,3. Agricultura y ganadería,244636.61
+2013,La Rioja,4. Uso de la tierra,1824866.21
+2013,La Rioja,5. Residuos,111951.22
+2013,Mendoza,1. Energía,8785903.4
+2013,Mendoza,2. Procesos industriales,6032.02
+2013,Mendoza,3. Agricultura y ganadería,755538.85
+2013,Mendoza,4. Uso de la tierra,49669.05
+2013,Mendoza,5. Residuos,661446.54
+2013,Misiones,1. Energía,1451813.7
+2013,Misiones,2. Procesos industriales,2758.11
+2013,Misiones,3. Agricultura y ganadería,819886.69
+2013,Misiones,4. Uso de la tierra,-4369278.14
+2013,Misiones,5. Residuos,277362.57
+2013,Neuquén,1. Energía,15681518.35
+2013,Neuquén,2. Procesos industriales,243463.06
+2013,Neuquén,3. Agricultura y ganadería,448378.32
+2013,Neuquén,4. Uso de la tierra,-299956.06
+2013,Neuquén,5. Residuos,179432.63
+2013,Río Negro,1. Energía,4270395.53
+2013,Río Negro,2. Procesos industriales,57479.33
+2013,Río Negro,3. Agricultura y ganadería,1028441.07
+2013,Río Negro,4. Uso de la tierra,-246993.16
+2013,Río Negro,5. Residuos,202335.01
+2013,Salta,1. Energía,5912598.28
+2013,Salta,2. Procesos industriales,2732.19
+2013,Salta,3. Agricultura y ganadería,1843757.89
+2013,Salta,4. Uso de la tierra,31321390.77
+2013,Salta,5. Residuos,368651.26
+2013,San Juan,1. Energía,1631639.78
+2013,San Juan,2. Procesos industriales,121540.29
+2013,San Juan,3. Agricultura y ganadería,69678.75
+2013,San Juan,4. Uso de la tierra,-86288.84
+2013,San Juan,5. Residuos,235480.99
+2013,San Luis,1. Energía,1279609.75
+2013,San Luis,2. Procesos industriales,244449.44
+2013,San Luis,3. Agricultura y ganadería,2301905.26
+2013,San Luis,4. Uso de la tierra,-293078.22
+2013,San Luis,5. Residuos,159323.5
+2013,Santa Cruz,1. Energía,7445706.23
+2013,Santa Cruz,2. Procesos industriales,1420.77
+2013,Santa Cruz,3. Agricultura y ganadería,634654.19
+2013,Santa Cruz,4. Uso de la tierra,18883.56
+2013,Santa Cruz,5. Residuos,79424.37
+2013,Santa Fe,1. Energía,13695544.96
+2013,Santa Fe,2. Procesos industriales,46576.93
+2013,Santa Fe,3. Agricultura y ganadería,13341132.89
+2013,Santa Fe,4. Uso de la tierra,2148321.02
+2013,Santa Fe,5. Residuos,1459715.36
+2013,Santiago del Estero,1. Energía,1102434.11
+2013,Santiago del Estero,2. Procesos industriales,1260.96
+2013,Santiago del Estero,3. Agricultura y ganadería,2505718.68
+2013,Santiago del Estero,4. Uso de la tierra,26462324.01
+2013,Santiago del Estero,5. Residuos,226928.85
+2013,Tierra del Fuego,1. Energía,3262320.55
+2013,Tierra del Fuego,2. Procesos industriales,881.07
+2013,Tierra del Fuego,3. Agricultura y ganadería,132883.24
+2013,Tierra del Fuego,4. Uso de la tierra,2039845.19
+2013,Tierra del Fuego,5. Residuos,37978.0
+2013,Tucumán,1. Energía,4685873.77
+2013,Tucumán,2. Procesos industriales,4169.99
+2013,Tucumán,3. Agricultura y ganadería,664205.06
+2013,Tucumán,4. Uso de la tierra,1076385.78
+2013,Tucumán,5. Residuos,605871.93
+2014,Buenos Aires,1. Energía,60452197.52
+2014,Buenos Aires,2. Procesos industriales,849718.0
+2014,Buenos Aires,3. Agricultura y ganadería,26740155.48
+2014,Buenos Aires,4. Uso de la tierra,-281922.14
+2014,Buenos Aires,5. Residuos,7960397.42
+2014,CABA,1. Energía,17366420.36
+2014,CABA,2. Procesos industriales,8616.96
+2014,CABA,3. Agricultura y ganadería,3345.46
+2014,CABA,4. Uso de la tierra,0.06
+2014,CABA,5. Residuos,1132428.29
+2014,Catamarca,1. Energía,744493.1
+2014,Catamarca,2. Procesos industriales,1759.6
+2014,Catamarca,3. Agricultura y ganadería,390198.05
+2014,Catamarca,4. Uso de la tierra,-81058.14
+2014,Catamarca,5. Residuos,107883.26
+2014,Chaco,1. Energía,1404913.35
+2014,Chaco,2. Procesos industriales,2412.42
+2014,Chaco,3. Agricultura y ganadería,4679266.96
+2014,Chaco,4. Uso de la tierra,14735069.54
+2014,Chaco,5. Residuos,336513.01
+2014,Chubut,1. Energía,9340836.11
+2014,Chubut,2. Procesos industriales,728169.07
+2014,Chubut,3. Agricultura y ganadería,999111.94
+2014,Chubut,4. Uso de la tierra,8895572.79
+2014,Chubut,5. Residuos,172099.89
+2014,Corrientes,1. Energía,828169.22
+2014,Corrientes,2. Procesos industriales,1229.45
+2014,Corrientes,3. Agricultura y ganadería,9527237.63
+2014,Corrientes,4. Uso de la tierra,-7720042.92
+2014,Corrientes,5. Residuos,390469.59
+2014,Córdoba,1. Energía,10438916.25
+2014,Córdoba,2. Procesos industriales,103483.14
+2014,Córdoba,3. Agricultura y ganadería,9425360.38
+2014,Córdoba,4. Uso de la tierra,2619018.85
+2014,Córdoba,5. Residuos,1345403.87
+2014,Entre Ríos,1. Energía,2426141.69
+2014,Entre Ríos,2. Procesos industriales,3547.67
+2014,Entre Ríos,3. Agricultura y ganadería,8172642.02
+2014,Entre Ríos,4. Uso de la tierra,2717266.79
+2014,Entre Ríos,5. Residuos,394065.14
+2014,Formosa,1. Energía,449236.17
+2014,Formosa,2. Procesos industriales,651.05
+2014,Formosa,3. Agricultura y ganadería,3078972.63
+2014,Formosa,4. Uso de la tierra,6669603.75
+2014,Formosa,5. Residuos,152047.98
+2014,Jujuy,1. Energía,1203559.03
+2014,Jujuy,2. Procesos industriales,1493.23
+2014,Jujuy,3. Agricultura y ganadería,436900.49
+2014,Jujuy,4. Uso de la tierra,203364.62
+2014,Jujuy,5. Residuos,232222.75
+2014,Jurisdicción sin determinar,1. Energía,21667294.48
+2014,Jurisdicción sin determinar,2. Procesos industriales,17704629.62
+2014,Jurisdicción sin determinar,3. Agricultura y ganadería,5697531.68
+2014,Jurisdicción sin determinar,4. Uso de la tierra,-1813502.03
+2014,Jurisdicción sin determinar,5. Residuos,3139372.72
+2014,La Pampa,1. Energía,1752426.28
+2014,La Pampa,2. Procesos industriales,1267.77
+2014,La Pampa,3. Agricultura y ganadería,4259834.58
+2014,La Pampa,4. Uso de la tierra,4900398.43
+2014,La Pampa,5. Residuos,124374.63
+2014,La Rioja,1. Energía,421163.36
+2014,La Rioja,2. Procesos industriales,468.14
+2014,La Rioja,3. Agricultura y ganadería,246549.65
+2014,La Rioja,4. Uso de la tierra,1357662.95
+2014,La Rioja,5. Residuos,115228.82
+2014,Mendoza,1. Energía,8561388.81
+2014,Mendoza,2. Procesos industriales,5767.86
+2014,Mendoza,3. Agricultura y ganadería,755142.69
+2014,Mendoza,4. Uso de la tierra,10465.78
+2014,Mendoza,5. Residuos,672111.57
+2014,Misiones,1. Energía,1363656.62
+2014,Misiones,2. Procesos industriales,2769.93
+2014,Misiones,3. Agricultura y ganadería,840599.17
+2014,Misiones,4. Uso de la tierra,-8676468.69
+2014,Misiones,5. Residuos,280456.49
+2014,Neuquén,1. Energía,16925305.85
+2014,Neuquén,2. Procesos industriales,267925.03
+2014,Neuquén,3. Agricultura y ganadería,456103.95
+2014,Neuquén,4. Uso de la tierra,-1401293.15
+2014,Neuquén,5. Residuos,183075.54
+2014,Río Negro,1. Energía,4447449.87
+2014,Río Negro,2. Procesos industriales,60862.0
+2014,Río Negro,3. Agricultura y ganadería,1066672.82
+2014,Río Negro,4. Uso de la tierra,-326323.23
+2014,Río Negro,5. Residuos,205856.74
+2014,Salta,1. Energía,5791668.39
+2014,Salta,2. Procesos industriales,2821.58
+2014,Salta,3. Agricultura y ganadería,1820889.63
+2014,Salta,4. Uso de la tierra,16634426.74
+2014,Salta,5. Residuos,378822.43
+2014,San Juan,1. Energía,1548788.64
+2014,San Juan,2. Procesos industriales,121297.52
+2014,San Juan,3. Agricultura y ganadería,69435.01
+2014,San Juan,4. Uso de la tierra,-84218.36
+2014,San Juan,5. Residuos,239335.83
+2014,San Luis,1. Energía,1133494.97
+2014,San Luis,2. Procesos industriales,851338.62
+2014,San Luis,3. Agricultura y ganadería,2290926.87
+2014,San Luis,4. Uso de la tierra,4068672.27
+2014,San Luis,5. Residuos,161998.22
+2014,Santa Cruz,1. Energía,7506961.27
+2014,Santa Cruz,2. Procesos industriales,1411.28
+2014,Santa Cruz,3. Agricultura y ganadería,621917.37
+2014,Santa Cruz,4. Uso de la tierra,25326.61
+2014,Santa Cruz,5. Residuos,81491.25
+2014,Santa Fe,1. Energía,13320559.13
+2014,Santa Fe,2. Procesos industriales,50547.95
+2014,Santa Fe,3. Agricultura y ganadería,13290432.76
+2014,Santa Fe,4. Uso de la tierra,1381739.91
+2014,Santa Fe,5. Residuos,1457462.38
+2014,Santiago del Estero,1. Energía,1131167.1
+2014,Santiago del Estero,2. Procesos industriales,1244.0
+2014,Santiago del Estero,3. Agricultura y ganadería,2440521.49
+2014,Santiago del Estero,4. Uso de la tierra,17791012.35
+2014,Santiago del Estero,5. Residuos,229486.07
+2014,Tierra del Fuego,1. Energía,3314059.09
+2014,Tierra del Fuego,2. Procesos industriales,998.23
+2014,Tierra del Fuego,3. Agricultura y ganadería,114895.36
+2014,Tierra del Fuego,4. Uso de la tierra,177663.22
+2014,Tierra del Fuego,5. Residuos,39091.66
+2014,Tucumán,1. Energía,5001232.54
+2014,Tucumán,2. Procesos industriales,3967.0
+2014,Tucumán,3. Agricultura y ganadería,790588.19
+2014,Tucumán,4. Uso de la tierra,375008.55
+2014,Tucumán,5. Residuos,628822.17
+2015,Buenos Aires,1. Energía,60863910.81
+2015,Buenos Aires,2. Procesos industriales,839710.63
+2015,Buenos Aires,3. Agricultura y ganadería,26970140.2
+2015,Buenos Aires,4. Uso de la tierra,-3946446.83
+2015,Buenos Aires,5. Residuos,8301626.48
+2015,CABA,1. Energía,18030175.66
+2015,CABA,2. Procesos industriales,8677.27
+2015,CABA,3. Agricultura y ganadería,2464.06
+2015,CABA,4. Uso de la tierra,1.13
+2015,CABA,5. Residuos,1200782.21
+2015,Catamarca,1. Energía,765512.25
+2015,Catamarca,2. Procesos industriales,1872.97
+2015,Catamarca,3. Agricultura y ganadería,374829.3
+2015,Catamarca,4. Uso de la tierra,-73666.48
+2015,Catamarca,5. Residuos,110668.37
+2015,Chaco,1. Energía,1521010.96
+2015,Chaco,2. Procesos industriales,2599.22
+2015,Chaco,3. Agricultura y ganadería,4685328.08
+2015,Chaco,4. Uso de la tierra,14928809.64
+2015,Chaco,5. Residuos,323947.39
+2015,Chubut,1. Energía,9930548.44
+2015,Chubut,2. Procesos industriales,706873.04
+2015,Chubut,3. Agricultura y ganadería,1003526.45
+2015,Chubut,4. Uso de la tierra,9050541.14
+2015,Chubut,5. Residuos,178602.01
+2015,Corrientes,1. Energía,876682.1
+2015,Corrientes,2. Procesos industriales,1180.44
+2015,Corrientes,3. Agricultura y ganadería,9528928.89
+2015,Corrientes,4. Uso de la tierra,-9219695.7
+2015,Corrientes,5. Residuos,393571.89
+2015,Córdoba,1. Energía,11096294.27
+2015,Córdoba,2. Procesos industriales,93016.13
+2015,Córdoba,3. Agricultura y ganadería,9462084.47
+2015,Córdoba,4. Uso de la tierra,1544502.42
+2015,Córdoba,5. Residuos,1393288.81
+2015,Entre Ríos,1. Energía,2446659.54
+2015,Entre Ríos,2. Procesos industriales,3676.95
+2015,Entre Ríos,3. Agricultura y ganadería,7921199.18
+2015,Entre Ríos,4. Uso de la tierra,1702505.51
+2015,Entre Ríos,5. Residuos,403790.75
+2015,Formosa,1. Energía,469163.79
+2015,Formosa,2. Procesos industriales,653.27
+2015,Formosa,3. Agricultura y ganadería,3081528.05
+2015,Formosa,4. Uso de la tierra,5436460.98
+2015,Formosa,5. Residuos,154018.21
+2015,Jujuy,1. Energía,1223766.32
+2015,Jujuy,2. Procesos industriales,1512.14
+2015,Jujuy,3. Agricultura y ganadería,440156.79
+2015,Jujuy,4. Uso de la tierra,133064.11
+2015,Jujuy,5. Residuos,236237.42
+2015,Jurisdicción sin determinar,1. Energía,22525639.57
+2015,Jurisdicción sin determinar,2. Procesos industriales,18420941.95
+2015,Jurisdicción sin determinar,3. Agricultura y ganadería,4477121.61
+2015,Jurisdicción sin determinar,4. Uso de la tierra,-2230678.06
+2015,Jurisdicción sin determinar,5. Residuos,3204230.12
+2015,La Pampa,1. Energía,1777489.75
+2015,La Pampa,2. Procesos industriales,1430.45
+2015,La Pampa,3. Agricultura y ganadería,4397531.11
+2015,La Pampa,4. Uso de la tierra,702596.69
+2015,La Pampa,5. Residuos,126962.16
+2015,La Rioja,1. Energía,443820.81
+2015,La Rioja,2. Procesos industriales,502.2
+2015,La Rioja,3. Agricultura y ganadería,262980.96
+2015,La Rioja,4. Uso de la tierra,1907468.55
+2015,La Rioja,5. Residuos,118683.87
+2015,Mendoza,1. Energía,9102542.62
+2015,Mendoza,2. Procesos industriales,5691.45
+2015,Mendoza,3. Agricultura y ganadería,773184.71
+2015,Mendoza,4. Uso de la tierra,30849.34
+2015,Mendoza,5. Residuos,683744.94
+2015,Misiones,1. Energía,1307603.82
+2015,Misiones,2. Procesos industriales,2760.51
+2015,Misiones,3. Agricultura y ganadería,828354.97
+2015,Misiones,4. Uso de la tierra,-7121517.16
+2015,Misiones,5. Residuos,282558.94
+2015,Neuquén,1. Energía,17201153.08
+2015,Neuquén,2. Procesos industriales,283065.14
+2015,Neuquén,3. Agricultura y ganadería,526887.43
+2015,Neuquén,4. Uso de la tierra,-1375950.71
+2015,Neuquén,5. Residuos,187229.82
+2015,Río Negro,1. Energía,4486012.28
+2015,Río Negro,2. Procesos industriales,60703.17
+2015,Río Negro,3. Agricultura y ganadería,1104245.5
+2015,Río Negro,4. Uso de la tierra,-271384.5
+2015,Río Negro,5. Residuos,209795.53
+2015,Salta,1. Energía,5954610.1
+2015,Salta,2. Procesos industriales,2798.88
+2015,Salta,3. Agricultura y ganadería,1893553.87
+2015,Salta,4. Uso de la tierra,11557218.14
+2015,Salta,5. Residuos,388657.29
+2015,San Juan,1. Energía,1608195.61
+2015,San Juan,2. Procesos industriales,121554.16
+2015,San Juan,3. Agricultura y ganadería,60018.26
+2015,San Juan,4. Uso de la tierra,-7504.68
+2015,San Juan,5. Residuos,243813.15
+2015,San Luis,1. Energía,1188643.53
+2015,San Luis,2. Procesos industriales,911022.25
+2015,San Luis,3. Agricultura y ganadería,2295830.47
+2015,San Luis,4. Uso de la tierra,1644447.17
+2015,San Luis,5. Residuos,165025.68
+2015,Santa Cruz,1. Energía,7576358.55
+2015,Santa Cruz,2. Procesos industriales,1367.37
+2015,Santa Cruz,3. Agricultura y ganadería,640971.48
+2015,Santa Cruz,4. Uso de la tierra,26833.59
+2015,Santa Cruz,5. Residuos,83772.04
+2015,Santa Fe,1. Energía,14289712.22
+2015,Santa Fe,2. Procesos industriales,52050.65
+2015,Santa Fe,3. Agricultura y ganadería,12921783.74
+2015,Santa Fe,4. Uso de la tierra,419195.47
+2015,Santa Fe,5. Residuos,1449269.66
+2015,Santiago del Estero,1. Energía,1189828.66
+2015,Santiago del Estero,2. Procesos industriales,1296.41
+2015,Santiago del Estero,3. Agricultura y ganadería,2425254.47
+2015,Santiago del Estero,4. Uso de la tierra,15091012.53
+2015,Santiago del Estero,5. Residuos,232595.33
+2015,Tierra del Fuego,1. Energía,3217729.4
+2015,Tierra del Fuego,2. Procesos industriales,3945.08
+2015,Tierra del Fuego,3. Agricultura y ganadería,122735.17
+2015,Tierra del Fuego,4. Uso de la tierra,164710.89
+2015,Tierra del Fuego,5. Residuos,40200.62
+2015,Tucumán,1. Energía,5453178.07
+2015,Tucumán,2. Procesos industriales,1105.75
+2015,Tucumán,3. Agricultura y ganadería,770668.86
+2015,Tucumán,4. Uso de la tierra,314875.42
+2015,Tucumán,5. Residuos,644642.2
+2016,Buenos Aires,1. Energía,60876667.7
+2016,Buenos Aires,2. Procesos industriales,879706.17
+2016,Buenos Aires,3. Agricultura y ganadería,27414766.18
+2016,Buenos Aires,4. Uso de la tierra,447631.08
+2016,Buenos Aires,5. Residuos,8590109.08
+2016,CABA,1. Energía,17706195.4
+2016,CABA,2. Procesos industriales,8400.18
+2016,CABA,3. Agricultura y ganadería,2561.21
+2016,CABA,4. Uso de la tierra,0.24
+2016,CABA,5. Residuos,1246690.8
+2016,Catamarca,1. Energía,683739.38
+2016,Catamarca,2. Procesos industriales,1471.23
+2016,Catamarca,3. Agricultura y ganadería,408627.94
+2016,Catamarca,4. Uso de la tierra,444283.8
+2016,Catamarca,5. Residuos,112706.05
+2016,Chaco,1. Energía,1416935.7
+2016,Chaco,2. Procesos industriales,2646.76
+2016,Chaco,3. Agricultura y ganadería,4687102.42
+2016,Chaco,4. Uso de la tierra,13399033.78
+2016,Chaco,5. Residuos,308641.17
+2016,Chubut,1. Energía,9850092.72
+2016,Chubut,2. Procesos industriales,701846.91
+2016,Chubut,3. Agricultura y ganadería,989427.84
+2016,Chubut,4. Uso de la tierra,8882223.78
+2016,Chubut,5. Residuos,184133.98
+2016,Corrientes,1. Energía,911447.97
+2016,Corrientes,2. Procesos industriales,1038.92
+2016,Corrientes,3. Agricultura y ganadería,9229588.04
+2016,Corrientes,4. Uso de la tierra,-10275866.65
+2016,Corrientes,5. Residuos,395504.98
+2016,Córdoba,1. Energía,11129574.93
+2016,Córdoba,2. Procesos industriales,31961.0
+2016,Córdoba,3. Agricultura y ganadería,9438363.93
+2016,Córdoba,4. Uso de la tierra,47064.93
+2016,Córdoba,5. Residuos,1435740.66
+2016,Entre Ríos,1. Energía,2424158.58
+2016,Entre Ríos,2. Procesos industriales,3408.82
+2016,Entre Ríos,3. Agricultura y ganadería,7820050.01
+2016,Entre Ríos,4. Uso de la tierra,390835.36
+2016,Entre Ríos,5. Residuos,411573.19
+2016,Formosa,1. Energía,476321.7
+2016,Formosa,2. Procesos industriales,545.3
+2016,Formosa,3. Agricultura y ganadería,3016325.67
+2016,Formosa,4. Uso de la tierra,7274905.78
+2016,Formosa,5. Residuos,155080.52
+2016,Jujuy,1. Energía,1176538.59
+2016,Jujuy,2. Procesos industriales,1453.49
+2016,Jujuy,3. Agricultura y ganadería,449095.86
+2016,Jujuy,4. Uso de la tierra,-264839.65
+2016,Jujuy,5. Residuos,240172.49
+2016,Jurisdicción sin determinar,1. Energía,21914075.68
+2016,Jurisdicción sin determinar,2. Procesos industriales,17130446.39
+2016,Jurisdicción sin determinar,3. Agricultura y ganadería,6099159.86
+2016,Jurisdicción sin determinar,4. Uso de la tierra,-2600452.65
+2016,Jurisdicción sin determinar,5. Residuos,3189164.97
+2016,La Pampa,1. Energía,1926953.29
+2016,La Pampa,2. Procesos industriales,1590.42
+2016,La Pampa,3. Agricultura y ganadería,4623711.44
+2016,La Pampa,4. Uso de la tierra,-1141283.88
+2016,La Pampa,5. Residuos,129141.35
+2016,La Rioja,1. Energía,431672.95
+2016,La Rioja,2. Procesos industriales,522.92
+2016,La Rioja,3. Agricultura y ganadería,281729.83
+2016,La Rioja,4. Uso de la tierra,2066759.68
+2016,La Rioja,5. Residuos,121579.74
+2016,Mendoza,1. Energía,8617167.74
+2016,Mendoza,2. Procesos industriales,5447.32
+2016,Mendoza,3. Agricultura y ganadería,804230.47
+2016,Mendoza,4. Uso de la tierra,133927.35
+2016,Mendoza,5. Residuos,692550.74
+2016,Misiones,1. Energía,1204607.27
+2016,Misiones,2. Procesos industriales,2420.9
+2016,Misiones,3. Agricultura y ganadería,804111.42
+2016,Misiones,4. Uso de la tierra,-5110291.34
+2016,Misiones,5. Residuos,282433.46
+2016,Neuquén,1. Energía,18802764.88
+2016,Neuquén,2. Procesos industriales,259192.76
+2016,Neuquén,3. Agricultura y ganadería,543175.92
+2016,Neuquén,4. Uso de la tierra,-1390687.56
+2016,Neuquén,5. Residuos,190403.25
+2016,Río Negro,1. Energía,4553936.02
+2016,Río Negro,2. Procesos industriales,60515.55
+2016,Río Negro,3. Agricultura y ganadería,1209345.36
+2016,Río Negro,4. Uso de la tierra,-363998.1
+2016,Río Negro,5. Residuos,212694.56
+2016,Salta,1. Energía,5998167.31
+2016,Salta,2. Procesos industriales,2531.52
+2016,Salta,3. Agricultura y ganadería,1988293.54
+2016,Salta,4. Uso de la tierra,7815711.27
+2016,Salta,5. Residuos,396170.24
+2016,San Juan,1. Energía,1463526.28
+2016,San Juan,2. Procesos industriales,121170.33
+2016,San Juan,3. Agricultura y ganadería,77561.21
+2016,San Juan,4. Uso de la tierra,-8342.09
+2016,San Juan,5. Residuos,247404.22
+2016,San Luis,1. Energía,1150314.63
+2016,San Luis,2. Procesos industriales,649031.76
+2016,San Luis,3. Agricultura y ganadería,2440357.41
+2016,San Luis,4. Uso de la tierra,1598858.64
+2016,San Luis,5. Residuos,167413.18
+2016,Santa Cruz,1. Energía,7443308.6
+2016,Santa Cruz,2. Procesos industriales,1367.74
+2016,Santa Cruz,3. Agricultura y ganadería,637788.32
+2016,Santa Cruz,4. Uso de la tierra,31270.24
+2016,Santa Cruz,5. Residuos,85477.52
+2016,Santa Fe,1. Energía,15111420.5
+2016,Santa Fe,2. Procesos industriales,47403.2
+2016,Santa Fe,3. Agricultura y ganadería,12241334.87
+2016,Santa Fe,4. Uso de la tierra,405844.64
+2016,Santa Fe,5. Residuos,1484731.7
+2016,Santiago del Estero,1. Energía,1265139.51
+2016,Santiago del Estero,2. Procesos industriales,1186.86
+2016,Santiago del Estero,3. Agricultura y ganadería,2651901.1
+2016,Santiago del Estero,4. Uso de la tierra,12656294.33
+2016,Santiago del Estero,5. Residuos,234271.85
+2016,Tierra del Fuego,1. Energía,3350378.26
+2016,Tierra del Fuego,2. Procesos industriales,4193.52
+2016,Tierra del Fuego,3. Agricultura y ganadería,130226.05
+2016,Tierra del Fuego,4. Uso de la tierra,239448.11
+2016,Tierra del Fuego,5. Residuos,41061.64
+2016,Tucumán,1. Energía,5242774.55
+2016,Tucumán,2. Procesos industriales,884.1
+2016,Tucumán,3. Agricultura y ganadería,775989.37
+2016,Tucumán,4. Uso de la tierra,-570797.8
+2016,Tucumán,5. Residuos,661227.5
+2017,Buenos Aires,1. Energía,58089850.54
+2017,Buenos Aires,2. Procesos industriales,896839.11
+2017,Buenos Aires,3. Agricultura y ganadería,28596390.15
+2017,Buenos Aires,4. Uso de la tierra,-6187224.6
+2017,Buenos Aires,5. Residuos,8796629.36
+2017,CABA,1. Energía,16932179.21
+2017,CABA,2. Procesos industriales,8973.62
+2017,CABA,3. Agricultura y ganadería,2637.91
+2017,CABA,4. Uso de la tierra,0.0
+2017,CABA,5. Residuos,1272276.26
+2017,Catamarca,1. Energía,692000.98
+2017,Catamarca,2. Procesos industriales,1354.36
+2017,Catamarca,3. Agricultura y ganadería,425144.78
+2017,Catamarca,4. Uso de la tierra,496145.1
+2017,Catamarca,5. Residuos,114836.19
+2017,Chaco,1. Energía,1504677.39
+2017,Chaco,2. Procesos industriales,2477.55
+2017,Chaco,3. Agricultura y ganadería,4732746.73
+2017,Chaco,4. Uso de la tierra,16553327.67
+2017,Chaco,5. Residuos,297929.48
+2017,Chubut,1. Energía,9233435.64
+2017,Chubut,2. Procesos industriales,705470.22
+2017,Chubut,3. Agricultura y ganadería,995147.88
+2017,Chubut,4. Uso de la tierra,8849288.46
+2017,Chubut,5. Residuos,189743.16
+2017,Corrientes,1. Energía,1011738.18
+2017,Corrientes,2. Procesos industriales,1166.74
+2017,Corrientes,3. Agricultura y ganadería,8875633.43
+2017,Corrientes,4. Uso de la tierra,-8551986.1
+2017,Corrientes,5. Residuos,397754.27
+2017,Córdoba,1. Energía,10949417.91
+2017,Córdoba,2. Procesos industriales,35566.27
+2017,Córdoba,3. Agricultura y ganadería,9722666.49
+2017,Córdoba,4. Uso de la tierra,832398.73
+2017,Córdoba,5. Residuos,1477796.82
+2017,Entre Ríos,1. Energía,2374020.15
+2017,Entre Ríos,2. Procesos industriales,3423.47
+2017,Entre Ríos,3. Agricultura y ganadería,7863807.1
+2017,Entre Ríos,4. Uso de la tierra,448877.93
+2017,Entre Ríos,5. Residuos,419115.95
+2017,Formosa,1. Energía,448901.48
+2017,Formosa,2. Procesos industriales,523.9
+2017,Formosa,3. Agricultura y ganadería,3034950.86
+2017,Formosa,4. Uso de la tierra,6134249.93
+2017,Formosa,5. Residuos,156331.42
+2017,Jujuy,1. Energía,1386603.64
+2017,Jujuy,2. Procesos industriales,1509.14
+2017,Jujuy,3. Agricultura y ganadería,458701.27
+2017,Jujuy,4. Uso de la tierra,-2386.74
+2017,Jujuy,5. Residuos,241973.42
+2017,Jurisdicción sin determinar,1. Energía,21583502.25
+2017,Jurisdicción sin determinar,2. Procesos industriales,18549611.02
+2017,Jurisdicción sin determinar,3. Agricultura y ganadería,6435006.74
+2017,Jurisdicción sin determinar,4. Uso de la tierra,-2723428.09
+2017,Jurisdicción sin determinar,5. Residuos,3230855.52
+2017,La Pampa,1. Energía,1966529.96
+2017,La Pampa,2. Procesos industriales,1775.51
+2017,La Pampa,3. Agricultura y ganadería,4909811.81
+2017,La Pampa,4. Uso de la tierra,5426958.32
+2017,La Pampa,5. Residuos,131365.65
+2017,La Rioja,1. Energía,449402.26
+2017,La Rioja,2. Procesos industriales,597.88
+2017,La Rioja,3. Agricultura y ganadería,299937.68
+2017,La Rioja,4. Uso de la tierra,594825.38
+2017,La Rioja,5. Residuos,124500.84
+2017,Mendoza,1. Energía,8050864.39
+2017,Mendoza,2. Procesos industriales,5456.42
+2017,Mendoza,3. Agricultura y ganadería,849949.48
+2017,Mendoza,4. Uso de la tierra,935007.85
+2017,Mendoza,5. Residuos,701840.91
+2017,Misiones,1. Energía,1288408.65
+2017,Misiones,2. Procesos industriales,2461.39
+2017,Misiones,3. Agricultura y ganadería,806019.81
+2017,Misiones,4. Uso de la tierra,-4353953.09
+2017,Misiones,5. Residuos,306139.56
+2017,Neuquén,1. Energía,19001627.92
+2017,Neuquén,2. Procesos industriales,234170.07
+2017,Neuquén,3. Agricultura y ganadería,565058.94
+2017,Neuquén,4. Uso de la tierra,-1427156.13
+2017,Neuquén,5. Residuos,193862.15
+2017,Río Negro,1. Energía,4393879.44
+2017,Río Negro,2. Procesos industriales,60373.34
+2017,Río Negro,3. Agricultura y ganadería,1300690.79
+2017,Río Negro,4. Uso de la tierra,-274581.28
+2017,Río Negro,5. Residuos,215832.97
+2017,Salta,1. Energía,6045625.79
+2017,Salta,2. Procesos industriales,2546.58
+2017,Salta,3. Agricultura y ganadería,2071027.11
+2017,Salta,4. Uso de la tierra,6299802.59
+2017,Salta,5. Residuos,406330.79
+2017,San Juan,1. Energía,1494899.25
+2017,San Juan,2. Procesos industriales,121570.14
+2017,San Juan,3. Agricultura y ganadería,81420.63
+2017,San Juan,4. Uso de la tierra,-891.55
+2017,San Juan,5. Residuos,251192.05
+2017,San Luis,1. Energía,1128784.76
+2017,San Luis,2. Procesos industriales,679045.67
+2017,San Luis,3. Agricultura y ganadería,2570083.41
+2017,San Luis,4. Uso de la tierra,5846930.87
+2017,San Luis,5. Residuos,169940.92
+2017,Santa Cruz,1. Energía,7192052.07
+2017,Santa Cruz,2. Procesos industriales,1317.77
+2017,Santa Cruz,3. Agricultura y ganadería,621298.27
+2017,Santa Cruz,4. Uso de la tierra,27626.72
+2017,Santa Cruz,5. Residuos,87400.26
+2017,Santa Fe,1. Energía,14175216.74
+2017,Santa Fe,2. Procesos industriales,44024.3
+2017,Santa Fe,3. Agricultura y ganadería,12132793.34
+2017,Santa Fe,4. Uso de la tierra,486820.32
+2017,Santa Fe,5. Residuos,1471275.11
+2017,Santiago del Estero,1. Energía,1351307.59
+2017,Santiago del Estero,2. Procesos industriales,1364.16
+2017,Santiago del Estero,3. Agricultura y ganadería,2750486.93
+2017,Santiago del Estero,4. Uso de la tierra,14475210.16
+2017,Santiago del Estero,5. Residuos,236333.8
+2017,Tierra del Fuego,1. Energía,3534417.28
+2017,Tierra del Fuego,2. Procesos industriales,4026.53
+2017,Tierra del Fuego,3. Agricultura y ganadería,122876.22
+2017,Tierra del Fuego,4. Uso de la tierra,121748.52
+2017,Tierra del Fuego,5. Residuos,41994.5
+2017,Tucumán,1. Energía,5081444.33
+2017,Tucumán,2. Procesos industriales,683.87
+2017,Tucumán,3. Agricultura y ganadería,803622.83
+2017,Tucumán,4. Uso de la tierra,-529769.99
+2017,Tucumán,5. Residuos,668108.61
+2018,Buenos Aires,1. Energía,57616423.63
+2018,Buenos Aires,2. Procesos industriales,805763.64
+2018,Buenos Aires,3. Agricultura y ganadería,28785927.03
+2018,Buenos Aires,4. Uso de la tierra,2328471.54
+2018,Buenos Aires,5. Residuos,9044881.63
+2018,CABA,1. Energía,15028751.37
+2018,CABA,2. Procesos industriales,12490.99
+2018,CABA,3. Agricultura y ganadería,2712.9
+2018,CABA,4. Uso de la tierra,0.0
+2018,CABA,5. Residuos,1317486.73
+2018,Catamarca,1. Energía,582095.69
+2018,Catamarca,2. Procesos industriales,836.84
+2018,Catamarca,3. Agricultura y ganadería,448126.52
+2018,Catamarca,4. Uso de la tierra,-239625.54
+2018,Catamarca,5. Residuos,117103.49
+2018,Chaco,1. Energía,1354149.6
+2018,Chaco,2. Procesos industriales,2137.05
+2018,Chaco,3. Agricultura y ganadería,4673094.92
+2018,Chaco,4. Uso de la tierra,14393808.04
+2018,Chaco,5. Residuos,291031.51
+2018,Chubut,1. Energía,9602353.5
+2018,Chubut,2. Procesos industriales,719040.6
+2018,Chubut,3. Agricultura y ganadería,429609.97
+2018,Chubut,4. Uso de la tierra,-989783.48
+2018,Chubut,5. Residuos,195590.3
+2018,Corrientes,1. Energía,956301.66
+2018,Corrientes,2. Procesos industriales,1083.81
+2018,Corrientes,3. Agricultura y ganadería,9198542.33
+2018,Corrientes,4. Uso de la tierra,-10422206.91
+2018,Corrientes,5. Residuos,401502.4
+2018,Córdoba,1. Energía,10777975.48
+2018,Córdoba,2. Procesos industriales,27048.62
+2018,Córdoba,3. Agricultura y ganadería,9752997.92
+2018,Córdoba,4. Uso de la tierra,5203839.29
+2018,Córdoba,5. Residuos,1520877.54
+2018,Entre Ríos,1. Energía,2318241.27
+2018,Entre Ríos,2. Procesos industriales,3150.54
+2018,Entre Ríos,3. Agricultura y ganadería,7841521.82
+2018,Entre Ríos,4. Uso de la tierra,130079.7
+2018,Entre Ríos,5. Residuos,427314.42
+2018,Formosa,1. Energía,436107.77
+2018,Formosa,2. Procesos industriales,489.34
+2018,Formosa,3. Agricultura y ganadería,3003206.11
+2018,Formosa,4. Uso de la tierra,6766725.66
+2018,Formosa,5. Residuos,158137.45
+2018,Jujuy,1. Energía,1367732.59
+2018,Jujuy,2. Procesos industriales,1344.78
+2018,Jujuy,3. Agricultura y ganadería,457737.27
+2018,Jujuy,4. Uso de la tierra,-70041.23
+2018,Jujuy,5. Residuos,245976.96
+2018,Jurisdicción sin determinar,1. Energía,20953410.63
+2018,Jurisdicción sin determinar,2. Procesos industriales,19222387.74
+2018,Jurisdicción sin determinar,3. Agricultura y ganadería,7705800.59
+2018,Jurisdicción sin determinar,4. Uso de la tierra,-2392649.03
+2018,Jurisdicción sin determinar,5. Residuos,3260801.88
+2018,La Pampa,1. Energía,1885766.91
+2018,La Pampa,2. Procesos industriales,1664.27
+2018,La Pampa,3. Agricultura y ganadería,5000031.87
+2018,La Pampa,4. Uso de la tierra,9466910.67
+2018,La Pampa,5. Residuos,133739.86
+2018,La Rioja,1. Energía,421741.43
+2018,La Rioja,2. Procesos industriales,541.6
+2018,La Rioja,3. Agricultura y ganadería,311444.73
+2018,La Rioja,4. Uso de la tierra,434975.23
+2018,La Rioja,5. Residuos,127571.15
+2018,Mendoza,1. Energía,7967520.24
+2018,Mendoza,2. Procesos industriales,4577.19
+2018,Mendoza,3. Agricultura y ganadería,784891.11
+2018,Mendoza,4. Uso de la tierra,124852.13
+2018,Mendoza,5. Residuos,712156.88
+2018,Misiones,1. Energía,1282247.5
+2018,Misiones,2. Procesos industriales,2073.55
+2018,Misiones,3. Agricultura y ganadería,898514.15
+2018,Misiones,4. Uso de la tierra,-4519914.28
+2018,Misiones,5. Residuos,311875.81
+2018,Neuquén,1. Energía,20827760.76
+2018,Neuquén,2. Procesos industriales,313250.88
+2018,Neuquén,3. Agricultura y ganadería,486819.39
+2018,Neuquén,4. Uso de la tierra,-1479423.95
+2018,Neuquén,5. Residuos,197540.43
+2018,Río Negro,1. Energía,4679594.38
+2018,Río Negro,2. Procesos industriales,60010.0
+2018,Río Negro,3. Agricultura y ganadería,1204502.69
+2018,Río Negro,4. Uso de la tierra,84987.43
+2018,Río Negro,5. Residuos,219368.44
+2018,Salta,1. Energía,5700489.1
+2018,Salta,2. Procesos industriales,2231.97
+2018,Salta,3. Agricultura y ganadería,2163189.67
+2018,Salta,4. Uso de la tierra,5955051.53
+2018,Salta,5. Residuos,413934.64
+2018,San Juan,1. Energía,1517769.81
+2018,San Juan,2. Procesos industriales,120931.24
+2018,San Juan,3. Agricultura y ganadería,88354.47
+2018,San Juan,4. Uso de la tierra,19160.89
+2018,San Juan,5. Residuos,255387.47
+2018,San Luis,1. Energía,1115910.81
+2018,San Luis,2. Procesos industriales,444000.26
+2018,San Luis,3. Agricultura y ganadería,2626919.85
+2018,San Luis,4. Uso de la tierra,5823203.59
+2018,San Luis,5. Residuos,172723.11
+2018,Santa Cruz,1. Energía,7079722.02
+2018,Santa Cruz,2. Procesos industriales,1305.39
+2018,Santa Cruz,3. Agricultura y ganadería,625720.39
+2018,Santa Cruz,4. Uso de la tierra,46082.31
+2018,Santa Cruz,5. Residuos,89491.48
+2018,Santa Fe,1. Energía,14450572.01
+2018,Santa Fe,2. Procesos industriales,51820.97
+2018,Santa Fe,3. Agricultura y ganadería,11938763.83
+2018,Santa Fe,4. Uso de la tierra,19269.18
+2018,Santa Fe,5. Residuos,1464203.07
+2018,Santiago del Estero,1. Energía,1327453.57
+2018,Santiago del Estero,2. Procesos industriales,1205.2
+2018,Santiago del Estero,3. Agricultura y ganadería,2775332.36
+2018,Santiago del Estero,4. Uso de la tierra,12415251.14
+2018,Santiago del Estero,5. Residuos,238925.02
+2018,Tierra del Fuego,1. Energía,3366027.06
+2018,Tierra del Fuego,2. Procesos industriales,3348.41
+2018,Tierra del Fuego,3. Agricultura y ganadería,126848.69
+2018,Tierra del Fuego,4. Uso de la tierra,73620.04
+2018,Tierra del Fuego,5. Residuos,43084.91
+2018,Tucumán,1. Energía,5212738.69
+2018,Tucumán,2. Procesos industriales,563.08
+2018,Tucumán,3. Agricultura y ganadería,801089.87
+2018,Tucumán,4. Uso de la tierra,-704750.94
+2018,Tucumán,5. Residuos,681117.39
+2019,Buenos Aires,1. Energía,55529961.93
+2019,Buenos Aires,2. Procesos industriales,889159.15
+2019,Buenos Aires,3. Agricultura y ganadería,29284240.33
+2019,Buenos Aires,4. Uso de la tierra,-5981639.42
+2019,Buenos Aires,5. Residuos,9344751.31
+2019,CABA,1. Energía,13495218.52
+2019,CABA,2. Procesos industriales,9802.0
+2019,CABA,3. Agricultura y ganadería,2739.07
+2019,CABA,4. Uso de la tierra,0.02
+2019,CABA,5. Residuos,1377121.67
+2019,Catamarca,1. Energía,522824.9
+2019,Catamarca,2. Procesos industriales,432.35
+2019,Catamarca,3. Agricultura y ganadería,424569.83
+2019,Catamarca,4. Uso de la tierra,271859.81
+2019,Catamarca,5. Residuos,120911.72
+2019,Chaco,1. Energía,1227807.89
+2019,Chaco,2. Procesos industriales,2093.44
+2019,Chaco,3. Agricultura y ganadería,4584964.75
+2019,Chaco,4. Uso de la tierra,7370699.56
+2019,Chaco,5. Residuos,290571.75
+2019,Chubut,1. Energía,9864555.11
+2019,Chubut,2. Procesos industriales,716812.45
+2019,Chubut,3. Agricultura y ganadería,1023341.78
+2019,Chubut,4. Uso de la tierra,-328313.99
+2019,Chubut,5. Residuos,203620.54
+2019,Corrientes,1. Energía,950196.34
+2019,Corrientes,2. Procesos industriales,1022.23
+2019,Corrientes,3. Agricultura y ganadería,8396704.63
+2019,Corrientes,4. Uso de la tierra,-11336098.46
+2019,Corrientes,5. Residuos,408573.86
+2019,Córdoba,1. Energía,9842693.53
+2019,Córdoba,2. Procesos industriales,8406.11
+2019,Córdoba,3. Agricultura y ganadería,9820278.08
+2019,Córdoba,4. Uso de la tierra,1307606.53
+2019,Córdoba,5. Residuos,1576235.18
+2019,Entre Ríos,1. Energía,2671627.93
+2019,Entre Ríos,2. Procesos industriales,3027.03
+2019,Entre Ríos,3. Agricultura y ganadería,7936625.95
+2019,Entre Ríos,4. Uso de la tierra,-402738.99
+2019,Entre Ríos,5. Residuos,439727.95
+2019,Formosa,1. Energía,445785.51
+2019,Formosa,2. Procesos industriales,431.82
+2019,Formosa,3. Agricultura y ganadería,2985938.45
+2019,Formosa,4. Uso de la tierra,6050732.17
+2019,Formosa,5. Residuos,161966.15
+2019,Jujuy,1. Energía,1497853.61
+2019,Jujuy,2. Procesos industriales,1247.74
+2019,Jujuy,3. Agricultura y ganadería,493841.46
+2019,Jujuy,4. Uso de la tierra,428070.22
+2019,Jujuy,5. Residuos,252450.24
+2019,Jurisdicción sin determinar,1. Energía,16840468.54
+2019,Jurisdicción sin determinar,2. Procesos industriales,17998216.0
+2019,Jurisdicción sin determinar,3. Agricultura y ganadería,8503109.98
+2019,Jurisdicción sin determinar,4. Uso de la tierra,-2122234.41
+2019,Jurisdicción sin determinar,5. Residuos,3242589.66
+2019,La Pampa,1. Energía,1845786.23
+2019,La Pampa,2. Procesos industriales,1852.65
+2019,La Pampa,3. Agricultura y ganadería,5016453.43
+2019,La Pampa,4. Uso de la tierra,357234.97
+2019,La Pampa,5. Residuos,137374.99
+2019,La Rioja,1. Energía,413409.14
+2019,La Rioja,2. Procesos industriales,510.46
+2019,La Rioja,3. Agricultura y ganadería,306469.43
+2019,La Rioja,4. Uso de la tierra,390315.23
+2019,La Rioja,5. Residuos,132017.5
+2019,Mendoza,1. Energía,7927143.13
+2019,Mendoza,2. Procesos industriales,4125.32
+2019,Mendoza,3. Agricultura y ganadería,788177.59
+2019,Mendoza,4. Uso de la tierra,-10142.68
+2019,Mendoza,5. Residuos,729691.04
+2019,Misiones,1. Energía,1236825.56
+2019,Misiones,2. Procesos industriales,4399.73
+2019,Misiones,3. Agricultura y ganadería,850534.31
+2019,Misiones,4. Uso de la tierra,-2310946.69
+2019,Misiones,5. Residuos,321655.7
+2019,Neuquén,1. Energía,22284348.16
+2019,Neuquén,2. Procesos industriales,302558.67
+2019,Neuquén,3. Agricultura y ganadería,508023.92
+2019,Neuquén,4. Uso de la tierra,-1745812.61
+2019,Neuquén,5. Residuos,203662.23
+2019,Río Negro,1. Energía,4943858.31
+2019,Río Negro,2. Procesos industriales,59982.52
+2019,Río Negro,3. Agricultura y ganadería,1289270.48
+2019,Río Negro,4. Uso de la tierra,-75013.31
+2019,Río Negro,5. Residuos,225691.81
+2019,Salta,1. Energía,4974108.23
+2019,Salta,2. Procesos industriales,2121.71
+2019,Salta,3. Agricultura y ganadería,2287759.99
+2019,Salta,4. Uso de la tierra,4656756.79
+2019,Salta,5. Residuos,428911.73
+2019,San Juan,1. Energía,1511477.52
+2019,San Juan,2. Procesos industriales,120991.85
+2019,San Juan,3. Agricultura y ganadería,91185.41
+2019,San Juan,4. Uso de la tierra,-26315.95
+2019,San Juan,5. Residuos,262424.27
+2019,San Luis,1. Energía,1083569.8
+2019,San Luis,2. Procesos industriales,598014.64
+2019,San Luis,3. Agricultura y ganadería,2569453.41
+2019,San Luis,4. Uso de la tierra,5521037.55
+2019,San Luis,5. Residuos,177378.49
+2019,Santa Cruz,1. Energía,7166500.96
+2019,Santa Cruz,2. Procesos industriales,1172.19
+2019,Santa Cruz,3. Agricultura y ganadería,646673.15
+2019,Santa Cruz,4. Uso de la tierra,50997.66
+2019,Santa Cruz,5. Residuos,92999.51
+2019,Santa Fe,1. Energía,14106876.58
+2019,Santa Fe,2. Procesos industriales,48072.98
+2019,Santa Fe,3. Agricultura y ganadería,11925654.22
+2019,Santa Fe,4. Uso de la tierra,-200473.49
+2019,Santa Fe,5. Residuos,1472030.99
+2019,Santiago del Estero,1. Energía,1258265.23
+2019,Santiago del Estero,2. Procesos industriales,1044.71
+2019,Santiago del Estero,3. Agricultura y ganadería,2821188.14
+2019,Santiago del Estero,4. Uso de la tierra,8898608.84
+2019,Santiago del Estero,5. Residuos,245264.76
+2019,Tierra del Fuego,1. Energía,3380304.86
+2019,Tierra del Fuego,2. Procesos industriales,3218.21
+2019,Tierra del Fuego,3. Agricultura y ganadería,133653.84
+2019,Tierra del Fuego,4. Uso de la tierra,443252.54
+2019,Tierra del Fuego,5. Residuos,44797.08
+2019,Tucumán,1. Energía,4147650.34
+2019,Tucumán,2. Procesos industriales,668.15
+2019,Tucumán,3. Agricultura y ganadería,864417.91
+2019,Tucumán,4. Uso de la tierra,-307483.4
+2019,Tucumán,5. Residuos,701213.15
+2020,Buenos Aires,1. Energía,53687716.59
+2020,Buenos Aires,2. Procesos industriales,887140.96
+2020,Buenos Aires,3. Agricultura y ganadería,29285594.56
+2020,Buenos Aires,4. Uso de la tierra,-3690131.55
+2020,Buenos Aires,5. Residuos,9471346.36
+2020,CABA,1. Energía,11926150.6
+2020,CABA,2. Procesos industriales,7285.68
+2020,CABA,3. Agricultura y ganadería,2644.66
+2020,CABA,4. Uso de la tierra,1.7
+2020,CABA,5. Residuos,1392827.59
+2020,Catamarca,1. Energía,495633.18
+2020,Catamarca,2. Procesos industriales,386.96
+2020,Catamarca,3. Agricultura y ganadería,412448.4
+2020,Catamarca,4. Uso de la tierra,1509771.94
+2020,Catamarca,5. Residuos,121157.69
+2020,Chaco,1. Energía,1121011.41
+2020,Chaco,2. Procesos industriales,2418.26
+2020,Chaco,3. Agricultura y ganadería,4440171.93
+2020,Chaco,4. Uso de la tierra,13258991.84
+2020,Chaco,5. Residuos,281380.28
+2020,Chubut,1. Energía,9406038.22
+2020,Chubut,2. Procesos industriales,506712.23
+2020,Chubut,3. Agricultura y ganadería,1021834.15
+2020,Chubut,4. Uso de la tierra,-886612.28
+2020,Chubut,5. Residuos,206311.53
+2020,Corrientes,1. Energía,920552.55
+2020,Corrientes,2. Procesos industriales,1011.9
+2020,Corrientes,3. Agricultura y ganadería,8396707.36
+2020,Corrientes,4. Uso de la tierra,-10215998.48
+2020,Corrientes,5. Residuos,405721.94
+2020,Córdoba,1. Energía,9374267.66
+2020,Córdoba,2. Procesos industriales,7910.6
+2020,Córdoba,3. Agricultura y ganadería,9572223.47
+2020,Córdoba,4. Uso de la tierra,11347302.81
+2020,Córdoba,5. Residuos,1598036.97
+2020,Entre Ríos,1. Energía,2099448.1
+2020,Entre Ríos,2. Procesos industriales,3301.77
+2020,Entre Ríos,3. Agricultura y ganadería,8015838.8
+2020,Entre Ríos,4. Uso de la tierra,2576005.81
+2020,Entre Ríos,5. Residuos,439579.23
+2020,Formosa,1. Energía,394487.05
+2020,Formosa,2. Procesos industriales,553.8
+2020,Formosa,3. Agricultura y ganadería,2904665.1
+2020,Formosa,4. Uso de la tierra,11540330.94
+2020,Formosa,5. Residuos,160540.28
+2020,Jujuy,1. Energía,1027542.15
+2020,Jujuy,2. Procesos industriales,979.14
+2020,Jujuy,3. Agricultura y ganadería,464356.47
+2020,Jujuy,4. Uso de la tierra,11051562.75
+2020,Jujuy,5. Residuos,253170.11
+2020,Jurisdicción sin determinar,1. Energía,13661874.01
+2020,Jurisdicción sin determinar,2. Procesos industriales,16868736.39
+2020,Jurisdicción sin determinar,3. Agricultura y ganadería,9581939.64
+2020,Jurisdicción sin determinar,4. Uso de la tierra,-1620876.51
+2020,Jurisdicción sin determinar,5. Residuos,3132337.08
+2020,La Pampa,1. Energía,1739832.29
+2020,La Pampa,2. Procesos industriales,1916.9
+2020,La Pampa,3. Agricultura y ganadería,4783747.1
+2020,La Pampa,4. Uso de la tierra,1382.32
+2020,La Pampa,5. Residuos,137885.11
+2020,La Rioja,1. Energía,311386.22
+2020,La Rioja,2. Procesos industriales,446.95
+2020,La Rioja,3. Agricultura y ganadería,313503.41
+2020,La Rioja,4. Uso de la tierra,477458.8
+2020,La Rioja,5. Residuos,133017.01
+2020,Mendoza,1. Energía,6565506.83
+2020,Mendoza,2. Procesos industriales,3471.48
+2020,Mendoza,3. Agricultura y ganadería,857626.25
+2020,Mendoza,4. Uso de la tierra,-51283.88
+2020,Mendoza,5. Residuos,730109.0
+2020,Misiones,1. Energía,1084087.99
+2020,Misiones,2. Procesos industriales,3651.44
+2020,Misiones,3. Agricultura y ganadería,737316.14
+2020,Misiones,4. Uso de la tierra,-1941818.58
+2020,Misiones,5. Residuos,320392.67
+2020,Neuquén,1. Energía,20118471.39
+2020,Neuquén,2. Procesos industriales,149058.06
+2020,Neuquén,3. Agricultura y ganadería,539358.92
+2020,Neuquén,4. Uso de la tierra,-1501166.51
+2020,Neuquén,5. Residuos,203939.06
+2020,Río Negro,1. Energía,4657259.46
+2020,Río Negro,2. Procesos industriales,59863.41
+2020,Río Negro,3. Agricultura y ganadería,1325078.56
+2020,Río Negro,4. Uso de la tierra,-61771.27
+2020,Río Negro,5. Residuos,225671.88
+2020,Salta,1. Energía,4423351.75
+2020,Salta,2. Procesos industriales,2144.49
+2020,Salta,3. Agricultura y ganadería,2231748.86
+2020,Salta,4. Uso de la tierra,21357361.57
+2020,Salta,5. Residuos,432562.69
+2020,San Juan,1. Energía,1333680.74
+2020,San Juan,2. Procesos industriales,120501.15
+2020,San Juan,3. Agricultura y ganadería,98919.54
+2020,San Juan,4. Uso de la tierra,-21011.48
+2020,San Juan,5. Residuos,262755.23
+2020,San Luis,1. Energía,914143.94
+2020,San Luis,2. Procesos industriales,449218.04
+2020,San Luis,3. Agricultura y ganadería,2470458.63
+2020,San Luis,4. Uso de la tierra,5478835.69
+2020,San Luis,5. Residuos,177698.97
+2020,Santa Cruz,1. Energía,6177148.75
+2020,Santa Cruz,2. Procesos industriales,947.13
+2020,Santa Cruz,3. Agricultura y ganadería,646451.04
+2020,Santa Cruz,4. Uso de la tierra,31045.01
+2020,Santa Cruz,5. Residuos,93413.03
+2020,Santa Fe,1. Energía,13820310.19
+2020,Santa Fe,2. Procesos industriales,27184.29
+2020,Santa Fe,3. Agricultura y ganadería,11855980.51
+2020,Santa Fe,4. Uso de la tierra,-1412652.51
+2020,Santa Fe,5. Residuos,1451270.12
+2020,Santiago del Estero,1. Energía,1056723.66
+2020,Santiago del Estero,2. Procesos industriales,1035.6
+2020,Santiago del Estero,3. Agricultura y ganadería,2835238.6
+2020,Santiago del Estero,4. Uso de la tierra,16232289.73
+2020,Santiago del Estero,5. Residuos,243361.06
+2020,Tierra del Fuego,1. Energía,3163892.88
+2020,Tierra del Fuego,2. Procesos industriales,3426.8
+2020,Tierra del Fuego,3. Agricultura y ganadería,133053.93
+2020,Tierra del Fuego,4. Uso de la tierra,219770.4
+2020,Tierra del Fuego,5. Residuos,45053.69
+2020,Tucumán,1. Energía,4222414.3
+2020,Tucumán,2. Procesos industriales,456.81
+2020,Tucumán,3. Agricultura y ganadería,772497.86
+2020,Tucumán,4. Uso de la tierra,144828.98
+2020,Tucumán,5. Residuos,706409.82
+2021,Buenos Aires,1. Energía,59066594.84
+2021,Buenos Aires,2. Procesos industriales,727923.66
+2021,Buenos Aires,3. Agricultura y ganadería,30811307.11
+2021,Buenos Aires,4. Uso de la tierra,-5201674.54
+2021,Buenos Aires,5. Residuos,9609582.88
+2021,CABA,1. Energía,12326885.88
+2021,CABA,2. Procesos industriales,11328.11
+2021,CABA,3. Agricultura y ganadería,2744.43
+2021,CABA,4. Uso de la tierra,0.0
+2021,CABA,5. Residuos,1409218.85
+2021,Catamarca,1. Energía,551173.65
+2021,Catamarca,2. Procesos industriales,398.94
+2021,Catamarca,3. Agricultura y ganadería,304587.75
+2021,Catamarca,4. Uso de la tierra,357949.56
+2021,Catamarca,5. Residuos,122788.14
+2021,Chaco,1. Energía,1338284.81
+2021,Chaco,2. Procesos industriales,2555.54
+2021,Chaco,3. Agricultura y ganadería,4144095.01
+2021,Chaco,4. Uso de la tierra,11923390.69
+2021,Chaco,5. Residuos,276835.03
+2021,Chubut,1. Energía,9345407.91
+2021,Chubut,2. Procesos industriales,553401.58
+2021,Chubut,3. Agricultura y ganadería,852522.42
+2021,Chubut,4. Uso de la tierra,8830897.13
+2021,Chubut,5. Residuos,210797.47
+2021,Corrientes,1. Energía,1194859.11
+2021,Corrientes,2. Procesos industriales,1182.53
+2021,Corrientes,3. Agricultura y ganadería,8578556.84
+2021,Corrientes,4. Uso de la tierra,-8000753.75
+2021,Corrientes,5. Residuos,404355.67
+2021,Córdoba,1. Energía,10864787.3
+2021,Córdoba,2. Procesos industriales,10250.63
+2021,Córdoba,3. Agricultura y ganadería,9482025.76
+2021,Córdoba,4. Uso de la tierra,3763128.22
+2021,Córdoba,5. Residuos,1629201.56
+2021,Entre Ríos,1. Energía,2516025.71
+2021,Entre Ríos,2. Procesos industriales,3904.45
+2021,Entre Ríos,3. Agricultura y ganadería,8181765.18
+2021,Entre Ríos,4. Uso de la tierra,3163898.41
+2021,Entre Ríos,5. Residuos,442305.64
+2021,Formosa,1. Energía,406497.29
+2021,Formosa,2. Procesos industriales,548.21
+2021,Formosa,3. Agricultura y ganadería,2638280.73
+2021,Formosa,4. Uso de la tierra,9280701.91
+2021,Formosa,5. Residuos,160520.93
+2021,Jujuy,1. Energía,1212206.9
+2021,Jujuy,2. Procesos industriales,1031.5
+2021,Jujuy,3. Agricultura y ganadería,402214.5
+2021,Jujuy,4. Uso de la tierra,842084.14
+2021,Jujuy,5. Residuos,249394.3
+2021,Jurisdicción sin determinar,1. Energía,18041804.25
+2021,Jurisdicción sin determinar,2. Procesos industriales,19825331.0
+2021,Jurisdicción sin determinar,3. Agricultura y ganadería,10456450.61
+2021,Jurisdicción sin determinar,4. Uso de la tierra,-2671157.52
+2021,Jurisdicción sin determinar,5. Residuos,3312124.96
+2021,La Pampa,1. Energía,2032386.4
+2021,La Pampa,2. Procesos industriales,2039.32
+2021,La Pampa,3. Agricultura y ganadería,4842100.54
+2021,La Pampa,4. Uso de la tierra,-925300.78
+2021,La Pampa,5. Residuos,139417.06
+2021,La Rioja,1. Energía,400670.88
+2021,La Rioja,2. Procesos industriales,478.39
+2021,La Rioja,3. Agricultura y ganadería,272986.64
+2021,La Rioja,4. Uso de la tierra,1100256.24
+2021,La Rioja,5. Residuos,135135.33
+2021,Mendoza,1. Energía,7534332.1
+2021,Mendoza,2. Procesos industriales,3566.04
+2021,Mendoza,3. Agricultura y ganadería,767743.31
+2021,Mendoza,4. Uso de la tierra,-84923.83
+2021,Mendoza,5. Residuos,705230.82
+2021,Misiones,1. Energía,1366468.95
+2021,Misiones,2. Procesos industriales,2677.51
+2021,Misiones,3. Agricultura y ganadería,678645.29
+2021,Misiones,4. Uso de la tierra,-3541883.14
+2021,Misiones,5. Residuos,321922.31
+2021,Neuquén,1. Energía,22153221.59
+2021,Neuquén,2. Procesos industriales,250306.11
+2021,Neuquén,3. Agricultura y ganadería,467881.68
+2021,Neuquén,4. Uso de la tierra,89380.97
+2021,Neuquén,5. Residuos,206645.34
+2021,Río Negro,1. Energía,4873565.77
+2021,Río Negro,2. Procesos industriales,59970.05
+2021,Río Negro,3. Agricultura y ganadería,1244436.51
+2021,Río Negro,4. Uso de la tierra,8401079.16
+2021,Río Negro,5. Residuos,228011.68
+2021,Salta,1. Energía,4083679.15
+2021,Salta,2. Procesos industriales,88027.96
+2021,Salta,3. Agricultura y ganadería,1858135.84
+2021,Salta,4. Uso de la tierra,4534661.61
+2021,Salta,5. Residuos,438272.81
+2021,San Juan,1. Energía,1473087.59
+2021,San Juan,2. Procesos industriales,121024.53
+2021,San Juan,3. Agricultura y ganadería,79765.97
+2021,San Juan,4. Uso de la tierra,-725.52
+2021,San Juan,5. Residuos,265415.57
+2021,San Luis,1. Energía,1118462.29
+2021,San Luis,2. Procesos industriales,413970.28
+2021,San Luis,3. Agricultura y ganadería,2435776.18
+2021,San Luis,4. Uso de la tierra,3333928.07
+2021,San Luis,5. Residuos,179594.84
+2021,Santa Cruz,1. Energía,5922852.36
+2021,Santa Cruz,2. Procesos industriales,1057.55
+2021,Santa Cruz,3. Agricultura y ganadería,576251.53
+2021,Santa Cruz,4. Uso de la tierra,1320.77
+2021,Santa Cruz,5. Residuos,95251.27
+2021,Santa Fe,1. Energía,15638658.1
+2021,Santa Fe,2. Procesos industriales,42042.11
+2021,Santa Fe,3. Agricultura y ganadería,11852597.66
+2021,Santa Fe,4. Uso de la tierra,731515.55
+2021,Santa Fe,5. Residuos,1441080.67
+2021,Santiago del Estero,1. Energía,1204782.89
+2021,Santiago del Estero,2. Procesos industriales,1139.15
+2021,Santiago del Estero,3. Agricultura y ganadería,2551092.86
+2021,Santiago del Estero,4. Uso de la tierra,19366804.22
+2021,Santiago del Estero,5. Residuos,244750.48
+2021,Tierra del Fuego,1. Energía,3135263.72
+2021,Tierra del Fuego,2. Procesos industriales,3837.06
+2021,Tierra del Fuego,3. Agricultura y ganadería,121584.27
+2021,Tierra del Fuego,4. Uso de la tierra,316285.91
+2021,Tierra del Fuego,5. Residuos,45749.13
+2021,Tucumán,1. Energía,5098003.42
+2021,Tucumán,2. Procesos industriales,531.88
+2021,Tucumán,3. Agricultura y ganadería,849797.39
+2021,Tucumán,4. Uso de la tierra,278315.82
+2021,Tucumán,5. Residuos,707114.52
+2022,Buenos Aires,1. Energía,59675599.76
+2022,Buenos Aires,2. Procesos industriales,970034.22
+2022,Buenos Aires,3. Agricultura y ganadería,29961411.87
+2022,Buenos Aires,4. Uso de la tierra,1159455.03
+2022,Buenos Aires,5. Residuos,9656229.95
+2022,CABA,1. Energía,13644211.44
+2022,CABA,2. Procesos industriales,13716.28
+2022,CABA,3. Agricultura y ganadería,3102.57
+2022,CABA,4. Uso de la tierra,0.02
+2022,CABA,5. Residuos,1474654.39
+2022,Catamarca,1. Energía,650112.33
+2022,Catamarca,2. Procesos industriales,431.87
+2022,Catamarca,3. Agricultura y ganadería,278310.29
+2022,Catamarca,4. Uso de la tierra,933961.07
+2022,Catamarca,5. Residuos,125100.18
+2022,Chaco,1. Energía,1385071.27
+2022,Chaco,2. Procesos industriales,2691.06
+2022,Chaco,3. Agricultura y ganadería,4209146.06
+2022,Chaco,4. Uso de la tierra,15245252.84
+2022,Chaco,5. Residuos,262802.78
+2022,Chubut,1. Energía,9207994.76
+2022,Chubut,2. Procesos industriales,654263.39
+2022,Chubut,3. Agricultura y ganadería,818879.65
+2022,Chubut,4. Uso de la tierra,-951771.2
+2022,Chubut,5. Residuos,210553.23
+2022,Corrientes,1. Energía,1354549.57
+2022,Corrientes,2. Procesos industriales,1316.67
+2022,Corrientes,3. Agricultura y ganadería,8302029.86
+2022,Corrientes,4. Uso de la tierra,-7493670.48
+2022,Corrientes,5. Residuos,414777.09
+2022,Córdoba,1. Energía,11677448.65
+2022,Córdoba,2. Procesos industriales,10840.82
+2022,Córdoba,3. Agricultura y ganadería,9678941.53
+2022,Córdoba,4. Uso de la tierra,3097503.91
+2022,Córdoba,5. Residuos,1661437.35
+2022,Entre Ríos,1. Energía,2860366.53
+2022,Entre Ríos,2. Procesos industriales,4023.36
+2022,Entre Ríos,3. Agricultura y ganadería,8084050.79
+2022,Entre Ríos,4. Uso de la tierra,1468958.01
+2022,Entre Ríos,5. Residuos,448332.12
+2022,Formosa,1. Energía,523112.13
+2022,Formosa,2. Procesos industriales,618.24
+2022,Formosa,3. Agricultura y ganadería,2689706.07
+2022,Formosa,4. Uso de la tierra,6901347.6
+2022,Formosa,5. Residuos,160529.74
+2022,Jujuy,1. Energía,1263680.6
+2022,Jujuy,2. Procesos industriales,1143.91
+2022,Jujuy,3. Agricultura y ganadería,391090.02
+2022,Jujuy,4. Uso de la tierra,123695.48
+2022,Jujuy,5. Residuos,253516.36
+2022,Jurisdicción sin determinar,1. Energía,18153415.59
+2022,Jurisdicción sin determinar,2. Procesos industriales,21113087.9
+2022,Jurisdicción sin determinar,3. Agricultura y ganadería,8821507.06
+2022,Jurisdicción sin determinar,4. Uso de la tierra,-2629049.93
+2022,Jurisdicción sin determinar,5. Residuos,3455351.83
+2022,La Pampa,1. Energía,2188137.93
+2022,La Pampa,2. Procesos industriales,2312.61
+2022,La Pampa,3. Agricultura y ganadería,4928127.1
+2022,La Pampa,4. Uso de la tierra,1730264.44
+2022,La Pampa,5. Residuos,140706.1
+2022,La Rioja,1. Energía,471149.81
+2022,La Rioja,2. Procesos industriales,573.22
+2022,La Rioja,3. Agricultura y ganadería,281104.87
+2022,La Rioja,4. Uso de la tierra,2003241.82
+2022,La Rioja,5. Residuos,135026.22
+2022,Mendoza,1. Energía,7712428.32
+2022,Mendoza,2. Procesos industriales,3520.99
+2022,Mendoza,3. Agricultura y ganadería,734657.83
+2022,Mendoza,4. Uso de la tierra,50659.37
+2022,Mendoza,5. Residuos,713149.01
+2022,Misiones,1. Energía,1657099.54
+2022,Misiones,2. Procesos industriales,2860.34
+2022,Misiones,3. Agricultura y ganadería,673512.81
+2022,Misiones,4. Uso de la tierra,-1925822.49
+2022,Misiones,5. Residuos,324237.13
+2022,Neuquén,1. Energía,25154906.51
+2022,Neuquén,2. Procesos industriales,280680.33
+2022,Neuquén,3. Agricultura y ganadería,452044.43
+2022,Neuquén,4. Uso de la tierra,-1744529.76
+2022,Neuquén,5. Residuos,212585.6
+2022,Río Negro,1. Energía,4875273.03
+2022,Río Negro,2. Procesos industriales,60018.84
+2022,Río Negro,3. Agricultura y ganadería,1219323.33
+2022,Río Negro,4. Uso de la tierra,3490783.69
+2022,Río Negro,5. Residuos,228597.85
+2022,Salta,1. Energía,4476496.69
+2022,Salta,2. Procesos industriales,130472.44
+2022,Salta,3. Agricultura y ganadería,1872034.68
+2022,Salta,4. Uso de la tierra,6000047.35
+2022,Salta,5. Residuos,444006.18
+2022,San Juan,1. Energía,1689197.7
+2022,San Juan,2. Procesos industriales,121157.5
+2022,San Juan,3. Agricultura y ganadería,78010.87
+2022,San Juan,4. Uso de la tierra,46622.45
+2022,San Juan,5. Residuos,271267.36
+2022,San Luis,1. Energía,1215286.76
+2022,San Luis,2. Procesos industriales,215696.31
+2022,San Luis,3. Agricultura y ganadería,2468101.62
+2022,San Luis,4. Uso de la tierra,5256655.0
+2022,San Luis,5. Residuos,183859.64
+2022,Santa Cruz,1. Energía,6078717.95
+2022,Santa Cruz,2. Procesos industriales,1134.94
+2022,Santa Cruz,3. Agricultura y ganadería,528024.04
+2022,Santa Cruz,4. Uso de la tierra,9715.91
+2022,Santa Cruz,5. Residuos,92382.63
+2022,Santa Fe,1. Energía,15513921.74
+2022,Santa Fe,2. Procesos industriales,46681.62
+2022,Santa Fe,3. Agricultura y ganadería,12281179.48
+2022,Santa Fe,4. Uso de la tierra,1227959.79
+2022,Santa Fe,5. Residuos,1430939.27
+2022,Santiago del Estero,1. Energía,1400676.3
+2022,Santiago del Estero,2. Procesos industriales,1112.44
+2022,Santiago del Estero,3. Agricultura y ganadería,2538411.0
+2022,Santiago del Estero,4. Uso de la tierra,16457405.92
+2022,Santiago del Estero,5. Residuos,253228.93
+2022,Tierra del Fuego,1. Energía,3093786.58
+2022,Tierra del Fuego,2. Procesos industriales,4697.07
+2022,Tierra del Fuego,3. Agricultura y ganadería,125794.77
+2022,Tierra del Fuego,4. Uso de la tierra,600487.81
+2022,Tierra del Fuego,5. Residuos,47002.61
+2022,Tucumán,1. Energía,4444043.38
+2022,Tucumán,2. Procesos industriales,579.33
+2022,Tucumán,3. Agricultura y ganadería,772692.19
+2022,Tucumán,4. Uso de la tierra,345476.41
+2022,Tucumán,5. Residuos,714123.2
