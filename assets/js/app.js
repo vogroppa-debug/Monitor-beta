@@ -92,6 +92,26 @@
     });
   }
 
+  /* ---- Enlaces a un <details> (p. ej. el listado de indicadores del índice): lo abren ---- */
+  function abrirDetalle(id) {
+    var t = id && document.getElementById(id);
+    if (t && t.tagName === "DETAILS") t.open = true;
+  }
+  document.addEventListener("click", function (ev) {
+    var a = ev.target.closest && ev.target.closest('a[href^="#"]');
+    if (a) abrirDetalle(a.getAttribute("href").slice(1));
+  });
+  // Entrando con el ancla en la dirección: el navegador salta antes de que se dibujen los
+  // gráficos de arriba, que después empujan la página; se vuelve a llevar a la vista ya abierto.
+  if (location.hash) {
+    var idHash = decodeURIComponent(location.hash.slice(1));
+    abrirDetalle(idHash);
+    var dHash = document.getElementById(idHash);
+    if (dHash && dHash.tagName === "DETAILS") {
+      window.addEventListener("load", function () { dHash.scrollIntoView(); });
+    }
+  }
+
   /* ---- Filtro por eje del PDES (portada) ---- */
   var pills = document.querySelectorAll(".eje-pill");
   if (pills.length) {

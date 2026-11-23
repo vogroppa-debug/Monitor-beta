@@ -50,11 +50,49 @@
   </div>
 
   <div class="ind-metodo">
-    <p><strong>Metodología:</strong> Los indicadores seleccionados fueron normalizados tomando el valor mínimo y máximo, y se los llevó a escala 0-100, donde 100 es el mejor valor histórico observado y 0 el peor, y se promedia.</p>
+    <p><strong>Metodología:</strong> Los <a href="#indice-indicadores">indicadores seleccionados</a> fueron normalizados tomando el valor mínimo y máximo, y se los llevó a escala 0-100, donde 100 es el mejor valor histórico observado y 0 el peor, y se promedia.</p>
     <p><strong>Ponderación:</strong> Los tres ejes pesan lo mismo (1/3). Dentro de cada eje, los subejes pesan lo mismo; dentro de cada subeje, los indicadores pesan lo mismo.</p>
     <h3 class="ind-metodo-title">Período base y último dato</h3>
     <p><strong>Base:</strong> 2022 (censo); si la serie no lo tiene, se toma 2021; un trienio que contiene el año cuenta (2021-23 vale como 2022). Si no hay ninguno, el período más cercano anterior a 2022 (educación: 2018); y si la serie empieza después, su primer dato. El último dato es el último año completo: las series trimestrales y mensuales se llevan a año calendario, como en la frecuencia anual del sitio.</p>
   </div>
+
+  {% if indice.listado %}
+  <details class="ind-lista" id="indice-indicadores">
+    <summary>Indicadores que forman el índice, por eje y subeje</summary>
+    <div class="ind-lista-body">
+      <table class="ind-lista-tabla">
+        <thead><tr>
+          <th scope="col">Indicador</th><th scope="col">Fuente</th>
+          <th scope="col" class="c">Provincial</th><th scope="col" class="c">Departamental</th>
+          <th scope="col" class="c">Mejor si</th><th scope="col" class="c">Base</th><th scope="col" class="c">Último dato</th>
+        </tr></thead>
+        {% for e in indice.listado %}
+        <tbody>
+          <tr class="ind-lista-eje"><th colspan="7" scope="colgroup">{{ e.label }}</th></tr>
+          {% for se in e.subejes %}
+          <tr class="ind-lista-sub"><th colspan="7" scope="colgroup">{{ se.label }}</th></tr>
+          {% for f in se.filas %}
+          <tr>
+            <td>{% if f.ficha %}<span class="ind-lista-ficha">{{ f.ficha }}</span> {% endif %}{{ f.nombre }}</td>
+            <td>{{ f.fuente }}</td>
+            <td class="c">{% if f.prov %}<span aria-label="Sí">✓</span>{% else %}<span class="ind-lista-no" aria-label="No">—</span>{% endif %}</td>
+            <td class="c">{% if f.dept %}<span aria-label="Sí">✓</span>{% else %}<span class="ind-lista-no" aria-label="No">—</span>{% endif %}</td>
+            <td class="c">{% if f.sentido == 'sube' %}▲ sube{% else %}▼ baja{% endif %}</td>
+            <td class="c">{{ f.base or '—' }}</td>
+            <td class="c">{{ f.ult or '—' }}</td>
+          </tr>
+          {% endfor %}
+          {% endfor %}
+        </tbody>
+        {% endfor %}
+      </table>
+      <p class="ind-lista-nota">Base y último dato son los del índice provincial. Quedan fuera del índice:</p>
+      <ul class="ind-lista-nota">
+        {% for x in indice.excluidos %}<li>{{ x }}</li>{% endfor %}
+      </ul>
+    </div>
+  </details>
+  {% endif %}
 
   {% if indice.tablero %}
   <!-- Tablero del índice: lo dibuja assets/js/indice.js; sin JavaScript queda oculto. -->
@@ -64,13 +102,14 @@
         <button type="button" data-v="prov" aria-pressed="true">Provincial</button>
         <button type="button" data-v="dept" aria-pressed="false">Departamental</button>
       </div>
-      <div class="seg" role="group" aria-label="Índice a comparar" data-ind-eje hidden>
+      <div class="seg" role="group" aria-label="Índice que se muestra" data-ind-eje>
         <button type="button" data-v="general" aria-pressed="true">General</button>
         {% for e in indice.tablero.ejes %}<button type="button" data-v="{{ e.id }}" aria-pressed="false">{{ e.label }}</button>{% endfor %}
       </div>
     </div>
     <h3 class="ind-tablero-titulo" data-ind-titulo></h3>
     <div class="ind-chart" data-ind-chart role="img"></div>
+    <div class="ind-grid" data-ind-grid hidden></div>
     <p class="ind-tablero-nota" data-ind-nota></p>
   </div>
   <script type="application/json" id="indice-data">{{ indice.tablero|tojson }}</script>

@@ -1,12 +1,15 @@
-/* Tablero del índice sintético («¿Cómo estamos?», portada).
+/* Tablero del índice sintético («¿Cómo estamos?», portada), en líneas.
  *
  * Los datos los escribe build.py en <script id="indice-data"> (indice_sintetico.resumen_portada):
- *   provincial:    [{eje, label, b, u, subejes: [{label, b, u, n}]}]
- *   departamental: [{depto, general: {b, u}, ejes: {eje: {b, u}}, n_ejes, n_ind}]
- *   prov_ref:      {general: {b, u}, <eje>: {b, u}}
- * Dos vistas, con un toggle: Provincial (ejes y subejes, base vs último dato) y Departamental
- * (ranking de los departamentos en el índice elegido, con la provincia como referencia).
- * Escala fija 0-100 en las dos: es la escala del índice. Sin JavaScript el bloque queda oculto.
+ *   anios:         [2018, ..., último año]
+ *   provincial:    {general: [..], ejes: [{id, label, serie: [..], subejes: [{label, n, serie}]}]}
+ *   departamental: [{depto, general: [..], ejes: {eje: [..]}, n_ejes, n_ind}]
+ * Cada serie trae un valor por año de `anios` (escala 0-100).
+ *
+ * Provincial: un gráfico; con «General», el índice general y los tres ejes; con un eje, ese eje y
+ * sus subejes. Departamental: pequeños múltiplos, uno por departamento, del índice elegido. No hay
+ * ranking ni barras: en los totales cada departamento se mide contra su propia historia, así que lo
+ * que se lee es la trayectoria de cada uno, no la comparación entre ellos.
  */
 (function () {
   "use strict";
@@ -16,169 +19,168 @@
   var D;
   try { D = JSON.parse(fuente.textContent); } catch (e) { return; }
 
-  var nf = new Intl.NumberFormat("es-AR", { minimumFractionDigits: 1, maximumFractionDigits: 1 });
-  function fmt(v) { return v == null ? "—" : nf.format(v).replace("-", "−"); }
-  function dif(b, u) {
-    if (b == null || u == null) return "";
-    var d = u - b;
-    if (Math.abs(d) < 0.05) return "sin cambio";
-    return (d > 0 ? "▲ +" : "▼ −") + nf.format(Math.abs(d)) + " puntos";
+  var PAL_LIGHT = ["#2a78d6", "#e8681f", "#16a97a", "#9b4dd4", "#e0a000", "#0f9aad", "#db3f8f"];
+  var PAL_DARK = ["#3f8ae0", "#f0793a", "#1fbe8b", "#b26ae0", "#f0b52a", "#2bb6c8", "#ef5aa1"];
+  function isDark() {
+    var t = document.documentElement.getAttribute("data-theme");
+    if (t) return t === "dark";
+    return window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
   }
+  var nf = new Intl.NumberFormat("es-AR", { minimumFractionDigits: 1, maximumFractionDigits: 1 });
+  function fmt(v) { return v == null ? "—" : nf.format(v); }
   function cssvar(n) { return getComputedStyle(document.documentElement).getPropertyValue(n).trim(); }
   function colores() {
     return { ink: cssvar("--ink"), ink2: cssvar("--ink-2"), muted: cssvar("--muted"),
-             grid: cssvar("--grid"), accent: cssvar("--accent"), surface: cssvar("--surface") };
+             grid: cssvar("--grid"), pal: isDark() ? PAL_DARK : PAL_LIGHT };
   }
-  var BASE = "Base " + D.anio_base, ULT = "Último dato";
+  var anios = D.anios.map(String);
+  var iBase = anios.indexOf(String(D.anio_base));
   var ejeLabel = {}; D.ejes.forEach(function (e) { ejeLabel[e.id] = e.label; });
 
   var elChart = raiz.querySelector("[data-ind-chart]");
+  var elGrid = raiz.querySelector("[data-ind-grid]");
   var elTitulo = raiz.querySelector("[data-ind-titulo]");
   var elNota = raiz.querySelector("[data-ind-nota]");
   var segNivel = raiz.querySelector("[data-ind-nivel]");
   var segEje = raiz.querySelector("[data-ind-eje]");
   var estado = { nivel: "prov", eje: "general" };
-  var chart = null;
+  var instancias = [];
 
   raiz.hidden = false;
 
-  function anchoEtiqueta() {
-    var w = elChart.clientWidth || 600;
-    return Math.max(96, Math.min(190, Math.round(w * 0.36)));
+  // Eje Y: se ajusta a los datos (como las líneas de los tableros), siempre dentro de la escala
+  // 0-100 del índice. Intervalo de 10 o 20 según el rango, y los extremos en múltiplos del
+  // intervalo, para que las marcas queden parejas (no 20-40-60-80-90).
+  function rangoY(series, chico) {
+    var vs = [];
+    series.forEach(function (s) { s.forEach(function (v) { if (v != null) vs.push(v); }); });
+    if (!vs.length) return { min: 0, max: 100, interval: 20 };
+    var a = Math.min.apply(null, vs) - 2, b = Math.max.apply(null, vs) + 2;
+    var paso = (b - a) > (chico ? 30 : 50) ? 20 : 10;
+    return { min: Math.max(0, Math.floor(a / paso) * paso),
+             max: Math.min(100, Math.ceil(b / paso) * paso), interval: paso };
   }
 
-  function base(C, filas) {
+  function opcion(C, series, chico) {
+    var r = rangoY(series.map(function (s) { return s.data; }), chico);
     return {
       animationDuration: 300,
       textStyle: { fontFamily: "inherit" },
-      grid: { left: 8, right: 44, top: 34, bottom: 8, containLabel: true },
-      legend: { top: 0, left: 0, itemWidth: 14, itemHeight: 10,
-                textStyle: { color: C.ink2, fontSize: 12 } },
-      xAxis: { type: "value", min: 0, max: 100, interval: 25,
-               axisLabel: { color: C.muted, fontSize: 11 },
+      color: C.pal,
+      grid: chico ? { left: 4, right: 10, top: 10, bottom: 4, containLabel: true }
+                  : { left: 8, right: 24, top: 40, bottom: 8, containLabel: true },
+      legend: chico ? { show: false } : { top: 0, left: 0, itemWidth: 18, itemHeight: 10,
+                                          textStyle: { color: C.ink2, fontSize: 12 } },
+      tooltip: {
+        trigger: "axis", confine: true,
+        valueFormatter: function (v) { return fmt(v); }
+      },
+      xAxis: { type: "category", data: anios, boundaryGap: false,
+               axisLabel: { color: C.muted, fontSize: chico ? 10 : 11, hideOverlap: true },
+               axisLine: { lineStyle: { color: C.grid } }, axisTick: { show: false } },
+      yAxis: { type: "value", min: r.min, max: r.max, interval: r.interval,
+               axisLabel: { color: C.muted, fontSize: chico ? 10 : 11 },
                splitLine: { lineStyle: { color: C.grid } } },
-      yAxis: { type: "category", inverse: true, data: filas,
-               axisTick: { show: false }, axisLine: { lineStyle: { color: C.grid } } },
-      tooltip: { trigger: "axis", axisPointer: { type: "shadow" }, confine: true }
+      series: series.map(function (s, i) {
+        var o = { name: s.name, type: "line", data: s.data, connectNulls: false,
+                  symbol: "circle", symbolSize: chico ? 0 : (s.fuerte ? 6 : 4), showSymbol: !chico,
+                  // Los componentes (ejes, o subejes) van en guiones para no confundirse con la
+                  // línea gruesa y continua del índice que resumen.
+                  lineStyle: { width: s.fuerte ? 3 : 1.8, type: s.fuerte ? "solid" : [6, 4] },
+                  emphasis: { focus: chico ? "none" : "series" } };
+        if (s.color) o.itemStyle = { color: s.color };
+        if (i === 0 && iBase >= 0) {
+          o.markLine = { symbol: "none", silent: true,
+            lineStyle: { color: C.muted, type: "dashed", width: 1 },
+            label: chico ? { show: false } : { formatter: "Base " + D.anio_base, color: C.muted,
+                                              fontSize: 11, position: "end" },
+            data: [{ xAxis: anios[iBase] }] };
+        }
+        return o;
+      })
     };
+  }
+
+  function limpiar() {
+    instancias.forEach(function (c) { c.dispose(); });
+    instancias = [];
+    elGrid.innerHTML = "";
   }
 
   // ---------------------------------------------------------------- Provincial
   function vistaProvincial(C) {
-    var filas = [], meta = [];
-    D.provincial.forEach(function (e) {
-      filas.push("e" + filas.length); meta.push({ eje: true, label: e.label, b: e.b, u: e.u,
-        n: e.subejes.reduce(function (a, s) { return a + s.n; }, 0) });
-      e.subejes.forEach(function (s) {
-        filas.push("s" + filas.length); meta.push({ eje: false, label: s.label, b: s.b, u: s.u, n: s.n });
-      });
-    });
-    var o = base(C, filas);
-    o.yAxis.axisLabel = {
-      width: anchoEtiqueta(), overflow: "truncate", color: C.ink,
-      formatter: function (v) {
-        var m = meta[filas.indexOf(v)];
-        return m.eje ? "{e|" + m.label + "}" : "{s|" + m.label + "}";
-      },
-      rich: { e: { fontWeight: 700, fontSize: 12.5, color: C.ink },
-              s: { fontSize: 12, color: C.ink2, padding: [0, 0, 0, 10] } }
-    };
-    o.tooltip.formatter = function (ps) {
-      var m = meta[ps[0].dataIndex];
-      return "<strong>" + m.label + "</strong>" + (m.eje ? " (eje)" : "") +
-        "<br>" + BASE + ": " + fmt(m.b) + "<br>" + ULT + ": <strong>" + fmt(m.u) + "</strong>" +
-        "<br>" + dif(m.b, m.u) + "<br><span style='opacity:.75'>" + m.n + " indicador" +
-        (m.n === 1 ? "" : "es") + "</span>";
-    };
-    var etiqueta = { show: true, position: "right", color: C.ink, fontSize: 11,
-                     formatter: function (p) { return fmt(p.value); } };
-    o.series = [
-      { name: BASE, type: "bar", barGap: "8%", barCategoryGap: "32%",
-        itemStyle: { color: C.muted, opacity: 0.45 },
-        data: meta.map(function (m) { return m.b; }) },
-      { name: ULT, type: "bar", label: etiqueta,
-        itemStyle: { color: C.accent },
-        data: meta.map(function (m) {
-          return { value: m.u, itemStyle: m.eje ? { borderColor: C.ink, borderWidth: 1 } : {} };
-        }) }
-    ];
-    elTitulo.textContent = "Índice provincial por eje y subeje (escala 0-100)";
-    elNota.textContent = "En negrita, cada eje: el promedio de sus subejes. Las barras grises son " +
-      "la base " + D.anio_base + "; las de color, el último dato. Muchas series del eje " +
-      "sociocultural (censo, trienios) tienen un único período: valen lo mismo en la base y en " +
-      "el último dato, así que todavía no mueven el índice.";
-    return { opcion: o, filas: filas.length };
+    var series, titulo;
+    if (estado.eje === "general") {
+      series = [{ name: "Índice general", data: D.provincial.general, fuerte: true, color: C.ink }]
+        .concat(D.provincial.ejes.map(function (e) { return { name: e.label, data: e.serie }; }));
+      titulo = "Índice provincial: general y por eje";
+      elNota.textContent = "Escala 0-100: 100 es el mejor valor histórico de cada indicador y 0 el " +
+        "peor. Cada dato rige hasta el siguiente (un censo vale hasta el próximo), así que los " +
+        "indicadores censales y de trienios mueven la línea en escalón. En " + D.anio_base +
+        " la línea pasa por la base de las tarjetas y en " + anios[anios.length - 1] +
+        " por el último dato.";
+    } else {
+      var e = D.provincial.ejes.filter(function (x) { return x.id === estado.eje; })[0];
+      series = [{ name: e.label, data: e.serie, fuerte: true, color: C.ink }]
+        .concat(e.subejes.map(function (s) {
+          return { name: s.label + " (" + s.n + ")", data: s.serie };
+        }));
+      titulo = "Índice provincial: eje " + e.label + " y sus subejes";
+      elNota.textContent = "La línea gruesa es el eje: el promedio de sus subejes. Entre " +
+        "paréntesis, la cantidad de indicadores de cada subeje. Un subeje con un solo indicador " +
+        "censal o de trienio queda plano entre mediciones.";
+    }
+    elTitulo.textContent = titulo;
+    elChart.hidden = false; elGrid.hidden = true;
+    var c = echarts.init(elChart, null, { renderer: "svg" });
+    c.setOption(opcion(C, series, false));
+    elChart.setAttribute("aria-label", titulo);
+    instancias.push(c);
   }
 
   // ---------------------------------------------------------------- Departamental
   function vistaDepartamental(C) {
     var clave = estado.eje;
-    var val = function (d) { return clave === "general" ? d.general : d.ejes[clave]; };
-    var con = D.departamental.filter(function (d) { return val(d).u != null; });
-    var sin = D.departamental.filter(function (d) { return val(d).u == null; });
-    con.sort(function (a, b) { return val(b).u - val(a).u; });
-    var parcial = function (d) { return clave === "general" && d.n_ejes < 3; };
-    var filas = con.map(function (d) { return d.depto + (parcial(d) ? " *" : ""); });
-    var ref = D.prov_ref[clave];
-
-    var o = base(C, filas);
-    o.yAxis.axisLabel = { width: anchoEtiqueta(), overflow: "truncate", color: C.ink, fontSize: 12 };
-    o.tooltip.formatter = function (ps) {
-      var d = con[ps[0].dataIndex], v = val(d);
-      var faltan = D.ejes.filter(function (e) { return d.ejes[e.id].u == null; })
-        .map(function (e) { return e.label; });
-      return "<strong>" + d.depto + "</strong><br>" + BASE + ": " + fmt(v.b) +
-        "<br>" + ULT + ": <strong>" + fmt(v.u) + "</strong><br>" + dif(v.b, v.u) +
-        "<br><span style='opacity:.75'>" + d.n_ind + " indicadores; " + d.n_ejes + " de 3 ejes" +
-        (faltan.length ? " (sin " + faltan.join(", ") + ")" : "") + "</span>";
-    };
-    o.series = [
-      { name: ULT, type: "bar", barCategoryGap: "34%", itemStyle: { color: C.accent },
-        label: { show: true, position: "right", color: C.ink, fontSize: 11,
-                 formatter: function (p) { return fmt(p.value); } },
-        data: con.map(function (d) { return val(d).u; }),
-        markLine: ref && ref.u != null ? {
-          symbol: "none", silent: true,
-          lineStyle: { color: C.ink, type: "dashed", width: 1.2 },
-          label: { show: false },
-          data: [{ xAxis: ref.u }]
-        } : undefined },
-      { name: BASE, type: "scatter", symbol: "rect", symbolSize: [3, 14], z: 5,
-        itemStyle: { color: C.ink },
-        data: con.map(function (d) { return val(d).b; }) }
-    ];
     var nombre = clave === "general" ? "Índice general" : "Eje " + ejeLabel[clave];
-    elTitulo.textContent = nombre + " por departamento: último dato (escala 0-100)" +
-      (ref && ref.u != null ? " · línea punteada: provincia " + fmt(ref.u) : "");
-
-    var notas = [];
-    var parciales = con.filter(parcial);
+    elTitulo.textContent = nombre + " por departamento";
+    elChart.hidden = true; elGrid.hidden = false;
+    var sin = [], parciales = [];
+    var color = clave === "general" ? C.ink : C.pal[D.ejes.map(function (e) { return e.id; }).indexOf(clave) + 1];
+    D.departamental.forEach(function (d) {
+      var serie = clave === "general" ? d.general : d.ejes[clave];
+      if (!serie || serie.every(function (v) { return v == null; })) { sin.push(d.depto); return; }
+      var parcial = clave === "general" && d.n_ejes < 3;
+      if (parcial) parciales.push(d);
+      var cell = document.createElement("div"); cell.className = "facet";
+      var h = document.createElement("div"); h.className = "facet-title";
+      h.textContent = d.depto + (parcial ? " *" : "");
+      var p = document.createElement("div"); p.className = "facet-plot";
+      cell.appendChild(h); cell.appendChild(p); elGrid.appendChild(cell);
+      var c = echarts.init(p, null, { renderer: "svg" });
+      c.setOption(opcion(C, [{ name: d.depto, data: serie, fuerte: true, color: color }], true));
+      instancias.push(c);
+    });
+    var notas = ["Cada recuadro tiene su propia escala vertical: se lee la trayectoria de cada " +
+      "departamento, no la comparación entre ellos. En los indicadores que son totales " +
+      "(toneladas, puestos de trabajo…) cada departamento se mide contra su propia historia."];
     if (parciales.length) {
       notas.push("* Promedia sólo los ejes con dato: " + parciales.map(function (d) {
-        var f = D.ejes.filter(function (e) { return d.ejes[e.id].u == null; })
-          .map(function (e) { return e.label; });
-        return d.depto + " (sin " + f.join(", ") + ")";
+        var f = D.ejes.filter(function (e) {
+          return (d.ejes[e.id] || []).every(function (v) { return v == null; });
+        }).map(function (e) { return e.label; });
+        return d.depto + (f.length ? " (sin " + f.join(", ") + ")" : "");
       }).join("; ") + ".");
     }
-    if (sin.length) notas.push("Sin dato en este eje: " + sin.map(function (d) { return d.depto; }).join(", ") + ".");
-    notas.push("La marca vertical corta es la base " + D.anio_base + "; la línea punteada, el índice " +
-      "provincial, que se calcula con su propia selección de indicadores.");
-    notas.push("En los indicadores que son totales (toneladas, puestos de trabajo…) cada " +
-      "departamento se compara con su propia historia, así que el ranking refleja más la " +
-      "trayectoria que el nivel; en las tasas y porcentajes la escala es común a todos.");
+    if (sin.length) notas.push("Sin dato en este eje: " + sin.join(", ") + ".");
+    notas.push("La línea punteada marca la base " + D.anio_base + ".");
     elNota.textContent = notas.join(" ");
-    return { opcion: o, filas: filas.length };
   }
 
   // ---------------------------------------------------------------- dibujo
   function dibujar() {
+    limpiar();
     var C = colores();
-    var v = estado.nivel === "prov" ? vistaProvincial(C) : vistaDepartamental(C);
-    elChart.style.height = Math.max(260, v.filas * 28 + 64) + "px";
-    if (chart) chart.dispose();
-    chart = echarts.init(elChart, null, { renderer: "svg" });
-    chart.setOption(v.opcion);
-    elChart.setAttribute("aria-label", elTitulo.textContent);
+    if (estado.nivel === "prov") vistaProvincial(C); else vistaDepartamental(C);
   }
 
   function enlazar(seg, campo) {
@@ -187,7 +189,6 @@
         seg.querySelectorAll("button").forEach(function (x) { x.setAttribute("aria-pressed", "false"); });
         b.setAttribute("aria-pressed", "true");
         estado[campo] = b.getAttribute("data-v");
-        segEje.hidden = estado.nivel !== "dept";
         dibujar();
       });
     });
@@ -198,7 +199,7 @@
   dibujar();
   var t;
   window.addEventListener("resize", function () {
-    clearTimeout(t); t = setTimeout(dibujar, 150);
+    clearTimeout(t); t = setTimeout(function () { instancias.forEach(function (c) { c.resize(); }); }, 150);
   });
   window.addEventListener("cess-theme-change", dibujar);
 })();

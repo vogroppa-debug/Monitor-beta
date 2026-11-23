@@ -32,6 +32,7 @@ import catalog
 import indicadores as I
 
 ANIO_BASE, ANIO_BASE_ALT = 2022, 2021
+ANIO_INICIO = 2018          # primer año de la línea del tablero (actualización 2018 del PDES)
 EJES = [(k, v["label"]) for k, v in sorted(catalog.EJES_PDES.items(), key=lambda kv: kv[1]["orden"])]
 EJE_LABEL = dict(EJES)
 DEPTOS = sorted(adapters._SOC_DEPTOS)
@@ -151,6 +152,25 @@ def puntos(spec, serie, peor, mejor):
     a1 = max(serie)
     return dict(anio_base=a0, base_lab=lab0, regla=regla, v_base=serie[a0], n_base=nz(serie[a0]),
                 anio_ult=a1, ult_lab=cobertura(spec, a1)[1], v_ult=serie[a1], n_ult=nz(serie[a1]))
+
+
+def trayectoria(spec, serie, peor, mejor, anios):
+    """{año: normalizado} para cada año de `anios`, para dibujar el índice como línea.
+
+    Cada dato vale desde el primer año que cubre (el trienio 2021-23 rige desde 2021) hasta el
+    siguiente dato: un censo vale hasta el próximo censo. Antes del primer dato se usa ese primer
+    dato. Es la misma regla de la base —2022, 2021, el anterior más cercano o el primero—, así
+    que en 2022 la línea pasa por la base de las tarjetas y en el último año por el último dato.
+    """
+    if not serie or peor == mejor:
+        return None
+    nz = lambda x: (x - peor) / (mejor - peor) * 100       # noqa: E731
+    obs = sorted((cobertura(spec, a)[0][0], a) for a in serie)
+    out = {}
+    for y in anios:
+        previos = [a for ini, a in obs if ini <= y]
+        out[y] = nz(serie[previos[-1] if previos else obs[0][1]])
+    return out
 
 
 def postes(sentido, valores):
@@ -274,41 +294,68 @@ def resumen_portada(payloads, tabla, seleccion):
                 "cls": "flat" if cambio is None or abs(cambio) < 0.05 else ("up" if cambio > 0 else "down"),
                 "base100": _num(rebase(d["b"], d["u"])), "n_ind": n_ind, "n_sub": n_sub}
 
-    # -- tablero: subejes provinciales y departamentos (los dibuja assets/js/indice.js)
+    # -- tablero: trayectoria anual del índice (la dibuja assets/js/indice.js, en líneas)
+    anios = list(range(ANIO_INICIO, max(m["p_prov"]["anio_ult"] for m in inds if m["en_a"]) + 1))
     orden_sub = I._orden_subejes(catalog.TAGS, catalog.SUBEJE_ORDEN)
-    provincial = []
+
+    def por_anio(trays):
+        """trays: [(eje, subeje, {año: normalizado})] -> [(subejes, ejes, general)] por año."""
+        return [agregar([(e, se, t[a], t[a]) for e, se, t in trays]) for a in anios]
+
+    def col(niveles, f):
+        return [_r(f(n)) for n in niveles]
+
+    trays = [(m["eje"], m["subeje"], trayectoria(m["spec"], m["prov"], *m["postes_prov"], anios=anios))
+             for m in inds if m["en_a"]]
+    niv = por_anio([t for t in trays if t[2]])
+    provincial = {"general": col(niv, lambda n: n[2]["u"]), "ejes": []}
     for e, lab in EJES:
-        ses = sorted(((se, v) for (ee, se), v in subejes.items() if ee == e and v["u"] is not None),
-                     key=lambda kv: (orden_sub.get(kv[0], 99), kv[0]))
-        provincial.append({"eje": e, "label": lab, "b": _r(ejes[e]["b"]), "u": _r(ejes[e]["u"]),
-                           "subejes": [{"label": se, "b": _r(v["b"]), "u": _r(v["u"]), "n": v["n"]}
-                                       for se, v in ses]})
+        ses = sorted({se for (ee, se) in subejes if ee == e and subejes[(ee, se)]["u"] is not None},
+                     key=lambda x: (orden_sub.get(x, 99), x))
+        provincial["ejes"].append({
+            "id": e, "label": lab, "serie": col(niv, lambda n, e=e: n[1][e]["u"]),
+            "subejes": [{"label": se, "n": subejes[(e, se)]["n"],
+                         "serie": col(niv, lambda n, k=(e, se): n[0][k]["u"])} for se in ses]})
 
     departamental = []
     for d in DEPTOS:
-        its = [(m["eje"], m["subeje"], m["p_dept"][d]["n_base"], m["p_dept"][d]["n_ult"])
-               for m in inds if m["en_b"] and d in m["p_dept"]]
-        if not its:
+        tr = [(m["eje"], m["subeje"], trayectoria(m["spec"], m["dept"][d], *m["postes_dept"][d], anios=anios))
+              for m in inds if m["en_b"] and d in m["p_dept"]]
+        tr = [t for t in tr if t[2]]
+        if not tr:
             continue
-        _s, ej, g = agregar(its)
+        nd = por_anio(tr)
         departamental.append({
-            "depto": d, "general": {"b": _r(g["b"]), "u": _r(g["u"])},
-            "ejes": {e: {"b": _r(ej[e]["b"]), "u": _r(ej[e]["u"])} for e, _l in EJES},
-            "n_ejes": sum(1 for e, _l in EJES if ej[e]["u"] is not None), "n_ind": len(its)})
+            "depto": d, "general": col(nd, lambda n: n[2]["u"]),
+            "ejes": {e: col(nd, lambda n, e=e: n[1][e]["u"]) for e, _l in EJES},
+            "n_ejes": len({t[0] for t in tr}), "n_ind": len(tr)})
+
+    # -- listado de indicadores del índice, por eje y subeje, en el orden de la tabla del sitio
+    orden_fila = {(f["ficha"], f["indicador"]): i for i, f in enumerate(f for g in tabla for f in g["filas"])}
+    listado = []
+    for e, lab in EJES:
+        mi = sorted((m for m in inds if m["eje"] == e), key=lambda m: orden_fila.get((m["ficha"], m["nombre"]), 9999))
+        ses = sorted({m["subeje"] for m in mi}, key=lambda x: (orden_sub.get(x, 99), x))
+        listado.append({"label": lab, "subejes": [{"label": se, "filas": [
+            {"ficha": m["ficha"], "nombre": m["nombre"], "prov": m["en_a"], "dept": m["en_b"],
+             "sentido": "sube" if m["sentido"] == "mayor_mejor" else "baja",
+             "base": m["p_prov"]["base_lab"] if m["en_a"] else "",
+             "ult": m["p_prov"]["ult_lab"] if m["en_a"] else "",
+             "fuente": m["fuente"]} for m in mi if m["subeje"] == se]} for se in ses]})
 
     return {
+        "listado": listado,
         "tarjetas": [tarjeta("Índice general", gen, len(items), general=True)]
                     + [tarjeta(lab, ejes[e], ejes[e]["n_ind"], ejes[e]["n_sub"]) for e, lab in EJES],
         "n_indicadores": len(items),
         "n_indicadores_dept": sum(1 for m in inds if m["en_b"]),
         "excluidos": ["%s (%s): %s" % (e["nombre"], e["indice"], e["motivo"]) for e in excluidos],
         "tablero": {
+            "anios": anios,
+            "anio_base": ANIO_BASE,
             "ejes": [{"id": e, "label": lab} for e, lab in EJES],
             "provincial": provincial,
-            "prov_ref": dict({"general": {"b": _r(gen["b"]), "u": _r(gen["u"])}},
-                             **{e: {"b": _r(ejes[e]["b"]), "u": _r(ejes[e]["u"])} for e, _l in EJES}),
             "departamental": departamental,
-            "anio_base": ANIO_BASE,
         },
     }
 
