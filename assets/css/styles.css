@@ -568,8 +568,6 @@ p { margin: 0 0 1em; }
 .ind-lista-sub th { color: var(--ink-2); font-weight: 600; background: var(--tipo-bg); }
 .ind-lista-ficha { color: var(--muted); font-variant-numeric: tabular-nums; }
 .ind-lista-no { color: var(--muted); }
-.ind-lista-nota { font-size: .8rem; color: var(--muted); margin: 10px 0 0; }
-ul.ind-lista-nota { padding-left: 18px; margin-top: 4px; }
 .ind-lista { scroll-margin-top: 84px; }   /* que el encabezado fijo no tape el título al saltar */
 
 /* -------------------------------------------------- Menú lateral (portada) */
