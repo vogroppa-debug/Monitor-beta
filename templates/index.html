@@ -76,19 +76,20 @@
     <div class="ind-lista-body">
       <table class="ind-lista-tabla">
         <thead><tr>
-          <th scope="col">Indicador</th><th scope="col">Fuente</th>
+          <th scope="col">Indicador</th><th scope="col">Fuente</th><th scope="col">Actualización</th>
           <th scope="col" class="c">Provincial</th><th scope="col" class="c">Departamental</th>
           <th scope="col" class="c">Mejor si</th><th scope="col" class="c">Base</th><th scope="col" class="c">Último dato</th>
         </tr></thead>
         {% for e in indice.listado %}
         <tbody>
-          <tr class="ind-lista-eje"><th colspan="7" scope="colgroup">{{ e.label }}</th></tr>
+          <tr class="ind-lista-eje"><th colspan="8" scope="colgroup">{{ e.label }}</th></tr>
           {% for se in e.subejes %}
-          <tr class="ind-lista-sub"><th colspan="7" scope="colgroup">{{ se.label }}</th></tr>
+          <tr class="ind-lista-sub"><th colspan="8" scope="colgroup">{{ se.label }}</th></tr>
           {% for f in se.filas %}
           <tr>
             <td>{% if f.ficha %}<span class="ind-lista-ficha">{{ f.ficha }}</span> {% endif %}{{ f.nombre }}</td>
             <td>{{ f.fuente }}</td>
+            <td class="ind-lista-act">{{ f.actualizacion }}</td>
             <td class="c">{% if f.prov %}<span aria-label="Sí">✓</span>{% else %}<span class="ind-lista-no" aria-label="No">—</span>{% endif %}</td>
             <td class="c">{% if f.dept %}<span aria-label="Sí">✓</span>{% else %}<span class="ind-lista-no" aria-label="No">—</span>{% endif %}</td>
             <td class="c">{% if f.sentido == 'sube' %}▲ sube{% else %}▼ baja{% endif %}</td>

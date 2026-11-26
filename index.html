@@ -9,7 +9,7 @@
     /* fija el tema antes de pintar para evitar flash */
     (function(){try{var t=localStorage.getItem('cess-theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
   </script>
-  <link rel="stylesheet" href="./assets/css/styles.css?v=1795656019">
+  <link rel="stylesheet" href="./assets/css/styles.css?v=1795657723">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%232a78d6'/><text x='50' y='68' font-size='52' text-anchor='middle' fill='white' font-family='sans-serif' font-weight='700'>C</text></svg>">
 </head>
 <body>
@@ -236,19 +236,20 @@
     <div class="ind-lista-body">
       <table class="ind-lista-tabla">
         <thead><tr>
-          <th scope="col">Indicador</th><th scope="col">Fuente</th>
+          <th scope="col">Indicador</th><th scope="col">Fuente</th><th scope="col">Actualización</th>
           <th scope="col" class="c">Provincial</th><th scope="col" class="c">Departamental</th>
           <th scope="col" class="c">Mejor si</th><th scope="col" class="c">Base</th><th scope="col" class="c">Último dato</th>
         </tr></thead>
         
         <tbody>
-          <tr class="ind-lista-eje"><th colspan="7" scope="colgroup">Sociocultural</th></tr>
+          <tr class="ind-lista-eje"><th colspan="8" scope="colgroup">Sociocultural</th></tr>
           
-          <tr class="ind-lista-sub"><th colspan="7" scope="colgroup">Condiciones de vida</th></tr>
+          <tr class="ind-lista-sub"><th colspan="8" scope="colgroup">Condiciones de vida</th></tr>
           
           <tr>
             <td><span class="ind-lista-ficha">I.1</span> Hogares con NBI (%)</td>
             <td>CNPV 2022</td>
+            <td class="ind-lista-act">Cada 10 años</td>
             <td class="c"><span aria-label="Sí">✓</span></td>
             <td class="c"><span aria-label="Sí">✓</span></td>
             <td class="c">▼ baja</td>
@@ -259,6 +260,7 @@
           <tr>
             <td><span class="ind-lista-ficha">I.10</span> Hogares sin internet en la vivienda (%)</td>
             <td>CNPV 2022</td>
+            <td class="ind-lista-act">Cada 10 años</td>
             <td class="c"><span aria-label="Sí">✓</span></td>
             <td class="c"><span aria-label="Sí">✓</span></td>
             <td class="c">▼ baja</td>
@@ -267,11 +269,12 @@
           </tr>
           
           
-          <tr class="ind-lista-sub"><th colspan="7" scope="colgroup">Salud</th></tr>
+          <tr class="ind-lista-sub"><th colspan="8" scope="colgroup">Salud</th></tr>
           
           <tr>
             <td><span class="ind-lista-ficha">II.6</span> Años potenciales de vida perdidos (años c/ 100 mil hab.)</td>
             <td>DEIS e INDEC</td>
+            <td class="ind-lista-act">Anual</td>
             <td class="c"><span aria-label="Sí">✓</span></td>
             <td class="c"><span aria-label="Sí">✓</span></td>
             <td class="c">▼ baja</td>
@@ -282,6 +285,7 @@
           <tr>
             <td><span class="ind-lista-ficha">II.8</span> Tasa de mortalidad infantil (c/ mil nacidos vivos)</td>
             <td>DEIS</td>
+            <td class="ind-lista-act">Anual</td>
             <td class="c"><span aria-label="Sí">✓</span></td>
             <td class="c"><span aria-label="Sí">✓</span></td>
             <td class="c">▼ baja</td>
@@ -292,6 +296,7 @@
           <tr>
             <td><span class="ind-lista-ficha">II.10</span> Nacidos vivos con bajo peso al nacer (%)</td>
             <td>DEIS</td>
+            <td class="ind-lista-act">Anual</td>
             <td class="c"><span aria-label="Sí">✓</span></td>
             <td class="c"><span aria-label="Sí">✓</span></td>
             <td class="c">▼ baja</td>
@@ -302,6 +307,7 @@
           <tr>
             <td>Tasa de mortalidad infantil (c/ mil nacidos vivos)</td>
             <td>Salud Salta</td>
+            <td class="ind-lista-act">Anual</td>
             <td class="c"><span aria-label="Sí">✓</span></td>
             <td class="c"><span class="ind-lista-no" aria-label="No">—</span></td>
             <td class="c">▼ baja</td>
@@ -312,6 +318,7 @@
           <tr>
             <td>Tasa de mortalidad materna (c/ 10 mil nacidos vivos)</td>
             <td>Salud Salta</td>
+            <td class="ind-lista-act">Anual</td>
             <td class="c"><span aria-label="Sí">✓</span></td>
             <td class="c"><span class="ind-lista-no" aria-label="No">—</span></td>
             <td class="c">▼ baja</td>
@@ -322,6 +329,7 @@
           <tr>
             <td>Camas disponibles (promedio)</td>
             <td>Salud Salta</td>
+            <td class="ind-lista-act">Anual</td>
             <td class="c"><span aria-label="Sí">✓</span></td>
             <td class="c"><span aria-label="Sí">✓</span></td>
             <td class="c">▲ sube</td>
@@ -330,11 +338,12 @@
           </tr>
           
           
-          <tr class="ind-lista-sub"><th colspan="7" scope="colgroup">Educación</th></tr>
+          <tr class="ind-lista-sub"><th colspan="8" scope="colgroup">Educación</th></tr>
           
           <tr>
             <td><span class="ind-lista-ficha">III.2</span> Repitencia en secundaria (%)</td>
             <td>RA y Aprender</td>
+            <td class="ind-lista-act">Anual</td>
             <td class="c"><span aria-label="Sí">✓</span></td>
             <td class="c"><span aria-label="Sí">✓</span></td>
             <td class="c">▼ baja</td>
@@ -345,6 +354,7 @@
           <tr>
             <td><span class="ind-lista-ficha">III.7</span> Aprender 6.º grado, Lengua: alumnos en nivel satisfactorio o avanzado (%)</td>
             <td>Educación Nación</td>
+            <td class="ind-lista-act">Anual</td>
             <td class="c"><span aria-label="Sí">✓</span></td>
             <td class="c"><span aria-label="Sí">✓</span></td>
             <td class="c">▲ sube</td>
@@ -355,6 +365,7 @@
           <tr>
             <td><span class="ind-lista-ficha">III.8</span> Aprender 6.º grado, Matemática: alumnos en nivel satisfactorio o avanzado (%)</td>
             <td>RA y Aprender</td>
+            <td class="ind-lista-act">Anual</td>
             <td class="c"><span aria-label="Sí">✓</span></td>
             <td class="c"><span aria-label="Sí">✓</span></td>
             <td class="c">▲ sube</td>
@@ -365,6 +376,7 @@
           <tr>
             <td><span class="ind-lista-ficha">III.9</span> Alumnos de 6.º grado sin sobreedad (%)</td>
             <td>Educación Nación</td>
+            <td class="ind-lista-act">Anual</td>
             <td class="c"><span aria-label="Sí">✓</span></td>
             <td class="c"><span aria-label="Sí">✓</span></td>
             <td class="c">▲ sube</td>
@@ -375,6 +387,7 @@
           <tr>
             <td><span class="ind-lista-ficha">III.10</span> Alumnos de 6.º grado en el quintil socioeconómico más bajo (%)</td>
             <td>Educación Nación</td>
+            <td class="ind-lista-act">Anual</td>
             <td class="c"><span aria-label="Sí">✓</span></td>
             <td class="c"><span aria-label="Sí">✓</span></td>
             <td class="c">▼ baja</td>
@@ -385,6 +398,7 @@
           <tr>
             <td>Repitencia en primaria (%)</td>
             <td>RA y Aprender</td>
+            <td class="ind-lista-act">Anual</td>
             <td class="c"><span aria-label="Sí">✓</span></td>
             <td class="c"><span aria-label="Sí">✓</span></td>
             <td class="c">▼ baja</td>
@@ -395,6 +409,7 @@
           <tr>
             <td>Sobreedad en primaria (%)</td>
             <td>RA y Aprender</td>
+            <td class="ind-lista-act">Anual</td>
             <td class="c"><span aria-label="Sí">✓</span></td>
             <td class="c"><span aria-label="Sí">✓</span></td>
             <td class="c">▼ baja</td>
@@ -405,6 +420,7 @@
           <tr>
             <td>Sobreedad en secundaria (%)</td>
             <td>RA y Aprender</td>
+            <td class="ind-lista-act">Anual</td>
             <td class="c"><span aria-label="Sí">✓</span></td>
             <td class="c"><span aria-label="Sí">✓</span></td>
             <td class="c">▼ baja</td>
@@ -415,6 +431,7 @@
           <tr>
             <td>Aprender 6.º grado, Matemática: alumnos por debajo del nivel básico (%)</td>
             <td>RA y Aprender</td>
+            <td class="ind-lista-act">Anual</td>
             <td class="c"><span aria-label="Sí">✓</span></td>
             <td class="c"><span aria-label="Sí">✓</span></td>
             <td class="c">▼ baja</td>
@@ -423,11 +440,12 @@
           </tr>
           
           
-          <tr class="ind-lista-sub"><th colspan="7" scope="colgroup">Trabajo</th></tr>
+          <tr class="ind-lista-sub"><th colspan="8" scope="colgroup">Trabajo</th></tr>
           
           <tr>
             <td>Tasa de desocupación, 18 años y más (%)</td>
             <td>CNPV 2010-2022</td>
+            <td class="ind-lista-act">Cada 10 años</td>
             <td class="c"><span aria-label="Sí">✓</span></td>
             <td class="c"><span aria-label="Sí">✓</span></td>
             <td class="c">▼ baja</td>
@@ -438,6 +456,7 @@
           <tr>
             <td>Informalidad laboral, ocupados de 18 a 64 años (%)</td>
             <td>CNPV 2010-2022</td>
+            <td class="ind-lista-act">Cada 10 años</td>
             <td class="c"><span aria-label="Sí">✓</span></td>
             <td class="c"><span aria-label="Sí">✓</span></td>
             <td class="c">▼ baja</td>
@@ -446,11 +465,12 @@
           </tr>
           
           
-          <tr class="ind-lista-sub"><th colspan="7" scope="colgroup">Seguridad</th></tr>
+          <tr class="ind-lista-sub"><th colspan="8" scope="colgroup">Seguridad</th></tr>
           
           <tr>
             <td><span class="ind-lista-ficha">IV.5</span> Tasa de suicidio adolescente (10 a 19) (c/ 100 mil hab.)</td>
             <td>Alerta Suicidios y DEIS</td>
+            <td class="ind-lista-act">Anual</td>
             <td class="c"><span aria-label="Sí">✓</span></td>
             <td class="c"><span aria-label="Sí">✓</span></td>
             <td class="c">▼ baja</td>
@@ -461,6 +481,7 @@
           <tr>
             <td><span class="ind-lista-ficha">IV.9</span> Tasa de suicidio (c/ 100 mil hab.)</td>
             <td>Alerta Suicidios y DEIS</td>
+            <td class="ind-lista-act">Anual</td>
             <td class="c"><span aria-label="Sí">✓</span></td>
             <td class="c"><span class="ind-lista-no" aria-label="No">—</span></td>
             <td class="c">▼ baja</td>
@@ -471,6 +492,7 @@
           <tr>
             <td><span class="ind-lista-ficha">IV.10</span> Mortalidad por lesiones de tránsito (c/ 100 mil hab.)</td>
             <td>Alerta Suicidios y DEIS</td>
+            <td class="ind-lista-act">Anual</td>
             <td class="c"><span class="ind-lista-no" aria-label="No">—</span></td>
             <td class="c"><span aria-label="Sí">✓</span></td>
             <td class="c">▼ baja</td>
@@ -481,6 +503,7 @@
           <tr>
             <td>Víctimas de homicidio doloso (c/ 100 mil hab.)</td>
             <td>SNIC</td>
+            <td class="ind-lista-act">Anual</td>
             <td class="c"><span aria-label="Sí">✓</span></td>
             <td class="c"><span aria-label="Sí">✓</span></td>
             <td class="c">▼ baja</td>
@@ -491,6 +514,7 @@
           <tr>
             <td>Abusos sexuales con acceso carnal (c/ 100 mil hab.)</td>
             <td>SNIC</td>
+            <td class="ind-lista-act">Anual</td>
             <td class="c"><span aria-label="Sí">✓</span></td>
             <td class="c"><span aria-label="Sí">✓</span></td>
             <td class="c">▼ baja</td>
@@ -501,6 +525,7 @@
           <tr>
             <td>Víctimas fatales en siniestros viales (personas)</td>
             <td>ANSV</td>
+            <td class="ind-lista-act">Anual</td>
             <td class="c"><span aria-label="Sí">✓</span></td>
             <td class="c"><span class="ind-lista-no" aria-label="No">—</span></td>
             <td class="c">▼ baja</td>
@@ -511,6 +536,7 @@
           <tr>
             <td>Tasa de mortalidad vial (c/ 100 mil hab.)</td>
             <td>ANSV</td>
+            <td class="ind-lista-act">Anual</td>
             <td class="c"><span aria-label="Sí">✓</span></td>
             <td class="c"><span class="ind-lista-no" aria-label="No">—</span></td>
             <td class="c">▼ baja</td>
@@ -522,13 +548,14 @@
         </tbody>
         
         <tbody>
-          <tr class="ind-lista-eje"><th colspan="7" scope="colgroup">Económico-productivo</th></tr>
+          <tr class="ind-lista-eje"><th colspan="8" scope="colgroup">Económico-productivo</th></tr>
           
-          <tr class="ind-lista-sub"><th colspan="7" scope="colgroup">Actividad y productividad</th></tr>
+          <tr class="ind-lista-sub"><th colspan="8" scope="colgroup">Actividad y productividad</th></tr>
           
           <tr>
             <td><span class="ind-lista-ficha">I.1</span> Producción agrícola total (toneladas)</td>
             <td>MAGyP</td>
+            <td class="ind-lista-act">Anual</td>
             <td class="c"><span aria-label="Sí">✓</span></td>
             <td class="c"><span aria-label="Sí">✓</span></td>
             <td class="c">▲ sube</td>
@@ -539,6 +566,7 @@
           <tr>
             <td><span class="ind-lista-ficha">I.4</span> Stock bovino total (cabezas)</td>
             <td>SENASA y MAGyP</td>
+            <td class="ind-lista-act">Anual</td>
             <td class="c"><span aria-label="Sí">✓</span></td>
             <td class="c"><span aria-label="Sí">✓</span></td>
             <td class="c">▲ sube</td>
@@ -549,6 +577,7 @@
           <tr>
             <td><span class="ind-lista-ficha">I.6</span> Producción de uva (quintales)</td>
             <td>INV</td>
+            <td class="ind-lista-act">Anual</td>
             <td class="c"><span aria-label="Sí">✓</span></td>
             <td class="c"><span aria-label="Sí">✓</span></td>
             <td class="c">▲ sube</td>
@@ -559,6 +588,7 @@
           <tr>
             <td><span class="ind-lista-ficha">I.7</span> Elaboración de vino y mosto (hectolitros)</td>
             <td>INV</td>
+            <td class="ind-lista-act">Anual</td>
             <td class="c"><span aria-label="Sí">✓</span></td>
             <td class="c"><span aria-label="Sí">✓</span></td>
             <td class="c">▲ sube</td>
@@ -569,6 +599,7 @@
           <tr>
             <td><span class="ind-lista-ficha">I.10</span> Producción de gas (miles de m³)</td>
             <td>Sec. de Energía</td>
+            <td class="ind-lista-act">Trimestral</td>
             <td class="c"><span aria-label="Sí">✓</span></td>
             <td class="c"><span aria-label="Sí">✓</span></td>
             <td class="c">▲ sube</td>
@@ -579,6 +610,7 @@
           <tr>
             <td><span class="ind-lista-ficha">I.11</span> Producción de petróleo (m³)</td>
             <td>Sec. de Energía</td>
+            <td class="ind-lista-act">Trimestral</td>
             <td class="c"><span aria-label="Sí">✓</span></td>
             <td class="c"><span aria-label="Sí">✓</span></td>
             <td class="c">▲ sube</td>
@@ -589,6 +621,7 @@
           <tr>
             <td><span class="ind-lista-ficha">I.13</span> Superficie autorizada a construir (m²)</td>
             <td>INDEC</td>
+            <td class="ind-lista-act">Trimestral</td>
             <td class="c"><span aria-label="Sí">✓</span></td>
             <td class="c"><span class="ind-lista-no" aria-label="No">—</span></td>
             <td class="c">▲ sube</td>
@@ -599,6 +632,7 @@
           <tr>
             <td>Azúcar producido en Salta (toneladas)</td>
             <td>CAA</td>
+            <td class="ind-lista-act">Anual</td>
             <td class="c"><span aria-label="Sí">✓</span></td>
             <td class="c"><span class="ind-lista-no" aria-label="No">—</span></td>
             <td class="c">▲ sube</td>
@@ -609,6 +643,7 @@
           <tr>
             <td>Cemento despachado a Salta (toneladas)</td>
             <td>Asoc. Fab. Cemento</td>
+            <td class="ind-lista-act">Trimestral</td>
             <td class="c"><span aria-label="Sí">✓</span></td>
             <td class="c"><span class="ind-lista-no" aria-label="No">—</span></td>
             <td class="c">▲ sube</td>
@@ -619,6 +654,7 @@
           <tr>
             <td>Vehículos patentados (0 km)</td>
             <td>DNRPA</td>
+            <td class="ind-lista-act">Trimestral</td>
             <td class="c"><span aria-label="Sí">✓</span></td>
             <td class="c"><span class="ind-lista-no" aria-label="No">—</span></td>
             <td class="c">▲ sube</td>
@@ -629,6 +665,7 @@
           <tr>
             <td>Motos patentadas (0 km)</td>
             <td>DNRPA</td>
+            <td class="ind-lista-act">Trimestral</td>
             <td class="c"><span aria-label="Sí">✓</span></td>
             <td class="c"><span class="ind-lista-no" aria-label="No">—</span></td>
             <td class="c">▲ sube</td>
@@ -639,6 +676,7 @@
           <tr>
             <td>Ventas de supermercados (pesos constantes)</td>
             <td>INDEC</td>
+            <td class="ind-lista-act">Trimestral</td>
             <td class="c"><span aria-label="Sí">✓</span></td>
             <td class="c"><span class="ind-lista-no" aria-label="No">—</span></td>
             <td class="c">▲ sube</td>
@@ -647,11 +685,12 @@
           </tr>
           
           
-          <tr class="ind-lista-sub"><th colspan="7" scope="colgroup">Empleo y capacidades</th></tr>
+          <tr class="ind-lista-sub"><th colspan="8" scope="colgroup">Empleo y capacidades</th></tr>
           
           <tr>
             <td><span class="ind-lista-ficha">II.1</span> Empleo registrado (puestos)</td>
             <td>OEDE</td>
+            <td class="ind-lista-act">Trimestral</td>
             <td class="c"><span aria-label="Sí">✓</span></td>
             <td class="c"><span aria-label="Sí">✓</span></td>
             <td class="c">▲ sube</td>
@@ -660,11 +699,12 @@
           </tr>
           
           
-          <tr class="ind-lista-sub"><th colspan="7" scope="colgroup">Inversión y financiamiento</th></tr>
+          <tr class="ind-lista-sub"><th colspan="8" scope="colgroup">Inversión y financiamiento</th></tr>
           
           <tr>
             <td><span class="ind-lista-ficha">III.8</span> Recaudación de la industria manufacturera (pesos constantes)</td>
             <td>DGR Salta</td>
+            <td class="ind-lista-act">Trimestral</td>
             <td class="c"><span aria-label="Sí">✓</span></td>
             <td class="c"><span class="ind-lista-no" aria-label="No">—</span></td>
             <td class="c">▲ sube</td>
@@ -675,6 +715,7 @@
           <tr>
             <td><span class="ind-lista-ficha">III.9</span> Recaudación del sector minero (millones US$)</td>
             <td>Sec. Minería</td>
+            <td class="ind-lista-act">Anual</td>
             <td class="c"><span aria-label="Sí">✓</span></td>
             <td class="c"><span class="ind-lista-no" aria-label="No">—</span></td>
             <td class="c">▲ sube</td>
@@ -685,6 +726,7 @@
           <tr>
             <td><span class="ind-lista-ficha">III.12</span> Préstamos al sector privado (pesos constantes, jul-2026)</td>
             <td>BCRA</td>
+            <td class="ind-lista-act">Trimestral</td>
             <td class="c"><span aria-label="Sí">✓</span></td>
             <td class="c"><span aria-label="Sí">✓</span></td>
             <td class="c">▲ sube</td>
@@ -695,6 +737,7 @@
           <tr>
             <td><span class="ind-lista-ficha">III.14</span> Puntos de acceso al sistema financiero (c/ 10 mil adultos)</td>
             <td>BCRA</td>
+            <td class="ind-lista-act">Anual</td>
             <td class="c"><span aria-label="Sí">✓</span></td>
             <td class="c"><span aria-label="Sí">✓</span></td>
             <td class="c">▲ sube</td>
@@ -703,11 +746,12 @@
           </tr>
           
           
-          <tr class="ind-lista-sub"><th colspan="7" scope="colgroup">Infraestructura y logística</th></tr>
+          <tr class="ind-lista-sub"><th colspan="8" scope="colgroup">Infraestructura y logística</th></tr>
           
           <tr>
             <td><span class="ind-lista-ficha">IV.1</span> Generación eléctrica total (GWh)</td>
             <td>CAMMESA</td>
+            <td class="ind-lista-act">Anual</td>
             <td class="c"><span aria-label="Sí">✓</span></td>
             <td class="c"><span class="ind-lista-no" aria-label="No">—</span></td>
             <td class="c">▲ sube</td>
@@ -718,6 +762,7 @@
           <tr>
             <td>Consumo eléctrico no residencial (MWh)</td>
             <td>ENRESP</td>
+            <td class="ind-lista-act">Mensual</td>
             <td class="c"><span aria-label="Sí">✓</span></td>
             <td class="c"><span aria-label="Sí">✓</span></td>
             <td class="c">▲ sube</td>
@@ -728,6 +773,7 @@
           <tr>
             <td>Accesos a internet fijo cada 100 hogares</td>
             <td>ENACOM e INDEC</td>
+            <td class="ind-lista-act">Trimestral</td>
             <td class="c"><span aria-label="Sí">✓</span></td>
             <td class="c"><span class="ind-lista-no" aria-label="No">—</span></td>
             <td class="c">▲ sube</td>
@@ -736,11 +782,12 @@
           </tr>
           
           
-          <tr class="ind-lista-sub"><th colspan="7" scope="colgroup">Innovación y mercados</th></tr>
+          <tr class="ind-lista-sub"><th colspan="8" scope="colgroup">Innovación y mercados</th></tr>
           
           <tr>
             <td><span class="ind-lista-ficha">V.1</span> Exportaciones totales (USD)</td>
             <td>INDEC, COMEX</td>
+            <td class="ind-lista-act">Anual</td>
             <td class="c"><span aria-label="Sí">✓</span></td>
             <td class="c"><span class="ind-lista-no" aria-label="No">—</span></td>
             <td class="c">▲ sube</td>
@@ -751,6 +798,7 @@
           <tr>
             <td><span class="ind-lista-ficha">V.3</span> Inversión en I+D (millones de $ de 2017)</td>
             <td>RICyT / MINCyT</td>
+            <td class="ind-lista-act">Anual</td>
             <td class="c"><span aria-label="Sí">✓</span></td>
             <td class="c"><span class="ind-lista-no" aria-label="No">—</span></td>
             <td class="c">▲ sube</td>
@@ -762,13 +810,14 @@
         </tbody>
         
         <tbody>
-          <tr class="ind-lista-eje"><th colspan="7" scope="colgroup">Territorio, ambiente y turismo</th></tr>
+          <tr class="ind-lista-eje"><th colspan="8" scope="colgroup">Territorio, ambiente y turismo</th></tr>
           
-          <tr class="ind-lista-sub"><th colspan="7" scope="colgroup">Ambiente</th></tr>
+          <tr class="ind-lista-sub"><th colspan="8" scope="colgroup">Ambiente</th></tr>
           
           <tr>
             <td>Desmonte anual de bosque (ha)</td>
             <td>MapBiomas</td>
+            <td class="ind-lista-act">Anual</td>
             <td class="c"><span aria-label="Sí">✓</span></td>
             <td class="c"><span aria-label="Sí">✓</span></td>
             <td class="c">▼ baja</td>
@@ -779,6 +828,7 @@
           <tr>
             <td>Regeneración de bosque (ha)</td>
             <td>MapBiomas</td>
+            <td class="ind-lista-act">Anual</td>
             <td class="c"><span aria-label="Sí">✓</span></td>
             <td class="c"><span aria-label="Sí">✓</span></td>
             <td class="c">▲ sube</td>
@@ -789,6 +839,7 @@
           <tr>
             <td>Bosque sobre la superficie provincial (%)</td>
             <td>MapBiomas</td>
+            <td class="ind-lista-act">Anual</td>
             <td class="c"><span aria-label="Sí">✓</span></td>
             <td class="c"><span aria-label="Sí">✓</span></td>
             <td class="c">▲ sube</td>
@@ -799,6 +850,7 @@
           <tr>
             <td>Emisiones de gases de efecto invernadero (toneladas de CO2e)</td>
             <td>Inventario GEI</td>
+            <td class="ind-lista-act">Anual</td>
             <td class="c"><span aria-label="Sí">✓</span></td>
             <td class="c"><span class="ind-lista-no" aria-label="No">—</span></td>
             <td class="c">▼ baja</td>
@@ -809,6 +861,7 @@
           <tr>
             <td>Participación renovable en la generación (%)</td>
             <td>CAMMESA</td>
+            <td class="ind-lista-act">Trimestral</td>
             <td class="c"><span aria-label="Sí">✓</span></td>
             <td class="c"><span class="ind-lista-no" aria-label="No">—</span></td>
             <td class="c">▲ sube</td>
@@ -817,11 +870,12 @@
           </tr>
           
           
-          <tr class="ind-lista-sub"><th colspan="7" scope="colgroup">Turismo</th></tr>
+          <tr class="ind-lista-sub"><th colspan="8" scope="colgroup">Turismo</th></tr>
           
           <tr>
             <td>Pasajeros arribados</td>
             <td>ANAC</td>
+            <td class="ind-lista-act">Trimestral</td>
             <td class="c"><span aria-label="Sí">✓</span></td>
             <td class="c"><span class="ind-lista-no" aria-label="No">—</span></td>
             <td class="c">▲ sube</td>
@@ -832,6 +886,7 @@
           <tr>
             <td>Viajeros</td>
             <td>INDEC, EOH</td>
+            <td class="ind-lista-act">Trimestral</td>
             <td class="c"><span aria-label="Sí">✓</span></td>
             <td class="c"><span class="ind-lista-no" aria-label="No">—</span></td>
             <td class="c">▲ sube</td>
@@ -842,6 +897,7 @@
           <tr>
             <td>Pernoctaciones (noches)</td>
             <td>INDEC, EOH</td>
+            <td class="ind-lista-act">Trimestral</td>
             <td class="c"><span aria-label="Sí">✓</span></td>
             <td class="c"><span class="ind-lista-no" aria-label="No">—</span></td>
             <td class="c">▲ sube</td>
@@ -982,7 +1038,6 @@
     </div>
   </div>
 </section>
-
 
 <script>
   /* Semáforo oculto temporalmente (presentación): reaparece solo desde el sábado 28/11/2026, 00:00 hora de Argentina.
@@ -5782,7 +5837,6 @@
 </div>
 
 
-
 </main>
 
 <footer class="site-footer">
@@ -5794,11 +5848,11 @@
 
 <script src="./assets/vendor/echarts.min.js"></script>
 <script src="./assets/vendor/minisearch.min.js"></script>
-<script>window.CESS_BASE = "."; window.CESS_VER = "1795404843";</script>
-<script src="./assets/js/app.js?v=1795656019"></script>
+<script>window.CESS_BASE = "."; window.CESS_VER = "1795657723";</script>
+<script src="./assets/js/app.js?v=1795657723"></script>
 
-<script src="./assets/js/search.js?v=1795656019"></script>
-<script src="./assets/js/indice.js?v=1795656019"></script>
+<script src="./assets/js/search.js?v=1795657723"></script>
+<script src="./assets/js/indice.js?v=1795657723"></script>
 
 </body>
 </html>

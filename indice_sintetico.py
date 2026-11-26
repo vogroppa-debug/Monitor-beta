@@ -61,6 +61,22 @@ def leer_seleccion(path):
     return sel
 
 
+# Frecuencia de actualización en lenguaje claro, para el listado del índice. La columna «Frecuencia» de la
+# tabla dice contra qué período se compara la variación; acá interesa cada cuánto llega un dato nuevo.
+_ACTUALIZACION = {
+    "Intercensal": "Cada 10 años",
+    "Trimestral": "Trimestral",
+    "Mensual": "Mensual",
+    "Mensual acum.": "Mensual",
+}
+
+
+def actualizacion(frecuencia):
+    """Cada cuánto se actualiza el dato. Todo lo demás es anual, aunque se presente por campaña o
+    en trienios (DEIS, SNIC, Aprender) o entre años puntuales (Relevamiento Anual)."""
+    return _ACTUALIZACION.get(frecuencia, "Anual")
+
+
 # ------------------------------------------------------------------ series
 def specs_de(tid, payload):
     """(nombre de la tabla, spec) del tema: KPIs ya sellados + EXTRA sellados con la misma base."""
@@ -201,7 +217,8 @@ def calcular(payloads, tabla, seleccion):
         unidad = p["metricas"].get(spec["metrica"], {}).get("unidad", "")
         sentido = spec.get("sentido", "mayor_mejor")
         m = dict(nombre=nombre, ficha=ficha, eje=g["id"], subeje=f["subeje"], sentido=sentido, unidad=unidad,
-                 tasa=es_tasa(unidad), en_a=en_a, en_b=en_b, fuente=f["fuente_corta"], spec=spec)
+                 tasa=es_tasa(unidad), en_a=en_a, en_b=en_b, fuente=f["fuente_corta"], spec=spec,
+                 frecuencia=f["frecuencia"])
         if sentido == "neutro":
             excluidos.append(dict(m, indice="ambos", motivo="Neutro: no se puede decir si subir es mejor o peor."))
             continue
@@ -341,7 +358,7 @@ def resumen_portada(payloads, tabla, seleccion):
              "sentido": "sube" if m["sentido"] == "mayor_mejor" else "baja",
              "base": m["p_prov"]["base_lab"] if m["en_a"] else "",
              "ult": m["p_prov"]["ult_lab"] if m["en_a"] else "",
-             "fuente": m["fuente"]} for m in mi if m["subeje"] == se]} for se in ses]})
+             "fuente": m["fuente"], "actualizacion": actualizacion(m["frecuencia"])} for m in mi if m["subeje"] == se]} for se in ses]})
 
     return {
         "listado": listado,
