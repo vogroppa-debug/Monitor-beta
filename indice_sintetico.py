@@ -64,23 +64,17 @@ def leer_seleccion(path):
 # Frecuencia de actualización en lenguaje claro, para el listado del índice. La columna «Frecuencia» de la
 # tabla dice contra qué período se compara la variación; acá interesa cada cuánto llega un dato nuevo.
 _ACTUALIZACION = {
-    "Intercensal": "Cada 10 años (censo)",
-    "Anual": "Cada año",
-    "Anual (campaña)": "Cada año (por campaña)",
-    "Trimestral": "Cada trimestre",
-    "Mensual": "Cada mes",
-    "Mensual acum.": "Cada mes",
-    "Entre trienios": "Cada año (promedio de 3 años)",
+    "Intercensal": "Cada 10 años",
+    "Trimestral": "Trimestral",
+    "Mensual": "Mensual",
+    "Mensual acum.": "Mensual",
 }
 
 
-def actualizacion(frecuencia, nombre):
-    """Cada cuánto se actualiza el dato. Las evaluaciones Aprender no son anuales: van por operativo."""
-    if "Aprender" in nombre:
-        return "Cada 2 años aprox."
-    if frecuencia.startswith("Entre ") and frecuencia[6:7].isdigit():   # «Entre 2018 y 2025»: Relevamiento Anual
-        return "Cada año"
-    return _ACTUALIZACION.get(frecuencia, frecuencia)
+def actualizacion(frecuencia):
+    """Cada cuánto se actualiza el dato. Todo lo demás es anual, aunque se presente por campaña o
+    en trienios (DEIS, SNIC, Aprender) o entre años puntuales (Relevamiento Anual)."""
+    return _ACTUALIZACION.get(frecuencia, "Anual")
 
 
 # ------------------------------------------------------------------ series
@@ -364,7 +358,7 @@ def resumen_portada(payloads, tabla, seleccion):
              "sentido": "sube" if m["sentido"] == "mayor_mejor" else "baja",
              "base": m["p_prov"]["base_lab"] if m["en_a"] else "",
              "ult": m["p_prov"]["ult_lab"] if m["en_a"] else "",
-             "fuente": m["fuente"], "actualizacion": actualizacion(m["frecuencia"], m["nombre"])} for m in mi if m["subeje"] == se]} for se in ses]})
+             "fuente": m["fuente"], "actualizacion": actualizacion(m["frecuencia"])} for m in mi if m["subeje"] == se]} for se in ses]})
 
     return {
         "listado": listado,
