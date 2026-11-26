@@ -28,6 +28,20 @@
   </div>
 </section>
 
+<div class="home-layout">
+<aside class="side-menu" aria-label="Secciones de la portada">
+  <p class="side-menu-title">En esta página</p>
+  <nav>
+    <ul>
+      {% if indice %}<li><a href="#como-estamos">Indicador sintético</a></li>{% endif %}
+      {% if semaforo %}<li><a href="#semaforo">Semáforo de metas</a></li>{% endif %}
+      <li><a href="#tabla-indicadores">Tabla de indicadores</a></li>
+      <li><a href="#explorar">Explorar por eje</a></li>
+    </ul>
+  </nav>
+</aside>
+<div class="home-content">
+
 <section class="wrap section" id="resultados-wrap" hidden>
   <h2 class="section-title">Resultados</h2>
   <div class="cards" id="resultados"></div>
@@ -35,7 +49,7 @@
 
 {% if indice %}
 <section class="wrap section" id="como-estamos">
-  <h2 class="section-title">¿Cómo estamos?</h2>
+  <h2 class="section-title">¿Cómo va el plan?</h2>
   <p class="section-lead">Índice sintético por ejes del PDES.</p>
 
   <div class="ind-tiles">
@@ -296,6 +310,9 @@
   </div>
   {% endfor %}
 </section>
+
+</div>
+</div>
 
 {% endblock %}
 {% block scripts %}

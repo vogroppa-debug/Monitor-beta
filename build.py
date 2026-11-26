@@ -439,7 +439,7 @@ def main():
                                   base_anio=catalog.BASE_ANIO if catalog.MOSTRAR_LINEA_BASE else None)
     sem = (indicadores.semaforo(tabla_ind, catalog.SEMAFORO_UMBRALES, catalog.SEMAFORO_TOP)
            if catalog.MOSTRAR_SEMAFORO else None)
-    # Índice sintético «¿Cómo estamos?». Sin la planilla de selección la sección no se muestra: no es
+    # Índice sintético «¿Cómo va el plan?». Sin la planilla de selección la sección no se muestra: no es
     # motivo para frenar el build del resto del sitio.
     indice = None
     sel_indice = os.path.join(HERE, "datos", catalog.INDICE_SELECCION)

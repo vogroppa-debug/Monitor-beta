@@ -1,4 +1,4 @@
-/* Tablero del índice sintético («¿Cómo estamos?», portada), en líneas.
+/* Tablero del índice sintético («¿Cómo va el plan?», portada), en líneas.
  *
  * Los datos los escribe build.py en <script id="indice-data"> (indice_sintetico.resumen_portada):
  *   anios:         [2018, ..., último año]
