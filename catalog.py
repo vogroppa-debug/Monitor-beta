@@ -274,7 +274,7 @@ FUENTE_CORTA = {
         "Inventario GEI",
 }
 
-# Índice sintético por ejes («¿Cómo estamos?», portada, antes del semáforo). Método B: postes
+# Índice sintético por ejes («¿Cómo va el plan?», portada, antes del semáforo). Método B: postes
 # fijos 0-100, pesos iguales por eje y por subeje, base 2022. Cálculo en `indice_sintetico.py`; la
 # selección de indicadores es la planilla de `datos/`. El detalle (subejes, indicadores, departamentos)
 # lo escribe a Excel `Indicadores/indice_sintetico/calcular_indice.py`.

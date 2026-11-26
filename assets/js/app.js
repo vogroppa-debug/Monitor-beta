@@ -130,4 +130,28 @@
       });
     });
   }
+
+  /* ---- Menú lateral de la portada: resalta la sección visible ---- */
+  var sideLinks = Array.prototype.slice.call(document.querySelectorAll(".side-menu a[href^='#']"));
+  if (sideLinks.length) {
+    var sideSecs = sideLinks.map(function (a) { return document.getElementById(a.getAttribute("href").slice(1)); });
+    var ticking = false;
+    var updateSide = function () {
+      ticking = false;
+      var active = -1, limit = window.innerHeight * 0.35;
+      sideSecs.forEach(function (sec, i) {
+        if (sec && !sec.hidden && sec.getBoundingClientRect().top <= limit) active = i;
+      });
+      sideLinks.forEach(function (a, i) {
+        var on = i === active;
+        a.classList.toggle("is-active", on);
+        if (on) a.setAttribute("aria-current", "true"); else a.removeAttribute("aria-current");
+      });
+    };
+    window.addEventListener("scroll", function () {
+      if (!ticking) { ticking = true; window.requestAnimationFrame(updateSide); }
+    }, { passive: true });
+    window.addEventListener("resize", updateSide);
+    updateSide();
+  }
 })();

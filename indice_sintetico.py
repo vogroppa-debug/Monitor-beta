@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """Índice sintético por ejes del PDES — método B (postes fijos, escala 0-100).
 
-Lo usa `build.py` para la sección «¿Cómo estamos?» de la portada, y el script
+Lo usa `build.py` para la sección «¿Cómo va el plan?» de la portada, y el script
 `Indicadores/indice_sintetico/calcular_indice.py` para el Excel con el detalle (provincial y por
 departamento). Los dos usan este módulo, así que no pueden diferir.
 
