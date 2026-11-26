@@ -194,6 +194,15 @@
   </div>
 </section>
 {% endif %}
+{% if semaforo %}<script>
+  /* Semáforo oculto temporalmente (presentación): reaparece solo desde el sábado 28/11/2026, 00:00 hora de Argentina.
+     Pasada esa fecha este bloque no hace nada y se puede borrar. */
+  (function () {
+    if (Date.now() >= Date.parse("2026-11-28T00:00:00-03:00")) return;
+    var s = document.getElementById("semaforo"); if (s) s.remove();
+    var a = document.querySelector('.side-menu a[href="#semaforo"]'); if (a && a.parentNode) a.parentNode.remove();
+  })();
+</script>{% endif %}
 
 <section class="wrap section" id="tabla-indicadores">
   <h2 class="section-title">Tabla de indicadores</h2>
@@ -269,6 +278,28 @@
   </div>
   {% endfor %}
 </section>
+<script>
+  /* Columnas «Línea de base» y «Meta 2030» ocultas temporalmente (presentación): reaparecen solas desde el
+     sábado 28/11/2026, 00:00 hora de Argentina. Pasada esa fecha este bloque no hace nada y se puede borrar. */
+  (function () {
+    if (Date.now() >= Date.parse("2026-11-28T00:00:00-03:00")) return;
+    document.querySelectorAll("#tabla-indicadores table.tabla-ind").forEach(function (tb) {
+      var head = tb.tHead && tb.tHead.rows[0]; if (!head) return;
+      var n = head.cells.length, idx = [];
+      Array.prototype.forEach.call(head.cells, function (c, i) {
+        if (/^\s*(Línea de base|Meta 2030)/.test(c.textContent)) idx.push(i);
+      });
+      if (!idx.length) return;
+      Array.prototype.forEach.call(tb.rows, function (r) {
+        if (r.cells.length === n) {
+          for (var k = idx.length - 1; k >= 0; k--) r.deleteCell(idx[k]);
+        } else if (r.cells.length === 1 && r.cells[0].colSpan === n) {
+          r.cells[0].colSpan = n - idx.length;
+        }
+      });
+    });
+  })();
+</script>
 
 <section class="wrap section" id="explorar">
   <h2 class="section-title">Explorar por eje del PDES</h2>
